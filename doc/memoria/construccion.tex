@@ -1,0 +1,133 @@
+\par
+Una vez determinado en él análisis qué solución se va a tomar, y en el diseño cómo se va a tomar, ahora en la construcción se muestran los detalles de implementación, a partir de las decisiones tomadas. En primer lugar se describirá la metodología seguida en la construcción. A continuación se mostrarán los detalles concretos de la construcción: la configuración del sistema mediante el fichero config.ini, y las observaciones sobre las modificaciones en el código.
+\par
+\subsection{Metodologías empleadas}\label{metod}
+\par
+Como se adelantaba en el apartado \ref{requisitos_desarrollo} sobre los requisitos de desarrollo, no se sigue ninguna metodología, pero sí se sigue un ciclo de vida evolutivo, según definen las metodologías clásicas, en el que se han introducido prácticas de metodologías ágiles (en concreto de Programación Extrema).
+\par
+Para mayor información sobre esta metodología en concreto ver \cite{xpro}, y sobre metodologías clásicas ver \cite{pressman}.
+\par
+La construcción se realiza de una forma incremental, y se intenta que los incrementos sean lo más pequeños posibles y controlados. Se automatizan pruebas para poder comprobar que todo continúa funcionando tras cada incremento. De este modo, la construcción no incluye solo la instalación, configuración y modificaciones del software a emplear, sino también la programación de las pruebas. 
+\par
+Las pruebas se construyen de acuerdo a los casos de pruebos descritos en el apartado \ref{pruebas}, pero simultaneamente a la construcción del sistema, y por tanto deben ser diseñadas previamente. Cada vez que se realiza un incremento se ejecutan todas las pruebas previamente programadas, y hasta que no sean superadas todas las pruebas, el incremento no se dará por bueno.
+\par
+Los mayores incrementos serán los que correspondan a la ampliación de este sistema para futuras fases de desarrollo, cuando se integre con el sistema de gestión de fichas. En ese momento se podrá continuar utilizando esta misma metodología, aunque quede a decisión del desarrollador de esa fase.
+\par
+A continuación mostramos los distintos incrementos previstos para el desarrollo de la aplicación y futuro despliegue:
+\begin{enumerate}
+	\item Conseguir que la aplicación funcione de la forma más básica posible. Este será el paso más dificil a dar, y a partir de aquí sí que los incrementos que se hagan podrán ser de menor envergadura. Se trata de hacer todas las configuraciones e instalaciones mínimas para obtener un sistema funcionando, sin importarnos si cumple o no fielmente con todos los requisitos planteados. Igualmente hay que tener en cuenta que, a partir de aquí las pruebas, aunque sean las mismas, deberán ir evolucionando ligeramente a medida que se evolucione en cada incremento.
+	\item Adaptar la interfaz para que sea la apropiada
+	\item Hacer las correcciones precisas respecto al idioma. Conseguir que la interfaz se muestre en idioma castellano.
+	\item Modificar las prioridades de los issues, para adaptar el programa a los estándares OTAN.
+	\item Hacer que el sistema funcione en remoto
+	\item Hacer que el sistema funcione en remoto mediante pasarela 
+	\item Cambiar la base de datos subyacente
+	\item Añadir motor de búsqueda Xapian.
+\end{enumerate}
+\par
+En cualquier caso hay que destacar que los dos últimos puntos, si bien se contemplan dentro de esta descripción de incrementos, no han sido llevados a cabo, pues como se adelantaba en el apartado \ref{alcance}, sobre el alcance del proyecto, y en el apartado \ref{diseno}, sobre el diseño, ya se describió que estos puntos solamente se planificarán para su desarrollo en las siguientes fases y en futuras lineas de desarrollo.
+\par
+El prototipo que obtenemos de realizar este proyecto, se ha desarrollado por tanto, siguiendo los 6 primeros incrementos mostrados.
+\par 
+\subsection{Elección de las opciones de configuración}\label{config}
+\par
+A continuación se muestra el fichero config.ini con las opciones que finalmente deben quedar con la construcción. También habrá algunas que, en futuras fases podría ser interesante modificar. No obstante, aquí se comentan.
+\par
+\begin{itemize}
+	\item \verb|[main]|
+\begin {itemize}
+	\item \verb|database = db|	(Directorio para que resida la base de datos. Se deja la opción por defecto)
+	\item \verb|templates = html| (Directorio para las plantillas html para la presentación. Se deja la opción por defecto)	
+	\item \verb|static_files = |(Directorio para otro tipo de ficheros estáticos tales como imágenes, hojas de estilo, etc. Dejado en blanco, se fuerza a que todos estos archivos se busquen en el directorio templates arriba indicado)
+	\item \verb|admin_email = pfc| (Dirección que se utilizará para enviar los correos en caso de fallos del sistema. Se deja en este caso pfc, ya que es el usuario que estamos empleando en el proyecto, pero en el despliegue real de la aplicación debería ser modificado)
+	\item \verb|dispatcher_email = pfc| (Rol que será a quien se le notifiquen los cambios en la base de datos. Al igual que el anterior, utilizamos pfc, pero deberá modificarse llegado el despliegue real)
+	\item \verb|email_from_tag = |(Nombre que se mostrará como remitente en los correos del sistema. Por defecto se deja en blanco)
+	\item \verb|new_web_user_roles = User| (Rol que se asigna a un usuario que se registra via web. Por motivos de seguridad, se utiliza la opción por defecto, impidiendo que nadie se registre como administrador)
+	\item \verb|new_email_user_roles = User| (Rol que se asigna a un usuario que se registra via email. Por motivos de seguridad, se utiliza la opción por defecto, impidiendo que nadie se registre como administrador)
+	\item \verb|error_messages_to = user| (Indica a quién se mandan los correos de error, si al usuario o al dispatcher antes definido. Se deja la opción por defecto)
+	\item \verb|html_version = html4| (Define si queremos utilizar html4, o la opción de xhtml. Dejamos la opción por defecto, pero en futuras fases y líneas de desarrollo podría ser interesante replantearlo)
+	\item \verb|timezone = UTC| (Dejamos la opción por defecto. No se ha considerado oportuno definir un area concreta para todo el sistema)
+	\item \verb|instant_registration = no| (Definiendo esta opción como no, obligamos que cualquier usuario que intente registrarse vía web, requiera la confirmación por parte del administrador)
+	\item \verb|email_registration_confirmation = yes| (Dejamos la opción por defecto, que permite que las confirmaciones de registro se puedan hacer también por email, y no solo por la web)
+	\item \verb|indexer_stopwords = |(Tomando la opción por defecto, dejandolo vacío, no se añaden más palabras de separación para el indexador de textos que las propias que trae por defecto)
+	\item \verb|umask = 02|(Dejamos la máscara del modo de creación de ficheros en la opción por defecto)				
+\end{itemize}
+	\item \verb|[tracker]|
+\begin{itemize}
+	\item \verb|name = Roundup issue tracker|(Define un nombre descriptivo para la instancia de roundup)
+	\item \verb|web = http://localhost:8080/pfc/| (Define la URL donde se encontrará la página principal del tracker. Este dato deberá cambiarse segun la IP de la máquina en que resida el tracker, pues dejándolo como localhost, sólo funcionará en un escenario de pruebas donde el cliente y el servidor residieran en la misma máquina)
+	\item \verb|email = pfc|(Dirección a la que se debería dirigir la interfaz email. En realidad carece de importancia, pues en este proyecto no se utilizará, pero el programa requiere que en cualquier caso esté definida. Más adelante, en futuras fases o nuevas líneas de desarrollo, esta variable sí tendrá importancia)
+	\item \verb|language = |(Esta variable nos permite escoger el idioma que utilizará el tracker. Dejándola en blanco nos permite que sea el sistema operativo quien lo determine. Con esta opción no se resuelven todos los requisitos de idioma planteados: además habrá que elegir la misma opción más adelante para el navegador web)
+\end{itemize}
+	\item \verb|[web]|
+\begin{itemize}
+	\item \verb|http_auth = yes| (Dejando la opción por defecto, se empleará el sistema de autenticación básico de HTTP, opción recomendada por seguridad)
+	\item \verb|use_browser_language = yes| (Eligiendo esta opción, el sistema operativo del cliente será quien determine el lenguaje de la presentación. Junto con la opción languaje antes descrita sin valor, sí se cumplen los requisitos de idioma planteados)
+	\item \verb|debug = no| (Esta opción muestra trazas de error en el navegador del usuario. Eligiendo la opción por defecto, no permitimos que eso ocurra, y los errores se remiten al email del administrador. Mientras se desarrolla el programa es una opción muy útil para probar el sistema, pero en producción siempre deberá ser no)
+\end{itemize}
+	\item \verb|[rbdms]|\footnote{NOTA: Estas opciones serán necesarias si y solo si se está empleando PostgreSQL o MySQL}
+\begin{itemize}
+	\item \verb|name = roundup| (Deberá ser el nombre de la base de datos que se esté utilizando. Debería ser roundup)
+	\item \verb|host = localhost| (Dejaremos esta opción por defecto si la base de datos reside en la misma máquina que el tracker)
+	\item \verb|port = | (Dejando esta opción en blanco, leera la información de la base de datos del puerto por defecto del SGBD escogido: 3306 para MySQL, y 5432 para PostgreSQL)
+	\item \verb|user = roundup| (Este será el nombre del usuario que accede a la base de datos, autorizado por esta. Debería ser roundup) 
+	\item \verb|password = roundup| (Este será el password del usuario que accede a la base de datos, autorizado por esta. Por defecto es el propio nombre del usuario pero sería interesante de modificar)
+	\item \verb|read_default_file = ~/.my.cnf| (Fichero de valores por defecto de MySQL. Dejamos el valor por defecto)
+	\item \verb|read_default_group = roundup| (Nombre del grupo a usar dentro del fichero anterior. Debería ser roundup)
+\end{itemize}
+	\item \verb|[logging]|
+	
+\begin{itemize}
+	\item \verb|config = |(Dejando la opción por defecto, vacío, no utilizamos el modulo de logs estandard de python. En caso de querer utilizarlo, deberíamos indicar aquí la ubicación del fichero de configuración del mismo)
+	\item \verb|filename = |(Nombre del fichero donde queremos que queden grabados los logs. Al no utilizar el módulo de logs, se queda en blanco)
+	\item \verb|level = ERROR| (Nivel de mensajes que deben quedar en el log: DEBUG, INFO, WARNING, ERROR. Se queda el valor por defecto, al no utilizarse esta opción)	
+\end{itemize}
+	\item \verb|[mail]|
+\begin {itemize}
+	\item \verb|domain = localhost| (Al no usarse esta utilidad, pero ser un campo de obligatoria cumplimentación, utilizaremos el valor localhost) 
+	\item \verb|host = localhost| (Al no usarse esta utilidad, pero ser un campo de obligatoria cumplimentación, utilizaremos el valor localhost) 
+	\item El resto de variables, al no usarse esta utilidad, se quedarán en sus valores por defecto.
+\end {itemize}
+	\item \verb|[mailgw]|
+\begin{itemize}
+	\item Todas los variables, al no usarse la utilidad del correo, se quedarán en sus valores por defecto
+\end{itemize}
+	\item \verb|[nosy]|
+\begin{itemize}
+	\item Todas los variables, al no usarse la utilidad del correo, se quedarán en sus valores por defecto
+\end{itemize}
+\end{itemize}
+
+\par
+\subsection{Modificaciones al programa original}
+\par
+Uno de los motivos que nos impulsaba a escoger la opción de Roundup como motor de la aplicación, era la posibilidad de hacer modificaciones. La principal ventaja que tenía en este aspecto esta opción, es que determinadas modificaciones pueden hacerse de una forma altamente sencilla.
+\par
+Al tratarse de una aplicación Open Source, de cuyo código fuente disponemos, podemos modificar a nuestro gusto si tenemos los conocimientos suficientes del lenguaje Python. Pero la mayor ventaja que aporta es que la mayoría de modificaciones que podamos necesitar para el sistema, no requerirán de una gran modificación en lo que es en sí el motor de la aplicación, sino que nos bastaría con realizar pequeños cambios en los ficheros que controlan estas dos abstracciones:
+\par
+\begin{itemize}
+	\item \textbf{Templates.} Se trata de la plantilla que contendrá la forma del issue. Es decir, qué características debe contener, tales como si debe tener prioridad, mensajes adjuntos, o cualquier cosa que podamos querer que aparezca o no. A través de los ficheros de templates definimos las clases que serán necesarias para formar un ticket. La distribución de roundup, facilita por un lado un modelo de template clásico, fácilmente modificable, y que es en el que nos hemos basado, y por otro lado uno mínimo, por si se quisiera empezar uno nuevo desde cero.
+	\item \textbf{Valores.} Se trata de los valores posibles que queremos que tenga cada una de esas características, tales como qué niveles de prioridad queremos que tenga un issue, o qué estados posibles queremos que albergue. A través de el fichero de carga inicial de datos, se indicará facilmente los valores que queremos que se puedan utilizar.
+\end{itemize}
+\par
+En nuestro caso, no será preciso manipular nada relativo al motor, pero sí contemplamos modificaciones en los ficheros de estas abstracciones:
+\par
+El número de prioridades que ofrece la aplicación por defecto es demasiado grande para lo que realmente necesitamos,y tampoco encaja con las prioridades que contemplan los estándares OTAN. Por eso, debemos modificar, dentro del fichero de carga inicial de datos, el método que crea los distintos tipos de prioridades, de modo que ofrezca las que se contempla en el estandar (ROJO, NARANJA, AMARILLO, BLANCO)
+\par
+\begin{center}
+\textbf{AQUI IRÁ EL TROZO DE CÓDIGO MODIFICADO}
+\end{center}
+\par
+El número de estados posibles de un Issue es demasiado elevado, llegando a ser confuso para el usuario, por lo que también se modifica el método que crea los distintos tipos de estado.
+\par
+\begin{center}
+\textbf{AQUI IRÁ EL TROZO DE CÓDIGO MODIFICADO}
+\end{center}
+\par
+Para este proyecto no sería en principio necesario modificar nada más. En cambio, en futuras lineas de desarrollo, sobre todo en otros ambitos de utilización, sí podrá ser interesante añadir o quitar elementos de las templates. Aunque aquí no se vaya a utilizar, se muestra, a modo de ejemplo, una modificación de un template.
+\par
+\begin{center}
+\textbf{AQUI IRÁ EL TROZO DE CÓDIGO MODIFICADO}
+\end{center}
+\par
+Para obtener información adicional sobre Python ver \cite{python} y \cite{pythonweb}.

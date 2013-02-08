@@ -1,0 +1,46 @@
+\subsection{Requisitos para la instalacion}\label{requisitosinst}
+\subsection{Pasos previos a la instalación}
+\par
+Para poder realizar la instalación de los programas necesitaremos previamente instalar la distribución correspondiente de Linux, en este caso la distribución SUSE 9.3, incluyendo los siguientes paquetes:
+\begin{itemize}
+\item
+	python: intérprete de Python (versión superior a TODO:qué versión?)
+\item
+ 	python-devel: paquete necesario, pues roundup necesita "distutils". Este paquete requiere de la instalación de python-tk y blt.
+\end{itemize}
+
+\subsection{Instalación de Roundup Issue Tracker}
+\par
+A continuación se muestran las distintas acciones a seguir para una correcta instalación y configuración del programa.
+	{Operaciones a realizar en modo superusuario}
+\par
+A continuación se muestran los pasos a seguir, que deberán ser realizados desde la consola, habiéndose identificado como "root":
+
+\begin{itemize}
+\item
+	Elección de la dirección para la instalación (en este caso, elegiremos: 
+\begin{center}
+\verb|/opt/roundup/bin| 
+\end{center}
+\item
+	Ejecutar, situándonos en el directorio donde hayamos descomprimido el programa:
+\begin{center}
+\verb|python setup.py install --install-scripts=/opt/roundup/bin| .
+\end{center}
+\end{itemize}
+\par
+Para cualquier duda que pueda surgir sobre la instalación de roundup, se recomienda encarecidamente ver \cite{roundupweb}.
+\par
+
+\subsection{Instalación PostgreSQL}\label{instpost}
+\par
+\textbf{DECIR LAS INDICACIONES PROPIAS QUE REQUIERE POSTGRES}
+\par
+Para cualquier duda que pueda surgir sobre la instalación de roundup, se recomienda encarecidamente ver \cite{postweb} y \cite{postgres}.
+\par
+\subsection{Instalación Xapian}\label{xapinst}
+\textbf{DECIR LAS INDICACIONES PROPIAS QUE REQUIERE ROUNDUP PARA ESTO}
+\par
+Cualquier aclaración adicional que se necesite sobre cómo debe hacerse la instalación de Xapian, se puede obtener en \cite{xapianweb}.
+\par
+

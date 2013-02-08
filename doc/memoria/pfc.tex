@@ -1,0 +1,217 @@
+%% Based on a TeXnicCenter-Template by Tino Weinkauf.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% HEADER
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass[a4paper,oneside,12pt]{report}
+% Alternative Options:
+%	Paper Size: a4paper / a5paper / b5paper / letterpaper / legalpaper / executivepaper
+% Duplex: oneside / twoside
+% Base Font Size: 10pt / 11pt / 12pt
+
+
+%% Normal LaTeX or pdfLaTeX? %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ==> The new if-Command "\ifpdf" will be used at some
+%% ==> places to ensure the compatibility between
+%% ==> LaTeX and pdfLaTeX.
+\newif\ifpdf
+\ifx\pdfoutput\undefined
+	\pdffalse              %%normal LaTeX is executed
+\else
+	\pdfoutput=1           
+	\pdftrue               %%pdfLaTeX is executed
+\fi
+
+
+%% Fonts for pdfLaTeX %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ==> Only needed, if cm-super-fonts are not installed
+\ifpdf
+	%\usepackage{ae}       %%Use only just one of these packages:
+	%\usepackage{zefonts}  %%depends on your installation.
+\else
+	%%Normal LaTeX - no special packages for fonts required
+\fi
+
+
+%% Language %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+
+
+%% Packages for Graphics & Figures %%%%%%%%%%%%%%%%%%%%%%%%%%
+\ifpdf %%Inclusion of graphics via \includegraphics{file}
+	\usepackage[pdftex]{graphicx} %%graphics in pdfLaTeX
+\else
+	\usepackage[dvips]{graphicx} %%graphics and normal LaTeX
+\fi
+%\usepackage[hang,tight,raggedright]{subfigure} %%Subfigures inside a figure
+%\usepackage{pst-all} %%PSTricks - not useable with pdfLaTeX
+
+
+%% Math Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+
+
+%% Line Spacing %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{setspace}
+%\singlespacing        %% 1-spacing (default)
+\onehalfspacing       %% 1,5-spacing
+%\doublespacing        %% 2-spacing
+
+
+%% Other Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\usepackage{a4wide} %%Smaller margins = more text per page.
+\usepackage{fancyhdr} %%Fancy headings
+\usepackage{longtable} %%For tables, that exceed one page
+\usepackage{rotating} %%permite rotar tablas
+\usepackage{multirow} %% permite tener multilineas en una tabla
+
+%%\usepackage{tex4ht}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Remarks
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+% TODO:
+% 1. Edit the used packages and their options (see above).
+% 2. If you want, add a BibTeX-File to the project
+%    (e.g., 'literature.bib').
+% 3. Happy TeXing!
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Options / Modifications
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\input{options} %You need a file 'options.tex' for this
+%% ==> TeXnicCenter supplies some possible option files
+%% ==> with its templates (File | New from Template...).
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% DOCUMENT
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+%% File Extensions of Graphics %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ==> This enables you to omit the file extension of a graphic.
+%% ==> "\includegraphics{title.eps}" becomes "\includegraphics{title}".
+%% ==> If you create 2 graphics with same content (but different file types)
+%% ==> "title.eps" and "title.pdf", only the file processable by
+%% ==> your compiler will be used.
+%% ==> pdfLaTeX uses "title.pdf". LaTeX uses "title.eps".
+\ifpdf
+	\DeclareGraphicsExtensions{.pdf,.jpg,.png}
+\else
+	\DeclareGraphicsExtensions{.eps}
+\fi
+
+\pagestyle{fancy} %No headings for the first pages.
+
+
+%% Title Page %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ==> Write your text here or include other files.
+
+%% The simple version:
+\begin{figure}
+	\centering
+		\includegraphics[width=0.50\textwidth]{figuras/logo_usp_12star.jpg}
+\end{figure}
+
+
+\title{Sistema de voto por internet para las Elecciones a la Junta de Escuela de la Escuela Politécnica Superior de la Universidad San Pablo CEU}
+\author{José Carlos Jiménez Gómez}
+\date{7 de febrero de 2012} %%If commented, the current date is used.
+
+\maketitle
+
+
+%% The nice version:
+%\input{titlepage} %%You need a file 'titlepage.tex' for this.
+%% ==> TeXnicCenter supplies a possible titlepage file
+%% ==> with its templates (File | New from Template...).
+
+
+
+%% Introducción %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%\input{agradecimientos.tex}
+\input{resumen.tex}
+%%\input{abstract.tex}
+\input{introduccion.tex}
+
+
+%% Indice %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\lhead{}
+\rhead{Indice General}
+\tableofcontents %Table of contents
+
+%% The List of Figures
+\clearpage
+\addcontentsline{toc}{chapter}{Indice de Figuras}
+\listoffigures
+
+%% The List of Tables
+\clearpage
+\renewcommand{\tablename}{Tabla}
+\renewcommand{\listtablename}{Índice de tablas}
+\addcontentsline{toc}{chapter}{Indice de Tablas}
+\listoftables
+
+\pagestyle{fancy}
+%\pagestyle{plain} %Now display headings: headings / fancy / ...
+
+
+
+%% Chapters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% ==> Write your text here or include other files.
+
+%%\input{planteamiento.tex}
+%%\input{solucion.tex}
+%%\input{manuales.tex}
+%%\input{lineas.tex}
+%%\input{conclusiones.tex}
+%%\input{glosario.tex}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% BIBLIOGRAPHY AND OTHER LISTS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% A small distance to the other stuff in the table of contents (toc)
+\addtocontents{toc}{\protect\vspace*{\baselineskip}}
+
+
+
+
+%% The Bibliography
+%% ==> You need a file 'literature.bib' for this.
+%% ==> You need to run BibTeX for this (Project | Properties... | Uses BibTeX)
+\addcontentsline{toc}{chapter}{Bibliografía} %'Bibliography' into toc
+\nocite* %Even non-cited BibTeX-Entries will be shown.
+\bibliographystyle{unsrt} %Style of Bibliography: plain / apalike / amsalpha / ...
+\bibliography{biblio} %You need a file 'literature.bib' for this.
+\rhead{Bibliografía}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% APPENDICES
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\appendix
+%% ==> Write your text here or include other files.
+%%\input{anexo1.tex}
+%%\input{anexo2.tex}
+%%\input{anexo3.tex}
+
+\end{document}
+

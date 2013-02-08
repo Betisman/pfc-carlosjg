@@ -1,0 +1,330 @@
+\par
+Una vez decidido en el análisis qué solución vamos a adoptar, en este capítulo definirémos cómo la vamos a adoptar. Se mostrarán todas las decisiones necesarias sobre cómo se va construir el sistema según la solución que se decidió en el análisis.
+\par
+\subsection{Elección del motor de la aplicación}\label{motor}
+\par
+Una vez que se ha decidido que el motor de la aplicación será un Issue Tracker, debemos mirar cuál de las distintas ofertas que podemos encontrar se acopla más a las necesidades planteadas en la especificación de requisitos.
+\par
+\subsubsection{Opciones contempladas}
+\par
+Para la realización de este proyecto, únicamente se han valorado las opciones que ofrecían licencias libres, gratuitas, etc. En ningún caso se ha buscado software propietario ni comercial. Es fundamental que las licencias de las herramientas que utilicemos nos permitan modificar los productos, y adaptarlos a las necesidades del proyecto.
+\par
+En la tabla \ref{tab:ComparativaIssueTracker} se aprecia un resumen de algunas de estas aplicaciones, que podían facilitarnos este servicio.
+\par
+\begin{sidewaystable}[htpb]
+	\centering
+		\begin{tabular}{|c|c|c|c|c|c|}
+		\hline
+		Nombre&Autor&Licencia&Implementacion&Cliente&Customizable\\
+		\hline
+		\hline
+	Argus&Thomas Mango&BSD&Java&Web&No\\
+		\hline
+	B-Flow(HelpDesk)&CSO Lanifex GmbH&Open Source&PHP&Web, e-mail&Yes\\
+		\hline
+	BugTracker.NET&Corey Trager&GPL&ASP.NET/C&Web, e-mail&Yes\\
+		\hline
+	Double ChocoLatte&Michael L. Dean&GPL&HTML/PHP&Web, Desktop,&No\\
+	&&&&E-mail&\\		
+		\hline
+	Issue Tracker&Peter Bengtsson&ZPL&Python&Web, e-mail&No\\	
+	Product&&&&&\\
+		\hline
+	itracker&itracker.org&LGPL&Java&Web&Yes\\
+	&&&plugin&Web service&\\	
+		\hline
+	LibreSource&Artenum&QPL&HTML/Java&Web&\\		
+		\hline
+	OTRS&OTRS GmbH&GPL&Perl&Web, e-mail&No\\	
+		\hline
+	redMine&Jean-Philippe Lang&GPL&Ruby on Rails&Web&Yes\\
+		\hline
+	Request Tracker&Best Practical&GPL&Perl&Web, e-mail,&Yes\\
+	&Solutions LLC&&&command-line&\\
+		\hline
+	Roundup&Ka-Ping Yee,&Open Source&Python&Web, e-mail,&Yes\\
+	&Richard Jones&&&command line&\\
+		\hline
+	Simpleticket&Spur&GPL&Ruby on Rails&Web&No\\	
+		\hline
+	Sinergia&GLR&GPL&ASP.NET, C&Web&En Parte\\
+		\hline
+	Webolize&Webolize LLC&GPL&ASP.NET&Web&No\\
+	IssueTracker&&&&&\\		
+		\hline
+		\end{tabular}
+	\caption{Comparativa de aplicaciones Issue Tracker}
+	\label{tab:ComparativaIssueTracker}
+\end{sidewaystable}
+
+\subsubsection{Opcion escogida: justificación}
+\par
+De entre las posibles opciones de que disponíamos hemos elegido la aplicación con licencia Open Source (Ver anexo \ref{osi}) \textbf{Roundup Issue Tracking}.
+\par
+Se escoge esta aplicación, principalmente, porque de todas las estudiadas es la más customizable, permitiendo:
+\par
+\begin{itemize}
+	\item Muchas modificaciones en el comportamiento del tracker.
+	\item Cambios en el esquema del tracker y en el de la base de datos.
+	\item Modificaciones en el contenido de la base de datos y definición de clases.
+	\item A traves de detectores, cambios en el comportamiento de la aplicación.
+	\item Cambiar los criterios de seguridad y acceso.
+	\item Modificar la interfaz web.
+\end{itemize}
+\par
+Nos facilita varias opciones de interfaz (aunque por el momento no son precisas todas, nunca hay que olvidar que en futuras fases se puede querer aumentar las funcionalidades del sistema):
+\par
+\begin{itemize}
+	\item Interfaz Web
+	\item Interfaz mediante servidor de correo electrónico
+	\item Interfaz por linea de comando (que nos puede permitir en un futuro adoptar nuestras propias interfaces)
+\end{itemize}
+\par
+Al estar desarrollado en python, nos ofrece algunas ventajas:
+\begin{itemize}
+	\item Se trata de un lenguaje limpio y elegante, suficientemente extendido y maduro, que permitirá hacer con facilidad cualquier modificación sobre el código que sea precisa.
+	\item Es un lenguaje interpretado, lo que ahorra un tiempo considerable en el desarrollo y modificaciones del programa, que pueden ser hechas en tiempo de ejecución.
+	\item No directamente en esta fase del desarrollo, pero sí en futuras, se podrían explotar algunas más de sus características: multiparadigma, asignación dinámica de tipos, posibilidad de incrustar en otros lenguajes, y viceversa, etc.
+\end{itemize}
+\par
+Para obtener información adicional sobre Roundup ver \cite{roundupweb}, y sobre Python ver \cite{python} y \cite{pythonweb}.
+\par
+\subsection{Elección de la arquitectura}\label{arquitectura}
+\par
+Como ya vinimos adelantando en el capítulo anterior, la arquitectura que deberíamos seguir será según el modelo cliente servidor, donde un servidor funcionaría como recolector y distribuidor de los mensajes, mientras que los usuarios o clientes acceden a él cuando es preciso. Esta sería la única arquitectura que encajaría con el modelo planteado en el punto \ref{requisitos_funcionales} (ver figura \ref{fig:modampli}).
+\par
+Como además, nos vemos muy condicionados a la diversidad de actores que podemos tener accediendo a nuestro sistema (desde un PC, a una MDA, un teléfono móvil... en definitiva, cualquier dispositivo que pueda plantearse para el despliegue en futuras fases), nos vemos obligados a que los clientes sean muy ligeros, es decir que toda la lógica de la aplicación, la información, etc, resida en ese servidor, y que el cliente se limite a hacer las peticiones y a recibir las respuestas.
+\par
+La solución que adoptaremos (como se indicará más adelante, en el punto \ref{interfaz}), será aplicar una interfaz web, donde la única lógica que será precisa en los clientes será un navegador web, que mostrará las respuestas que el servidor facilite.
+\par
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.80\textwidth]{figuras/clienteservidor.jpg}
+	\caption{Modelo Cliente Servidor (diferentes tipos de clientes)}
+	\label{fig:clienteservidor}
+\end{figure}
+\par
+Dentro del servidor contemplaremos que el modelo que seguiremos es un modelo multicapa. Esto significa que por un lado estará una capa de datos que tendrá la información, con un sistema que la gestione de forma independiente a la lógica del programa (la base de datos); una capa de aplicación, que será quien gestione las distintas acciones del programa y quien acceda a la base de datos si es preciso, para facilitar finalmente la información precisa al cliente a través de una capa más, la de presentación
+\par
+Este modelo es totalmente compatible con la aplicación elegida, Roundup. Aquí podemos encontrar por una parte la aplicación, pero con la información residiendo en una base de datos independiente al programa, y con la presentación pudiendose facilitar a través de distintos modelos de interfaz.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.80\textwidth]{figuras/3capas.jpg}
+	\caption{Modelo de tres capas}
+	\label{fig:trescapas}
+\end{figure}
+\par
+Para obtener mayor información sobre arquitecturas, modelos, etc, consultar \cite {comer}
+\par
+\subsubsection{Opciones descartadas}
+\par
+Como es lógico, la propia distribución física del sistema real, impide que la aquitectura que adoptemos sea mediante sistemas monolíticos que requieran que todos los elementos participantes residan juntos.
+\par
+Por lo ya comentado anteriormente, sobre la variedad de dispositivos, los clientes pesados no tienen cabida en este sistema. Las actualizaciones, configuraciones, modificaciones deben ser independientes a los clientes: si disponemos de un número elevado de distintos clientes, no podemos permitirnos hacer una actualización por cada tipo cada vez que haya que modificar algo (en los clientes ligeros, únicamente se actualizará el servidor).
+\par
+\par
+Para obtener mayor información, consultar \cite {comer}.
+\par
+\subsection{Elección del sistema operativo}\label{sistemaoperativo}
+\par
+La aplicación Roundup nos permite actuar tanto en un entorno Windows, como en un entorno Unix. Si bien un entorno Windows puede ser más agradable inicialmente para el usuario, no hay que olvidar que en realidad éste sólo va a ver su propio cliente, con lo cual no se verá en ningún caso beneficiado por lo amigable que pueda ser el entorno del servidor.
+\par
+A parte de este detalle, no encontramos ninguna característica más que pudiera inducirnos a decantarnos por Windows. En cambio sí hay bastantes motivos que nos pueden hacer decantar por utilizar un sistema Unix:
+\begin{itemize}
+	\item Posee un esquema de seguridad basado en usuarios y permisos de lectura, escritura y ejecución establecidos a los archivos y directorios. Esto significa que cada usuario es propietario de sus archivos, y otro usuario no puede acceder a estos archivos. Esta propiedad no permite el contagio de virus entre archivos de diferentes usuarios.
+	\item Es multitarea real, y el código fuente es más eficiente, lo que le hace que las aplicaciones sobre él vayan más rápido.
+	\item Podemos conocer el funcionamiento interno del sistema en caso de ser preciso, mientras que en Windows no es bien conocido su interior.
+	\item Es un sistema multiplataforma, independiente al hardware, que prácticamente es instalable en cualquier soporte.
+	\item Los costes de mantenimiento derivados de que es necesaria una frecuente atención y monitoreo contra ataques de virus, hackers y errores de código, aquí son suprimidos.
+	\item Ese coste se puede llegar a reducir en su totalidad, si hablamos de las versiones de software libre, tales como diversas distribuciones del sistema Linux.
+	\item En determinadas distribuciones se aporta el código fuente, con lo que también puede cambiarse el sistema según nuestras necesidades si fuera preciso.
+\end{itemize}
+\par
+\subsubsection{Opcion escogida: Linux (SUSE 9.3)}\label{suse}
+\par
+Indudablemente, el sistema operativo debe ser UNIX. Los requisitos descritos, y el propio sentido común nos piden que sea así. Donde realmente debemos plantearnos la duda es en qué versión de UNIX debemos fijarnos.
+\par
+Aunque existen otras opciones recomendadas por roundup (SOLARIS, por ejemplo), hemos escogido Linux, al menos para este primer prototipo. Es perfectamente adaptable y válido para cualquier plataforma que queramos utilizar. Aprovecharemos el carácter gratuito de su licencia GPL (Ver anexo \ref{gpl}). 
+\par
+En cambio, precisamente por tener ese tipo de licencia, Linux no puede ofrecer ningún tipo de garantía. Por ese motivo entendemos que es fundamental escoger una distribución reconocida positivamente. En este caso hemos optado por la distribución \textbf{SUSE versión 9.3}.
+\par
+Una ventaja adicional, es que existe mucha documentación sobre los sistemas Unix y Linux. Para ampliar información sobre linux ver \cite{autounix}.
+\par
+\subsection{Elección del sistema de base de datos subyacente}\label{bd}
+\par
+Puesto que la aplicación escogida requiere de un almacenamiento persistente de la información, mediante un SGBD\footnote{SGBD: Sistema Gestor de Bases de Datos. Software dedicado a servir de interfaz entre la base de datos, el usuario y las aplicaciones que la utilizan.}. Concretamente, las posibilidades que Round-up nos ofrece son: AnyDBM, SQLite, MySQL y PostgreSQL.
+\par
+Aunque las especificaciones de la aplicación nos indican que cualquiera de las cuatro opciones son válidas, a continuación se detallará un análisis de pros y de contras de cada una de ellas. Hay que tener en cuenta diversos factores para poder elegir una de ellas (las prestaciones esperadas, el tamaño de los datos, la posibilidad de querer tener accesos a la base de datos aparte de los que haga la propia aplicación, etc).
+\par
+\subsubsection{Opciones contempladas}
+\par
+Como ya hemos adelantado en el punto anterior, las opciones que tenemos son las que se detallan ahora:
+\begin{itemize}
+	\item \textbf{ANYDBM.-} En realidad no se trata de un SGBD como tal, sino de una interfaz a base de datos DBM. La única ventaja destacable es que en cualquier sistema Unix podremos disponer de esta opción sin necesidad de instalaciones adicionales. A cambio, el número de desventajas es considerable: su acceso es lento, no permite el acceso simultaneo de varios usuarios, y no tiene ninguna de las características que puede ofrecer un SGBD (seguridad, herramientas de administración, etc).
+	\item \textbf{SQLITE.-} Al no ejecutarse como un proceso independiente a la aplicación, sino como parte integrada en la misma, siendo utilizada mediante simples llamadas a subrutinas y funciones (sistema mucho más eficiente que la comunicación entre procesos), ésta es la opción que aportará mayor velocidad de respuesta en el sistema. Igualmente, destaca en su favor el ser compatible con ACID\footnote{ACID: Atomicity, Consistency, Isolation and Durability (Atomicidad, Consistencia, Aislamiento y Durabilidad). Se dice de un SGBD que es \textit{'ACID compliant'} cuando es capaz de realizar transacciones seguras, por cumplir esos cuatro principios.}. 
+\par
+Como contrapartida encontramos, los inconvenientes del propio diseño de la base de datos. SQLite, guarda en un único fichero la totalidad de la base de datos (definiciones, tablas, índices, e incluso los propios datos), que es bloqueado íntegro en cada transacción. Realizar un único bloqueo simplifica mucho la arquitectura, y dota el sistema de una velocidad de respuesta aún mayor. En cambio, evita accesos simultaneos para escritura y dificulta la concurrencia, traduciéndose finalmente en una mala eficacia y eficiencia cuando el número de usuarios es elevado.
+	\item \textbf{MYSQL.-} A nivel de administración y utilización manual de la base de datos, probablemente ésta sea la opción más atractiva, pues este SGBD es muy popular: muy conocido por casi cualquier profesional, muy bien documentado, y con una interfaz bastante atractiva. Ésta podría ser una buena opción si van a existir muchos administradores para los sistemas, ya que es la más probable que sea conocida por todos. Además, la rapidez de los accesos es muy elevada. No llega a ser tan elevada como en SQLite, pero a cambio no tiene el gran inconveniente que ésta tenía: MySQL sí está capacitada para trabajar con números de usuarios muy elevados.
+	Los inconvenientes que presenta MySQL vienen principalmente de su reducción de funcionalidad, al ser un motor que no permite realizar transacciones\footnote{Transacción: Interacción con una estructura de datos que, aún siendo compleja y pudiendo estar compuesta por varios procesos que se han de aplicar uno después del otro, queremos que sea equivalente a una interacción atómica. Es decir, que se realice de una sola vez y que la estructura a medio manipular no sea jamás alcanzable por el resto del sistema}. Tampoco permite utilizar triggers\footnote{Trigger: evento que se ejecuta cuando se cumple una condición establecida al realizar una operación de inserción (INSERT), actualización (UPDATE) o borrado (DELETE), en una base de datos.}.
+	\par
+	Aunque estos inconvenientes, en principio solo afectarían a nivel administrativo de la base de datos (la aplicación por sí sola no va a requerirlos). Lo que ocurre es que no se debe perder de vista el problema que puede suponer, en una interrupción de servicio, la no existencia de transacciones: una serie de instrucciones interrumpida a la mitad, podría dejar registros erroneos o imcompletos. Este posible problema de seguridad, contrasta con la alta velocidad y eficacia de esta opción.
+	\item \textbf{POSTGRESQL.-} La mayor funcionalidad gracias a la utilización de procedimientos, gestión de transacciones y existencia de triggers entre otros, así como su mayor seguridad, son los puntos fuertes de esta opción. Igualmente permitirá una carga de trabajo alta y un número elevado de usuarios simultaneos.
+	\par
+	La mayor seguridad y funcionalidad se va a ver penada con un mayor tiempo de acceso que en MySQL (si bien, aún es bastante alto). También hay que tener en cuenta que, aun teniendo suficiente documentación y siendo un SGBD bastante extendido y conocido por los profesionales, son otros dos aspectos en que MySQL lleva una relativa ventaja a PostgreSQL. También sería interesante plantearse ayudar a las búsquedas utilizando la herramienta de ayuda a la indeación y búsqueda Xapian, admitida por roundup.
+\end{itemize}
+\par
+\subsubsection{Opcion escogida: justificación}
+\par
+A efectos del prototipo que estamos construyendo en esta primera fase del desarrollo, lo siguientes factores no afectarán a la hora de tomar una decisión. Puesto que se acordó que en este primer paso, se aplicara directamente la solución más sencilla, se utilizará AnyDBM, pues se encuentra disponible con facilidad en cualquier dispositivo donde queramos instalar el prototipo.
+\par
+En cambio, para la segunda fase, los requisitos planteados en el punto \ref{requisitos}, nos obligan a tener en cuenta los siguientes matices para la buena consecución del sistema:
+\begin{enumerate}
+	\item \textbf{Rendimiento.} Puesto que el sistema debe dar un buen rendimiento, es preciso que haya un buen rendimiento a la hora de obtener de la base de datos la información.
+	\item \textbf{Funcionalidad.} Debe poder ser utilizable en todo momento por cualquier usuario, por lo que la base de datos debe permitir accesos simultaneos.
+	\item \textbf{Posibilidad de administración.} Para posibles mejoras y un buen mantenimiento, será preciso que la base de datos pueda ser fácilmente administrada.
+	\item \textbf{Seguridad.}La información manipulada en el sistema es delicada y no puede perderse por fallos del SGBD.
+\end{enumerate}
+Cualquiera de estos criterios descarta automáticamente el uso de AnyDBM. El segundo criterio nos hará descartar SQLite, intependientemente del alto rendimiento que aporta.
+\par
+Ahora bien, en cuanto a los otros dos SGBD nos encontraremos que ambos posibilitan buen rendimiento, usuarios múltiples, una buena herramienta de administración y seguridad.
+\par
+Si comparamos ambos sistemas, encontraremos que MySQL aporta un rendimiento mucho mejor. Al estar más extendido (y por tanto más dominado entre los administradores, como norma general) y tener mejores herramientas gráficas , tiene una administración á priori más sencilla.
+\par
+Sin embargo, las diferencias en estos puntos no son suficientemente significativas como para contrarrestar la seguridad y funcionalidad que aporta PostgreSQL. Disponer de triggers, bloqueos, procedimientos, etc, lo hace mucho más funcional, pero lo más importante es la seguridad que aporta el uso de transacciones.
+\par
+
+\begin{table}[htbp]
+	\centering
+		\begin{tabular}{|l|c|c|c|c|}
+		\hline
+			&\textbf{AnyDBM}&\textbf{SQLite}&\textbf{MySQL}&\textbf{PostgreSQL}\\
+		\hline
+		\hline
+			\textbf{Disponibilidad}&Siempre&&&\\
+		\hline
+			\textbf{Rendimiento}&Bajo&El más alto&Muy alto&Alto\\
+		\hline
+			\textbf{Usuarios}&Pocos&Pocos&Muchos&Muchos\\
+		\hline
+			\textbf{Administración}&No&Bien&Muy bien&Bien\\
+		\hline
+			\textbf{Seguridad}&No&Bien&Regular&Muy Bien\\
+		\hline
+			
+		\end{tabular}
+	\caption{Resumen comparativo de los SGBD posibles}
+	\label{tab:ComparativaSGBD}
+\end{table}
+
+\par
+Por ello, si bien para la \textbf{primera fase}, se empleará \textbf{AnyDBM}, por lo arriba descrito, entendemos que para las \textbf{próximas fases} del desarrollo, se deberá utilizar \textbf{PosgreSQL}. Para obtener mayor información sobre PostgreSQL, se recomienda ver \cite{postweb}.
+\par
+\subsection{Elección de la interfaz}\label{interfaz}
+\par
+Como ya se ha comentado antes, el sistema se implementará,  mediante la aplicación Roundup, siguiendo un modelo de tres capas, donde la interfaz se ha de ofrecer independiente a la lógica de negocio.
+\par
+\subsubsection{Elección entre las opciones posibles}
+La aplicación escogida nos ofrece interfaz web, interfaz via e-mail, y por línea de comando. Como ya habíamos hablado en el punto \ref{arquitectura}, requeríamos que el cliente fuera muy ligero. En principio cualquiera de las tres opciones podría encajar con este requerimiento.
+\par
+Nos hemos decantado por una interfaz web como solución más apropiada, por su claridad a la hora de la utilización por cualquier usuario del sistema. Esta elección únicamente es válida si mantenemos el principio de que la interfaz sea sencilla, fácil de utilizar y muy ligera. Puesto que la interfaz propuesta mediante HTML\footnote{HTML: HyperText Markup Language, (Lenguaje de Etiquetas de Hipertexto). Es un lenguaje de marcado diseñado para estructurar textos y presentarlos en forma de hipertexto, que es el formato estándar de las páginas web.} y CSS\footnote{CSS: Cascading Style Sheets (Las hojas de estilo en cascada). Son un lenguaje formal usado para definir la presentación de un documento estructurado escrito en HTML o XML.} es muy apropiada, será la que utilicemos, símplemente realizando las modificaciones sobre ella que particularmente podamos necesitar.
+\par
+No obstante, es posible que en futuras fases o lineas de desarrollo, pueda interesar que esta interfaz conviva con la existencia del correo electrónico. También es posible que sea necesario crear nuevas presentaciones a medida, opción que será posible si explotamos la opción de la línea de comando.  
+\par
+Además, no hay que olvidar cuando pensemos en futuras líneas de desarrollo, que la existencia de CSS permitirá la posibilidad de ofrecer con facilidad distintas interfaces según el dispositivo que pueda leer la información.
+\par
+\subsection{Elección del modelo para el despliegue}\label{modelo}
+\par
+Indudablemente, para la implantación de este prototipo, así como las distintas demos que podamos querer realizar, la implantación se realizará sobre PC's, donde uno puede ejercer de cliente y otro de servidor. Para el despliegue real, habrá que plantearse cómo va a realizarse esa implantación.
+\par
+De todas formas, la opción aquí escogida, deberá ser replanteada en la siguiente fase, para evitar posibles icompatibilidades con  el  sistema de fichas médicas (estas incompatibilidades no deberían producirse, pues las decisiones se toman buscando evitarla, pero será un punto que desarrolladores de futuras fases deberán cuidar).
+\par
+\subsubsection{Opciones contempladas}
+Principalmente, la clave será determinar en qué rol o roles deberá llevarse a cabo la labor de servidor, y en cuál o cuáles las de cliente. Principalmente habrá que decidir si creamos un sistema centralizado, con el servidor en una ubicación que desempeñe un rol 3, o bien distribuirla entre las ubicaciones de nivel 2.
+\par
+\begin{itemize}
+	\item 
+\textbf{SISTEMA CENTRALIZADO.} Esta opción se implantaría con un único servidor servidor en una ubicación rol 3, y los elementos de rol 2 y rol 1 actuarían como clientes (ver figura \ref{fig:centralizado}). Esta sería la opción más sencilla de implementar y de mantener, pues únicamente habría un servidor que atender y los sistemas de back up y la administración serían más sencillos. 
+\par
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.80\textwidth]{figuras/sistema_centralizado.jpg}
+	\caption{Servidor ubicado en rol 3. Roles 1 y 2  acceden como clientes.}
+	\label{fig:centralizado}
+\end{figure}
+\par
+Esta opción, en cambio, ofrece dos grandes inconvenientes. En primer lugar, a nivel funcional: no tiene mucho sentido que los roles 1 que dependan de un determinado rol 2, tengan que compartir eventos que son de otro distinto (con las incomodidades que el exceso de información puede aportar). En segundo lugar, tenemos otro problema adicional, y es la conectividad: un elemento de nivel 1, en principio siempre tendrá conexión con la ubicación de rol 2 que le corresponda, pero no necesariamente con la de nivel 3 (y esta situación es inaceptable, pues entre los requisitos contemplábamos que la información debe estar siempre disponible.
+\par
+	\item 
+\textbf{SISTEMA CENTRALIZADO CON PASARELAS.} En este caso lo tendríamos un único servidor en el rol 3, pero los roles 2 funcionarían como pasarela a través de la que accederían los roles 1 (ver figura \ref{fig:pasarelas}. Esta opción podría corregir los inconvenientes del anterior. Si bien la implantación puede ser ligeramente más complaje, la facilidad de la administración sigue siendo un punto fuerte. Además, permitiría contemplar nuevas posibilidades como distintas redes independientes para cada grupo abarcado por un rol 2, y una más para los roles 2 y el 3.
+\par
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.80\textwidth]{figuras/sistema_centralizado_pasarelas.jpg}
+	\caption{Servidor en rol 3. Roles 2 funcionan como pasarela}
+	\label{fig:pasarelas}
+\end{figure}
+\par
+Estas pasarelas se harían mediante túneles SSH\footnote{SSH: Secure SHell. Protocolo que sirve para acceder a máquinas remotas a través de una red mediante un intérprete de comandos}, redireccionando puertos remotos a puertos locales en las máquinas del  nivel 2. La idea sería, que, si por ejemplo la máquina \textit{rol3} sirviera la aplicación en el puerto 8080, la máquina  \textit{rol2} podría servir en su puerto 8081 toda la información que obtenda de \textit{rol3:8080}, mediante el comando:
+\par
+\begin{center}
+\verb|ssh -L 8081:rol3:8080|
+\end{center}
+\par
+A partir de ese momento, cualquier máquina de rol 1 podría acceder a la información de \textit{rol3:8080}, a través de \textit{rol2:8081} siempre y cuando esa máquina y \textit{rol2} se encontraran en la misma red. Para profundizar sobre otras posibilidades que nos aporta SSH, consultar \cite{autounix}.
+\par
+Este modelo de despliegue solucionará el problema de la conectividad visto en la opción anterior, y nos dá mucho más juego para poder emplear varias redes distintas, etc. En cambio el problema funcional que se indicaba no lo soluciona, pues desde el punto de vista del cliente ubicado en nivel 1, el modelo es exactamente igual, ya que verá toda la información de todas las ubicaciones dependientes de otros roles 2.
+\par
+Además, el hecho de que los roles 2 tengan una actividad sensiblemente más compleja que el simple cliente web, podría requerir una mayor inversión en los equipos de esas ubicaciones, que se deberían estudiar.
+	\item
+\textbf{SISTEMA DISTRIBUIDO.} Esta opción consistiría en ubicar en cada elemento de nivel 2 un servidor independiente, funcionando cada uno de los elementos que dependen de él como clientes suyos, y el elemento de rol 3 accede como cliente a todos ellos (ver figura \ref{fig:sistema_distribuido})
+\par
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.80\textwidth]{figuras/sistema_distribuido.jpg}
+	\caption{Servidor ubicado en rol 2. Roles 1 y 3 acceden como clientes.}
+	\label{fig:sistema_distribuido}
+\end{figure}
+\par
+Con esta opción, al igual que en la anterior, solucionamos el problema de la conectividad. Además, el problema funcional queda solucionado, pues cada unidad de rol 1 sólamente accederá al servidor que le corresponda según el rol 2 del que dependa. En cambio, como contrapartida encontramos una mayor complejidad en los siguientes aspectos:
+\begin{itemize}
+	\item A nivel la implementación: se requerirá la instalación en cada elemento de nivel 2.
+	\item A nivel hardware: en este caso, cada elemento de nivel 2 deberá disponer de un hardware capaz de mantener el sistema.
+	\item A nivel de mantenimiento y administración: ya no habrá un sistema que administrar, sino tantos como unidades de nivel 2 puedan depender de uno de nivel 3.
+	\item A nivel de utilización desde el punto de vista del rol 3: deberá funcionar como cliente de tantos servidores como roles 2 dependan de él.
+\end{itemize}
+\par
+Otra contrapartida será la mayor posibilidad de pérdidas de servicio, pues los servidores se encontrarán en zona menos segura que si residen en un nivel 3. De todas formas, aunque esto obligará a que en futuras fases se contemple un buen sistema de backup, no hay que olvidar que las unidades de rol 2 se encuentran en area suficientemente segura. Además este contratiempo se ve compensado con que una hipotética y poco probable pérdida de servicio, no afectará en el servicio de otras unidades dependientes de otro servidor. Incluso podría plantearse en futuras fases estudiar la reasignación de clientes a otros servidores, la replicación de servidores entre hospitales de campaña, etc.
+\end{itemize}
+\par
+\subsubsection{Opcion escogida: justificación}
+\par
+Independientemente de los contratiempos que ofrece la tercera opción, tenemos que partir de que la primera de las opciones no cumpliría los requisitos mínimos del sistema, y que la segunda opción sigue siendo demasiado poco funcional para los usuarios.
+\par
+No obstante, las complejidades descritas en el punto anterior no tienen por qué ser en ningún caso un condicionante:
+\begin{itemize}
+	\item Complejidad de implantación: los manuales adjuntados en este proyecto hacen de la instalación algo bastante sencillo, por lo que no se trata de un contratiempo excesivamente significativo.
+	\item Complejidad hardware: el motor de la aplicación escogida no requiere grandes recursos hardware para funcionar, si bien será preciso evaluar correctamente, llegado el momento del despliegue en real en futuras fases, la capacidad de almacenamiento de datos que se necesitará.
+	\item Complejidad de administración: sí es cierto que es preciso diseñar en futuras fases un buen plan de administración y de backups, pero el número de unidades de nivel 2 que se van a utilizar no es tan alto como para que esto sea un contratiempo grave.
+	\item Complejidad de utilización desde el punto de vista de nivel 3: si bien es cierto que una unidad en nivel 3 se verá obligada a acceder a distintos sistemas, las necesidades de uso son más sencillas que las de los roles inferiores, y se dispone de mayores medios, por lo que penalizar ligeramente a este usuario, para aliviar a los de niveles menores es una idea acertada.
+\end{itemize}
+\par
+Por tanto, la opción por la que finalmente nos decantaremos será la tercera, donde cada unidad de rol 1 accederá únicamente al servidor que le corresponde, cada servidor se ubicará en una unidad de rol 2, y la unidad de rol 3 accederá a tantos servidores como roles 2 dependan de ella. Ninguno de los contratiempos es tan importante como para descompensar la ventaja de la elección de esta opción.
+\subsection{Elección del soporte para el despliegue}\label{soporte}
+\par
+Indudablemente, para la primera fase, que es la que aquí nos ocupa, con utilizar un PC que funcione como cliente, y otro de servidor, puede ser más que suficiente para realizar cualquier prueba o demostración que sea preciso. No obstante, se utilizará un tercer PC para pruebas y demostraciones donde queramos representar los tres niveles involucrados, y para probar la situación del acceso mediante pasarela.
+\par
+En cambio, en las siguientes fases habrá que valorar con más atención este aspecto:
+\begin{itemize}
+	\item \textbf{CLIENTE.} Puesto que el único requerimiento que se pide es que se disponga de un cliente web, podría valer cualquier hardware que pueda disponer de tal software. El sistema es independiente de cualquier hardware que pueda tener un cliente, por lo que la determinación del hardware de los mismos dependerá de las propias necesidades de despliegue que las siguientes fases determinen.
+	\item \textbf{SERVIDOR.} Puesto que el sistema operativo es independiente a la plataforma, podrían emplearse distintas opciones. Un PC suficientemente potente y con suficiente memoria secundaria para albergar los datos de la base de datos subyacente, podría ser una buena opción, pero podría ser objeto de estudio buscar alguna otra alternativa (máquinas Sun, por ejemplo). 
+\end{itemize}
+\subsection{Otras decisiones tomadas}\label{decisiones}
+\par
+Además de las determinaciones ya expuestas, se tienen en cuenta otro tipo de detalles, donde quizá la decisión no sea crítica, pero en cambio es preciso que queden claras para siguientes fases. Entre ellas queremos destacar:
+\par
+\begin{itemize}
+	\item \textbf{Usuario Unix.} El sistema se instalará, para esta primera fase\textbf{NOTA: en futuras fases, esta decisión dependerá del responsable del despliegue en ese momento y del administrador, y deberá plantear además si será igual en cada uno de los equipos distribuidos o no.}, para un usuario llamado \textbf{''pfc''}. Este usuario será quien instale, configure, y acceda al sistema para levantarlo, administrarlo, etc. El password de este usuario será \textbf{''roundup''}.
+	\item \textbf{Password Administrador.} En el proceso de inicialización del sistema se pedirá un password para el administrador del sistema. En esta fase, el password elegido es \textbf{''pfc''}, pero en fases posteriores deberá ser determinado por el administrador final.
+\end{itemize}
+
