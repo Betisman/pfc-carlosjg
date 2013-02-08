@@ -1,0 +1,65 @@
+
+\par
+En este apartado trataremos sobre cómo configurar e inicializar el tracker, así como los complementos necesarios para el funcionamiento del sistema\footnote{Tenemos que tener en cuenta que, como ya hemos comentado en el apartado \ref{decisiones}, utilizaremos el usuario ''\textbf{pfc}''.}.
+
+\subsection{Configuración de los elementos complementarios}
+\subsubsection{Configuración de la base de datos}
+
+\subsection{Configuración del tracker}
+Para configurar el tracker, se deberán seguir los siguientes pasos (todos ellos en modo superusuario):
+\begin{enumerate}
+	\item Crear directorio para incluir el tracker \footnote{NOTA: en el caso hipotético de que futuras verisiones consideraran que deberá configurarse más de un tracker, se utilizará un único directorio para todos.}. 
+\begin{center}
+\verb|mkdir /opt/roundup/trackers|
+\end{center}
+	\item Añadir al path la dirección donde se encuentran los scripts (en nuestro caso en /opt/roundup/bin
+	\item Ejecutar el siguiente comando: \verb|roundup-admin install|. Al ejecutarse esta opción, la aplicación nos pedirá que seleccionemos la plantilla (template) y el sistema gestor de bases de datos subyacente (backend) a utilizar:
+\begin {itemize}
+	\item Inserte directorio base (Enter tracker home): en nuestro caso introduciremos:
+\begin{center}
+\verb|/opt/roundup/trackers/pfc/|.
+\end{center}
+	\item Seleccione plantilla (Select template):por defecto introduciremos 'classic'.
+	\item Seleccione base de datos (Select backend): por defecto introduciremos 'anydbm'.
+\end {itemize}
+	\item Realizaremos las siguientes modificaciones en el archivo 'config.ini'\footnote{NOTA: para facilitar la configuración, se adjunta en el cd de instalación una versión del fichero config.ini que podrá tomarse tal cual para sustituir la que genera por defecto.}, cuyo sentido se explica en el apartado \ref{config}, sobre el diseño de la aplicación. (para lo cual, comprobaremos los correspondientes permisos y ajustaremos según sea preciso):
+\begin {itemize}
+	\item \verb|[main]|
+\begin {itemize}
+	\item \verb|admin_email = pfc|
+	\item \verb|dispatcher_email = pfc|
+\end {itemize}
+	\item \verb|[tracker]|
+\begin {itemize}
+	\item \verb|web = http://localhost:8080/pfc|\footnote{NOTA: Esta dirección deberá ser modificada de acuerdo a la ubicación que tenga el equipo que sirva realmente la aplicación. Indicar Localhost únicamente valdrá para un escenario de pruebas en que cliente y servidor estén en el mismo equipo}
+	\item \verb|email = pfc|
+\end {itemize}
+	\item \verb|[mail]|
+\begin {itemize}
+	\item \verb|domain = localhost|
+	\item \verb|host = localhost|
+\end {itemize}
+	
+\end {itemize}
+\end {enumerate}
+\par
+Para cualquier duda que pueda surgir sobre sobre la configuración de roundup, se recomienda encarecidamente ver \cite{roundupweb}.
+\par
+\subsection{Inicialización del tracker}\label{inicializacion}
+\par
+Antes que nada, hay que tener en cuenta que se tienen que verificar los permisos antes y después de realizar este paso, pues al crearse nuevas carpetas puede ser que los permisos de éstas nos impidan realizar algún paso.
+\par
+La inicialización del tracker debe hacerse también como superusuario. Los pasos a seguir serán los siguientes
+\begin{enumerate}
+	\item Se ejecutará el comando:
+\begin{center}
+\verb|roundup-admin initialize|
+\end{center}
+	\item Se nos pedirá introducir el directorio base del tracker:
+\begin{center}
+\verb|/opt/roundup/trackers/pfc/|
+\end{center}
+	\item Se nos pide introducir una contraseña de administración (en este caso hemos utilizado 'pfc')
+\par
+\end{enumerate}
+

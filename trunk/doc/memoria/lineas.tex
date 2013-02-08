@@ -1,0 +1,104 @@
+\chapter{Lineas Futuras} \label{lineas_futuras}
+\lhead{Capítulo \ref{lineas_futuras}}
+\rhead{Lineas Futuras}
+\section{Aclaraciones sobre las lineas futuras}
+\par
+En el apartado \ref{alcance_final}, sobre el alcance final, se definían cuatro objetivos a alcanzar en este proyecto. El primer objetivo y el segundo (encontrar un modelo y estructura válidos, y encontrar una solución software válida) quedan resueltos en el capítulo \ref{solucion}. El tercer objetivo (Creación de manuales) queda resuelto en el capítulo \ref{manuales}.
+\par
+El cuarto objetivo planteaba la necesidad de dar todas las facilidades posibles a futuras líneas de desarrollo. A lo largo de todo el proyecto, cada vez que se ha tomado una decisión, se ha tenido en cuenta este objetivo. A lo largo de este capítulo se darán indicaciones adicionales y aclaraciones para cumplir finalmente este último objetivo.
+\par
+De entre todas las decisiones tomadas a lo largo del proyecto, hay que destacar el empleo del diseño dirigido por pruebas, que facilitará cualquier modificación o ampliación al sistema, aprovechando que las pruebas que deberán superarse ya están programadas. Para mayor información sobre este punto, ver \cite{} y los apartados \ref{metod} y \ref{pruebas}.
+\par
+\section{Siguientes fases de desarrollo}
+\par
+En el apartado \ref{fases} se indicaba que este proyecto se correspondía con la primera fase del desarrollo de un sistema de telemedicina militar mucho más amplio. La principal linea futura a seguir, después de este proyecto, será la ejución de las siguientes fases. Para satisfacer el último objetivo de este proyecto, será necesario facilitar ese futuro trabajo.
+\par
+A lo largo de todo el documento, se ha podido apreciar como las decisiones siempre se han tomado teniendo en cuenta estos futuros desarrollos. En todo momento se ha mostrado qué decisiones se han tomado para la creación de este primer prototipo, y las orientaciones convenientes para las siguientes fases de desarrollo, orientándonos ya en el despliegue del sistema real. Por este motivo, será fundamental la lectura del apartado \ref{solucion} para una buena consecución.
+\par
+Además de lo comentado en el apartado \ref{solucion}, a continuación (y como ayuda a futuras mejoras que se quieran añadir para implantarse en el sistema real) se describen algunas indicaciones importantes que se deberán tener en consideración para el desarrollo de dichas fases. No obstante se quiere recordar la importancia de la lectura de todo el apartado \ref{solucion}, y de la consulta a la bibliografía aportada, en los casos que sea preciso.
+\par
+\subsection{Modelo de despliegue real}
+\par
+El principal planteamiento que se deberá tomar en las futuras fases dentro del desarrollo es el modelo de despliegue que se deberá seguir. 
+\par
+Como se expone en este documento, los futuros desarrolladores no deberían alejarse del modelo descrito en la figura \ref{fig:sistema_distribuido}, dentro del apartado \ref{modelo}, ya que dicho modelo encaja perfectamente con el sistema real expuesto en \ref{sistemareal}.
+\par
+En caso de decidirse emplear algún otro tipo de modelo de despliegue, tampoco debería ser complejo, pues la aplicación a utilizar seguirá siendo la misma, y no se obligaría a replantear ninguna otra característica ajena al propio despliegue.  
+\par
+\subsection{Soporte para el despliegue}\label{soport}
+\par
+Cuando se realice el despliegue en futuras fases, deberá plantearse cambiar las máquinas sobre las que se instalará la aplicación. En este proyecto se propuso la instalación sobre PC, pero cuando en fases posteriores sea desplegado todo el sistema, podría resultar interesante utilizar otro tipo de equipos.
+\par
+La fácil adaptación del sistema a un sistema operativo Solaris, podría dar como una buena opción utilizar máquinas SUN. Pero en cualquier caso, al ser Unix un sistema multiplataforma en general, el principal argumento para cambiar los equipos donde instalarse será la propia decisión del cliente y de los administradores.
+\par
+\subsection{Cambio de Backend}
+\par
+El cambio de esta fase a las posteriores, donde ya nos adentraremos en el sistema real, y por tanto existirá un nivel de carga mucho mayor, requerirá plantearse la aplicación de este cambio.
+\par
+En el apartado \ref{bd}, justificabamos que, si bien para este prototipo sería suficiente usar AnyDBM, en futuras fases la opción más razonable sería la utilización de PostgreSQL. 
+\par 
+Para la utilización de PostgreSQL se deberán tener en cuenta varias cosas:
+\par
+\begin{itemize}
+	\item En el momento de la instalación del sistema, se deberán tener en cuenta las indicaciones para instalación de Postgres que se facilitan en el punto \ref{instpost}.
+	\item En el momento de configuración, deberá replantearse dentro del fichero config.ini el apartado [rbdms]. En el apartado \ref{config} se aporta una configuración que debería ser válida, pero deberá reconsiderarse según las opciones que se tomen a la hora de la isntalación de PostgreSQL, así como nuevas sugerencias o indicaciones de los administradores del sistema.
+	\item Como su uso ralentizará los accesos, se debería plantear la inclusión de Xapian en el sistema (ver apartado \ref{usoxap}).
+	\item Se deberá estudiar la conveniencia de que la base de datos resida o no en la misma máquina que Roundup, si bien hay que aclarar que en principio en este proyecto no se ha contemplado ningún motivo que pueda empujar a tomar esta decisión.
+\end{itemize}
+\par
+Para ampliar información sobre PostgreSQL, ver \cite{postgres} y {postweb}.
+\par
+\subsection{Uso de Xapian}\label{usoxap}
+\par
+El inconveniente que encontrábamos en el uso de Roundup era una menor velocidad que si usábamos otros SGBD, como se mostraba en la tabla \ref{tab:ComparativaSGBD}. En el apartado \ref{bd} se indicaba como algo interesante la utilización de Xapian para acelerar las búsquedas.
+\par
+Para la íncorporación de Xapian en el sistema, se debe consultar el apartado \ref{xapinst}, donde se aportan indicaciones sosbre la instalación, y se puede ampliar información en \cite{xapianweb}.
+\par
+
+\subsection{Cambio de sistema operativo}
+\par
+En principio, si en fases posteriores se siguen instalando los servidores en PC's, no tiene ningún sentido el cambio de sistema operativo, ya que Linux es totalmente válido. Únicamente podría plantearse el cambio de distribución, pero siempre y cuando se trate de una distribución fiable (ver apartado \ref{suse}).
+\par
+No obstante, en caso de optar por cambiar los servidores a máquinas Sun, como se sugería en el apartado \ref{soport}, se recomienda plantearse la utilización de Solaris.
+\par
+\subsection{Mejoras Interfaz}
+\par
+Otro aspecto que se debería plantear si se mejora en las siguientes fases es la interfaz. Según los requisitos planteados, en principio sería suficiente con la interfaz web, como se describía en el apartado \ref{interfaz}. Pero en caso de considerarse cualquier tipo de mejora, podrán realizarse las siguientes mejoras (para mayor información ver la documentación actualizada disponible en \cite{roundupweb}.
+\par
+Otras opciones como aportar una interfaz email, o crear una interfaz a medida a partir de la salida por linea de comando que aporta Rondup, pueden ser planteadas según nuevos requisitos que se puedan exigir en siguientes fases. 
+\par
+Finalmente, se podrían requerir en futuras fases también cambios en la propia interfaz web ya presente, los cuales podrían hacerse fácilmente creando nuevas css, sin necesidad de cambiar nada más.
+\par
+\subsection{Sistemas de Backup}
+\par
+En fases futuras, habrá que prever sistemas de backup, para impedir que la información en cada servidor pueda perderse en caso de ocurrir alguna eventualidad o catastrofe.
+\par
+Será imprescindible desarrollar un sistema que guarde la información de los tickets de cada uno de los servidores ubicados en unidades de rol 2, en una unidad de rol 3 (o incluso 4, este aspecto deberá ser determinado, en base a las normativas ya existentes para comunicación entre roles 3 y 4, y a las necesidades que las Fuerzas Armadas puedan requerir llegado el momento del despliegue).
+\par
+Puesto que la información es gestionada por un sistema gestor de bases de datos, la información en éste contenida será lo susceptible a ser resguardado. Por tanto, los sistemas de backup a diseñar, serán los de las propias bases de datos.
+\par
+Para mayor información sobre cómo realizar el backup, así como cualquier otra labor de administración sobre la base de datos PostgreSQL ver \cite{postgres} y {postweb}.
+\par
+\subsection{Sistema de log}
+\par
+En este proyecto no se ha contemplado la necesidad de utilización de un sistema de logging. En las siguientes fases, si se considera apropiada su utilización, deberán cambiarse los parámetros del fichero config.ini del apartado [logging], según se indica en el apartado \ref{config}.
+\par
+\section{Otros ámbitos de aplicación}
+\par
+Como futuras lineas de desarrollo de este proyecto, fuera del proyecto global al que pertenece, podrían plantearse otros ambitos de aplicación donde encajaría también este sistema, en condiciones muy similares.
+\par
+\begin{itemize}
+	\item \textbf{Telemedicina Civil.} El sistema es óptimo para su utilización en medicina, no solamente militar, sino también civil. La adaptación de este sistema a un sistema civil, únicamente requeriría de un replanteamiento del modelo de despliegue, pues el funcionamiento sería el mismo. No solo se podría utilizar a nivel de lo planteado este proyecto en concreto, el sistema de eventos, sino utilizarlo integrado al sistema de fichas médicas (que también debería adaptarse) también desarrollado en distintas fases.
+	\item \textbf{Sistemas dirigidos por eventos.} En general, cualquier sistema cuyo cambio de estados sea dirigido por eventos podrá ser susceptible de ser solucionado con la implantación de esta misma solución. Podemos destacar, a modo de ejemplo:
+	
+\begin{itemize}
+	\item Sistema de carta electrónica de un restaurante. La petición de un menú, que el plato esté listo, que el plato se sirva, que se pida la cuenta, que se pague: son eventos que hacen cambiar el estado del pedido, que en este caso sería el ticket.
+	\item Sistemas de atención al cliente y atención técnica. La incidencia será el ticket en este caso, y se registrará cada vez que se asigne a un nuevo personaje, se añadan comentarios, haya cambios en el estado de la incidencia, etc.
+	\item Tratamiento de siniestros en compañias aseguradoras. El concepto sería el mismo que el anterior, siendo cada parte de siniestro el equivalente a un ticket.
+	\item Sistemas de asignación de actividades en un proceso empresarial. Una actividad que va pasando de mano en mano, puede ser asignada con facilidad con un sistema como este.
+\end{itemize}
+\par
+Esto es solo un ejemplo de las utilidades que podrían darse a este sistema, pero hay infinidad de casos donde su utilización es la solución más apropiada.
+\end{itemize}
+
+
