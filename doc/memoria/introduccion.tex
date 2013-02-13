@@ -1,30 +1,16 @@
 \chapter*{Introducción}
 \rhead{Introducción}
 \par
-Este proyecto plantea una posible solución para la optimización de los procesos de Logística de Campaña y Telemedicina de las Fuerzas Armadas Españolas (FAS). Concretamente se pide una solución aplicable a los roles 1 y 2 de la jerarquía definida para estos procesos.
+Este proyecto trata de entrar en la problemática del voto electrónico remoto y presencial, de las reticencias sociales y tecnológicas que influyen en su reducida implantación en procesos electorales de gran importancia y alto número de electores. Para ello, vamos a reproducir la situación a escala reducida. Plantearemos una posible solución al proceso necesario para llevar a cabo las Elecciones a la Junta de Escuela de la Escuela Politécnica Superior de la Universidad San Pablo - CEU.
 \par
-Para obtener la solución buscada, en una primera fase se tendrán que desarrollar dos sistemas diferentes, uno que gestione la información médica que se deberá manejar, mediante fichas definidas en los estándares OTAN, y otro que gestione los eventos que generen cambios en esa información o asignaciones de responsabilidades sobre la misma. Más adelante, en otras fases, se deberán acoplar ambos sistemas, e integrarlos en los sistemas ya existentes.
+Con este planteamiento es obvio que no vamos a solucionar las trabas técnicas y sociales del voto por internet a nivel de unas elecciones legislativas en, por ejemplo, España. Es un tema que se escapa del objetivo de este PFC, pero sí que vamos a tratar de identificar algunos de los agentes influyentes y buscar una posible solución para la elección a la Junta de Escuela.
 \par
-En la primera fase se tratarán independientemente tanto el sistema de gestión de la información como el de eventos, si bien ambos se realizarán teniendo en cuenta que deberán convivir en futuras fases. En este proyecto en concreto se tratará el sistema de eventos.
+Así, conseguiremos dos objetivos. Por un lado, estudiar la dificultad existente para la implantación del voto electrónico en las elecciones nacionales. Por otro, un soporte electrónico al proceso completo de las Elecciones a la Junta de Escuela, con el cual obtendremos una mejora significativa en el mismo respecto a procesos anteriores.
 \par
-Para la construcción de este sistema, se marcará como objetivos principales la creación de un modelo que encaje con el sistema real, y la obtención de una solución software que resuelva correctamente la gestión y asignación de los eventos. Del mismo modo se marcará como objetivo la creación de unos manuales que faciliten convenientemente el uso de la aplicación. Finalmente, el último objetivo será la preparación del desarrollo de las futuras fases de desarrollo que abarca el proyecto.
+La forma de llegar a la solución buscada debe comenzar identificando los factores que afectan a un proceso electoral general y, a continuación, personalizar los que se encuentran en el que vamos a estudiar.
+Una vez identificados estos agentes, definiremos las fases que comportan unas elecciones y estudiaremos cómo podrían ser apoyadas tecnológicamente, evaluando cómo llegar al punto óptimo de integración con el sistema tradicional para mejorar el proceso.
 \par
-A lo largo de esta primera fase dentro del sistema global, se va a seguir una política de ser extremadamente rigurosos y cuidadosos. Para que la integración con el resto de sistemas, en futuras fases, sea perfecta, los requisitos expresados serán respetados de un modo totalmente estricto a lo largo de este proyecto.
+La primera fase se concentrará en desarrollar los sistemas asociados a la fase preelectoral. En ella, se recoge el censo electoral y se identifican tanto los candidatos como los diferentes cargos que se votan.
+%%OJO: ¿hay que hablar de la lógica de la elección? De cómo se vota y quién para elegir el qué y cómo??
 \par
-Una vez mostrado de qué tratará este proyecto, en los párrafos siguientes, se describe cómo se ha estructurado el documento para poder mostrar los contenidos tratados.
-\par
-En primer lugar, un capítulo donde se estudia la problemática real que se quiere solucionar con este problema. En este capítulo se tratarán los objetivos de este proyecto, el alcance y los requisitos. Para poder llegar a la determinación correcta de estos puntos, se ha hecho un trabajo muy grande de observación sobre cómo es el sistema en la realidad, y qué es lo que realmente debemos modelar.
-\par
-Luego se dedicará un capítulo a mostrar los detalles y decisiones tomadas para el correcto desarrollo de este proyeccto. En el apartado dedicado al análisis se determinará ''qué'' es lo que debemos hacer, y en el dedicado al diseño se mostrarán las decisiones tomadas sobre ''cómo'' se va a hacer. Además se mostrarán los detalles de la propia construcción, así como las metodologías empleadas. Se describirá cómo se han planificado y construido las pruebas, cómo se han automatizado, etc.
-\par
-Se dedicará un capítulo aparte para mostrar los manuales, ya que se marcó la construcción de estos como uno de los objetivos importantes de este proyecto. Se facilitará manual de instalación, configuración, uso y administración.
-\par
-Igualmente, se dedica un capítulo para hablar sobre las lineas futuras de desarrollo. Principalmente se tratarán las indicaciones pertinenetes para facilitar el desarrollo de las futuras fases del proyecto (indicado también como objetivo de este proyecto). También se mostrarán otro tipo de ambitos donde podría utilizarse algún sistema basado en el desarrollado en este proyecto.
-\par
-Se mostrarán las conclusiones que se han podido sacar de la creación de este sistema, donde se mostrará a modo de resumen la solución adoptada, así como una valoración de puntos a favor y en contra sobre el proyecto realizado.
-\par
-Luego se mostrará un glosario de términos, que agrupa todas las definiciones que se han ido utilizando a lo largo del trabajo.
-\par
-Y finalmente se aporta una bibliografía que contiene todas las lecturas recomendadas para la comprensión de este documento, para ampliación de conocimientos sobre aspectos particulares relacionados, y válidas como base documental para el desarrollo de las siguientes fases.
-\par
-A modo de apéndice, se aportan dos capítulos dedicados a resumir los principios y las características de los dos tipos de licencia de software que son estudiados en este trabajo.
+La segunda fase, la electoral, la identificamos con los procesos que se requieren durante el periodo que dura la elección (ya sea un día o varios). Esta consistirá en desarrollar los sistemas de identificación y validación de votantes, el sistema de votación, ss
