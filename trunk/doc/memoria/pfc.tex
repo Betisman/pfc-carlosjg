@@ -91,12 +91,36 @@
 %% ==> TeXnicCenter supplies some possible option files
 %% ==> with its templates (File | New from Template...).
 
+%% MARCADEAGUA
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Marca de agua (mientras se escribe el documento)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Código para poner una marca de agua mientras escribimos el documento.
+%% Recomiendo buscar el tag MARCADEAGUA por el documento para ver dónde se usa.
+
+\usepackage{eso-pic}
+\newcommand\BackgroundPic{
+	\put(0,0){
+		\parbox[b][\paperheight]{\paperwidth}{
+			\vfill
+			\centering
+			\includegraphics[width=\paperwidth, height=\paperheight, keepaspectratio]{imgs/marcadeagua_endesarrollo.png}
+			\vfill
+		}
+	}
+}
+%% FIN MARCADEAGUA
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% DOCUMENT
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
+
+%% MARCADEAGUA
+\AddToShipoutPicture{\BackgroundPic}
+%% FIN MARCADEAGUA
 
 %% File Extensions of Graphics %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% ==> This enables you to omit the file extension of a graphic.
@@ -126,7 +150,7 @@
 
 \title{Aquí va el nombre del proyecto}
 \author{José Carlos Jiménez Gómez}
-\date{7 de febrero de 2012} %%If commented, the current date is used.
+%\date{7 de febrero de 2012} %%If commented, the current date is used.
 
 \maketitle
 
@@ -140,27 +164,27 @@
 
 %% Introducción %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%\input{agradecimientos.tex}
+\input{agradecimientos.tex}
 \input{resumen.tex}
-%%\input{abstract.tex}
+\input{abstract.tex}
 \input{introduccion.tex}
 
 
 %% Indice %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \lhead{}
-\rhead{Indice General}
+\rhead{Índice General}
 \tableofcontents %Table of contents
 
 %% The List of Figures
 \clearpage
-\addcontentsline{toc}{chapter}{Indice de Figuras}
+\addcontentsline{toc}{chapter}{Índice de Figuras}
 \listoffigures
 
 %% The List of Tables
 \clearpage
 \renewcommand{\tablename}{Tabla}
 \renewcommand{\listtablename}{Índice de tablas}
-\addcontentsline{toc}{chapter}{Indice de Tablas}
+\addcontentsline{toc}{chapter}{Índice de Tablas}
 \listoftables
 
 \pagestyle{fancy}
@@ -171,7 +195,7 @@
 %% Chapters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% ==> Write your text here or include other files.
 
-%%\input{planteamiento.tex}
+\input{planteamiento.tex}
 %%\input{solucion.tex}
 %%\input{manuales.tex}
 %%\input{lineas.tex}
@@ -213,6 +237,10 @@
 %%\input{anexo1.tex}
 %%\input{anexo2.tex}
 %%\input{anexo3.tex}
+
+%% MARCADEAGUA
+\ClearShipoutPicture
+%% FIN MARCADEAGUA
 
 \end{document}
 
