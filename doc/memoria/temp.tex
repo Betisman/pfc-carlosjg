@@ -104,3 +104,51 @@ En base a este concepto y observando algunos procesos electorales anteriores, po
 	\item i-Voting
 \end{itemize}
 En elecciones como las legislativas de España de 2011, pudimos ver avances tecnológicos como los denominados, por la empresa Indra - la que llevó a cabo el apoyo tecnológico- MAEs (Mesa Administrada Electrónicamente) que servían como control del censo de la mesa a la que estaban asignadas. Esto es un ejemplo de cómo se puede introducir la tecnología a una parte del proceso electoral. Con estos dispositivos, lo que se conseguía era que los miembros de mesa pudiesen identificar al votante en el censo haciendo uso tan sólo del DNIe del mismo, el cual introducían en el lector incorporado en el equipo y mostraba la información del votante, indicando sus datos personales para cotejo de los miembros de la mesa, así como si había hecho o no uso de su derecho al voto, con lo que se le podía permitir votar o no. Además, tan sólo informaba de aquellos votantes que debían votar en esa mesa, alertando de que no estaban en el censo en el caso que así fuese. Con este mismo sistema, se podían imprimir, inmediatamente después de cerrar la mesa y contar los votos (a mano) ..........
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+El proceso de votación en la selecciones de Estonia sigue este paradigma:
+\begin{enumerate}
+	\item El votante accede al VFS a través de una conexión con protocolo HTTPS y se identifica con su ID-card.
+	\item El VFS lanza una query usando el Código de Identificación Personal (PIC) a la base de datos de votantes, verifica la ****EINSS****elegibilidad del votante e identifica su ****EINSS****constituency. Si el votante no es ****EINSS****elegible, se envía un mensaje correspondiente.
+	\item El VFS lanza una query contra el VSS consultando si el votante ya ha votado. Si este es el caso, se informa al votante de ello.
+	\item El VFS lanza una query  usando los datos de  ****EINSS****constituency de la base de datos de votante y como resultado recibe la lista de candidatos en esa ****EINSS****constituency. Se muestra la lista al votante.
+	\item El votante elige un cadidato.
+	\item La aplicación del votante, teniendo la lista de candiadatos, pide al votante que confirme su elección.
+	\item La aplicación encripta la elección (choice) y un número aleatorio con la clave pública del VCA. El votante firma el criptograma (a partir de ahora: voto) con su firma digital.
+	\item La aplicación de votante transmite el sobre firmado digitalmente al VFS, el cual verifica ****EINSS****the formal correctness del material recibido y si la misma persona que se autentificó durante el comienzo de la sesión es la que dió la firma digital.
+	\item EL VFS redirige el voto recibido al VSS. EL VSS accede al ****EINSS****servidor de confirmación de validez y adquiere un certificado de confirmación de la validez de la firma digital que se ha añadido al voto firmado.
+	\item En caso de un voto ****EINSS****exitoso, el VSS envía al VFS una confirmación de que el voto ha sido recibido. Un mensaje correspondiente se ****EINSS****deliver también al votante. Una entrada sobre la recepción del voto se graba en el fichero de log (LOG1), usando el formato [PIC, hash(vote)].
+	\item El votante puede votar varias veces. Todos los votos se transmiten a través del VFS al VSS. En caso de que se reciba un voto reptido, el voto anterior es automáticamente ****EINSS****revoked y se grabará una entrada en el fichero de log correspondiente (LOG2) en la forma [PIC, hash(vote), razón].
+	\item Al terminar el proceso de voto electrónico, el VFS finaliza todas las comunicaciones.
+\end{enumerate}
+Si el servidor de confirmación de validez no está disponible en el momento en el que se está produciendo la votación, se almacena la hora en la que el voto se ha recibido. El servicio de confirmación de validez permite verificar la validez del certificado en una etapa posterior. La hora en el servidor del sistema y en el servidor de confirmación de validez deben estar sincronizada. Todas las confirmaciones de validez deben recibirse antes del comienzo de la siguiente fase.
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+Según Fujioka et al.:
+Properties of a Secure Secret Voting Scheme
+Fujioka et al. defines seven requirements of a secure secret election.
+\begin{enumerate}
+	\item Completeness: All valid votes are counted correctly.
+	\item Soundness: The dishonest voter cannot disrupt the voting.
+	\item Privacy: All votes must be secret.
+	\item Unreusability: No voter can vote twice.
+	\item Eligibility: No one who is not allowed to vote can vote.
+	\item Fairness: Nothing must affect the voting.
+	\item Verifiability: No one can falsify the result of the voting.
+	Another requirement is:
+	\item Receipt-freeness: The voter does not need to keep any record of his vote.
+	Also, we can add some requirements defined by Schneier about e-voting.
+	\item Non-Duplication: No one can duplicate anyone else's vote.
+	\item Public Participation: Everyone knows who did, and did not, vote.
+	\item Private Error Correction: A voter can prove his vote was miscounted without revealing how he voted.
+\end{enumerate}
