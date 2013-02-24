@@ -152,3 +152,265 @@ Fujioka et al. defines seven requirements of a secure secret election.
 	\item Public Participation: Everyone knows who did, and did not, vote.
 	\item Private Error Correction: A voter can prove his vote was miscounted without revealing how he voted.
 \end{enumerate}
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+\par
+%% ******************* REQUISITOS ************* 
+%% págs 236-238 - http://www.auditoriaalademocracia.org/archivos/12983199018.%20Voto%20Electronico.pdf
+%% La Votación Electrónica - Mahmud Aleuy - Proyectamérica
+Requisitos de seguridad para el voto electrónico
+Autentii cación. Sólo los votantes autorizados pueden votar. Hay que 
+resaltar que, en principio, consideramos aquí el concepto de voto y 
+votante en sentido amplio, válido también para aquellos escenarios 
+en los que un voto puede ser una opinión o una propuesta.
+Fiabilidad. No se puede producir ninguna alteración fraudulenta de 
+los resultados de la votación. Si se trata de una elección de representantes o de algún tipo de consulta sobre opciones predeterminadas, los votantes no pueden votar más de una vez, restricción que, en 
+principio debería de acotarse de forma distinta en otros escenarios 
+de participación.
+Veracidad de la votación. De manera que si se descubre algún defecto 
+en la publicación de los resultados, existan mecanismos para probar 
+el fraude. Esta característica se puede considerar como una prueba 
+global de la i abilidad.
+Anonimato. No se puede relacionar un voto con el votante que lo ha 
+emitido. Este es un requisito que aparece en casi todos los posibles 
+escenarios. Su cumplimiento suele conllevar, o bien el concurso de 
+varias ttp, o el uso de mecanismos criptográi cos avanzados basados 
+en i rmas ciegas, secreto dividido, etcétera. El uso de tarjetas inteligentes de diseño especíi co puede aportar soluciones interesantes 
+para escenarios sensibles como son los de elección entre propuestas 
+predei nidas.
+Un requisito que resulta difícil de cumplir con los actuales sistemas de votación con papeletas e interventores es el de un hipotético 
+anonimato en relación con la abstención. Si fuese requerido, signii -
+caría que se puede conocer cuántos y qué votan pero no quiénes participan. Este es un caso típico que requeriría una modii cación de la 
+normativa electoral, pero que en muchos ámbitos representaría una 
+
+%% SUBSISTEMAS************* 
+%% págs 6-7 - http://www.economicasunp.edu.ar/06-publicaciones/informacion/anuario04/Feierherd-Depetris-De%20Giusti.pdf
+%% Los Sistemas de Voto Electrónico: Requisitos y Experiencias - Feierherd Guillermo, De Giusti Armando, Depetris Beatriz
+3. LOS SUBSISTEMAS DEL SISTEMA ELECTORAL
+Como afirmamos anteriormente, la expresión voto electrónico se refiere a uno de los
+subsistemas del sistema electoral. Para determinar con mayor precisión los alcances del mismo
+es conveniente plantear una posible división del sistema en subsistemas.
+Sin olvidar que la división de cualquier sistema en un conjunto de subsistemas suele no
+ser única –no sólo es posible más de una visión del mismo problema sino que muchas veces la
+tecnología puede forzar diferencias sustanciales– debemos buscar una que pueda aplicarse  a la
+mayoría de los actuales sistemas electorales. 
+Proponemos, por entender que resulta lo suficientemente abarcativa, la división del
+sistema  en  los  siguientes  subsistemas:  preparar  padrón,  distribuir  electores,  votar,  escrutar
+mesas, comunicar escrutinios parciales, agregar escrutinios parciales, determinar ganadores y
+publicitar resultados.
+En cada elección los subsistemas se ejecutan en el orden mencionado, repitiéndose en
+algunos  casos  las  últimas  etapas  (desde  escrutar  mesas  hasta  publicitar  resultados),  en
+correspondencia con los denominados escrutinios provisorio y definitivo.
+Sucintamente, la función principal de cada uno de ellos es la siguiente:
+Preparar padrón: Si fuera necesario construir, y posteriormente mantener, el padrón
+de electores habilitados para emitir el voto en una instancia y en una jurisdicción particular.
+Puede tratarse de un padrón único a nivel nacional (caso Brasil) o distintos padrones a nivel de
+jurisdicciones menos inclusivas (por ejemplo las provincias en Argentina). La exactitud de los
+padrones es una condición necesaria para poder dar cumplimiento a algunos de los requisitos
+exigidos. A su vez, la existencia de un padrón único suele facilitar el cumplimiento de varios
+requisitos del sistema.
+Es común que el padrón en un soporte capaz de ser tratado por una computadora haya
+sido construido hace tiempo y las tareas que resta llevar a cabo sean sólo las necesarias para
+mantenerlo actualizado. Normalmente esto implica una actividad continua del subsistema.
+Haciendo salvedad de los recaudos que deben adoptarse antes de proceder a cualquier
+modificación y la posibilidad de que el padrón contenga datos sensibles y deban tomarse los
+recaudos para proteger los mismos, el subsistema es ejemplo del clásico problema de altas,
+bajas y modificaciones.
+Distribuir electores: Esta se hace siguiendo el criterio geográfico de domicilio de
+residencia registrado, para lo cual se llevan a cabo particiones sucesivas de la jurisdicción en
+unidades  geográficas  más  pequeñas.  No  hay  acuerdo  ni  en  los  nombres  de  las  distintas
+particiones ni en la cantidad de niveles (secciones, circuitos, circunscripciones, distritos) salvo
+en la última, constituida por la mesa a la que el elector debe concurrir para emitir su voto. A su
+vez, los criterios utilizados  para  realizar  la  división  geográfica  son motivo  de  permanente
+discusión, fundamentalmente en aquellos casos en que existen cargos asociados a las mismas.
+Votar: Es el subsistema que se pone en funcionamiento en cada una de las mesas en el
+momento de la elección. Normalmente funciona sólo durante algunas horas. Lo trataremos en
+detalle ya que la expresión voto electrónico, utilizada en un sentido restringido, se vincula a la
+ANUARIO 2004 – F.C.E. – U.N.P.S.J.B. 68totalidad  o  parte  de  este  subsistema.  Obviamente,  también  puede  ser  descompuesto  en
+subsistemas de menor complejidad. 
+Escrutar mesas: Al final del acto electoral se deben establecer los resultados de cada
+mesa. En algunos casos existen dos instancias: una provisoria y otra, posterior, definitiva. En
+determinados lugares, como por ejemplo Argentina, la primera debe llevarse a cabo al finalizar
+la elección, en presencia de las autoridades de la mesa y los fiscales partidarios. Suelen quedar
+cuestiones pendientes (votos impugnados y recurridos) que son posteriormente resueltos en el
+escrutinio  definitivo.  La  aplicación  de  voto  electrónico  a  la  instancia  de  voto  tiene
+consecuencias severas sobre el modo de escrutinio. Dependiendo del sistema empleado estas
+consecuencias se concentran en la instancia provisoria o pueden extenderse a la definitiva.
+Comunicar escrutinios parciales: Los resultados parciales de cada mesa deben ser
+comunicados  a  aquellos  lugares  en  los  que  se  producirá  su  agregación.  También  aquí,  la
+aplicación de mecanismos electrónicos para la votación afecta la forma en la que se transmiten
+los resultados. 
+Agregar escrutinios parciales: Los resultados correspondientes a cada mesa deben ser
+agregados a fin de determinar los totales correspondientes a cada una de las partes mayores en
+las que se ha dividido la jurisdicción. Si hubiera dos instancias debe hacerse en cada una de
+ellas.
+Determinar ganadores: Agregados los resultados de cada mesa hasta el nivel que
+corresponda a los cargos en disputa deben establecerse los electos en cada uno de ellos. Cada
+sistema electoral puede contemplar condiciones especiales para cada cargo, como por ejemplo
+mayorías especiales, criterios para distribuir los cargos en forma proporcional, posibilidad de
+aplicar tachas o preferencias a los integrantes de las listas a cuerpos colegiados, posibilidad de
+incorporar nombres que no figuren en las listas, etc. 
+Publicitar  resultados:  A  fin  de  contribuir  a  la  transparencia  de  la  elección,  los
+resultados de cualquiera de las instancias mencionadas deben ser puestos en conocimiento del
+público por todos los medios posibles en forma inmediata. A fin de contribuir a la transparencia
+del sistema deben mostrarse los resultados con el mayor nivel de desagregación posible y a
+medida que se van determinando, sin esperar a tener los resultados definitivos.
+En distintos lugares algunos de estos subsistemas han sido objeto de informatización
+desde  hace  tiempo.  En  particular  los  correspondientes  a  la  preparación  de  padrones,  la
+distribución de los electores y la agregación de los resultados parciales de cada mesa (tanto en la
+etapa provisoria como definitiva) se realizan utilizando algún tipo de sistema informático. La
+aparición de Internet ha tenido un fuerte impacto tanto sobre la publicidad de los resultados
+provisorios y definitivos, como en etapas previas del proceso. Por ejemplo, es común, desde
+hace unos años, que en distintas jurisdicciones los electores puedan consultar a través de este
+medio si están o no incluidos en el padrón de una elección particular y, en caso afirmativo, el
+lugar al que deben concurrir a votar y la mesa en la que deberán hacerlo.
+
+%% REQUISITOS		************* 
+%% págs 8-10 - http://www.economicasunp.edu.ar/06-publicaciones/informacion/anuario04/Feierherd-Depetris-De%20Giusti.pdf
+%% Los Sistemas de Voto Electrónico: Requisitos y Experiencias - Feierherd Guillermo, De Giusti Armando, Depetris Beatriz
+5. REQUISITOS DE UN SISTEMA ELECTORAL
+El primer requisito del sistema electoral en su conjunto (y del de votación en particular)
+es cuantificar con exactitud (sin sesgos, sin modificaciones) las voluntades de los electores
+reflejadas en sus intenciones de voto.  Pero, además de este, existen otros que deben respetarse.
+Muchos de ellos suelen estar establecidos en las respectivas Constituciones y en las leyes que
+rigen la materia (electorales o de consulta popular o referéndum).
+Algunos de los requisitos, explícitos o implícitos en las leyes de mayor jerarquía, son
+los siguientes:
+Universal: Implica que deben estar habilitados para votar todos los ciudadanos que
+cumplan con un conjunto de condiciones (edad, nacionalidad, período de residencia en una
+determinada jurisdicción, etc.) y solamente ellos.
+Igual: Todos los ciudadanos que componen el universo de una elección deben poder
+votar sólo una vez. Todos los votos tienen el mismo valor: un ciudadano, un voto.
+Secreto: Debe asegurarse que la identidad de los ciudadanos no pueda ser vinculada, de
+ninguna forma, al voto que emitió. Es más, debe garantizarse que ni siquiera el mismo elector
+tiene posibilidades de demostrar que votó de determinada manera.
+Personal: El voto debe ser emitido en forma personal por el ciudadano. Salvo el caso
+particular de los ciudadanos con alguna discapacidad especial la tarea de votar es indelegable.
+Obligatorio: En las elecciones el ciudadano debe votar obligatoriamente. 
+Otros, como la condición de que el elector pueda emitir su voto libre de todo tipo de
+coerción, es consecuencia de los más elementales principios democráticos. De hecho, el secreto
+del voto apunta –entre otros objetivos– a garantizar esta situación.
+En cuanto al recuento de los votos en algunos casos se exige el escrutinio público e
+inmediato  en  cada  mesa.  Esto  tiene  fuertes  consecuencias  sobre  las  características  de  los
+sistemas a implementar.
+Otros requerimientos corresponden a la categoría de esperados o implícitos. Es así que
+el sistema debe ser, como mínimo, flexible, auditable y conveniente. Asignamos a cada uno de
+estos requisitos el siguiente significado:
+Flexible: El sistema debe ser capaz de adaptarse a distintos tipos de elecciones. Dado
+que la flexibilidad de un sistema basado en computadoras se logra fundamentalmente a través
+de su software, el mismo debe ser capaz de adaptarse a distintos tipos de elecciones. Existen, en
+este sentido, un par de alternativas de solución. La primera es construir un sistema totalmente
+parametrizable, de modo que sin modificar el código, pueda utilizarse para distintas elecciones.
+Esto presenta la ventaja de que el software se audita una única vez. En tal caso el software será
+seguramente complejo y siempre quedarán dudas de si todas las alternativas posibles están
+ANUARIO 2004 – F.C.E. – U.N.P.S.J.B. 70contempladas. La segunda es diseñar un sistema sencillo para cada elección, que contemple
+exclusivamente  las  situaciones  contempladas  en  la  misma.  La  desventaja  es  que,  aunque
+sencillo,  el  software  deberá  ser  auditado  en  cada  oportunidad.  Teniendo  en  cuenta  la
+complejidad y los costos de una auditoría, esta alternativa puede presentar algunas desventajas
+para los partidos con menores recursos.
+Auditable: Hay dos alternativas. Una es la de auditar todos los niveles de software. La
+segunda, que no necesariamente excluye la anterior y que debería ser obligatoria, es diseñar el
+sistema de tal modo que permita auditar los resultados de cada mesa. 
+Para que la auditoría del software empleado en una elección sea efectiva deben poder
+auditarse la totalidad de los niveles de software y no sólo el correspondiente al nivel de las
+aplicaciones de emisión del voto, contabilización de votos y agregación de resultados parciales.
+Esto significa que el software debe basarse en el uso de sistemas no propietarios, es decir,
+sistemas  open source. Este es  el criterio que  ha  seguido  Australia,  donde  se ha puesto a
+disposición del público en general el software utilizado en sus elecciones. 
+La segunda variante implica que la computadora utilizada para emitir el voto debe
+imprimir un comprobante, verificable por el elector, en el que conste su voto. Este comprobante
+puede ser entregado al elector para que lo deposite en una urna (como si fuera el equivalente a
+una boleta confeccionada en el momento) o volcado en ella automáticamente por el sistema
+luego  de  haber  sido  aceptado  por  el  elector.  En  cualquier  caso,  posteriormente  puede  ser
+utilizado para verificar los totales emitidos por la computadora. Esta verificación puede hacerse
+sobre el total de las mesas o sólo sobre algunas elegidas al azar. 
+Debe destacarse que si nos atenemos estrictamente al significado del término escrutinio,
+un comprobante de este tipo resulta imprescindible en aquellas jurisdicciones en las que las
+normativas constitucionales o legales exigen el escrutinio público e inmediato en cada mesa.
+Hacer pasar por escrutinio la firma por parte de las autoridades de mesa y los fiscales del
+comprobante  de  totales  emitido  por  la  computadora,  es  forzar  a  extremos  inaceptables  el
+significado del verbo escrutar. 
+Conveniente: El sistema debe facilitar su uso aún a aquellos que no están habituados al
+empleo de herramientas computacionales. Hay aquí una tarea fundamental de la interfase (tanto
+del hardware como del software de la misma). A su vez la interfase debe ser construida de tal
+manera que no induzca ninguna opción en particular. Aún cuando no se trataba de un DRE
+(pero podría haberlo sido), la famosa boleta mariposa utilizada en el condado de Palm Beach en
+la Florida, durante las elecciones del año 2000, es un ejemplo ya clásico de interfases mal
+diseñadas que contribuyen a desvirtuar la voluntad del elector.
+Un  último  conjunto  de  requisitos  (esperados  o  implícitos)  están  vinculados  a  la
+confiabilidad. 
+En  primer  lugar  cabe  destacar  que  si  bien  estamos  interesados  en  el  software  del
+sistema, la confiabilidad es un concepto que involucra a éste pero se extiende al conjunto,
+incluyendo tanto el hardware como los operadores humanos del sistema. Dado que en función
+de  la  importancia  de  las  cuestiones  a  las  que  el  sistema  se  aplica  el  mismo  puede  ser
+considerado como un sistema crítico, todos los aspectos tendentes a garantizar la confiabilidad
+deben ser tenidos en cuenta. Mencionamos, entre dichos aspectos, a los siguientes:
+Disponibilidad:  Si  bien  en  el  régimen  de  nuestro  país  el  sistema  se  utiliza
+esporádicamente y por escasas horas, deben extremarse los cuidados para asegurar que durante
+las  mismas  el  sistema  se  encuentra  operativo  y  prestando  los  servicios  para  los  que  fue
+diseñado. Si bien en razón de la distribución del sistema la caída de uno de los elementos afecta
+a un número reducido de electores, el simple hecho de que alguien no pueda votar, o que su
+voto  sea  perdido  por  una  falla  del  sistema,  atenta  contra  derechos  constitucionalmente
+establecidos. Distintos mecanismos (por ejemplo redundancia del hardware) se utilizan para
+asegurar que los votos emitidos no se pierden. Otros deben ser contemplados para que, en el
+caso de una falla del sistema instalado en una mesa, o ésta pueda ser resuelta en un tiempo
+mínimo (incluyendo la alternativa de reemplazar el equipamiento) o, si fuera irrecuperable, los
+electores de esa mesa puedan ser derivados a otra. 
+ANUARIO 2004 – F.C.E. – U.N.P.S.J.B. 71Fiabilidad: El sistema debe ser fiable. La cuantificación que el sistema hace de la
+intención de voto de los electores debe ser un reflejo fiel de la misma. Dicho en otros términos,
+todos los votos emitidos válidamente deben ser correctamente contabilizados. A su vez, ningún
+voto inválidamente emitido debe ser contabilizado.  El margen de error admitido debe ser
+cero. Muchos de los sistemas hasta ahora utilizados tienen márgenes de error elevados. La
+excusa de que en las experiencias realizadas los errores detectados no cambiaron el resultado de
+la elección no debe ni puede ser admitida. 
+Otra vez, las pasadas elecciones del año 2000 en Estados Unidos son un ejemplo de lo
+que ocurre cuando las elecciones son ajustadas y unos pocos votos pueden cambiar el resultado
+de la elección. Durante mucho tiempo fueron conocidos los problemas del sistema de tarjetas
+perforadas. Desde 1988 el National Institute of Standards and Technology (NIST) recomendó la
+eliminación de los sistemas de tarjetas perforadas Votomatic debido al problema de los chads
+(el trozo de tarjeta que debería desprenderse al perforarla pero que en algunos casos queda
+adherido a la misma por alguno de los bordes) que provocaban que cada vez que las tarjetas
+eran contadas se obtuvieran totales distintos. Nada se hizo, amparándose –además de la de los
+costos– en la excusa de que el nivel de error no cambiaba los resultados. Así fue hasta que, la
+ajustada elección presidencial del 2000 en el estado de Florida terminó en un escándalo que
+finalmente fue resuelto (ante la imposibilidad del sistema de hacerlo) en los estrados judiciales. 
+Seguridad: Asociamos la seguridad a los daños que el sistema puede producir a las
+personas o al medio ambiente. En general la posibilidad de que el sistema pueda producir daños
+está asociada a las fallas del sistema. Si bien la terminología en este campo suele diferir,
+entenderemos  que las fallas del sistema se producen como consecuencia de defectos en el
+mismo. Así, siempre una falla está producida por un defecto, aunque existen defectos que
+pueden permanecer ocultos durante mucho tiempo sin concretarse en una falla (en función, por
+ejemplo, del modo de uso). Una falla puede, a su vez, provocar o no una caída del sistema. Las
+fallas –y las eventuales caídas del sistema– pueden provocar la pérdida o alteración de los datos
+que el mismo administraba.
+Para  resolver  este  problema  se  recurre  a  mecanismos  de  prevención  de  defectos
+(procesos de desarrollo organizados de modo  de evitar introducir defectos en el software),
+detección y eliminación de defectos (mediante pruebas del producto) y construcción de sistemas
+tolerantes a falla (normalmente a través de la redundancia del hardware y el uso de módulos
+redundantes o recursos de autoverificación incorporados en el software). 
+Protección:  El  sistema  debe  estar  protegido  contra  intrusiones  accidentales  o
+intencionales. Distintas dimensiones de esta protección se vinculan con la protección física
+(evitar que el sistema sea físicamente destruido) y lógica (la posibilidad de que los datos del
+sistema sean accedidos y eventualmente modificados más allá de las formas explícitamente
+previstas. 
+La protección física debe garantizarse por mecanismos similares a los empleados para
+proteger las urnas en el sistema manual, tanto durante su traslado (hacia y desde la mesa de
+votación) como durante el tiempo que dura la elección. 
+Lo que hemos denominado protección lógica tiene que ver con distintos factores, entre
+los  que  debe  destacarse  la  distribución  del  sistema  y  la  manera  en  el  que  los  sistemas
+individuales se conectan al centro concentrador a fin de transferir los resultados de las mesas.
+Las conexiones permanentes, si bien contribuyen  a asegurar que los datos no se perderán,
+aumentan la vulnerabilidad del sistema a los ataques de posibles intrusos. La conexión al final
+del acto electoral, a fin de transferir los resultados una vez completado el escrutinio provisorio,
+disminuye los riesgos de intrusión, pero hace que el resguardo de los datos quede bajo la total
+responsabilidad del sistema de la mesa.
