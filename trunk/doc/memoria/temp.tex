@@ -407,3 +407,96 @@ Flexible: El sistema debe ser capaz de adaptarse a distintos tipos de elecciones
 %del acto electoral, a fin de transferir los resultados una vez completado el escrutinio provisorio,
 %disminuye los riesgos de intrusión, pero hace que el resguardo de los datos quede bajo la total
 %responsabilidad del sistema de la mesa.
+
+\par
+\par
+\par
+Certificados Digitales
+X.509
+
+Autoridad Certificadora
+
+
+\par
+\par
+Diseño
+El Sistema Central tiene 2 bases de datos que se cargan en la fase preelectoral: Lista de Candidatos y Lista de Votantes (Censo).
+Una vez un votante ejerce su derecho al voto, cargamos en el Servidor de Votación una base de datos que reúne al votante, con el voto encriptado y el momento en el que ha votado (Timestamp).
+Cuando se finaliza la votación y se ordena el recuento, los votos almacenados en el SV, se envían (o se desechan, según el voto) al Servidor de Conteo, el cual llena 2 bases de datos diferentes, en una introduce los votos desencriptados y en la otra los votantes sin el voto. Yo introduciría otro servidor, el de totalización.
+
+El votante entra en la url
+
+
+
+\par
+\par
+\par
+\par
+Certificados digitales
+Basados en métodos criptográficos de clave asimétrica
+Asocian información de una persona o entidad con su clave pública
+La veracidad de esta asociación la garantiza la Autoridad de Certificación:
+FNMT
+Dirección General de Policía (DNIe)
+Camerfirma, CaCert, etc
+Registradores, Notarios, etc
+\par
+Firma electrónica
+Permite mirgrar procesos basados en papel (que requerían firmas) a formato electrónico.
+Garantiza la autenticidad, integridad y no repudio del mensaje firmado.
+Firma Electrónica Avanzada (ley 59/2003) ``firma electrónica que permite identificar al firmante y detectar cualquier cambio ulterior de los datos firmados, que está vinculada al firmante de manera única y a los datos a que se rfiere y que ha sido creada por medios que el firmante puede mantener bajo su exclusivo control''
+Formatos de firma electrónica:
+PKCS#7 (RSA Laboratories Inc.)
+XMLDSIG (Propuesta conjunta de estándar IETF/W3C) RFC 3075
+XAdES (XML Advanced Electronic Signatures)
+Adobe PDF
+\par
+Criptografía de clave asimétrica. Firma digital. Proceso
+Ana y Bernardo tienen sus pares de claves respectivas 
+Ana escribe un mensaje a Bernardo. Es necesario que Bernardo pueda verificar que realmente es Ana quien ha enviado el mensaje. Por lo tanto Ana debe enviarlo firmado: 
+1. Resume el mensaje mediante una función hash. 
+2. Cifra el resultado de la función hash con su clave privada. De esta forma obtiene su firma digital. 
+3. Envía a Bernardo el mensaje original junto con la firma. 
+Bernardo recibe el mensaje junto a la firma digital. Deberá comprobar la validez de ésta para dar por bueno el mensaje y reconocer al autor del mismo (integridad y autenticación). 
+4. Descifra el resumen del mensaje mediante la clave pública de Ana. 
+5. Aplica al mensaje la función hash para obtener el resumen. 
+6. Compara el resumen recibido con el obtenido a partir de la función hash. Si son     iguales, Bernardo puede estar seguro de que quien ha enviado el mensaje es Ana y que éste no ha sido modificado. 
+Con este sistema conseguimos: Autenticidad (la firma digital es equivalente a la firma física de un documento), Integridad (el mensaje no podrá ser modificado), No repudio en origen (el emisor no puede negar haber enviado el mensaje)
+\par
+Firma electrónica: Aplicaciones
+Aplicaciones:
+Factura electrónica
+Voto electrónico
+Contratación Electrónica (licitación electrónica y e-subasta)
+Notificación Electrónica
+Procedimientos Administrativos electrónicos
+…
+\par
+Requisitos para desarrollar Aplicaciones Web con certificados digitales
+- Establecimiento de comunicación segura SSL (certificado de servidor)
+- Validación de certificados
+- Revocación de certificados
+  -- CRL (Certificate Revocation List)
+  -- OCSP (Online Certificate Status protocol)
+- Implementación de Autenticación y Firma
+\par
+Implementación (Autenticación)
+- Instalar certificado raíz en servidor (almacén certificados máquina y habilitar todos los propósitos)
+- Configurar aplicación Web para requerir certificado digital
+- Leer el certificado (protocolo https)
+- Chequear la validez del certificado (revocación CRL - OCSP)
+\par
+Implementación eFirma
+- Elección del formato(s) de firma
+  -- PKCS#7
+  -- XMLDSIG
+  -- XADES
+- Creación de componente para firmar (activex, applet) o implementación basada en CAPICOM y Crypto
+- Implementación
+  -- CAPICOM (Internet Explorer)
+	-- Crypto (Mozilla)
+  -- Open Source (OpenSign)
+  -- JSR 105 (Java Specification Request #105 - WSDP de Java)
+
+
+
