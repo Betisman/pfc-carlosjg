@@ -154,11 +154,12 @@ Fujioka et al. defines seven requirements of a secure secret election.
 \end{enumerate}
 \par
 Según Fujioka, ``Decimos que un esquema de voto secreto es seguro si tenemos lo siguiente:
+\begin{enumerate}
 	\item Completitud (Completeness): Todos los votos válidos se cuentan correctamente.
 	\item Solidez (Soundness): Un votante deshonesto no puede interrumpir la votación.
 	\item Privacidad (Privacy): Todos los votos deben ser secretos.
-	\item _______ (Unreusability): Ningún votante puede votar dos veces.
-	\item 
+	\item ???????? (Unreusability): Ningún votante puede votar dos veces.
+\end{enumerate}
 \par
 \par
 \par
@@ -359,7 +360,7 @@ Flexible: El sistema debe ser capaz de adaptarse a distintos tipos de elecciones
 %caso de una falla del sistema instalado en una mesa, o ésta pueda ser resuelta en un tiempo
 %mínimo (incluyendo la alternativa de reemplazar el equipamiento) o, si fuera irrecuperable, los
 %electores de esa mesa puedan ser derivados a otra. 
-%ANUARIO 2004 - F.C.E. - U.N.P.S.J.B. 71Fiabilidad: El sistema debe ser fiable. La cuantificación que el sistema hace de la
+%Fiabilidad: El sistema debe ser fiable. La cuantificación que el sistema hace de la
 %intención de voto de los electores debe ser un reflejo fiel de la misma. Dicho en otros términos,
 %todos los votos emitidos válidamente deben ser correctamente contabilizados. A su vez, ningún
 %voto inválidamente emitido debe ser contabilizado.  El margen de error admitido debe ser
@@ -446,7 +447,7 @@ Permite mirgrar procesos basados en papel (que requerían firmas) a formato elect
 Garantiza la autenticidad, integridad y no repudio del mensaje firmado.
 Firma Electrónica Avanzada (ley 59/2003) ``firma electrónica que permite identificar al firmante y detectar cualquier cambio ulterior de los datos firmados, que está vinculada al firmante de manera única y a los datos a que se rfiere y que ha sido creada por medios que el firmante puede mantener bajo su exclusivo control''
 Formatos de firma electrónica:
-PKCS#7 (RSA Laboratories Inc.)
+PKCS\#7 (RSA Laboratories Inc.)
 XMLDSIG (Propuesta conjunta de estándar IETF/W3C) RFC 3075
 XAdES (XML Advanced Electronic Signatures)
 Adobe PDF
@@ -470,7 +471,7 @@ Voto electrónico
 Contratación Electrónica (licitación electrónica y e-subasta)
 Notificación Electrónica
 Procedimientos Administrativos electrónicos
-…
+...
 \par
 Requisitos para desarrollar Aplicaciones Web con certificados digitales
 - Establecimiento de comunicación segura SSL (certificado de servidor)
@@ -488,7 +489,7 @@ Implementación (Autenticación)
 \par
 Implementación eFirma
 - Elección del formato(s) de firma
-  -- PKCS#7
+  -- PKCS\#7
   -- XMLDSIG
   -- XADES
 - Creación de componente para firmar (activex, applet) o implementación basada en CAPICOM y Crypto
@@ -496,7 +497,7 @@ Implementación eFirma
   -- CAPICOM (Internet Explorer)
 	-- Crypto (Mozilla)
   -- Open Source (OpenSign)
-  -- JSR 105 (Java Specification Request #105 - WSDP de Java)
+  -- JSR 105 (Java Specification Request \#105 - WSDP de Java)
 
 
 

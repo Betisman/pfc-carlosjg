@@ -1,6 +1,14 @@
 %% Based on a TeXnicCenter-Template by Tino Weinkauf.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+%% Para arreglar el error que da el ifpdf
+%% Sacado de internet:
+%% Yes, \ifpdf is defined both in the class file and in the package ifpdf that is loaded by graphics.cfg. Workaround:
+%%  \RequirePackage{ifpdf}
+%%  \documentclass{JHEP3}
+%% Then \ifpdf will be overwritten by the class, but with a similar meaning (the class is wrong for negative numbers of \pdfoutput). But the warning of ifpdf is not triggered and the package will not be loaded again later, because the package is already loaded.
+\RequirePackage{ifpdf}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% HEADER
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -9,7 +17,6 @@
 %	Paper Size: a4paper / a5paper / b5paper / letterpaper / legalpaper / executivepaper
 % Duplex: oneside / twoside
 % Base Font Size: 10pt / 11pt / 12pt
-
 
 %% Normal LaTeX or pdfLaTeX? %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% ==> The new if-Command "\ifpdf" will be used at some
@@ -26,12 +33,12 @@
 
 %% Fonts for pdfLaTeX %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% ==> Only needed, if cm-super-fonts are not installed
-\ifpdf
+%\ifpdf
 	%\usepackage{ae}       %%Use only just one of these packages:
 	%\usepackage{zefonts}  %%depends on your installation.
-\else
+%\else
 	%%Normal LaTeX - no special packages for fonts required
-\fi
+%\fi
 
 
 %% Language %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -211,6 +218,7 @@
 %%\input{conclusiones.tex}
 %%\input{glosario.tex}
 \input{temp.tex}
+\input{tempEleccionJuntaEscuela.tex}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
