@@ -520,3 +520,39 @@ Informe sobre voto electrónico en cuanto a riesgos y seguridad:
 	\item i-vote
 	\item alemanes
 \end{enumerate}
+
+\par
+Requisitos del voto electrónico según la Guía de Implantación de la Junta de Castilla y León:
+
+\begin{description}
+	\item[Autenticidad]: Sólo los votantes autorizados pueden votar.
+	\item[Acotabilidad]: El sistema tan sólo autentica la votación dentro de las reglas establecidas.
+	\item[Anonimato]: No se puede relacionar un voto con el votante que lo ha emitido.
+	\item[Imposibilidad de coacción]: Ningún votante debe ser capaz de demostrar ante terceros qué voto ha emitido.
+	\item[Verificabilidad individual]: Cada votante deberá poder asegurarse de que su voto ha sido considerado adecuadamente, de forma que pueda obtener una prueba palpable de este hecho. Podemos distinguir dos tipos de verificabilidad individual: verificabilidad individual del contenido del voto emitido y verificabilidad individual de que el voto ha sido tenido en cuenta adecuadamente. Definida de esta forma, puede parecer que la verificabilidad individual contradice el requisito de imposibilidad de coacción, ya que cuanto más explícita es la verificación individual más riesgos de coacción pueden aparecer. No obstante, se pueden diseñar mecanismos que hagan compatibles ambos requisitos, como la temporalidad de la validez de la verificabilidad individual, de forma que se limita en el tiempo la posibilidad de la verificabilidad individual, y pasado dicho tiempo, se destruyen los ficheros.
+	\item[Verificabilidad global]: Se trata de mecanismos que permitan a ciudadanos autorizados comprobar la validez del recuento final.
+	\item[Fiabilidad]: El sistema debe garantizar que no se produce ninguna alteración de los resultados, ya sea mediante ataques intencionados o fallos en el sistema.
+	\item[Auditabilidad]: Durante el proceso de votación deben registrarse las pruebas de voto y elementos de auditoría que permitieran a las personas autorizadas disponer de garantías para comprobar que todo el proceso de votación es correcto (funcionamiento del sistema, programas, equipos, protocolos, y demás elementos), todo ello sin comprometer la integridad de la elección o la privacidad y anonimato de los votantes.
+	\item[Neutralidad]: No debe ser posible conocer resultados parciales hasta que no finalice el tiempo de la elección.
+	\item[Movilidad de los votantes]: El sistema debe permitir a los participantes que emitan su voto desde cualquier cabina o punto de votación, eliminando la restricción actual de hacerlo en el centro de votación de la zona en la cual está censado.
+	\item[Facilidad de uso]: El votante debería necesitar el mínimo de habilidades y conocimientos especiales para emitir el voto.
+	\item[Voto nulo o de rechazo]: El votante debe poder emitir un voto sin que sea contabilizado como válido para ninguna de las candidaturas propuestas ni ser considerado dentro del bloque de los votos en blanco.
+	\item[Código abierto]: El código fuente de todos los programas informáticos que se utilicen en cualquier etapa del proceso debería ser conocido y verificable por los auditores. La seguridad del sistema no debería estar basada en mantener este código secreto, sino en las claves de cifrado utilizadas en todas las fases del proceso de votación.
+	\item[Coste mínimo]: El coste del sistema de elección debería estar en consonancia con el coste del sistema convencional.
+	\item[Utilización de una red dedicada]: Tanto si se vota a través de Internet como si se vota desde cabina especializada, la red telemática en la que se apoya el sistema deberá ser, desde un punto de vista lógico, totalmente cerrada, de forma que el acceso a ella esté permitido a los agentes y actores contemplados en el sistema.
+	\item[Igualdad de oportunidades en la votación]: Todo ciudadano debe tener acceso al equipamiento técnico y procedimientos organizativos a la hora de votar.
+	\item[Flexibilidad física]: El equipamiento debe ser accesible y fácilmente utilizable por discapacitados físicos.
+	\item[Confianza]: El votante debería entender el proceso de votación para fortalecer su confianza y aceptación del sistema.
+\end{description}
+\par
+Tabla del mismo documento:
+\newcommand\litem[1]{\item{\bfseries #1,\\}}
+\begin{enumerate}
+	\item{Privacidad del voto} El voto es secreto, nadie puede saber qué ha votado un elector.
+	\item{Integridad del voto} Nadie puede cambiar un voto de un elector.
+	\item{Integridad de la votación} Nadie puede cambiar el resultado de la votación.
+	\item{Verificabilidad individual} Posibilidad de comprobar que cada voto ha sido contado correctamente.
+	\item{Verificabilidad universal} Cualquier votante puede verificar que la elección fue realizada correctamente.
+	\item{Democrático} Sólo vota el que tiene derecho a hacerlo y una única vez.
+	\item{Conveniencia de la votación} El voto debe ser fácilmente emitido desde cualquier lugar a través de diversos métodos y sin requerir habilidades especiales.
+\end{enumerate}
