@@ -22,22 +22,24 @@
 \end{enumerate}
 \begin{itemize}
 	\item Requisitos del voto electrónico
-	\par
-		Dependiendo del autor al que se recurra, se definen unos u otros requisitos diferentes para un proceso de voto electrónico. Vamos a tener en cuenta la opinión de varios autores de cara a los que consideramos en este PFC.
-	\begin{description}
-		\item[Autenticidad]: Sólo los votantes autorizados pueden votar.
-		\item[Anonimato]: El voto es secreto.
-		\item[Verificabilidad]: El votante puede asegurarse de que su voto se ha contado adecuadamente.
-		\item[Imposibilidad de coacción]: El voto emitido no puede ser mostrado.
-		\item[Posibilidad de emitir un voto nulo].
-		\item[Fiabilidad]: el sistema debe asegurar que no se producen alteraciones de los resultados.
-		\item[Auditabilidad]: se debe poder comprobar que el funcionamiento de los elementos que intervienen en el proceso es correcto.
-		\item[Usabilidad]: cualquier votante debe ser capaz de emitir un voto en un tiempo razonable.
-	\end{description}
+		\par
+			Dependiendo del autor al que se recurra, se definen unos u otros requisitos diferentes para un proceso de voto electrónico. Vamos a tener en cuenta la opinión de varios autores de cara a los que consideramos en este PFC.
+		\begin{description}
+			\item[Autenticidad]: Sólo los votantes autorizados pueden votar.
+			\item[Anonimato]: El voto es secreto.
+			\item[Verificabilidad]: El votante puede asegurarse de que su voto se ha contado adecuadamente.
+			\item[Imposibilidad de coacción]: El voto emitido no puede ser mostrado.
+			\item[Posibilidad de emitir un voto nulo].
+			\item[Fiabilidad]: el sistema debe asegurar que no se producen alteraciones de los resultados.
+			\item[Auditabilidad]: se debe poder comprobar que el funcionamiento de los elementos que intervienen en el proceso es correcto.
+			\item[Usabilidad]: cualquier votante debe ser capaz de emitir un voto en un tiempo razonable.
+\par
+******** AQUÍ HAY QUE DEFINIR LOS REQUISITOS DEL VOTO ELECTRÓNICO. DEPENDE DEL AUTOR, HAY UNOS U OTROS. HABRÁ QUE DEFINIR CUÁLES SON LOS QUE VAMOS A TENER EN CUENTA PARA ESTE PROYECTO. ESTÁN EN --TEMP-- ESPERANDO A QUE DECIDAMOS
+		\end{description}
+	\item Requisitos funcionales
+	\item Requisitos propios del voto electrónico
+	\item Requisitos del proceso electoral
 \end{itemize}
-Requisitos funcionales
-Requisitos propios del voto electrónico
-Requisitos del proceso electoral
 
 
 
@@ -57,28 +59,34 @@ Bajo coste.
 
 
 
+\section{Fases del proceso electoral}\label{fases_proceso_electoral}
 
-Fase Preelectoral
-- Elaboración del censo: Las autoridades de la Elección deben realizar un proceso de elaboriación del censo electoral, para identificar qué votantes tienen derecho a ejercer el voto y dónde (con qué opciones de vooto).
-- Registro de votantes: Puede ser necesario que, según los mecanismos de identificación a utilizar, el votante deba registrarse previamente a la elección frente a la Autoridad Electoral, con el fin de, si no existe censo electoral formalizado, introducirse en el censo de la elección o, si existe ese censo previo, obtener la acreditación identificativa necesaria para poder votar de forma remota con las garantías avaladas por la autoridad electoral.
-- Presentación de candidaturas. A efectos del sistema informático que desarrollamos es el proceso en el que la autoridad electoral define qué candidaturas pueden ser elegidas por cada votante en cada circunscripción (lógica).
-- Definición de los límites o reglas de la elección: Deben definirse de forma que no parezca ambigua las reglas electorales. Qué se vota, a quién se vota, de qué forma, cómo se cuentan los votos o se asignan los cargos. Quiénes pueden votar, cuándo comienza y finaliza el sufragio.
- 
+\begin{itemize}
+	\item Fase Preelectoral
+	\begin{description}
+		\item[Elaboración del censo]: Las autoridades de la Elección deben realizar un proceso de elaboriación del censo electoral, para identificar qué votantes tienen derecho a ejercer el voto y dónde (con qué opciones de vooto).
+		\item[Registro de votantes]: Puede ser necesario que, según los mecanismos de identificación a utilizar, el votante deba registrarse previamente a la elección frente a la Autoridad Electoral, con el fin de, si no existe censo electoral formalizado, introducirse en el censo de la elección o, si existe ese censo previo, obtener la acreditación identificativa necesaria para poder votar de forma remota con las garantías avaladas por la autoridad electoral.
+		\item[Presentación de candidaturas]: A efectos del sistema informático que desarrollamos es el proceso en el que la autoridad electoral define qué candidaturas pueden ser elegidas por cada votante en cada circunscripción (lógica).
+		\item[Definición de los límites o reglas de la elección]: Deben definirse de forma que no parezca ambigua las reglas electorales. Qué se vota, a quién se vota, de qué forma, cómo se cuentan los votos o se asignan los cargos. Quiénes pueden votar, cuándo comienza y finaliza el sufragio.
+	\end{description}
+
+\par
+\item Fase Electoral (Votación)
+	\begin{description}
+		\item[Identificación]: El primer paso del proceso de votación es el de la identificación del votante. Como ya se ha planteado, la identificación del votante es uno de los procesos críticos de una elección, pues, el sistema debe cumplir con varios requisitos básicos del voto electrónico, como puede ser el principio de autenticidad (en el que sólo los votantes autorizados pueden votar) o el democrático (por el cual el votante que tiene derecho a votar lo tiene para hacerlo tan sólo una vez).
+		\item[Votación]: El momento en el que el votante ya identificado, observa las opciones que puede elegir y ejerce su voto a una o varias de ellas (dependiendo del tipo de elección). 
+	\end{description}
+
+\item Fase postelectoral
+	\begin{description}
+		\item[Difusión de resultados]
+	\end{description}
+	
+\end{itemize}
 
 
-Fase Electoral (Votación)
-- Identificación: El primer paso del proceso de votación es el de la identificación del votante. Como ya se ha planteado, la identificación del votante es uno de los procesos críticos de una elección, pues, el sistema debe cumplir con varios requisitos básicos del voto electrónico, como puede ser el principio de autenticidad (en el que sólo los votantes autorizados pueden votar) o el democrático (por el cual el votante que tiene derecho a votar lo tiene para hacerlo tan sólo una vez).
-- Votación: El momento en el que el votante ya identificado, observa las opciones que puede elegir y ejerce su voto a una o varias de ellas (dependiendo del tipo de elección). 
 
-Identificación
-La identificación es la primera fase del proceso de votación. 
-
-Fase postelectoral
-- Difusión de resultados.
-
-
-
-
+		\subsection{Fase preelectoral}\label{fase_electoral_preelectoral}
 Identificación del votante
 El primer paso de un votante a la hora de emitir su voto, en el sistema de voto tradicional es identificarse ante los miembros de la mesa electoral. Para ello, en elecciones como las que organizan el Ministerio de Interior en España o las diferentes Comunidades Autónomas, el votante hace uso de un documento que verifique su identidad. En España, este documento es el DNI, aunque también se puede hacer uso del Pasaporte. En otros países en los que se carece de un documento oficial de identidad expedido por las autoridades del Estado, se realiza un registro biométrico de los votantes con, por ejemplo, las huellas dactilares de los mismos.
 En el caso de las Elecciones a la Junta de Escuela de la EPS CEU, la identificación de los votantes...
