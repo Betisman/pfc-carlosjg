@@ -1,6 +1,3 @@
-%% Based on a TeXnicCenter-Template by Tino Weinkauf.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %% Para arreglar el error que da el ifpdf
 %% Sacado de internet:
 %% Yes, \ifpdf is defined both in the class file and in the package ifpdf that is loaded by graphics.cfg. Workaround:
@@ -128,6 +125,17 @@
 %% FIN MARCADEAGUA
 \usepackage{wallpaper}
 
+%% SVN Version
+\usepackage{svn-multi}
+\svnidlong
+{$HeadURL$}
+{$LastChangedDate$}
+{$LastChangedRevision$}
+{$LastChangedBy$}
+\svnid{$Id$}
+%% Based on a TeXnicCenter-Template by Tino Weinkauf.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 %% Links en la tabla de contenidos
 %\usepackage[linktoc=all]{hyperref}
@@ -181,8 +189,11 @@
 \author{José Carlos Jiménez Gómez}
 %\date{7 de febrero de 2012} %%If commented, the current date is used.
 
+
 \maketitle
  
+
+
 
 %% The nice version:
 %\input{titlepage} %%You need a file 'titlepage.tex' for this.
@@ -190,12 +201,15 @@
 %% ==> with its templates (File | New from Template...).
 
 
+\input{version.tex}
 
-%% Introducción %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\input{agradecimientos.tex}
+%% Resumen, abstract y agradecimientos %%%%%%%%%%%%%%%%%%%%%%%%
 \input{resumen.tex}
 \input{abstract.tex}
+\input{agradecimientos.tex}
+
+
+%% Introducción %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \input{introduccion.tex}
 
 
