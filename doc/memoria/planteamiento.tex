@@ -64,10 +64,10 @@ Bajo coste.
 \begin{itemize}
 	\item Fase Preelectoral
 	\begin{description}
-		\item[Elaboración del censo]: Las autoridades de la Elección deben realizar un proceso de elaboriación del censo electoral, para identificar qué votantes tienen derecho a ejercer el voto y dónde (con qué opciones de vooto).
+		\item[Definición de los límites o reglas de la elección]: Deben definirse de forma que no parezca ambigua las reglas electorales. Qué se vota, a quién se vota, de qué forma, cómo se cuentan los votos o se asignan los cargos. Quiénes pueden votar, cuándo comienza y finaliza el sufragio.
+		\item[Elaboración del censo]: Las autoridades de la Elección deben realizar un proceso de elaboriación del censo electoral, para identificar qué votantes tienen derecho a ejercer el voto y dónde (con qué opciones de voto).
 		\item[Registro de votantes]: Puede ser necesario que, según los mecanismos de identificación a utilizar, el votante deba registrarse previamente a la elección frente a la Autoridad Electoral, con el fin de, si no existe censo electoral formalizado, introducirse en el censo de la elección o, si existe ese censo previo, obtener la acreditación identificativa necesaria para poder votar de forma remota con las garantías avaladas por la autoridad electoral.
 		\item[Presentación de candidaturas]: A efectos del sistema informático que desarrollamos es el proceso en el que la autoridad electoral define qué candidaturas pueden ser elegidas por cada votante en cada circunscripción (lógica).
-		\item[Definición de los límites o reglas de la elección]: Deben definirse de forma que no parezca ambigua las reglas electorales. Qué se vota, a quién se vota, de qué forma, cómo se cuentan los votos o se asignan los cargos. Quiénes pueden votar, cuándo comienza y finaliza el sufragio.
 	\end{description}
 
 \par
@@ -87,46 +87,127 @@ Bajo coste.
 
 
 		\subsection{Fase preelectoral}\label{fase_electoral_preelectoral}
-Identificación del votante
-El primer paso de un votante a la hora de emitir su voto, en el sistema de voto tradicional es identificarse ante los miembros de la mesa electoral. Para ello, en elecciones como las que organizan el Ministerio de Interior en España o las diferentes Comunidades Autónomas, el votante hace uso de un documento que verifique su identidad. En España, este documento es el DNI, aunque también se puede hacer uso del Pasaporte. En otros países en los que se carece de un documento oficial de identidad expedido por las autoridades del Estado, se realiza un registro biométrico de los votantes con, por ejemplo, las huellas dactilares de los mismos.
+			\subsubsection{Definición de los límites o reglas de la elección}\label{fase_electoral_preelectoral_reglas}
+				\par
+				Para ejercer la democracia de forma correcta las ''reglas del juego'' deben estar bien definidas, de forma clara y concisa, estableciendo los límites, los mecanismos, las fechas y todo lo necesario para una correcta interpretación, sin lugar a ambigüedades.
+				(...)
+				\par
+				Estas reglas de la elección son responsabilidad de la Autoridad Electoral encargada de la organización de los comicios, así como del organismo que los convoca. De cara al sistema informático, esta fase preelectoral es la que sienta las bases de la lógica de negocio del sistema. Ya que define las reglas que el sistema deberá cumplir para llevar a cabo correctamente la elección.
+				(...)
+			
+			\subsubsection{Elaboración del censo}\label{fase_electoral_preelectoral_censo}
+				\par
+				Uno de los cometidos de la Autoridad Electoral previamente a la celebración de unos comicios es la elaboración de un censo electoral completo y fiable que les permita tener un control de cuánta gente y quiénes disfrutan del derecho a votar. Además, este censo debe recoger a qué circunscripción pertenece cada votante y la mesa/urna donde debe realizar su voto.
+				\par
+				Una circunscripción es una división electoral. Pensando en elecciones legislativas de España, por ejemplo, casi todas las provincias son unicircunscripcionales, excepto Asturias, que se conforma con 3 circunscripciones y la Región de Murcia, compuesta por 5 circunscripciones. Sin embargo, para las Elecciones al Parlamento Europeo, España registra sus votos como una única circunscripción.
+				\par
+				Al asignar cargos basándose en circunscripciones, es básico que en el censo esté definido en cuál de ellas vota cada votante. Además, en cada circunscripción, los candidatos varían, por lo que las papeletas entre las que cada votante puede elegir no serán iguales de unas circunscripciones a otras.
+				\par
+				Extrapolando a las Elecciones a la Junta de Escuela de la EPS, podemos identificar varias de estas circunscripciones, a saber:
+				\begin{itemize}
+					\item Alumnos, por titulación: Arquitectura, Ingeniería Informática, Ingeniería de Telecomunicaciones e Ingeniería de la Edificación
+					\item Profesores, por categoría: colaboradores, adjuntos, agregados y catedráticos.
+				\end{itemize}
+				\par
+				Podemos asumir, entonces que hay 8 circunscripciones. Por las normas de estas elecciones, para cada circunscripción se eligen 2 representantes que serán los que acaben formando la Junta de Escuela, con 16 cargos electos.
+				\par
+				\par
+				La Universidad deberá elaborar un censo con los alumnos y profesores que tienen derecho a votar en las Elecciones, así como definir en qué circunscripción lo harán, para que tengan conocimiento de entre qué candidatos pueden elegir a sus representantes. De cara al sistema, es importante conocer estas divisiones, tanto para el conteo de los votos, como para la gestión de los candidatos en el momento en el que se presentan al votante.
+				\par
+				Por tanto, es necesario tener un sistema que cargue el censo electoral elaborado por la Universidad, así como la definición de las circunscripciones y la relación entre estas y el propio censo de votantes.
+				
+			\subsubsection{Registro de votantes}\label{fase_electoral_preelectoral_registro}
+				\par
+				Pese a que el censo tiene que ser elaborado antes de cada elección, puede ser que la forma que tiene un organismo de conformarlo es a través de un registro de votantes. 
+				\par
+				Así, en lugar de tener una institución dedicada a definir el censo del país, como en España puede ser el INE, a partir del cual se extrae el censo electoral según el comicio (éste dependerá del tipo de elección y de la circunscipción electoral ******** ¿Ejemplo censo diferente en Buenos Aires para Jefe de Gobierno y para Legislativas?*******); se da el caso de que el Estado no contabiliza automáticamente como votantes a sus ciudadanos al cumplir los 18 años (o la edad mínima para votar, dependiendo del país / territorio), sino que es responsabilidad del propio ciudadano el inscribirse en el registro de votantes.
+				******* Esto hay que cambiarlo, no vale *********
+				\par
+				************ Registro de votantes como mecanismo para la posterior identificación??? Si no podemos usar DNIe, pero se usa una smartcard, habría que realizar el mapeo de la Id del votante con los certificados de la smartcard.... ************
+						
+			\subsubsection{Presentación de las candidaturas}\label{fase_electoral_preelectoral_candidaturas}
+				\par
+					Una vez definido tanto el censo como las divisiones electorales, tienen que presentarse las candidaturas. 
+					(...)
+					
+					
+					
+					
+		\subsection{Fase electoral}\label{fase_electoral_electoral}
+			\subsubsection{Identificación del votante}\label{fase_electoral_electoral_identificacion}
+				\par
+				El primer paso de un votante a la hora de emitir su voto, en el sistema de voto tradicional es identificarse ante los miembros de la mesa electoral. Para ello, en elecciones como las que organizan el Ministerio de Interior en España o las diferentes Comunidades Autónomas, el votante hace uso de un documento que verifique su identidad. En España, este documento es el DNI, aunque también se puede hacer uso del Pasaporte. En otros países en los que se carece de un documento oficial de identidad expedido por las autoridades del Estado, se realiza un registro biométrico de los votantes con, por ejemplo, las huellas dactilares de los mismos.
 En el caso de las Elecciones a la Junta de Escuela de la EPS CEU, la identificación de los votantes...
 
-Una vez identificado al votante, se le tiene que cotejar con el censo de la elección o de la mesa en la que ha sido identificado. En países como España, la elaboración del censo corre a cargo del INE (Instituto Nacional de Estadística) y reparte a los votantes en diferentes mesas repartidas en locales electorales. En otros estados, este censo no existe y se requiere que sea la ciudadanía la que se registre en un Registro de Votantes, con lo que si no se ha acudido a tiempo de realizar este trámite, la persona pierde su derecho al voto.
+				\par
+				Una vez identificado al votante, se le tiene que cotejar con el censo de la elección o de la mesa en la que ha sido identificado. En países como España, la elaboración del censo corre a cargo del INE (Instituto Nacional de Estadística) y reparte a los votantes en diferentes mesas repartidas en locales electorales. En otros estados, este censo no existe y se requiere que sea la ciudadanía la que se registre en un Registro de Votantes, con lo que si no se ha acudido a tiempo de realizar este trámite, la persona pierde su derecho al voto.
 
-Para dejar constancia de que un votante ya ha ejercido su derecho al voto, en países como España es tan simple como que los miembros de la mesa electoral lo reflejen en una lista con el censo de su mesa. En otros territorios, sin embargo, la costumbre es marcar de alguna forma a aquellas personas que han votado, como puede ser manchar algún dedo de la mano con tinta indeleble, para que, si volviese a votar a otra mesa, se observara que ya lo había hecho previamente.
+				\par
+				Para dejar constancia de que un votante ya ha ejercido su derecho al voto, en países como España es tan simple como que los miembros de la mesa electoral lo reflejen en una lista con el censo de su mesa. En otros territorios, sin embargo, la costumbre es marcar de alguna forma a aquellas personas que han votado, como puede ser manchar algún dedo de la mano con tinta indeleble, para que, si volviese a votar a otra mesa, se observara que ya lo había hecho previamente.
 
-En un sistema de voto por internet no hay una interacción directa entre el votante y la autoridad electoral, que es quien debe permitirle votar. Por ello, es muy importante que los mecanismos para identificar al votante sean precisos y confiables. Por ello, hay que valorar qué metodo de identificación es el mejor para cumplir con los requisitos de la elección, incluídos ahí los inherentes al voto electrónico telemático y remoto.
+				\par
+				En un sistema de voto por internet no hay una interacción directa entre el votante y la autoridad electoral, que es quien debe permitirle votar. Por ello, es muy importante que los mecanismos para identificar al votante sean precisos y confiables. Por ello, hay que valorar qué metodo de identificación es el mejor para cumplir con los requisitos de la elección, incluídos ahí los inherentes al voto electrónico telemático y remoto.
 
-- Usuario / contraseña.
-Para las elecciones de la Junta de Escuela de la EPS, el método de usar un par usuario / contraseña es algo muy simple y válido al mismo tiempo. El censo está bastante acotado y, al ser todos los potenciales votantes miembros de la Universidad, poseen un correo corporativo proporcionado por esta. El proceso sería tan fácil como, por ejemplo, usar la dirección de correo electrónico de cada alumno / profesor / trabajador de la Escuela como nombre de usuario y enviarles un email a cada uno con una clave aleatoria generada por la autoridad electoral.
-Esta solución, de todas formas, sería inviable para elecciones más ambiciosas, como lo son las legislativas estatates o autonómicas, ya que carecemos de elementos como direcciones de correo electrónico de todo el censo.
+				\par
+				\begin{itemize}
+					\item Usuario / contraseña.
+						\par
+						Para las elecciones de la Junta de Escuela de la EPS, el método de usar un par usuario / contraseña sería una solución sencilla. El censo está bastante acotado y, al ser todos los potenciales votantes miembros de la Universidad, poseen una cuenta de correo electrónico corporativa proporcionada por ésta. El proceso sería tan fácil como, por ejemplo, usar la dirección de correo electrónico de cada alumno / profesor / trabajador de la Escuela como nombre de usuario y enviarles un email a cada uno con una clave aleatoria generada por la autoridad electoral.
+						\par
+						Esta solución, no obstante, sería inviable para elecciones más ambiciosas, como lo son las legislativas estatates o autonómicas, ya que carecemos de elementos como direcciones de correo electrónico de todo el censo.
 
-- DNIe
-Lo ideal para una elección por el sistema de voto por internet es implementar un proceso que resulte sencillo al votante, ya que si resulta ser más complicado que el voto tradicional, el votante no le verá sentido y no hará uso de él.
+					\item DNIe
+						\par
+						Lo ideal para una elección por el sistema de voto por internet es implementar un proceso que resulte sencillo al votante, ya que si resulta ser más complicado que el voto tradicional, el votante no le verá sentido y no hará uso de él.
 Con este planteamiento, parece que el uso del DNIe es una buena idea. Por un lado, es un documento oficial que llevamos normalmente con nosotros en todo momento. Además es el mismo documento que nos identifica en las elecciones tradicionales, con lo que para el votante no debería suponer ninguna suspicacia ni trauma, al estar completamente insertado en la sociedad su uso para este cometido (asumimos en este supuesto que la implatación del DNIe en España es casi completo, que el votante ya no necesita acudir a una comisaría a solicitarlo y que los certificados no están caducados).
-Ventajas del uso del DNIe como identificador del votante:
-- Documento expedido por las propias Autoridades del Estado, quienes lo avalan.
-- Seguridad.
-- La gente lo lleva consigo constantemente y está acostumbrada a usarlo para identificarse o, incluso, para realizar otro tipo de actividades en internet, como obtener certificados de Organismos Públicos, banca por internet, etc.
-- Es el mismo documento que ya se utiliza para identificarse en las elecciones presenciales tradicionales.
-Inconvenientes del DNIe:
-- Extranjeros con derecho a voto pueden no tener DNIe, pero deberían poder votar con el pasaporte.
-- Certificados caducados. Que los certificados que lleva consigo el DNIe no tengan la misma fecha de caducidad que el propio documento es un punto en contra, ya que los usuarios no lo renuevan al ver que no tienen que hacerlo con el documento físico.
-- Rotura del chip que contiene los certificados.
-- Limitaciones técnicas para las aplicaciones web. En el estado actual de la tecnología, es necesario hacer uso de un applet de Java para poder firmar con el DNIe. De cara a la identificación, ya hay software Javascript que se salta este paso, aunque no a la hora de firmar, para lo cual, hoy por hoy, no hay alternativa. Este detalle es una limitación importante, quizá no para el oto electrónico, pero sí para el voto universal por internet, ya que requiere de más tecnología que simplemente un dispositivo conectado a internet y un lector. Además, el uso de applets está cada vez peor visto en Internet y se recomienda no implementar alternativas basadas en el estándar W3C. Por desgracia, este organismo todavía no tiene definido de una manera versátil cómo afrontar el problema de la criptografía en los nuevos estándares web.
-- Necesidad de HW externo, como son los lectores de Smartcard. Para poder utilizar el DNIe como identificador, el sistema tiene que poder leer los datos que le indica. Si hacemos uso de los certificados que contiene, necesitamos un lector externo, lo cual quizás no sea un problema si usamos un PC que tenemos en casa, pero sí que puede serlo cuando queremos votar desde otro ordenador o incluso desde un dispositivo móvil, donde ya no es tan simple que tengamos este lector y que sea compatible.
+						\par
+						Ventajas del uso del DNIe como identificador del votante:
+							\begin{itemize}
+								\item Documento expedido por las propias Autoridades del Estado, quienes lo avalan.
+								\item Seguridad.
+								\item La gente lo lleva consigo constantemente y está acostumbrada a usarlo para identificarse o, incluso, para realizar otro tipo de actividades en internet, como obtener certificados de Organismos Públicos, banca por internet, etc.
+								\item Es el mismo documento que ya se utiliza para identificarse en las elecciones presenciales tradicionales.
+							\end{itemize}
+						\par
+						Inconvenientes del DNIe:
+							\begin{itemize}
+								\item Extranjeros con derecho a voto pueden no tener DNIe, pero deberían poder votar con el pasaporte.
+								\item Certificados caducados. Que los certificados que lleva consigo el DNIe no tengan la misma fecha de caducidad que el propio documento es un punto en contra, ya que los usuarios no lo renuevan al ver que no tienen que hacerlo con el documento físico.
+								\item Rotura del chip que contiene los certificados.
+								\item Limitaciones técnicas para las aplicaciones web. En el estado actual de la tecnología, es necesario hacer uso de un applet de Java para poder firmar con el DNIe. De cara a la identificación, ya hay software Javascript que se salta este paso, aunque no a la hora de firmar, para lo cual, hoy por hoy, no hay alternativa. Este detalle es una limitación importante, quizá no para el oto electrónico, pero sí para el voto universal por internet, ya que requiere de más tecnología que simplemente un dispositivo conectado a internet y un lector. Además, el uso de applets está cada vez peor visto en Internet y se recomienda no implementar alternativas basadas en el estándar W3C. Por desgracia, este organismo todavía no tiene definido de una manera versátil cómo afrontar el problema de la criptografía en los nuevos estándares web.
+								\item Necesidad de HW externo, como son los lectores de Smartcard. Para poder utilizar el DNIe como identificador, el sistema tiene que poder leer los datos que le indica. Si hacemos uso de los certificados que contiene, necesitamos un lector externo, lo cual quizás no sea un problema si usamos un PC que tenemos en casa, pero sí que puede serlo cuando queremos votar desde otro ordenador o incluso desde un dispositivo móvil, donde ya no es tan simple que tengamos este lector y que sea compatible.
 Cierto es que podríamo hacer uso de la banda MRZ del documento escaneándola pero... (******** no estoy seguro, qué pasa con fotocopias??, yo me fiaría de los certificados).
+							\end{itemize}
 
-- MobID
-El Gobierno de Estonia, para sus comicios por internet está desarrollando una tecnología en la que el propio smartphone es la herramietna que sirve para identificarnos. Parece una buena opción, pues hoy por hoy, es bastante común que llevemos el smartphone con nosotros de la misma forma que llevamos el DNI. Además, es un dispositivo muy personal, que no se suele compartir, por lo que podría realizarse una identificación unívoca entre el usuario-votante y su registro en el censo electoral.
+					\item MobID
+						\par
+						El Gobierno de Estonia, para sus comicios por internet está desarrollando una tecnología en la que el propio smartphone es la herramietna que sirve para identificarnos. Parece una buena opción, pues hoy por hoy, es bastante común que llevemos el smartphone con nosotros de la misma forma que llevamos el DNI. Además, es un dispositivo muy personal, que no se suele compartir, por lo que podría realizarse una identificación unívoca entre el usuario-votante y su registro en el censo electoral.
 (******** hay que mirar bien esto, pues no sé si habrá algo desarrollado, de todos modos, en España esto ni se contempla)
 
-- Smartcard
-Otra opción posible es el uso de una smartcard que contenga certificados emitidos por la Autoridad Electoral para cada votante. Los inconvenientes de este método son varios:
+					\item Smartcard
+						\par
+						Otra opción posible es el uso de una smartcard que contenga certificados emitidos por la Autoridad Electoral para cada votante. Los inconvenientes de este método son varios:
 - Por un lado, requiere un registro previo de los votantes, pues hay que generarles los certificados.
 - Un problema logístico ya que, una vez generados los certificados e introducidos en las tarjetas, éstas deben hacerse llegar a los votantes que las van a utilizar. Este paso, en unas elecciones a gran escala puede suponer un esfuerzo injustificado.
 
+				\end{itemize}
 
 En el caso de las Elecciones a la Junta de Escuela de la EPS, podemos pensar en la primera opción. No obstante, como se explica en próximos capítulos, el hecho de necesitar certificados de firma para cifrar y firmar el voto por seguridad, nos hace que tengamos que plantearnos una solución para este problema. Con una simple indentificación de usuario / contraseña no lo vamos a poder resolver, así que se tiene que buscar una alternativa. Sería inteligente tratar de buscar una alternativa que sirva tanto para el paso de votación como para el de identificación, por seguridad, así que podríamos pensar en DNIe. Pero en la Universidad podemos tener miembros del censo que no posean este documento (estropeado, caducado, extranjeros). La forma que tiene la Universidad de acreditar que un alumno forma parte de ella es con un carnet universitario que se entrega tanto a alumnos como a profesionales. Podría ser este documento, el oficial en la Escuela, el que se use como identificador de votante, con lo que estamos hablando de utilizar una smartcard especial, emitida por la propia Autoridad Electoral de forma previa. ( *********** Lo que pasa es que me temo que estas tarjetas no tienen certificados, con lo que tampoco van a valer para la votación).
 
+			\subsubsection{Votación}\label{fase_electoral_electoral_votacion}
+				\par
+				En el sistema tradicional, el momento de la votación es aquel en el que el votante  deposita su voto en la urna tras haber escogido la papeleta o marcado la boleta de candidatos y habe sido identificado correctamente por los miembros de la mesa electoral.
+				\par
+				Este proceso es al que estamos habituados en los territorios con una cierta historia democrática. En principio, parece bastante transparente, en cuanto a que el votante puede confirmar sin ninguna duda que su voto, efectivamente, se encuentra dentro de la urna sellada, junto con el resto de votos de la mesa.
+				\par
+				Aquí encontramos el primer detalle controvertido con respecto al voto por internet. El votante no tiene constancia física de que su voto se ha depositado en la urna correcta, ni siquiera de si está en alguna urna. No ''se ve''.
+				\par
+				Es más, sabe que ha introducido en la urna la papeleta que tenía en su mano, que sabe cuál es porque él mismo la ha elegido. Pero en el sistema informático, no sabe si ocurre lo mismo. Puede pensar que aunque haya seleccionado un candidato y el sistema le diga que ha contabilizado su voto por éste, realmente, por detrás esté cambiando el voto y registrando a otro candidato diferente.
+				\par
+				Es misión del sistema informático proveer al votante de mecanismos que le permitan verificar todas estas cuestiones. Hay que diseñar el sistema para que haya confianza en él. Quizá esta sea la mayor de las barreras existentes en la actualidad para la implatación del voto por internet, la falta de confianza.
+				\par
+				No es por falta de métodos seguros o carencia de medios criptográficos. El problema es que no es fácil que el elector confíe en el proceso, ya que, a priori, parece una gran caja negra.
 
+
+
+		\subsection{Fase postelectoral}\label{fase_electoral_postelectoral}
