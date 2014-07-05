@@ -108,23 +108,9 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Marca de agua (mientras se escribe el documento)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%% Código para poner una marca de agua mientras escribimos el documento.
-%% Recomiendo buscar el tag MARCADEAGUA por el documento para ver dónde se usa.
-
-%\usepackage{eso-pic}
-%\newcommand\BackgroundPic{
-	%\put(0,0){
-		%\parbox[b][\paperheight]{\paperwidth}{
-			%\vfill
-			%\centering
-			%\includegraphics[width=\paperwidth, height=\paperheight, keepaspectratio]{imgs/marcadeagua_endesarrollo.png}
-			%\vfill
-		%}
-	%}
-%}
-%% FIN MARCADEAGUA
 \usepackage{wallpaper}
+
+
 
 %% SVN Version
 \usepackage{svn-multi}
@@ -156,7 +142,6 @@
 \begin{document}
 
 %% MARCADEAGUA
-%\AddToShipoutPicture{\BackgroundPic}
 \ULCornerWallPaper{1}{imgs/marcadeagua_endesarrollo.png}
 %% FIN MARCADEAGUA
 
@@ -291,10 +276,5 @@
 %%\input{anexo1.tex}
 %%\input{anexo2.tex}
 %%\input{anexo3.tex}
-
-%% MARCADEAGUA
-%\ClearShipoutPicture
-%% FIN MARCADEAGUA
-
 \end{document}
 
