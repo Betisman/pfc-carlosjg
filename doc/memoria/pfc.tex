@@ -56,6 +56,25 @@
 %\usepackage{pst-all} %%PSTricks - not useable with pdfLaTeX
 
 
+
+% will apply to all captions
+\usepackage[labelfont={footnotesize},textfont={it,footnotesize}]{caption}
+% will apply to all subcaptions
+\usepackage[labelfont={footnotesize},textfont={it,footnotesize},singlelinecheck=off,justification=raggedright]{subcaption}
+%Command             10pt    11pt    12pt
+%\tiny               5       6       6
+%\scriptsize         7       8       8
+%\footnotesize       8       9       10
+%\small              9       10      10.95
+%\normalsize         10      10.95   12
+%\large              12      12      14.4
+%\Large              14.4    14.4    17.28
+%\LARGE              17.28   17.28   20.74
+%\huge               20.74   20.74   24.88
+%\Huge               24.88   24.88   24.88
+
+
+
 %% Math Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \usepackage{amsmath}
 \usepackage{amsthm}
@@ -206,24 +225,25 @@
 %% Indice %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \lhead{}
 \rhead{Índice General}
+\addcontentsline{toc}{chapter}{Índice General}
 \tableofcontents %Table of contents
 
 %% The List of Figures
 \clearpage
-%\addcontentsline{toc}{chapter}{Índice de Figuras}
+\addcontentsline{toc}{chapter}{Índice de Figuras}
 \listoffigures
 
 %% The List of Tables
 \clearpage
 \renewcommand{\tablename}{Tabla}
 \renewcommand{\listtablename}{Índice de tablas}
-%\addcontentsline{toc}{chapter}{Índice de Tablas}
+\addcontentsline{toc}{chapter}{Índice de Tablas}
 \listoftables
 
 \pagestyle{fancy} 
 %\pagestyle{plain} %Now display headings: headings / fancy / ...
 
-
+\newpage
 
 %% Chapters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% ==> Write your text here or include other files.
