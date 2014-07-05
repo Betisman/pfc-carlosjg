@@ -1,0 +1,71 @@
+%% Based on a TeXnicCenter-Template by Tino Weinkauf.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Deckblatt
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%
+%% ATTENTION: You need a main file to use this one here.
+%%            Use the command "\input{filename}" in your
+%%            main file to include this file.
+%%
+
+%% Definición de autor, título y fecha para reutilizar
+\author{José Carlos Jiménez Gómez}
+\title{<TÍTULO DEL\\
+PROYECTO FINAL DE CARRERA>}
+\date{\today}
+
+\makeatletter	%% Para poder usar las definiciones anteriores. Hay que cerrar con \makeatother
+
+\begin{titlepage}
+\begin{center}
+
+\Large
+\vspace{1cm}
+\textsf{UNIVERSIDAD SAN PABLO - CEU\\}
+\vspace{1cm}
+\large
+\textsf{ESCUELA POLITÉCNICA SUPERIOR\\}
+\vspace{2cm}
+\textsf{INGENIERÍA INFORMÁTICA\\}
+\vspace{2cm}
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.30\textwidth]{imgs/logoceu.jpg}
+		%\includegraphics[width=0.50\textwidth]{imgs/logo_usp_12star.jpg}
+	\label{fig:logoceu}
+\end{figure}
+%\begin{figure}
+	%\centering
+		%\includegraphics[width=0.50\textwidth]{imgs/logo_usp_12star.jpg}
+%\end{figure}
+
+\large
+\vspace*{2cm}
+\textsf{PROYECTO FINAL DE CARRERA\\}
+
+\Large
+\vspace*{1cm}
+\textsf{\@title}
+\vspace{1cm}
+
+\large
+\textsf{Autor: \@author\\
+Director: Raúl García García}
+\vspace{1cm}
+
+
+%\textsf{Enero 2008}\\ %%Date - better you write it yourself.
+\textsf{\date{\today}}\\ %%Date - better you write it yourself.
+\date{\today}
+
+\@date
+
+
+\end{center}
+
+\end{titlepage}
+
+\makeatother	%% Necesario este ''cierre'' para el \makeatletter para poder usar las referencias a title, author y date

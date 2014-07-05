@@ -79,6 +79,7 @@
 \usepackage{longtable} %%For tables, that exceed one page
 \usepackage{rotating} %%permite rotar tablas
 \usepackage{multirow} %% permite tener multilineas en una tabla
+\usepackage[left=3cm, right=3cm, top=3cm, bottom=3cm]{geometry}
 
 \usepackage{wrapfig}
 
@@ -138,16 +139,16 @@
 
 
 %% Links en la tabla de contenidos
-%\usepackage[linktoc=all]{hyperref}
-%\setcounter{secnumdepth}{0}
+\usepackage[linktoc=all]{hyperref}
+\setcounter{secnumdepth}{0}
 %\usepackage{titlesec}
-%\hypersetup{
-    %colorlinks,
-    %citecolor=black,
-    %filecolor=black,
-    %linkcolor=black,
-    %urlcolor=black
-%}
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=blue
+}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% DOCUMENT
@@ -179,38 +180,42 @@
 %% ==> Write your text here or include other files.
 
 %% The simple version:
-\begin{figure}
-	\centering
-		\includegraphics[width=0.50\textwidth]{imgs/logo_usp_12star.jpg}
-\end{figure}
-
-
-\title{Aquí va el nombre del proyecto}
-\author{José Carlos Jiménez Gómez}
-%\date{7 de febrero de 2012} %%If commented, the current date is used.
-
-
-\maketitle
+%\begin{figure}
+	%\centering
+		%\includegraphics[width=0.50\textwidth]{imgs/logo_usp_12star.jpg}
+%\end{figure}
+%
+%
+%\title{Aquí va el nombre del proyecto}
+%\author{José Carlos Jiménez Gómez}
+%%\date{7 de febrero de 2012} %%If commented, the current date is used.
+%
+%
+%\maketitle
  
 
 
 
 %% The nice version:
-%\input{titlepage} %%You need a file 'titlepage.tex' for this.
+\input{titlepage} %%You need a file 'titlepage.tex' for this.
 %% ==> TeXnicCenter supplies a possible titlepage file
 %% ==> with its templates (File | New from Template...).
 
-
+%% Página temporal que muestra la revisión del SVN de la documentación
 \input{version.tex}
+
+%% Página reservada para la calificación del proyecto
+\input{calificacion.tex}
+
+
+\renewcommand{\thepage}{\roman{page}}
+%\setcounter{page}{1}
+
 
 %% Resumen, abstract y agradecimientos %%%%%%%%%%%%%%%%%%%%%%%%
 \input{resumen.tex}
 \input{abstract.tex}
 \input{agradecimientos.tex}
-
-
-%% Introducción %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\input{introduccion.tex}
 
 
 %% Indice %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -220,23 +225,27 @@
 
 %% The List of Figures
 \clearpage
-\addcontentsline{toc}{chapter}{Índice de Figuras}
+%\addcontentsline{toc}{chapter}{Índice de Figuras}
 \listoffigures
 
 %% The List of Tables
 \clearpage
 \renewcommand{\tablename}{Tabla}
 \renewcommand{\listtablename}{Índice de tablas}
-\addcontentsline{toc}{chapter}{Índice de Tablas}
+%\addcontentsline{toc}{chapter}{Índice de Tablas}
 \listoftables
 
-\pagestyle{fancy}
+\pagestyle{fancy} 
 %\pagestyle{plain} %Now display headings: headings / fancy / ...
 
 
 
 %% Chapters %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% ==> Write your text here or include other files.
+\renewcommand{\thepage}{\arabic{page}}
+%\setcounter{page}{1}
+
+\input{introduccion.tex}
 
 \input{planteamiento.tex}
 \input{riesgos.tex}
@@ -266,7 +275,7 @@
 %% ==> You need to run BibTeX for this (Project | Properties... | Uses BibTeX)
 \addcontentsline{toc}{chapter}{Bibliografía} %'Bibliography' into toc
 \nocite* %Even non-cited BibTeX-Entries will be shown.
-\bibliographystyle{unsrt} %Style of Bibliography: plain / apalike / amsalpha / ...
+\bibliographystyle{amsalpha} %Style of Bibliography: plain / apalike / amsalpha / ...
 \bibliography{biblio} %You need a file 'literature.bib' for this.
 \rhead{Bibliografía}
 
