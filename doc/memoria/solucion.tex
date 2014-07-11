@@ -18,3 +18,30 @@
 		\caption{Diagrama de flujo del Sistema}
 		\label{fig:sistema}
 	\end{figure}
+	
+	
+	
+
+	\section{Roles}
+		Considerando el flujo del votante en el sistema, identificamos 4 roles en el sistema que deben ser tenidos en cuenta de cara a las funcionalidades, privilegios y responsabilidades que tienen que encontrar en el uso del mismo.
+		\begin{itemize}
+			\item Votante
+			\item Administrador
+				El administrador es el rol encargado de gestión de las fases electorales.\\
+				Tiene responsabilidad y potestad de:
+					\begin{itemize}
+						\item Iniciar el proceso electoral.
+						\item Iniciar el proceso de votación.
+						\item Terminar el proceso de votación.
+						\item Apertura de la urna
+						\item Apertura de los canales de difusión de resultados.
+					\end{itemize}
+				Los usuarios con este rol no puede votar. El administrador de la elección no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.
+			\item Miembro de la Junta Electoral ***************** CAMBIAR EL NOMBRE ***********************
+				Una vez el administrador de la elección dé por finalizado el proceso electoral, se requerirá que varios miembros de la Junta Electoral proporcionen unas claves personales que, juntando varias de ellas, servirán como llave lógica para la apertura de la urna que contiene los votos.\\
+				Los usuarios con este rol no puede votar. El miembro de la Junta Electoral no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.
+			\item Auditor
+				El auditor debe tener acceso a una serie de funcionalidades del sistema. Su función es velar porque el desarrollo del proceso electoral se realiza sin ningún tipo de fallo o de interferencia por parte de algún atacante.\\
+				Los usuarios con este rol no puede votar. El auditor no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.\\
+				Su misión es de control, por lo que ninguna acción que realice en el sistema puede afectar al desarrollo de la elección.
+		\end{itemize}
