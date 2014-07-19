@@ -211,9 +211,12 @@ En el caso de las Elecciones a la Junta de Escuela de la EPS, podemos pensar en 
 			Con la trascendencia que tiene un sistema de votación electrónico, es básico procurar de sistemas precisos y confiables para una auditoría interna o externa. Se trata de desarrollar herramientas y procedimientos que permitan corroborar el perfecto funcionamiento del sistema sin interferir en el mismo ni violar los principios de privacidad del voto secreto.\\
 			
 			Una de las herramientas que se usan para este caso, son los logs del sistema.\\
+			
 			Con los logs, se va escribiendo uno o varios ficheros con trazas que indican los pasos que se han llevado a cabo en cada momento o elementos que han afectado al sistema de una u otra forma.\\
+			
 			En el caso de este sistema, es muy importante tener registrada la mayor parte de las acciones que ocurren en el mismo. Desde los accesos a web, intentos de autenticación, votaciones, hasta las acciones de los administradores del comicio, los miembros de la Junta Electoral encargados de proporcionar las claves para desccrifrar o los propios auditores.\\
 			No obstante, un exahustivo registro de información acerca del proceso podría suponer un peligro para el secreto de voto. Esto puede ocurrir porque cuanto más información se registre, si no se hace con cuidado, mayor probabilidad de incurrir en un problema de trazabilidad del voto.\\
+			
 			Pongamos un ejemplo, sencillo y burdo, de trazabilidad del voto por medio de registros de log independientes: Diseñamos el sistema con servidores de autenticación y votación independientes.
 			\begin{enumerate}
 				\item El servidor web guarda los accesos al sistema a través del portal web, con IP incluida.
@@ -221,6 +224,9 @@ En el caso de las Elecciones a la Junta de Escuela de la EPS, podemos pensar en 
 				\item El sistema registra qué votante y en qué momento introduce su voto en la urna digital, anotando el identificador del voto.
 				\item Otro log de registro es el que relaciona el identificador del voto cifrado con el contenido del mismo una vez descrifrado.
 			\end{enumerate}
+			
 			En este ejemplo podemos observar claros fallos de diseño que comprometen la privacidad del votante, como el de guardar la relación entre un voto descifrado y el identificador del voto cifrado (pero para desarrollo o una prueba de caja blanca no es descabellado este tipo de registros).\\
+			
 			Se observa que si un atacante tuviese acceso a los logs del sistema, podría, sin mucha dificultad llegar a relacionar al votante con el contenido de su voto, con lo que se pierde el anonimato del proceso. Todo ello incluso usando diferentes servidores y diferentes elementos de registro de log.\\
+			
 			El argumento es que, al igual que en prácticamente cualquier sistema, es muy importante tener un servicio de logs que nos informen del funcionamiento del sistema, ya que así se puede estudiar en producción o a posteriori cómo se ha comportado el mismo y poder actuar ante ataques al mismo o responder con datos ante fallos en el mismo. Pero en un sistema de voto electrónico, además de la importancia que ya como sistema electrónico tienen, es muy importante centrarse en su diseño, ya que no es simplemente un servicio en el que añadimos trazas, sino que tenemos que asegurar que estas trazas no van a interferir en la seguridad del sistema, comprometiendo, como hemos visto en el ejemplo, el principio de anonimato en el voto que se le exige al sistema.\\
