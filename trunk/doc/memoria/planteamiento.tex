@@ -3,6 +3,14 @@
 \rhead{Planteamiento}
 %*******************************************************************************
 \section{Objetivos finales del proyecto}\label{objetivos}
+	El objetivo principal del Proyecto de Fin de Carreraa que presenta el alumno es la implementación de un sistema de votación electrónica remota (i-voting) diseñada de forma ad-hoc para dos procesos electorales que se llevan a cabo en la Escuela Politécnica Superior de la Universidad San Pablo CEU.\\
+		Estos procesos electorales que se llevan a cabo en la EPS están definidos en las \textit{Normas de Organización y Funcionemiento de la Universidad San Pablo-CEU} \cite{normasCEU} y son:\\
+		\begin{itemize}
+			\item Elecciones de Delegados y Subdelegados
+			\item Elecciones de miembros de la Junta Electoral
+		\end{itemize}
+	La intención de este PFC, no obstante, no es la de simplemente realizar estos comicios de forma electrónica, sino tratar de diseñar un sistema con visos de poder ser escalable hasta un nivel superior al ámbito de la Escuela o la Universidad. El germen de la idea del proyecto ya se explicó que era la búsqueda de soluciones para elecciones generales, autonómicas, municipales, etc. Elecciones que afectan a la población y por qué no se han implementado sistemas de este tipo en España de carácter general.\\
+	Tras la realización de un pequeño estudio de la situación actual y de las tecnologías y medios que tenemos a nuestro alcance, el desarrollo del sistema del PFC será mucho más simple que uno general y adaptado a las necesidades del cliente (la propia EPS), por lo que no vamos a implementar un sistema ..............
 %*
 %*
 %*
@@ -10,43 +18,9 @@
 %*
 %*
 
-	\subsection{Descripción del sistema real}\label{sistemareal}
+	\section{Alcance del proyecto}\label{alcance}
+		Como se indica en el apartado \ref{objetivos}...
 
-\section{Alcance del proyecto}\label{alcance}
-
-\section{Especificación de requisitos}\label{requisitos}
-\begin{itemize}
-	\item Requisitos funcionales
-		\begin{description}
-			\item[Votación por internet]: ...
-			\item[Permitir votación presencial]: ...
-			\item[Disponibilidad 24/7]: ...
-			\item[Identificación remota]: ...
-		\end{description}
-	\item Requisitos propios del voto electrónico
-	******** AQUÍ HAY QUE DEFINIR LOS REQUISITOS DEL VOTO ELECTRÓNICO. DEPENDE DEL AUTOR, HAY UNOS U OTROS. HABRÁ QUE DEFINIR CUÁLES SON LOS QUE VAMOS A TENER EN CUENTA PARA ESTE PROYECTO. ESTÁN EN --TEMP-- ESPERANDO A QUE TOME LA DECISIÓN
-	\item Requisitos del proceso electoral
-	\item Requisitos no funcionales
-		\begin{description}
-			\item[Bajo coste]: ...
-		\end{description}
-\end{itemize}
-
-
-
-**** LO QUE HAY QUE DESARROLLAR ****
-Requisitos de Usuarios: Necesidades que los usuarios expresan verbalmente
-Requisitos del Sistema: Son los componentes que el sistema debe tener para realizar determinadas tareas
-Requisitos Funcionales: Servicios que el sistema debe proporcionar
-Requisitos no funcionales: Restricciones que afectan al sistema
-
-
-
-\par
-temporal -----------------------------------------
-La idea es un sistema para la votación de la Junta de Escuela. El sistema debe permitir el voto remoto desde cualquier punto con conexión a internet (incluyendo equipos preparados en la propia Escuela).
-El voto es secreto.
-Bajo coste.
 
 
 
@@ -65,7 +39,7 @@ Bajo coste.
 \par
 \item Fase Electoral (Votación)
 	\begin{description}
-		\item[Identificación]: El primer paso del proceso de votación es el de la identificación del votante. Como ya se ha planteado, la identificación del votante es uno de los procesos críticos de una elección, pues, el sistema debe cumplir con varios requisitos básicos del voto electrónico, como puede ser el principio de autenticidad (en el que sólo los votantes autorizados pueden votar) o el democrático (por el cual el votante que tiene derecho a votar lo tiene para hacerlo tan sólo una vez).
+		\item[Identificación]: El primer paso del proceso de votación es el de la identificación del votante. Como ya se ha planteado, la identificación del votante es uno de los procesos críticos de una elección, pues, el sistema debe cumplir con varios requisitos básicos del voto electrónico, como puede ser el principio de autenticidad (en el que sólo los votantes autorizados pueden votar) o el democrático (por el cual el votante que tiene derecho a votar es sólo para hacerlo una vez).
 		\item[Votación]: El momento en el que el votante ya identificado, observa las opciones que puede elegir y ejerce su voto a una o varias de ellas (dependiendo del tipo de elección). 
 	\end{description}
 
@@ -198,16 +172,18 @@ En el caso de las Elecciones a la Junta de Escuela de la EPS, podemos pensar en 
 				Aquí encontramos el primer detalle controvertido con respecto al voto por internet. El votante no tiene constancia física de que su voto se ha depositado en la urna correcta, ni siquiera de si está en alguna urna. No ''se ve''.\\
 				Es más, sabe que ha introducido en la urna la papeleta que tenía en su mano, que sabe cuál es porque él mismo la ha elegido. Pero en el sistema informático, no sabe si ocurre lo mismo. Puede pensar que aunque haya seleccionado un candidato y el sistema le diga que ha contabilizado su voto por éste, realmente, por detrás esté cambiando el voto y registrando a otro candidato diferente.\\
 				Es misión del sistema informático proveer al votante de mecanismos que le permitan verificar todas estas cuestiones. Hay que diseñar el sistema para que haya confianza en él. Quizá esta sea la mayor de las barreras existentes en la actualidad para la implatación del voto por internet, la falta de confianza.\\
-				No es por falta de métodos seguros o carencia de medios criptográficos. El problema es que no es fácil que el elector confíe en el proceso, ya que, a priori, parece una gran caja negra.
+				No es por falta de métodos seguros o carencia de medios criptográficos. El problema es que no es fácil que el elector, opinión pública u organismos de control o auditoría confíen en el proceso, ya que, a priori, parece una gran caja negra, ante la cual es complicado asegurar una verificación de datos de forma transparente.
 
 
 
 		\subsection{Fase postelectoral}\label{fase_electoral_postelectoral}
 		
+			
+		
 		
 		\section{Logs}\label{logs}
 			************** Esto no va aquí, pero lo pongo para acordarme. Ya veremos si va en planteamiento, en solución o en... ******************\\
-			************** Probablemente tenga que ir en un capítulo dedicado a la auditoría, ahora que lo pienso *************\\
+			************** Probablemente tenga que ir en un capítulo dedicado a la AUDITORÍA, ahora que lo pienso *************\\
 			Con la trascendencia que tiene un sistema de votación electrónico, es básico procurar de sistemas precisos y confiables para una auditoría interna o externa. Se trata de desarrollar herramientas y procedimientos que permitan corroborar el perfecto funcionamiento del sistema sin interferir en el mismo ni violar los principios de privacidad del voto secreto.\\
 			
 			Una de las herramientas que se usan para este caso, son los logs del sistema.\\

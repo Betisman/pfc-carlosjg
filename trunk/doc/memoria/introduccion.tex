@@ -122,9 +122,26 @@
 			En la fecha de la elección, cada alumno emitió su voto a través de un nombre de usuario y una clave personal. Por motivos divulgativos, los organizadores de la elección determinaron que una parte del alumnado censado realizara la votación desde un aula de votación concreta, perteneciente al centro y adecuada para ello; mientras que el resto del alumnado debía elegir sus representantes desde algún equipo personal fuera del dominio de la Universidad.\\
 			
 			Para que estas elecciones a través de Internet pudiesen llevarse a cabo la Universidad San Pablo-CEU tuvo que adaptar su normativa de régimen interno, pues la que tenía originalmente establecía únicamente la posibilidad de un sistema de voto presencial.
+			
+			
+			
+			\subsection{Esquemas de Voto Electrónico}\label{esquemasVotoElectonico}
+				Según la teoría, los sistemas de voto electrónico están formados por un diseño conceptual y el llamado esquema de voto electrónico. De hecho se puede afirmar que estos sistemas se basan en estos esquemas (E-Voting Schemes - EVS). El esquema es el núcleo del sistema, lo que asegura que los requisitos se cumplan. La mayoría de ellos usan mecanismos y principios criptográficos. Podemos discernir varios tipos de esquemas de voto electrónico entre los más usados según publican diversos expertos en este campo:
+				\begin{itemize}
+					\item Esquema de Voto Electrónico basado en Cifrado Homomórfico
+						El votante emite su voto codificado y el recuento se realiza sin descodificar los votos. De esta forma se consigue que no se vulnere el secreto del voto. Para poder realizar esta descodificación, el elector debe instalar algún software desarrollado por la autoridad electoral para realizar las operaciones criptográficas.
+					\item Esquema de Voto Electrónico basado en Canales Anónimos
+						Se trata de un esquema bastante seguro, aunque complejo al mismo tiempo. Se trata el anonimato del votante ocultando el origen de los votos que recibe el sistema.
+					\item Esquema de Voto Electrónico basado en Mix-nets
+					\item Esquema de Voto Electrónico basado en Secreto Compartido
+					\item Esquema de Voto Electrónico basado en Pruebas de Conocimiento Nulo
+					\item Esquema de Voto Electrónico basado en Firma Ciega
+						En un Esquema de Firma Ciega, el firmante no conoce el contenido del mensaje que firma, ya que el emisor del mismo realiza un proceso previo para ocultar el mismo, lo que se conoce por \textit{cegar} el mensaje.
+				\end{itemize}
+			
 
 
-	\section{Análisis del sistema real}\label{analisisSistemaReal}
+	\section{Descripción del sistema real}\label{descripcionSistemaReal}
 		\subsection{Elecciones a la Junta de Escuela de la EPS}\label{analisisJuntaEPS}
 			\subsubsection{Definición de la Junta de Escuela}\label{definicionJuntaEscuela}
 				Según el documento \textbf{NORMAS DE ORGANIZACIÓN Y FUNCIONAMIENTO DE LA UNIVERSIDAD SAN PABLO-CEU}\cite{normasCEU}, en su Artículo 9, \textit{''Las Facultades, Escuelas y Centros integrados o adscritos son las instancias responsables de la organización de la enseñanza e investigación, de acuerdo con las directrices emanadas de los órganos superiores de la Universidad, y de los procesos académicos, administrativos y de gestión conducentes a la obtención de títulos de carácter oficial y validez en todo el territorio nacional, así como de aquellas otras funciones que determinen las presentes Normas de Organización y Funcionamiento y los restantes reglamentos universitarios.''}\\
@@ -154,14 +171,16 @@
 			******** AQUÍ HACE FALTA ENCONTRAR UN TEXTO LEGAL EXPLICANDO EL PROCEDIMIENTO DE LAS ELECCIONES ***********
 		
 			\paragraph{Plazos}\label{plazosElectoralesJuntaEPS}
-				- Convocatoria
-				- Presentación de candidaturas
-				- Publicación del censo
-				- Constitución de la Junta Electoral
-				- Designación de las mesas electorales
+				\begin{itemize}
+					\item Convocatoria
+					\item Presentación de candidaturas
+					\item Publicación del censo
+					\item Constitución de la Junta Electoral
+					\item Designación de las mesas electorales
+				\end{itemize}
 		
 		
-		\subsection{Elecciones de delegados de curso en la EPS}\label{analisisDelegadosEPS}
+		\subsection{Elecciones de delegados y subdelegados de curso en la EPS}\label{analisisDelegadosEPS}
 
 
 
