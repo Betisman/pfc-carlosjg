@@ -105,12 +105,31 @@
 			Estonia.
 			Estonia es quizá el ejemplo más destacado en cuanto a la utilización del voto por internet en elecciones a nivel estatal. Desde el año 2005 lleva usando una solución de voto electrónico remoto no presencial complementando al voto tradicional.
 			El impacto del voto electrónico sobre el electorado estonio ha ido evolucionando en cada comicio. En el 2005, el primer año en que se comenzó a utilizar, no llegó al 2\% de los votantes los que se decantaron por votar por internet, mientras que en el 2014, este porcentaje superó el 30\% de los sufragistas.\\
-			%% Adjuntar TABLA de participación histórica
-			************** CONTINUAR INFO ESTONIA
+			************ Adjuntar TABLA de participación histórica *****************\\
+			Estonia es el primer estado que utiliza, oficialmente, el voto electrónico remoto por internet de forma vinculante. Este sistema puesto en práctica en el año 2005 es una parte de un plan de modernización del país báltico. De hecho, previamente a la puesta en producción del sistema electoral, se comenzó a desarrollar en el años 2000 un despliegue técnico importante para la implantación del documento de identidad electrónico, junto con mecanismos de comnucicación con la Administración para facilitar los trámites con la misma por parte de los ciudadanos de forma electrónica y remota.\\
+			La ley electoral estonia permite a los votantes ejercer su derecho al voto de tres formas:
+			\begin{enumerate}[a)]
+				\item Voto tradicional. Los votantes pueden acudir a los colegios electorales e introducir su voto en la urna previa identificación del votante por parte de los miembros de la mesa.
+				\item Voto postal. Los votantes estonios tienen la posibilida de acudir en unas fechas determinadas anteriores al día electoral a unas Estaciones de Votación, que funcionan de forma análoga a Correos en España, donde pueden entregar el voto en papel y una acreditación que le identifique. Esta Estación se encarga de hacer llegar el voto y la identificación a la mesa o Distrito Electoral donde el votante esté censado.
+				\item Voto por internet. Durante un período de tiempo anterior al día electoral, los votantes tienen la posibilidad de entregar el voto por medio de Internet.
+			\end{enumerate}
+			Aunque el votante haya emitido su voto de forma electrónica, la Ley Electoral estonia permite al mismo ejercer su voto de cualquiera de las otras dos formas invalidando su voto electrónico. Es decir, que si una vez votado por Internet, el votante decide votar por correo, éste voto anulará el emitido por Internet. Lo mismo pasaría si decidiese votar presencialmente el día electoral, que su voto emitido por Internet quedaría anulado y fuera del escrutinio. Este hecho es una medida de la Autoridad Electoral para proteger a los votantes frente a la \textbf{coacción}, proveyendo de un mecanismo por el cual un votante que haya elegido una formación determinada por presiones de terceros podría libremente cambiar la dirección de su voto una vez emitido el primero.\\
+			******** EXPLICAR UN POCO EL FUNCIONAMIENTO Y ANALIZARLO *******
+			******** SEGÚN BELLEBONI, EN SUS CONCLUSIONES: 
+			- Interesante por ser una elección a nvel nacional y vinculante.
+			- Aceptación nacional, con nº votantes en tendencia creciente y dando validez a los votos emitidos por este medio.
+			Debilidades:
+			- No uso de mecanismos seguros que garanticen la protección del derecho a voto secreto.
+			- El voto no está protegido por mecanismos de firma ciega, anonimizadores, ni miecanismos equivalentes (y se conserva de 4 a 10 días almacenado junto a la identificación del votante), sino que traslada al sistema por internet las debilidades ya existenetes en el voto tradicional (¿?) ***************
+			
+			\subsubsection{¿¿¿¿¿************Noruega************????}
 			
 			\subsubsection{Suiza}\label{ivotingSuiza}
 			\subsubsection{UNED}\label{ivotingUned}
 			\subsubsection{Votescript}\label{ivotingVotescript}
+			El esquema de votación telemática Votescript tiene su origen en el proyecto de investigación \textit{Votación Electrónica Segura basada en criptografía avanzada} \cite{votescript1}, denominación de la cual adquiere el nombre, Votescript.\\
+			A partir de este proyecto de investigación, los autores publican diversos artículos sobre el funcionamiento y alcance de los resultados obtenidos. En este apartado, nos basamos en la versión más actual del proyecto, desarrollado en su tesis doctoral \cite{tesisEPerezBelleboni} por una de las autoras del original, la Dra. Emilia Pérez Belleboni.\\
+			En esta tesis, además de analizar el estado del voto telemático, teniendo en consideración, esquemas, problemas y riesgos, realiza un estudio de varias implementaciones reales a nivel nacional, como por ejemplo un extenso análisis del procedimiento electoral electrónico de Estonia \ref{ivotingEstonia}. No obstante, a partir de estos análisis, desarrolla el esquema que proponen, con base en el Votescript original, evolucionándolo para solucionar las debilidades del resto de sistemas y para su aplicación en la elección de representantes para el Parlamento Europeo.\\
 			\subsubsection{SELES}\label{seles}
 			\subsubsection{SEVI}\label{sevi}
 			
@@ -136,8 +155,18 @@
 					\item Esquema de Voto Electrónico basado en Secreto Compartido
 					\item Esquema de Voto Electrónico basado en Pruebas de Conocimiento Nulo
 					\item Esquema de Voto Electrónico basado en Firma Ciega
-						En un Esquema de Firma Ciega, el firmante no conoce el contenido del mensaje que firma, ya que el emisor del mismo realiza un proceso previo para ocultar el mismo, lo que se conoce por \textit{cegar} el mensaje.
+						En un Esquema de Firma Ciega, el firmante no conoce el contenido del mensaje que firma, ya que el emisor del mismo realiza un proceso previo para ocultar su contenido, lo que se conoce por \textit{cegar} el mensaje.\\
+						Se caracteriza porque la entidad firmante no adquiere ningún conocimiento sobre el contenido del mensaje que está firmando, aunque, con posterioridad, la firma obtenida puede ser verificada como válida tanto por esta entidad firmante como cualquier otra entidad que disponga de la información necesaria.\\
+						Se caracteriza porque la entidad firmante no adquiere ningún conocimiento sobre el contenido del mensaje que está firmando, aunque, con posterioridad, la firma obtenida puede ser verificada como válida tanto por esta entidad firmante como cualquier otra entidad que disponga de la información necesaria.\\
+						********* Explicación del proceso (Chaum??) **************
+						Los esquemas que se basan en protocolos con firma ciega suelen usar canales anónimos para enviar tanto la firma como el voto cifrado a la autoridad electoral, con lo que protege el anonimato del votante.\\
+						Podemos encontrar este esquema en soluciones como la propuesta en 1992 por Fujioka en \ref{Fujioka93}, la cual sirvió de base a Cranor para la implementación de un prototipo (Sensus).\\
+						El esquema desarrollado en Sensus divide el proceso en cuatro etapas: \textit{inicialización}, \textit{registro}, \textit{votación} y \textit{recuento}. A su vez, registra dos autoridades: \textit{Administrador} y \textit{Contador}.
+						********* VER BELLEBONI ************
 				\end{itemize}
+				
+				Junto con estos esquemas básicos en cuanto a solucionar problemas determinados de los procesos electorales electrónicos, nos centramos en resumir algunos de los esquemas desarrollados concretamente para elecciones mediante voto por internet.\\
+				Está fuera del alcance de este proyecto el estudio de estos esquemas y sus evoluciones, pero nos basamos en esta información para el desarrollo del sistema que se implementa. Para ahondar en ellos. recomiendo la lectura del capítulo 4 de la tesis de la Dra. Emilia Pérez Belleboni \cite{tesisEPerezBelleboni}, en la cual se expone una recopilación de información muy concisa sobre multitud de esquemas y sistemas que los implmentan, según las necesidades que se necesiten cubrir.
 			
 
 
