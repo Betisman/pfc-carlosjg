@@ -4,13 +4,33 @@
 %*******************************************************************************
 \section{Objetivos finales del proyecto}\label{objetivos}
 	El objetivo principal del Proyecto de Fin de Carreraa que presenta el alumno es la implementación de un sistema de votación electrónica remota (i-voting) diseñada de forma ad-hoc para dos procesos electorales que se llevan a cabo en la Escuela Politécnica Superior de la Universidad San Pablo CEU.\\
-		Estos procesos electorales que se llevan a cabo en la EPS están definidos en las \textit{Normas de Organización y Funcionemiento de la Universidad San Pablo-CEU} \cite{normasCEU} y son:\\
-		\begin{itemize}
-			\item Elecciones de Delegados y Subdelegados
-			\item Elecciones de miembros de la Junta Electoral
-		\end{itemize}
-	La intención de este PFC, no obstante, no es la de simplemente realizar estos comicios de forma electrónica, sino tratar de diseñar un sistema con visos de poder ser escalable hasta un nivel superior al ámbito de la Escuela o la Universidad. El germen de la idea del proyecto ya se explicó que era la búsqueda de soluciones para elecciones generales, autonómicas, municipales, etc. Elecciones que afectan a la población y por qué no se han implementado sistemas de este tipo en España de carácter general.\\
-	Tras la realización de un pequeño estudio de la situación actual y de las tecnologías y medios que tenemos a nuestro alcance, el desarrollo del sistema del PFC será mucho más simple que uno general y adaptado a las necesidades del cliente (la propia EPS), por lo que no vamos a implementar un sistema ..............
+	Estos procesos electorales que se llevan a cabo en la EPS están definidos en las \textit{Normas de Organización y Funcionemiento de la Universidad San Pablo-CEU} \cite{normasCEU} y son:\\
+	\begin{itemize}
+		\item Elecciones de Delegados y Subdelegados
+		\item Elecciones de miembros de la Junta Electoral
+	\end{itemize}
+	Este sistema que se propone en esta memoria es un sistema \textbf{robusto}, \textbf{fiable}, \textbf{verificable} y \textbf{auditable}, buscando satisfacer las exigencias de seguridad de procesos electorales más ambiciosos que los que tratamos en este proyecto, que abarcan el ámbito universitario. Por tanto, intención de este PFC, no es la de simplemente realizar estos comicios de forma electrónica, sino tratar de diseñar un sistema con idea de que puediera ser escalable hasta un nivel superior al ámbito de la Escuela o la Universidad.\\
+	\begin{description}
+		\item[Robusto] El sistema debe ser tolerante tanto a fallos como ataques externos e internos.
+		\item[Fiable] El sistema cumple con requisitos de seguridad que satisfacen la privacidad y la precisión de votos y votantes.
+		\item[Verificable] Se puede verificar que los votos han sido contados y forman parte del resultado del escrutinio.
+		\item[Auditable] El sistema debe proporcionar mecanismos para que pueda llevarse una auditoría del mismo antes, durante y después del proceso. 
+	\end{description}
+	El germen de la idea del proyecto, como se comenta en las Motivaciones del proyecto era la búsqueda de soluciones para elecciones generales, autonómicas, municipales, etc. Elecciones que afectan a la población y de los motivos por los cuales todavia no se han implementado sistemas de este tipo en España de carácter general.\\
+	Al realizar el estudio del estado del arte actual, se puede recopilar una ingente documentación teórica sobre diferentes sistemas, paradigmas y esquemas de todo tipo de votación electrónica. Hay muchos artículos y tesis muy importantes que tratan de desarrollar sistemas de este tipo, desde el punto de vista teórico hasta el prototipo práctico. Incluso tenemos estados que han implementado una solución con carácter vinculante. En este PFC, lejos de tratar de encontrar una solución novedosa y revolucionaria, vamos a tratar de plasmar un conjunto de ideas y proposiciones de diferentes autores para implementar un sistema propio para la escuela que cumpla con el mayor número de requisitos básicos y deseables para el voto electrónico, teniendo en cuenta además, la variante del factor remoto, es decir, que cumpla, además con los requisitos de control, confiabilidad y seguridad que hagan viable el voto a través de internet.
+	Así pues, el objetivo general del PFC será:\\
+	\begin{itemize}
+		\item Diseñar un esquema y un sistema de voto electrónico remoto a través de internet que sea robusto, fiable, verificable y auditable.
+	\end{itemize}
+	Teniendo en cuenta el objetivo general, vamos a definir una serie de objetivos intermedios que habrá que cumplir:\\
+	%\begin{enumerate}[label=OBJETIVO\arabic*]
+	\begin{enumerate}[{OBJETIVO} 1]
+		\item Definir un esquema de voto electrónico que soporte la implementación del sistema en base a los requisitos del mismo.
+		\item Especificar el mecanismo y los protocolos para la identificación de votantes en el sistema y la emisión de los votos sin coacción.
+		\item Especificar los mecanismos y protocolos para una segura recepción de los votos, así como un correcto escrutinio y una veraz publicación de resultados.
+		\item ...
+		\item ...
+	\end{enumerate}
 %*
 %*
 %*
@@ -24,32 +44,33 @@
 
 
 
-\section{Fases del proceso electoral}\label{fases_proceso_electoral}
+	\section{Fases del proceso electoral}\label{fases_proceso_electoral}
 
-\begin{itemize}
-	\item Fase Preelectoral
-	\begin{description}
-		\item[Definición de los límites o reglas de la elección]: Deben definirse de forma que no parezca ambigua las reglas electorales. Qué se vota, a quién se vota, de qué forma, cómo se cuentan los votos o se asignan los cargos. Quiénes pueden votar, cuándo comienza y finaliza el sufragio.
-		\item[Elaboración del censo]: Las autoridades de la Elección deben realizar un proceso de elaboriación del censo electoral, para identificar qué votantes tienen derecho a ejercer el voto y dónde (con qué opciones de voto).
-		\item[Registro de votantes]: Puede ser necesario que, según los mecanismos de identificación a utilizar, el votante deba registrarse previamente a la elección frente a la Autoridad Electoral, con el fin de, si no existe censo electoral formalizado, introducirse en el censo de la elección o, si existe ese censo previo, obtener la acreditación identificativa necesaria para poder votar de forma remota con las garantías avaladas por la autoridad electoral.
-		********** EN LA TESIS DE VMMR, CAPÍTULO 5, VIENE MUCHA INFORMACIÓN. DE CARA A LA SOLUCIÓN, PODEMOS CITARLE, HABLAR DE QUE LO QUE HAY QUE CONSEGUIR ES IDENTIFICAR A UNA PERSONA DE FORMA INCORRUPTIBLE Y RELACIONARLA CON UN SISTEMA DIGITAL (FIRMA!!!!). HABLA DE LA HUELLA DACTILAR, LA FIRMA MANUSCRITA Y LA VOZ ******************
-		\item[Presentación de candidaturas]: A efectos del sistema informático que desarrollamos es el proceso en el que la autoridad electoral define qué candidaturas pueden ser elegidas por cada votante en cada circunscripción (lógica).
-	\end{description}
+		\begin{itemize}
+			\item Fase Preelectoral
+			\begin{description}
+				\item[Definición de los límites o reglas de la elección]: Deben definirse de forma que no parezca ambigua las reglas electorales. Qué se vota, a quién se vota, de qué forma, cómo se cuentan los votos o se asignan los cargos. Quiénes pueden votar, cuándo comienza y finaliza el sufragio.
+				\item[Elaboración del censo]: Las autoridades de la Elección deben realizar un proceso de elaboriación del censo electoral, para identificar qué votantes tienen derecho a ejercer el voto y dónde (con qué opciones de voto).
+				\item[Registro de votantes]: Puede ser necesario que, según los mecanismos de identificación a utilizar, el votante deba registrarse previamente a la elección frente a la Autoridad Electoral, con el fin de, si no existe censo electoral formalizado, introducirse en el censo de la elección o, si existe ese censo previo, obtener la acreditación identificativa necesaria para poder votar de forma remota con las garantías avaladas por la autoridad electoral.
+				********** EN LA TESIS DE VMMR, CAPÍTULO 5, VIENE MUCHA INFORMACIÓN. DE CARA A LA SOLUCIÓN, PODEMOS CITARLE, HABLAR DE QUE LO QUE HAY QUE CONSEGUIR ES IDENTIFICAR A UNA PERSONA DE FORMA INCORRUPTIBLE Y RELACIONARLA CON UN SISTEMA DIGITAL (FIRMA!!!!). HABLA DE LA HUELLA DACTILAR, LA FIRMA MANUSCRITA Y LA VOZ ******************
+				\item[Presentación de candidaturas]: A efectos del sistema informático que desarrollamos es el proceso en el que la autoridad electoral define qué candidaturas pueden ser elegidas por cada votante en cada circunscripción (lógica).
+			\end{description}
+			
+			\item Fase Electoral (Votación)
+			\begin{description}
+				\item[Identificación]: El primer paso del proceso de votación es el de la identificación del votante. Como ya se ha planteado, la identificación del votante es uno de los procesos críticos de una elección, pues, el sistema debe cumplir con varios requisitos básicos del voto electrónico, como puede ser el principio de autenticidad (en el que sólo los votantes autorizados pueden votar) o el democrático (por el cual el votante que tiene derecho a votar es sólo para hacerlo una vez).
+				\item[Votación]: El momento en el que el votante ya identificado, observa las opciones que puede elegir y ejerce su voto a una o varias de ellas (dependiendo del tipo de elección). 
+			\end{description}
 
-\par
-\item Fase Electoral (Votación)
-	\begin{description}
-		\item[Identificación]: El primer paso del proceso de votación es el de la identificación del votante. Como ya se ha planteado, la identificación del votante es uno de los procesos críticos de una elección, pues, el sistema debe cumplir con varios requisitos básicos del voto electrónico, como puede ser el principio de autenticidad (en el que sólo los votantes autorizados pueden votar) o el democrático (por el cual el votante que tiene derecho a votar es sólo para hacerlo una vez).
-		\item[Votación]: El momento en el que el votante ya identificado, observa las opciones que puede elegir y ejerce su voto a una o varias de ellas (dependiendo del tipo de elección). 
-	\end{description}
-
-\item Fase postelectoral
-	\begin{description}
-		\item[Difusión de resultados]
-	\end{description}
-	
-\end{itemize}
-
+			\item Fase postelectoral
+			\begin{description}
+				\item[Difusión de resultados]
+			\end{description}
+			
+			\item Auditoría
+			No es una fase propiamente dicha en el sentido cronológico en el que se han definido las anteriores. La fase de auditoría abarca todas las etapas del proceso, en mayor o menor medida, puesto que debe permitir la vigilancia del correcto funcionamiento del mismo en todas ellas.
+			
+		\end{itemize}
 
 
 		\subsection{Fase preelectoral}\label{fase_electoral_preelectoral}

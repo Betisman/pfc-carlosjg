@@ -100,6 +100,7 @@
 		Es destacable el desempeño de empresas como la española Scytl, que ha implementado sistemas de voto por internet para voto desde el extranjero para algunos condados de Estados Unidos, ciertos cantones de Suiza y varias provincias de India, la mayor democracia del mundo (en número de votantes). Otra empresa española, Indra, también tiene soluciones de voto por internet utilizados para elegir las cúpulas directivas de organismos como la Guardia Civil, universidades como la UAH (Universidad de Alcalá de Henares) o la UNED (Universidad Nacional de Educación a Distancia) e incluso de partidos políticos, como es el caso de UPyD (Unión Progreso y Democracia).
 		\subsection{Voto por internet (i-voting)}\label{Voto por internet (i-voting)}
 			Dentro de las soluciones de voto electrónico telemático, es importante el desarrollo que se ha hecho en cuanto al voto por internet. 
+			
 			\subsubsection{Estonia}\label{ivotingEstonia}
 			\par
 			Estonia.
@@ -114,6 +115,20 @@
 				\item Voto por internet. Durante un período de tiempo anterior al día electoral, los votantes tienen la posibilidad de entregar el voto por medio de Internet.
 			\end{enumerate}
 			Aunque el votante haya emitido su voto de forma electrónica, la Ley Electoral estonia permite al mismo ejercer su voto de cualquiera de las otras dos formas invalidando su voto electrónico. Es decir, que si una vez votado por Internet, el votante decide votar por correo, éste voto anulará el emitido por Internet. Lo mismo pasaría si decidiese votar presencialmente el día electoral, que su voto emitido por Internet quedaría anulado y fuera del escrutinio. Este hecho es una medida de la Autoridad Electoral para proteger a los votantes frente a la \textbf{coacción}, proveyendo de un mecanismo por el cual un votante que haya elegido una formación determinada por presiones de terceros podría libremente cambiar la dirección de su voto una vez emitido el primero.\\
+			
+			Son requisitos fundamentales de este sistema de voto electrónico remoto la seguridad, confiabilidad y la precisión, así como proveer de mecanismos eficaces contra la coacción. Otra necesidad importante del sistema es su acceso, que debe ser prácticamente universal, lo cual implica que sea fácil y accesible para los usuarios y que funcione en la mayoría de las plataformas tecnológicas.\\
+			Hay una serie de puntos, recogidos en \cite{Morshed2010}, que consiguen que el sistema satisfaga tales requisitos:
+			\begin{enumerate}[1.]
+				\item Uso de ID-cards o Mobile ID para la identificación de los votantes.
+				\item Un votante puede emitir caulquier número de votos durante el periodo habilitado para la votación electrónica. El último voto enviado será el único que cuente en el escrutinio. No obstante, si el votante se encuentra bajo algún tipo de coacción, siempre podrá volver a votar más adelante (cuando no ejerzan presión sobre su decisión) y este último será el que cuente. Así se intenta minimizar el riesgo de la coacción.
+				\item Prioridad del voto tradicional. Si el votante ejerce su derecho al voto de forma presencial, cualquier voto que hubiese emitido de forma electrónica será cancelado y no se contará en el escrutinio.
+				\item Todos los servidores en el sistema de voto son seguros y siempre estarán bajo monitorización durante el periodo de la votación.
+				\item El servidor de almacenamiento de voto está detrás de un firewall. Nadie puede acceder a este servidor desde Internet.
+				\item El servidor de conteo de votos está offline, sin conexión a Internet y asegurado por medio de clave privada compartida.
+				\item Todas las comunicaciones a través de internet usan cifrado SSL.
+				\item El cifrado y la firma digital usan un mecanismo de cifrado RSA.
+			\end{enumerate}
+
 			******** EXPLICAR UN POCO EL FUNCIONAMIENTO Y ANALIZARLO *******
 			******** SEGÚN BELLEBONI, EN SUS CONCLUSIONES: 
 			- Interesante por ser una elección a nvel nacional y vinculante.
@@ -148,17 +163,47 @@
 			Para que estas elecciones a través de Internet pudiesen llevarse a cabo la Universidad San Pablo-CEU tuvo que adaptar su normativa de régimen interno, pues la que tenía originalmente establecía únicamente la posibilidad de un sistema de voto presencial.
 			
 			
+			\subsection{Primitivas de criptografía}\label{primitivasCriptografia}
+				Dentro de los retos tecnológicos que propone el voto electrónico, uno de los más importantes es la seguridad. Para poder implementar un sistema seguro que pueda soportar toda la infraestructura necesaria para poder poner en marcha un sistema de voto electrónico confiable hay que hacer uso de herramientas que sean capaces de asegurar las comunicaciones y el secreto de estas. Es en este escenario donde la criptogafía es el núcleo de la solución.\\
+				Los requerimientos que se tratan de satisfacer con el uso de la criptografía son \cite{tesisSeguridadVMMorales}:
+				\begin{itemize}
+					\item Privacidad del voto
+					\item Autenticación del votante
+					\item Integridad de los elementos de la elección
+				\end{itemize}
+				Antes de entrar en los diferentes esquemas de voto electrónico (\ref{esquemasVotoElectronico}), introducimos una serie de primitivas criptográgficas que se utilizan en ellos.
+				
+					\subsubsection{Firma ciega}\label{primitivaFirmaCiega}
+					
+					\subsubsection{Secreto compartido}\label{primitivaSecretoCompartido}
+					
+					\subsubsection{Pruebas de conocimiento nulo}\label{primitivaPruebasConocimientoNulo}
+					
+					\subsubsection{Mixnets}\label{primitivaMixnets}
+					
+					\subsubsection{Cifrado homomórfico}\label{primitivaCifradoHomomorfico}
+					
 			
 			\subsection{Esquemas de Voto Electrónico}\label{esquemasVotoElectonico}
-				Según la teoría, los sistemas de voto electrónico están formados por un diseño conceptual y el llamado esquema de voto electrónico. De hecho se puede afirmar que estos sistemas se basan en estos esquemas (E-Voting Schemes - EVS). El esquema es el núcleo del sistema, lo que asegura que los requisitos se cumplan. La mayoría de ellos usan mecanismos y principios criptográficos. Podemos discernir varios tipos de esquemas de voto electrónico entre los más usados según publican diversos expertos en este campo:
+				Según la teoría, los sistemas de voto electrónico están formados por un diseño conceptual y el llamado esquema o paradigma de voto electrónico (E-Voting Schemes - EVS). El esquema es el núcleo del sistema, lo que asegura que los requisitos se cumplan. La mayoría de ellos usan mecanismos y principios criptográficos. Podemos discernir varios tipos de esquemas de voto electrónico entre los más usados según publican diversos expertos en este campo:
 				\begin{itemize}
 					\item Esquema de Voto Electrónico basado en Cifrado Homomórfico
 						El votante emite su voto codificado y el recuento se realiza sin descodificar los votos. De esta forma se consigue que no se vulnere el secreto del voto. Para poder realizar esta descodificación, el elector debe instalar algún software desarrollado por la autoridad electoral para realizar las operaciones criptográficas.
+					
 					\item Esquema de Voto Electrónico basado en Canales Anónimos
 						Se trata de un esquema bastante seguro, aunque complejo al mismo tiempo. Se trata el anonimato del votante ocultando el origen de los votos que recibe el sistema.
-					\item Esquema de Voto Electrónico basado en Mix-nets
+					
+					\item Esquema de Voto Electrónico basado en Mixnets
+						El esquema basado en mixnets (redes mixtas) define la existencia de una serie de servidores enlazados. Cada uno de estos servidores recibe un grupo de mensajes encriptados, los reordena, los vuelve a encriptar de forma aleatoria y los envía al siguiente servidor. Con este proceso se consigue que no sea posible asociar la información de los mensajes de entrada con los de salida, rompiendo la relación votante-voto del sistema.\\
+						La desencriptación de los votos se puede realizar tanto en cada servidor (por medio de su propia clave) como al finalizar el proceso utilizando una clave distribuida entre varios de los servidores.\\
+						******************* LITERAL ******** La principal crítica a este esquema es que las pruebas de correctitud son voluminosas. Existen algunas implementaciones comerciales de sistemas de wlwcción electrónica basadas en este esquema.
+						
 					\item Esquema de Voto Electrónico basado en Secreto Compartido
+						En el esquema de voto electrónico basado en secreto compartido, también llamado Paradigma de Benaloh [***** CITA *****], el votante comparte su voto entre varias autoridades electorales. Una vez finalizado el proceso de votación, cada autoridad computa los votos que ha recibido y los pone en común con el resto de autoridades electorales que toman parte en la elección. Así se obtiene el resultado total del proceso.\\
+						***************** LITERAL *********** La implementación de este esquema posee altos costos en términos de comunicación, ya que cada voto debe enviarse por varios canales diferentes (tantos como autoridades electorales haya).
+					
 					\item Esquema de Voto Electrónico basado en Pruebas de Conocimiento Nulo
+					
 					\item Esquema de Voto Electrónico basado en Firma Ciega
 						En un Esquema de Firma Ciega, el firmante no conoce el contenido del mensaje que firma, ya que el emisor del mismo realiza un proceso previo para ocultar su contenido, lo que se conoce por \textit{cegar} el mensaje.\\
 						Se caracteriza porque la entidad firmante no adquiere ningún conocimiento sobre el contenido del mensaje que está firmando, aunque, con posterioridad, la firma obtenida puede ser verificada como válida tanto por esta entidad firmante como cualquier otra entidad que disponga de la información necesaria.\\
@@ -170,9 +215,18 @@
 						********* VER BELLEBONI ************
 				\end{itemize}
 				
+				************* Según \cite{tesisSeguridadVMMorales} ************
+				Podemos definir cuatro grupos de esquemas de voto electrónico remoto. Estos se diferencian en la forma en la que usan los elementos criptográficos para tratar de resolver los requisitos de seguridad de un sistema electoral:
+				\begin{itemize}
+					\item Esquemas basados en firma ciega
+					\item Esquemas basados en mixnets
+					\item Esquemas basados en cifrado homomórfico
+					\item Esquemas basados en papeletas precifradas
+				\end{itemize}
+				
 				Junto con estos esquemas básicos en cuanto a solucionar problemas determinados de los procesos electorales electrónicos, nos centramos en resumir algunos de los esquemas desarrollados concretamente para elecciones mediante voto por internet.\\
 				Está fuera del alcance de este proyecto el estudio de estos esquemas y sus evoluciones, pero nos basamos en esta información para el desarrollo del sistema que se implementa. Para ahondar en ellos. recomiendo la lectura del capítulo 4 de la tesis de la Dra. Emilia Pérez Belleboni \cite{tesisEPerezBelleboni}, en la cual se expone una recopilación de información muy concisa sobre multitud de esquemas y sistemas que los implmentan, según las necesidades que se necesiten cubrir.
-			
+			 
 
 
 	\section{Descripción del sistema real}\label{descripcionSistemaReal}
@@ -218,7 +272,8 @@
 
 
 
-
+	\section{Organización de la memoria del PFC}\label{organizacionMemoria}
+		En el Capítulo 1 ...
 
 	\section{Metodología}\label{metodologia}
 		\subsection{Documentación}\label{metodologiaDocumentacion}
