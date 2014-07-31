@@ -1,0 +1,178 @@
+\chapter{Análisis del sistema}\label{analisis}
+\lhead{Capítulo \ref{analisis}}
+\rhead{Análisis del sistema}
+%*******************************************************************************
+%%%%%%%\section{Identificación y gestión de riesgos}\label{idGestRiesgos}
+%*
+%*
+%*
+%*
+%*
+%*
+
+	
+		
+		\section{Especificación de requisitos}\label{requisitos}
+		
+		% ------------------------------------------------------------------
+		%%%%%% ESPECIFICACIÓN DE REQUISITOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		% ------------------------------------------------------------------
+			\subsection{Introducción}\label{requisitosIntroduccion}
+				En esta sección de la memoria vamos a desarrollar la especificación de requisitos de software. Con esta especificación de requisitos lo que se consigue es una descripción completa del sistema que se va a desarrollar.\\
+				
+				Los requisitos se organizan en tres tipos diferentes:
+				\begin{description}
+					\item[Funcionales]: Son los requisitos que el sistema debe cumplir para su correcto funcionamiento. Son requisitos fundamentales de cara al usuario, ya que responden a la pregunta \textit{¿qué hace?}, por lo que implican directamente en la funcionalidad que el sistema proporciona al usuario.
+					\item[No funcionales]: Usualmente son los requisitos que responden a la pregunta \textit{¿cómo lo hace?}. Definen las necesidades de recursos para el funcionamiento del sistema, como protocolos, infraestructura, tecnología...
+					\item[Organizacionales]: *************** NOTA: yo esto lo considero de otra forma ..., según wikipedia: son el marco contextual en el cual se implantará el sistema para conseguir un objetivo macro *****************
+				\end{description}
+				
+			
+			\subsection{Descripción del sistema}\label{requisitosDescripcionSistema}
+			\begin{description}[style=multiline,leftmargin=3cm]
+				\item[Título:] AQUÍ VA EL TÍTULO ******************** 
+				\item[Descripción:] El sistema consiste en una plataforma de voto eléctronico remoto por internet, seguro, anónimo y tratando de implementar el máximo de requisitos exigibles al voto electrónico que cumplan con el objetivo. El desarrollo es ad-hoc según las normas de las elecciones que van a tomar parte. (************)Pese a ser un diseño dirigido a unos tipos de elecciones concretas, se puede modularizar el sistema para que, implementando unas nuevas reglas, el sistema sirva de base a otros procesos.(************). Los votantes dispondrán de unas credenciales digitales que servirán para que se puedan identificar unívocamente en el sistema, sin suplantaciones. (**************** DNI? TUI? user/password? *****************). Estas credenciales se implementan basándose en certificados digitales que aseguran la autenticidad del votante. Una vez el votante se autentica contra el sistema y el censo (proporcionado por la Universidad y cargado previamente en el sistema), se le presenta el surtido de papeletas entre las que puede elegir a sus representantes. Este conjunto de papeletas ha de ser calculado por el sistema teniendo en cuenta el tipo de votante con el que interacciona (estudiante/profesor/empleado, carrera, grupo/clase...).Una vez seleccionada la papeleta, emite el voto. El voto consiste en que el votante firma digitalmente un sobre lógico en el que va la papeleta cifrada. Este sobre se envía al sistema, donde un módulo urna digital se encarga de almacenarlo hasta la finalización del periodo de votación. Una vez llega el fin de este periodo, los administradores de la elección abren la urna. Para ello, requieren de una clave criptográfica que estará troceada y repartida entre varios miembros. La apertura de la urna implica la anonimización de los votos, rompiendo la relación entre un votante y el voto que ha emitido. Una vez cumplido con el requisito del voto anónimo y eliminada la trazabilidad del voto, estos tienen que ser descrifrados para, a continuación, ser contados. Al finalizar el escrutinio, se publican los resultados. Junto a la publicación de los resultados, se deben publicar unas listas para que los votantes puedan verificar que el voto digital que emitieron no ha sido alterado y, además, ha formado parte del escrutinio.
+			\end{description}
+			
+			\subsection{Requisitos funcionales}\label{requisitosFuncionales}
+				\begin{description}
+					\item[Votación por internet]: El sistema de votación debe funcionar de forma remota en sus fases de registro, identificación, votación y consulta de resultados. Cualquier votante puede acceder a las funcionalidades del sistema a las que tiene autorización desde cualquier punto conectado a Internet.
+					
+					\item[Permitir votación presencial]: El sistema debe proporcionar los mecanismos necesarios para permitir el voto a aquellos votantes con derecho al mismo que quieran emitirlo de forma presencial en el periodo habilitado para ello. ******* NOTA: (Analizando este requisito, la mejor forma es habilitando un horario en la sala de ordenadores de la Escuela destinados a que las personas que quieran puedan votar de forma remota desde estos puestos) *********
+					
+					\item[Disponibilidad total]: El sistema debe estar disponible para proporcionar servicio de voto durante todo el periodo estipulado en las normas que se fijen para la elección. ******* NOTA: (24/7, un día, varios días... depende de cómo se defina el proceso) *********
+					
+					\item[Identificación remota]: El sistema debe implementar un mecanismo que sea capaz de asegurar la identificación de un votante en el sistema de forma remota, digitalmente, sin posibilidad de error.
+					
+					\item[Autenticación remota]: El sistema debe poder autenticar a los votantes que tratan de usar su identificación digital para ingresar en el sistema de forma remota. El sistema no debe errar en esta autenticación, permitiendo la entrada de los votantes autorizados y revocando el acceso a los atacantes, suplantadores o desautorizados.
+					
+					\item[Papeleta/boleta digital]: El sistema debe mostrar al votante la papeleta o boleta (dependiendo del tipo de elección) correspondiente a la elección y el censo que le corresponda. Debe contener las opciones correctas por las que puede optar y mantener correctamente la/s opción/es seleccionadas.
+					
+					\item[Voto anónimo]: El sistema debe poder romper la relación existente entre el voto y el votante. Deben desarrollarse los protocolos criptográficos y de infraestructura necesarios para que nadie pueda vincular el contenido del voto a un votante determinado.
+				\end{description}
+				
+			\subsection{Requisitos propios del voto electrónico}\label{requisitosVotoElectronico}
+			******** AQUÍ HAY QUE DEFINIR LOS REQUISITOS DEL VOTO ELECTRÓNICO. DEPENDE DEL AUTOR, HAY UNOS U OTROS. HABRÁ QUE DEFINIR CUÁLES SON LOS QUE VAMOS A TENER EN CUENTA PARA ESTE PROYECTO. ESTÁN EN --TEMP-- ESPERANDO A QUE TOME LA DECISIÓN
+				
+			\subsection{Requisitos del proceso electoral}\label{requisitosProceso}
+				\begin{description}
+					\item[Ejemplo]: Aquí va un requisito.
+				\end{description}
+				
+			\subsection{Requisitos no funcionales}\label{requisitosNoFuncionales}
+				\begin{description}
+					\item[Bajo coste]: El coste del sistema debe ser relativamente bajo.
+					\item[Soporte a usuarios]: El sistema debe proporcionar unas herramientas de soporte a usuarios de cualquier rol que hagan uso del mismo.
+				\end{description}
+			
+		
+			\subsection{Necesidades del esquema de voto electrónico}
+			\begin{enumerate}
+				\item Identificación y autenticación remota
+				\item ...
+			\end{enumerate}
+			
+			
+			
+			**************************** ESTO ES TEMPORAL. VOY A IR HACIENDO UNA LISTA DE REQUISITOS SEGÚN LOS VOY CONOCIENDO. ESTA LISTA ES EL BATIBURRILLO, CUANDO ESTÉN CLAROS, LOS VOY COLOCANDO EN SUS TIPOS CORRESPONDIENTES Y LOS DEFINIMOS FORMALMENTE SEGÚN LA PLANTILLA **********************************
+			
+			\begin{description}
+				\item[Votación por internet]: El sistema de votación debe funcionar de forma remota en sus fases de registro, identificación, votación y consulta de resultados. Cualquier votante puede acceder a las funcionalidades del sistema a las que tiene autorización desde cualquier punto conectado a Internet.
+				
+				\item[Identificación remota]: El sistema debe implementar un mecanismo que sea capaz de asegurar la identificación de un votante en el sistema de forma remota, digitalmente, sin posibilidad de error.
+				
+				\item[Autenticación remota]: El sistema debe poder autenticar a los votantes que tratan de usar su identificación digital para ingresar en el sistema de forma remota. El sistema no debe errar en esta autenticación, permitiendo la entrada de los votantes autorizados y revocando el acceso a los atacantes, suplantadores o desautorizados.
+					
+				\item[Permitir votación presencial]: El sistema debe proporcionar los mecanismos necesarios para permitir el voto a aquellos votantes con derecho al mismo que quieran emitirlo de forma presencial en el periodo habilitado para ello. ******* NOTA: (Analizando este requisito, la mejor forma es habilitando un horario en la sala de ordenadores de la Escuela destinados a que las personas que quieran puedan votar de forma remota desde estos puestos) *********
+				
+				\item[Disponibilidad total]: El sistema debe estar disponible para proporcionar servicio de voto durante todo el periodo estipulado en las normas que se fijen para la elección. ******* NOTA: (24/7, un día, varios días... depende de cómo se defina el proceso) *********
+				
+				\item[Papeleta/boleta digital]: El sistema debe mostrar al votante la papeleta o boleta (dependiendo del tipo de elección) correspondiente a la elección y el censo que le corresponda. Debe contener las opciones correctas por las que puede optar y mantener correctamente la/s opción/es seleccionadas.
+				
+				\item[Voto anónimo]: El sistema debe poder romper la relación existente entre el voto y el votante. Deben desarrollarse los protocolos criptográficos y de infraestructura necesarios para que nadie pueda vincular el contenido del voto a un votante determinado.
+				
+				\item[Bajo coste]: El coste del sistema debe ser relativamente bajo.
+				
+				\item[Soporte a usuarios]: El sistema debe proporcionar unas herramientas de soporte a usuarios de cualquier rol que hagan uso del mismo.
+				
+				\item[Voto múltiple:] El sisteme debe permitir a los votantes votar más de una vez, invalidando cada vez que emite un voto, los votos anteriores que hubiese introducido en el sistema. (********************* ¿QUEREMOS ESTO? TOTAL, EL RIESGO DE COACCIÓN ES MUY BAJO EN ESTAS ELECCIONES... PERO SI QUEREMOS ACERCARNOS A UNAS GENERALES, QUIZÁS SEA IMPEPINABLE, SIGUIENDO EL MODELO ESTONIO *********************)
+				
+				\
+				
+				
+			\end{description}
+			
+			***************************** OTRA FORMA EN LA QUE PODEMOS ORDENAR LA ESPECIFICACIÓN DE REQUISITOS  HAY QUE RE-REDACTARLO *************************
+			Como primera fase a la hora de analizar un sistema que se pretende desarrollar es necesario la realización de una especificación de los requisitos que se van a exigir al sistema. Estos requisistos son las bases que tendrá que satisfacer el diseño del sistema para la correcta consecución del proyecto.\\
+			En el sector de la ingeniería existen muchos protocolos para llevar a cabo una especificación de requisitos. En este proyecto vamos a basarnos en el estándar  IEEE 830-1998. Este documento es el que estandariza la redacción de un documento completo como es una Estandarización de Requisitos de Software de manera formal. Por la tipología de documento que estamos redactando en este PFC, no se requiere de un documento anexo dedicado únicamente a este proceso. Por ello, no vamos a utilizar la totalidad el estándar, sino sólo aquellas partes que podamos integrar en la memoria de forma correcta.\\
+			El estándar, en el momento del análisis de este proyecto, cuenta ya con dieciséis años de vigencia (1998), por lo que el formato que vamos a utilizar se basa en su estructura, pero con modificaciones para poder adaptarlo a las necesidades de este PFC.\\
+			Algunas de las modificaciones vienen inspiradas en este proyecto \cite{moreno07} y en este post al respecto \cite{postERSIEEE830}, determinando una serie de tipos de requisitos más específica que los que define el estándar original.\\
+			Con esto, vamos a describir los requisitos necesarios para la consecución del proyecto según la siguiente tipología:
+			\begin{description}
+				\item[Restricciones de diseño]: requisitos que limitan el desarrollo al crear el producto. Se etiquetan como RD.x, siendo x el número del requisito.
+				\item[Requisitos funcionales]: Conjunto de requisitos que reflejan la funcionalidad que debe prestar el sistema. Se etiquetan como RF.x, siendo x el número del requisito.
+				\item[Requisitos de la interfaz]: Conjunto de requisitos que definen las necesidades de la interacción del software con otros sistemas y usuarios. Se etiquetan como IN.x, siendo x el número del requisito.
+				\item[Requisitos de calidad]: Exigencias en la calidad que se piden explícitamente para el producto. En esta categoría se engloban los requisitos de rendimiento, escalabilidad, accesibilidad, usailidad, etc. Se etiquetan como CA.x, siendo x el número del requisito.
+				\item[Requisitos de evolución]: Requisitos para el diseño del producto con el objetivo de facilitar la adaptación a exigencias o condiciones que puedan surgir en el futuro. Se etiquetan como EV.x, siendo x el número del requisito.
+				\item[Requisitos del proyecto]: Requisitos que afectan y condicionan el proceso de desarrollo del proyecto. Se etiquetan como PR.x, siendo x el número del requisito.
+				\item[Requisitos de soporte]: Requisitos que deben ser cumplidos por el cliente. Se etiquetan como SO.x, siendo x el número del requisito.
+			\end{description}
+			
+			\par
+			Dentro de la clasificación anterior, cada requisito debe especificarse formalmente, empleando para ello la siguiente plantilla:
+			\begin{description}
+				\item[Descripción]: Descripción corta del requisito.
+				\item[Importancia]: La importancia del requisito, con tres valores:
+					\begin{description}
+						\item[Esencial] El incumplimiento de este requisito provocaría el fracaso del proyecto.
+						\item[Condicional] El requisito mejoraría el resultado final del desarrollo.
+						\item[Opcional] El requisito no tiene que ser implementado, pero se puede tener en cuenta al realizar el diseño del producto).
+					\end{description}
+				\item[Validez]: Este apartado demuestra la validez del requisito. tiene cuatro secciones, que estarían presentes sólo en el caso de ser relevantes para ese requisito concreto.
+					\begin{description}
+						\item[Medible]: Describe cómo comprobar el grado de cumplimiento del requisito.
+						\item[Alcanzable]: Propone, de un modo general, un camino para lograr su consecución.
+						\item[Relevante]: Justifica la presencia del requisito en el documento, indicando cómo ayuda a definir la entidad global del producto.
+						\item[Específico]: Extiende la descripción del requisito, con referencia a los casos de uso, si fuesen relevantes.
+					\end{description}
+			\end{description}
+			
+	****************************************************************************************************************************
+
+		% ------------------------------------------------------------------
+		%%%%%% fin ESPECIFICACIÓN DE REQUISITOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+		% ------------------------------------------------------------------
+		
+		
+			\section{Roles / Actores}\label{actores}
+				Considerando el flujo del votante en el sistema, identificamos cuatro roles en el sistema que deben ser tenidos en cuenta de cara a las funcionalidades, privilegios y responsabilidades que tienen que encontrar en el uso del mismo.
+				\begin{itemize}
+					\item Votante
+					\item Administrador
+						El administrador es el rol encargado de gestión de las fases electorales.\\
+						Tiene responsabilidad y potestad de:
+							\begin{itemize}
+								\item Iniciar el proceso electoral.
+								\item Iniciar el proceso de votación.
+								\item Terminar el proceso de votación.
+								\item Apertura de la urna
+								\item Apertura de los canales de difusión de resultados.
+							\end{itemize}
+						Los usuarios con este rol no puede votar. El administrador de la elección no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.
+					\item Miembro de la Junta Electoral ***************** CAMBIAR EL NOMBRE ***********************
+						Una vez el administrador de la elección dé por finalizado el proceso electoral, se requerirá que varios miembros de la Junta Electoral proporcionen unas claves personales que, juntando varias de ellas, servirán como llave lógica para la apertura de la urna que contiene los votos.\\
+						Los usuarios con este rol no puede votar. El miembro de la Junta Electoral no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.
+					\item Auditor
+						El auditor debe tener acceso a una serie de funcionalidades del sistema. Su función es velar porque el desarrollo del proceso electoral se realiza sin ningún tipo de fallo o de interferencia por parte de algún atacante.\\
+						Los usuarios con este rol no puede votar. El auditor no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.\\
+						Su misión es de control, por lo que ninguna acción que realice en el sistema puede afectar al desarrollo de la elección.
+					\item Autoridad Certificadora
+						Junto con los cuatro roles expuestos, encontramos un quinto actor en la figura de la Autoridad Certificadora. Esta entidad es la encargada de generar, administrar, validar y verificar las credenciales que han de usar cada uno de los votantes para emitir el voto, así como los de cada uno de los actores del proceso (administradores, miembros de la Junta Electoral, auditores o incluso los sistemas y sus comunicaciones).
+				\end{itemize}
+
+
+**** LO QUE HAY QUE DESARROLLAR ****
+Requisitos de Usuarios: Necesidades que los usuarios expresan verbalmente
+Requisitos del Sistema: Son los componentes que el sistema debe tener para realizar determinadas tareas
+Requisitos Funcionales: Servicios que el sistema debe proporcionar
+Requisitos no funcionales: Restricciones que afectan al sistema
