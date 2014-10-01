@@ -90,7 +90,17 @@
 				\end{description}
 
 		\subsection{Certificados Digitales}\label{estadoCertificadosDigitales}
+		La propia web de la Fábrica Nacional de Moneda y Timbre \cite{webCertFNMT} indica que \textit{un certificado digital es un documento electrónico que asocia una clave pública con la identidad de su propietario}. Complementa la definición añadiendo que \textit{adicionalmente, además de la clave pública y la identidad de su propietario, un certificado digital puede contener otros atributos para, por ejemplo, concretar el ámbito de utilización de la clave pública, las fechas de inicio y fin de la validez del certificado, etc. El usuario que haga uso del certificado podrá, gracias a los distintos atributos que posee, conocer más detalles sobre las características del mismo.}.
+		La utilidad de los certificados digitales, simplificando el contexto, se resume en \textit{asegurar que una determinada clave pública pertenece a un usuario en concreto}.
+		Con las tecnologías actuales, la economía ha vuelto su desarrollo al comercio electrónico y las relaciones remotas. Muchas transacciones que antes se realizaban en persona han evolucionado al mundo digital, por lo que, para la mayoría de ellas es indispensable poseer mecanismos que puedan demostrar que los sujetos intervinientes en la comunicación están unívocamente identificados y con la seguridad de que no se produce suplantación.
+		Una herramienta fundamental para cumplir con este propósito ha sio el desarrollo de las certificaciones digitales.
+		
+		*********************************
+		MÁS MÁS MÁS MÁSSSSSSSS
+		*********************************
+
 		\subsection{Smart Cards}\label{estadoSmartcards}
+		Una SmartCard
 		\subsection{DNIe}\label{estadoDNIe}
 		\subsection{Tarjeta Universitaria Inteligente - TUI}\label{estadoTUI}
 	
@@ -171,6 +181,10 @@
 					\item Autenticación del votante
 					\item Integridad de los elementos de la elección
 				\end{itemize}
+				
+				**************************** PRIMITIVAS CRIPTOGRÁFICAS O ESQUEMAS DE VOTO ELECTRÓNICO ??? ******************
+				********************* EL TEMA ES QUE EXISTEN ESTAS PRIMITIVAS BÁSICAS Y LUEGO LOS ESQUEMAS SE BASAN EN ELLAS
+				PARA SER DISEÑADOS ***************************
 				Antes de entrar en los diferentes esquemas de voto electrónico (\ref{esquemasVotoElectronico}), introducimos una serie de primitivas criptográgficas que se utilizan en ellos.
 				
 					\subsubsection{Firma ciega}\label{primitivaFirmaCiega}
@@ -185,7 +199,10 @@
 					
 			
 			\subsection{Esquemas de Voto Electrónico}\label{esquemasVotoElectronico}
-				Según la teoría, los sistemas de voto electrónico están formados por un diseño conceptual y el llamado esquema o paradigma de voto electrónico (E-Voting Schemes - EVS). El esquema es el núcleo del sistema, lo que asegura que los requisitos se cumplan. La mayoría de ellos usan mecanismos y principios criptográficos. Podemos discernir varios tipos de esquemas de voto electrónico entre los más usados según publican diversos expertos en este campo:
+				Los sistemas de voto electrónico están formados por un diseño conceptual y el llamado esquema o paradigma de voto electrónico (E-Voting Schemes - EVS). El esquema es el núcleo del sistema, lo que asegura que los requisitos se cumplan.\\
+				La práctica totalidad de estos esquemas usan mecanismos y principios criptográficos.\\
+				Los esquemas de voto electronico se basan en una primitiva criptográfica o en un conjunto de ellas. Por eso, hay una serie de esquemas publicados apoyados sobre alguna de las primitivas introducidas en el apartado anterior.
+				Podemos clasificar varios tipos de esquemas de voto electrónico entre los más usados según las publicaciones de una serie de expertos en el campo del voto electrónico criptográfico:
 				\begin{itemize}
 					\item Esquema de Voto Electrónico basado en Cifrado Homomórfico
 						El votante emite su voto codificado y el recuento se realiza sin descodificar los votos. De esta forma se consigue que no se vulnere el secreto del voto. Para poder realizar esta descodificación, el elector debe instalar algún software desarrollado por la autoridad electoral para realizar las operaciones criptográficas.
@@ -196,7 +213,7 @@
 					\item Esquema de Voto Electrónico basado en Mixnets
 						El esquema basado en mixnets (redes mixtas) define la existencia de una serie de servidores enlazados. Cada uno de estos servidores recibe un grupo de mensajes encriptados, los reordena, los vuelve a encriptar de forma aleatoria y los envía al siguiente servidor. Con este proceso se consigue que no sea posible asociar la información de los mensajes de entrada con los de salida, rompiendo la relación votante-voto del sistema.\\
 						La desencriptación de los votos se puede realizar tanto en cada servidor (por medio de su propia clave) como al finalizar el proceso utilizando una clave distribuida entre varios de los servidores.\\
-						******************* LITERAL ******** La principal crítica a este esquema es que las pruebas de correctitud son voluminosas. Existen algunas implementaciones comerciales de sistemas de wlwcción electrónica basadas en este esquema.
+						******************* LITERAL ******** La principal crítica a este esquema es que las pruebas de correctitud son voluminosas. Existen algunas implementaciones comerciales de sistemas de elección electrónica basadas en este esquema.
 						
 					\item Esquema de Voto Electrónico basado en Secreto Compartido
 						En el esquema de voto electrónico basado en secreto compartido, también llamado Paradigma de Benaloh [***** CITA *****], el votante comparte su voto entre varias autoridades electorales. Una vez finalizado el proceso de votación, cada autoridad computa los votos que ha recibido y los pone en común con el resto de autoridades electorales que toman parte en la elección. Así se obtiene el resultado total del proceso.\\
@@ -213,8 +230,12 @@
 						Podemos encontrar este esquema en soluciones como la propuesta en 1992 por Fujioka en \cite{Fujioka93}, la cual sirvió de base a Cranor para la implementación de un prototipo (Sensus).\\
 						El esquema desarrollado en Sensus divide el proceso en cuatro etapas: \textit{inicialización}, \textit{registro}, \textit{votación} y \textit{recuento}. A su vez, registra dos autoridades: \textit{Administrador} y \textit{Contador}.
 						********* VER BELLEBONI ************
-				\end{itemize}
 				
+				
+					\item Esquema de Voto Electrónico basado en papeletas precifradas
+						Este esquema de voto eléctronico aparece en la tesis \cite{tesisSeguridadVMMorales}
+				
+				\end{itemize}
 				************* Según \cite{tesisSeguridadVMMorales} ************
 				Podemos definir cuatro grupos de esquemas de voto electrónico remoto. Estos se diferencian en la forma en la que usan los elementos criptográficos para tratar de resolver los requisitos de seguridad de un sistema electoral:
 				\begin{itemize}
