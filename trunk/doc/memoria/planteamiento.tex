@@ -3,24 +3,25 @@
 \rhead{Planteamiento}
 %*******************************************************************************
 \section{Objetivos finales del proyecto}\label{objetivos}
-	El objetivo principal del Proyecto de Fin de Carreraa que presenta el alumno es la implementación de un sistema de votación electrónica remota (i-voting) diseñada de forma ad-hoc para dos procesos electorales que se llevan a cabo en la Escuela Politécnica Superior de la Universidad San Pablo CEU.\\
-	Estos procesos electorales que se llevan a cabo en la EPS están definidos en las \textit{Normas de Organización y Funcionemiento de la Universidad San Pablo-CEU} \cite{normasCEU} y son:\\
+	El objetivo principal de este Proyecto de Fin de Carrera es la implementación de un sistema de votación electrónica remota (i-voting) diseñada de forma ad-hoc para dos de los procesos electorales que se llevan a cabo en la Escuela Politécnica Superior de la Universidad San Pablo CEU.\\
+	Estos procesos están definidos en las \textit{Normas de Organización y Funcionemiento de la Universidad San Pablo-CEU} \cite{normasCEU} y son:\\
 	\begin{itemize}
 		\item Elecciones de Delegados y Subdelegados
-		\item Elecciones de miembros de la Junta Electoral
+		\item Elecciones de Miembros de la Junta Electoral
 	\end{itemize}
-	Este sistema que se propone en esta memoria es un sistema \textbf{robusto}, \textbf{fiable}, \textbf{verificable} y \textbf{auditable}, buscando satisfacer las exigencias de seguridad de procesos electorales más ambiciosos que los que tratamos en este proyecto, que abarcan el ámbito universitario. Por tanto, intención de este PFC, no es la de simplemente realizar estos comicios de forma electrónica, sino tratar de diseñar un sistema con idea de que puediera ser escalable hasta un nivel superior al ámbito de la Escuela o la Universidad.\\
+	El sistema que se propone en esta memoria es un sistema \textbf{robusto}, \textbf{fiable}, \textbf{verificable} y \textbf{auditable}, buscando satisfacer las exigencias de seguridad de procesos electorales más ambiciosos que los que tratamos en este proyecto, los cuales abarcan el ámbito universitario. Por tanto, intención de este PFC, no es la de simplemente realizar estos comicios de forma electrónica, sino tratar de diseñar un sistema con idea de que puediera ser escalable para niveles superiores al ámbito de la Escuela o la Universidad.\\
+	Como se ha avanzado al inicio de esta sección, el sistema propuesto busca tener estas características:
 	\begin{description}
 		\item[Robusto] El sistema debe ser tolerante tanto a fallos como ataques externos e internos.
 		\item[Fiable] El sistema cumple con requisitos de seguridad que satisfacen la privacidad y la precisión de votos y votantes.
 		\item[Verificable] Se puede verificar que los votos han sido contados y forman parte del resultado del escrutinio.
 		\item[Auditable] El sistema debe proporcionar mecanismos para que pueda llevarse una auditoría del mismo antes, durante y después del proceso. 
 	\end{description}
-	El germen de la idea del proyecto, como se comenta en las Motivaciones del proyecto era la búsqueda de soluciones para elecciones generales, autonómicas, municipales, etc. Elecciones que afectan a la población y de los motivos por los cuales todavia no se han implementado sistemas de este tipo en España de carácter general.\\
+	El germen de la idea del proyecto, como se comenta en las Motivaciones del proyecto \ref{motivacion} era la búsqueda de soluciones para elecciones generales, autonómicas, municipales, etc. Elecciones que afectan a la población. Junto a la idea de desarrollar soluciones para este tipo de comicios, también está el estudio de las circunstancias por las que todavia no se han implementado sistemas de este tipo en España de carácter general.\\
 	Al realizar el estudio del estado del arte actual, se puede recopilar una ingente documentación teórica sobre diferentes sistemas, paradigmas y esquemas de todo tipo de votación electrónica. Hay muchos artículos y tesis muy importantes que tratan de desarrollar sistemas de este tipo, desde el punto de vista teórico hasta el prototipo práctico. Incluso tenemos estados que han implementado una solución con carácter vinculante. En este PFC, lejos de tratar de encontrar una solución novedosa y revolucionaria, vamos a tratar de plasmar un conjunto de ideas y proposiciones de diferentes autores para implementar un sistema propio para la escuela que cumpla con el mayor número de requisitos básicos y deseables para el voto electrónico, teniendo en cuenta además, la variante del factor remoto, es decir, que cumpla, además con los requisitos de control, confiabilidad y seguridad que hagan viable el voto a través de internet.
 	Así pues, el objetivo general del PFC será:\\
 	\begin{itemize}
-		\item Diseñar un esquema y un sistema de voto electrónico remoto a través de internet que sea robusto, fiable, verificable y auditable.
+		\item Diseñar un esquema y un sistema de voto electrónico remoto a través de internet que sea robusto, fiable, verificable y auditable*********************************, además de un coste ajustado,********************************** para que se puedan llevar a cabo las Elecciones a Delegado y Subdelegado de Curso y las Elecciones a Miembro de la Junta Electoral de la Escuela Politécnica Superior de la Universidad San Pablo CEU. 
 	\end{itemize}
 	Teniendo en cuenta el objetivo general, vamos a definir una serie de objetivos intermedios que habrá que cumplir:\\
 	%\begin{enumerate}[label=OBJETIVO\arabic*]
@@ -64,7 +65,7 @@
 
 			\item Fase postelectoral
 			\begin{description}
-				\item[Difusión de resultados]
+				\item[Difusión de resultados]: La difusión de resultados es la fase que tiene la responsabilidad de publicar los resultados de forma oficial u oficiosa. En los sistemas de conteo
 			\end{description}
 			
 			\item Auditoría
