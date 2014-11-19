@@ -9,7 +9,7 @@
 %*
 %*
 %*
-
+Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el estado de la cuestión, la siguiente fase en el desarrollo es el Análisis. En esta etapa se analiza el problema con el cliente, llegando a un acuerdo en el alcance del proyecto y los requisitos que deben ser satisfechos.
 	
 		
 		\section{Especificación de requisitos}\label{requisitos}
@@ -34,6 +34,20 @@
 				\item[Descripción:] El sistema consiste en una plataforma de voto eléctronico remoto por internet, seguro, anónimo y tratando de implementar el máximo de requisitos exigibles al voto electrónico que cumplan con el objetivo. El desarrollo es ad-hoc según las normas de las elecciones que van a tomar parte. (************)Pese a ser un diseño dirigido a unos tipos de elecciones concretas, se puede modularizar el sistema para que, implementando unas nuevas reglas, el sistema sirva de base a otros procesos.(************). Los votantes dispondrán de unas credenciales digitales que servirán para que se puedan identificar unívocamente en el sistema, sin suplantaciones. (**************** DNI? TUI? user/password? *****************). Estas credenciales se implementan basándose en certificados digitales que aseguran la autenticidad del votante. Una vez el votante se autentica contra el sistema y el censo (proporcionado por la Universidad y cargado previamente en el sistema), se le presenta el surtido de papeletas entre las que puede elegir a sus representantes. Este conjunto de papeletas ha de ser calculado por el sistema teniendo en cuenta el tipo de votante con el que interacciona (estudiante/profesor/empleado, carrera, grupo/clase...).Una vez seleccionada la papeleta, emite el voto. El voto consiste en que el votante firma digitalmente un sobre lógico en el que va la papeleta cifrada. Este sobre se envía al sistema, donde un módulo urna digital se encarga de almacenarlo hasta la finalización del periodo de votación. Una vez llega el fin de este periodo, los administradores de la elección abren la urna. Para ello, requieren de una clave criptográfica que estará troceada y repartida entre varios miembros. La apertura de la urna implica la anonimización de los votos, rompiendo la relación entre un votante y el voto que ha emitido. Una vez cumplido con el requisito del voto anónimo y eliminada la trazabilidad del voto, estos tienen que ser descrifrados para, a continuación, ser contados. Al finalizar el escrutinio, se publican los resultados. Junto a la publicación de los resultados, se deben publicar unas listas para que los votantes puedan verificar que el voto digital que emitieron no ha sido alterado y, además, ha formado parte del escrutinio.
 			\end{description}
 			
+			El sistema consiste en una plataforma de voto eléctronico remoto por internet, seguro, anónimo y tratando de implementar el máximo de requisitos exigibles al voto electrónico que cumplan con el objetivo. El desarrollo es ad-hoc según las normas de las elecciones que van a tomar parte.
+			La identificación de los votantes en el sistema ha de ser unívoca, evitando que un votante pueda ver su identidad supantada por otro.
+			Los usuarios que intenten acceder al sistema de voto y no pertenezcan al censo oficial, proporcionado por la Autoridad Electoral de la Universidad, han de ser identificados y su acceso al mismo rechazado, pues hay que cumplir el requisito de Autenticidad del voto/votante.
+			El sistema debe porporcionar al votante las distintas opciones entre las que puede elegir para ejercer su voto teniendo en cuenta el tipo de votante registrado y las reglas de le elección que le aplican.
+			Una vez seleccionado el voto que quiere ingresar en la urna electrónica, el sistema debe asegurar que éste es correcto, para avisar al votante que lo corrija en caso contrario y no emitir un voto incoherente en el sistema. En el caso de un voto coherente (votos válidos y votos nulos), el sistema debe, en primer lugar destruir la relación entre el voto y el votante, cumpliendo con el requisito de privacidad del voto o anonimato del votante, el voto es secreto, por lo que hay que asegurar que no existe una trazabilidad que pudiese llegar a relacionar un voto con la identidad del votante que lo sufragó.
+			El sistema debe proporcionar un mecanismo por el cual un votante tenga la capacidad de confirmar que su voto ha sido correctemente inlcuido en la urna electrónica. Debe poder asegurarse de que \textit{ha votado}.
+			Del mismo modo, el sistema ha de asegurar que los votos, ya desligados de la identidad del votante, son correctamente alamacenados en la urna electrónica y correctamente contados en la fase de recuento o consolidación de votos. Teniendo en cuenta las reglas de la elección, debe asegurar que todos los votos son correctamente contados y que sólo lo son una vez.
+			Una vez finalizado el recuento, y difundidos los resultados, el sistema debe proporcionar un mecanismo para que un votante pueda confirmar que su voto ha sido incluido correctamente en los resultados ofrecidos por el sistema sin que se viole la privacidad de su voto.
+			
+			Adicionalmente, el sistema debe proporcionar funcionalidades externas al proceso de voto.
+			Debe tener un sistema de carga y gestión de los datos electorales (reglas de la elección, urnas, circuncripciones, candidatos, censo).
+			Debe proporcionar herramientas que permitan la monitorización del proceso para comprobar el estado del mismo, además de herramientas de transparencia para que pueda ser auditado en tiempo real por las autoridades competentes.
+			
+			
 			\subsection{Requisitos funcionales}\label{requisitosFuncionales}
 				\begin{description}
 					\item[Votación por internet]: El sistema de votación debe funcionar de forma remota en sus fases de registro, identificación, votación y consulta de resultados. Cualquier votante puede acceder a las funcionalidades del sistema a las que tiene autorización desde cualquier punto conectado a Internet.
@@ -53,6 +67,36 @@
 				
 			\subsection{Requisitos propios del voto electrónico}\label{requisitosVotoElectronico}
 			******** AQUÍ HAY QUE DEFINIR LOS REQUISITOS DEL VOTO ELECTRÓNICO. DEPENDE DEL AUTOR, HAY UNOS U OTROS. HABRÁ QUE DEFINIR CUÁLES SON LOS QUE VAMOS A TENER EN CUENTA PARA ESTE PROYECTO. ESTÁN EN --TEMP-- ESPERANDO A QUE TOME LA DECISIÓN
+			A partir de los requisitos estudiados al estudiar el estado actual del voto electrónico en \ref{introduccionRequisitosVotoElectronico}, consideramos los siguientes requisitos como los implícitos al voto electrónio:
+				\begin{description}
+					\item[Autenticidad]: Sólo los votantes autorizados pueden votar.
+					La autorización de un votante para ejercer su derecho al voto está expresada en el censo electoral conformado por la Autoridad Electoral competente. El sistema debe comprobar que el votante que quiere realizar un voto debe estar inscrito correctamente en el censo electoral y que en éste no se indique que tiene vetada su participación en el proceso.
+					\item[Anonimato]: El voto es secreto.
+					Ningún votante, observador o manipulador del sistema puede tener la habilidad o herramienta de poder conocer el voto que ha sufragado otro votante en ningún momento del proceso electoral.
+					
+					\item[Verificabilidad]: GaranEl votante puede asegurarse de que su voto se ha contado adecuadamente.
+					El sistema debe ase
+					El sistema tiene que proporcionar una herramienta que permita a un votante poder verificar que la opción por la que ha votado ha sido correctamente añadida a los resultados consolidados del proceso electoral, sin que por ello pueda violarse el requisito de Anonimato, asegurando que ningún actor del sistema pueda tener acceso al contenido de dicho voto.
+					
+					\item[Imposibilidad de coacción]: El voto emitido no puede ser mostrado.
+					El sistema debe evitar que el voto emitido pueda ser mostrado a un tercer actor con el fin de evitar la coacción al votante por medio de éste.
+					******************************************* NO ESTOY DE ACUERDO CON ESTO. ALGUNOS AUTORES INDICAN LO CONTRARIO, QUE ES PRIMORDIAL QUE EL VOTANTE SE QUEDE CON UNA PRUEBA DE SU VOTO. DE TODOS MODOS CONSIDERO QUE SI SE CUMPLE EL REQUISITO DE VERIFICABILIDAD, ES MEJOR CUMPLIR ESTE, PERO NO POR HACERLO VAMOS A CONSEGUIR REBAJAR EL RIESGO DE COACCIÓN, ¿O SÍ? ********************************
+					
+					\item[Posibilidad de emitir un voto nulo].
+					El sistema debe dar la opción al votante de que pueda realizar un voto nulo, al igual que puede realizarlo en un proceso electoral no electrónico.
+					
+					\item[Fiabilidad]: el sistema debe asegurar que no se producen alteraciones de los resultados.
+					Es esencial que el sistema asegure que, aunque existan riesgos inherentes a cualquier sistema informático, estos no van a afectar los resultados del proceso electoral.
+					
+					\item[Auditabilidad]: se debe poder comprobar que el funcionamiento de los elementos que intervienen en el proceso es correcto.
+					Para favorecer la transparencia del proceso, es muy importante que el sistema proporcione unas herramientas que permitan tanto la monitorización del proceso como auditorías del mismo. Estas herramientas deben ser fiables y demostrar tanto su correcto funcionamiento como el del proceso electoral en si mismo a una serie de actores designados (operadores, auditores, observadores).
+					
+					\item[Usabilidad]: cualquier votante debe ser capaz de emitir un voto en un tiempo razonable.
+					El sistema debe ser usable y accesible, debe facilitar el proceso de emisión de voto a prácticamente la totalidad del electorado.
+					
+					
+				\end{description}
+			
 				
 			\subsection{Requisitos del proceso electoral}\label{requisitosProceso}
 				\begin{description}
@@ -62,50 +106,45 @@
 			\subsection{Requisitos no funcionales}\label{requisitosNoFuncionales}
 				\begin{description}
 					\item[Bajo coste]: El coste del sistema debe ser relativamente bajo.
+					Teniendo en cuenta las características del cliente, una Escuela o Universidad y los potenciales desarrolladores del proyecto, estudiantes, es importante procurar que el espíritu del sistema a implementar se base en ek bajo coste. Con este principio, se pueden ahorrar recursos económicos a la institución que podría destinar a otras necesidades. Por ello, se considera importante promover la utilización de software libre o sin licencia, así como reducir el número de responsables en la gestión del proceso electoral a nivel de control del sistema informático y la utilización de tecnologías hardware que reduzcan el desembolso de capital, como es la utilización de software de virtualización frente a la inversión en máquinas, mucho más costosas.
+					
 					\item[Soporte a usuarios]: El sistema debe proporcionar unas herramientas de soporte a usuarios de cualquier rol que hagan uso del mismo.
+					Al ser un sistema de votación nuevo, diferente al tradicional y con una característica tecnológica por medio, es fundamental que se ofrezca soporte, tanto técnico como de procedimiento a los usuarios del sistema en la jornada electoral, ya sean votantes activos como responsables de la autoridad electoral, auditores u observadores del proceso. Hay que procurar que puedan disponer de la información y el soporte necesario para que todos puedan realizar sus funciones durante la jornada electoral sin problemas o, al menos, minimizándolos.
+					
 				\end{description}
 			
 		
 			\subsection{Necesidades del esquema de voto electrónico}
 			\begin{enumerate}
-				\item Identificación y autenticación remota
-				\item ...
+				\item[Votación por internet]: El sistema de votación debe funcionar de forma remota en sus fases de registro, identificación, votación y consulta de resultados. Cualquier votante puede acceder a las funcionalidades del sistema a las que tiene autorización desde cualquier punto conectado a Internet.
+				
+				\item[Identificación remota]: El sistema debe implementar un mecanismo que sea capaz de asegurar la identificación de un votante en el sistema de forma remota, digitalmente, sin posibilidad de error.
+				Existen varias soluciones para solventar este requisito, como son los certificados digitales electrónicos externos (contenidos en tarjetas de soporte físico como una smartcard, el DNI o la TUI de la Universidad), la identificación biométrica, acceso por usuario y contraseña con pasos extras para aumentar la seguridad.
+				
+				\item[Autenticación remota]: El sistema debe poder autenticar a los votantes que tratan de usar su identificación digital para ingresar en el sistema de forma remota. El sistema no debe errar en esta autenticación, permitiendo la entrada de los votantes autorizados y revocando el acceso a los atacantes, suplantadores o desautorizados. No sólo debe ser capaz de permitir la identificación de un votante asegurando ser quién dice ser, sino que debe permitir la autenticación del mismo de cara al sistema y de la Autoridad Electoral.
+				
+				\item[Permitir votación presencial]: El sistema debe proporcionar los mecanismos necesarios para facilitar el voto a aquellos votantes con derecho al mismo que quieran emitirlo de forma presencial en el periodo habilitado para ello. Este requisito trata de preservar la tradición de estos procesos electorales en los que se fijaba una fecha para el sufragio y se acudía a la urna. Así, del mismo modo, hay que adecuar una serie de equipos en los centros de votación habituales que, aunque estén conectados a internet y el voto siga siendo remoto, permitan a los votantes que lo deseen hacer uso de su derecho al voto sin tener que salir de la Escuela. ******* NOTA: (Analizando este requisito, la mejor forma es habilitando un horario en la sala de ordenadores de la Escuela destinados a que las personas que quieran puedan votar de forma remota desde estos puestos) *********
+				
+				\item[Disponibilidad total]: El sistema debe estar disponible para proporcionar servicio de voto durante todo el periodo estipulado en las normas que se fijen para la elección. Aunque el sistema entra en producción para llevar a cabo funciones que se realizan en la llamada fase preelectoral, el momento más crítico e importante se presupone que es la propia jornada electoral. El sistema debe estar preparado para su uso al comienzo de ésta y debe estar activo, accesible a los votantes y sin caídas durante la duración de la misma.
+				
+				\item[Voto anónimo]: Este es un requisito implícito del voto electrónico. Por ello, para el esquema de votación que se ha de utilizar es fundamental tenerlo en cuenta. Han de integrarse los protocolos criptográficos y de infraestructura necesarios para que nadie pueda vincularel contenido de un coto a un votante determinado. **************** ESTO QUIZÁ DEBERÍA QUEDARSE DIRECTAMENTE EN LOS REQUISITOS IMPLÍCITOS AL VOTO ELECTRÓNICO. DE HECHO, A PARTIR DE ELLOS Y PINCELADAS DE ESTA SUBSECCIÓN SE HAN DE SENTAR LAS BASES DEL ESQUEMA DE VOTO ELECTRÓNICO A IMPLEMENTAR *************************
+				
+				
+				\item[Papeleta/boleta digital]: El sistema debe mostrar al votante la papeleta o boleta (dependiendo del tipo de elección) correspondiente a la elección y el censo que le corresponda. Debe contener las opciones correctas por las que puede optar y mantener correctamente la/s opción/es seleccionadas.
+				
+				\item[Voto múltiple:] \textst{ El sisteme debe permitir a los votantes votar más de una vez, invalidando cada vez que emite un voto, los votos anteriores que hubiese introducido en el sistema. (********************* ¿QUEREMOS ESTO? TOTAL, EL RIESGO DE COACCIÓN ES MUY BAJO EN ESTAS ELECCIONES... PERO SI QUEREMOS ACERCARNOS A UNAS GENERALES, QUIZÁS SEA IMPEPINABLE, SIGUIENDO EL MODELO ESTONIO *********************)}
+				
 			\end{enumerate}
 			
 			
 			
 			**************************** ESTO ES TEMPORAL. VOY A IR HACIENDO UNA LISTA DE REQUISITOS SEGÚN LOS VOY CONOCIENDO. ESTA LISTA ES EL BATIBURRILLO, CUANDO ESTÉN CLAROS, LOS VOY COLOCANDO EN SUS TIPOS CORRESPONDIENTES Y LOS DEFINIMOS FORMALMENTE SEGÚN LA PLANTILLA **********************************
 			
-			\begin{description}
-				\item[Votación por internet]: El sistema de votación debe funcionar de forma remota en sus fases de registro, identificación, votación y consulta de resultados. Cualquier votante puede acceder a las funcionalidades del sistema a las que tiene autorización desde cualquier punto conectado a Internet.
-				
-				\item[Identificación remota]: El sistema debe implementar un mecanismo que sea capaz de asegurar la identificación de un votante en el sistema de forma remota, digitalmente, sin posibilidad de error.
-				
-				\item[Autenticación remota]: El sistema debe poder autenticar a los votantes que tratan de usar su identificación digital para ingresar en el sistema de forma remota. El sistema no debe errar en esta autenticación, permitiendo la entrada de los votantes autorizados y revocando el acceso a los atacantes, suplantadores o desautorizados.
-					
-				\item[Permitir votación presencial]: El sistema debe proporcionar los mecanismos necesarios para permitir el voto a aquellos votantes con derecho al mismo que quieran emitirlo de forma presencial en el periodo habilitado para ello. ******* NOTA: (Analizando este requisito, la mejor forma es habilitando un horario en la sala de ordenadores de la Escuela destinados a que las personas que quieran puedan votar de forma remota desde estos puestos) *********
-				
-				\item[Disponibilidad total]: El sistema debe estar disponible para proporcionar servicio de voto durante todo el periodo estipulado en las normas que se fijen para la elección. ******* NOTA: (24/7, un día, varios días... depende de cómo se defina el proceso) *********
-				
-				\item[Papeleta/boleta digital]: El sistema debe mostrar al votante la papeleta o boleta (dependiendo del tipo de elección) correspondiente a la elección y el censo que le corresponda. Debe contener las opciones correctas por las que puede optar y mantener correctamente la/s opción/es seleccionadas.
-				
-				\item[Voto anónimo]: El sistema debe poder romper la relación existente entre el voto y el votante. Deben desarrollarse los protocolos criptográficos y de infraestructura necesarios para que nadie pueda vincular el contenido del voto a un votante determinado.
-				
-				\item[Bajo coste]: El coste del sistema debe ser relativamente bajo.
-				
-				\item[Soporte a usuarios]: El sistema debe proporcionar unas herramientas de soporte a usuarios de cualquier rol que hagan uso del mismo.
-				
-				\item[Voto múltiple:] El sisteme debe permitir a los votantes votar más de una vez, invalidando cada vez que emite un voto, los votos anteriores que hubiese introducido en el sistema. (********************* ¿QUEREMOS ESTO? TOTAL, EL RIESGO DE COACCIÓN ES MUY BAJO EN ESTAS ELECCIONES... PERO SI QUEREMOS ACERCARNOS A UNAS GENERALES, QUIZÁS SEA IMPEPINABLE, SIGUIENDO EL MODELO ESTONIO *********************)
-				
-				\
-				
-				
-			\end{description}
 			
 			***************************** OTRA FORMA EN LA QUE PODEMOS ORDENAR LA ESPECIFICACIÓN DE REQUISITOS  HAY QUE RE-REDACTARLO *************************
-			Como primera fase a la hora de analizar un sistema que se pretende desarrollar es necesario la realización de una especificación de los requisitos que se van a exigir al sistema. Estos requisistos son las bases que tendrá que satisfacer el diseño del sistema para la correcta consecución del proyecto.\\
-			En el sector de la ingeniería existen muchos protocolos para llevar a cabo una especificación de requisitos. En este proyecto vamos a basarnos en el estándar  IEEE 830-1998. Este documento es el que estandariza la redacción de un documento completo como es una Estandarización de Requisitos de Software de manera formal. Por la tipología de documento que estamos redactando en este PFC, no se requiere de un documento anexo dedicado únicamente a este proceso. Por ello, no vamos a utilizar la totalidad el estándar, sino sólo aquellas partes que podamos integrar en la memoria de forma correcta.\\
-			El estándar, en el momento del análisis de este proyecto, cuenta ya con dieciséis años de vigencia (1998), por lo que el formato que vamos a utilizar se basa en su estructura, pero con modificaciones para poder adaptarlo a las necesidades de este PFC.\\
+			Para la especificación de los requisitos que ha de satisfacer el sistema, se van a seguir algunas de las recomendaciones del IEEE en el estándar IEEE 830-1998 \cite{Ieee1998}, ya que éste establece las normas para la realización de un documento formal y completo de especificación de requisitos (SRS en inglés).
+			
+			
 			Algunas de las modificaciones vienen inspiradas en este proyecto \cite{moreno07} y en este post al respecto \cite{postERSIEEE830}, determinando una serie de tipos de requisitos más específica que los que define el estándar original.\\
 			Con esto, vamos a describir los requisitos necesarios para la consecución del proyecto según la siguiente tipología:
 			\begin{description}
@@ -136,6 +175,15 @@
 						\item[Específico]: Extiende la descripción del requisito, con referencia a los casos de uso, si fuesen relevantes.
 					\end{description}
 			\end{description}
+			
+			
+			\subsection{Restricciones de diseño}\label{xxxxxx1}
+			\subsection{Requisitos funcionales}\label{xxxxxx2}
+			\subsection{Requisitos de la interfaz}\label{xxxxxx3}
+			\subsection{Requisitos de calidad}\label{xxxxxx4}
+			\subsection{Requisitos de evolución}\label{xxxxxx5}
+			\subsection{Requisitos del proyecto}\label{xxxxxx6}
+			\subsection{Requisitos de soporte}\label{xxxxxx7}
 			
 	****************************************************************************************************************************
 
