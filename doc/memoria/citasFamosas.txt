@@ -1,0 +1,150 @@
+------------------- http://es.wikiquote.org/wiki/Elecciones ----------------------------------------------
+"Votar es favorecer la secular injusticia del estado."
+José Augusto Trinidad Martínez Ruiz "Azorín" en "La vida"
+
+"El pueblo sólo es soberano el día de las elecciones." Alfonso Daniel Rodríguez Castelao
+
+"Basta con que el pueblo sepa que hubo una elección, los que emiten los votos no deciden nada; los que cuentan los votos lo deciden todo."
+Iósif Stalin
+
+"En democracia, cada cuatro años todos somos iguales, todos valemos lo mismo, y con un lápiz y un papel dibujamos el país que queremos."
+Ricardo Lagos
+
+
+”Las elecciones no resuelven por sí mismas los problemas, aunque son el paso previo y necesario para su solución.”
+Adolfo Suárez
+Discurso de cierre de campaña electoral, 14 de junio de 1977.
+
+
+"Una papeleta de voto es más fuerte que una bala de fusil"
+Abraham Lincoln
+
+
+
+----------- http://www.proverbia.net/citastema.asp?tematica=114 ----------------
+Para los que no tenemos creencias, la democracia es nuestra religión.
+Enviar frase
+Paul Auster (1947-?) Novelista y poeta estadounidense.
+
+
+No puedes hacer una revolución para tener la democracia. Debes tener la democracia para hacer una revolución.
+Enviar frase
+Gilbert Keith Chesterton (1874-1936) Escritor británico.
+
+
+Mi ideal político es el democrático. Cada uno debe ser respetado como persona y nadie debe ser divinizado.
+Enviar frase
+Albert Einstein (1879-1955) Científico alemán nacionalizado estadounidense.
+
+
+La democracia es la necesidad de doblegarse de vez en cuando a las opiniones de los demás.
+Enviar frase
+Winston Churchill (1874-1965) Político británico.
+
+
+
+
+
+------------------------ http://www.frasecelebre.net/temas/sociedad/votar.html ------------------------------------------
+El derecho de voto es un derecho que nada ni nadie puede quitar a los ciudadanos
+Jean-Jacques Rousseau
+
+
+Las elecciones, a veces, son la venganza del ciudadano. La papeleta es un puñal de papel
+David Lloyd George
+
+
+Un hombre sin un voto es un hombre sin protección
+Lyndon B. Johnson
+
+
+El voto es el instrumento más poderoso jamás concebido por el hombre para derribar la injusticia y destruir las terribles paredes que encarcelan a hombres por ser diferentes de otros hombres
+Lyndon B. Johnson
+
+
+----------------------- http://www.frasecelebre.net/temas/ciencias/informatica.html ------------------------------
+Una computadora es para mí la herramienta más sorprendente que hayamos ideado. Es el equivalente a una bicicleta para nuestras mentes
+Steve Jobs
+
+
+
+------------------------ http://www.variablenotfound.com/2008/02/101-citas-clebres-del-mundo-de-la.html -----------------------
+"Hardware: las partes de un ordenador que pueden ser pateadas"
+-- Jeff Pesis
+
+
+"¿Internet? ¿Todavía anda eso por ahí?"
+-- Homer Simpson
+
+
+"No se trata bits, bytes y protocolos, sino de beneficios, pérdidas y márgenes"
+-- Lou Gerstner
+
+
+"No importa lo estupendamente que haya ido la demo en los ensayos, cuando lo haces frente a tu audiencia la probabilidad de que sea una presentación existosa es inversamente proporcional al número de personas mirando, elevado a la cantidad de dinero que hay en juego"
+-- Mark Gibbs
+
+
+La complejidad es destructiva. Chupa la sangre de los desarrolladores, hace que los productos sean difíciles de planificar, construir y probar, introduce problemas de seguridad y provoca la frustración de usuarios finales y administradores"
+-- Ray Ozzie
+
+
+"Hay dos maneras de diseñar software: una es hacerlo tan simple que sea obvia su falta de deficiencias, y la otra es hacerlo tan complejo que no haya deficiencias obvias"
+-- C.A.R. Hoare
+
+
+"La función de un buen software es hacer que lo complejo aparente ser simple"
+-- Grady Booch
+
+
+"Hay una antigua historia sobre una persona que quería que su ordenador fuese tan fácil de utilizar como su teléfono. Estos deseos se han hecho realidad, ya no sé cómo usar mi teléfono"
+-- Bjarne Stroustrup
+
+
+"Hay sólo dos clases de lenguajes de programación: aquellos de los que la gente está siempre quejándose y aquellos que nadie usa"
+-- Bjarne Stroustrup
+
+
+
+---------------- http://www.variablenotfound.com/2008/04/otras-101-citas-clebres-del-mundo-de-la.html -------------------------------
+"No temo a los ordenadores; lo que temo es quedarme sin ellos"
+     -- Isaac Asimov
+
+	 
+ "La informática tiene que ver con los ordenadores lo mismo que la astronomía con los telescopios"
+     -- Edsger W. Dijkstra
+	 
+
+	 "La imaginación es más importante que el conocimiento. El conocimiento es limitado, mientras que la imaginación no"
+     -- Albert Einstein
+	 
+	 
+	 "El mayor enemigo del conocimiento no es la ignorancia, sino la ilusión del conocimiento"
+     -- Stephen Hawking
+	 
+	 
+	 "Dime y lo olvido, enséñame y lo recuerdo, involúcrame y lo aprendo"
+     -- Benjamín Franklin
+	 
+	 
+	  "Tenemos que cambiar la tradicional actitud ante la construcción de software. En vez de pensar que nuestra principal tarea es indicar a un ordenador qué hacer, concentrémonos en explicar a las personas lo que queremos que el ordenador haga"
+     -- Donald E. Knuth
+	 
+	 "Programar sin una arquitectura o diseño en mente es como explorar una gruta sólo con una linterna: no sabes dónde estás, dónde has estado ni hacia dónde vas"
+     -- Danny Thorpe
+	 
+	 
+	 "El testing de componentes puede ser muy efectivo para mostrar la presencia de errores, pero absolutamente inadecuado para demostrar su ausencia"
+     -- Edsger Dijkstra
+	 
+	 
+	 "El único sistema seguro es aquél que está apagado en el interior de un bloque de hormigón protegido en una habitación sellada rodeada por guardias armados"
+     -- Gene Spafford
+	 
+	 
+	 "Si piensas que la tecnología puede solucionar tus problemas de seguridad, está claro que ni entiendes los problemas ni entiendes la tecnología"
+     -- Bruce Schneier
+	 
+	 
+	 
+	 
