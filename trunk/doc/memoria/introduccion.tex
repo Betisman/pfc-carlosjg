@@ -1,6 +1,13 @@
 \chapter{Introducción}
 	\rhead{Introducción}
 	\par
+	Un sistema de voto por internet puede tener diferentes formas de ser afrontado. Se puede diseñar un sistema basado en sufragio desde cabinas electorales gestionadas electrónicamente que envian el conteo a través de la red. En el marco opuesto, también se puede diseñar un sistema completamente distribuido en el cual el votante puede ejercer su derecho al voto desde cualquier dispositivo electrónico y cualquier lugar del planeta, enviando el contenido de su voto a través de internet a la autoridad de recuento electoral.
+	\par
+	Ambas soluciones son extremos opuestos de lo que entendemos como voto por internet (i-voting) y que, en muchos documentos y ámbitos, se conoce también como voto electrónico (e-voting). Este término no es que sea erróneo, sino incorrecto, ya que carece de exactitud llamando a un subconjunto con el nombre del conjunto que lo contiene. El voto por internet, obviamente, se considera voto electrónico, pero no todos los sistemas de voto electrónico se realizan a través de internet. 
+	***************************************************************************
+	IMAGEN DOS CONJUNTOS, UNO (E-VOTING) CONTIENE AL OTRO (I-VOTING)
+	***************************************************************************
+	\par
 	Este proyecto trata de entrar en la problemática del voto electrónico remoto frente al presencial, de las reticencias sociales y tecnológicas que influyen en su reducida implantación en procesos electorales de gran importancia y alto número de electores. Para ello, vamos a reproducir la situación a escala reducida. Plantearemos una posible solución al proceso necesario para llevar a cabo las Elecciones a la Junta de Escuela de la Escuela Politécnica Superior de la Universidad San Pablo - CEU.
 	\par
 	Con este planteamiento es obvio que no vamos a solucionar las trabas técnicas y sociales del voto por internet a nivel de unas elecciones legislativas en, por ejemplo, España. Es un tema que se escapa del objetivo de este PFC, pero sí que vamos a tratar de identificar algunos de los agentes influyentes y buscar una posible solución aplicable a la elección a la Junta de Escuela.
@@ -49,13 +56,30 @@
 	\par
 	Se considera que el inicio del desarrollo del voto electrónico moderno está datado en 1964, año en el que site condados de EEUU utilizaron un sistema de voto electrónico para las Elecciones Presidenciales.
 	
+	
+	% *************************************************************************************************************** %
+	% 			ESTADO DE LA CUESTIÓN
+	% *************************************************************************************************************** %
+	
 	\section{Estado de la cuestión}\label{estadoCuestion}
+	
+		% *************************************************************************************************************** %
+		% 			VOTO ELECTRÓNICO
+		% *************************************************************************************************************** %
 		\subsection{Voto electrónico}\label{votoElectronico}
+		
+			\begin{figure}[htbp]
+				\centering
+					\includegraphics[width=0.30\textwidth]{imgs/categorizationVotingSystems.jpg}
+				\caption{Categorización de los sistemas de voto}
+				\label{fig:categorizationVotingSystems}
+			\end{figure}
+	
 			Podemos estudiar el voto electrónico separándolo en varios niveles, dependiendo de su implantación en el proceso.
 			\begin{itemize}
 				\item Nivel 0
 					\par
-					Es el sistema de voto tradicional, sin hacer uso de elemenos electrónicos para llevar a cabo ninguna fase del proceso. Es el sistema que se ha venido utilizando desde las primeras votaciones hasta bien entrado el siglo XX y todavía en muchos territorios del planeta.
+					Es el sistema de voto tradicional, sin hacer uso de elemenos electrónicos para llevar a cabo ninguna fase del proceso. Es el sistema que se ha venido utilizando desde las primeras votaciones hasta bien entrado el siglo XX y todavía en uso en muchos territorios del planeta.
 				\item Voto electrónico sustitutivo
 					\par
 					En este nivel, se sustituyen algunos procedimientos manuales o elementos utilizados en el voto tradicional por sistemas electrónicos determinados. Lo que se intenta es que el proceso de votación sea lo más parecido al que se ha venido llevando a cabo, pero pudiendo utilizar avances técnicos que mejoren el procedimiento en algunos de los puntos del mismo. Así, dependidendo de la legislación, el nivel democrático y social y la aceptación de la innovación tecnológica, se han adoptado procesos electorales en los que se hace uso de algunos elementos tales como tarjetas magnéticas o documento de identidad electrónico (para identificar al votante o incluso para emitir el voto), urnas de votación electrónica que recuentan los votos de forma automática (RFID, lector código de barras, etc.), pantallas de votación para selección de candidaturas (en EEUU es una de las formas en las que se elige la opción a votar), sistemas de totalización y consolidación de resultados (para evitar el escrutinio manual), e incluso sistemas para guiar el recuento definitivo pasados unos días de la jornada electoral. Así podemos encontrar muchos más ejemplos.\\
@@ -74,6 +98,10 @@
 							
 					\end{itemize}
 				\end{itemize}
+				
+				% *************************************************************************************************************** %
+				% 			Requisitos de voto electrónico
+				% *************************************************************************************************************** %
 				\par\label{introduccionRequisitosVotoElectronico}
 				Los sistemas de voto electrónico deberían tener como base antes de la implementación la consigna de aportar al proceso al menos las mismas garantías de seguridad que el sistema tradicional al que está sustituyendo / complementando. El voto presencial tradicional permite un recuento de la votación, lo mismo que la mayoría de los sistemas del primer nivel que hace uso de urnas electrónicas, pues generan un recibo o papeleta física. En cuanto al último nivel, esto no está tan claro, pues la mayoría de estos sistemas no generan un resguardo físico de los votos electrónicos emitidos, por lo que es complicado pensar en un recuento en caso de fallo o de duda de la autoridad electoral o del propio electorado.
 
@@ -90,7 +118,11 @@
 				\end{description}
 				A estos requisitos básicos, el equipo de Fujioka añade otros cuatro que considera importantes para la correcta implementación de un sistema de voto electrónico:
 				\begin{description}
+					\item[--- (Robustness)]: faulty behavior of any reasonably sized coalition of participants can be tolerated. In other words, the system must be able to tolerate to certain faulty conditions and must be able to manage these situations
+					\item[--- (Universarl Verifiability)]: Any part can verify the result of the voting.
+					\item[--- (Receipt Freeness)]: Voters are unable to prove the content of his/her vote
 					\item[Sin recibo (Receipt Freeness)]: El votante no necesita una prueba del voto realizado.
+					\item[--- (Incoercibility)]: Voter cannot be coerced into casting a particular vot by a coercer.
 					\item[Sin duplicados (Non-Duplication)]: Nadie puede duplicar el voto de otra persona.
 					\item[Participación Pública (Public Participation)]: La lista de quiénes votaron o quiénes no lo hicieron ha de ser pública.
 					\item[Corrección Privada de Errores (Private Error Correction)]: Un votante puede probar que su voto no fue contado correctamente sin tener que revelar qué opción votó.
@@ -100,7 +132,7 @@
 		La propia web de la Fábrica Nacional de Moneda y Timbre \cite{webCertFNMT} indica que \textit{un certificado digital es un documento electrónico que asocia una clave pública con la identidad de su propietario}. Complementa la definición añadiendo que \textit{adicionalmente, además de la clave pública y la identidad de su propietario, un certificado digital puede contener otros atributos para, por ejemplo, concretar el ámbito de utilización de la clave pública, las fechas de inicio y fin de la validez del certificado, etc. El usuario que haga uso del certificado podrá, gracias a los distintos atributos que posee, conocer más detalles sobre las características del mismo.}.
 		La utilidad de los certificados digitales, simplificando el contexto, se resume en \textit{asegurar que una determinada clave pública pertenece a un usuario en concreto}.
 		Con las tecnologías actuales, la economía ha vuelto su desarrollo al comercio electrónico y las relaciones remotas. Muchas transacciones que antes se realizaban en persona han evolucionado al mundo digital, por lo que, para la mayoría de ellas es indispensable poseer mecanismos que puedan demostrar que los sujetos intervinientes en la comunicación están unívocamente identificados y con la seguridad de que no se produce suplantación.
-		Una herramienta fundamental para cumplir con este propósito ha sio el desarrollo de las certificaciones digitales.
+		Una herramienta fundamental para cumplir con este propósito ha sido el desarrollo de las certificaciones digitales.
 		
 		*********************************
 		MÁS MÁS MÁS MÁSSSSSSSS
@@ -111,6 +143,12 @@
 		\subsection{DNIe}\label{estadoDNIe}
 		\subsection{Tarjeta Universitaria Inteligente - TUI}\label{estadoTUI}
 	
+	
+	
+	
+		% *************************************************************************************************************** %
+		% 			EXPERIENCIAS DE VOTO ELECTRÓNICO
+		% *************************************************************************************************************** %
 		\subsection{Experiencias de Voto Electrónico}\label{estadoExperienciasVotoElectronico}
 		En lo referente al voto electrónico...
 		\par
@@ -155,6 +193,15 @@
 			- No uso de mecanismos seguros que garanticen la protección del derecho a voto secreto.
 			- El voto no está protegido por mecanismos de firma ciega, anonimizadores, ni miecanismos equivalentes (y se conserva de 4 a 10 días almacenado junto a la identificación del votante), sino que traslada al sistema por internet las debilidades ya existenetes en el voto tradicional (¿?) ***************
 			
+			\par
+			La importancia que tiene el sistema de voto utilizado en Estonia radica en el hecho de que provee un mecanismo de voto por internet a un potencial de votantes consistente en el 100\% de la población de uun estado democrático. Hasta el momento de su implantación, esto no ocurría. Se daban casos en los que se proporcionaba un sistema electrónico remoto a diversos espectros de la población, como podían ser los residentes en el extranjero, los militares en misiones activas o los focos de posibles proyectos pilotos.
+			\par
+			Es destacable que, con el objetico de alcanzar a la totalidad de la población, incluso, el propio estado estonio aumentara el desarrollo de infraestructura tecnológica en el país para intentar reducir la beecha digital de sus habitantes, tratando de proveer el acceso a internet a la mayor parte del país. Igualemente importante fueron los esfuerzos por la certificación digital, teniendo como punto esencial la implantación del documento nacional de identidad electrónico para la totalidad de la población.
+			\par
+			La mayoría de los estados no pueden implantar unas elecciones como las llevadas a cabo en Estonia por diversos motivos, véase el miedo a la falta de ransparencia, fraude, logística o, en muchos casos, ilegalidad con respecto a las leys electorales actuales.
+			\par
+			En diversos países se ha logrado implementar sistemas reales de votación deslocalizada por internet en varios de sus territorios, alternativamente y al mismo nivel que el sistema tradicional presencial. Un ejemplo veremos que es Suiza con los proyectos de varios de sus cantones. No es comparable a la expereiencia estonia, pues cada cantón se rige de forma diferente y son diferentes empresas las que realizan los desarrollos del sistema independientemente del resto, además de que no todos los cantones han implementado estos sistemas remotos.
+			
 			\subsubsection{¿¿¿¿¿************Noruega************????}
 			
 			\subsubsection{Suiza}\label{ivotingSuiza}
@@ -177,11 +224,22 @@
 			En contraposición a los sistemas que estudia en la tesis, el sistema Votescript centra sus esfuerzos en la superación de debilidades identificadas en los anteriores, en especial en la fase de identificación del votante. En elecciones como las del Parlamento Europeo, una entidad supranacional, es muy importante que la identificación de los votantes se pueda realizar electrónicamente de una forma altamente confiable, pues deben ser válidas no sólo en el país del propio votante, sino en el resto de países europeos.\\
 			El esquema que propone Votescript define la necesidad de unos puntos específicos de votación, centros donde han de acudir los votantes a votar telemáticamente. En estos centros se implantarían los medios y equipamentos tecnológicos para que el votante emita su voto en un entorno controlado.\\ Según su documentación, las bases del sistema se pueden adecuar sin problemas a un \textit{sistema abierto} (voto por internet), pero el precio que implica la comodidad de los votantes de poder votar sin necesidad de trasladarse a locales oficiales incurre en un incremento de los riesgos de coacción. 
 			
+			\subsubsection{Online E-Voting Prototype with PTC Web Services}\label{PTCWSOnlineEVoting}
+			Este proyecto, realizado por Brett Wilson y continuado por Hakan Evecek para la Universidad ***************************.
+			El sistema diseñado consiste en un sistema web que comunica los diferentes módulos del mismo a través de servicios webs. El esquema criptográfico utilizado para cumplir con los requisitos básicos del voto electrónico se basa en el uso del criptosistema de Paillier.
+			Este criptosistema, desarrollado en 1999 consiste en un algoritmo probabilístico asimétrico de criptografía de clave pública. Básicamente, permite que un mensaje emitido puede ser cifrado en 
+			
+			
+			
 			******** ME HE QUEDADO POR AQUÍ *******
 			Las razones por las que eligen este precepto en el diseño del sistema es para poder reducir el problema derivado de la coacción del votante. Tal y como apuntan en su documentación, la justificación a esta decisión de diseño del esquema se debe a que para
 			\subsubsection{SELES}\label{seles}
 			\subsubsection{SEVI}\label{sevi}
 			
+			
+		% *************************************************************************************************************** %
+		% 			VOTO POR INTERNET EN LA EPS
+		% *************************************************************************************************************** %
 		\subsection{Voto por internet en la EPS}
 			En la Escuela Politécnica Superior de la Universidad San Pablo-CEU ya se realizó una elección por medio de voto electrónico. Sucedió en 2005, cuando en una colaboración entre la Universidad y la multinacional INDRA se celebró la primera elección de delegados de clase a través de voto electrónico con motivo del Día de Internet, celebrado el 25 de octubre del mismo año.\\
 			
@@ -190,6 +248,11 @@
 			En la fecha de la elección, cada alumno emitió su voto a través de un nombre de usuario y una clave personal. Por motivos divulgativos, los organizadores de la elección determinaron que una parte del alumnado censado realizara la votación desde un aula de votación concreta, perteneciente al centro y adecuada para ello; mientras que el resto del alumnado debía elegir sus representantes desde algún equipo personal fuera del dominio de la Universidad.\\
 			
 			Para que estas elecciones a través de Internet pudiesen llevarse a cabo la Universidad San Pablo-CEU tuvo que adaptar su normativa de régimen interno, pues la que tenía originalmente establecía únicamente la posibilidad de un sistema de voto presencial.
+			
+			
+			% *************************************************************************************************************** %
+			% 			PRIMITIVAS DE CRIPTOGRAFÍA
+			% *************************************************************************************************************** %
 			
 			
 			\subsection{Primitivas de criptografía}\label{primitivasCriptografia}
@@ -215,6 +278,8 @@
 					\subsubsection{Mixnets}\label{primitivaMixnets}
 					
 					\subsubsection{Cifrado homomórfico}\label{primitivaCifradoHomomorfico}
+					
+					
 					
 			
 			\subsection{Esquemas de Voto Electrónico}\label{esquemasVotoElectronico}
@@ -267,6 +332,23 @@
 				Junto con estos esquemas básicos en cuanto a solucionar problemas determinados de los procesos electorales electrónicos, nos centramos en resumir algunos de los esquemas desarrollados concretamente para elecciones mediante voto por internet.\\
 				Está fuera del alcance de este proyecto el estudio de estos esquemas y sus evoluciones, pero nos basamos en esta información para el desarrollo del sistema que se implementa. Para ahondar en ellos. recomiendo la lectura del capítulo 4 de la tesis de la Dra. Emilia Pérez Belleboni \cite{tesisEPerezBelleboni}, en la cual se expone una recopilación de información muy concisa sobre multitud de esquemas y sistemas que los implmentan, según las necesidades que se necesiten cubrir.
 			 
+
+
+
+		\subsubsection{Prueba de conocimiento cero}\label{zeroKnowledgeProof}
+		La técnica de Prueba de Conocimiento Cero (Zero Knowledge Proof - ZKP) en criptografía permite a un actor probar un mensaje a otro actor verificador sin revelar el contenido del mismo.
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	\section{Organización de la memoria del PFC}\label{organizacionMemoria}
