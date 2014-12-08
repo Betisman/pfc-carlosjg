@@ -149,13 +149,14 @@
 				Por tanto, es necesario tener un sistema que cargue el censo electoral elaborado por la Universidad, así como la definición de las circunscripciones y la relación entre estas y el propio censo de votantes.
 				
 			\subsubsection{Registro de votantes}\label{fase_electoral_preelectoral_registro}
-				\par
-				Pese a que el censo tiene que ser elaborado antes de cada elección, puede ser que la forma que tiene un organismo de conformarlo es a través de un registro de votantes. 
-				\par
-				Así, en lugar de tener una institución dedicada a definir el censo del país, como en España puede ser el INE, a partir del cual se extrae el censo electoral según el comicio (éste dependerá del tipo de elección y de la circunscipción electoral ******** ¿Ejemplo censo diferente en Buenos Aires para Jefe de Gobierno y para Legislativas? *******); se da el caso de que el Estado no contabiliza automáticamente como votantes a sus ciudadanos al cumplir los 18 años (o la edad mínima para votar, dependiendo del país / territorio), sino que es responsabilidad del propio ciudadano el inscribirse en el registro de votantes.
-				******* Esto hay que cambiarlo, no vale *********
-				\par
-				************ Registro de votantes como mecanismo para la posterior identificación??? Si no podemos usar DNIe, pero se usa una smartcard, habría que realizar el mapeo de la Id del votante con los certificados de la smartcard.... ************
+				En muchos procesos electorales no existe un censo oficial elaborado por la Autoridad Electoral o alguna otra institución relacionada (como puede ser el INE en España). En ese caso, en multitud de estados se procede a una fase de registro en la cual se permite (en algunos casos, se obliga) a los ciudadanos a que se registren en un listado de votantes. Es el paso previo para poder votar. Una vez finalizada esta fase de registro, la Auitoridad Electoral posee un censo \textit{oficial} de votantes.
+				
+				En el caso de las Elecciones dentro de la Escuela Politécnica, el censo lo proveerá la propia Autoridad Electoral a través de los datos de profesores, alumnos y empleados del Centro. Al realizar la carga de estos datos para conformar el censo electrónico, el sistema tendrá conocimiento de qué potenciales votantes tendrán permiso o no para votar y qué opciones de voto deberá presentarles para que conformen su boleta electrónica.
+				
+				Dependiendo del mecanismo digital de identificación y votación que se adopte para el sistema, la fase de registro puede ser tan simple como la correcta carga del censo en el sistema o puede aumentar ligeramente su complejidad. Si se decide utilizar una identificación basada en base de datos, habría que asignar a cada votante un nombre de usuario y una contraseña, al menos para ingresar en el sistema, ya que podría generarse otro par para la votación. En cualquier caso, en una situación como esta, además de la carga del censo resulta necesario una asociación
+				La Universidad proporciona a cada alumno, profesor y empleado un carnet universitario para su identificación. Entre otros servicios, estos carnets poseen la funcionalidad de identidad y firma digitales.
+				
+				
 						
 			\subsubsection{Presentación de las candidaturas}\label{fase_electoral_preelectoral_candidaturas}
 				\par
