@@ -234,14 +234,35 @@
 			******** ME HE QUEDADO POR AQUÍ *******
 			Las razones por las que eligen este precepto en el diseño del sistema es para poder reducir el problema derivado de la coacción del votante. Tal y como apuntan en su documentación, la justificación a esta decisión de diseño del esquema se debe a que para
 			\subsubsection{SELES}\label{seles}
-			\subsubsection{SEVI}\label{sevi}
 			
+			\subsubsection{SEVI}\label{sevi}
+				El Sistema Electrónico de Votación por Internet (SEVI) \cite{tesisMLLGarcia} es una propuesta de sistema software de voto electrónico para reemplazar el canal que constituye el correo postal certficado en el proceso electoral de México.
+				
+				La idea del sistema es que los ciudadanos con derecho a voto que no puedan hacer uso del mismo el día del proceso tengan un canal de votación disponible a través de internet. Este canal sustituiría al proporcionado por el correo posta, por lo que debe asegurar, como mínimo, los mismos servicios que ya proporcionaba éste en procesos electorales anteriores.
+				\begin{figure}[htbp]
+				\centering
+					\includegraphics[width=0.30\textwidth]{imgs/sevi01.png}
+				\caption{Primera aproximación de funcionalidad de SEVI}
+				\label{fig:categorizationVotingSystems}
+			\end{figure}
+			
+			El esquema de votación utilizado en SEVI divide el proceso electoral en cuatro fases:
+			\begin{itemize}
+				\item Registro
+				\item Votación
+				\item Resultados
+				\item Auditoría
+			\end{itemize}
+			
+			Al igual que en SELES \ref{seles}, el protocolo de seguridad en el que se basa SEVI es una variante del de Lin-Hwang-Chang, el cual se compone de tres fases que cubren la seguridad del esquema en los módulos de votación y genereación de resultados. También con este protocolo, el acuse de recibo dado a los votantes sirve para cumplir con los requisitos de auditoría. Otra de las necesidades resueltas es la de la democracia del proceso, pues el hecho de que se puedan identificar los votantes no honestos al emitir el voto aumenta la confianza en el proceso.
+			
+			No obstante el protocolo de seguridad respalda la mayor parte de la interacción con el sistema, no cubre la fase de registro. Precisamente esta es la fase con la que comienza el sistema y donde se basa parte de la suposición de honestidad esperada por el protocolo para el resto del proceso. Para resolver el problema, en SEVI optan por establecer un canal seguro entre la máquina cliente y la máquina servidor a través de un protocolo de transferencia segura SSL (Secure Sockets Layer)
 			
 		% *************************************************************************************************************** %
 		% 			VOTO POR INTERNET EN LA EPS
 		% *************************************************************************************************************** %
 		\subsection{Voto por internet en la EPS}
-			En la Escuela Politécnica Superior de la Universidad San Pablo-CEU ya se realizó una elección por medio de voto electrónico. Sucedió en 2005, cuando en una colaboración entre la Universidad y la multinacional INDRA se celebró la primera elección de delegados de clase a través de voto electrónico con motivo del Día de Internet, celebrado el 25 de octubre del mismo año.\\
+			En la Escuela Politécnica Superior de la Universidad San Pablo-CEU ya se realizó una elección por medio de voto electrónico. Sucedió en 2005, cuando en una colaboración entre la Universidad y la multinacional española Indra se celebró la primera elección de delegados de clase a través de voto electrónico con motivo del Día de Internet, celebrado el 25 de octubre del mismo año.\\
 			
 			En esta experiencia, más de 600 alumnos de los últimos cursos de la Escuela Politécnica eligieron a sus delegados de clase a través de este sistema.\\
 			
@@ -269,11 +290,70 @@
 				PARA SER DISEÑADOS ***************************
 				Antes de entrar en los diferentes esquemas de voto electrónico (\ref{esquemasVotoElectronico}), introducimos una serie de primitivas criptográgficas que se utilizan en ellos.
 				
+				*********************************************
+				%% https://www.google.es/url?sa=t&rct=j&q=&esrc=s&source=web&cd=8&ved=0CEsQFjAH&url=http%3A%2F%2Fthoth.cc.e.ipl.pt%2Fclasses%2FSI%2F1314i%2FLI51N-MI1N%2Fresources%2F2225&ei=l4qFVLrYBIavU8zugNAP&usg=AFQjCNEqu0pixZSTmH8THWs9eI9dOQpY9Q&sig2=RgWbVJjYwHyWYOrqoehkEA&bvm=bv.80642063,d.d24&cad=rja
+				\begin{description}
+					\item[Primitivas] Operaciones matemáticas, usadas como bloques constructores en la realización de esquemas. Su caracterización depende de los problemas matemátivos que sustentan su uso criptográfico. Ej: DES, RSA.
+					\item[Esquemas] Combinación de primitivas y métodos adicionales para la realización de tareas criptográficas como la firma y el cifrado digital. Ej: DES-CBC-PKCS5Padding; RSA-OAQEP-MGF1-SHA1
+					\item[Protocolos] Secuencias de operaciones, a realizar por dos o más entidades,que contienen esquemas y primiticas con el propósito de dotar a una aplicación de características de seguridad. Ej: TLS con %TLS_RSA_WITH_DES_CBC_SHA
+				\end{description}
+				*********************************************
+				
 					\subsubsection{Firma ciega}\label{primitivaFirmaCiega}
+						Los protocolos criptográficos de firma ciega se dan lugar entre dos agentes, un usuario U y un firmante F de forma que F firma digitalmente una serie de datos comunicados por U sin conocer el contenido de estos. \\
+						El objetivo de este tipo de protocolos es proporcionar una serie de datos frimados cuyo contenido solamente sea conocido por el actor que envía, siendo completamente desconocidos para el actor que los firma.\\
+						Los protocolos de firma ciega se basan en dos componentes \cite{firmaCiega2007}:
+										% \begin{enumerate}
+							% \item Un protocolo de firma digital desarrollad por el actor F, prestador del servicio de firma, de forma que $S(m)$ sea la notación de la firma digital del mensaje $m$.
+							% \item Dos funciones $f$ y $g$, conocidas únicamente por el usuario U, de forma que
+							% $$g(S(f(m))) = S(m)$$
+							
+							% La función f se denomina función de ocultación o de opacidad. La función g es la función de recuperación.
+							
+							% Una opción, propuesta en el trabajo \cite{firmaCiega2007}, es utilizar el protocolo de firma ciega desarrollado por Chaum \cite{chaumFirmaCiega} basado en el criptosistema RSA. Dicho protolo se podría definir así.
+							% Sea $n = p * q$ el producto de dos primos aleatorios suficientemente grandes. El firmante F usaría el esquema de firma digital RSA con clave pública $(n, e)$ y clave privada $d$. Sea k un entero aleatorio tal que $mcd(n, k) = 1$. Las funciones que utiliza el usuario U son:
+							% $$f: Zn \longrightarrow Zn$$
+							% $$m \longmapsto f(m) = m \cdot k^e \mod{n}$$
+							% $$g: Zn \longrightarrow Zn$$
+							% $$m \longmapsto g(m) = k^{-1} \cdot \mod{n}$$
+							% Sustituyendo (2) y (3) en (1):
+							% $$g(S(f(m))) = g(S(m \cdot k^e \mod{n}))
+								% = g(m^d \cdot k \mod{n}) = m^d \mod{n} = S(m)$$
+						% \end{enumerate}
+						
+						% \begin{description}
+							% \item[1. Fase de inicailización]. Sea $0 \leq m \leq n - 1$ el mensaje originado por U y que debe ser firmado por F, y sea $k$ un entero aleatorio elegido por F tal que $0 \leq k \leq n - 1$ y $mcd(k, n) = 1$.
+							% \item[2. Fase de 	ocultación]. U calcula $m^* = f(m) = m \dot k^e \mod{n}$ y se lo envía a F.
+							% \item[3. Fase de firma]. F calcula $s^* = S(m^*) = (m^*)^d \mod{n}$ y se lo envía a U.
+							% \item[4. Fase de recuperación]. U calcula $s = S(m) = g(S(m^*)) = k^{-1} \dot s^* \mod{n}$ que es la firma digital del mensaje m por F.
+						% \end{description}
+					
+					%% ************** Merece la pena seguir contando el protocolo propuesto por este artículo?
 					
 					\subsubsection{Secreto compartido}\label{primitivaSecretoCompartido}
+						Los protocolos criptográficos de secreto compartido dividen un mensaje (secreto) determinado en diferentes fragmentos que se reparten entre los participantes de la comunicacion.
+						El reparto de información consiste en los siguientes preceptos:
+						\begin{enumerate}
+							\item El mensaje (secreto) original únicamente puede ser reconstruido por un cierto grupo de participantes autorizados.
+							\item Los participantes no autorizados no pueden obtener información sobre el contenido del mensaje original.
+						\end{enumerate}
+						
+						%%% http://upcommons.upc.edu/revistes/bitstream/2099/9843/1/Article018.pdf
+						
 					
 					\subsubsection{Pruebas de conocimiento nulo}\label{primitivaPruebasConocimientoNulo}
+						Los protocolos basados en pruebas de conocimiento cero o nulo son protocolos criptográficos que se basan en la necesidad de una de las partes en poder demostrar a otra que un enunciado es cierto sin revelar nada más que la veracidad del mismo.
+						Uno de los mejores y más sencillos ejemplos para entender el concepto de este tipo de protocolos lo encontramos en una publicación de Pablo Della Paolera, astrónomo de la Universidad Nacional de La Plata (Argentina), en su blog personal \cite{dellaPaolera2014}. En ella explica que se puede demostrar que se enuncia algo correctamente sin necesidad de demostrar por qué.
+						Basándonos en el ejemplo publicado, supongamos dos actores A y B, en el que B quiere demostrar que A tiene la misma cantidad (o no) de monedas en su bolsillo izquierdo que en el derecho. Para ello, la forma más simple es que B le pida a A las monedas de cada bolsillo y las cuente. Para demostrar la afirmación de que A realmente tiene (o no) las mismas monedas en cada bolsillo basta con que las enseñe. En este caso, el problema es que B está violando la privacidad de A, pues no debería ser necesario que B conozca cuántas monedas tiene A y, mucho menos, tener que enseñarlas a la audiencia para demostrar la veracidad de sus investigaciones.
+						Esta violación de la privacidad se puede superar aplicando de forma simple una solución basada en prueba de conocimiento cero.
+						Supongamos que A tiene X monedas en el bolsillo derecho e Y monedas en el derecho. Para no conocer el número de monedas que posee A, B le pide que piense en un número Z, entero y mayor que X e Y. A continuación le pide que le diga la diferencia entre Z y X y entre Z e Y. Si ambas diferencias son iguales, A tiene el mismo número de monedas en ambos bolsillos, del mismo modo que si las diferencias no coinciden, se puede afirmar lo contrario, incluso sabiendo en qué bolsillo hay un mayor número de monedas. Y todo esto sin que B llegue a conocer en ningún momento cuántas monedas posee A. Matemáticamente, se trataría de un sistema de 2 ecuaciones con 3 incógnitas, por lo que no se puede resolver y no se pueden obtener los valores de X e Y:
+						$$Z - X = C$$
+						$$Z - Y = D$$
+						Pese a que no es resoluble, sabiendo los valores de C y D se puede demostrar en qué bosillo tiene más monedas ($C > D$ ó $D > C$) o si se tienen las mismas ($C = D$), sin necesidad de conocer los valores reales.
+						
+					La importancia de este esquema criptgráfica es tal que se ha implementado de forma satisfactoria en campos tan esenciales como la verificación de armas nucleares, permitiendo a los observadores internacionales medir la veracidad de una nación al cuantificar su fuerza nuclear sin necesidad de conocer la tecnología o cabezas u otros detalles clasificados que no quieren que sean sacados a la luz.
+					
+					%% En wikipedia hay más información sobre los PCC http://es.wikipedia.org/wiki/Prueba_de_conocimiento_cero
 					
 					\subsubsection{Mixnets}\label{primitivaMixnets}
 					
