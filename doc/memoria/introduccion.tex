@@ -36,7 +36,10 @@
 		********** FALTA. ¿CÓMO SE INDENTA CUANDO TAN SÓLO HEMOS HECHO UN SALTO DE PÁGINA ***************
 
 	\section{Antecedentes}\label{antecedentes}
+	En la actualidad, son muchos los proyectos que tratan de incluir el voto electrónico en los procesos electorales por todo el planeta. Estos intentos, de hecho, no se limitan a pequeños sufragios de entidades privadas o gobiernos locales, ya que se han propuesto múltiples paradigmas diseñados para ser implementados en elecciones a nivel estatal, como se puede ver en las experiencia de Estonia, país en el que se desarrolla la votación electrónica remota vinculante con mayor censo activo.
+	
 	El voto electrónico se lleva tratando de desarrollar e implementar desde hace bastante tiempo. Concretamente, podríamos datar el comienzo en el año 1868, cuando el inventor estadounidense Thomas Alva Edison (1847-1931) registró su primera patente, consistente en un instrumento simple para el recuento mecánico de votos. El instrumento se podía colocar en la mesa delante de cada congresista y tenía dos botones, uno para el voto a favor y otro para el voto en contra. Pese a considerarlo un avance, no consiguió ser aceptado en el Congreso de Washington, donde le dieron el siguiente motivo para argumentar el rechazo de los representantes a esta nueva tecnología: XXXXOJO "\textit{If there is any invention on Earth that we don't want down here, that is it.}" "\textit{Joven, si hay en la tierra algún invento que no queremos aquí, es exactamente el suyo. Uno de nuestros principales intereses es evitar fraudes en las votaciones, y su aparato no haría otra cosa que favorecerlos}".
+	
 	\begin{figure}[htbp]
 		\centering
 			\includegraphics[width=0.30\textwidth]{imgs/Edisonsfirstpatent.png}
@@ -51,10 +54,17 @@
 	\end{figure}
 	
 
-	\par
 	A partir de este intento, el voto electrónico ha avanzado tecnológica y socialmente, logrando herramientas más sofisticadas y seguras en conjunción con un entendimiento, comprensión y, en algunos casos, aceptación de su uso. Estos factores han hecho posible que se hayan podido implementar soluciones e integrarlas en procesos electorales reales, ya sea a nivel nacional o de entidades o estamentos.
-	\par
+	
 	Se considera que el inicio del desarrollo del voto electrónico moderno está datado en 1964, año en el que site condados de EEUU utilizaron un sistema de voto electrónico para las Elecciones Presidenciales.
+	
+	***************** UN POQUITO MÁS DE HISTORIA ******* HABLAR DE DRE Y TARJETAS PERFORADAS *****************
+	
+	En el año 1981 se produce un hito en la historia del voto electrónico. El criptógrafo David Chaum publica \cite{Chaum:1981:UEM:358549.358563} la primera propuesta de un sistema criptográfico diseñado para proteger la privacidad del votante. Entre otras propuestas, en esta publicación se recoge su primera idea de un sistema verificable \textit{end-to-end}, basado en el uso de redes mixtas (mix networks o mixnets).
+	
+	En la época actual, prácticamente la totalidad de los procesos electorales implementan soluciones tecnológicas para algunos pasos de la fase de recuento de votos, con el fin de un recuento más rápido de votos y una difusión de resultados sólo varias horas después del cierre de los colegios electorales. Es el caso de, por ejemplo, España, donde tanto el Ministerio del Interior como las Comunidades Autónomas requieren que el conteo provisional de los votos se realice en un tiempo corto durante la misma noche electoral.
+	
+	En este caso, las empresas adjudicatarias implementan soluciones tecnológicas para llevar a cabo el proceso. Así, se puede destacar la tecnología electoral de empresas como Indra \cite{indraPPEE} - pionera en uso de tablets para enviar información de recuento o la Mesa Administrada Electrónicamente que agiliza y da soporte a la labor de los miembros de mesa, desde gestión del censo a generación de actas de escrutinio - o Scytel \cite{scytel1}, referente a nivel mundial en proyectos de voto electrónico, tanto presencial como remoto.
 	
 	
 	% *************************************************************************************************************** %
@@ -67,6 +77,9 @@
 		% 			VOTO ELECTRÓNICO
 		% *************************************************************************************************************** %
 		\subsection{Voto electrónico}\label{votoElectronico}
+		Cuando se habla de voto electrónico, una primera acepción del término se refiere a los procesos electorales cuyas fases pueden llevarse a cabo haciendo uso de tecnologías de la información. Dentro de estas fases susceptibles de ser implementadas con protocolos informáticos se incluyen el registro de votantes, diseño de mapas de distritos o circunscripciones electorales, y la gestión, administración y logísitca electoral; así como el escrutinio provisional o definitivo, transmisión de resultados y difusión de los mismos, o el sufragio del voto en sí mismo.
+		
+		No obstante, una definición más simple del voto electrónico se refiere úniacamente a este último acto de votar, ya sea a través internet o simplemente utilizando sistemas que no estén intercomunicados a través de internet, aunque sí con un servidor receptor del voto.
 		
 			\begin{figure}[htbp]
 				\centering
@@ -76,28 +89,40 @@
 			\end{figure}
 	
 			Podemos estudiar el voto electrónico separándolo en varios niveles, dependiendo de su implantación en el proceso.
+			
 			\begin{itemize}
 				\item Nivel 0
-					\par
+					
 					Es el sistema de voto tradicional, sin hacer uso de elemenos electrónicos para llevar a cabo ninguna fase del proceso. Es el sistema que se ha venido utilizando desde las primeras votaciones hasta bien entrado el siglo XX y todavía en uso en muchos territorios del planeta.
+					
 				\item Voto electrónico sustitutivo
-					\par
-					En este nivel, se sustituyen algunos procedimientos manuales o elementos utilizados en el voto tradicional por sistemas electrónicos determinados. Lo que se intenta es que el proceso de votación sea lo más parecido al que se ha venido llevando a cabo, pero pudiendo utilizar avances técnicos que mejoren el procedimiento en algunos de los puntos del mismo. Así, dependidendo de la legislación, el nivel democrático y social y la aceptación de la innovación tecnológica, se han adoptado procesos electorales en los que se hace uso de algunos elementos tales como tarjetas magnéticas o documento de identidad electrónico (para identificar al votante o incluso para emitir el voto), urnas de votación electrónica que recuentan los votos de forma automática (RFID, lector código de barras, etc.), pantallas de votación para selección de candidaturas (en EEUU es una de las formas en las que se elige la opción a votar), sistemas de totalización y consolidación de resultados (para evitar el escrutinio manual), e incluso sistemas para guiar el recuento definitivo pasados unos días de la jornada electoral. Así podemos encontrar muchos más ejemplos.\\
-					Como se puede observar, todos los sistemas que se tienen en cuenta en este nivel están orientados a sustituir un elemento del proceso tradicional de votación. Todos están pensados para tener una función en el local electoral, ya sea para la identificación del votante, emisión del voto, escrutinio o (en otro tipo de local electoral) recuento definitivo. Aquí podemos observar, de paso, diferentes fases del proceso electoral, que son fácilmente reconocibles.\\
+					
+					En este nivel, se sustituyen algunos procedimientos manuales o elementos utilizados en el voto tradicional por sistemas electrónicos determinados. Lo que se intenta es que el proceso de votación sea lo más parecido al que se ha venido llevando a cabo, pero pudiendo utilizar avances técnicos que mejoren el procedimiento en algunos de los puntos del mismo. Así, dependidendo de la legislación, el nivel democrático y social y la aceptación de la innovación tecnológica, se han adoptado procesos electorales en los que se hace uso de algunos elementos tales como tarjetas magnéticas o documento de identidad electrónico (para identificar al votante o incluso para emitir el voto), urnas de votación electrónica que recuentan los votos de forma automática (RFID, lector código de barras, etc.), pantallas de votación para selección de candidaturas (en EEUU es una de las formas en las que se elige la opción a votar), sistemas de totalización y consolidación de resultados (para evitar el escrutinio manual), e incluso sistemas para guiar el recuento definitivo pasados unos días de la jornada electoral. Así podemos encontrar muchos más ejemplos.
+					
+					Como se puede observar, todos los sistemas que se tienen en cuenta en este nivel están orientados a sustituir un elemento del proceso tradicional de votación. Todos están pensados para tener una función en el local electoral, ya sea para la identificación del votante, emisión del voto, escrutinio o (en otro tipo de local electoral) recuento definitivo. Aquí podemos observar, de paso, diferentes fases del proceso electoral, que son fácilmente reconocibles.
+					
 				\item Voto electrónico remoto
-					\par
+					
 					En este nivel, el concepto del voto traspasa el local electoral común. Se trata de que el voto se transmita desde un punto de votación a una ''urna remota''. Dependiendo del punto de origen, podemos dividir este grupo en dos subgrupos, uno en el que los diferentes colegios electorales están interconectados entre si y otro en el que el voto se emite desde cualquier punto con conexión a internet.
+					
 					\begin{itemize}
 						\item Voto telemático en local de votación
-							\par
+							
 							En esta primera aproximación al voto telemático sigue pensándose en el sistema de voto tradicional en cuanto a que el votante ha de acudir a un local de votación acondicionado para ejercer su derecho al voto. En este local, encontraría una serie de sistemas de identificación (tanto personal frente a los miebros de mesa - como en el sistema tradicional - como telemático frente a una autoridad certificadora remota a través de una identificación digital) para superar el primer paso del proceso. Una vez cerrada la votación, se conectarían los diferentes colegios electorales para comunicar cada uno sus escrutinios y pasar los resultados para la fase de totalización.
+							
 						\item Voto por internet
-							\par
-							La aproximación del voto por internet es la más ambiciosa en términos tecnológicos y de seguridad. En esta, el votante puede ejercer su derecho al voto desde cualquier punto conectado a internet, como puede ser su propia casa o el lugar en el que se encuentre de viaje. La identificación del votante debe ser digital y remota. El voto emitido tiene que ser transmitido a la urna electrónica remota que corresponda. No obstante, desde un punto de vista sociológico, este sistema tiene todavía una serie de retos que debe cumplir, como es el acceso universal al proceso de votación, ya que es complicado asegurar que la totalidad de la población podría hacer uso de un sistema informático de este tipo. Además, encontramos dificultades en cuanto a fraude electoral, ataques al sistema, tolerabilidad al fallo, etc.\\
+							
+							La aproximación del voto por internet es la más ambiciosa en términos tecnológicos y de seguridad. En esta, el votante puede ejercer su derecho al voto desde cualquier punto conectado a internet, como puede ser su propia casa o el lugar en el que se encuentre de viaje. La identificación del votante debe ser digital y remota. El voto emitido tiene que ser transmitido a la urna electrónica remota que corresponda. No obstante, desde un punto de vista sociológico, este sistema tiene todavía una serie de retos que debe cumplir, como es el acceso universal al proceso de votación, ya que es complicado asegurar que la totalidad de la población podría hacer uso de un sistema informático de este tipo. Además, encontramos dificultades en cuanto a fraude electoral, ataques al sistema, tolerabilidad al fallo, etc.
 							
 							
 					\end{itemize}
 				\end{itemize}
+				
+				El término de voto electrónico, por tanto, se utiliza también para referirse a los novedosos sistemas electorales que tratan de automatizar algunas fases del proceso, como autenticación de votantes, sufragio y escrutinio de los votos y difusión de los resultados. Todos estos sistemas que, además de hacer uso de tecnologías de la información para la automatización de estos procesos, se basen en una comunicación de redes telemáticas para interconectar votantes con mesas electorales - urnas digitales - y estas con los centros de procesamiento de resultados se pueden encuadrar en el nivel 3 de la clasifiacción anterior.
+				
+				Son estos sistemas los que están en auge para los investigadores de protocolos electorales. Con el aumento de la participación ciudadana en internet, en la sociedad digital, la gente realiza todo tipo de procesos cotidianos a través de la red de forma remota, ya sea interactuar con las entidades estatales o muunicipales con trámites burocráticos, multas o pagando impuestos, gestionando los recursos familiares o de la empresa con el banco desde casa o el despacho, o incluso compras por internet o consumición de ocio digital. COn este panorama es cuestión de tiempo que cierto sector demande una actualización de los procesos de votación. He aquí donde el voto electrónico remoto tiene que estudiarse si es el candidato ideal para cubrir este nicho o, sin embargo, los riesgos de seguridad y procedimiento que sus detractores le achacan realmente imposibilitarán este cambio en un corto período de tiempo.
+				
+				Plantean para los expertos un conjunto de retos, tanto desde el punto de vista tecnológico, sobre todo a nivel de seguridad del sistema y privacidad del votante, como a nivel social, ya que estos sistemas electrónicos deben garantizar la misma confianza al votante que la que le proporciona el sistema de voto tradicional.
 				
 				% *************************************************************************************************************** %
 				% 			Requisitos de voto electrónico
@@ -130,8 +155,11 @@
 
 		\subsection{Certificados Digitales}\label{estadoCertificadosDigitales}
 		La propia web de la Fábrica Nacional de Moneda y Timbre \cite{webCertFNMT} indica que \textit{un certificado digital es un documento electrónico que asocia una clave pública con la identidad de su propietario}. Complementa la definición añadiendo que \textit{adicionalmente, además de la clave pública y la identidad de su propietario, un certificado digital puede contener otros atributos para, por ejemplo, concretar el ámbito de utilización de la clave pública, las fechas de inicio y fin de la validez del certificado, etc. El usuario que haga uso del certificado podrá, gracias a los distintos atributos que posee, conocer más detalles sobre las características del mismo.}.
+		
 		La utilidad de los certificados digitales, simplificando el contexto, se resume en \textit{asegurar que una determinada clave pública pertenece a un usuario en concreto}.
+		
 		Con las tecnologías actuales, la economía ha vuelto su desarrollo al comercio electrónico y las relaciones remotas. Muchas transacciones que antes se realizaban en persona han evolucionado al mundo digital, por lo que, para la mayoría de ellas es indispensable poseer mecanismos que puedan demostrar que los sujetos intervinientes en la comunicación están unívocamente identificados y con la seguridad de que no se produce suplantación.
+		
 		Una herramienta fundamental para cumplir con este propósito ha sido el desarrollo de las certificaciones digitales.
 		
 		*********************************
@@ -152,18 +180,52 @@
 		\subsection{Experiencias de Voto Electrónico}\label{estadoExperienciasVotoElectronico}
 		En lo referente al voto electrónico...
 		\par
-		En cuanto al estado de la cuestión del voto por internet, como hemos destacado, la experiencia más ambiciosa es, sin duda, las elecciones que se llevan a cabo en Estonia (\ref{ivotingEstonia}), que, desde el año 2005, proveen de un sistema de voto por internet a un cierto sector de la población.\\
+		En cuanto al estado de la cuestión del voto por internet, como hemos destacado, la experiencia más ambiciosa es, sin duda, las elecciones que se llevan a cabo en Estonia (\ref{ivotingEstonia}), que, desde el año 2005, proveen de un sistema de voto por internet a un cierto sector de la población.
+		
 		Es destacable el desempeño de empresas como la española Scytl, que ha implementado sistemas de voto por internet para voto desde el extranjero para algunos condados de Estados Unidos, ciertos cantones de Suiza y varias provincias de India, la mayor democracia del mundo (en número de votantes). Otra empresa española, Indra, también tiene soluciones de voto por internet utilizados para elegir las cúpulas directivas de organismos como la Guardia Civil, universidades como la UAH (Universidad de Alcalá de Henares) o la UNED (Universidad Nacional de Educación a Distancia) e incluso de partidos políticos, como es el caso de UPyD (Unión Progreso y Democracia).
 		\subsection{Voto por internet (i-voting)}\label{Voto por internet (i-voting)}
 			Dentro de las soluciones de voto electrónico telemático, es importante el desarrollo que se ha hecho en cuanto al voto por internet. 
 			
 			\subsubsection{Estonia}\label{ivotingEstonia}
-			\par
 			Estonia.
 			Estonia es quizá el ejemplo más destacado en cuanto a la utilización del voto por internet en elecciones a nivel estatal. Desde el año 2005 lleva usando una solución de voto electrónico remoto no presencial complementando al voto tradicional.
-			El impacto del voto electrónico sobre el electorado estonio ha ido evolucionando en cada comicio. En el 2005, el primer año en que se comenzó a utilizar, no llegó al 2\% de los votantes los que se decantaron por votar por internet, mientras que en el 2014, este porcentaje superó el 30\% de los sufragistas.\\
-			************ Adjuntar TABLA de participación histórica *****************\\
-			Estonia es el primer estado que utiliza, oficialmente, el voto electrónico remoto por internet de forma vinculante. Este sistema puesto en práctica en el año 2005 es una parte de un plan de modernización del país báltico. De hecho, previamente a la puesta en producción del sistema electoral, se comenzó a desarrollar en el años 2000 un despliegue técnico importante para la implantación del documento de identidad electrónico, junto con mecanismos de comnucicación con la Administración para facilitar los trámites con la misma por parte de los ciudadanos de forma electrónica y remota.\\
+			
+			El impacto del voto electrónico sobre el electorado estonio ha ido evolucionando en cada comicio. En el 2005, el primer año en que se comenzó a utilizar, no llegó al 2\% de los votantes los que se decantaron por votar por internet, mientras que en el 2014, este porcentaje superó el 30\% de los sufragistas.
+			
+			************ Adjuntar TABLA de participación histórica *****************		
+			
+			\begin{table}[htbp]
+				\centering
+					%\begin{tabular}{0.75\textwidth}@{\extracolsep{\fill}}|l|l|m{3cm}| m{3cm}|}
+					%\begin{tabular*}{0.95\textwidth}{@{\extracolsep{\fill}}|l|l|rm{2cm}|rm{1cm}|}
+					\begin{tabular*}{0.95\textwidth}{@{\extracolsep{\fill}}|l|l|r|r|}
+						\hline
+%							\textbf{Elección} & \textbf{Tipo} & \textbf{Votantes por internet} & \textbf{\% sobre total votantes} \\
+							\textbf{Elección} & \textbf{Tipo} & \textbf{IV} & \textbf{\% tv} \\
+						\hline
+							2005 & Elecciones Locales 						& 9.317 	& 1,90\% 	\\
+						\hline
+							2007 & Elecciones Parlamentarias 			& 30.275 	& 5,50\% 	\\
+						\hline
+							2009 & Elecciones Parlamento Europeo	& 58.669 	& 14,70\% \\
+						\hline
+							2009 & Elecciones Locales 						& 104.413 & 15,80\% \\
+						\hline
+							2011 & Elecciones Parlamentarias 			& 140.846 & 24,30\% \\
+						\hline
+							2013 & Elecciones Locales 						& 133.808 & 21,20\% \\
+						\hline
+							2014 & Elecciones Parlamento Europeo 	& 103.151	& 31,30\%	\\
+						\hline
+					\end{tabular*}
+				\caption{Evolución del voto por internet en Estonia}
+				\label{tab:EvolucionIVotingEstonia}
+			\end{table}
+			
+			************ ***********************************************************
+			
+			Estonia es el primer estado que utiliza, oficialmente, el voto electrónico remoto por internet de forma vinculante. Este sistema puesto en práctica en el año 2005 es una parte de un plan de modernización del país báltico. De hecho, previamente a la puesta en producción del sistema electoral, se comenzó a desarrollar en el años 2000 un despliegue técnico importante para la implantación del documento de identidad electrónico, junto con mecanismos de comnucicación con la Administración para facilitar los trámites con la misma por parte de los ciudadanos de forma electrónica y remota.
+			
 			La ley electoral estonia permite a los votantes ejercer su derecho al voto de tres formas:
 			\begin{enumerate}[a)]
 				\item Voto tradicional. Los votantes pueden acudir a los colegios electorales e introducir su voto en la urna previa identificación del votante por parte de los miembros de la mesa.
@@ -241,9 +303,9 @@
 				La idea del sistema es que los ciudadanos con derecho a voto que no puedan hacer uso del mismo el día del proceso tengan un canal de votación disponible a través de internet. Este canal sustituiría al proporcionado por el correo posta, por lo que debe asegurar, como mínimo, los mismos servicios que ya proporcionaba éste en procesos electorales anteriores.
 				\begin{figure}[htbp]
 				\centering
-					\includegraphics[width=0.30\textwidth]{imgs/sevi01.png}
+					\includegraphics[width=0.80\textwidth]{imgs/sevi01.png}
 				\caption{Primera aproximación de funcionalidad de SEVI}
-				\label{fig:categorizationVotingSystems}
+				\label{fig:primeraAproximacionSEVI}
 			\end{figure}
 			
 			El esquema de votación utilizado en SEVI divide el proceso electoral en cuatro fases:
