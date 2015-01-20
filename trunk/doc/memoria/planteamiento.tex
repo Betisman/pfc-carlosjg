@@ -9,6 +9,7 @@
 		\item Elecciones de Delegados y Subdelegados
 		\item Elecciones de Miembros de la Junta Electoral
 	\end{itemize}
+	
 	El sistema que se propone en esta memoria es un sistema \textbf{robusto}, \textbf{fiable}, \textbf{verificable} y \textbf{auditable}, buscando satisfacer las exigencias de seguridad de procesos electorales más ambiciosos que los que tratamos en este proyecto, los cuales abarcan el ámbito universitario. Por tanto, intención de este PFC, no es la de simplemente realizar estos comicios de forma electrónica, sino tratar de diseñar un sistema con idea de que puediera ser escalable para niveles superiores al ámbito de la Escuela o la Universidad.\\
 	Como se ha avanzado al inicio de esta sección, el sistema propuesto busca tener estas características:
 	\begin{description}
@@ -43,20 +44,24 @@
 \section{Descripción del sistema real}\label{descripcionSistemaReal}
 		\subsection{Elecciones a la Junta de Escuela de la EPS}\label{analisisJuntaEPS}
 			\subsubsection{Definición de la Junta de Escuela}\label{definicionJuntaEscuela}
-				Según el documento \textbf{NORMAS DE ORGANIZACIÓN Y FUNCIONAMIENTO DE LA UNIVERSIDAD SAN PABLO-CEU}\cite{normasCEU}, en su Artículo 9, \textit{''Las Facultades, Escuelas y Centros integrados o adscritos son las instancias responsables de la organización de la enseñanza e investigación, de acuerdo con las directrices emanadas de los órganos superiores de la Universidad, y de los procesos académicos, administrativos y de gestión conducentes a la obtención de títulos de carácter oficial y validez en todo el territorio nacional, así como de aquellas otras funciones que determinen las presentes Normas de Organización y Funcionamiento y los restantes reglamentos universitarios.''}\\
+				Según el documento \textbf{NORMAS DE ORGANIZACIÓN Y FUNCIONAMIENTO DE LA UNIVERSIDAD SAN PABLO-CEU}\cite{normasCEU}, en su Artículo 9, \textit{''Las Facultades, Escuelas y Centros integrados o adscritos son las instancias responsables de la organización de la enseñanza e investigación, de acuerdo con las directrices emanadas de los órganos superiores de la Universidad, y de los procesos académicos, administrativos y de gestión conducentes a la obtención de títulos de carácter oficial y validez en todo el territorio nacional, así como de aquellas otras funciones que determinen las presentes Normas de Organización y Funcionamiento y los restantes reglamentos universitarios.''}
 				
-				A partir de esta definición, en el \textit{Capítulo II. De los órganos académicos}, encontramos el Artículo 22, \textit{Tipos de órganos}, donde se establece \textit{''(1c) que las Juntas de Facultad, Escuela o Centro son órganos colegiados''}. Y encontramos su definición en el Artículo 31, \textit{Las Juntas de Centros}, donde podemos leer que \textit{''La Junta de Facultad, Escuela o Centro es el órgano colegiado de gobierno del mismo, que ejerce sus funciones con vinculación a los acuerdos del Patronato, Consejo de Gobierno y resoluciones del Rector.''}\\
+				A partir de esta definición, en el \textit{Capítulo II. De los órganos académicos}, encontramos el Artículo 22, \textit{Tipos de órganos}, donde se establece \textit{''(1c) que las Juntas de Facultad, Escuela o Centro son órganos colegiados''}. Y encontramos su definición en el Artículo 31, \textit{Las Juntas de Centros}, donde podemos leer que \textit{''La Junta de Facultad, Escuela o Centro es el órgano colegiado de gobierno del mismo, que ejerce sus funciones con vinculación a los acuerdos del Patronato, Consejo de Gobierno y resoluciones del Rector.''}
 				
-				También podemos destacar los artículos 32 y 33, donde se establece la composición y funciones de las Juntas de Facultad, Centro o Escuela:\\
+				También podemos destacar los artículos 32 y 33, donde se establece la composición y funciones de las Juntas de Facultad, Centro o Escuela:
 				
 			\begin{itemize}
-				\item Artículo 32: Composición de las Juntas\\
-				La Junta de Facultad, Escuela o Centro estará compuesta por miembros natos y electos.\\
-				Son miembros natos: El Decano o Director, que presidirá sus reuniones; los Vicedecanos o Subdirectores, el Secretario académico, que levantará acta de sus sesiones y los Directores de los Departamentos integrados en la Facultad o Escuela.\\
-				Son miembros electos: Quienes resulten elegidos en representación del profesorado y de los alumnos de acuerdo con la normativa que reglamentariamente se establezca.\\
+				\item Artículo 32: Composición de las Juntas
 				
-				\item Artículo 33: Funciones de las Juntas\\
+				La Junta de Facultad, Escuela o Centro estará compuesta por miembros natos y electos.
+				
+				Son miembros natos: El Decano o Director, que presidirá sus reuniones; los Vicedecanos o Subdirectores, el Secretario académico, que levantará acta de sus sesiones y los Directores de los Departamentos integrados en la Facultad o Escuela.
+				
+				Son miembros electos: Quienes resulten elegidos en representación del profesorado y de los alumnos de acuerdo con la normativa que reglamentariamente se establezca.
+				
+				\item Artículo 33: Funciones de las Juntas
 				Las competencias de la Junta de Facultad, Escuela o Centro son:
+				
 				\begin{enumerate}[a)]
 					\item Colaborar con el Decano o Director en la gestión de la Facultad, Escuela o Centro.
 					\item Promover el perfeccionamiento de los planes de estudio y de la metodología docente, así como el establecimiento de nuevos títulos tanto propios como oficiales.
@@ -153,8 +158,9 @@
 				
 				En el caso de las Elecciones dentro de la Escuela Politécnica, el censo lo proveerá la propia Autoridad Electoral a través de los datos de profesores, alumnos y empleados del Centro. Al realizar la carga de estos datos para conformar el censo electrónico, el sistema tendrá conocimiento de qué potenciales votantes tendrán permiso o no para votar y qué opciones de voto deberá presentarles para que conformen su boleta electrónica.
 				
-				Dependiendo del mecanismo digital de identificación y votación que se adopte para el sistema, la fase de registro puede ser tan simple como la correcta carga del censo en el sistema o puede aumentar ligeramente su complejidad. Si se decide utilizar una identificación basada en base de datos, habría que asignar a cada votante un nombre de usuario y una contraseña, al menos para ingresar en el sistema, ya que podría generarse otro par para la votación. En cualquier caso, en una situación como esta, además de la carga del censo resulta necesario una asociación
-				La Universidad proporciona a cada alumno, profesor y empleado un carnet universitario para su identificación. Entre otros servicios, estos carnets poseen la funcionalidad de identidad y firma digitales.
+				Dependiendo del mecanismo digital de identificación y votación que se adopte para el sistema, la fase de registro puede ser tan simple como la correcta carga del censo en el sistema o puede aumentar ligeramente su complejidad. Si se decide utilizar una identificación basada en base de datos, habría que asignar a cada votante un nombre de usuario y una contraseña, al menos para ingresar en el sistema, ya que podría generarse otro par para la votación. En cualquier caso, en una situación como esta, además de la carga del censo resulta necesario una asociación de cada votante incluído en este con los nombres de usuarios y contraseñas generados para cada uno.
+				
+				La Universidad proporciona a cada alumno, profesor y empleado un carnet universitario para su identificación. Entre otros servicios, estos carnets poseen la funcionalidad de identidad y firma digitales. Puede una buena opción hacer uso de estos servicios y evitar la asociación anterior, la cual, además del paso extra, no proporciona un nivel de seguridad aceptable. El servicio de esta tarjeta (TUI) o del DNIe español permite una identificación digital unívoca y confiable entre el votante y el sistema. Haciendo uso del servicio de firma digital, también se varía el esquema de votación del sistema, pues no requeriría de un módulo de generación de firmas electrónicas para votantes, pues cada uno llevaría el suyo propio en su TUI personal.
 				
 				
 						
