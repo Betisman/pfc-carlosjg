@@ -75,3 +75,35 @@
 				
 				En la fase de consolidación de resultados, el sistema se encargará del conteo de los votos que han sido emitidos
 				
+			
+			******** Antes de este punto hay que hacer un resumen de los diferentes esquemas de votación, teniendo estos como Firma ciega, mixnets, etc...*************
+			\subsection{Protocolo}\label{solucion_protocolo}
+				Como se ha comentado en capítulos anteriores, hay una multitud de soluciones propuestas para el voto telemático.
+				
+				Teniendo en cuenta el objetivo de este Proyecto Fin de Carrera, de los sistemas implementados a gran escala, a nivel nacional o regional, podemos destacar Estonia, Noruega y los cantones suizos como las tres experiencias más exitosas y aquellas de las que se pueden estudiar las soluciones, esquemas y protocolos utilizados. No obstante, el alcance de las mismas supera sobremanera el de este proyecto. Igualmente, muchas decisiones las toman en base a satisfacer requisitos que resultan muy importantes en su análisis, pero que en este trabajo no se ha considerado que tengan igual trasncendencia, y viceversa, por lo que se han de tomar diferentes consideraciones frente a los mismos problemas dependiendo del impacto que suponen en cada proyecto.
+				
+				También se han presentado casos de proyectos de voto telemático pensados a menor escala. Entre ellos, hay muchas soluciones que, en parte, podrían satisfacer los requisitos de ete proyecto. No obstante en ninguno de ellos encontramos un protocolo que se adapte completamente a los requerimientos planteados, ya que, en algún momento, se analiza un elemento que los hace diferir. Por ejemplo, un proyecto ya maduro como Votescript \ref{votescript} realiza un estudio académico y técnico muy profundo acerca del voto telemático pero, por su propia definición, el modelo de identificación y emisión del voto lo sitúan físicamente en centros de votación. Este elemento es diferencial para este proyecto, pensado en el voto telemático remoto, aunque puede integrarse cuando se estudian alternativas para que aquellos votantes que, por algún motivo, no pueden o quieren votar por internet de forma remota tengan la oportunidad de ejercer su derecho de sufragio desde un lugar habilitado para ello por la propia Escuela.
+				
+				A partir de los esquemas criptográficos estudiados y con ayuda de algunos protocolos ya publicados en otros proyectos, el siguiente paso es diseñar el protocolo de votación que se adapte a las necesidades del Proyecto, cumpliendo con los requisitos y asegurando los niveles de seguridad planteados.
+				
+				En muchas de las soluciones estudiadas se observa que no recibe la importancia necesaria la fase de identificación del votante. Los mecanismos de identificación y autenticación del mismo resultan laxos desde el punto de vista de la seguridad ante el fraude electoral. Por ello han sido descartadas las soluciones basadas en identificación por medio de bases de datos con el típico protocolo de usuario/contraseña o incluso con elementos de seguridad de una generación algo posterior, como pin, patrones, captchas, operaciones aritméticas o métodos similares con mayor o menor complejidad. Igualmente, se han descartado aquellos métodos de identificación que requieran la persencia física del votante frente a los responsables de la mesa de votación, ya que se busca el diseño de un sistema remoto. Así descartamos protocolos de identificación como los publicados por Votescript, en el que el votante acude a un centro o local de votación, se identifica ante la mesa electoral y recibe un token criptográfico personalizado con el que se le permite ejercer el sufragio.
+				
+				La mayoría de las soluciones estudiadas previamente a la realización de esta memoria centran sus esfuerzos en la fase de votación. Buscan la elaboración de un protocolo robusto, basado en esquemas criptográficos, que permita la mayor seguridad posible al cumplimiento de los requisitos fundamentales del voto electrónico, dotando al sistema de privacidad del votante, ********************************************************
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				\
