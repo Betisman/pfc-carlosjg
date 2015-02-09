@@ -2,6 +2,36 @@
 \lhead{Capítulo \ref{temp}}
 \rhead{Temp}
 %*******************************************************************************
+
+El voto electrónico debe otorgar garantías que se pueden resumir en:
+• Un sistema confiable en el secreto del voto que tiene varios aspectos:
+secreto en las comunicaciones, secreto en la contabilidad y secreto
+en la información sobre datos parciales.
+• Un sistema seguro medido en la protección del sistema frente a ataques
+externos, la protección frente a caídas o fallos en el software o
+en el equipo, y la protección frente a la indebida manipulación por
+parte del administrador.
+• Un sistema verificable que supone el acceso al código fuente del
+sistema de voto, el acceso a los registros de funcionamiento, la obtención
+de certificados de autenticidad por parte de terceros y la
+existencia de procedimientos de registro (log) que permitan resolver
+dudas e impugnaciones manteniendo el carácter secreto del voto.1
+Estos tres elementos pretenden garantizar que electores, candidatos o
+partidos puedan conocer qué hace y cómo funciona el sistema.
+La auditabilidad del voto electrónico es el tema central en algunos procesos
+de implementación del voto electrónico (caso de EE. UU., no así Brasil).
+Por ejemplo, en EE. UU. se está divulgando un procedimiento de auditabilidad
+del voto electrónico que hace que la máquina de votación electrónica imprima
+el voto y lo deposite para un posterior conteo de verificación. Esta errónea
+concepción proviene de una vieja práctica de los contadores y auditores
+contables que señala que toda transacción debe dejar rastro en papel. En su
+definición moderna, un procedimiento es auditable cuando es posible certificar
+que se ajusta a determinadas especificaciones técnicas y normas de
+procedimiento previamente establecidas; y es auditable antes, durante y después
+del proceso en el que se emplee.
+
+
+
 \par
 Según el documento \textbf{NORMAS DE ORGANIZACIÓN Y FUNCIONAMIENTO DE LA UNIVERSIDAD SAN PABLO-CEU}, en su Artículo 9, ''Las Facultades, Escuelas y Centros integrados o adscritos son las instancias responsables de la organización de la enseñanza e investigación, de acuerdo con las directrices emanadas de los órganos superiores de la Universidad, y de los procesos académicos, administrativos y de gestión conducentes a la obtención de títulos de carácter oficial y validez en todo el territorio nacional, así como de aquellas otras funciones que determinen las presentes Normas de Organización y Funcionamiento y los restantes reglamentos universitarios.''
 \par
@@ -124,7 +154,7 @@ En elecciones como las legislativas de España de 2011, pudimos ver avances tecno
 \par
 \par
 \par
-El proceso de votación en la selecciones de Estonia sigue este paradigma:
+El proceso de votación en las elecciones de Estonia sigue este paradigma:
 \begin{enumerate}
 	\item El votante accede al VFS a través de una conexión con protocolo HTTPS y se identifica con su ID-card.
 	\item El VFS lanza una query usando el Código de Identificación Personal (PIC) a la base de datos de votantes, verifica la ****EINSS****elegibilidad del votante e identifica su ****EINSS****constituency. Si el votante no es ****EINSS****elegible, se envía un mensaje correspondiente.
