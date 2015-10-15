@@ -30,7 +30,10 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			
 			\subsection{Ámbito del sistema}\label{requisitosAmbitoSistema}
 			El sistema que se va a desarrollar tiene como finalidad que los alumnos, profesores y empleados de la Escuela Politécnica Superior de la Universidad San Pablo CEU puedan votar remotamente en las Elecciones a la Junta de Escuela.
-			Para ello, el sistema debe ser distribuido y dirigido hacia un entorno web 
+			Para ello, el sistema debe ser distribuido y dirigido hacia un entorno web, permitiendo que los votantes puedan emitir su voto desde cualquier lugar donde tengan conexión a Internet. Con el auge de los teléfonos móviles inteligentes y de las redes móviles (GPRS, 3G, 4G, HSDP...), se puede permitir la votación desde cualquier lugar en la que el proveedor de telefonía móvil provea de cobertura al votante.
+			Este enfoque ubicuo del voto debe asegurar, no obstante, las mismas garantías que proporciona un sistema de voto tradicional o uno de voto electrónico presencial.
+			
+			
 			\begin{description}
 				\item[Título:] AQUÍ VA EL TÍTULO ******************** 
 				\item[Descripción:] El sistema consiste en una plataforma de voto electrónico remoto por Internet, seguro, anónimo y tratando de implementar el máximo de requisitos exigibles al voto electrónico que cumplan con el objetivo. El desarrollo es ad-hoc según las normas de las elecciones que van a tomar parte. (************)Pese a ser un diseño dirigido a unos tipos de elecciones concretas, se puede modularizar el sistema para que, implementando unas nuevas reglas, el sistema sirva de base a otros procesos.(************). Los votantes dispondrán de unas credenciales digitales que servirán para que se puedan identificar unívocamente en el sistema, sin suplantaciones. (**************** DNIe? TUI? user/password? *****************). Estas credenciales se implementan basándose en certificados digitales que aseguran la autenticidad del votante. Una vez el votante se autentica contra el sistema y el censo (proporcionado por la Universidad y cargado previamente en el sistema), se le presenta el surtido de papeletas entre las que puede elegir a sus representantes. Este conjunto de papeletas ha de ser calculado por el sistema teniendo en cuenta el tipo de votante con el que interacciona (estudiante/profesor/empleado, carrera, grupo/clase...).Una vez seleccionada la papeleta, emite el voto. El voto consiste en que el votante firma digitalmente un sobre lógico en el que va la papeleta cifrada. Este sobre se envía al sistema, donde un módulo urna digital se encarga de almacenarlo hasta la finalización del periodo de votación. Una vez llega el fin de este periodo, los administradores de la elección abren la urna. Para ello, requieren de una clave criptográfica que estará troceada y repartida entre varios miembros. La apertura de la urna implica la anonimización de los votos, rompiendo la relación entre un votante y el voto que ha emitido. Una vez cumplido con el requisito del voto anónimo y eliminada la trazabilidad del voto, estos tienen que ser descifrados para, a continuación, ser contados. Al finalizar el escrutinio, se publican los resultados. Junto a la publicación de los resultados, se deben publicar unas listas para que los votantes puedan verificar que el voto digital que emitieron no ha sido alterado y, además, ha formado parte del escrutinio.
@@ -117,8 +120,9 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			
 		
 			\subsection{Necesidades del esquema de voto electrónico}
-			\begin{enumerate}
-				\item[Votación por Internet]: El sistema de votación debe funcionar de forma remota en sus fases de registro, identificación, votación y consulta de resultados. Cualquier votante puede acceder a las funcionalidades del sistema a las que tiene autorización desde cualquier punto conectado a Internet.
+			\begin{description}
+			%% ESTE NO CREO QUE DEBA IR, YA	QUE ES UN RESUMEN DE LOS SIGUIENTES
+				\item[Votación por Internet]: \textst{El sistema de votación debe funcionar de forma remota en sus fases de registro, identificación, votación y consulta de resultados. Cualquier votante puede acceder a las funcionalidades del sistema a las que tiene autorización desde cualquier punto conectado a Internet.}
 				
 				\item[Identificación remota]: El sistema debe implementar un mecanismo que sea capaz de asegurar la identificación de un votante en el sistema de forma remota, digitalmente, sin posibilidad de error.
 				Existen varias soluciones para solventar este requisito, como son los certificados digitales electrónicos externos (contenidos en tarjetas de soporte físico como una smartcard, el DNI o la TUI de la Universidad), la identificación biométrica, acceso por usuario y contraseña con pasos extras para aumentar la seguridad.
@@ -136,7 +140,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 				
 				\item[Voto múltiple:] \textst{ El sistema debe permitir a los votantes votar más de una vez, invalidando cada vez que emite un voto, los votos anteriores que hubiese introducido en el sistema. (********************* ¿QUEREMOS ESTO? TOTAL, EL RIESGO DE COACCIÓN ES MUY BAJO EN ESTAS ELECCIONES... PERO SI QUEREMOS ACERCARNOS A UNAS GENERALES, QUIZÁS SEA IMPEPINABLE, SIGUIENDO EL MODELO ESTONIO *********************)}
 				
-			\end{enumerate}
+			\end{description}
 			
 			
 			
@@ -201,9 +205,20 @@ Requisitos no funcionales: Restricciones que afectan al sistema
 		
 			\section{Roles / Actores}\label{actores}
 				Considerando el flujo del votante en el sistema, identificamos cuatro roles en el sistema que deben ser tenidos en cuenta de cara a las funcionalidades, privilegios y responsabilidades que tienen que encontrar en el uso del mismo.
-				\begin{itemize}
-					\item Votante
-					\item Administrador
+				\begin{description}
+					\item[Votante] \hfill \\
+						El votante es el actor principal del sistema, pues es al que va dirigido el proceso de votación. Es el único rol que tiene la capacidad de votar. Las acciones que puede realizar son:
+						\begin{itemize}
+							\item Consultar su presencia en el censo.
+							\item Identificarse unívocamente en el sistema.
+							\item Elegir la papeleta con su voto.
+							\item Capacidad de poder emitir un voto nulo.
+							\item Firmar el voto.
+							\item Votar preservando el carácter anónimo del voto.
+							\item Consultar que su voto ha sido contabilizado.
+						\end{itemize}
+						
+					\item[Administrador] \hfill \\
 						El administrador es el rol encargado de gestión de las fases electorales.\\
 						Tiene responsabilidad y potestad de:
 							\begin{itemize}
@@ -211,24 +226,30 @@ Requisitos no funcionales: Restricciones que afectan al sistema
 								\item Iniciar el proceso de votación.
 								\item Terminar el proceso de votación.
 								\item Apertura de la urna
+								\item Inicio del escrutinio
 								\item Apertura de los canales de difusión de resultados.
+								\item Finalizar el proceso electoral.
 							\end{itemize}
 						%Los usuarios con este rol no puede votar. El administrador de la elección no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.
-					\item Miembro de la Junta Electoral ***************** CAMBIAR EL NOMBRE ***********************
+					\item[Miembro de la Junta Electoral]  \hfill \\
+					***************** CAMBIAR EL NOMBRE ***********************
 						Una vez el administrador de la elección dé por finalizado el proceso electoral, se requerirá que varios miembros de la Junta Electoral proporcionen unas claves personales que, juntando varias de ellas, servirán como llave lógica para la apertura de la urna que contiene los votos.\\
-						Los usuarios con este rol no puede votar. El miembro de la Junta Electoral no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.
-					\item Auditor
+						Los usuarios con este rol no pueden votar. El miembro de la Junta Electoral no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.
+						
+						
+					\item[Auditor] \hfill \\
 						El auditor debe tener acceso a una serie de funcionalidades del sistema. Su función es velar porque el desarrollo del proceso electoral se realiza sin ningún tipo de fallo o de interferencia por parte de algún atacante.\\
-						Los usuarios con este rol no puede votar. El auditor no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.\\
+						Los usuarios con este rol no pueden votar. El auditor no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.\\
 						Su misión es de control, por lo que ninguna acción que realice en el sistema puede afectar al desarrollo de la elección.
-					\item Autoridad Certificadora
+						
+					\item[Autoridad Certificadora] \hfill \\
 						Junto con los cuatro roles expuestos, encontramos un quinto actor en la figura de la Autoridad Certificadora. Esta entidad es la encargada de generar, administrar, validar y verificar las credenciales que han de usar cada uno de los votantes para emitir el voto, así como los de cada uno de los actores del proceso (administradores, miembros de la Junta Electoral, auditores o incluso los sistemas y sus comunicaciones).
-				\end{itemize}
+				\end{description}
 				
 				Los usuarios cuyo rol sea Votante son los únicos que tienen capacidad para poder votar en la elección.
-				Hay usuarios que pueden ejercer varios roles en el sistema. Tanto un Administrador como, sobre todo, un Miembro de la Autoridad Electoral, perteneciendo a la Universidad pueden, dependiendo de su situación, tener derecho al voto.
+				Hay usuarios que pueden ejercer varios roles en el sistema. Tanto un Administrador como, sobre todo, un Miembro de la Autoridad Electoral, perteneciendo a la Universidad pueden tener derecho al voto.
 				En estos casos, para mantener la transparencia y fiabilidad del proceso, las persona que ejerzan estos roles, a la hora de votar deberán hacerlo accediendo al sistema con un usuario distinto, con un rol asignado de Votante, garantizando que no pueden acceder con éste a ningún otro módulo del sistema.
-				Se entiende que los roles de Auditor o de Observador están destinados a personas ajenas a la votación que tienen como objetivo vigilar y asegurar que la elección se lleva a cabo de forma limpia y correcta. Por ende, se entiende que las persona con usuarios asociados a estos roles no deben acceder al sistema de votación en ningún caso, además de que no deberían aparecer acreditados en el censo electoral.
+				Se entiende que los roles de Auditor \textst{o de Observador} están destinados a personas ajenas a la votación que tienen como objetivo vigilar y asegurar que la elección se lleva a cabo de forma limpia y correcta. Por ende, se entiende que las personas con usuarios asociados a estos roles no deben acceder al sistema de votación en ningún caso, además de que no deberían aparecer acreditados en el censo electoral.
 				
 				
 				
@@ -246,8 +267,7 @@ cada caso de uso deberá indicarse los actores implicados, las precondiciones y p
 los pasos que conforman el escenario principal y el conjunto de posibles escenarios alternativos. *******************
 				
 					\subsection{Actores}
-					********************** En este apartado se describirán los diferentes roles que juegan los usuarios que interactúan con
-el sistema. Los actores pueden ser roles de personas físicas, sistemas externos o incluso el tiempo
+					********************** En este apartado se describirán los diferentes roles que juegan los usuarios que interactúan con el sistema. Los actores pueden ser roles de personas físicas, sistemas externos o incluso el tiempo
 (eventos temporales). *******************
 				
 				\section{Modelo de Comportamiento}\label{analisisModeloComportamiento}
