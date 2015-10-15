@@ -32,6 +32,8 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			El sistema que se va a desarrollar tiene como finalidad que los alumnos, profesores y empleados de la Escuela Politécnica Superior de la Universidad San Pablo CEU puedan votar remotamente en las Elecciones a la Junta de Escuela.
 			Para ello, el sistema debe ser distribuido y dirigido hacia un entorno web, permitiendo que los votantes puedan emitir su voto desde cualquier lugar donde tengan conexión a Internet. Con el auge de los teléfonos móviles inteligentes y de las redes móviles (GPRS, 3G, 4G, HSDP...), se puede permitir la votación desde cualquier lugar en la que el proveedor de telefonía móvil provea de cobertura al votante.
 			Este enfoque ubicuo del voto debe asegurar, no obstante, las mismas garantías que proporciona un sistema de voto tradicional o uno de voto electrónico presencial.
+			El sistema dispone, por un lado, del servidor web que permite la interacción tanto con el votante como la difusión de los resultados electorales. Este servidor web tendrá comunicación con Internet y debe tener una seguridad acorde con el nivel de peligro ante ataques que se espere para este tipo de elección.
+			Por otro lado, la parte de la lógica de negocio del sistema se basa en subsistemas independientes, aunque modulares, dependiendo del servicio que tengan que ofrecer. La independencia de estos subsistemas responde a cuestiones de seguridad y para proporcionar mayor transparencia del proceso en cuanto al \textit{flujo del voto} a través del software.
 			
 			
 			\begin{description}
@@ -52,6 +54,11 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			Debe tener un sistema de carga y gestión de los datos electorales (reglas de la elección, urnas, circunscripciones, candidatos, censo).
 			Debe proporcionar herramientas que permitan la monitorización del proceso para comprobar el estado del mismo, además de herramientas de transparencia para que pueda ser auditado en tiempo real por las autoridades competentes.
 			
+			\subsection{Restricciones generales}\label{requisitosRestriccionesGenerales}
+				\begin{enumerate}
+					\item Primera restricción *********************
+					\item Segunda restricción *********************
+				\end{enumerate}
 			
 			\subsection{Requisitos funcionales}\label{requisitosFuncionales}
 				\begin{description}
