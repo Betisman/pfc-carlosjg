@@ -1,20 +1,20 @@
 \chapter{Introducción}
 	\rhead{Introducción}
 	\par
-	Un sistema de voto por internet puede tener diferentes formas de ser afrontado. Se puede diseñar un sistema basado en sufragio desde cabinas electorales gestionadas electrónicamente que envian el conteo a través de la red. En el marco opuesto, también se puede diseñar un sistema completamente distribuido en el cual el votante puede ejercer su derecho al voto desde cualquier dispositivo electrónico y cualquier lugar del planeta, enviando el contenido de su voto a través de internet a la autoridad de recuento electoral.
+	Un sistema de voto por Internet puede tener diferentes formas de ser afrontado. Se puede diseñar un sistema basado en sufragio desde cabinas electorales gestionadas electrónicamente que envían el conteo a través de la red. En el marco opuesto, también se puede diseñar un sistema completamente distribuido en el cual el votante puede ejercer su derecho al voto desde cualquier dispositivo electrónico y cualquier lugar del planeta, enviando el contenido de su voto a través de Internet a la autoridad de recuento electoral.
 	\par
-	Ambas soluciones son extremos opuestos de lo que entendemos como voto por internet (i-voting) y que, en muchos documentos y ámbitos, se conoce también como voto electrónico (e-voting). Este término no es que sea erróneo, sino incorrecto, ya que carece de exactitud llamando a un subconjunto con el nombre del conjunto que lo contiene. El voto por internet, obviamente, se considera voto electrónico, pero no todos los sistemas de voto electrónico se realizan a través de internet. 
+	Ambas soluciones son extremos opuestos de lo que entendemos como voto por Internet (i-voting) y que, en muchos documentos y ámbitos, se conoce también como voto electrónico (e-voting). Este término no es que sea erróneo, sino incorrecto, ya que carece de exactitud llamando a un subconjunto con el nombre del conjunto que lo contiene. El voto por Internet, obviamente, se considera voto electrónico, pero no todos los sistemas de voto electrónico se realizan a través de Internet. 
 	***************************************************************************
 	IMAGEN DOS CONJUNTOS, UNO (E-VOTING) CONTIENE AL OTRO (I-VOTING)
 	***************************************************************************
 	\par
 	Este proyecto trata de entrar en la problemática del voto electrónico remoto frente al presencial, de las reticencias sociales y tecnológicas que influyen en su reducida implantación en procesos electorales de gran importancia y alto número de electores. Para ello, vamos a reproducir la situación a escala reducida. Plantearemos una posible solución al proceso necesario para llevar a cabo las Elecciones a la Junta de Escuela de la Escuela Politécnica Superior de la Universidad San Pablo - CEU.
 	\par
-	Con este planteamiento es obvio que no vamos a solucionar las trabas técnicas y sociales del voto por internet a nivel de unas elecciones legislativas en, por ejemplo, España. Es un tema que se escapa del objetivo de este PFC, pero sí que vamos a tratar de identificar algunos de los agentes influyentes y buscar una posible solución aplicable a la elección a la Junta de Escuela.
+	Con este planteamiento es obvio que no vamos a solucionar las trabas técnicas y sociales del voto por Internet a nivel de unas elecciones legislativas en, por ejemplo, España. Es un tema que se escapa del objetivo de este PFC, pero sí que vamos a tratar de identificar algunos de los agentes influyentes y buscar una posible solución aplicable a la elección a la Junta de Escuela.
 	\par
-	Así, conseguiremos dos objetivos. Por un lado, estudiar la dificultad existente para la implantación del voto por internet en las elecciones nacionales. Por otro, un soporte electrónico al proceso completo de las Elecciones a la Junta de Escuela, con el cual obtendremos una mejora significativa en el mismo respecto a procesos anteriores.
+	Así, conseguiremos dos objetivos. Por un lado, estudiar la dificultad existente para la implantación del voto por Internet en las elecciones nacionales. Por otro, un soporte electrónico al proceso completo de las Elecciones a la Junta de Escuela, con el cual obtendremos una mejora significativa en el mismo respecto a procesos anteriores.
 	\par
-	Antes de entrar en detalle en el proceso, habrá que definir el tipo de votación que queremos implementar. No se habla en este PFC de voto electrónico como tal, ni siquiera de voto electrónico remoto. Lo que se quiere implementar es una solución de voto por internet, en el que no haga falta la presencia física del votante en el centro de votación, que tenga la oportunidad de ejercer su derecho al voto desde cualquier punto del planeta con conexión a internet. Este detalle, que puede parecer trivial al querer separarlo del concepto de voto electrónico, en realidad es fundamental. En un próximo capítulo se ahondará en ello, pero podemos avanzar que una de las grandes diferencias a tener en cuenta es que con voto electrónico remoto, podemos utilizar máquinas de votación (que también emitirían el voto por internet), las cuales pueden generar un recibo con el voto emitido por el votante, al estilo de las papeletas que llenan la urna electoral, mientras que con el voto por internet puro, esto no es tan obvio. Con este mecanismo, la auditoría es más simple para el voto electrónico con máquinas en el centro de votación, pues se podrían contar las papeletas generadas. ¿Qué ocurre con el voto por internet, en el que no se generan estos recibos ni hay una urna física donde se depositan? ¿Qué ocurre si el sistema tiene fallas y no se contabilizan (o lo hacen de forma incorrecta) los sufragios, teniendo en cuenta que puede ser imposible un conteo físico de papeletas al no existir estas? Como estas, hay muchas cuestiones a las que el voto por internet debe dar solución de forma fiable antes de poder acometer su implantación en procesos electorales de envergadura e importancia.
+	Antes de entrar en detalle en el proceso, habrá que definir el tipo de votación que queremos implementar. No se habla en este PFC de voto electrónico como tal, ni siquiera de voto electrónico remoto. Lo que se quiere implementar es una solución de voto por Internet, en el que no haga falta la presencia física del votante en el centro de votación, que tenga la oportunidad de ejercer su derecho al voto desde cualquier punto del planeta con conexión a Internet. Este detalle, que puede parecer trivial al querer separarlo del concepto de voto electrónico, en realidad es fundamental. En un próximo capítulo se ahondará en ello, pero podemos avanzar que una de las grandes diferencias a tener en cuenta es que con voto electrónico remoto, podemos utilizar máquinas de votación (que también emitirían el voto por Internet), las cuales pueden generar un recibo con el voto emitido por el votante, al estilo de las papeletas que llenan la urna electoral, mientras que con el voto por Internet puro, esto no es tan obvio. Con este mecanismo, la auditoría es más simple para el voto electrónico con máquinas en el centro de votación, pues se podrían contar las papeletas generadas. ¿Qué ocurre con el voto por Internet, en el que no se generan estos recibos ni hay una urna física donde se depositan? ¿Qué ocurre si el sistema tiene fallas y no se contabilizan (o lo hacen de forma incorrecta) los sufragios, teniendo en cuenta que puede ser imposible un conteo físico de papeletas al no existir estas? Como estas, hay muchas cuestiones a las que el voto por Internet debe dar solución de forma fiable antes de poder acometer su implantación en procesos electorales de envergadura e importancia.
 	\par
 	La forma de llegar a la solución buscada debe comenzar identificando los factores que afectan a un proceso electoral general y, a continuación, personalizar los que se encuentran en el que vamos a estudiar.
 	Una vez identificados estos agentes, definiremos las fases que comportan unas elecciones y estudiaremos cómo podrían ser apoyadas tecnológicamente, evaluando cómo llegar al punto óptimo de integración con el sistema tradicional para mejorar el proceso.
@@ -77,9 +77,9 @@
 		% 			VOTO ELECTRÓNICO
 		% *************************************************************************************************************** %
 		\subsection{Voto electrónico}\label{votoElectronico}
-		Cuando se habla de voto electrónico, una primera acepción del término se refiere a los procesos electorales cuyas fases pueden llevarse a cabo haciendo uso de tecnologías de la información. Dentro de estas fases susceptibles de ser implementadas con protocolos informáticos se incluyen el registro de votantes, diseño de mapas de distritos o circunscripciones electorales, y la gestión, administración y logísitca electoral; así como el escrutinio provisional o definitivo, transmisión de resultados y difusión de los mismos, o el sufragio del voto en sí mismo.
+		Cuando se habla de voto electrónico, una primera acepción del término se refiere a los procesos electorales cuyas fases pueden llevarse a cabo haciendo uso de tecnologías de la información. Dentro de estas fases susceptibles de ser implementadas con protocolos informáticos se incluyen el registro de votantes, diseño de mapas de distritos o circunscripciones electorales, y la gestión, administración y logística electoral; así como el escrutinio provisional o definitivo, transmisión de resultados y difusión de los mismos, o el sufragio del voto en sí mismo.
 		
-		No obstante, una definición más simple del voto electrónico se refiere úniacamente a este último acto de votar, ya sea a través internet o simplemente utilizando sistemas que no estén intercomunicados a través de internet, aunque sí con un servidor receptor del voto.
+		No obstante, una definición más simple del voto electrónico se refiere únicamente a este último acto de votar, ya sea a través Internet o simplemente utilizando sistemas que no estén intercomunicados a través de Internet, aunque sí con un servidor receptor del voto.
 		
 			\begin{figure}[htbp]
 				\centering
@@ -93,34 +93,34 @@
 			\begin{itemize}
 				\item Nivel 0
 					
-					Es el sistema de voto tradicional, sin hacer uso de elemenos electrónicos para llevar a cabo ninguna fase del proceso. Es el sistema que se ha venido utilizando desde las primeras votaciones hasta bien entrado el siglo XX y todavía en uso en muchos territorios del planeta.
+					Es el sistema de voto tradicional, sin hacer uso de elementos electrónicos para llevar a cabo ninguna fase del proceso. Es el sistema que se ha venido utilizando desde las primeras votaciones hasta bien entrado el siglo XX y todavía en uso en muchos territorios del planeta.
 					
 				\item Voto electrónico sustitutivo
 					
-					En este nivel, se sustituyen algunos procedimientos manuales o elementos utilizados en el voto tradicional por sistemas electrónicos determinados. Lo que se intenta es que el proceso de votación sea lo más parecido al que se ha venido llevando a cabo, pero pudiendo utilizar avances técnicos que mejoren el procedimiento en algunos de los puntos del mismo. Así, dependidendo de la legislación, el nivel democrático y social y la aceptación de la innovación tecnológica, se han adoptado procesos electorales en los que se hace uso de algunos elementos tales como tarjetas magnéticas o documento de identidad electrónico (para identificar al votante o incluso para emitir el voto), urnas de votación electrónica que recuentan los votos de forma automática (RFID, lector código de barras, etc.), pantallas de votación para selección de candidaturas (en EEUU es una de las formas en las que se elige la opción a votar), sistemas de totalización y consolidación de resultados (para evitar el escrutinio manual), e incluso sistemas para guiar el recuento definitivo pasados unos días de la jornada electoral. Así podemos encontrar muchos más ejemplos.
+					En este nivel, se sustituyen algunos procedimientos manuales o elementos utilizados en el voto tradicional por sistemas electrónicos determinados. Lo que se intenta es que el proceso de votación sea lo más parecido al que se ha venido llevando a cabo, pero pudiendo utilizar avances técnicos que mejoren el procedimiento en algunos de los puntos del mismo. Así, dependiendo de la legislación, el nivel democrático y social y la aceptación de la innovación tecnológica, se han adoptado procesos electorales en los que se hace uso de algunos elementos tales como tarjetas magnéticas o documento de identidad electrónico (para identificar al votante o incluso para emitir el voto), urnas de votación electrónica que recuentan los votos de forma automática (RFID, lector código de barras, etc.), pantallas de votación para selección de candidaturas (en EEUU es una de las formas en las que se elige la opción a votar), sistemas de totalización y consolidación de resultados (para evitar el escrutinio manual), e incluso sistemas para guiar el recuento definitivo pasados unos días de la jornada electoral. Así podemos encontrar muchos más ejemplos.
 					
 					Como se puede observar, todos los sistemas que se tienen en cuenta en este nivel están orientados a sustituir un elemento del proceso tradicional de votación. Todos están pensados para tener una función en el local electoral, ya sea para la identificación del votante, emisión del voto, escrutinio o (en otro tipo de local electoral) recuento definitivo. Aquí podemos observar, de paso, diferentes fases del proceso electoral, que son fácilmente reconocibles.
 					
 				\item Voto electrónico remoto
 					
-					En este nivel, el concepto del voto traspasa el local electoral común. Se trata de que el voto se transmita desde un punto de votación a una ''urna remota''. Dependiendo del punto de origen, podemos dividir este grupo en dos subgrupos, uno en el que los diferentes colegios electorales están interconectados entre si y otro en el que el voto se emite desde cualquier punto con conexión a internet.
+					En este nivel, el concepto del voto traspasa el local electoral común. Se trata de que el voto se transmita desde un punto de votación a una ''urna remota''. Dependiendo del punto de origen, podemos dividir este grupo en dos subgrupos, uno en el que los diferentes colegios electorales están interconectados entre si y otro en el que el voto se emite desde cualquier punto con conexión a Internet.
 					
 					\begin{itemize}
 						\item Voto telemático en local de votación
 							
-							En esta primera aproximación al voto telemático sigue pensándose en el sistema de voto tradicional en cuanto a que el votante ha de acudir a un local de votación acondicionado para ejercer su derecho al voto. En este local, encontraría una serie de sistemas de identificación (tanto personal frente a los miebros de mesa - como en el sistema tradicional - como telemático frente a una autoridad certificadora remota a través de una identificación digital) para superar el primer paso del proceso. Una vez cerrada la votación, se conectarían los diferentes colegios electorales para comunicar cada uno sus escrutinios y pasar los resultados para la fase de totalización.
+							En esta primera aproximación al voto telemático sigue pensándose en el sistema de voto tradicional en cuanto a que el votante ha de acudir a un local de votación acondicionado para ejercer su derecho al voto. En este local, encontraría una serie de sistemas de identificación (tanto personal frente a los miembros de mesa - como en el sistema tradicional - como telemático frente a una autoridad certificadora remota a través de una identificación digital) para superar el primer paso del proceso. Una vez cerrada la votación, se conectarían los diferentes colegios electorales para comunicar cada uno sus escrutinios y pasar los resultados para la fase de totalización.
 							
-						\item Voto por internet
+						\item Voto por Internet
 							
-							La aproximación del voto por internet es la más ambiciosa en términos tecnológicos y de seguridad. En esta, el votante puede ejercer su derecho al voto desde cualquier punto conectado a internet, como puede ser su propia casa o el lugar en el que se encuentre de viaje. La identificación del votante debe ser digital y remota. El voto emitido tiene que ser transmitido a la urna electrónica remota que corresponda. No obstante, desde un punto de vista sociológico, este sistema tiene todavía una serie de retos que debe cumplir, como es el acceso universal al proceso de votación, ya que es complicado asegurar que la totalidad de la población podría hacer uso de un sistema informático de este tipo. Además, encontramos dificultades en cuanto a fraude electoral, ataques al sistema, tolerabilidad al fallo, etc.
+							La aproximación del voto por Internet es la más ambiciosa en términos tecnológicos y de seguridad. En esta, el votante puede ejercer su derecho al voto desde cualquier punto conectado a Internet, como puede ser su propia casa o el lugar en el que se encuentre de viaje. La identificación del votante debe ser digital y remota. El voto emitido tiene que ser transmitido a la urna electrónica remota que corresponda. No obstante, desde un punto de vista sociológico, este sistema tiene todavía una serie de retos que debe cumplir, como es el acceso universal al proceso de votación, ya que es complicado asegurar que la totalidad de la población podría hacer uso de un sistema informático de este tipo. Además, encontramos dificultades en cuanto a fraude electoral, ataques al sistema, tolerabilidad al fallo, etc.
 							
 							
 					\end{itemize}
 				\end{itemize}
 				
-				El término de voto electrónico, por tanto, se utiliza también para referirse a los novedosos sistemas electorales que tratan de automatizar algunas fases del proceso, como autenticación de votantes, sufragio y escrutinio de los votos y difusión de los resultados. Todos estos sistemas que, además de hacer uso de tecnologías de la información para la automatización de estos procesos, se basen en una comunicación de redes telemáticas para interconectar votantes con mesas electorales - urnas digitales - y estas con los centros de procesamiento de resultados se pueden encuadrar en el nivel 3 de la clasifiacción anterior.
+				El término de voto electrónico, por tanto, se utiliza también para referirse a los novedosos sistemas electorales que tratan de automatizar algunas fases del proceso, como autenticación de votantes, sufragio y escrutinio de los votos y difusión de los resultados. Todos estos sistemas que, además de hacer uso de tecnologías de la información para la automatización de estos procesos, se basen en una comunicación de redes telemáticas para interconectar votantes con mesas electorales - urnas digitales - y estas con los centros de procesamiento de resultados se pueden encuadrar en el nivel 3 de la clasificación anterior.
 				
-				Son estos sistemas los que están en auge para los investigadores de protocolos electorales. Con el aumento de la participación ciudadana en internet, en la sociedad digital, la gente realiza todo tipo de procesos cotidianos a través de la red de forma remota, ya sea interactuar con las entidades estatales o muunicipales con trámites burocráticos, multas o pagando impuestos, gestionando los recursos familiares o de la empresa con el banco desde casa o el despacho, o incluso compras por internet o consumición de ocio digital. COn este panorama es cuestión de tiempo que cierto sector demande una actualización de los procesos de votación. He aquí donde el voto electrónico remoto tiene que estudiarse si es el candidato ideal para cubrir este nicho o, sin embargo, los riesgos de seguridad y procedimiento que sus detractores le achacan realmente imposibilitarán este cambio en un corto período de tiempo.
+				Son estos sistemas los que están en auge para los investigadores de protocolos electorales. Con el aumento de la participación ciudadana en Internet, en la sociedad digital, la gente realiza todo tipo de procesos cotidianos a través de la red de forma remota, ya sea interactuar con las entidades estatales o municipales con trámites burocráticos, multas o pagando impuestos, gestionando los recursos familiares o de la empresa con el banco desde casa o el despacho, o incluso compras por Internet o consumición de ocio digital. Con este panorama es cuestión de tiempo que cierto sector demande una actualización de los procesos de votación. He aquí donde el voto electrónico remoto tiene que estudiarse si es el candidato ideal para cubrir este nicho o, sin embargo, los riesgos de seguridad y procedimiento que sus detractores le achacan realmente imposibilitarán este cambio en un corto período de tiempo.
 				
 				Plantean para los expertos un conjunto de retos, tanto desde el punto de vista tecnológico, sobre todo a nivel de seguridad del sistema y privacidad del votante, como a nivel social, ya que estos sistemas electrónicos deben garantizar la misma confianza al votante que la que le proporciona el sistema de voto tradicional.
 				
@@ -190,15 +190,15 @@
 		\par
 		En cuanto al estado de la cuestión del voto por internet, como hemos destacado, la experiencia más ambiciosa es, sin duda, las elecciones que se llevan a cabo en Estonia (\ref{ivotingEstonia}), que, desde el año 2005, proveen de un sistema de voto por internet a un cierto sector de la población.
 		
-		Es destacable el desempeño de empresas como la española Scytl, que ha implementado sistemas de voto por internet para voto desde el extranjero para algunos condados de Estados Unidos, ciertos cantones de Suiza y varias provincias de India, la mayor democracia del mundo (en número de votantes). Otra empresa española, Indra, también tiene soluciones de voto por internet utilizados para elegir las cúpulas directivas de organismos como la Guardia Civil, universidades como la UAH (Universidad de Alcalá de Henares) o la UNED (Universidad Nacional de Educación a Distancia) e incluso de partidos políticos, como es el caso de UPyD (Unión Progreso y Democracia).
-		\subsection{Voto por internet (i-voting)}\label{Voto por internet (i-voting)}
-			Dentro de las soluciones de voto electrónico telemático, es importante el desarrollo que se ha hecho en cuanto al voto por internet. 
+		Es destacable el desempeño de empresas como la española Scytl, que ha implementado sistemas de voto por Internet para voto desde el extranjero para algunos condados de Estados Unidos, ciertos cantones de Suiza y varias provincias de India, la mayor democracia del mundo (en número de votantes). Otra empresa española, Indra, también tiene soluciones de voto por Internet utilizados para elegir las cúpulas directivas de organismos como la Guardia Civil, universidades como la UAH (Universidad de Alcalá de Henares) o la UNED (Universidad Nacional de Educación a Distancia) e incluso de partidos políticos, como es el caso de UPyD (Unión Progreso y Democracia).
+		\subsection{Voto por Internet (i-voting)}\label{Voto por Internet (i-voting)}
+			Dentro de las soluciones de voto electrónico telemático, es importante el desarrollo que se ha hecho en cuanto al voto por Internet. 
 			
 			\subsubsection{Estonia}\label{ivotingEstonia}
 			Estonia.
-			Estonia es quizá el ejemplo más destacado en cuanto a la utilización del voto por internet en elecciones a nivel estatal. Desde el año 2005 lleva usando una solución de voto electrónico remoto no presencial complementando al voto tradicional.
+			Estonia es quizá el ejemplo más destacado en cuanto a la utilización del voto por Internet en elecciones a nivel estatal. Desde el año 2005 lleva usando una solución de voto electrónico remoto no presencial complementando al voto tradicional.
 			
-			El impacto del voto electrónico sobre el electorado estonio ha ido evolucionando en cada comicio. En el 2005, el primer año en que se comenzó a utilizar, no llegó al 2\% de los votantes los que se decantaron por votar por internet, mientras que en el 2014, este porcentaje superó el 30\% de los sufragistas.
+			El impacto del voto electrónico sobre el electorado estonio ha ido evolucionando en cada comicio. En el 2005, el primer año en que se comenzó a utilizar, no llegó al 2\% de los votantes los que se decantaron por votar por Internet, mientras que en el 2014, este porcentaje superó el 30\% de los sufragistas.
 			
 			************ Adjuntar TABLA de participación histórica *****************		
 			
@@ -232,13 +232,13 @@
 			
 			************ ***********************************************************
 			
-			Estonia es el primer estado que utiliza, oficialmente, el voto electrónico remoto por internet de forma vinculante. Este sistema puesto en práctica en el año 2005 es una parte de un plan de modernización del país báltico. De hecho, previamente a la puesta en producción del sistema electoral, se comenzó a desarrollar en el años 2000 un despliegue técnico importante para la implantación del documento de identidad electrónico, junto con mecanismos de comnucicación con la Administración para facilitar los trámites con la misma por parte de los ciudadanos de forma electrónica y remota.
+			Estonia es el primer estado que utiliza, oficialmente, el voto electrónico remoto por internet de forma vinculante. Este sistema puesto en práctica en el año 2005 es una parte de un plan de modernización del país báltico. De hecho, previamente a la puesta en producción del sistema electoral, se comenzó a desarrollar en el años 2000 un despliegue técnico importante para la implantación del documento de identidad electrónico, junto con mecanismos de comunicación con la Administración para facilitar los trámites con la misma por parte de los ciudadanos de forma electrónica y remota.
 			
 			La ley electoral estonia permite a los votantes ejercer su derecho al voto de tres formas:
 			\begin{enumerate}[a)]
 				\item Voto tradicional. Los votantes pueden acudir a los colegios electorales e introducir su voto en la urna previa identificación del votante por parte de los miembros de la mesa.
-				\item Voto postal. Los votantes estonios tienen la posibilida de acudir en unas fechas determinadas anteriores al día electoral a unas Estaciones de Votación, que funcionan de forma análoga a Correos en España, donde pueden entregar el voto en papel y una acreditación que le identifique. Esta Estación se encarga de hacer llegar el voto y la identificación a la mesa o Distrito Electoral donde el votante esté censado.
-				\item Voto por internet. Durante un período de tiempo anterior al día electoral, los votantes tienen la posibilidad de entregar el voto por medio de Internet.
+				\item Voto postal. Los votantes estonios tienen la posibilidad de acudir en unas fechas determinadas anteriores al día electoral a unas Estaciones de Votación, que funcionan de forma análoga a Correos en España, donde pueden entregar el voto en papel y una acreditación que le identifique. Esta Estación se encarga de hacer llegar el voto y la identificación a la mesa o Distrito Electoral donde el votante esté censado.
+				\item Voto por Internet. Durante un período de tiempo anterior al día electoral, los votantes tienen la posibilidad de entregar el voto por medio de Internet.
 			\end{enumerate}
 			Aunque el votante haya emitido su voto de forma electrónica, la Ley Electoral estonia permite al mismo ejercer su voto de cualquiera de las otras dos formas invalidando su voto electrónico. Es decir, que si una vez votado por Internet, el votante decide votar por correo, éste voto anulará el emitido por Internet. Lo mismo pasaría si decidiese votar presencialmente el día electoral, que su voto emitido por Internet quedaría anulado y fuera del escrutinio. Este hecho es una medida de la Autoridad Electoral para proteger a los votantes frente a la \textbf{coacción}, proveyendo de un mecanismo por el cual un votante que haya elegido una formación determinada por presiones de terceros podría libremente cambiar la dirección de su voto una vez emitido el primero.\\
 			
@@ -251,7 +251,7 @@
 				\item Todos los servidores en el sistema de voto son seguros y siempre estarán bajo monitorización durante el periodo de la votación.
 				\item El servidor de almacenamiento de voto está detrás de un firewall. Nadie puede acceder a este servidor desde Internet.
 				\item El servidor de conteo de votos está offline, sin conexión a Internet y asegurado por medio de clave privada compartida.
-				\item Todas las comunicaciones a través de internet usan cifrado SSL.
+				\item Todas las comunicaciones a través de Internet usan cifrado SSL.
 				\item El cifrado y la firma digital usan un mecanismo de cifrado RSA.
 			\end{enumerate}
 
@@ -261,12 +261,12 @@
 			- Aceptación nacional, con nº votantes en tendencia creciente y dando validez a los votos emitidos por este medio.
 			Debilidades:
 			- No uso de mecanismos seguros que garanticen la protección del derecho a voto secreto.
-			- El voto no está protegido por mecanismos de firma ciega, anonimizadores, ni miecanismos equivalentes (y se conserva de 4 a 10 días almacenado junto a la identificación del votante), sino que traslada al sistema por internet las debilidades ya existenetes en el voto tradicional (¿?) ***************
+			- El voto no está protegido por mecanismos de firma ciega, anonimizadores, ni mecanismos equivalentes (y se conserva de 4 a 10 días almacenado junto a la identificación del votante), sino que traslada al sistema por Internet las debilidades ya existentes en el voto tradicional (¿?) ***************
 			
 			\par
-			La importancia que tiene el sistema de voto utilizado en Estonia radica en el hecho de que provee un mecanismo de voto por internet a un potencial de votantes consistente en el 100\% de la población de uun estado democrático. Hasta el momento de su implantación, esto no ocurría. Se daban casos en los que se proporcionaba un sistema electrónico remoto a diversos espectros de la población, como podían ser los residentes en el extranjero, los militares en misiones activas o los focos de posibles proyectos pilotos.
+			La importancia que tiene el sistema de voto utilizado en Estonia radica en el hecho de que provee un mecanismo de voto por Internet a un potencial de votantes consistente en el 100\% de la población de uun estado democrático. Hasta el momento de su implantación, esto no ocurría. Se daban casos en los que se proporcionaba un sistema electrónico remoto a diversos espectros de la población, como podían ser los residentes en el extranjero, los militares en misiones activas o los focos de posibles proyectos pilotos.
 			\par
-			Es destacable que, con el objetico de alcanzar a la totalidad de la población, incluso, el propio estado estonio aumentara el desarrollo de infraestructura tecnológica en el país para intentar reducir la beecha digital de sus habitantes, tratando de proveer el acceso a internet a la mayor parte del país. Igualemente importante fueron los esfuerzos por la certificación digital, teniendo como punto esencial la implantación del documento nacional de identidad electrónico para la totalidad de la población.
+			Es destacable que, con el objetivo de alcanzar a la totalidad de la población, incluso, el propio estado estonio aumentara el desarrollo de infraestructura tecnológica en el país para intentar reducir la brecha digital de sus habitantes, tratando de proveer el acceso a Internet a la mayor parte del país. Igualmente importante fueron los esfuerzos por la certificación digital, teniendo como punto esencial la implantación del documento nacional de identidad electrónico para la totalidad de la población.
 			\par
 			La mayoría de los estados no pueden implantar unas elecciones como las llevadas a cabo en Estonia por diversos motivos, véase el miedo a la falta de transparencia, fraude, logística o, en muchos casos, ilegalidad con respecto a las leyes electorales actuales.
 			\par
@@ -306,9 +306,9 @@
 			\subsubsection{SELES}\label{seles}
 			
 			\subsubsection{SEVI}\label{sevi}
-				El Sistema Electrónico de Votación por Internet (SEVI) \cite{tesisMLLGarcia} es una propuesta de sistema software de voto electrónico para reemplazar el canal que constituye el correo postal certficado en el proceso electoral de México.
+				El Sistema Electrónico de Votación por Internet (SEVI) \cite{tesisMLLGarcia} es una propuesta de sistema software de voto electrónico para reemplazar el canal que constituye el correo postal certificado en el proceso electoral de México.
 				
-				La idea del sistema es que los ciudadanos con derecho a voto que no puedan hacer uso del mismo el día del proceso tengan un canal de votación disponible a través de internet. Este canal sustituiría al proporcionado por el correo posta, por lo que debe asegurar, como mínimo, los mismos servicios que ya proporcionaba éste en procesos electorales anteriores.
+				La idea del sistema es que los ciudadanos con derecho a voto que no puedan hacer uso del mismo el día del proceso tengan un canal de votación disponible a través de Internet. Este canal sustituiría al proporcionado por el correo posta, por lo que debe asegurar, como mínimo, los mismos servicios que ya proporcionaba éste en procesos electorales anteriores.
 				\begin{figure}[htbp]
 				\centering
 					\includegraphics[width=0.80\textwidth]{imgs/sevi01.png}
@@ -324,7 +324,7 @@
 				\item Auditoría
 			\end{itemize}
 			
-			Al igual que en SELES \ref{seles}, el protocolo de seguridad en el que se basa SEVI es una variante del de Lin-Hwang-Chang, el cual se compone de tres fases que cubren la seguridad del esquema en los módulos de votación y genereación de resultados. También con este protocolo, el acuse de recibo dado a los votantes sirve para cumplir con los requisitos de auditoría. Otra de las necesidades resueltas es la de la democracia del proceso, pues el hecho de que se puedan identificar los votantes no honestos al emitir el voto aumenta la confianza en el proceso.
+			Al igual que en SELES \ref{seles}, el protocolo de seguridad en el que se basa SEVI es una variante del de Lin-Hwang-Chang, el cual se compone de tres fases que cubren la seguridad del esquema en los módulos de votación y generación de resultados. También con este protocolo, el acuse de recibo dado a los votantes sirve para cumplir con los requisitos de auditoría. Otra de las necesidades resueltas es la de la democracia del proceso, pues el hecho de que se puedan identificar los votantes no honestos al emitir el voto aumenta la confianza en el proceso.
 			
 			No obstante el protocolo de seguridad respalda la mayor parte de la interacción con el sistema, no cubre la fase de registro. Precisamente esta es la fase con la que comienza el sistema y donde se basa parte de la suposición de honestidad esperada por el protocolo para el resto del proceso. Para resolver el problema, en SEVI optan por establecer un canal seguro entre la máquina cliente y la máquina servidor a través de un protocolo de transferencia segura SSL (Secure Sockets Layer)
 			
@@ -347,7 +347,7 @@
 			
 			
 			\subsection{Primitivas de criptografía}\label{primitivasCriptografia}
-				Dentro de los retos tecnológicos que propone el voto electrónico, uno de los más importantes es la seguridad. Para poder implementar un sistema seguro que pueda soportar toda la infraestructura necesaria para poder poner en marcha un sistema de voto electrónico confiable hay que hacer uso de herramientas que sean capaces de asegurar las comunicaciones y el secreto de estas. Es en este escenario donde la criptogafía es el núcleo de la solución.\\
+				Dentro de los retos tecnológicos que propone el voto electrónico, uno de los más importantes es la seguridad. Para poder implementar un sistema seguro que pueda soportar toda la infraestructura necesaria para poder poner en marcha un sistema de voto electrónico confiable hay que hacer uso de herramientas que sean capaces de asegurar las comunicaciones y el secreto de estas. Es en este escenario donde la criptografía es el núcleo de la solución.\\
 				Los requerimientos que se tratan de satisfacer con el uso de la criptografía son \cite{tesisSeguridadVMMorales}:
 				\begin{itemize}
 					\item Privacidad del voto
@@ -358,12 +358,12 @@
 				**************************** PRIMITIVAS CRIPTOGRÁFICAS O ESQUEMAS DE VOTO ELECTRÓNICO ??? ******************
 				********************* EL TEMA ES QUE EXISTEN ESTAS PRIMITIVAS BÁSICAS Y LUEGO LOS ESQUEMAS SE BASAN EN ELLAS
 				PARA SER DISEÑADOS ***************************
-				Antes de entrar en los diferentes esquemas de voto electrónico (\ref{esquemasVotoElectronico}), introducimos una serie de primitivas criptográgficas que se utilizan en ellos.
+				Antes de entrar en los diferentes esquemas de voto electrónico (\ref{esquemasVotoElectronico}), introducimos una serie de primitivas criptográficas que se utilizan en ellos.
 				
 				*********************************************
 				%% https://www.google.es/url?sa=t&rct=j&q=&esrc=s&source=web&cd=8&ved=0CEsQFjAH&url=http%3A%2F%2Fthoth.cc.e.ipl.pt%2Fclasses%2FSI%2F1314i%2FLI51N-MI1N%2Fresources%2F2225&ei=l4qFVLrYBIavU8zugNAP&usg=AFQjCNEqu0pixZSTmH8THWs9eI9dOQpY9Q&sig2=RgWbVJjYwHyWYOrqoehkEA&bvm=bv.80642063,d.d24&cad=rja
 				\begin{description}
-					\item[Primitivas] Operaciones matemáticas, usadas como bloques constructores en la realización de esquemas. Su caracterización depende de los problemas matemátivos que sustentan su uso criptográfico. Ej: DES, RSA.
+					\item[Primitivas] Operaciones matemáticas, usadas como bloques constructores en la realización de esquemas. Su caracterización depende de los problemas matemáticos que sustentan su uso criptográfico. Ej: DES, RSA.
 					\item[Esquemas] Combinación de primitivas y métodos adicionales para la realización de tareas criptográficas como la firma y el cifrado digital. Ej: DES-CBC-PKCS5Padding; RSA-OAQEP-MGF1-SHA1
 					\item[Protocolos] Secuencias de operaciones, a realizar por dos o más entidades,que contienen esquemas y primiticas con el propósito de dotar a una aplicación de características de seguridad. Ej: TLS con %TLS_RSA_WITH_DES_CBC_SHA
 				\end{description}
@@ -371,7 +371,7 @@
 				
 					\subsubsection{Firma ciega}\label{primitivaFirmaCiega}
 						Los protocolos criptográficos de firma ciega se dan lugar entre dos agentes, un usuario U y un firmante F de forma que F firma digitalmente una serie de datos comunicados por U sin conocer el contenido de estos. \\
-						El objetivo de este tipo de protocolos es proporcionar una serie de datos frimados cuyo contenido solamente sea conocido por el actor que envía, siendo completamente desconocidos para el actor que los firma.\\
+						El objetivo de este tipo de protocolos es proporcionar una serie de datos firmados cuyo contenido solamente sea conocido por el actor que envía, siendo completamente desconocidos para el actor que los firma.\\
 						Los protocolos de firma ciega se basan en dos componentes \cite{firmaCiega2007}:
 										% \begin{enumerate}
 							% \item Un protocolo de firma digital desarrollad por el actor F, prestador del servicio de firma, de forma que $S(m)$ sea la notación de la firma digital del mensaje $m$.
@@ -421,7 +421,7 @@
 						$$Z - Y = D$$
 						Pese a que no es resoluble, sabiendo los valores de C y D se puede demostrar en qué bosillo tiene más monedas ($C > D$ ó $D > C$) o si se tienen las mismas ($C = D$), sin necesidad de conocer los valores reales.
 						
-					La importancia de este esquema criptgráfica es tal que se ha implementado de forma satisfactoria en campos tan esenciales como la verificación de armas nucleares, permitiendo a los observadores internacionales medir la veracidad de una nación al cuantificar su fuerza nuclear sin necesidad de conocer la tecnología o cabezas u otros detalles clasificados que no quieren que sean sacados a la luz.
+					La importancia de este esquema criptográfico es tal que se ha implementado de forma satisfactoria en campos tan esenciales como la verificación de armas nucleares, permitiendo a los observadores internacionales medir la veracidad de una nación al cuantificar su fuerza nuclear sin necesidad de conocer la tecnología o cabezas u otros detalles clasificados que no quieren que sean sacados a la luz.
 					
 					%% En wikipedia hay más información sobre los PCC http://es.wikipedia.org/wiki/Prueba_de_conocimiento_cero
 					
@@ -467,7 +467,7 @@
 				
 				
 					\item Esquema de Voto Electrónico basado en papeletas precifradas
-						Este esquema de voto eléctronico aparece en la tesis \cite{tesisSeguridadVMMorales}
+						Este esquema de voto electrónico aparece en la tesis \cite{tesisSeguridadVMMorales}
 				
 				\end{itemize}
 				************* Según \cite{tesisSeguridadVMMorales} ************
@@ -479,8 +479,8 @@
 					\item Esquemas basados en papeletas precifradas
 				\end{itemize}
 				
-				Junto con estos esquemas básicos en cuanto a solucionar problemas determinados de los procesos electorales electrónicos, nos centramos en resumir algunos de los esquemas desarrollados concretamente para elecciones mediante voto por internet.\\
-				Está fuera del alcance de este proyecto el estudio de estos esquemas y sus evoluciones, pero nos basamos en esta información para el desarrollo del sistema que se implementa. Para ahondar en ellos. recomiendo la lectura del capítulo 4 de la tesis de la Dra. Emilia Pérez Belleboni \cite{tesisEPerezBelleboni}, en la cual se expone una recopilación de información muy concisa sobre multitud de esquemas y sistemas que los implmentan, según las necesidades que se necesiten cubrir.
+				Junto con estos esquemas básicos en cuanto a solucionar problemas determinados de los procesos electorales electrónicos, nos centramos en resumir algunos de los esquemas desarrollados concretamente para elecciones mediante voto por Internet.\\
+				Está fuera del alcance de este proyecto el estudio de estos esquemas y sus evoluciones, pero nos basamos en esta información para el desarrollo del sistema que se implementa. Para ahondar en ellos. recomiendo la lectura del capítulo 4 de la tesis de la Dra. Emilia Pérez Belleboni \cite{tesisEPerezBelleboni}, en la cual se expone una recopilación de información muy concisa sobre multitud de esquemas y sistemas que los implementan, según las necesidades que se necesiten cubrir.
 			 
 
 
@@ -534,5 +534,5 @@
 		
 		Aunque para este proyecto, la metodología a emplear se basa en estas fases, por las características el mismo habrá diferencias, sobre todo en cuanto a la distribución de recursos y tiempo entre ellas.\\
 		A diferencia de los proyectos de software evolutivos o mantenidos en el tiempo, este proyecto está diseñado para ser puesto en producción durante un relativamente corto espacio de tiempo. Por esto, la fase de Mantenimiento no merece disponer de recursos abundantes, puesto que se limitaría al tiempo en el que el sistema está en producción, lo cual será desde un día a unos pocos, lo que la Autoridad Electoral considere oportuno que estén las urnas abiertas junto con el tiempo empleado para el conteo de resultados y su difusión.\\
-		Las fases de análisis y diseño, como en todos los proyectos son realmente importantes, en este caso, además, porque tratan datos muy sensibles, como es la elección de represantes y tienen que lidiar con problemas como el anonimato del votante rompiendo la asociación voto-votante, la autenticidad del votante, varificabilidad del voto, etc.\\ ******** Aquí referencia a los requisitos del voto electrónico **************\\
+		Las fases de análisis y diseño, como en todos los proyectos son realmente importantes, en este caso, además, porque tratan datos muy sensibles, como es la elección de representantes y tienen que lidiar con problemas como el anonimato del votante rompiendo la asociación voto-votante, la autenticidad del votante, verificabilidad del voto, etc.\\ ******** Aquí referencia a los requisitos del voto electrónico **************\\
 		La fase de implementación, si el diseño ha sido bien desarrollado debería llevar el tiempo necesario para realizar el software y la integración de los diferentes módulos y sistemas. Sin embargo, la fase de Pruebas cobra una importancia capital en este tipo de proyectas. Al tener una vida tan corta y una importancia en cuanto a datos tan alta, el margen de error del sistema durante el breve período que estará en producción debe ser residual. Este tipo de sistemas deben tener una tolerancia a fallos de prácticamente el 100\%. No hay opción a realizar sistemas evolutivos, por lo que hay que tratar de que no lleguen errores a producción, ya que los que se encuentren durante la jornada electoral se tendrían que arreglar en el momento, con las implicaciones que esto acarrea en cuanto a riesgo de una mala solución y compromiso con los datos o, incluso, con la transparencia del proceso (técnicos modificando código fuente durante la jornada electoral no es una buena práctica de cara a auditorías externas en un sistema electrónico de voto). Por ello, la única forma en la que se 
