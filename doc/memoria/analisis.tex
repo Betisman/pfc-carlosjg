@@ -28,35 +28,47 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 				\end{description}
 				
 			
-			\subsection{Descripción del sistema}\label{requisitosDescripcionSistema}
+			\subsection{Ámbito del sistema}\label{requisitosAmbitoSistema}
+			El sistema que se va a desarrollar tiene como finalidad que los alumnos, profesores y empleados de la Escuela Politécnica Superior de la Universidad San Pablo CEU puedan votar remotamente en las Elecciones a la Junta de Escuela.
+			Para ello, el sistema debe ser distribuido y dirigido hacia un entorno web, permitiendo que los votantes puedan emitir su voto desde cualquier lugar donde tengan conexión a Internet. Con el auge de los teléfonos móviles inteligentes y de las redes móviles (GPRS, 3G, 4G, HSDP...), se puede permitir la votación desde cualquier lugar en la que el proveedor de telefonía móvil provea de cobertura al votante.
+			Este enfoque ubicuo del voto debe asegurar, no obstante, las mismas garantías que proporciona un sistema de voto tradicional o uno de voto electrónico presencial.
+			El sistema dispone, por un lado, del servidor web que permite la interacción tanto con el votante como la difusión de los resultados electorales. Este servidor web tendrá comunicación con Internet y debe tener una seguridad acorde con el nivel de peligro ante ataques que se espere para este tipo de elección.
+			Por otro lado, la parte de la lógica de negocio del sistema se basa en subsistemas independientes, aunque modulares, dependiendo del servicio que tengan que ofrecer. La independencia de estos subsistemas responde a cuestiones de seguridad y para proporcionar mayor transparencia del proceso en cuanto al \textit{flujo del voto} a través del software.
+			
+			
 			\begin{description}
 				\item[Título:] AQUÍ VA EL TÍTULO ******************** 
-				\item[Descripción:] El sistema consiste en una plataforma de voto eléctronico remoto por internet, seguro, anónimo y tratando de implementar el máximo de requisitos exigibles al voto electrónico que cumplan con el objetivo. El desarrollo es ad-hoc según las normas de las elecciones que van a tomar parte. (************)Pese a ser un diseño dirigido a unos tipos de elecciones concretas, se puede modularizar el sistema para que, implementando unas nuevas reglas, el sistema sirva de base a otros procesos.(************). Los votantes dispondrán de unas credenciales digitales que servirán para que se puedan identificar unívocamente en el sistema, sin suplantaciones. (**************** DNIe? TUI? user/password? *****************). Estas credenciales se implementan basándose en certificados digitales que aseguran la autenticidad del votante. Una vez el votante se autentica contra el sistema y el censo (proporcionado por la Universidad y cargado previamente en el sistema), se le presenta el surtido de papeletas entre las que puede elegir a sus representantes. Este conjunto de papeletas ha de ser calculado por el sistema teniendo en cuenta el tipo de votante con el que interacciona (estudiante/profesor/empleado, carrera, grupo/clase...).Una vez seleccionada la papeleta, emite el voto. El voto consiste en que el votante firma digitalmente un sobre lógico en el que va la papeleta cifrada. Este sobre se envía al sistema, donde un módulo urna digital se encarga de almacenarlo hasta la finalización del periodo de votación. Una vez llega el fin de este periodo, los administradores de la elección abren la urna. Para ello, requieren de una clave criptográfica que estará troceada y repartida entre varios miembros. La apertura de la urna implica la anonimización de los votos, rompiendo la relación entre un votante y el voto que ha emitido. Una vez cumplido con el requisito del voto anónimo y eliminada la trazabilidad del voto, estos tienen que ser descrifrados para, a continuación, ser contados. Al finalizar el escrutinio, se publican los resultados. Junto a la publicación de los resultados, se deben publicar unas listas para que los votantes puedan verificar que el voto digital que emitieron no ha sido alterado y, además, ha formado parte del escrutinio.
+				\item[Descripción:] El sistema consiste en una plataforma de voto electrónico remoto por Internet, seguro, anónimo y tratando de implementar el máximo de requisitos exigibles al voto electrónico que cumplan con el objetivo. El desarrollo es ad-hoc según las normas de las elecciones que van a tomar parte. (************)Pese a ser un diseño dirigido a unos tipos de elecciones concretas, se puede modularizar el sistema para que, implementando unas nuevas reglas, el sistema sirva de base a otros procesos.(************). Los votantes dispondrán de unas credenciales digitales que servirán para que se puedan identificar unívocamente en el sistema, sin suplantaciones. (**************** DNIe? TUI? user/password? *****************). Estas credenciales se implementan basándose en certificados digitales que aseguran la autenticidad del votante. Una vez el votante se autentica contra el sistema y el censo (proporcionado por la Universidad y cargado previamente en el sistema), se le presenta el surtido de papeletas entre las que puede elegir a sus representantes. Este conjunto de papeletas ha de ser calculado por el sistema teniendo en cuenta el tipo de votante con el que interacciona (estudiante/profesor/empleado, carrera, grupo/clase...).Una vez seleccionada la papeleta, emite el voto. El voto consiste en que el votante firma digitalmente un sobre lógico en el que va la papeleta cifrada. Este sobre se envía al sistema, donde un módulo urna digital se encarga de almacenarlo hasta la finalización del periodo de votación. Una vez llega el fin de este periodo, los administradores de la elección abren la urna. Para ello, requieren de una clave criptográfica que estará troceada y repartida entre varios miembros. La apertura de la urna implica la anonimización de los votos, rompiendo la relación entre un votante y el voto que ha emitido. Una vez cumplido con el requisito del voto anónimo y eliminada la trazabilidad del voto, estos tienen que ser descifrados para, a continuación, ser contados. Al finalizar el escrutinio, se publican los resultados. Junto a la publicación de los resultados, se deben publicar unas listas para que los votantes puedan verificar que el voto digital que emitieron no ha sido alterado y, además, ha formado parte del escrutinio.
 			\end{description}
 			
-			El sistema consiste en una plataforma de voto eléctronico remoto por internet, seguro, anónimo y tratando de implementar el máximo de requisitos exigibles al voto electrónico que cumplan con el objetivo. El desarrollo es ad-hoc según las normas de las elecciones que van a tomar parte.
-			La identificación de los votantes en el sistema ha de ser unívoca, evitando que un votante pueda ver su identidad supantada por otro.
+			El sistema consiste en una plataforma de voto electrónico remoto por Internet, seguro, anónimo y tratando de implementar el máximo de requisitos exigibles al voto electrónico que cumplan con el objetivo. El desarrollo es ad-hoc según las normas de las elecciones que van a tomar parte.
+			La identificación de los votantes en el sistema ha de ser unívoca, evitando que un votante pueda ver su identidad suplantada por otro.
 			Los usuarios que intenten acceder al sistema de voto y no pertenezcan al censo oficial, proporcionado por la Autoridad Electoral de la Universidad, han de ser identificados y su acceso al mismo rechazado, pues hay que cumplir el requisito de Autenticidad del voto/votante.
-			El sistema debe porporcionar al votante las distintas opciones entre las que puede elegir para ejercer su voto teniendo en cuenta el tipo de votante registrado y las reglas de le elección que le aplican.
+			El sistema debe proporcionar al votante las distintas opciones entre las que puede elegir para ejercer su voto teniendo en cuenta el tipo de votante registrado y las reglas de le elección que le aplican.
 			Una vez seleccionado el voto que quiere ingresar en la urna electrónica, el sistema debe asegurar que éste es correcto, para avisar al votante que lo corrija en caso contrario y no emitir un voto incoherente en el sistema. En el caso de un voto coherente (votos válidos y votos nulos), el sistema debe, en primer lugar destruir la relación entre el voto y el votante, cumpliendo con el requisito de privacidad del voto o anonimato del votante, el voto es secreto, por lo que hay que asegurar que no existe una trazabilidad que pudiese llegar a relacionar un voto con la identidad del votante que lo sufragó.
-			El sistema debe proporcionar un mecanismo por el cual un votante tenga la capacidad de confirmar que su voto ha sido correctemente inlcuido en la urna electrónica. Debe poder asegurarse de que \textit{ha votado}.
-			Del mismo modo, el sistema ha de asegurar que los votos, ya desligados de la identidad del votante, son correctamente alamacenados en la urna electrónica y correctamente contados en la fase de recuento o consolidación de votos. Teniendo en cuenta las reglas de la elección, debe asegurar que todos los votos son correctamente contados y que sólo lo son una vez.
+			El sistema debe proporcionar un mecanismo por el cual un votante tenga la capacidad de confirmar que su voto ha sido correctamente incluido en la urna electrónica. Debe poder asegurarse de que \textit{ha votado}.
+			Del mismo modo, el sistema ha de asegurar que los votos, ya desligados de la identidad del votante, son correctamente almacenados en la urna electrónica y correctamente contados en la fase de recuento o consolidación de votos. Teniendo en cuenta las reglas de la elección, debe asegurar que todos los votos son correctamente contados y que sólo lo son una vez.
 			Una vez finalizado el recuento, y difundidos los resultados, el sistema debe proporcionar un mecanismo para que un votante pueda confirmar que su voto ha sido incluido correctamente en los resultados ofrecidos por el sistema sin que se viole la privacidad de su voto.
 			
 			Adicionalmente, el sistema debe proporcionar funcionalidades externas al proceso de voto.
-			Debe tener un sistema de carga y gestión de los datos electorales (reglas de la elección, urnas, circuncripciones, candidatos, censo).
+			Debe tener un sistema de carga y gestión de los datos electorales (reglas de la elección, urnas, circunscripciones, candidatos, censo).
 			Debe proporcionar herramientas que permitan la monitorización del proceso para comprobar el estado del mismo, además de herramientas de transparencia para que pueda ser auditado en tiempo real por las autoridades competentes.
 			
+			\subsection{Restricciones generales}\label{requisitosRestriccionesGenerales}
+				\begin{enumerate}
+					\item Primera restricción *********************
+					\item Segunda restricción *********************
+				\end{enumerate}
 			
 			\subsection{Requisitos funcionales}\label{requisitosFuncionales}
 				\begin{description}
-					\item[Votación por internet]: El sistema de votación debe funcionar de forma remota en sus fases de registro, identificación, votación y consulta de resultados. Cualquier votante puede acceder a las funcionalidades del sistema a las que tiene autorización desde cualquier punto conectado a Internet.
+					\item[Votación por Internet]: El sistema de votación debe funcionar de forma remota en sus fases de registro, identificación, votación y consulta de resultados. Cualquier votante puede acceder a las funcionalidades del sistema a las que tiene autorización desde cualquier punto conectado a Internet.
 					
 					\item[Permitir votación presencial]: El sistema debe proporcionar los mecanismos necesarios para permitir el voto a aquellos votantes con derecho al mismo que quieran emitirlo de forma presencial en el periodo habilitado para ello. ******* NOTA: (Analizando este requisito, la mejor forma es habilitando un horario en la sala de ordenadores de la Escuela destinados a que las personas que quieran puedan votar de forma remota desde estos puestos) *********
 					
 					\item[Disponibilidad total]: El sistema debe estar disponible para proporcionar servicio de voto durante todo el periodo estipulado en las normas que se fijen para la elección. ******* NOTA: (24/7, un día, varios días... depende de cómo se defina el proceso) *********
 					
-					\item[Identificación remota]: El sistema debe implementar un mecanismo que sea capaz de asegurar la identificación de un votante en el sistema de forma remota, digitalmente, sin posibilidad de error *********** NOTA: Esto de sin possibilidad de error ni me gusta ni queda correcto *****************.
+					\item[Identificación remota]: El sistema debe implementar un mecanismo que sea capaz de asegurar la identificación de un votante en el sistema de forma remota, digitalmente, sin posibilidad de error *********** NOTA: Esto de sin posibilidad de error ni me gusta ni queda correcto *****************.
 					
 					\item[Autenticación remota]: El sistema debe poder autenticar a los votantes que tratan de usar su identificación digital para ingresar en el sistema de forma remota. El sistema no debe errar en esta autenticación, permitiendo la entrada de los votantes autorizados y revocando el acceso a los atacantes, suplantadores o desautorizados.
 					
@@ -67,14 +79,14 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 				
 			\subsection{Requisitos propios del voto electrónico}\label{requisitosVotoElectronico}
 			******** AQUÍ HAY QUE DEFINIR LOS REQUISITOS DEL VOTO ELECTRÓNICO. DEPENDE DEL AUTOR, HAY UNOS U OTROS. HABRÁ QUE DEFINIR CUÁLES SON LOS QUE VAMOS A TENER EN CUENTA PARA ESTE PROYECTO. ESTÁN EN --TEMP-- ESPERANDO A QUE TOME LA DECISIÓN
-			A partir de los requisitos estudiados al estudiar el estado actual del voto electrónico en \ref{introduccionRequisitosVotoElectronico}, consideramos los siguientes requisitos como los implícitos al voto electrónio:
+			A partir de los requisitos estudiados al estudiar el estado actual del voto electrónico en \ref{introduccionRequisitosVotoElectronico}, consideramos los siguientes requisitos como los implícitos al voto electrónico:
 				\begin{description}
 					\item[Autenticidad]: Sólo los votantes autorizados pueden votar.
 					La autorización de un votante para ejercer su derecho al voto está expresada en el censo electoral conformado por la Autoridad Electoral competente. El sistema debe comprobar que el votante que quiere realizar un voto debe estar inscrito correctamente en el censo electoral y que en éste no se indique que tiene vetada su participación en el proceso.
 					\item[Anonimato]: El voto es secreto.
 					Ningún votante, observador o manipulador del sistema puede tener la habilidad o herramienta de poder conocer el voto que ha sufragado otro votante en ningún momento del proceso electoral.
 					
-					\item[Verificabilidad]: GaranEl votante puede asegurarse de que su voto se ha contado adecuadamente.
+					\item[Verificabilidad]: El votante puede asegurarse de que su voto se ha contado adecuadamente.
 					El sistema debe ase
 					El sistema tiene que proporcionar una herramienta que permita a un votante poder verificar que la opción por la que ha votado ha sido correctamente añadida a los resultados consolidados del proceso electoral, sin que por ello pueda violarse el requisito de Anonimato, asegurando que ningún actor del sistema pueda tener acceso al contenido de dicho voto.
 					
@@ -115,26 +127,29 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			
 		
 			\subsection{Necesidades del esquema de voto electrónico}
-			\begin{enumerate}
-				\item[Votación por internet]: El sistema de votación debe funcionar de forma remota en sus fases de registro, identificación, votación y consulta de resultados. Cualquier votante puede acceder a las funcionalidades del sistema a las que tiene autorización desde cualquier punto conectado a Internet.
+			\begin{description}
+			%% ESTE NO CREO QUE DEBA IR, YA	QUE ES UN RESUMEN DE LOS SIGUIENTES
+				\item[Votación por Internet]: \textst{El sistema de votación debe funcionar de forma remota en sus fases de registro, identificación, votación y consulta de resultados. Cualquier votante puede acceder a las funcionalidades del sistema a las que tiene autorización desde cualquier punto conectado a Internet.}
 				
 				\item[Identificación remota]: El sistema debe implementar un mecanismo que sea capaz de asegurar la identificación de un votante en el sistema de forma remota, digitalmente, sin posibilidad de error.
 				Existen varias soluciones para solventar este requisito, como son los certificados digitales electrónicos externos (contenidos en tarjetas de soporte físico como una smartcard, el DNI o la TUI de la Universidad), la identificación biométrica, acceso por usuario y contraseña con pasos extras para aumentar la seguridad.
 				
-				\item[Autenticación remota]: El sistema debe poder autenticar a los votantes que tratan de usar su identificación digital para ingresar en el sistema de forma remota. El sistema no debe errar en esta autenticación, permitiendo la entrada de los votantes autorizados y revocando el acceso a los atacantes, suplantadores o desautorizados. No sólo debe ser capaz de permitir la identificación de un votante asegurando ser quién dice ser, sino que debe permitir la autenticación del mismo de cara al sistema y de la Autoridad Electoral.
+				\item[Autenticación remota]: El sistema debe poder autenticar a los votantes que tratan de usar su identificación digital para ingresar en el sistema de forma remota. El sistema no debe errar en esta autenticación, permitiendo la entrada de los votantes autorizados y revocando el acceso a los atacantes, suplantadores o desautorizados. No sólo debe ser capaz de permitir que un votante pueda asegurar la veracidad de su identidad, sino que debe permitir la autenticación del mismo de cara al sistema y a la Autoridad Electoral.
 				
-				\item[Permitir votación presencial]: El sistema debe proporcionar los mecanismos necesarios para facilitar el voto a aquellos votantes con derecho al mismo que quieran emitirlo de forma presencial en el periodo habilitado para ello. Este requisito trata de preservar la tradición de estos procesos electorales en los que se fijaba una fecha para el sufragio y se acudía a la urna. Así, del mismo modo, hay que adecuar una serie de equipos en los centros de votación habituales que, aunque estén conectados a internet y el voto siga siendo remoto, permitan a los votantes que lo deseen hacer uso de su derecho al voto sin tener que salir de la Escuela. ******* NOTA: (Analizando este requisito, la mejor forma es habilitando un horario en la sala de ordenadores de la Escuela destinados a que las personas que quieran puedan votar de forma remota desde estos puestos) *********
+				\item[Firma digital]: Para poder cumplir con el voto remoto, es necesario que el sistema permita el uso de la firma digital, ya que es una herramienta clave para poder verificar la identidad y autenticidad de un votante, así como la validez del voto que emite.
+				
+				\item[Permitir votación presencial]: El sistema debe proporcionar los mecanismos necesarios para facilitar el voto a aquellos votantes con derecho al mismo que quieran emitirlo de forma presencial en el periodo habilitado para ello. Este requisito trata de preservar la tradición de estos procesos electorales en los que se fijaba una fecha para el sufragio y se acudía a la urna. Así, del mismo modo, hay que adecuar una serie de equipos en los centros de votación habituales que, aunque estén conectados a Internet y el voto siga siendo remoto, permitan a los votantes que lo deseen hacer uso de su derecho al voto sin tener que salir de la Escuela. ******* NOTA: (Analizando este requisito, la mejor forma es habilitando un horario en la sala de ordenadores de la Escuela destinados a que las personas que quieran puedan votar de forma remota desde estos puestos) *********
 				
 				\item[Disponibilidad total]: El sistema debe estar disponible para proporcionar servicio de voto durante todo el periodo estipulado en las normas que se fijen para la elección. Aunque el sistema entra en producción para llevar a cabo funciones que se realizan en la llamada fase preelectoral, el momento más crítico e importante se presupone que es la propia jornada electoral. El sistema debe estar preparado para su uso al comienzo de ésta y debe estar activo, accesible a los votantes y sin caídas durante la duración de la misma.
 				
-				\item[Voto anónimo]: Este es un requisito implícito del voto electrónico. Por ello, para el esquema de votación que se ha de utilizar es fundamental tenerlo en cuenta. Han de integrarse los protocolos criptográficos y de infraestructura necesarios para que nadie pueda vincularel contenido de un coto a un votante determinado. **************** ESTO QUIZÁ DEBERÍA QUEDARSE DIRECTAMENTE EN LOS REQUISITOS IMPLÍCITOS AL VOTO ELECTRÓNICO. DE HECHO, A PARTIR DE ELLOS Y PINCELADAS DE ESTA SUBSECCIÓN SE HAN DE SENTAR LAS BASES DEL ESQUEMA DE VOTO ELECTRÓNICO A IMPLEMENTAR *************************
+				\item[Voto anónimo]: Este es un requisito implícito del voto electrónico. Por ello, para el esquema de votación que se ha de utilizar es fundamental tenerlo en cuenta. Han de integrarse los protocolos criptográficos y de infraestructura necesarios para que nadie pueda vincular el contenido de un coto a un votante determinado. **************** ESTO QUIZÁ DEBERÍA QUEDARSE DIRECTAMENTE EN LOS REQUISITOS IMPLÍCITOS AL VOTO ELECTRÓNICO. DE HECHO, A PARTIR DE ELLOS Y PINCELADAS DE ESTA SUBSECCIÓN SE HAN DE SENTAR LAS BASES DEL ESQUEMA DE VOTO ELECTRÓNICO A IMPLEMENTAR *************************
 				
 				
-				\item[Papeleta/boleta digital]: El siste ma debe mostrar al votante la papeleta o boleta (dependiendo del tipo de elección) correspondiente a la elección y el censo que le corresponda. Debe contener las opciones correctas por las que puede optar y mantener correctamente la/s opción/es seleccionadas.
+				\item[Papeleta/boleta digital]: El sistema debe mostrar al votante la papeleta o boleta (dependiendo del tipo de elección) correspondiente a la elección y el censo que le corresponda. Debe contener las opciones o candidatos entre las que puede seleccionar o elegir y mantener correctamente la/s opción/es seleccionada/s.
 				
-				\item[Voto múltiple:] \textst{ El sisteme debe permitir a los votantes votar más de una vez, invalidando cada vez que emite un voto, los votos anteriores que hubiese introducido en el sistema. (********************* ¿QUEREMOS ESTO? TOTAL, EL RIESGO DE COACCIÓN ES MUY BAJO EN ESTAS ELECCIONES... PERO SI QUEREMOS ACERCARNOS A UNAS GENERALES, QUIZÁS SEA IMPEPINABLE, SIGUIENDO EL MODELO ESTONIO *********************)}
+				\item[Voto múltiple:] \textst{ El sistema debe permitir a los votantes votar más de una vez, invalidando cada vez que emite un voto, los votos anteriores que hubiese introducido en el sistema. (********************* ¿QUEREMOS ESTO? TOTAL, EL RIESGO DE COACCIÓN ES MUY BAJO EN ESTAS ELECCIONES... PERO SI QUEREMOS ACERCARNOS A UNAS GENERALES, QUIZÁS SEA IMPEPINABLE, SIGUIENDO EL MODELO ESTONIO *********************)}
 				
-			\end{enumerate}
+			\end{description}
 			
 			
 			
@@ -151,7 +166,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 				\item[Restricciones de diseño]: requisitos que limitan el desarrollo al crear el producto. Se etiquetan como RD.x, siendo x el número del requisito.
 				\item[Requisitos funcionales]: Conjunto de requisitos que reflejan la funcionalidad que debe prestar el sistema. Se etiquetan como RF.x, siendo x el número del requisito.
 				\item[Requisitos de la interfaz]: Conjunto de requisitos que definen las necesidades de la interacción del software con otros sistemas y usuarios. Se etiquetan como IN.x, siendo x el número del requisito.
-				\item[Requisitos de calidad]: Exigencias en la calidad que se piden explícitamente para el producto. En esta categoría se engloban los requisitos de rendimiento, escalabilidad, accesibilidad, usailidad, etc. Se etiquetan como CA.x, siendo x el número del requisito.
+				\item[Requisitos de calidad]: Exigencias en la calidad que se piden explícitamente para el producto. En esta categoría se engloban los requisitos de rendimiento, escalabilidad, accesibilidad, usabilidad, etc. Se etiquetan como CA.x, siendo x el número del requisito.
 				\item[Requisitos de evolución]: Requisitos para el diseño del producto con el objetivo de facilitar la adaptación a exigencias o condiciones que puedan surgir en el futuro. Se etiquetan como EV.x, siendo x el número del requisito.
 				\item[Requisitos del proyecto]: Requisitos que afectan y condicionan el proceso de desarrollo del proyecto. Se etiquetan como PR.x, siendo x el número del requisito.
 				\item[Requisitos de soporte]: Requisitos que deben ser cumplidos por el cliente. Se etiquetan como SO.x, siendo x el número del requisito.
@@ -199,9 +214,20 @@ Requisitos no funcionales: Restricciones que afectan al sistema
 		 
 			\section{Roles / Actores}\label{actores}
 				Considerando el flujo del votante en el sistema, identificamos cuatro roles en el sistema que deben ser tenidos en cuenta de cara a las funcionalidades, privilegios y responsabilidades que tienen que encontrar en el uso del mismo.
-				\begin{itemize}
-					\item Votante
-					\item Administrador
+				\begin{description}
+					\item[Votante] \hfill \\
+						El votante es el actor principal del sistema, pues es al que va dirigido el proceso de votación. Es el único rol que tiene la capacidad de votar. Las acciones que puede realizar son:
+						\begin{itemize}
+							\item Consultar su presencia en el censo.
+							\item Identificarse unívocamente en el sistema.
+							\item Elegir la papeleta con su voto.
+							\item Capacidad de poder emitir un voto nulo.
+							\item Firmar el voto.
+							\item Votar preservando el carácter anónimo del voto.
+							\item Consultar que su voto ha sido contabilizado.
+						\end{itemize}
+						
+					\item[Administrador] \hfill \\
 						El administrador es el rol encargado de gestión de las fases electorales.\\
 						Tiene responsabilidad y potestad de:
 							\begin{itemize}
@@ -209,24 +235,30 @@ Requisitos no funcionales: Restricciones que afectan al sistema
 								\item Iniciar el proceso de votación.
 								\item Terminar el proceso de votación.
 								\item Apertura de la urna
+								\item Inicio del escrutinio
 								\item Apertura de los canales de difusión de resultados.
+								\item Finalizar el proceso electoral.
 							\end{itemize}
 						%Los usuarios con este rol no puede votar. El administrador de la elección no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.
-					\item Miembro de la Junta Electoral ***************** CAMBIAR EL NOMBRE ***********************
+					\item[Miembro de la Junta Electoral]  \hfill \\
+					***************** CAMBIAR EL NOMBRE ***********************
 						Una vez el administrador de la elección dé por finalizado el proceso electoral, se requerirá que varios miembros de la Junta Electoral proporcionen unas claves personales que, juntando varias de ellas, servirán como llave lógica para la apertura de la urna que contiene los votos.\\
-						Los usuarios con este rol no puede votar. El miembro de la Junta Electoral no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.
-					\item Auditor
+						Los usuarios con este rol no pueden votar. El miembro de la Junta Electoral no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.
+						
+						
+					\item[Auditor] \hfill \\
 						El auditor debe tener acceso a una serie de funcionalidades del sistema. Su función es velar porque el desarrollo del proceso electoral se realiza sin ningún tipo de fallo o de interferencia por parte de algún atacante.\\
-						Los usuarios con este rol no puede votar. El auditor no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.\\
+						Los usuarios con este rol no pueden votar. El auditor no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.\\
 						Su misión es de control, por lo que ninguna acción que realice en el sistema puede afectar al desarrollo de la elección.
-					\item Autoridad Certificadora
+						
+					\item[Autoridad Certificadora] \hfill \\
 						Junto con los cuatro roles expuestos, encontramos un quinto actor en la figura de la Autoridad Certificadora. Esta entidad es la encargada de generar, administrar, validar y verificar las credenciales que han de usar cada uno de los votantes para emitir el voto, así como los de cada uno de los actores del proceso (administradores, miembros de la Junta Electoral, auditores o incluso los sistemas y sus comunicaciones).
-				\end{itemize}
+				\end{description}
 				
 				Los usuarios cuyo rol sea Votante son los únicos que tienen capacidad para poder votar en la elección.
-				Hay usuarios que pueden ejercer varios roles en el sistema. Tanto un Administrador como, sobre todo, un Miembro de la Autoridad Electoral, perteneciendo a la Universidad pueden, dependiendo de su situación, tener derecho al voto.
+				Hay usuarios que pueden ejercer varios roles en el sistema. Tanto un Administrador como, sobre todo, un Miembro de la Autoridad Electoral, perteneciendo a la Universidad pueden tener derecho al voto.
 				En estos casos, para mantener la transparencia y fiabilidad del proceso, las persona que ejerzan estos roles, a la hora de votar deberán hacerlo accediendo al sistema con un usuario distinto, con un rol asignado de Votante, garantizando que no pueden acceder con éste a ningún otro módulo del sistema.
-				Se entiende que los roles de Auditor o de Observador están destinados a personas ajenas a la votación que tienen como objetivo vigilar y asegurar que la elección se lleva a cabo de forma limpia y correcta. Por ende, se entiende que las persona con usuarios asociados a estos roles no deben acceder al sistema de votación en ningún caso, además de que no deberían aparecer acreditados en el censo electoral.
+				Se entiende que los roles de Auditor \textst{o de Observador} están destinados a personas ajenas a la votación que tienen como objetivo vigilar y asegurar que la elección se lleva a cabo de forma limpia y correcta. Por ende, se entiende que las personas con usuarios asociados a estos roles no deben acceder al sistema de votación en ningún caso, además de que no deberían aparecer acreditados en el censo electoral.
 				
 				
 				
@@ -244,8 +276,7 @@ cada caso de uso deberá indicarse los actores implicados, las precondiciones y p
 los pasos que conforman el escenario principal y el conjunto de posibles escenarios alternativos. *******************
 				
 					\subsection{Actores}
-					********************** En este apartado se describirán los diferentes roles que juegan los usuarios que interactúan con
-el sistema. Los actores pueden ser roles de personas físicas, sistemas externos o incluso el tiempo
+					********************** En este apartado se describirán los diferentes roles que juegan los usuarios que interactúan con el sistema. Los actores pueden ser roles de personas físicas, sistemas externos o incluso el tiempo
 (eventos temporales). *******************
 				
 				\section{Modelo de Comportamiento}\label{analisisModeloComportamiento}
