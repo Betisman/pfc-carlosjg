@@ -132,7 +132,7 @@
 
 				\par
 				Según publican \textit{Fujioka, Okamoto y Ohta} \cite{Fujioka93}, un sistema de voto secreto es \textit{seguro} si cumple con los siguientes requisitos:
-				\begin{description}
+				\begin{description}[font=$\bullet$\ \ ]
 					\item[Completitud (Completeness)]: Todos los votos válidos son contados de correctamente.
 					\item[Solidez (Soundness)]: Un votante deshonesto no puede interrumpir la votación.
 					\item[Privacidad (Privacy)]: Todos los votos deben ser secretos.
@@ -142,7 +142,7 @@
 					\item[Verificabilidad (Verifiability)]: Nadie puede falsificar el resultado de la votación.
 				\end{description}
 				A estos requisitos básicos, el equipo de Fujioka añade otros cuatro que considera importantes para la correcta implementación de un sistema de voto electrónico:
-				\begin{description}
+				\begin{description}[font=$\bullet$\ \ ]
 					\item[--- (Robustness)]: faulty behavior of any reasonably sized coalition of participants can be tolerated. In other words, the system must be able to tolerate to certain faulty conditions and must be able to manage these situations
 					\item[--- (Universarl Verifiability)]: Any part can verify the result of the voting.
 					\item[--- (Receipt Freeness)]: Voters are unable to prove the content of his/her vote
@@ -153,8 +153,9 @@
 					\item[Corrección Privada de Errores (Private Error Correction)]: Un votante puede probar que su voto no fue contado correctamente sin tener que revelar qué opción votó.
 				\end{description}
 				
-				A partir de esta primera definición de los requisitos del voto electrónico, muchos equipos de desarrolladores o teóricos de infraestructuras para el voto electrónico han redactado sus propias interpretaciones, aunque suelen ser análogas a las ofrecidas por Fujioka. Por ejemplo, las propiedades que debe tener un sistema de voto electrónico a través de Internet, según publican desde la Universidad de Extremadura \cite{estudioInfraestructutaVotoElectronicoUNEX} son las siguientes: \\
-				\begin{description}
+				\par
+				A partir de esta primera definición de los requisitos del voto electrónico, muchos equipos de desarrolladores o teóricos de infraestructuras para el voto electrónico han redactado sus propias interpretaciones, aunque suelen ser análogas a las ofrecidas por Fujioka. Por ejemplo, las propiedades que debe tener un sistema de voto electrónico a través de Internet, según publican desde la Universidad de Extremadura \cite{estudioInfraestructutaVotoElectronicoUNEX} son las siguientes:
+				\begin{description}[font=$\bullet$\ \ ]
 					\item[Universal]
 					Todos los implicados en la toma de una decisión tienen voz y
 parte en ella, es decir, que todos aquellos ciudadanos que
@@ -221,7 +222,7 @@ emite.
 				\end{description}
 				
 Hasta aquí están las características inherentes a un sistema de votación tradicional, el realizado hasta ahora en cualquier proceso electoral que haya habido en España, por ejemplo. A continuación, añaden una serie de propiedades ligadas al voto electrónico:
-				\begin{description}
+				\begin{description}[font=$\bullet$\ \ ]
 					\item[Autentificación]
 Sólo se permitirá emitir un voto a aquellos usuarios que estén
 debidamente autorizados. Para el cumplimiento de este
@@ -494,7 +495,7 @@ los diálogos del sistema.
 				
 				*********************************************
 				%% https://www.google.es/url?sa=t&rct=j&q=&esrc=s&source=web&cd=8&ved=0CEsQFjAH&url=http%3A%2F%2Fthoth.cc.e.ipl.pt%2Fclasses%2FSI%2F1314i%2FLI51N-MI1N%2Fresources%2F2225&ei=l4qFVLrYBIavU8zugNAP&usg=AFQjCNEqu0pixZSTmH8THWs9eI9dOQpY9Q&sig2=RgWbVJjYwHyWYOrqoehkEA&bvm=bv.80642063,d.d24&cad=rja
-				\begin{description}
+				\begin{description}[font=$\bullet$\ \ ]
 					\item[Primitivas] Operaciones matemáticas, usadas como bloques constructores en la realización de esquemas. Su caracterización depende de los problemas matemáticos que sustentan su uso criptográfico. Ej: DES, RSA.
 					\item[Esquemas] Combinación de primitivas y métodos adicionales para la realización de tareas criptográficas como la firma y el cifrado digital. Ej: DES-CBC-PKCS5Padding; RSA-OAQEP-MGF1-SHA1
 					\item[Protocolos] Secuencias de operaciones, a realizar por dos o más entidades,que contienen esquemas y primiticas con el propósito de dotar a una aplicación de características de seguridad. Ej: TLS con %TLS_RSA_WITH_DES_CBC_SHA

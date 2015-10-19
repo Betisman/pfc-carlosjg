@@ -16,7 +16,7 @@
 	
 	Miembros de una conocida empresa española líder en procesos de voto electrónico publicaron un artículo de buenas prácticas al implementar un sistema de voto electrónico por Internet. En el mismo exponen una lista de riesgos generales de seguridad inherentes al voto electrónico. Su intención era usarlos como referencia para poder comparar diferentes sistemas de voto sin tener en cuenta la tecnología que los implementen.\\
 		En este PFC van a tenerse en cuenta de cara al diseño de un sistema robusto de voto por Internet.\\
-		\begin{description}
+		\begin{description}[font=$\bullet$\ \ ]
 			\item [Votos por parte de votantes sin autorización]: El sistema de voto debe poseer un mecanismo robusto y confiable para identificar correctamente de forma remota a los votantes, ya que personas sin autorización podrían intentar emitir su voto.
 			\item [Suplantación del voto]: Un votante o un atacante podrían intentar suplantar la identidad de un votante autorizado para votar en su lugar. El sistema debe proporcionar un mecanismo que detecte este tipo de intentos de suplantación.
 			\item [Inyección de votos]: El sistema debe prevenir la aceptación de votos \textit{inyectados}. Un atacante puede intentar introducir en la urna votos de votantes que no han participado en el proceso electoral (por ejemplo, por abstención) y que, por tanto, no deberían contabilizarse.
