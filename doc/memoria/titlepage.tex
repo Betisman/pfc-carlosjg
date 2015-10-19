@@ -12,74 +12,79 @@
 
 %% Definición de autor, título y fecha para reutilizar
 \author{José Carlos Jiménez Gómez}
-\title{<TÍTULO DEL\\
-PROYECTO FINAL DE CARRERA>}
-\date{\today}
-%\newdateformat{mydate}{\monthname[\THEMONTH] \THEYEAR} 
-%http://www.howtotex.com/packages/customize-the-date-format-in-your-latex-documents/#sthash.rmRWrHms.dpuf
+\title{<TÍTULO DEL\\PROYECTO FINAL DE CARRERA>}
+
 \newcommand{\director}{Raúl García García}
 \newcommand{\miUniversidad}{Universidad San Pablo - CEU}
 \newcommand{\miFacultad}{Escuela Politécnica Superior}
-\newcommand{\miCarrera}{Ingeniería Informática Superior}
+\newcommand{\miCarrera}{Ingeniería en Informática}
+
+\date{\today}
+\newdateformat{mydate}{\monthname[\THEMONTH] de \THEYEAR} 
+%http://www.howtotex.com/packages/customize-the-date-format-in-your-latex-documents/#sthash.rmRWrHms.dpuf
 
 
 \makeatletter	%% Para poder usar las definiciones anteriores. Hay que cerrar con \makeatother
 
 \begin{titlepage}
-\begin{center}
+	\begin{center}
 
-\Large
-\vspace{1cm}
-%\textsf{UNIVERSIDAD SAN PABLO - CEU\\}
-\textsf{\textsc{\miUniversidad}}
-\\
-\vspace{1cm}
-\large
-%\textsf{ESCUELA POLITÉCNICA SUPERIOR\\}
-\textsf{\textsc{\miFacultad}}
-\\
-\vspace{2cm}
-%\textsf{INGENIERÍA INFORMÁTICA\\}
-\textsf{\textsc{\miCarrera}}
-\\
-\vspace{2cm}
+		\Large
+		\vspace{1cm}
+		%\textsf{UNIVERSIDAD SAN PABLO - CEU\\}
+		\textsf{\textsc{\miUniversidad}}
+		\\
+		%\vspace{1cm}
+		\large
+		%\textsf{ESCUELA POLITÉCNICA SUPERIOR\\}
+		\textsf{\textsc{\miFacultad}}
+		\\
+		\vspace{2cm}
+		%\textsf{INGENIERÍA INFORMÁTICA\\}
+		\textsf{\textsc{\miCarrera}}
+		\\
+		\vspace{2cm}
 
-\begin{figure}[htbp]
-	\centering
-		\includegraphics[width=0.30\textwidth]{imgs/logoceu.jpg}
-		%\includegraphics[width=0.50\textwidth]{imgs/logo_usp_12star.jpg}
-	\label{fig:logoceu}
-\end{figure}
-%\begin{figure}
-	%\centering
-		%\includegraphics[width=0.50\textwidth]{imgs/logo_usp_12star.jpg}
-%\end{figure}
+		\begin{figure}[htbp]
+			\centering
+				\includegraphics[width=0.30\textwidth]{imgs/logoceu.jpg}
+				%\includegraphics[width=0.50\textwidth]{imgs/logo_usp_12star.jpg}
+			\label{fig:logoceu}
+		\end{figure}
+		%\begin{figure}
+			%\centering
+				%\includegraphics[width=0.50\textwidth]{imgs/logo_usp_12star.jpg}
+		%\end{figure}
 
-\large
-\vspace*{2cm}
-\textsf{\textsc{Proyecto Final de Carrera\\}}
+		\large
+		\vspace*{2cm}
+		\textsf{\textsc{Proyecto Final de Carrera}}
+		\\
 
-\Large
-\vspace*{1cm}
-\textsf{\@title}
-\vspace{1cm}
+		\LARGE
+		\vspace*{1cm}
+		\textbf{\textsf{\@title}}
+		\vspace{1cm}
 
-\large
-\textsf{Autor: \@author\\
-%Director: Raúl García García}
-Director: \director}
+		\large
+		\textsf{Autor: \textbf{\@author}\\
+		%Director: Raúl García García}
+		Director: \textbf{\director}}
 
-\vspace{1cm}
-
-
-%\textsf{Enero 2008}\\ %%Date - better you write it yourself.
-\textsf{\date{\today}}\\ %%Date - better you write it yourself.
-\date{\today}
-
-\@date
+		\vspace{1cm}
 
 
-\end{center}
+		%\textsf{Enero 2008}\\ %%Date - better you write it yourself.
+
+		%\textsf{\date{\today}}\\ %%Date - better you write it yourself.
+
+		\mydate
+		\date{\today}
+
+		\textsf{\@date}
+
+
+	\end{center}
 
 \end{titlepage}
 
