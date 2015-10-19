@@ -227,6 +227,9 @@
 %% ==> TeXnicCenter supplies a possible titlepage file
 %% ==> with its templates (File | New from Template...).
 
+\renewcommand{\thepage}{\roman{page}}
+\setcounter{page}{2}
+
 %% Página temporal que muestra la revisión del SVN de la documentación
 \input{version.tex}
 
@@ -234,7 +237,7 @@
 \input{calificacion.tex}
 
 
-\renewcommand{\thepage}{\roman{page}}
+%\renewcommand{\thepage}{\roman{page}}
 %\setcounter{page}{1}
 
 

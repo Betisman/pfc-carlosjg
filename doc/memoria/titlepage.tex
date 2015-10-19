@@ -17,6 +17,11 @@ PROYECTO FINAL DE CARRERA>}
 \date{\today}
 %\newdateformat{mydate}{\monthname[\THEMONTH] \THEYEAR} 
 %http://www.howtotex.com/packages/customize-the-date-format-in-your-latex-documents/#sthash.rmRWrHms.dpuf
+\newcommand{\director}{Raúl García García}
+\newcommand{\miUniversidad}{Universidad San Pablo - CEU}
+\newcommand{\miFacultad}{Escuela Politécnica Superior}
+\newcommand{\miCarrera}{Ingeniería Informática Superior}
+
 
 \makeatletter	%% Para poder usar las definiciones anteriores. Hay que cerrar con \makeatother
 
@@ -25,12 +30,18 @@ PROYECTO FINAL DE CARRERA>}
 
 \Large
 \vspace{1cm}
-\textsf{UNIVERSIDAD SAN PABLO - CEU\\}
+%\textsf{UNIVERSIDAD SAN PABLO - CEU\\}
+\textsf{\textsc{\miUniversidad}}
+\\
 \vspace{1cm}
 \large
-\textsf{ESCUELA POLITÉCNICA SUPERIOR\\}
+%\textsf{ESCUELA POLITÉCNICA SUPERIOR\\}
+\textsf{\textsc{\miFacultad}}
+\\
 \vspace{2cm}
-\textsf{INGENIERÍA INFORMÁTICA\\}
+%\textsf{INGENIERÍA INFORMÁTICA\\}
+\textsf{\textsc{\miCarrera}}
+\\
 \vspace{2cm}
 
 \begin{figure}[htbp]
@@ -46,7 +57,7 @@ PROYECTO FINAL DE CARRERA>}
 
 \large
 \vspace*{2cm}
-\textsf{PROYECTO FINAL DE CARRERA\\}
+\textsf{\textsc{Proyecto Final de Carrera\\}}
 
 \Large
 \vspace*{1cm}
@@ -55,7 +66,9 @@ PROYECTO FINAL DE CARRERA>}
 
 \large
 \textsf{Autor: \@author\\
-Director: Raúl García García}
+%Director: Raúl García García}
+Director: \director}
+
 \vspace{1cm}
 
 
