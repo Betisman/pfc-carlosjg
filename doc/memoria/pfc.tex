@@ -193,6 +193,8 @@
 \usepackage{xargs}
 \usepackage{xcolor}
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+%\usepackage[colorinlistoftodos,prependcaption,textsize=tiny,spanish]{todonotes}
+%\usepackage[colorinlistoftodos,prependcaption,textsize=tiny,spanish,obeyDraft]{todonotes}
 \newcommandx{\notasDuda}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
 \newcommandx{\notasCambio}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
 \newcommandx{\notasInfo}[2][1=]{\todo[linecolor=green,backgroundcolor=green!25,bordercolor=green,#1]{#2}}
@@ -349,7 +351,8 @@
 %%\input{anexo2.tex}
 %%\input{anexo3.tex}
 
-\listoftodos[Notes]
+\addcontentsline{toc}{chapter}{Notas (para borrador)} %'Bibliography' into toc
+\listoftodos[Notas (para borrador)]
 
 \end{document}
 
