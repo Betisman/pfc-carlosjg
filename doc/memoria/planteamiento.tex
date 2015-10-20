@@ -3,7 +3,8 @@
 \rhead{Planteamiento}
 %*******************************************************************************
 \section{Objetivos finales del proyecto}\label{objetivos}
-	El objetivo principal de este Proyecto de Fin de Carrera es la implementación de un sistema de votación electrónica remota (i-voting) diseñada de forma ad-hoc para dos de los procesos electorales que se llevan a cabo en la Escuela Politécnica Superior de la Universidad San Pablo CEU.\\
+	El objetivo principal de este Proyecto de Fin de Carrera es la implementación de un sistema de votación electrónica remota (i-voting) diseñada de forma ad-hoc para dos de los procesos electorales que se llevan a cabo en la Escuela Politécnica Superior de la Universidad San Pablo CEU.
+	\\
 	Estos procesos están definidos en las \textit{Normas de Organización y Funcionamiento de la Universidad San Pablo-CEU} \cite{normasCEU} y son:\\
 	\begin{itemize}
 		\item Elecciones de Delegados y Subdelegados
@@ -18,20 +19,23 @@
 		\item[Verificable] Se puede verificar que los votos han sido contados y forman parte del resultado del escrutinio.
 		\item[Auditable] El sistema debe proporcionar mecanismos para que pueda llevarse una auditoría del mismo antes, durante y después del proceso. 
 	\end{description}
-	El germen de la idea del proyecto, como se comenta en las Motivaciones del proyecto \ref{motivacion} era la búsqueda de soluciones para elecciones generales, autonómicas, municipales, etc. Elecciones que afectan a la población. Junto a la idea de desarrollar soluciones para este tipo de comicios, también está el estudio de las circunstancias por las que todavía no se han implementado sistemas de este tipo en España de carácter general.\\
+	El germen de la idea del proyecto, como se comenta en las Motivaciones del proyecto \ref{motivacion} era la búsqueda de soluciones para elecciones generales, autonómicas, municipales, etc. Elecciones que afectan a la población. Junto a la idea de desarrollar soluciones para este tipo de comicios, también está el estudio de las circunstancias por las que todavía no se han implementado sistemas de este tipo en España de carácter general.
+	\\
 	Al realizar el estudio del estado del arte actual, se puede recopilar una ingente documentación teórica sobre diferentes sistemas, paradigmas y esquemas de todo tipo de votación electrónica. Hay muchos artículos y tesis muy importantes que tratan de desarrollar sistemas de este tipo, desde el punto de vista teórico hasta el prototipo práctico. Incluso tenemos estados que han implementado una solución con carácter vinculante. En este PFC, lejos de tratar de encontrar una solución novedosa y revolucionaria, vamos a tratar de plasmar un conjunto de ideas y proposiciones de diferentes autores para implementar un sistema propio para la escuela que cumpla con el mayor número de requisitos básicos y deseables para el voto electrónico, teniendo en cuenta además, la variante del factor remoto, es decir, que cumpla, además con los requisitos de control, confiabilidad y seguridad que hagan viable el voto a través de Internet.
 	Así pues, el objetivo general del PFC será:\\
 	\begin{itemize}
-		\item Diseñar un esquema y un sistema de voto electrónico remoto a través de Internet que sea robusto, fiable, verificable y auditable*********************************, además de un coste ajustado,********************************** para que se puedan llevar a cabo las Elecciones a Delegado y Subdelegado de Curso y las Elecciones a Miembro de la Junta Electoral de la Escuela Politécnica Superior de la Universidad San Pablo CEU. 
+		\item Diseñar un esquema y un sistema de voto electrónico remoto a través de Internet que sea robusto, fiable, verificable y auditable\notasDuda{?¿?¿?¿, además de un coste ajustado,} para que se puedan llevar a cabo las Elecciones a Delegado y Subdelegado de Curso y las Elecciones a Miembro de la Junta Electoral de la Escuela Politécnica Superior de la Universidad San Pablo CEU. 
 	\end{itemize}
-	Teniendo en cuenta el objetivo general, vamos a definir una serie de objetivos intermedios que habrá que cumplir:\\
+	
+	Teniendo en cuenta el objetivo general, vamos a definir una serie de objetivos intermedios que habrá que cumplir:
+	\\
 	%\begin{enumerate}[label=OBJETIVO\arabic*]
 	\begin{enumerate}[{OBJETIVO} 1]
 		\item Definir un esquema de voto electrónico que soporte la implementación del sistema en base a los requisitos del mismo.
 		\item Especificar el mecanismo y los protocolos para la identificación de votantes en el sistema y la emisión de los votos sin coacción.
 		\item Especificar los mecanismos y protocolos para una segura recepción de los votos, así como un correcto escrutinio y una veraz publicación de resultados.
 		\item ...
-		\item ...
+		\item ...\todo[inline]{SEGUIR CON LOS OBJETIVOS}
 	\end{enumerate}
 %*
 %*
@@ -72,7 +76,7 @@
 			\end{itemize}
 			
 		\subsubsection{Proceso electoral}\label{procesoElectoralJuntaEPS}
-			******** AQUÍ HACE FALTA ENCONTRAR UN TEXTO LEGAL EXPLICANDO EL PROCEDIMIENTO DE LAS ELECCIONES ***********
+			\todo[inline]{ AQUÍ HACE FALTA ENCONTRAR UN TEXTO LEGAL EXPLICANDO EL PROCEDIMIENTO DE LAS ELECCIONES }
 		
 			\paragraph{Plazos}\label{plazosElectoralesJuntaEPS}
 				\begin{itemize}
@@ -89,6 +93,7 @@
 
 	\section{Alcance del proyecto}\label{alcance}
 		Como se indica en el apartado \ref{objetivos}...
+		\todo[inline]{Alcande del proyecto}
 
 
 
@@ -101,7 +106,9 @@
 				\item[Definición de los límites o reglas de la elección]: Deben definirse de forma que no parezca ambigua las reglas electorales. Qué se vota, a quién se vota, de qué forma, cómo se cuentan los votos o se asignan los cargos. Quiénes pueden votar, cuándo comienza y finaliza el sufragio.
 				\item[Elaboración del censo]: Las autoridades de la Elección deben realizar un proceso de elaboración del censo electoral, para identificar qué votantes tienen derecho a ejercer el voto y dónde (con qué opciones de voto).
 				\item[Registro de votantes]: Puede ser necesario que, según los mecanismos de identificación a utilizar, el votante deba registrarse previamente a la elección frente a la Autoridad Electoral, con el fin de, si no existe censo electoral formalizado, introducirse en el censo de la elección o, si existe ese censo previo, obtener la acreditación identificativa necesaria para poder votar de forma remota con las garantías avaladas por la autoridad electoral.
+				\notasInfo{
 				********** EN LA TESIS DE VMMR, CAPÍTULO 5, VIENE MUCHA INFORMACIÓN. DE CARA A LA SOLUCIÓN, PODEMOS CITARLE, HABLAR DE QUE LO QUE HAY QUE CONSEGUIR ES IDENTIFICAR A UNA PERSONA DE FORMA INCORRUPTIBLE Y RELACIONARLA CON UN SISTEMA DIGITAL (FIRMA!!!!). HABLA DE LA HUELLA DACTILAR, LA FIRMA MANUSCRITA Y LA VOZ ******************
+				}
 				\item[Presentación de candidaturas]: A efectos del sistema informático que desarrollamos es el proceso en el que la autoridad electoral define qué candidaturas pueden ser elegidas por cada votante en cada circunscripción (lógica).
 			\end{description}
 			
@@ -146,7 +153,7 @@
 				\end{itemize}
 				\par
 				Podemos asumir, entonces que hay 8 circunscripciones. Por las normas de estas elecciones, para cada circunscripción se eligen 2 representantes que serán los que acaben formando la Junta de Escuela, con 16 cargos electos.
-				\textbf{\\************* CREO QUE ESTÁ MAL. REALMENTE, LOS ALUMNOS SON UNA ÚNICA CIRCUNSCRIPCIÓN: SU CENSO LO FORMAN LOS DELEGADOS Y SUBSELEGADOS DE CADA UNO DE LOS GRUPOS, QUE COMPONEN TAMBIÉN LOS CANDIDATOS. CANDIDATOS = CENSO EN ESTA ''CIRCUNSCRIPCIÓN''}
+				\todo[inline]{\\************* CREO QUE ESTÁ MAL. REALMENTE, LOS ALUMNOS SON UNA ÚNICA CIRCUNSCRIPCIÓN: SU CENSO LO FORMAN LOS DELEGADOS Y SUBSELEGADOS DE CADA UNO DE LOS GRUPOS, QUE COMPONEN TAMBIÉN LOS CANDIDATOS. CANDIDATOS = CENSO EN ESTA ''CIRCUNSCRIPCIÓN''}
 				\par
 				\par
 				La Universidad deberá elaborar un censo con los alumnos y profesores que tienen derecho a votar en las Elecciones, así como definir en qué circunscripción lo harán, para que tengan conocimiento de entre qué candidatos pueden elegir a sus representantes. De cara al sistema, es importante conocer estas divisiones, tanto para el conteo de los votos, como para la gestión de los candidatos en el momento en el que se presentan al votante.
@@ -168,6 +175,7 @@
 				\par
 					Una vez definido tanto el censo como las divisiones electorales, tienen que presentarse las candidaturas. 
 					(...)
+					\todo[inline]{...}
 					
 			\subsection{Generación de claves de encriptado}\label{fase_electoral_preelectoral_genreacionClaves}
 				\par
@@ -184,7 +192,7 @@
 				Una vez identificado al votante, se le tiene que cotejar con el censo de la elección o de la mesa en la que ha sido identificado. En países como España, la elaboración del censo corre a cargo del INE (Instituto Nacional de Estadística) y reparte a los votantes en diferentes mesas repartidas en locales electorales. En otros estados, este censo no existe y se requiere que sea la ciudadanía la que se registre en un Registro de Votantes, con lo que si no se ha acudido a tiempo de realizar este trámite, la persona pierde su derecho al voto.\\
 				En el caso de estudio de las elecciones de la EPS, este censo debe ser proporcionado por la propia Escuela. Los datos son suyos y la cesión debe ser temporal y, simplemente, para ser cotejado, nunca para publicación de ningún tipo de resultado o listado con la información proporcionada.
 				
-				********* LOPD ?? ? ?  ? **********
+				\todo[inline]{ LOPD ?? ? ?  ? }
 
 				\par
 				Para dejar constancia de que un votante ya ha ejercido su derecho al voto, en países como España es tan simple como que los miembros de la mesa electoral lo reflejen en una lista con el censo de su mesa. En otros territorios, sin embargo, la costumbre es marcar de alguna forma a aquellas personas que han votado, como puede ser manchar algún dedo de la mano con tinta indeleble, para que, si volviese a intentar votar en otra mesa, se pueda comprobar que ya lo había hecho previamente.
@@ -219,13 +227,13 @@ Con este planteamiento, parece que el uso del DNIe es una buena idea. Por un lad
 								\item Rotura del chip que contiene los certificados.
 								\item Limitaciones técnicas para las aplicaciones web. En el estado actual de la tecnología, es necesario hacer uso de un applet de Java para poder firmar con el DNIe. De cara a la identificación, ya hay software Javascript que se salta este paso, aunque no a la hora de firmar, para lo cual, hoy por hoy, no hay alternativa. Este detalle es una limitación importante, quizá no para el oto electrónico, pero sí para el voto universal por Internet, ya que requiere de más tecnología que simplemente un dispositivo conectado a Internet y un lector. Además, el uso de applets está cada vez peor visto en Internet y se recomienda no implementar alternativas basadas en el estándar W3C. Por desgracia, este organismo todavía no tiene definido de una manera versátil cómo afrontar el problema de la criptografía en los nuevos estándares web.
 								\item Necesidad de HW externo, como son los lectores de Smartcard. Para poder utilizar el DNIe como identificador, el sistema tiene que poder leer los datos que le indica. Si hacemos uso de los certificados que contiene, necesitamos un lector externo, lo cual quizás no sea un problema si usamos un PC que tenemos en casa, pero sí que puede serlo cuando queremos votar desde otro ordenador o incluso desde un dispositivo móvil, donde ya no es tan simple que tengamos este lector y que sea compatible.
-Cierto es que podríamos hacer uso de la banda MRZ del documento escaneándola pero... (******** no estoy seguro, qué pasa con fotocopias??, yo me fiaría de los certificados).
+Cierto es que podríamos hacer uso de la banda MRZ del documento escaneándola pero... \notasDuda{******** no estoy seguro, qué pasa con fotocopias??, yo me fiaría de los certificados} \todo[inline]{...}
 							\end{itemize}
 
 					\item MobID
 						\par
 						El Gobierno de Estonia, para sus comicios por Internet está desarrollando una tecnología en la que el propio smartphone es la herramienta que sirve para identificarnos. Parece una buena opción, pues hoy por hoy, es bastante común que llevemos el smartphone con nosotros de la misma forma que llevamos el DNI. Además, es un dispositivo muy personal, que no se suele compartir, por lo que podría realizarse una identificación unívoca entre el usuario-votante y su registro en el censo electoral.
-(******** hay que mirar bien esto, pues no sé si habrá algo desarrollado, de todos modos, en España esto ni se contempla)
+\todo[inline]{ hay que mirar bien esto del MobID, pues no sé si habrá algo desarrollado, de todos modos, en España esto ni se contempla}
 
 					\item Smartcard
 						\par
@@ -235,7 +243,7 @@ Cierto es que podríamos hacer uso de la banda MRZ del documento escaneándola per
 
 				\end{itemize}
 
-En el caso de las Elecciones a la Junta de Escuela de la EPS, podemos pensar en la primera opción. No obstante, como se explica en próximos capítulos, el hecho de necesitar certificados de firma para cifrar y firmar el voto por seguridad, nos hace que tengamos que plantearnos una solución para este problema. Con una simple identificación de usuario / contraseña no lo vamos a poder resolver, así que se tiene que buscar una alternativa. Sería inteligente tratar de buscar una alternativa que sirva tanto para el paso de votación como para el de identificación, por seguridad, así que podríamos pensar en DNIe. Pero en la Universidad podemos tener miembros del censo que no posean este documento (estropeado, caducado, extranjeros). La forma que tiene la Universidad de acreditar que un alumno forma parte de ella es con un carnet universitario que se entrega tanto a alumnos como a profesionales. Podría ser este documento, el oficial en la Escuela, el que se use como identificador de votante, con lo que estamos hablando de utilizar una smartcard especial, emitida por la propia Autoridad Electoral de forma previa. ( *********** Lo que pasa es que me temo que estas tarjetas no tienen certificados, con lo que tampoco van a valer para la votación).
+En el caso de las Elecciones a la Junta de Escuela de la EPS, podemos pensar en la primera opción. No obstante, como se explica en próximos capítulos, el hecho de necesitar certificados de firma para cifrar y firmar el voto por seguridad, nos hace que tengamos que plantearnos una solución para este problema. Con una simple identificación de usuario / contraseña no lo vamos a poder resolver, así que se tiene que buscar una alternativa. Sería inteligente tratar de buscar una alternativa que sirva tanto para el paso de votación como para el de identificación, por seguridad, así que podríamos pensar en DNIe. Pero en la Universidad podemos tener miembros del censo que no posean este documento (estropeado, caducado, extranjeros). La forma que tiene la Universidad de acreditar que un alumno forma parte de ella es con un carnet universitario que se entrega tanto a alumnos como a profesionales. Podría ser este documento, el oficial en la Escuela, el que se use como identificador de votante, con lo que estamos hablando de utilizar una smartcard especial, emitida por la propia Autoridad Electoral de forma previa. \notasInfo{Lo que pasa es que me temo que estas tarjetas no tienen certificados, con lo que tampoco van a valer para la votación}.
 
 			\subsubsection{Votación}\label{fase_electoral_electoral_votacion}
 				\par
@@ -254,8 +262,8 @@ En el caso de las Elecciones a la Junta de Escuela de la EPS, podemos pensar en 
 		
 		
 		\section{Logs}\label{logs}
-			************** Esto no va aquí, pero lo pongo para acordarme. Ya veremos si va en planteamiento, en solución o en... ******************\\
-			************** Probablemente tenga que ir en un capítulo dedicado a la AUDITORÍA, ahora que lo pienso *************\\
+			\todo[inline]{ Esto no va aquí, pero lo pongo para acordarme. Ya veremos si va en planteamiento, en solución o en... Probablemente tenga que ir en un capítulo dedicado a la AUDITORÍA, ahora que lo pienso }
+			
 			Con la trascendencia que tiene un sistema de votación electrónico, es básico procurar de sistemas precisos y confiables para una auditoría interna o externa. Se trata de desarrollar herramientas y procedimientos que permitan corroborar el perfecto funcionamiento del sistema sin interferir en el mismo ni violar los principios de privacidad del voto secreto.\\
 			
 			Una de las herramientas que se usan para este caso, son los logs del sistema.\\

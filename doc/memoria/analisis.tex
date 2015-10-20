@@ -2,13 +2,7 @@
 \lhead{Capítulo \ref{analisis}}
 \rhead{Análisis del sistema}
 %*******************************************************************************
-%%%%%%%\section{Identificación y gestión de riesgos}\label{idGestRiesgos}
-%*
-%*
-%*
-%*
-%*
-%*
+
 Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el estado de la cuestión, la siguiente fase en el desarrollo es el Análisis. En esta etapa se analiza el problema con el cliente, llegando a un acuerdo en el alcance del proyecto y los requisitos que deben ser satisfechos.
 	
 		
@@ -24,7 +18,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 				\begin{description}[font=$\bullet$\ \ ]
 					\item[Funcionales]: Son los requisitos que el sistema debe cumplir para su correcto funcionamiento. Son requisitos fundamentales de cara al usuario, ya que responden a la pregunta \textit{¿qué hace?}, por lo que implican directamente en la funcionalidad que el sistema proporciona al usuario.
 					\item[No funcionales]: Usualmente son los requisitos que responden a la pregunta \textit{¿cómo lo hace?}. Definen las necesidades de recursos para el funcionamiento del sistema, como protocolos, infraestructura, tecnología...
-					\item[Organizacionales]: *************** NOTA: yo esto lo considero de otra forma ..., según wikipedia: son el marco contextual en el cual se implantará el sistema para conseguir un objetivo macro *****************
+					\item[Organizacionales]: *************** \notasInfo{yo esto lo considero de otra forma ..., según wikipedia: son el marco contextual en el cual se implantará el sistema para conseguir un objetivo macro }
 				\end{description}
 				
 			
@@ -59,16 +53,17 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 					\item Primera restricción *********************
 					\item Segunda restricción *********************
 				\end{enumerate}
+				\todo[inline]{Restricciones}
 			
 			\subsection{Requisitos funcionales}\label{requisitosFuncionales}
 				\begin{description}[font=$\bullet$\ \ ]
 					\item[Votación por Internet]: El sistema de votación debe funcionar de forma remota en sus fases de registro, identificación, votación y consulta de resultados. Cualquier votante puede acceder a las funcionalidades del sistema a las que tiene autorización desde cualquier punto conectado a Internet.
 					
-					\item[Permitir votación presencial]: El sistema debe proporcionar los mecanismos necesarios para permitir el voto a aquellos votantes con derecho al mismo que quieran emitirlo de forma presencial en el periodo habilitado para ello. ******* NOTA: (Analizando este requisito, la mejor forma es habilitando un horario en la sala de ordenadores de la Escuela destinados a que las personas que quieran puedan votar de forma remota desde estos puestos) *********
+					\item[Permitir votación presencial]: El sistema debe proporcionar los mecanismos necesarios para permitir el voto a aquellos votantes con derecho al mismo que quieran emitirlo de forma presencial en el periodo habilitado para ello. \notasInfo{(Analizando este requisito, la mejor forma es habilitando un horario en la sala de ordenadores de la Escuela destinados a que las personas que quieran puedan votar de forma remota desde estos puestos)}
 					
-					\item[Disponibilidad total]: El sistema debe estar disponible para proporcionar servicio de voto durante todo el periodo estipulado en las normas que se fijen para la elección. ******* NOTA: (24/7, un día, varios días... depende de cómo se defina el proceso) *********
+					\item[Disponibilidad total]: El sistema debe estar disponible para proporcionar servicio de voto durante todo el periodo estipulado en las normas que se fijen para la elección. \notasInfo{(24/7, un día, varios días... depende de cómo se defina el proceso)}
 					
-					\item[Identificación remota]: El sistema debe implementar un mecanismo que sea capaz de asegurar la identificación de un votante en el sistema de forma remota, digitalmente, sin posibilidad de error *********** NOTA: Esto de sin posibilidad de error ni me gusta ni queda correcto *****************.
+					\item[Identificación remota]: El sistema debe implementar un mecanismo que sea capaz de asegurar la identificación de un votante en el sistema de forma remota, digitalmente, sin posibilidad de error \notasMejorar{Esto de sin posibilidad de error ni me gusta ni queda correcto}.
 					
 					\item[Autenticación remota]: El sistema debe poder autenticar a los votantes que tratan de usar su identificación digital para ingresar en el sistema de forma remota. El sistema no debe errar en esta autenticación, permitiendo la entrada de los votantes autorizados y revocando el acceso a los atacantes, suplantadores o desautorizados.
 					
@@ -78,8 +73,9 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 				\end{description}
 				
 			\subsection{Requisitos propios del voto electrónico}\label{requisitosVotoElectronico}
-			******** AQUÍ HAY QUE DEFINIR LOS REQUISITOS DEL VOTO ELECTRÓNICO. DEPENDE DEL AUTOR, HAY UNOS U OTROS. HABRÁ QUE DEFINIR CUÁLES SON LOS QUE VAMOS A TENER EN CUENTA PARA ESTE PROYECTO. ESTÁN EN --TEMP-- ESPERANDO A QUE TOME LA DECISIÓN
+			\todo[inline]{AQUÍ HAY QUE DEFINIR LOS REQUISITOS DEL VOTO ELECTRÓNICO. DEPENDE DEL AUTOR, HAY UNOS U OTROS. HABRÁ QUE DEFINIR CUÁLES SON LOS QUE VAMOS A TENER EN CUENTA PARA ESTE PROYECTO. ESTÁN EN --TEMP-- ESPERANDO A QUE TOME LA DECISIÓN}
 			A partir de los requisitos estudiados al estudiar el estado actual del voto electrónico en \ref{introduccionRequisitosVotoElectronico}, consideramos los siguientes requisitos como los implícitos al voto electrónico:
+			
 				\begin{description}[font=$\bullet$\ \ ]
 					\item[Autenticidad]: Sólo los votantes autorizados pueden votar.
 					La autorización de un votante para ejercer su derecho al voto está expresada en el censo electoral conformado por la Autoridad Electoral competente. El sistema debe comprobar que el votante que quiere realizar un voto debe estar inscrito correctamente en el censo electoral y que en éste no se indique que tiene vetada su participación en el proceso.
@@ -92,7 +88,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 					
 					\item[Imposibilidad de coacción]: El voto emitido no puede ser mostrado.
 					El sistema debe evitar que el voto emitido pueda ser mostrado a un tercer actor con el fin de evitar la coacción al votante por medio de éste.
-					******************************************* NO ESTOY DE ACUERDO CON ESTO. ALGUNOS AUTORES INDICAN LO CONTRARIO, QUE ES PRIMORDIAL QUE EL VOTANTE SE QUEDE CON UNA PRUEBA DE SU VOTO. DE TODOS MODOS CONSIDERO QUE SI SE CUMPLE EL REQUISITO DE VERIFICABILIDAD, ES MEJOR CUMPLIR ESTE, PERO NO POR HACERLO VAMOS A CONSEGUIR REBAJAR EL RIESGO DE COACCIÓN, ¿O SÍ? ********************************
+					\todo[inline]{NO ESTOY DE ACUERDO CON ESTO. ALGUNOS AUTORES INDICAN LO CONTRARIO, QUE ES PRIMORDIAL QUE EL VOTANTE SE QUEDE CON UNA PRUEBA DE SU VOTO. DE TODOS MODOS CONSIDERO QUE SI SE CUMPLE EL REQUISITO DE VERIFICABILIDAD, ES MEJOR CUMPLIR ESTE, PERO NO POR HACERLO VAMOS A CONSEGUIR REBAJAR EL RIESGO DE COACCIÓN, ¿O SÍ?}
 					
 					\item[Posibilidad de emitir un voto nulo].
 					El sistema debe dar la opción al votante de que pueda realizar un voto nulo, al igual que puede realizarlo en un proceso electoral no electrónico.
@@ -130,6 +126,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			\begin{description}[font=$\bullet$\ \ ]
 			%% ESTE NO CREO QUE DEBA IR, YA	QUE ES UN RESUMEN DE LOS SIGUIENTES
 				\item[Votación por Internet]: \textst{El sistema de votación debe funcionar de forma remota en sus fases de registro, identificación, votación y consulta de resultados. Cualquier votante puede acceder a las funcionalidades del sistema a las que tiene autorización desde cualquier punto conectado a Internet.}
+				\notasCambio{ESTE NO CREO QUE DEBA IR, YA	QUE ES UN RESUMEN DE LOS SIGUIENTES}
 				
 				\item[Identificación remota]: El sistema debe implementar un mecanismo que sea capaz de asegurar la identificación de un votante en el sistema de forma remota, digitalmente, sin posibilidad de error.
 				Existen varias soluciones para solventar este requisito, como son los certificados digitales electrónicos externos (contenidos en tarjetas de soporte físico como una smartcard, el DNI o la TUI de la Universidad), la identificación biométrica, acceso por usuario y contraseña con pasos extras para aumentar la seguridad.
@@ -138,25 +135,26 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 				
 				\item[Firma digital]: Para poder cumplir con el voto remoto, es necesario que el sistema permita el uso de la firma digital, ya que es una herramienta clave para poder verificar la identidad y autenticidad de un votante, así como la validez del voto que emite.
 				
-				\item[Permitir votación presencial]: El sistema debe proporcionar los mecanismos necesarios para facilitar el voto a aquellos votantes con derecho al mismo que quieran emitirlo de forma presencial en el periodo habilitado para ello. Este requisito trata de preservar la tradición de estos procesos electorales en los que se fijaba una fecha para el sufragio y se acudía a la urna. Así, del mismo modo, hay que adecuar una serie de equipos en los centros de votación habituales que, aunque estén conectados a Internet y el voto siga siendo remoto, permitan a los votantes que lo deseen hacer uso de su derecho al voto sin tener que salir de la Escuela. ******* NOTA: (Analizando este requisito, la mejor forma es habilitando un horario en la sala de ordenadores de la Escuela destinados a que las personas que quieran puedan votar de forma remota desde estos puestos) *********
+				\item[Permitir votación presencial]: El sistema debe proporcionar los mecanismos necesarios para facilitar el voto a aquellos votantes con derecho al mismo que quieran emitirlo de forma presencial en el periodo habilitado para ello. Este requisito trata de preservar la tradición de estos procesos electorales en los que se fijaba una fecha para el sufragio y se acudía a la urna. Así, del mismo modo, hay que adecuar una serie de equipos en los centros de votación habituales que, aunque estén conectados a Internet y el voto siga siendo remoto, permitan a los votantes que lo deseen hacer uso de su derecho al voto sin tener que salir de la Escuela. \notasInfo{(Analizando este requisito, la mejor forma es habilitando un horario en la sala de ordenadores de la Escuela destinados a que las personas que quieran puedan votar de forma remota desde estos puestos)}
 				
 				\item[Disponibilidad total]: El sistema debe estar disponible para proporcionar servicio de voto durante todo el periodo estipulado en las normas que se fijen para la elección. Aunque el sistema entra en producción para llevar a cabo funciones que se realizan en la llamada fase preelectoral, el momento más crítico e importante se presupone que es la propia jornada electoral. El sistema debe estar preparado para su uso al comienzo de ésta y debe estar activo, accesible a los votantes y sin caídas durante la duración de la misma.
 				
-				\item[Voto anónimo]: Este es un requisito implícito del voto electrónico. Por ello, para el esquema de votación que se ha de utilizar es fundamental tenerlo en cuenta. Han de integrarse los protocolos criptográficos y de infraestructura necesarios para que nadie pueda vincular el contenido de un coto a un votante determinado. **************** ESTO QUIZÁ DEBERÍA QUEDARSE DIRECTAMENTE EN LOS REQUISITOS IMPLÍCITOS AL VOTO ELECTRÓNICO. DE HECHO, A PARTIR DE ELLOS Y PINCELADAS DE ESTA SUBSECCIÓN SE HAN DE SENTAR LAS BASES DEL ESQUEMA DE VOTO ELECTRÓNICO A IMPLEMENTAR *************************
+				\item[Voto anónimo]: Este es un requisito implícito del voto electrónico. Por ello, para el esquema de votación que se ha de utilizar es fundamental tenerlo en cuenta. Han de integrarse los protocolos criptográficos y de infraestructura necesarios para que nadie pueda vincular el contenido de un coto a un votante determinado. \notasCambio{ESTO QUIZÁ DEBERÍA QUEDARSE DIRECTAMENTE EN LOS REQUISITOS IMPLÍCITOS AL VOTO ELECTRÓNICO. DE HECHO, A PARTIR DE ELLOS Y PINCELADAS DE ESTA SUBSECCIÓN SE HAN DE SENTAR LAS BASES DEL ESQUEMA DE VOTO ELECTRÓNICO A IMPLEMENTAR}
 				
 				
 				\item[Papeleta/boleta digital]: El sistema debe mostrar al votante la papeleta o boleta (dependiendo del tipo de elección) correspondiente a la elección y el censo que le corresponda. Debe contener las opciones o candidatos entre las que puede seleccionar o elegir y mantener correctamente la/s opción/es seleccionada/s.
 				
-				\item[Voto múltiple:] \textst{ El sistema debe permitir a los votantes votar más de una vez, invalidando cada vez que emite un voto, los votos anteriores que hubiese introducido en el sistema. (********************* ¿QUEREMOS ESTO? TOTAL, EL RIESGO DE COACCIÓN ES MUY BAJO EN ESTAS ELECCIONES... PERO SI QUEREMOS ACERCARNOS A UNAS GENERALES, QUIZÁS SEA IMPEPINABLE, SIGUIENDO EL MODELO ESTONIO *********************)}
+				\item[Voto múltiple:] \textst{ El sistema debe permitir a los votantes votar más de una vez, invalidando cada vez que emite un voto, los votos anteriores que hubiese introducido en el sistema.}\notasCambio{¿QUEREMOS ESTO? TOTAL, EL RIESGO DE COACCIÓN ES MUY BAJO EN ESTAS ELECCIONES... PERO SI QUEREMOS ACERCARNOS A UNAS GENERALES, QUIZÁS SEA IMPEPINABLE, SIGUIENDO EL MODELO ESTONIO *********************)}
 				
 			\end{description}
 			
 			
 			
-			**************************** ESTO ES TEMPORAL. VOY A IR HACIENDO UNA LISTA DE REQUISITOS SEGÚN LOS VOY CONOCIENDO. ESTA LISTA ES EL BATIBURRILLO, CUANDO ESTÉN CLAROS, LOS VOY COLOCANDO EN SUS TIPOS CORRESPONDIENTES Y LOS DEFINIMOS FORMALMENTE SEGÚN LA PLANTILLA **********************************
+			\todo[inline]{ESTO ES TEMPORAL. VOY A IR HACIENDO UNA LISTA DE REQUISITOS SEGÚN LOS VOY CONOCIENDO. ESTA LISTA ES EL BATIBURRILLO, CUANDO ESTÉN CLAROS, LOS VOY COLOCANDO EN SUS TIPOS CORRESPONDIENTES Y LOS DEFINIMOS FORMALMENTE SEGÚN LA PLANTILLA}
 			
 			
-			***************************** OTRA FORMA EN LA QUE PODEMOS ORDENAR LA ESPECIFICACIÓN DE REQUISITOS  HAY QUE RE-REDACTARLO *************************
+			\todo[inline]{OTRA FORMA EN LA QUE PODEMOS ORDENAR LA ESPECIFICACIÓN DE REQUISITOS  HAY QUE RE-REDACTARLO}
+			
 			Para la especificación de los requisitos que ha de satisfacer el sistema, se van a seguir algunas de las recomendaciones del IEEE en el estándar IEEE 830-1998 \cite{Ieee1998}, ya que éste establece las normas para la realización de un documento formal y completo de especificación de requisitos (SRS en inglés).
 			
 			
@@ -191,6 +189,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 					\end{description}
 			\end{description}
 			
+				\todo[inline]{Todas las restricciones}
 			
 			\subsection{Restricciones de diseño}\label{xxxxxx1}
 			\subsection{Requisitos funcionales}\label{xxxxxx2}
@@ -200,12 +199,13 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			\subsection{Requisitos del proyecto}\label{xxxxxx6}
 			\subsection{Requisitos de soporte}\label{xxxxxx7}
 			
-	****************************************************************************************************************************
+\color{orange}
 **** LO QUE HAY QUE DESARROLLAR ****
 Requisitos de Usuarios: Necesidades que los usuarios expresan verbalmente
 Requisitos del Sistema: Son los componentes que el sistema debe tener para realizar determinadas tareas
 Requisitos Funcionales: Servicios que el sistema debe proporcionar
 Requisitos no funcionales: Restricciones que afectan al sistema
+\color{black}
 
 		% ------------------------------------------------------------------
 		%%%%%% fin ESPECIFICACIÓN DE REQUISITOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -241,7 +241,7 @@ Requisitos no funcionales: Restricciones que afectan al sistema
 							\end{itemize}
 						%Los usuarios con este rol no puede votar. El administrador de la elección no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.
 					\item[Miembro de la Junta Electoral]  \hfill \\
-					***************** CAMBIAR EL NOMBRE ***********************
+					\notasCambio{CAMBIAR EL NOMBRE a miembro de la Junta Electoral}
 						Una vez el administrador de la elección dé por finalizado el proceso electoral, se requerirá que varios miembros de la Junta Electoral proporcionen unas claves personales que, juntando varias de ellas, servirán como llave lógica para la apertura de la urna que contiene los votos.\\
 						Los usuarios con este rol no pueden votar. El miembro de la Junta Electoral no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.
 						

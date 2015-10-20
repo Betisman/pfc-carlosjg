@@ -9,7 +9,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% HEADER
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\documentclass[a4paper,oneside,12pt]{report}
+\documentclass[a4paper,oneside,12pt,draft]{report}
 % Alternative Options:
 %	Paper Size: a4paper / a5paper / b5paper / letterpaper / legalpaper / executivepaper
 % Duplex: oneside / twoside
@@ -187,6 +187,18 @@
 % Para el glosario
 \usepackage[acronym]{glossaries}
 
+
+
+%% Para poner notas
+\usepackage{xargs}
+\usepackage{xcolor}
+\usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+\newcommandx{\notasDuda}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
+\newcommandx{\notasCambio}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
+\newcommandx{\notasInfo}[2][1=]{\todo[linecolor=green,backgroundcolor=green!25,bordercolor=green,#1]{#2}}
+\newcommandx{\notasMejorar}[2][1=]{\todo[linecolor=purple,backgroundcolor=purple!25,bordercolor=purple,#1]{#2}}
+\newcommandx{\notasOculto}[2][1=]{\todo[disable,#1]{#2}}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% DOCUMENT
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -209,7 +221,8 @@
 	\DeclareGraphicsExtensions{.eps}
 \fi
 
-\pagestyle{fancy} %No headings for the first pages.
+\pagestyle{fancy} %No headings for the first pages
+\fancyfoot[CO, CE]{\thepage}
 
 
 %% Title Page %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -273,7 +286,9 @@
 \listoftables
 \addcontentsline{toc}{chapter}{Índice de Tablas}
 
-\pagestyle{fancy} 
+\pagestyle{fancy}
+\fancyfoot[CO, CE]{\thepage}
+
 %\pagestyle{plain} %Now display headings: headings / fancy / ...
 
 \newpage
@@ -333,5 +348,8 @@
 %%\input{anexo1.tex}
 %%\input{anexo2.tex}
 %%\input{anexo3.tex}
+
+\listoftodos[Notes]
+
 \end{document}
 
