@@ -4,9 +4,9 @@
 	Un sistema de voto por Internet puede tener diferentes formas de ser afrontado. Se puede diseñar un sistema basado en sufragio desde cabinas electorales gestionadas electrónicamente que envían el conteo a través de la red. En el marco opuesto, también se puede diseñar un sistema completamente distribuido en el cual el votante puede ejercer su derecho al voto desde cualquier dispositivo electrónico y cualquier lugar del planeta, enviando el contenido de su voto a través de Internet a la autoridad de recuento electoral.
 	\par
 	Ambas soluciones son extremos opuestos de lo que entendemos como voto por Internet (i-voting) y que, en muchos documentos y ámbitos, se conoce también como voto electrónico (e-voting). Este término no es que sea erróneo, sino incorrecto, ya que carece de exactitud llamando a un subconjunto con el nombre del conjunto que lo contiene. El voto por Internet, obviamente, se considera voto electrónico, pero no todos los sistemas de voto electrónico se realizan a través de Internet. 
-	***************************************************************************
-	IMAGEN DOS CONJUNTOS, UNO (E-VOTING) CONTIENE AL OTRO (I-VOTING)
-	***************************************************************************
+	
+	\todo[inline]{IMAGEN DOS CONJUNTOS, UNO (E-VOTING) CONTIENE AL OTRO (I-VOTING)}
+	
 	\par
 	Este proyecto trata de entrar en la problemática del voto electrónico remoto frente al presencial, de las reticencias sociales y tecnológicas que influyen en su reducida implantación en procesos electorales de gran importancia y alto número de electores. Para ello, vamos a reproducir la situación a escala reducida. Plantearemos una posible solución al proceso necesario para llevar a cabo las Elecciones a la Junta de Escuela de la Escuela Politécnica Superior de la Universidad San Pablo - CEU.
 	\par
@@ -32,13 +32,18 @@
 		%Una de estas conversaciones fue con un profesor de esta misma Escuela, unos días después de las Elecciones Generales de 2012, en las que me comentó que había probado un sistema piloto implementado para aquél comicio para el municipio de Madrid, el cual tenía por nombre Mesa Administrada Electrónicamente. Hablamos de que usando su DNIe, se identificó ante el Presidente de la Mesa Electoral y, a través de un portátil, se le encontró en el censo, se le marcó como votado e, incluso, se le imprimió un justificante de votación. Todo esto en poco tiempo. Tras indagar lo que opinaba del sistema, me dijo que lo que realmente esperaba es que para las siguientes elecciones, ni siquiera tuviese que salir de casa, que pudiese votar desde allí, por internet.\\
 		%Ese fue el germen de este PFC, la idea de encontrar una solución viable al voto por internet. No obstante, este estudio, a nivel nacional, puede resultar muy extenso. Por ello, la idea viró hacia la realización de un sistema más pequeño, como son unas elecciones en la Escuela, pero igual de ambicioso y escalable, buscando encontrar una primera piedra para construir un sistema robusto que pueda cubrir las necesidades funcionales, de seguridad y de confianza necesarias para unas elecciones a nivel estatal.\\
 		%Siempre me llamó la atención que, pese al ritmo de evolución y progreso de los sistemas de información y las nuevas tecnologías en todos los ámbitos, en el electoral se seguía ejerciendo el voto como cuando voté por primera vez a los 18 años, igual incluso que la primera vez que recuerdo acompañar a mis padres cuando era mucho más joven. Otra motivación, pues, es tratar de entender los motivos que hacen que el desarrollo tecnológico en este campo no parezca, a simple vista, evolucionar a la misma velocidad que en el resto de ámbitos cotidianos.\\
-		********** COMENTADO POR AHORA ***************
-		********** FALTA. ¿CÓMO SE INDENTA CUANDO TAN SÓLO HEMOS HECHO UN SALTO DE PÁGINA ***************
+		\todo[inline]{COMENTADO POR AHORA}
 
 	\section{Antecedentes}\label{antecedentes}
 	En la actualidad, son muchos los proyectos que tratan de incluir el voto electrónico en los procesos electorales por todo el planeta. Estos intentos, de hecho, no se limitan a pequeños sufragios de entidades privadas o gobiernos locales, ya que se han propuesto múltiples paradigmas diseñados para ser implementados en elecciones a nivel estatal, como se puede ver en las experiencia de Estonia, país en el que se desarrolla la votación electrónica remota vinculante con mayor censo activo.
 	
-	El voto electrónico se lleva tratando de desarrollar e implementar desde hace bastante tiempo. Concretamente, podríamos datar el comienzo en el año 1868, cuando el inventor estadounidense Thomas Alva Edison (1847-1931) registró su primera patente, consistente en un instrumento simple para el recuento mecánico de votos. El instrumento se podía colocar en la mesa delante de cada congresista y tenía dos botones, uno para el voto a favor y otro para el voto en contra. Pese a considerarlo un avance, no consiguió ser aceptado en el Congreso de Washington, donde le dieron el siguiente motivo para argumentar el rechazo de los representantes a esta nueva tecnología: XXXXOJO "\textit{If there is any invention on Earth that we don't want down here, that is it.}" "\textit{Joven, si hay en la tierra algún invento que no queremos aquí, es exactamente el suyo. Uno de nuestros principales intereses es evitar fraudes en las votaciones, y su aparato no haría otra cosa que favorecerlos}".
+	El voto electrónico se lleva tratando de desarrollar e implementar desde hace bastante tiempo. Concretamente, podríamos datar el comienzo en el año 1868, cuando el inventor estadounidense Thomas Alva Edison (1847-1931) registró su primera patente, consistente en un instrumento simple para el recuento mecánico de votos. El instrumento se podía colocar en la mesa delante de cada congresista y tenía dos botones, uno para el voto a favor y otro para el voto en contra. Pese a considerarlo un avance, no consiguió ser aceptado en el Congreso de Washington, donde le dieron el siguiente motivo para argumentar el rechazo de los representantes a esta nueva tecnología: 
+	
+		\notasInfo[inline]{If there is any invention on Earth that we don't want down here, that is it.}
+	 
+	 \begin{verse}
+		 \textit{Si hay en la tierra algún invento que no queremos aquí, es exactamente el suyo. Uno de nuestros principales intereses es evitar fraudes en las votaciones, y su aparato no haría otra cosa que favorecerlos.}
+	 \end{verse}
 	
 	\begin{figure}[htbp]
 		\centering
