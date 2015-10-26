@@ -96,7 +96,7 @@
 
 	\section{Alcance del proyecto}\label{alcance}
 		Como se indica en el apartado \ref{objetivos}...
-		\todo[inline]{Alcande del proyecto}
+		\todo[inline]{Alcance del proyecto}
 
 
 
@@ -178,7 +178,7 @@
 					(...)
 					\todo[inline]{...}
 					
-			\subsection{Generación de claves de encriptado}\label{fase_electoral_preelectoral_genreacionClaves}
+			\subsubsection{Generación de claves de encriptado}\label{fase_electoral_preelectoral_genreacionClaves}
 				\par
 				Es necesario que en esta fase se generen las claves que se utilizarán tanto para encriptar el voto que deposita el votante en la urna digital como las necesarias para que los miembros de mesa puedan descifrarlo para poder realizar el escrutinio.
 				
@@ -207,7 +207,7 @@
 						\par
 						Para las elecciones de la Junta de Escuela de la EPS, el método de usar un par usuario / contraseña sería una solución sencilla. El censo está bastante acotado y, al ser todos los potenciales votantes miembros de la Universidad, poseen una cuenta de correo electrónico corporativa proporcionada por ésta. El proceso sería tan fácil como, por ejemplo, usar la dirección de correo electrónico de cada alumno / profesor / trabajador de la Escuela como nombre de usuario y enviarles un email a cada uno con una clave aleatoria generada por la autoridad electoral.\\
 						Esta solución, no obstante, sería inviable para elecciones más ambiciosas, como lo son las legislativas estatales o autonómicas, ya que carecemos de elementos como direcciones de correo electrónico de todo el censo. Se podría utilizar el correo ordinario como método para hacer llegar estas credenciales, de la misma forma en que los partidos políticos hacen llegar la propaganda electoral o la Junta Electoral hace llegar la información del censo electoral a cada votante. Considero que sería un gasto extra de recursos económicos, humanos y medioambientales que no se sostiene para la utilización de este servicio. Tampoco se asegura la recepción del correo si aprovechamos el envío de la información del censo electoral, pues el envío, al contrario que cuando hemos solicitado el voto por correo y nos hacen llegar las papeletas, no es certificado. Realizar este envío de credenciales con garantía de recibo, resultaría muy costoso y lenta.\\
-						Otro motivo que desaconseja el envío de credenciales por correo es éstas podrían ser interceptadas por otra persona distinta a quien identifican de forma no muy complicada, lo cual supone una brecha de seguridad bastante importante.
+						Otro motivo que desaconseja el envío de credenciales por correo es que éstas podrían ser interceptadas por otra persona distinta a quien identifican de forma no muy complicada, lo cual supone una brecha de seguridad bastante importante.
 
 					\item DNIe
 						\par
@@ -230,6 +230,12 @@ Con este planteamiento, parece que el uso del DNIe es una buena idea. Por un lad
 								\item Necesidad de HW externo, como son los lectores de Smartcard. Para poder utilizar el DNIe como identificador, el sistema tiene que poder leer los datos que le indica. Si hacemos uso de los certificados que contiene, necesitamos un lector externo, lo cual quizás no sea un problema si usamos un PC que tenemos en casa, pero sí que puede serlo cuando queremos votar desde otro ordenador o incluso desde un dispositivo móvil, donde ya no es tan simple que tengamos este lector y que sea compatible.
 Cierto es que podríamos hacer uso de la banda MRZ del documento escaneándola pero... \notasDuda{******** no estoy seguro, qué pasa con fotocopias??, yo me fiaría de los certificados} \todo[inline]{...}
 							\end{itemize}
+							
+				A partir de enero de 2015, el Ministerio del Interior de España, a través de la Dirección General de la Policía, ya está proporcionando a los ciudadanos una nueva versión del DNIe, la cual, entre varios avances, posee, junto al chip electrónico, otro chip de radiofrecuencia basado en tecnología NFC.
+				
+				Sin entrar en los posibles problemas de seguridad que implica el uso de chips de radiofrecuencia, se observa interesante este avance en cuanto a una aplicación de voto por Internet. Hoy en día son muchos los dispositivos móviles (smartphones y tablets) que disponen de un lector de chips por NFC, con lo que el inconveniente de necesitar lectores externos para identificación del votante y firma digital del voto ya no existiría. El votante podría votar desde una app instalada en su smartphone sin necesidad de elementos externos, ya que este chip NFC contiene los mismos certificados que el chip por contacto que existía hasta ahora en la primera versión del DNIe.
+				
+				\todo[inline]{Explicar un poco más el nuevo DNIe, ventajas e inconvenientes para el voto por Internet, así como un poco su funcionamiento con los cambios respecto al DNIe 1.0 ------- aunque todo esto va en Estado de la cuestión}
 
 					\item MobID
 						\par
