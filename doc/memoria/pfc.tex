@@ -290,7 +290,8 @@
 \addcontentsline{toc}{chapter}{Índice de Tablas}
 
 \pagestyle{fancy}
-\fancyfoot[CO, CE]{\thepage}
+%\fancyfoot[CO, CE]{\thepage}
+\fancyfoot[CO]{\thepage}
 
 %\pagestyle{plain} %Now display headings: headings / fancy / ...
 
@@ -352,8 +353,14 @@
 %%\input{anexo2.tex}
 %%\input{anexo3.tex}
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% NOTAS (PARA BORRADOR)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\addtocontents{toc}{\protect\vspace*{\baselineskip}}
 \addcontentsline{toc}{chapter}{Notas (para borrador)} %'Bibliography' into toc
 \listoftodos[Notas (para borrador)]
+\rhead{Notas}
 
 \end{document}
 
