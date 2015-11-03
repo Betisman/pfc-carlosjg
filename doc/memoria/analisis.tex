@@ -84,7 +84,6 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 					Ningún votante, observador o manipulador del sistema puede tener la habilidad o herramienta de poder conocer el voto que ha sufragado otro votante en ningún momento del proceso electoral.
 					
 					\item[Verificabilidad]: El votante puede asegurarse de que su voto se ha contado adecuadamente.
-					El sistema debe ase
 					El sistema tiene que proporcionar una herramienta que permita a un votante poder verificar que la opción por la que ha votado ha sido correctamente añadida a los resultados consolidados del proceso electoral, sin que por ello pueda violarse el requisito de Anonimato, asegurando que ningún actor del sistema pueda tener acceso al contenido de dicho voto.
 					
 					\item[Imposibilidad de coerción]: El voto emitido no puede ser mostrado.
@@ -125,7 +124,6 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 		
 			\subsection{Necesidades del esquema de voto electrónico}
 			\begin{description}[font=$\bullet$\ \ ]
-			%% ESTE NO CREO QUE DEBA IR, YA	QUE ES UN RESUMEN DE LOS SIGUIENTES
 				\item[Votación por Internet]: \textst{El sistema de votación debe funcionar de forma remota en sus fases de registro, identificación, votación y consulta de resultados. Cualquier votante puede acceder a las funcionalidades del sistema a las que tiene autorización desde cualquier punto conectado a Internet.}
 				\notasCambio{ESTE NO CREO QUE DEBA IR, YA	QUE ES UN RESUMEN DE LOS SIGUIENTES}
 				
@@ -240,10 +238,12 @@ Requisitos no funcionales: Restricciones que afectan al sistema
 								\item Apertura de los canales de difusión de resultados.
 								\item Finalizar el proceso electoral.
 							\end{itemize}
-						%Los usuarios con este rol no puede votar. El administrador de la elección no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.
+							
+						Los usuarios con este rol no puede votar. El administrador de la elección no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.
+					
 					\item[Miembro de la Junta Electoral]  \hfill \\
 					
-					\notasCambio{CAMBIAR EL NOMBRE a miembro de la Junta Electoral}
+					\notasCambio{CAMBIAR EL NOMBRE de miembro de la Junta Electoral}
 						Una vez el administrador de la elección dé por finalizado el proceso electoral, se requerirá que varios miembros de la Junta Electoral proporcionen unas claves personales que, juntando varias de ellas, servirán como llave lógica para la apertura de la urna que contiene los votos.\\
 						Los usuarios con este rol no pueden votar. El miembro de la Junta Electoral no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.
 						
@@ -255,6 +255,7 @@ Requisitos no funcionales: Restricciones que afectan al sistema
 						
 					\item[Autoridad Certificadora] \hfill \\
 						Junto con los cuatro roles expuestos, encontramos un quinto actor en la figura de la Autoridad Certificadora. Esta entidad es la encargada de generar, administrar, validar y verificar las credenciales que han de usar cada uno de los votantes para emitir el voto, así como los de cada uno de los actores del proceso (administradores, miembros de la Junta Electoral, auditores o incluso los sistemas y sus comunicaciones).
+						Al hacer uso del DNIe para la identificación y firma del votante, en estas fases, es la Dirección General de la Policía, dependiente del Ministerio del Interior, la que actúa como Autoridad de Certificación, combinando dos pares de claves con un ciudadano concreto a través de la emisión de sendos Certificados de conformidad con los términos de la Declaración de Prácticas y Políticas de Certificación (DPC) \cite{politicasDeCertificacion:2006}\cite{politicasDeCertificacion:2014} que rige el funcionamiento y operaciones de la Infraestructura de Clave Pública de los Certificados de identidad pública y firma electrónica del Documento Nacional de Identidad (DNIe).
 				\end{description}
 				
 				Los usuarios cuyo rol sea Votante son los únicos que tienen capacidad para poder votar en la elección.
@@ -324,5 +325,5 @@ pantallas a las que tienen acceso los diferentes roles de usuario y la conexión 
 		\label{fig:casouso1}
 	\end{figure}
 	
-	
+	\section{Esquema de Voto Electrónico}\label{analisisEsquemaVotoElectronico}
 	

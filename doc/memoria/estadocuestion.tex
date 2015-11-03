@@ -663,7 +663,7 @@ los diálogos del sistema.
 				
 				\end{itemize}
 				\notasInfo{****** Según \cite{tesisSeguridadVMMorales} *****}
-				Podemos definir cuatro grupos de esquemas de voto electrónico remoto. Estos se diferencian en la forma en la que usan los elementos criptográficos para tratar de resolver los requisitos de seguridad de un sistema electoral:
+				Según la tesis de Morales Rocha \cite{tesisSeguridadVMMorales}, podemos definir cuatro grupos de esquemas de voto electrónico remoto. Estos se diferencian en la forma en la que usan los elementos criptográficos para tratar de resolver los requisitos de seguridad de un sistema electoral:
 				\begin{itemize}
 					\item Esquemas basados en firma ciega
 					\item Esquemas basados en mixnets
@@ -671,8 +671,88 @@ los diálogos del sistema.
 					\item Esquemas basados en papeletas precifradas
 				\end{itemize}
 				
+				El propio autor de la tesis citada \cite{tesisSeguridadVMMorales}, incorpora (en la página 109) un resumen con las ventajas y desventajas que ofrece cada uno de estos esquemas:
+				
+				\begin{table}[htbp]
+					\fontsize{10}{9}\selectfont
+					\begin{tabularx}{\textwidth}{|M|Y|Y|}
+						\hline
+							\centering\textbf{Clasificación} & \textbf{Ventajas} & \textbf{Desventajas} \\
+						\hline
+							Esquemas basados en firma ciega & 
+							%\multicolumn{1}{p{.3\textwidth}|}{
+								\begin{itemize}[leftmargin=1em,font=$\bullet$]
+									\renewcommand\labelitemi{}
+									\item Protegen la privacidad del votante al separar los procesos de autenticación y voto. 
+								\end{itemize} 	
+							%} 
+							& 
+							%\multicolumn{1}{p{.3\textwidth}|}{
+								\begin{itemize}[leftmargin=1em,font=$\bullet$]
+									\renewcommand\labelitemi{}
+									\item La protección del anonimato puede verse afectada si un atacante monitorea el canal de comunicación.
+									\item Con el conocimiento de la clave privada de la autoridad de autenticación se pueden añadir votos no legítimos. 
+								\end{itemize} 	
+							%}	
+							\\
+						\hline
+							Esquemas basados en mixnets &
+							\multicolumn{1}{p{.3\textwidth}|}{
+								\begin{itemize}[leftmargin=1em,font=$\bullet$]
+									\renewcommand\labelitemi{}
+									\item Protegen la privacidad del votante a través de las permutaciones llevadas a cabo. 
+								\end{itemize} 	
+							} & 
+							\multicolumn{1}{p{.3\textwidth}|}{
+								\begin{itemize}[leftmargin=1em,font=$\bullet$]
+									\renewcommand\labelitemi{}
+									\item Difícil verificación de que los servidores mix han actuado correctamente.
+									\item En el caso de mixnets de descifrado, el terminal de votación requiere de alta capacidad de cómputo. 
+								\end{itemize} 	
+							}	\\
+						\hline
+							Esquemas basados en cifrado homomórfico & 
+							\multicolumn{1}{p{.3\textwidth}|}{
+								\begin{itemize}[leftmargin=1em,font=$\bullet$]
+									\renewcommand\labelitemi{}
+									\item Protegen la privacidad del votante al no tener que descifrar los votos individualmente para llevar a cabo el escrutinio. 
+								\end{itemize} 	
+							} & 
+							\multicolumn{1}{p{.3\textwidth}|}{
+								\begin{itemize}[leftmargin=1em,font=$\bullet$]
+									\renewcommand\labelitemi{}
+									\item No soportan todo tipo de elecciones.
+									\item Son susceptibles a ataques en donde votantes deshonestospueden enviar un mensaje que represente más de un voto para un candidato. 
+								\end{itemize} 	
+							}	\\
+						\hline
+							Esquemas basados en papeletas precifradas & 
+							\multicolumn{1}{p{.3\textwidth}|}{
+								\begin{itemize}[leftmargin=1em,font=$\bullet$]
+									\renewcommand\labelitemi{}
+									\item Protegen la privacidad del votante ya que este envía como voto un código cuya relación con el candidato es desconocida para el servidor de votación. 
+									\item Evitan ataques de código malicioso que trate de alterar o conocer el contenido del voto. 
+									\item El voto puede ser enviado desde un dispositivo con baja capacidad de cómputo. 
+									\item Permiten al votante verificar que su voto se ha recibido correctamente en el servidor de votación. 
+								\end{itemize} 	
+							} & 
+							\multicolumn{1}{p{.3\textwidth}|}{
+								\begin{itemize}[leftmargin=1em,font=$\bullet$]
+									\renewcommand\labelitemi{}
+									\item Posibles alteraciones en las papeletas precifradas sin detección, lo cual ocasionaría que el votante envíe un voto diferente al deseado.
+									\item Se pueden presentar problemas de logística en la distribución de las papeletas a los votantes. 
+									\item Votantes no pueden verificar que su voto fue incluido en el escrutinio sin arriesgar un ataque de coerción masiva. 
+									\item Poca usabilidad al tener que teclear códigos de votación. 
+								\end{itemize} 	
+							}	\\
+						\hline
+					\end{tabularx}
+				\caption{Resumen de ventajas y desventajas de los esquemas de voto electrónico según Morales Rocha \cite{tesisSeguridadVMMorales} (p. 109)}
+				\label{tab:ResumenVentajasDesventajasEsquemasVotoElectronico}
+			\end{table}
+				
 				Junto con estos esquemas básicos en cuanto a solucionar problemas determinados de los procesos electorales electrónicos, nos centramos en resumir algunos de los esquemas desarrollados concretamente para elecciones mediante voto por Internet.\\
-				Está fuera del alcance de este proyecto el estudio de estos esquemas y sus evoluciones, pero nos basamos en esta información para el desarrollo del sistema que se implementa. Para ahondar en ellos. recomiendo la lectura del capítulo 4 de la tesis de la Dra. Emilia Pérez Belleboni \cite{tesisEPerezBelleboni}, en la cual se expone una recopilación de información muy concisa sobre multitud de esquemas y sistemas que los implementan, según las necesidades que se necesiten cubrir.
+				Está fuera del alcance de este proyecto el estudio de estos esquemas y sus evoluciones, pero nos basamos en esta información para el desarrollo del sistema que se implementa. Para ahondar en ellos, recomiendo la lectura de la citada tesis de Morales Rocha \cite{tesisSeguridadVMMorales}, así como el capítulo 4 de la tesis de la Dra. Emilia Pérez Belleboni \cite{tesisEPerezBelleboni}, en la cual se expone una recopilación de información muy concisa sobre multitud de esquemas y sistemas que los implementan, según las necesidades que se necesiten cubrir.
 			 
 
 
