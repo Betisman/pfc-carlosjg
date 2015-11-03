@@ -630,24 +630,24 @@ los diálogos del sistema.
 				Los esquemas de voto electrónico se basan en una primitiva criptográfica o en un conjunto de ellas. Por eso, hay una serie de esquemas publicados apoyados sobre alguna de las primitivas introducidas en el apartado anterior.
 				Podemos clasificar varios tipos de esquemas de voto electrónico entre los más usados según las publicaciones de una serie de expertos en el campo del voto electrónico criptográfico:
 				\begin{itemize}
-					\item Esquema de Voto Electrónico basado en Cifrado Homomórfico
+					\item Esquema de Voto Electrónico basado en Cifrado Homomórfico \hfill \\
 						El votante emite su voto codificado y el recuento se realiza sin descodificar los votos. De esta forma se consigue que no se vulnere el secreto del voto. Para poder realizar esta descodificación, el elector debe instalar algún software desarrollado por la autoridad electoral para realizar las operaciones criptográficas.
 					
-					\item Esquema de Voto Electrónico basado en Canales Anónimos
+					\item Esquema de Voto Electrónico basado en Canales Anónimos \hfill \\
 						Se trata de un esquema bastante seguro, aunque complejo al mismo tiempo. Se trata el anonimato del votante ocultando el origen de los votos que recibe el sistema.
 					
-					\item Esquema de Voto Electrónico basado en Mixnets
+					\item Esquema de Voto Electrónico basado en Mixnets \hfill \\
 						El esquema basado en mixnets (redes mixtas) define la existencia de una serie de servidores enlazados. Cada uno de estos servidores recibe un grupo de mensajes encriptados, los reordena, los vuelve a encriptar de forma aleatoria y los envía al siguiente servidor. Con este proceso se consigue que no sea posible asociar la información de los mensajes de entrada con los de salida, rompiendo la relación votante-voto del sistema.\\
 						La desencriptación de los votos se puede realizar tanto en cada servidor (por medio de su propia clave) como al finalizar el proceso utilizando una clave distribuida entre varios de los servidores.\\
 						******************* LITERAL ******** La principal crítica a este esquema es que las pruebas de correctitud son voluminosas. Existen algunas implementaciones comerciales de sistemas de elección electrónica basadas en este esquema. \notasCambio{LITERAL}
 						
-					\item Esquema de Voto Electrónico basado en Secreto Compartido
+					\item Esquema de Voto Electrónico basado en Secreto Compartido \hfill \\
 						En el esquema de voto electrónico basado en secreto compartido, también llamado Paradigma de Benaloh [***** CITA *****], el votante comparte su voto entre varias autoridades electorales. Una vez finalizado el proceso de votación, cada autoridad computa los votos que ha recibido y los pone en común con el resto de autoridades electorales que toman parte en la elección. Así se obtiene el resultado total del proceso.\\
 						***************** LITERAL *********** La implementación de este esquema posee altos costos en términos de comunicación, ya que cada voto debe enviarse por varios canales diferentes (tantos como autoridades electorales haya). \notasCambio{LITERAL}
 					
-					\item Esquema de Voto Electrónico basado en Pruebas de Conocimiento Nulo
+					\item Esquema de Voto Electrónico basado en Pruebas de Conocimiento Nulo \hfill \\
 					
-					\item Esquema de Voto Electrónico basado en Firma Ciega
+					\item Esquema de Voto Electrónico basado en Firma Ciega \hfill \\
 						En un Esquema de Firma Ciega, el firmante no conoce el contenido del mensaje que firma, ya que el emisor del mismo realiza un proceso previo para ocultar su contenido, lo que se conoce por \textit{cegar} el mensaje.\\
 						Se caracteriza porque la entidad firmante no adquiere ningún conocimiento sobre el contenido del mensaje que está firmando, aunque, con posterioridad, la firma obtenida puede ser verificada como válida tanto por esta entidad firmante como cualquier otra entidad que disponga de la información necesaria.\\
 						Se caracteriza porque la entidad firmante no adquiere ningún conocimiento sobre el contenido del mensaje que está firmando, aunque, con posterioridad, la firma obtenida puede ser verificada como válida tanto por esta entidad firmante como cualquier otra entidad que disponga de la información necesaria.\\
@@ -658,7 +658,7 @@ los diálogos del sistema.
 						\todo[inline]{********* VER BELLEBONI ************}
 				
 				
-					\item Esquema de Voto Electrónico basado en papeletas precifradas
+					\item Esquema de Voto Electrónico basado en papeletas precifradas \hfill \\
 						Este esquema de voto electrónico aparece en la tesis \cite{tesisSeguridadVMMorales}
 				
 				\end{itemize}
