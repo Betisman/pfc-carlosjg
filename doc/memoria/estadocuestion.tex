@@ -16,6 +16,8 @@
 		
 		No obstante, una definición más simple del voto electrónico se refiere únicamente a este último acto de votar, ya sea a través Internet o simplemente utilizando sistemas que no estén intercomunicados a través de Internet, aunque sí con un servidor receptor del voto.
 		
+		\subsection{Niveles}\label{votoElectronicoNiveles}
+		
 			\begin{figure}[htbp]
 				\centering
 					\includegraphics[width=0.30\textwidth]{imgs/categorizationVotingSystems.jpg}
@@ -59,16 +61,35 @@
 				
 				Plantean para los expertos un conjunto de retos, tanto desde el punto de vista tecnológico, sobre todo a nivel de seguridad del sistema y privacidad del votante, como a nivel social, ya que estos sistemas electrónicos deben garantizar la misma confianza al votante que la que le proporciona el sistema de voto tradicional.
 				
+				
+				\subsection{*****Dificultad del voto electrónico*****}
+				El voto electrónico es uno de los retos más importantes y complejos del mundo tecnológico hoy en día. Aunque pueda parecer que en otras áreas más modernas hay desarrollos mucho más complejos, el problema del voto electrónico sigue teniendo factores de difícil resolución. Quizá el concepto más complicado para resolver para los desarrolladores de estos protocolos y sistemas es el de la dualidad Verificabilidad-Secreto. Aquí se enfrentan dos requisitos básicos de un sistema de voto electrónico, por un lado, la posibilidad de un elector de verificar que el voto que ha emitido ha sido correctamente incluido en el escrutinio y el derecho fundamental del secreto de voto del propio elector.
+				Para ejemplificar y visualizar el problema, introduciremos una serie de actores:
+				\begin{description}
+					\item[Blanca y Begoña]: dos votantes.
+					\item[Juan]: quiere influenciar el voto de Blanca.
+					\item[Carnívoros y Herbívoros]: las dos opciones entre las que los votantes han de elegir en la Elección.
+				\end{description}
+				
+				Blanca tiene intención de votar por los Carnívoros, mientras que Begoña desea votar a los Herbívoros. Por su parte, Juan tiene un gran interés en que Blanca vote por los Herbívoros.
+				
+				Como hemos avanzado, en cualquier proceso electoral hay un conflicto entre la verificabilidad y el secreto. Cualquier votante querría verificar que el proceso de su voto ocurre correctamente, desde su inclusión en la urna hasta el preciso conteo en el escrutinio. De forma particular, Blanca quiere verificar que su voto es apropiadamente escrutado como Carnívoros. No obstante, si Blanca consigue suficiente información del proceso de voto como para poder convencer a Juan de la opción a la que votó, nace la amenaza de la compraventa de votos. En este caso en el que Blanca puede demostrar a Juan su voto, éste podría ofrecer dinero u otros recursos a Blanca a cambio de que su voto sea para los Herbívoros en vez de para los Carnívoros.
+				
+				De todos modos, de alguna forma, el voto electrónico lo que quiere es que Blanca consiga la información suficiente para verificar personalmente que su voto a Carnívoros ha sido efectivamente emitido y escrutado como Carnívoros, pero que no consiga la información necesaria como para probar a Juan el sentido de su voto.
+				
+				Si Blanca vota a Carnívoros y Begoña a Herbívoros, ambas deberían tener la seguridad de que sus votos han sido correctamente incluidos en el escrutinio según sus opciones elegidas. Las dos pueden decirle a Juan que han votado a Herbívoros, con lo que Blanca estará mintiendo y Begoña dirá la verdad, pero Juan no notará la diferencia. Quizá al ver Juan que no tiene seguridad para incentivar a Blanca, desista de tratar de comprar su voto y se acabe así con la amenaza.
+				\notasCambio[inline]{Hay que arreglar este párrafo.}
+				
 				% *************************************************************************************************************** %
 				% 			Requisitos de voto electrónico
 				% *************************************************************************************************************** %
-				\par\label{introduccionRequisitosVotoElectronico}
+				\subsection{Requisitos del voto electrónico}\label{introduccionRequisitosVotoElectronico}
 				Los sistemas de voto electrónico deberían tener como base antes de la implementación la consigna de aportar al proceso al menos las mismas garantías de seguridad que el sistema tradicional al que está sustituyendo / complementando. El voto presencial tradicional permite un recuento de la votación, lo mismo que la mayoría de los sistemas del primer nivel que hace uso de urnas electrónicas, pues generan un recibo o papeleta física. En cuanto al último nivel, esto no está tan claro, pues la mayoría de estos sistemas no generan un resguardo físico de los votos electrónicos emitidos, por lo que es complicado pensar en un recuento en caso de fallo o de duda de la autoridad electoral o del propio electorado.
 
 				\par
 				Según publican \textit{Fujioka, Okamoto y Ohta} \cite{Fujioka93}, un sistema de voto secreto es \textit{seguro} si cumple con los siguientes requisitos:
 				\begin{description}[font=$\bullet$\ \ ]
-					\item[Completitud (Completeness)]: Todos los votos válidos son contados de correctamente.
+					\item[Completitud (Completeness)]: Todos los votos válidos son contados correctamente.
 					\item[Solidez (Soundness)]: Un votante deshonesto no puede interrumpir la votación.
 					\item[Privacidad (Privacy)]: Todos los votos deben ser secretos.
 					\item[(Unreusability)]: Ningún votante puede votar dos veces.
@@ -517,7 +538,13 @@ los diálogos del sistema.
 				
 				
 				\subsection{Helios}\label{helios}
-				Helios es un sistema de voto por Internet cuyos desarrolladores consideran que es el primer sistema de voto con auditoría abierta (open-audit) basado en web.
+				Helios es un sistema de voto por Internet cuyos desarrolladores consideran que es el primer sistema de voto con auditoría abierta (open-audit) basado en web. Actualmente es un proyecto en desarrollo, funcional y públicamente accesible. Cualquier organismo interesado puede descargar el código fuente, configurar un proceso electoral y llevar a término la elección, junto con que cualquier observador puede auditar todo el proceso.
+				
+				Este proyecto es apropiado para realizar procesos electorales para organismos que necesiten que estos sean confiables y con voto secreto, eso sí, siempre que los comicios se celebren en un ambiente en el que la coerción del voto no sea una amenaza. Este detalle es importante, ya que muestra una de las \textit{debilidades} de esta implementación con respecto a un proceso electoral de gran escala.
+				
+				Helios trata de ser un sistema de voto por Internet simple comparado con otros protocolos criptográficos, centrándose en la \textit{auditabilidad pública} como elemento diferencial. Con esta propiedad, cualquier organismo puede apoyarse en Helios para llevar a cabo la elección y, aunque resultase que Helios estuviera corrupto, la integridad de la elección puede ser verificada por los observadores.
+				
+				El protocolo de voto de Helios se basa en la aproximación de emisión de voto de Benaloh y en la mixnet de Sako-Killian.
 				\cite{Adida:helios}
 			
 		% *************************************************************************************************************** %
