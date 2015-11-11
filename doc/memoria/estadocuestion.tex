@@ -79,7 +79,16 @@
 				
 				Si Blanca vota a Carnívoros y Begoña a Herbívoros, ambas deberían tener la seguridad de que sus votos han sido correctamente incluidos en el escrutinio según sus opciones elegidas. Las dos pueden decirle a Juan que han votado a Herbívoros, con lo que Blanca estará mintiendo y Begoña dirá la verdad, pero Juan no notará la diferencia. Quizá al ver Juan que no tiene seguridad para incentivar a Blanca, desista de tratar de comprar su voto y se acabe así con la amenaza.
 				\notasCambio[inline]{Hay que arreglar este párrafo.}
-				
+
+\notasCambio[inline]{ 
+Voting systems are hard to make trustworthy because they have strong, conflicting security requirements:
+	- Integrity of election results must be assured so that all voters are convinced that votes are
+	counted correctly. Any attempt to corrupt the integrity of an election must be detected and
+	correctly attributed.
+	- Confidentiality of votes must be assured to protect voters' privacy, to prevent selling of votes, and to defend voters from coercion.
+	Integrity is easy to obtain through a public show of hands, but this destroys confidentiality. Confidentiality can be obtained by secret ballots, but this fails to assure integrity. Because of the civic importance of elections, violations of these requirements can have dramatic consequences.
+	\url{https://www.cs.cornell.edu/projects/civitas/papers/clarkson_civitas_tr.pdf}
+}
 				% *************************************************************************************************************** %
 				% 			Requisitos de voto electrónico
 				% *************************************************************************************************************** %
