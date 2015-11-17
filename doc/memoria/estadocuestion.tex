@@ -289,6 +289,8 @@ los diálogos del sistema.
 		\section{Voto por Internet (i-voting)}\label{Voto por Internet (i-voting)}
 			Dentro de las soluciones de voto electrónico telemático, es importante el desarrollo que se ha hecho en cuanto al voto por Internet. 
 			
+			Según un estudio de un ente holandés, recogido en \cite{}, once países han desarrollado pruebas piloto para elecciones a través de voto electrónico por Internet a nivel nacional, aunque cuatro de ellas ya habían abandonado sus proyectos. Los países que quedaban probando de distinta forma soluciones de voto por Internet y que recoge dicho estudio serían Australia, Canadá, Estonia, Francia, India, Noruega y Suiza. Las motivaciones de los países en desarrollar herramientas de votación remota difieren en cada uno de ellos, dependiendo del tipo de votantes al que va dirigido este tipo de votación. Indica como ejemplo el de Francia, motivado por la necesidad de incrementar la participación electoral de los expatriados o el de Estonia, país que ha apostado por un desarrollo tecnológico en la mayoría de entornos gubernamentales, motivado por incrementar la participación tanto de los votantes ocasionales como de acercar a los que se suelen abstener. 
+			
 			\subsection{Estonia}\label{ivotingEstonia}
 			Estonia es quizá el ejemplo más destacado en cuanto a la utilización del voto por Internet en elecciones a nivel estatal. Desde el año 2005 lleva usando una solución de voto electrónico remoto no presencial complementando al voto tradicional.
 			
@@ -544,7 +546,63 @@ los diálogos del sistema.
 				\notasInfo[inline]{On-line Voting System is a web based system that facilitates the running of elections and surveys online. This system has been developed to simplify the process of organizing elections and make it convenient for voters to vote remotely from their home computers while taking into consideration security, anonymity and providing auditioning capabilities. Users are individuals who interact with the system. All user interaction is performed remotely through the user's web browser. Users are categorized into three classes: Administrator, returning Officers and Voters. A running version of the system will have only one Administrator but it typically has multiple returning officers and voters. The administrator is responsible for managing user accounts, polls, system resources and logs and for the health and safekeeping of the system. Returning officers have the responsibility of managing a poll as assigned by the administrator, whereas voters only have the ability to submit ballots on polls in which they are admitted.}
 				\todo[inline]{quitar esto, que no va a ir aquí}
 				
+			\section{E2E Auditable Voting Systems}
+			
+				\subsection{\textsc{ADDER}}\label{estadocuestion_adder}
+					\textsc{ADDER} \cite{conf/acsac/KiayiasKW06} se define como un sistema de voto electrónico basado en Internet, libre y de código abierto. Desarrollado por la Universidad de Connecticut (EEUU) en 2006, supone una plataforma de eVoting completamente funcional con una serie de características de seguridad como robustez, privacidad del voto, auditabilidad y verificabilidad.
+					
+					Los desarrolladores de \textsc{ADDER} dividen el voto por Internet en 3 escenarios:
+					\begin{description}
+						\item[Remoto] En el escenario del voto por Internet remoto, un actor diferente a la autoridad electoral, ya sea el votante o un tercero, es el que tiene el control sobre el cliente de voto y el entorno operativo.
+						\item[Kiosko] En el escenario del voto por Internet en modo kiosko, el cliente de voto puede ser instalado por las autoridades de la elección, pero entorno de la votación está fuera de su control.
+						\item[Cabina de voto] En este escenario, las autoridades electorales tienen control tanto del cliente de voto como del entorno en el que se lleva a cabo.
+					\end{description}
+					
+					\textsc{ADDER} fue diseñado para el primero de los escenarios, el voto telemático remoto, pero dependiendo de los requisitos de seguridad, es adaptable a los otros dos. Además, es un sistema capaz de llevar a cabo elecciones tanto a pequeña como a gran escala.
+					
+					---- System overview ----
+					El procedimiento del proceso electoral comienza permitiendo al administrador del mismo alimentar al sistema con la lista de usuarios (votantes y autoridades) y de candidatos.
+					Las autoridades ingresan al sistema y participan en el protocolo de generación de claves criptográficas. Aquí, se genera una clave pública para el sistema y claves privadas únicas para cada una de las autoridades.
+					Cada votante se loguea y descarga la clave pública del sistema, la cual usa para cifrar el voto. Este voto cifrado se guarda en un área de almacenamiento público reservada específicamente para el votante.
+					Cuando el período de votación finaliza, el servidor cuenta los votos y publica el resultado encriptado. A continuación, las autoridades proveen cierta información para decodificar, basada en el resultado encriptado y es sus claves privadas. Cuando se consigue suficiente de esta información, el servidor combina las piezas individuales para componer el resultado electoral, que es publicado.
+					El sistema se implementa con una arquitectura basada en un tablón de anuncios, un servidor de autenticación (\textit{gatekeeper}) y un cliente (puede ser tanto un programa de escritorio como un applet de Java).
+					\notasInfo[inline]{Aquí va la imagen de la arquitectura de \textsc{ADDER}.}
+					
+					Los objetivos que persigue el sistema \textsc{ADDER} son:
+					\begin{enumerate}
+						\item \textit{Transparencia}. Toda la información del tablón de anuncios es pública y puede ser consultada por cualquier observador. Aquí se incluyen votos cifrados, claves públicas y escrutinios.
+						\item \textit{Verificabilidad} universal- Cualquier resultado electoral obtenido por el sistema debería ser verificado por cualquier observador. A través de los logs y trazas del sistema se puede realizar una auditoría de cualquiera de los procesos.
+						\item \textit{Privacidad}. Todos los votantes pueden confiar en que sus votos se mantienen secretos. Sólo el recuento es accesible al público.
+						\item \textit{Confianza distribuida}. Cada procedimiento del proceso electoral está supervisado por varias autoridades. El recuento no puede llevarse a cabo sin la cooperación de un determinado número de autoridades.
+					\end{enumerate}
+					
+					
+					
+					Soluciones propuestas por \textsc{ADDER}:
+					\begin{enumerate}
+						\item \textit{Autenticación de usuarios}. Para la autenticación de usuarios, \textsc{ADDER} emplea un sistema análogo a Kerberos que denominan \textit{gatekeeper} (guardián de la puerta). (...)
+						\item \textit{Privacidad del voto}. Para contrarrestar el conflicto entre privacidad del voto y verificabilidad universal y la necesidad de acceso al contenido del voto para asegurar el correcto conteo, el sistema utiliza técnicas de cifrado homomórfico.
+						\item \textit{Verificabilidad universal}. Para cumplir con este requisito, el sistema se apoya en un tablón de anuncios, en el que se publica información relevante al proceso. Junto al sistema, se han implementado una serie de herramientas libres y de código abierto que permiten hacer uso de los datos publicados en el tablón y realizar una serie de tareas:
+						\begin{enumerate}
+							\item \textit{Recuento de los votos encriptados}. Gracias a las propiedades del cifrado homomórfico, no necesita usar claves privadas para contar los votos, pues no es necesario que los descifre para realizar el recuento. El programa puede repetir el proceso ejecutado en el servidor.
+							\item \textit{Verificación de todas las pruebas}. Cada votante puede comprobar la pruebas de validación de su voto.
+							\item \textit{Descifrado del recuento final}. Una vez que todas las autoridades han terminado sus descifrados parciales, la suite de verificación recalcula los coeficientes de Lagrange y desencripta la suma final.\notasInfo{esto no está muy bien explicado}
+							\item \textit{Verificación del hash}.
+						\end{enumerate}
+						\item Verificabilidad del votante.
+						
+					\end{enumerate}
+					
+					
+					\begin{figure}[htbp]
+						\centering
+							\includegraphics[width=\textwidth]{imgs/ADDER_diagrama_secuencia.png}
+						\caption{Diagrama de secuencia del procedimiento para una elección con ADDER \cite{conf/acsac/KiayiasKW06}.}
+						\label{fig:ADDER_diagrama_secuencia}
+					\end{figure}
+					
 				
+				\subsection{Ágora Ciudadana - Ágora Voting}\label{estadocuestion_agoravoting}
 				
 				\subsection{Helios}\label{helios}
 				Helios es un sistema de voto por Internet cuyos desarrolladores consideran que es el primer sistema de voto con auditoría abierta (open-audit) basado en web. Actualmente es un proyecto en desarrollo, funcional y públicamente accesible. Cualquier organismo interesado puede descargar el código fuente, configurar un proceso electoral y llevar a término la elección, junto con que cualquier observador puede auditar todo el proceso.
