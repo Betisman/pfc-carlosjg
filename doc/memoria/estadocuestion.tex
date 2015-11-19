@@ -504,7 +504,7 @@ los diálogos del sistema.
 			\subsection{Votescript}\label{ivotingVotescript}
 			El esquema de votación telemática Votescript tiene su origen en el proyecto de investigación \textit{Votación Electrónica Segura basada en criptografía avanzada} \cite{votescript1}, denominación de la cual adquiere el nombre, Votescript. Este proyecto es una colaboración entre el grupo de la Universidad Politécnica y la Fábrica Nacional de Moneda y Timbre - Real Casa de la Moneda (una de las principales entidades emisoras de certificados digitales de España).\\
 			A partir de este proyecto de investigación, los autores publican diversos artículos sobre el funcionamiento y alcance de los resultados obtenidos. En este apartado, nos basamos en la versión más actual del proyecto, desarrollado en su tesis doctoral \cite{tesisEPerezBelleboni} por una de las autoras del original, la Dra. Emilia Pérez Belleboni.\\
-			En esta tesis, además de analizar el estado del voto telemático, teniendo en consideración, esquemas, problemas y riesgos, realiza un estudio de varias implementaciones reales a nivel nacional, como por ejemplo un extenso análisis del procedimiento electoral electrónico de Estonia \ref{ivotingEstonia}. No obstante, a partir de estos análisis, desarrolla el esquema que proponen, con base en el Votescript original, evolucionándolo para solucionar las debilidades del resto de sistemas y para su aplicación en la elección de representantes para el Parlamento Europeo.\\
+			En esta tesis, además de analizar el estado del voto telemático, teniendo en consideración, esquemas, problemas y riesgos, realiza un estudio de varias implementaciones reales a nivel nacional, como por ejemplo un extenso análisis del procedimiento electoral electrónico de Estonia (\ref{ivotingEstonia}). No obstante, a partir de estos análisis, desarrolla el esquema que proponen, con base en el Votescript original, evolucionándolo para solucionar las debilidades del resto de sistemas y para su aplicación en la elección de representantes para el Parlamento Europeo.\\
 			En contraposición a los sistemas que estudia en la tesis, el sistema Votescript centra sus esfuerzos en la superación de debilidades identificadas en los anteriores, en especial en la fase de identificación del votante. En elecciones como las del Parlamento Europeo, una entidad supranacional, es muy importante que la identificación de los votantes se pueda realizar electrónicamente de una forma altamente confiable, pues deben ser válidas no sólo en el país del propio votante, sino en el resto de países europeos.\\
 			El esquema que propone Votescript define la necesidad de unos puntos específicos de votación, centros donde han de acudir los votantes a votar telemáticamente. En estos centros se implantarían los medios y equipamientos tecnológicos para que el votante emita su voto en un entorno controlado.\\ Según su documentación, las bases del sistema se pueden adecuar sin problemas a un \textit{sistema abierto} (voto por Internet), pero el precio que implica la comodidad de los votantes de poder votar sin necesidad de trasladarse a locales oficiales incurre en un incremento de los riesgos de coerción. 
 			
@@ -540,7 +540,7 @@ los diálogos del sistema.
 				\item Auditoría
 			\end{itemize}
 			
-			Al igual que en SELES \ref{seles}, el protocolo de seguridad en el que se basa SEVI es una variante del de Lin-Hwang-Chang, el cual se compone de tres fases que cubren la seguridad del esquema en los módulos de votación y generación de resultados. También con este protocolo, el acuse de recibo dado a los votantes sirve para cumplir con los requisitos de auditoría. Otra de las necesidades resueltas es la de la democracia del proceso, pues el hecho de que se puedan identificar los votantes no honestos al emitir el voto aumenta la confianza en el proceso.
+			Al igual que en SELES (\ref{seles}), el protocolo de seguridad en el que se basa SEVI es una variante del de Lin-Hwang-Chang, el cual se compone de tres fases que cubren la seguridad del esquema en los módulos de votación y generación de resultados. También con este protocolo, el acuse de recibo dado a los votantes sirve para cumplir con los requisitos de auditoría. Otra de las necesidades resueltas es la de la democracia del proceso, pues el hecho de que se puedan identificar los votantes no honestos al emitir el voto aumenta la confianza en el proceso.
 			
 			No obstante el protocolo de seguridad respalda la mayor parte de la interacción con el sistema, no cubre la fase de registro. Precisamente esta es la fase con la que comienza el sistema y donde se basa parte de la suposición de honestidad esperada por el protocolo para el resto del proceso. Para resolver el problema, en SEVI optan por establecer un canal seguro entre la máquina cliente y la máquina servidor a través de un protocolo de transferencia segura SSL (Secure Sockets Layer)
 			
@@ -557,8 +557,8 @@ los diálogos del sistema.
 				
 			\section{E2E Auditable Voting Systems}
 			
-				\subsection{\textsc{ADDER}}\label{estadocuestion_adder}
-					\textsc{ADDER} \cite{conf/acsac/KiayiasKW06} se define como un sistema de voto electrónico basado en Internet, libre y de código abierto. Desarrollado por la Universidad de Connecticut (EEUU) en 2006, supone una plataforma de eVoting completamente funcional con una serie de características de seguridad como robustez, privacidad del voto, auditabilidad y verificabilidad.
+				\subsection{ADDER}\label{estadocuestion_adder}
+					\textsc{Adder} \cite{conf/acsac/KiayiasKW06} se define como un sistema de voto electrónico basado en Internet, libre y de código abierto. Desarrollado por la Universidad de Connecticut (EEUU) en 2006, supone una plataforma de eVoting completamente funcional con una serie de características de seguridad como robustez, privacidad del voto, auditabilidad y verificabilidad.
 					
 					Los desarrolladores de \textsc{ADDER} dividen el voto por Internet en 3 escenarios:
 					\begin{description}
@@ -622,6 +622,8 @@ los diálogos del sistema.
 				
 				El protocolo de voto de Helios se basa en la aproximación de emisión de voto de Benaloh y en la mixnet de Sako-Killian.
 				\cite{Adida:helios}
+				
+				\notasInfo[inline]{Ver una descripción de Helios v4 en \cite{cryptoeprint:2015:233}}
 			
 		% *************************************************************************************************************** %
 		% 			VOTO POR INTERNET EN LA EPS
