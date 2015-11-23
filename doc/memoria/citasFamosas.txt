@@ -1,4 +1,4 @@
-------------------- http://es.wikiquote.org/wiki/Elecciones ----------------------------------------------
+﻿------------------- http://es.wikiquote.org/wiki/Elecciones ----------------------------------------------
 "Votar es favorecer la secular injusticia del estado."
 José Augusto Trinidad Martínez Ruiz "Azorín" en "La vida"
 
@@ -161,4 +161,20 @@ La complejidad es destructiva. Chupa la sangre de los desarrolladores, hace que 
 	 
 	 
 	 
+
+
+Sacado de Zeus-generic.pdf:
+I consider it completely unimportant who in the party
+will vote, or how; but what is extraordinarily important
+is this—who will count the votes, and how.
+Joseph Stalin
+In Russian: ß ñ÷èòàþ, ÷òî ñîâåðøåííî íåâàæíî, êòî è êàê
+áóäåò â ïàðòèè ãîëîñîâàòü; íî âîò ÷òî ÷ðåçâû÷àéíî
+âàæíî, ýòî—êòî è êàê áóäåò ñ÷èòàòü ãîëîñà.
+Said in 1923, as quoted in The Memoirs of Stalin’s Former
+Secretary (1992) by Boris Bazhanov [Saint Petersburg] (Áîðèñ
+Áàæàíîâ. Âîñïîìèíàíèÿ áûâøåãî ñåêðåòàðÿ Ñòàëèíà).
+Variant (loose) translation: The people who cast the votes
+decide nothing. The people who count the votes decide
+everything.
 	 
