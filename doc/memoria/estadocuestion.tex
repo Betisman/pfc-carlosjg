@@ -20,7 +20,7 @@
 		\begin{figure}[htbp]
 			\centering
 				\includegraphics[width=0.95\textwidth]{imgs/categorizacionEVotingTesisCodina.jpg}
-			\caption{Tipos de e-Voting \cite{Codina:tesis}\cite{USEAC:2011}}
+			\caption{Tipos de e-Voting \cite{Codina:tesis,USEAC:2011}}
 			\label{fig:categorizacionEVotingTesisCodina}
 		\end{figure}
 		
@@ -415,7 +415,7 @@ los diálogos del sistema.
 			
 			
 			
-			\subsection{Noruega}
+			\subsection{Noruega}\label{ivotingNoruega}
 			\todo[inline]{¿Hay que hablar de Noruega?}
 			
 			\begin{table}[htbp]
@@ -557,6 +557,24 @@ los diálogos del sistema.
 				
 			\section{E2E Auditable Voting Systems}
 			
+				Una propiedad bastante útil para el desarrollo de esquemas para votación por Internet es la llamada \textbf{\textit{verificabilidad punto a punto}} (o punta a cabo según otros autores hispanohablantes) (en la literatura inglesa: end-to-end verifiability; E2E-verifiability). Con ella se puede solucionar el problema de la necesidad de confiar en el proceso que recoge, almacena y cuenta los votos.
+				
+				Se considera a Josh Benaloh \cite{Benaloh:2006:SVE:1251003.1251008} como el precursor del concepto de verificabilidad E2E. Según su propia definición del término, se considera que los requisitos de un sistema completamente verificable E2E son \cite{Benaloh:2006:SVE:1251003.1251008,cryptoeprint:2015:233,dhillon:2015}:
+			
+			En \cite{dhillon:2015} se recoge un resumen sobre sistemas E2E del cual se puede extraer que los sistemas utilizados para las votaciones en Estonia (\ref{ivotingEstonia}) y en Noruega (\ref{ivotingNoruega}) son casi completamente E2E verificables.
+			
+			\begin{enumerate}
+				\item \textbf{Verificabilidad individual}: los votantes pueden comprobar que sus votos se han registrado con la opción que han elegido.
+				\item \textbf{Verificabilidad universal}: Cualquiera puede comprobar que todos los votos han sido escrutados con precisión.
+			\end{enumerate}
+			
+			Para cumplir el requisito de la verificabilidad individual, el sistema estonio se apoya en una app para smartphones que gestiona la verificación del voto, mientras que en la solución noruega apuestan por una sistema de retorno de código por SMS. A través de ambos protocolos, se permite al votante una herramienta a través de la cual puede asegurarse de que su voto ha sido correctamente incluído en la votación.
+			Los problemas para cumplir con los requisitos de Benaloh aparecen cuando se estudian las herramientas para cumplir con la verificabilidad universal. El método tradicional para garantizar este requisito es utilizar las pruebas de conocimiento zero (\ref{primitivaPruebasConocimientoNulo},\ref{zeroKnowledgeProof}). Con estas pruebas se trata de convencer a un verificador de que el proceso se ha llevado a cabo correctamente con una alta probabilidad, sin necesidad de que el verificador tenga conocimiento del contenido de los votos incluídos en la elección. En los sistemas implementados en Estonia y Noruega, aunque parecen tener herramientas que incluyen estas pruebas de conocimiento nulo en todas las etapas del proceso, según algunos informes postelectorales\cite{carter2013}, esto no ocurría en la totalidad del proceso.
+			Según estos mismos informes\cite{carter2013}, un ejemplo de sistema electoral por Internet E2E-verificable es Helios\ref{helios}, del que dicen que es un reconocido ``\textit{estándar en verificabilidad de voto por Internet}''. La visión de este sistema es que proporciona al proceso todas las garantías que aporta la verificabilidad E2E, como la capacidad de observar pruebas de conocimiento cero no interactivas que verifican que cada voto fue incluido correctamente y que el escrutinio completo fue computado con precisión. No obstante, hay que remarcar que, como su propio desarrollador indica, Helios es un sistema pensado en elecciones con bajo riesgo de coerción, lo cual no es válido para elecciones nacionales como el modelo estonio o noruego.
+			
+			Las garantías que ofrecen los esquemas de verificabilidad E2E eliminan la necesidad de los votantes de confiar tanto en los propios clientes (dispositivos, navegadores, sistemas operativos) que utilizan para votar, como los servidores y los trabajadores oficiales que administran los sistemas asociados a la recepción, descifrado y conteo de votos, que son los pilares críticos en los que se basa un sistema de voto por Internet.\notasCambio{Falta decir el porqué!! Porqué se olvidan los votantes de la amenaza? pues porque el E2E consigue que se demuestre la invariabilidad del voto emitido frente al contado...E2E}
+			
+			
 				\subsection{ADDER}\label{estadocuestion_adder}
 					\textsc{Adder} \cite{conf/acsac/KiayiasKW06} se define como un sistema de voto electrónico basado en Internet, libre y de código abierto. Desarrollado por la Universidad de Connecticut (EEUU) en 2006, supone una plataforma de eVoting completamente funcional con una serie de características de seguridad como robustez, privacidad del voto, auditabilidad y verificabilidad.
 					
@@ -568,6 +586,13 @@ los diálogos del sistema.
 					\end{description}
 					
 					\textsc{ADDER} fue diseñado para el primero de los escenarios, el voto telemático remoto, pero dependiendo de los requisitos de seguridad, es adaptable a los otros dos. Además, es un sistema capaz de llevar a cabo elecciones tanto a pequeña como a gran escala.
+					
+					\begin{figure}[h]
+						\centering
+							\includegraphics[width=\textwidth]{imgs/ADDER_diagrama_secuencia.png}
+						\caption{Diagrama de secuencia del procedimiento para una elección con ADDER \cite{conf/acsac/KiayiasKW06}.}
+						\label{fig:ADDER_diagrama_secuencia}
+					\end{figure}
 					
 					---- System overview ----
 					El procedimiento del proceso electoral comienza permitiendo al administrador del mismo alimentar al sistema con la lista de usuarios (votantes y autoridades) y de candidatos.
@@ -603,12 +628,7 @@ los diálogos del sistema.
 					\end{enumerate}
 					
 					
-					\begin{figure}[htbp]
-						\centering
-							\includegraphics[width=\textwidth]{imgs/ADDER_diagrama_secuencia.png}
-						\caption{Diagrama de secuencia del procedimiento para una elección con ADDER \cite{conf/acsac/KiayiasKW06}.}
-						\label{fig:ADDER_diagrama_secuencia}
-					\end{figure}
+					
 					
 				
 				\subsection{Ágora Ciudadana - Ágora Voting}\label{estadocuestion_agoravoting}
