@@ -92,8 +92,43 @@
 		
 		
 		\subsection{Elecciones de delegados y subdelegados de curso en la EPS}\label{analisisDelegadosEPS}
+		
+		
+		
+		\section{Helios Voting}\label{planteamiento_HeliosVoting}
+		Tras el estudio de varias soluciones ya implementadas y de una solución diseñada desde cero, he decidido usar un sistema ya desarrollado como base para el diseño de la solución que lleve a cabo el proceso electoral en la Escuela.
+		
+		Los motivos que se han tenido en cuenta para seleccionar un desarrollo de terceros frente a uno propio son los siguientes:
+		\begin{itemize}
+			\item Para mantener la fiabilidad de un sistema de voto por Internet es fundamental una buena base criptográfica y unos protocolos cimentados en sólidos procesos matemáticos. Este concepto tan crucial he preferido delegarlo en el sistema Helios Voting, diseñado Ben Adida \footnote{\url{http://ben.adida.net/}}, doctor en Ingeniería Informática en Criptografía y Seguridad de la Información por el MIT \footnote{\url{http://mit.edu/}} (Massachussetts Institute of Technology). Además, el creador del sistema fue asesorado \footnote{\url{https://vote.heliosvoting.org/about}} directamente por profesionales con muchísima experiencia acreditada en conceptos tales como el voto electrónico y criptografía como pueden ser Lessig, Benaloh \footnote{\url{http://research.microsoft.com/~benaloh/}} o Rivest \footnote{\url{http://people.csail.mit.edu/rivest/}}, entre otros. Con esta carta de presentación, se observa que el nivel de protocolos criptográficos tiene un amplio sustento académico detrás. Igualmente, existen multitud de artículos en los que se presentan, estudian y discuten los protocolos criptográficos del sistema Helios Voting en sus diferentes versiones. Incluso en muchos de estos artículos se ofrecen alternativas a distintos elementos para aumentar la seguridad del sistema o para introducir alternativas a sistemas de voto pero manteniendo la máxima seguridad para que el sistema siga siendo E2E-verifiable.
+			
+			\item Helios es un sistema de voto por Internet basado en desarrollo de código abierto. Está escrito en Python, utilizando Django como framework de desarrollo. Esta filosofía de software libre permite que el código pueda ser reutilizado y modificado para adaptarlo a las necesidades de la Escuela. Además, el lenguaje utilizado es bastante potente y la facilidad de integración con los recursos que provee la Escuela es un punto importante que se ha tenido en cuenta.
+			
+			\item El proyecto Helios Voting está activo. Aunque la frecuencia de actualizaciones en el código o las conversaciones en el grupo de Google del proyecto ha decaído este último año 2015, el proyecto está activo y los desarrolladores implicados. Además, se observa que hay mucha gente interesada en el mismo que realizan forks del código para realizar sus propias modificaciones y/o aportaciones al mismo. Asimismo, proyectos como Ágora Voting nacieron a partir de un fork de Helios Voting, aunque actualmente hayan virado a otros protocolos criptográficos.
+			
+		\end{itemize}	
+		
+		\notasCambio[inline]{No me gusta nada cómo está redactado esto ni me parece que esté en el sitio correcto. Cambiar.}
 
 
+			\subsection{Fases de la elección en Helios}\label{planteamiento_HeliosVoting_Fases}
+				Una elección con el sistema Helios Voting se desarrolla a través de una serie de fases o acciones:
+				
+				\begin{description}
+					\item[Crear elección]	El primer paso del protocolo de Helios es la creación de la Elección. Corresponde al administrador logarse en el sistema y crear la elección. Para ello, puede poner el nombre y descripción del Proceso, seleccionar si es una elección al uso o un referéndum, si se usan los nombres de los votantes o pseudónimos, si se presentan los nombres de los candidatos a cada votante en orden aleatorio y si la elección es privada para los votantes registrados o abierta a cualquier votante.
+					
+					\item[Preparar la elección] Antes de abrir el proceso de votación hay que preparar la elección. Para ello hay tres elementos que requieren ser inicializados.
+					\begin{description}
+						\item[Preguntas] Helios funciona a base de preguntas al electorado. Con una elección creada, el primer paso debería ser formular dichas preguntas y sus posibles respuestas, así como si es multiselección o de elección simple.
+						\item[Censo de votantes] Es necesario incluir un censo de votantes o permitir una votación abierta. En el caso del censo, Helios permite hacer cargas de ficheros csv con la información del votante (id, email y nombre). También permite que cualquiera pueda emitir un voto.
+						
+						\item [Gestión de los responsables de la desencriptación]
+					\end{description}
+					
+				\end{description}
+			
+			
+			
 	\section{Alcance del proyecto}\label{alcance}
 		Como se indica en el apartado \ref{objetivos}...
 		\todo[inline]{Alcance del proyecto}
