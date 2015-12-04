@@ -190,7 +190,7 @@
 				
 				Helios Voting basa su seguridad criptográfica en un protocolo de cifrado homomórfico (\ref{primitivaCifradoHomomorfico}).
 				
-				El voto se encripta en el navegador del cliente utilizando una implementación del algoritmo de ElGamal Exponencial realizada en Javascript. Como se ha explicado en \ref{}
+				El voto se encripta en el navegador del cliente utilizando una implementación del algoritmo de ElGamal Exponencial realizada en Javascript. Como se ha explicado en \ref{primitivaCifradoHomomorfico_elgamal}
 			
 			
 	\section{Alcance del proyecto}\label{alcance}
@@ -203,8 +203,9 @@
 	\section{Fases del proceso electoral}\label{fases_proceso_electoral}
 	
 	El Consejo Europeo, dentro de si definición de estándares, recomienda la aceptación para utilizar el \textit{Election Markup Language} (EML). Desarrollado por la \textit{Organization for the Advancement of Structured Information Standards} (OASIS), su objetivo es el de permitir el ''intercambio de información entre hardware, software y proveedores de servicios implicados en cualquier aspecto relacionado con el desarrollo de elecciones o servicios a votantes tanto para organizaciones públicas como privadas.'' \cite{Codina:tesis}
-	Según el estándar EML, se distinguen cuatro actores implicados y tres fases en el proceso electoral:
+	Según el estándar EML, se distinguen cuatro actores implicados y tres fases en el proceso electoral.
 	
+	\textbf{Actores}
 	\begin{itemize}
 		\item Autoridad
 		\item Administrador
@@ -212,6 +213,7 @@
 		\item Auditor/observador
 	\end{itemize}
 	
+	\textbf{Fases}
 	\begin{itemize}
 		\item Fase Pre-Voting
 		\item Fase Voting
@@ -221,6 +223,8 @@
 	(...)
 	
 
+		Teniendo en cuenta el EML, identificamos las tres fases que dirigen el proceso electoral como fases preelectoral, electoral y postelectoral, adecuándolas al idioma español. Cada una de estas fases contiene una series de procesos o tareas determinadas.
+		
 		\begin{itemize}
 			\item Fase Preelectoral
 			\begin{description}[font=$\bullet$\ \ ]
