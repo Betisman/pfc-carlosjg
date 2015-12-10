@@ -2,6 +2,10 @@
 \lhead{Capítulo \ref{planteamiento}}
 \rhead{Planteamiento}
 %*******************************************************************************
+
+% *************************************************************************************************************** %
+% 			OBJETIVOS
+% *************************************************************************************************************** %
 \section{Objetivos finales del proyecto}\label{objetivos}
 	El objetivo principal de este Proyecto de Fin de Carrera es la implementación de un sistema de votación electrónica remota (i-voting) diseñada de forma ad-hoc para dos de los procesos electorales que se llevan a cabo en la Escuela Politécnica Superior de la Universidad San Pablo CEU.
 	
@@ -47,7 +51,9 @@
 %*
 %*
 
-
+% *************************************************************************************************************** %
+% 			DESCRIPCIÓN DEL SISTEMA REAL
+% *************************************************************************************************************** %
 \section{Descripción del sistema real}\label{descripcionSistemaReal}
 		\subsection{Elecciones a la Junta de Escuela de la EPS}\label{analisisJuntaEPS}
 			\subsubsection{Definición de la Junta de Escuela}\label{definicionJuntaEscuela}
@@ -94,7 +100,9 @@
 		\subsection{Elecciones de delegados y subdelegados de curso en la EPS}\label{analisisDelegadosEPS}
 		
 		
-		
+% *************************************************************************************************************** %
+% 			HELIOS VOTING
+% *************************************************************************************************************** %
 		\section{Helios Voting}\label{planteamiento_HeliosVoting}
 		Tras el estudio de varias soluciones ya implementadas y de una solución diseñada desde cero, he decidido usar un sistema ya desarrollado como base para el diseño de la solución que lleve a cabo el proceso electoral en la Escuela.
 		
@@ -192,14 +200,21 @@
 				
 				El voto se encripta en el navegador del cliente utilizando una implementación del algoritmo de ElGamal Exponencial realizada en Javascript. Como se ha explicado en \ref{primitivaCifradoHomomorfico_elgamal}
 			
-			
+
+
+
+% *************************************************************************************************************** %
+% 			ALCANCE DEL PROYECTO
+% *************************************************************************************************************** %		
 	\section{Alcance del proyecto}\label{alcance}
 		Como se indica en el apartado \ref{objetivos}...
 		\todo[inline]{Alcance del proyecto}
 
 
 
-
+% *************************************************************************************************************** %
+% 			FASES DEL PROCESO ELECTORAL
+% *************************************************************************************************************** %
 	\section{Fases del proceso electoral}\label{fases_proceso_electoral}
 	
 	El Consejo Europeo, dentro de si definición de estándares, recomienda la aceptación para utilizar el \textit{Election Markup Language} (EML). Desarrollado por la \textit{Organization for the Advancement of Structured Information Standards} (OASIS), su objetivo es el de permitir el ''intercambio de información entre hardware, software y proveedores de servicios implicados en cualquier aspecto relacionado con el desarrollo de elecciones o servicios a votantes tanto para organizaciones públicas como privadas.'' \cite{Codina:tesis}
@@ -389,7 +404,9 @@ En el caso de las Elecciones a la Junta de Escuela de la EPS, podemos pensar en 
 		
 			
 		
-		
+% *************************************************************************************************************** %
+% 			LOGS (AUDITORÍA????)
+% *************************************************************************************************************** %
 	\section{Logs}\label{logs}
 			\todo[inline]{ Esto no va aquí, pero lo pongo para acordarme. Ya veremos si va en planteamiento, en solución o en... Probablemente tenga que ir en un capítulo dedicado a la AUDITORÍA, ahora que lo pienso }
 			
@@ -420,7 +437,9 @@ En el caso de las Elecciones a la Junta de Escuela de la EPS, podemos pensar en 
 
 
 
-
+% *************************************************************************************************************** %
+% 			GGGGGGGGGGGGGGGGGGGGGGGGGGGGG
+% *************************************************************************************************************** %
 	\section{ggggggggggggggggggggg}
 		Tras el estudio de cómo debe ser un sistema de voto por Internet, aparecen cuestiones importantes como puede ser el esquema criptográfico a utilizar, el flujo de procesos, actores intervinientes, fases, problemas asociados al voto electrónico, seguridad, confiabilidad, etc.
 		
@@ -462,4 +481,18 @@ En el caso de las Elecciones a la Junta de Escuela de la EPS, podemos pensar en 
 		
 		Tareas:
 		1. Implementación de un módulo de autenticación basado en el DNIe para Django. El nombre que tendrá será dnie.py.
+		
+		
+		
+		
+		
+		\subsection{Diagrama Entidad-Relación}\label{helios_diagrama_er}
+			
+			\begin{figure}
+				\centering
+					\includegraphics{imgs/helios_diagrama_er.png}
+				\caption{Diagrama ER del sistema Helios Voting}
+				\label{fig:helios_diagrama_er}
+			\end{figure}
+			
 	

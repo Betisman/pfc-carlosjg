@@ -259,33 +259,8 @@ y compatibilidad entre las características personales de los
 usuarios (memoria, percepción, hábitos, habilidades, edad) y
 los diálogos del sistema.
 				\end{description}
-
-		\section{Certificados Digitales}\label{estadoCertificadosDigitales}
-		La propia web de la Fábrica Nacional de Moneda y Timbre \cite{webCertFNMT} indica que \textit{un certificado digital es un documento electrónico que asocia una clave pública con la identidad de su propietario}. Complementa la definición añadiendo que \textit{adicionalmente, además de la clave pública y la identidad de su propietario, un certificado digital puede contener otros atributos para, por ejemplo, concretar el ámbito de utilización de la clave pública, las fechas de inicio y fin de la validez del certificado, etc. El usuario que haga uso del certificado podrá, gracias a los distintos atributos que posee, conocer más detalles sobre las características del mismo.}.
-		\\
-		La utilidad de los certificados digitales, simplificando el contexto, se resume en \textit{asegurar que una determinada clave pública pertenece a un usuario en concreto}.
-		\\
-		Con las tecnologías actuales, la economía ha vuelto su desarrollo al comercio electrónico y las relaciones remotas. Muchas transacciones que antes se realizaban en persona han evolucionado al mundo digital, por lo que, para la mayoría de ellas es indispensable poseer mecanismos que puedan demostrar que los sujetos intervinientes en la comunicación están unívocamente identificados y con la seguridad de que no se produce suplantación.
-		\\
-		Una herramienta fundamental para cumplir con este propósito ha sido el desarrollo de las certificaciones digitales.
-		\\
-		\todo[inline]{MÁS MÁS MÁS MÁSSSSSSSS}
-		
-		\section{NFC}\label{estadoNFC}
-			\notasInfo[inline]{Buena fuente de información en \url{https://www.agpd.es/portalwebAGPD/canaldocumentacion/publicaciones/common/Guias/Guia_RFID.pdf}}
-
-		\section{Smart Cards}\label{estadoSmartcards}
-		Una SmartCard
-		
-		\section{DNIe}\label{estadoDNIe}
-		
-			\todo[inline] {DNIe - Añadir DNIe 3.0}
-		
-		\section{Tarjeta Universitaria Inteligente - TUI}\label{estadoTUI}
-	
-	
-	
-	
+				
+				
 		% *************************************************************************************************************** %
 		% 			EXPERIENCIAS DE VOTO ELECTRÓNICO
 		% *************************************************************************************************************** %
@@ -295,6 +270,11 @@ los diálogos del sistema.
 		En cuanto al estado de la cuestión del voto por internet, como hemos destacado, la experiencia más ambiciosa es, sin duda, las elecciones que se llevan a cabo en Estonia (\ref{ivotingEstonia}), que, desde el año 2005, proveen de un sistema de voto por internet a un cierto sector de la población.
 		
 		Es destacable el desempeño de empresas como la española Scytl, que ha implementado sistemas de voto por Internet para voto desde el extranjero para algunos condados de Estados Unidos, ciertos cantones de Suiza y varias provincias de India, la mayor democracia del mundo (en número de votantes). Otra empresa española, Indra, también tiene soluciones de voto por Internet utilizados para elegir las cúpulas directivas de organismos como la Guardia Civil, universidades como la UAH (Universidad de Alcalá de Henares) o la UNED (Universidad Nacional de Educación a Distancia) e incluso de partidos políticos, como es el caso de UPyD (Unión Progreso y Democracia).
+		
+		
+% *************************************************************************************************************** %
+% 			VOTO POR INTERNET
+% *************************************************************************************************************** %
 		\section{Voto por Internet (i-voting)}\label{Voto por Internet (i-voting)}
 			Dentro de las soluciones de voto electrónico telemático, es importante el desarrollo que se ha hecho en cuanto al voto por Internet. 
 			
@@ -555,7 +535,11 @@ los diálogos del sistema.
 				\notasInfo[inline]{On-line Voting System is a web based system that facilitates the running of elections and surveys online. This system has been developed to simplify the process of organizing elections and make it convenient for voters to vote remotely from their home computers while taking into consideration security, anonymity and providing auditioning capabilities. Users are individuals who interact with the system. All user interaction is performed remotely through the user's web browser. Users are categorized into three classes: Administrator, returning Officers and Voters. A running version of the system will have only one Administrator but it typically has multiple returning officers and voters. The administrator is responsible for managing user accounts, polls, system resources and logs and for the health and safekeeping of the system. Returning officers have the responsibility of managing a poll as assigned by the administrator, whereas voters only have the ability to submit ballots on polls in which they are admitted.}
 				\todo[inline]{quitar esto, que no va a ir aquí}
 				
-			\section{E2E Auditable Voting Systems}
+
+% *************************************************************************************************************** %
+% 			E2E AUDITABLE VOTING SYSTEMS
+% *************************************************************************************************************** %				
+		\section{E2E Auditable Voting Systems}
 			
 				Una propiedad bastante útil para el desarrollo de esquemas para votación por Internet es la llamada \textbf{\textit{verificabilidad punto a punto}} (o punta a cabo según otros autores hispanohablantes) (en la literatura inglesa: end-to-end verifiability; E2E-verifiability). Con ella se puede solucionar el problema de la necesidad de confiar en el proceso que recoge, almacena y cuenta los votos.
 				
@@ -753,7 +737,6 @@ future Helios releases being based upon Helios 4.0.
 			% 			PRIMITIVAS DE CRIPTOGRAFÍA
 			% *************************************************************************************************************** %
 			
-			
 			\section{Primitivas de criptografía}\label{primitivasCriptografia}
 				Dentro de los retos tecnológicos que propone el voto electrónico, uno de los más importantes es la seguridad. Para poder implementar un sistema seguro que pueda soportar toda la infraestructura necesaria para poder poner en marcha un sistema de voto electrónico confiable hay que hacer uso de herramientas que sean capaces de asegurar las comunicaciones y el secreto de estas. Es en este escenario donde la criptografía es el núcleo de la solución.\\
 				Los requerimientos que se tratan de satisfacer con el uso de la criptografía son \cite{tesisSeguridadVMMorales}:
@@ -777,7 +760,9 @@ future Helios releases being based upon Helios 4.0.
 %\notasDuda{TLS_RSA_WITH_DES_CBC_SHA}
 				\end{description}
 				
-				
+					% *************************************************************************************************************** %
+					% 			FIRMA CIEGA
+					% *************************************************************************************************************** %
 					\subsection{Firma ciega}\label{primitivaFirmaCiega}
 						Los protocolos criptográficos de firma ciega se dan lugar entre dos agentes, un usuario U y un firmante F de forma que F firma digitalmente una serie de datos comunicados por U sin conocer el contenido de estos. \\
 						El objetivo de este tipo de protocolos es proporcionar una serie de datos firmados cuyo contenido solamente sea conocido por el actor que envía, siendo completamente desconocidos para el actor que los firma.\\
@@ -809,6 +794,9 @@ future Helios releases being based upon Helios 4.0.
 					
 					%% ************** Merece la pena seguir contando el protocolo propuesto por este artículo?
 					
+					% *************************************************************************************************************** %
+					% 			SECRETO COMPARTIDO
+					% *************************************************************************************************************** %
 					\subsection{Secreto compartido}\label{primitivaSecretoCompartido}
 						Los protocolos criptográficos de secreto compartido dividen un mensaje (secreto) determinado en diferentes fragmentos que se reparten entre los participantes de la comunicación.
 						El reparto de información consiste en los siguientes preceptos:
@@ -820,6 +808,10 @@ future Helios releases being based upon Helios 4.0.
 						%%% http://upcommons.upc.edu/revistes/bitstream/2099/9843/1/Article018.pdf
 						
 					
+					
+					% *************************************************************************************************************** %
+					% 			PRUEBAS DE CONOCIMIENTO NULO
+					% *************************************************************************************************************** %
 					\subsection{Pruebas de conocimiento nulo}\label{primitivaPruebasConocimientoNulo}
 						Los protocolos basados en pruebas de conocimiento cero o nulo son protocolos criptográficos que se basan en la necesidad de una de las partes en poder demostrar a otra que un enunciado es cierto sin revelar nada más que la veracidad del mismo.
 						Un sencillo ejemplo para entender el concepto de este tipo de protocolos lo encontramos en una publicación de Pablo Della Paolera, astrónomo de la Universidad Nacional de La Plata (Argentina), en su blog personal \cite{dellaPaolera2014}. En ella explica que se puede demostrar que se enuncia algo correctamente sin necesidad de demostrar por qué.
@@ -834,8 +826,16 @@ future Helios releases being based upon Helios 4.0.
 					
 					%% En wikipedia hay más información sobre los PCC http://es.wikipedia.org/wiki/Prueba_de_conocimiento_cero
 					
+					
+					% *************************************************************************************************************** %
+					% 			REDES MIXTAS - MIXNETS
+					% *************************************************************************************************************** %
 					\subsection{Mixnets}\label{primitivaMixnets}
 					
+					
+					% *************************************************************************************************************** %
+					% 			CIFRADO HOMOMÓRFICO
+					% *************************************************************************************************************** %
 					\subsection{Cifrado homomórfico}\label{primitivaCifradoHomomorfico}
 					
 						\notasInfo[inline]{Hablamos del cifrado homomórfico}
@@ -857,6 +857,11 @@ future Helios releases being based upon Helios 4.0.
 							
 			\notasDuda[inline]{Ahondar un poco en la criptografía, pero sólo la parte que entiendo.}		
 			
+			
+			
+			% *************************************************************************************************************** %
+			% 			ESQUEMAS DE VOTO ELECTRÓNICO
+			% *************************************************************************************************************** %
 			\section{Esquemas de Voto Electrónico}\label{esquemasVotoElectronico}
 				Los sistemas de voto electrónico están formados por un diseño conceptual y el llamado esquema o paradigma de voto electrónico (E-Voting Schemes - EVS). El esquema es el núcleo del sistema, lo que asegura que los requisitos se cumplan.\\
 				La práctica totalidad de estos esquemas usan mecanismos y principios criptográficos.\\
@@ -1005,3 +1010,58 @@ future Helios releases being based upon Helios 4.0.
 
 		\subsection{Prueba de conocimiento cero}\label{zeroKnowledgeProof}
 		La técnica de Prueba de Conocimiento Cero (Zero Knowledge Proof - ZKP) en criptografía permite a un actor probar un mensaje a otro actor verificador sin revelar el contenido del mismo.
+				
+				
+				
+	% *************************************************************************************************************** %
+	% 			ESTADO ACTUAL DE LAS TECNOLOGÍAS
+	% *************************************************************************************************************** %
+	\section{Estado actual de las tecnologías}
+	
+		% *************************************************************************************************************** %
+		% 			CERTIFICADOS DIGITALES
+		% *************************************************************************************************************** %
+		\subsection{Certificados Digitales}\label{estadoCertificadosDigitales}
+		La propia web de la Fábrica Nacional de Moneda y Timbre \cite{webCertFNMT} indica que \textit{un certificado digital es un documento electrónico que asocia una clave pública con la identidad de su propietario}. Complementa la definición añadiendo que \textit{adicionalmente, además de la clave pública y la identidad de su propietario, un certificado digital puede contener otros atributos para, por ejemplo, concretar el ámbito de utilización de la clave pública, las fechas de inicio y fin de la validez del certificado, etc. El usuario que haga uso del certificado podrá, gracias a los distintos atributos que posee, conocer más detalles sobre las características del mismo.}.
+		\\
+		La utilidad de los certificados digitales, simplificando el contexto, se resume en \textit{asegurar que una determinada clave pública pertenece a un usuario en concreto}.
+		\\
+		Con las tecnologías actuales, la economía ha vuelto su desarrollo al comercio electrónico y las relaciones remotas. Muchas transacciones que antes se realizaban en persona han evolucionado al mundo digital, por lo que, para la mayoría de ellas es indispensable poseer mecanismos que puedan demostrar que los sujetos intervinientes en la comunicación están unívocamente identificados y con la seguridad de que no se produce suplantación.
+		\\
+		Una herramienta fundamental para cumplir con este propósito ha sido el desarrollo de las certificaciones digitales.
+		\\
+		\todo[inline]{MÁS MÁS MÁS MÁSSSSSSSS}
+		
+		
+		% *************************************************************************************************************** %
+		% 			NFC
+		% *************************************************************************************************************** %
+		\subsection{NFC}\label{estadoNFC}
+			\notasInfo[inline]{Buena fuente de información en \url{https://www.agpd.es/portalwebAGPD/canaldocumentacion/publicaciones/common/Guias/Guia_RFID.pdf}}
+
+		% *************************************************************************************************************** %
+		% 			SMART CARDS
+		% *************************************************************************************************************** %
+		\subsection{Smart Cards}\label{estadoSmartcards}
+		Una SmartCard
+		
+		
+		% *************************************************************************************************************** %
+		% 			DNI ELECTRÓNICO
+		% *************************************************************************************************************** %
+		\subsection{DNIe}\label{estadoDNIe}
+		
+			\todo[inline] {DNIe - Añadir DNIe 3.0}
+		
+		
+		% *************************************************************************************************************** %
+		% 			TARJETA UNIVERSITARIA INTELIGENTE
+		% *************************************************************************************************************** %
+		\subsection{Tarjeta Universitaria Inteligente - TUI}\label{estadoTUI}
+	
+	
+	
+	
+		
+				
+			

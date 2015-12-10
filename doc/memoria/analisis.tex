@@ -2,15 +2,20 @@
 \lhead{Capítulo \ref{analisis}}
 \rhead{Análisis del sistema}
 %*******************************************************************************
+% *************************************************************************************************************** %
+% 			ANÁLISIS DEL SISTEMA
+% *************************************************************************************************************** %
 
 Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el estado de la cuestión, la siguiente fase en el desarrollo es el Análisis. En esta etapa se analiza el problema con el cliente, llegando a un acuerdo en el alcance del proyecto y los requisitos que deben ser satisfechos.
 	
-		
+	
+	
+% *************************************************************************************************************** %
+% 			ESPECIFICACIÓN DE REQUISITOS
+% *************************************************************************************************************** %		
 		\section{Especificación de requisitos}\label{requisitos}
 		
-		% ------------------------------------------------------------------
-		%%%%%% ESPECIFICACIÓN DE REQUISITOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-		% ------------------------------------------------------------------
+
 			\subsection{Introducción}\label{requisitosIntroduccion}
 				En esta sección de la memoria vamos a desarrollar la especificación de requisitos de software. Con esta técnica lo que se consigue es una descripción completa del sistema que se va a desarrollar.
 				
@@ -209,9 +214,14 @@ Requisitos no funcionales: Restricciones que afectan al sistema
 		% ------------------------------------------------------------------
 		%%%%%% fin ESPECIFICACIÓN DE REQUISITOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 		% ------------------------------------------------------------------
-		
-		 
+	
+			
+			
+% *************************************************************************************************************** %
+% 			ROLES / ACTORES
+% *************************************************************************************************************** %
 			\section{Roles / Actores}\label{actores}
+			
 				Considerando el flujo del votante en el sistema, identificamos cuatro roles en el sistema que deben ser tenidos en cuenta de cara a las funcionalidades, privilegios y responsabilidades que tienen que encontrar en el uso del mismo.
 				\begin{description}[font=$\bullet$\ \ ]
 					\item[Votante] \hfill \\
@@ -224,6 +234,7 @@ Requisitos no funcionales: Restricciones que afectan al sistema
 							\item Firmar el voto.
 							\item Votar preservando el carácter anónimo del voto.
 							\item Consultar que su voto ha sido contabilizado.
+							\item Auditar el correcto escrutinio de la elección.
 						\end{itemize}
 						
 					\item[Administrador] \hfill \\
@@ -237,6 +248,7 @@ Requisitos no funcionales: Restricciones que afectan al sistema
 								\item Inicio del escrutinio
 								\item Apertura de los canales de difusión de resultados.
 								\item Finalizar el proceso electoral.
+								\item Designar los trustees de la elección.
 							\end{itemize}
 							
 						Los usuarios con este rol no puede votar. El administrador de la elección no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.
@@ -247,6 +259,7 @@ Requisitos no funcionales: Restricciones que afectan al sistema
 						Una vez el administrador de la elección dé por finalizado el proceso electoral, se requerirá que varios miembros de la Junta Electoral proporcionen unas claves personales que, juntando varias de ellas, servirán como llave lógica para la apertura de la urna que contiene los votos.\\
 						Los usuarios con este rol no pueden votar. El miembro de la Junta Electoral no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.
 						
+						\notasCambio[inline]{Teniendo en cuenta la organización de Helios, los miembros de la Junta Electoral que tenemos aquí son los trustees del sistema original de Adida.}
 						
 					\item[Auditor] \hfill \\
 						El auditor debe tener acceso a una serie de funcionalidades del sistema. Su función es velar porque el desarrollo del proceso electoral se realiza sin ningún tipo de fallo o de interferencia por parte de algún atacante.\\
@@ -256,6 +269,7 @@ Requisitos no funcionales: Restricciones que afectan al sistema
 					\item[Autoridad Certificadora] \hfill \\
 						Junto con los cuatro roles expuestos, encontramos un quinto actor en la figura de la Autoridad Certificadora. Esta entidad es la encargada de generar, administrar, validar y verificar las credenciales que han de usar cada uno de los votantes para emitir el voto, así como los de cada uno de los actores del proceso (administradores, miembros de la Junta Electoral, auditores o incluso los sistemas y sus comunicaciones).
 						Al hacer uso del DNIe para la identificación y firma del votante, en estas fases, es la Dirección General de la Policía, dependiente del Ministerio del Interior, la que actúa como Autoridad de Certificación, combinando dos pares de claves con un ciudadano concreto a través de la emisión de sendos Certificados de conformidad con los términos de la Declaración de Prácticas y Políticas de Certificación (DPC) \cite{politicasDeCertificacion:2006}\cite{politicasDeCertificacion:2014} que rige el funcionamiento y operaciones de la Infraestructura de Clave Pública de los Certificados de identidad pública y firma electrónica del Documento Nacional de Identidad (DNIe).
+				
 				\end{description}
 				
 				Los usuarios cuyo rol sea Votante son los únicos que tienen capacidad para poder votar en la elección.
@@ -268,11 +282,20 @@ Requisitos no funcionales: Restricciones que afectan al sistema
 				%%%%% PLANTILLA PARA PROYECTO DE FIN DE GRADO (Universidad de Cádiz) Propuesta de REDiris
 				\notasInfo[inline]{PLANTILLA PARA PROYECTO DE FIN DE GRADO (Universidad de Cádiz) Propuesta de REDiris}
 				
+
+% *************************************************************************************************************** %
+% 			MODELO CONCEPTUAL
+% *************************************************************************************************************** %
+
 				\section{Modelo Conceptual}\label{analisisModeloConceptual}
 				\notasInfo[inline]{A partir de los requisitos de información, se desarrollará un diagrama conceptual de clases UML,
 identificando las clases, atributos, relaciones, restricciones adicionales y reglas de derivación necesarias.}
 
 
+
+% *************************************************************************************************************** %
+% 			MODELO DE CASOS DE USO
+% *************************************************************************************************************** %
 				\section{Modelo de Casos de Uso}\label{analisisModeloCasosUso}
 				\notasInfo[inline]{A partir de los requisitos funcionales descritos anteriormente, se emplearan los casos de uso como
 mecanismo para representar las interacciones entre los actores y el sistema bajo estudio. Para
@@ -282,12 +305,21 @@ los pasos que conforman el escenario principal y el conjunto de posibles escenar
 					\subsection{Actores}
 					\notasInfo[inline]{ En este apartado se describirán los diferentes roles que juegan los usuarios que interactúan con el sistema. Los actores pueden ser roles de personas físicas, sistemas externos o incluso el tiempo
 (eventos temporales). }
-				
+
+
+
+% *************************************************************************************************************** %
+% 			MODELO DE COMPORTAMIENTO
+% *************************************************************************************************************** %				
 				\section{Modelo de Comportamiento}\label{analisisModeloComportamiento}
 				\notasInfo[inline]{ A partir de los casos de uso anteriores, se crea el modelo de comportamiento. Para ello, se realizarán
 los diagramas de secuencia del sistema, donde se identificarán las operaciones o servicios
 del sistema. Luego, se detallará el contrato de las operaciones identificadas. }
-				
+
+
+% *************************************************************************************************************** %
+% 			MODELO DE INTERFAZ DE USUARIO
+% *************************************************************************************************************** %				
 				\section{Modelo de Interfaz de Usuario}\label{analisisModeloInterfazUsuario}
 				\notasInfo[inline]{ En esta sección se deberá incluir un prototipo de baja fidelidad o mockup de la interfaz de usuario
 del sistema. Además, es preciso elaborar un diagrama de navegación, reflejando la secuencia de
