@@ -449,7 +449,7 @@ En el caso de las Elecciones a la Junta de Escuela de la EPS, podemos pensar en 
 		
 		De entre todas estas opciones, las más atractivas para el tipo de elecciones que se quieren desarrollar en este proyecto resultan ser las propuestas por Ágora Voting previamente a la versión actual, aquella que comenzó a partir de un fork de Helios Voting, la otra opción que parece realmente interesante.
 		
-		Helios Voting es un sistema de voto E2E verificable, basado en un esquema criptográfico homomórfico, utilizando pruebas de conocimiento nulo para verificar tanto el voto individual de cada votante como el correcto conteo de la elección. En el sistema hemos visto que no es necesario desencriptar los votos para realizar el escrutinio, sino que se realiza con los votos encriptados y, posteriormente, lo que se descrifra es el cifrado del resultado del mismo. El desarrollador de Helios Voting se ha apoyado en gente bastante reputada en el campo de la seguridad informática, la criptografía y el voto digital por lo que el apartado criptográfico del sistema está suficientemente probado y documentado que cumple con los requisitos del voto electrónico.
+		Helios Voting es un sistema de voto E2E verificable, basado en un esquema criptográfico homomórfico, utilizando pruebas de conocimiento nulo para verificar tanto el voto individual de cada votante como el correcto conteo de la elección. En el sistema hemos visto que no es necesario desencriptar los votos para realizar el escrutinio, sino que se realiza con los votos encriptados y, posteriormente, lo que se descifra es el cifrado del resultado del mismo. El desarrollador de Helios Voting se ha apoyado en gente bastante reputada en el campo de la seguridad informática, la criptografía y el voto digital por lo que el apartado criptográfico del sistema está suficientemente probado y documentado que cumple con los requisitos del voto electrónico.
 		
 		Aunque el peso de la criptografía la estamos delegando en el sistema elegido, en este se observan una serie de elementos que no se ajustan a la primera idea sobre el sistema desde cero.
 		
@@ -485,14 +485,38 @@ En el caso de las Elecciones a la Junta de Escuela de la EPS, podemos pensar en 
 		
 		
 		
-		
 		\subsection{Diagrama Entidad-Relación}\label{helios_diagrama_er}
+		
+			A continuación se muestra el diagrama entidad-relación del sistema Helios Voting real. Se ha obtenido con una herramienta, SchemaSpy\cite{http://schemaspy.sourceforge.net/}, que permite obtener el diagrama directamente de una base de datos PostgreSQL ya existente.
 			
-			\begin{figure}
+			\begin{figure}[htbp]
 				\centering
-					\includegraphics{imgs/helios_diagrama_er.png}
+					\includegraphics[width=1\textwidth]{imgs/helios_diagrama_er.png}
 				\caption{Diagrama ER del sistema Helios Voting}
 				\label{fig:helios_diagrama_er}
 			\end{figure}
 			
+			
+			En el esquema se distinguen 3 grupos de entidades. Por un lado, las propias del core de Helios, cuyos nombres comienzan por \textit{helios\_}. Por otro, están las que utilizan las herramientas Celery (las que comienzan por \textit{djcelery\_}) y Kombu (las que comienzan por \textit{djkombu\_}).
+			
+			Con respecto a las que forman la capa de negocio del sistema Helios, se observa un diseño bastante simple, aunque adecuado para las necesidades del sistema.
+	
+			Contiene las siguientes entidades:
+	
+			\begin{description}
+				\item [helios\_election] Es la tabla que almacena las diferentes elecciones que crean los administradores.
+				
+				\item [helios\_auditedballot] En esta tabla se almacenan los votos que los votantes deciden verificar y publicar en el tablón para que puedan ser posteriormente auditados.
+				
+				\item [helios\_electionlog] Esta entidad registra los eventos que suceden en torno a una elección, ya sea su creación, congelamiento de la papeleta, apertura de la urna, escrutinio, etc.
+				
+				\item [helios\_trustee] Es la entidad que recoge la información de los usuarios que actúan como trustees de la elección. Entre la información de estos que se registra se incluyen las claves públicas que se almacena automáticamente al dar de alta a un trustee. También la clave secreta, que el trustee habrá de subir al servidor una vez se requiera para poder realizar el escrutinio.
+				
+				\item [helios\_voterfile] Esta entidad almacena los ficheros de votantes que el administrador sube al servidor desde la interfaz web del sistema. Desde estos ficheros se carga el listado de votantes.
+				
+				\item [helios\_user] En esta tabla se almacenan los usuarios / votantes del sistema, relacionados cada uno con las elecciones a las que tienen derecho a voto.
+				
+				\item [helios\_auth\_user] Para cada elección, esta tabla asocia usuarios del sistema (con derecho a voto o sin él) con las capacidades de administración.
+				
+			\end{description}
 	
