@@ -1,0 +1,41 @@
+    1  sudo apt-get update
+    2  export http_proxy=http://jcjgomez:Odonkor000@proxy.indra.es:8080
+    3  export https_proxy=http://jcjgomez:Odonkor000@proxy.indra.es:8080
+    4  sudo apt-get update
+    5  sudo -E apt-get update
+    6  sudo apt-get install postgresql
+    7  sudo -E apt-get install postgresql
+    8  cd Descargas/
+    9  ll
+   10  git clone https://github.com/benadida/helios-server.git
+   11  cd helios-server/
+   12  ll
+   13  virtualenv venv
+   14  sudo -E apt-get install python-virtualenv
+   15  virtualenv venv
+   16  source venv/bin/activate
+   17  pip install -r requirements.txt 
+   18  sudo -E apt-get install libpq-dev
+   19  pip install -r requirements.txt 
+   20  sudo -E apt-get install python-dev
+   21  pip install -r requirements.txt 
+   22  ./reset.sh 
+   23  su -c "createuser --superuser carlos" postgres
+   24  su -c "createuser --superuser carlos" postgres
+   25  su -c "createuser --superuser carlos" postgres
+   26  su -c "createuser --superuser carlos" postgres
+   27  su -c "createuser --superuser carlos" postgres
+   28  su -c "createuser --superuser carlos" postgres
+   29  sudo service postgresql restart
+   30  su -c "createuser --superuser carlos" postgres
+   31  su -c "createuser --superuser carlos" postgres
+   32  su
+   33  ./reset.sh 
+   34  pip install amqp
+   35  ./reset.sh 
+   36  pip install billiard
+   37  ./reset.sh 
+   38  pip install pytz
+   39  ./reset.sh 
+   40  history
+   41  history > ../../commands_helios_instalation.txt
