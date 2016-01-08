@@ -19,6 +19,10 @@
    19  pip install -r requirements.txt 
    20  sudo -E apt-get install python-dev
    21  pip install -r requirements.txt 
+Modoficar rest.sh. Sustituir la línea
+echo "from helios_auth.models import User; User.objects.create(user_type='google',user_id='ben@adida.net', info={'name':'Ben Adida'})" | python manage.py shell
+por
+echo "from helios_auth.models import User; User.objects.create(user_type='password',user_id='betisman@gmail.com', info={'name':'Carlos Jimenez'})" | python manage.py shell
    22  ./reset.sh 
    23  su -c "createuser --superuser carlos" postgres
    24  su -c "createuser --superuser carlos" postgres
