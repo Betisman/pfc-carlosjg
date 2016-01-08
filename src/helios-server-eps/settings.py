@@ -173,6 +173,8 @@ SERVER_EMAIL = '%s <%s>' % (DEFAULT_FROM_NAME, DEFAULT_FROM_EMAIL)
 LOGIN_URL = '/auth/'
 LOGOUT_ON_CONFIRMATION = True
 
+
+
 # The two hosts are here so the main site can be over plain HTTP
 # while the voting URLs are served over SSL.
 URL_HOST = get_from_env("URL_HOST", "http://localhost:8000").rstrip("/")
@@ -181,6 +183,9 @@ URL_HOST = get_from_env("URL_HOST", "http://localhost:8000").rstrip("/")
 # elections, as your elections' cast_url will then be incorrect.
 # SECURE_URL_HOST = "https://localhost:8443"
 SECURE_URL_HOST = get_from_env("SECURE_URL_HOST", URL_HOST).rstrip("/")
+
+URL_HOST = "http://localhost:8001"
+SECURE_URL_HOST = "https://localhost:8443"
 
 # this additional host is used to iframe-isolate the social buttons,
 # which usually involve hooking in remote JavaScript, which could be
@@ -212,7 +217,7 @@ HELIOS_PRIVATE_DEFAULT = False
 
 # authentication systems enabled
 #AUTH_ENABLED_AUTH_SYSTEMS = ['password','facebook','twitter', 'google', 'yahoo']
-AUTH_ENABLED_AUTH_SYSTEMS = get_from_env('AUTH_ENABLED_AUTH_SYSTEMS', 'google').split(",")
+AUTH_ENABLED_AUTH_SYSTEMS = get_from_env('AUTH_ENABLED_AUTH_SYSTEMS', 'dnie').split(",")
 AUTH_DEFAULT_AUTH_SYSTEM = get_from_env('AUTH_DEFAULT_AUTH_SYSTEM', None)
 
 # google
@@ -263,6 +268,7 @@ if get_from_env('EMAIL_USE_AWS', '0') == '1':
 # set up logging
 import logging
 logging.basicConfig(
+    filename='/home/carlos/pfc/django.log',
     level = logging.DEBUG,
     format = '%(asctime)s %(levelname)s %(message)s'
 )
