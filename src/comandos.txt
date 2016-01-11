@@ -1,0 +1,75 @@
+sudo apt-get install apache2
+sudo apt-get install openSSL
+cd /etc/apache2/mods-available
+sudo a2enmod ssl
+cd /etc/apache2/sites-available
+sudo cp 000-default.conf sitednie.conf
+cd /etc/apache2/sites-available
+mkdir ~/Descargas/certificados
+cd certificados/
+
+#creamos una clave
+openssl genrsa -des3 -out server.key 2048
+
+#La següent comanda, realitza la petició del certificat, fent us de la clau que acabem de crear.
+openssl req -new -key server.key -out server.csr
+
+
+#Ara, encara que nosaltres no siguem una entitat certificadora, ens firmarem el nostre propi certificat.
+openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
+
+
+#Bajamos el certificado de la AC Raíz del DNIE desde:
+#http://www.dnielectronico.es/PortalDNIe/PRF1_Cons02.action?pag=REF_077
+wget http://www.dnielectronico.es/ZIP/ACRAIZ-SHA2.CAB
+
+cabextract ACRAIZ-SHA2.CAB
+
+openssl x509 -in ACRAIZ-SHA2.crt -inform DER -out ACRAIZ-SHA2.crt -outform PEM
+sudo cp ACRAIZ-SHA2.crt acraiz-dnie.cer
+
+cd /etc/apache2/sites-available
+sudo cat default-ssl.conf >> sitednie.conf
+
+
+# A escuchar por el puerto 443
+sudo gedit sitednie.conf &
+
+-----------------------------
+En <VirtualHost *:80> :
+
+---- DocumentRoot /home/carlos/Descargas/helios-server
+
+En <VirtualHost _default_:443> :
+
+---- DocumentRoot /home/carlos/Descargas/helios-server
+---- Antes de cerrar </VirtualHost>:
+	<Directory /home/carlos/Descargas/helios-server/>
+	     Options Indexes FollowSymLinks MultiViews
+	     AllowOverride None
+	     Order allow,deny
+	     allow from all
+	   </Directory>
+--- Modificar:
+	SSLCertificateFile	/home/carlos/Descargas/certificados/server.crt
+	SSLCertificateKeyFile /home/carlos/Descargas/certificados/server.key
+	SSLCACertificateFile /home/carlos/Descargas/certificados/acraiz-dnie.cer 
+	SSLVerifyClient require
+	SSLVerifyDepth  2
+--- Modificar donde se deba:
+	SSLOptions +StdEnvVars +ExportCertData
+-----------------------------
+
+sudo gedit /etc/apache2/ports.conf
+
+--------- Modificar si hace falta:
+<IfModule ssl_module>
+	Listen 443
+	Listen 1443
+</IfModule>
+------------------
+
+
+
+sudo a2ensite sitednie.conf
+sudo service apache2 restart

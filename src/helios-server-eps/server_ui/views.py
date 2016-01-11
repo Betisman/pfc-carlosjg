@@ -39,11 +39,21 @@ def home(request):
     elections_voted = Election.get_by_user_as_voter(user, limit=5)
   else:
     elections_voted = None
- 
+
   auth_systems = copy.copy(settings.AUTH_ENABLED_AUTH_SYSTEMS)
   try:
     auth_systems.remove('password')
   except: pass
+
+  ssl_client_s_dn = request.META['SSL_CLIENT_S_DN']
+  ssl_client_s_dn = ssl_client_s_dn.replace('\,', 'XXXCOMAXXX')
+  sd = dict(u.split("=") for u in ssl_client_s_dn.split(","))
+  for fff in sd:
+    sd[fff] = sd[fff].replace('XXXCOMAXXX', ',')
+  dni = sd['serialNumber']
+
+
+
 
   login_box = auth_views.login_box_raw(request, return_url="/", auth_systems=auth_systems)
 
@@ -51,8 +61,10 @@ def home(request):
                                             'elections_administered' : elections_administered,
                                             'elections_voted' : elections_voted,
                                             'create_p':create_p,
-                                            'login_box' : login_box})
-  
+                                            'login_box' : login_box,
+                                            'dni': dni
+                                            })
+
 def about(request):
   return render_template(request, "about")
 
@@ -64,4 +76,4 @@ def faq(request):
 
 def privacy(request):
   return render_template(request, "privacy")
-    
+

@@ -35,7 +35,10 @@ SHOW_USER_INFO = (get_from_env('SHOW_USER_INFO', '1') == '1')
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'helios'
+        'NAME': 'helios',
+        'USER': 'carlos',
+        'HOST': 'localhost',
+        'PASSWORD': 'carlos'
     }
 }
 
@@ -53,11 +56,13 @@ if get_from_env('DATABASE_URL', None):
 # although not all choices may be available on all operating systems.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'America/Los_Angeles'
+#TIME_ZONE = 'America/Los_Angeles'
+TIME_ZONE = 'Europe/Madrid'
 
 # Language code for this installation. All choices can be found here:
 # http://www.i18nguy.com/unicode/language-identifiers.html
-LANGUAGE_CODE = 'en-us'
+#LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-ES'
 
 SITE_ID = 1
 
@@ -161,12 +166,14 @@ VOTER_UPLOAD_REL_PATH = "voters/%Y/%m/%d"
 
 
 # Change your email settings
-DEFAULT_FROM_EMAIL = get_from_env('DEFAULT_FROM_EMAIL', 'ben@adida.net')
-DEFAULT_FROM_NAME = get_from_env('DEFAULT_FROM_NAME', 'Ben for Helios')
+DEFAULT_FROM_EMAIL = get_from_env('DEFAULT_FROM_EMAIL', 'betisman@gmail.com')
+DEFAULT_FROM_NAME = get_from_env('DEFAULT_FROM_NAME', 'Carlos - EPS USP CEU')
 SERVER_EMAIL = '%s <%s>' % (DEFAULT_FROM_NAME, DEFAULT_FROM_EMAIL)
 
 LOGIN_URL = '/auth/'
 LOGOUT_ON_CONFIRMATION = True
+
+
 
 # The two hosts are here so the main site can be over plain HTTP
 # while the voting URLs are served over SSL.
@@ -177,6 +184,9 @@ URL_HOST = get_from_env("URL_HOST", "http://localhost:8000").rstrip("/")
 # SECURE_URL_HOST = "https://localhost:8443"
 SECURE_URL_HOST = get_from_env("SECURE_URL_HOST", URL_HOST).rstrip("/")
 
+URL_HOST = "http://localhost:8001"
+SECURE_URL_HOST = "https://localhost:8443"
+
 # this additional host is used to iframe-isolate the social buttons,
 # which usually involve hooking in remote JavaScript, which could be
 # a security issue. Plus, if there's a loading issue, it blocks the whole
@@ -184,7 +194,7 @@ SECURE_URL_HOST = get_from_env("SECURE_URL_HOST", URL_HOST).rstrip("/")
 SOCIALBUTTONS_URL_HOST= get_from_env("SOCIALBUTTONS_URL_HOST", SECURE_URL_HOST).rstrip("/")
 
 # election stuff
-SITE_TITLE = get_from_env('SITE_TITLE', 'Helios Voting')
+SITE_TITLE = get_from_env('SITE_TITLE', 'Universidad San Pablo CEU - Elecciones EPS (powered byHelios Voting)')
 MAIN_LOGO_URL = get_from_env('MAIN_LOGO_URL', '/static/logo.png')
 ALLOW_ELECTION_INFO_URL = (get_from_env('ALLOW_ELECTION_INFO_URL', '0') == '1')
 
@@ -192,9 +202,9 @@ ALLOW_ELECTION_INFO_URL = (get_from_env('ALLOW_ELECTION_INFO_URL', '0') == '1')
 FOOTER_LINKS = json.loads(get_from_env('FOOTER_LINKS', '[]'))
 FOOTER_LOGO_URL = get_from_env('FOOTER_LOGO_URL', None)
 
-WELCOME_MESSAGE = get_from_env('WELCOME_MESSAGE', "This is the default message")
+WELCOME_MESSAGE = get_from_env('WELCOME_MESSAGE', "Bienvenido a la web de las elecciones a la EPS.")
 
-HELP_EMAIL_ADDRESS = get_from_env('HELP_EMAIL_ADDRESS', 'help@heliosvoting.org')
+HELP_EMAIL_ADDRESS = get_from_env('HELP_EMAIL_ADDRESS', 'beisman@gmail.com')
 
 AUTH_TEMPLATE_BASE = "server_ui/templates/base.html"
 HELIOS_TEMPLATE_BASE = "server_ui/templates/base.html"
@@ -207,7 +217,7 @@ HELIOS_PRIVATE_DEFAULT = False
 
 # authentication systems enabled
 #AUTH_ENABLED_AUTH_SYSTEMS = ['password','facebook','twitter', 'google', 'yahoo']
-AUTH_ENABLED_AUTH_SYSTEMS = get_from_env('AUTH_ENABLED_AUTH_SYSTEMS', 'google').split(",")
+AUTH_ENABLED_AUTH_SYSTEMS = get_from_env('AUTH_ENABLED_AUTH_SYSTEMS', 'dnie').split(",")
 AUTH_DEFAULT_AUTH_SYSTEM = get_from_env('AUTH_DEFAULT_AUTH_SYSTEM', None)
 
 # google
@@ -258,6 +268,7 @@ if get_from_env('EMAIL_USE_AWS', '0') == '1':
 # set up logging
 import logging
 logging.basicConfig(
+    filename='/home/carlos/pfc/django.log',
     level = logging.DEBUG,
     format = '%(asctime)s %(levelname)s %(message)s'
 )

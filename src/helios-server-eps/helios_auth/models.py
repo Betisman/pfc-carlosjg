@@ -39,15 +39,16 @@ class User(models.Model):
   @classmethod
   def _get_type_and_id(cls, user_type, user_id):
     return "%s:%s" % (user_type, user_id)    
-    
+
   @property
   def type_and_id(self):
     return self._get_type_and_id(self.user_type, self.user_id)
-    
+
   @classmethod
   def get_by_type_and_id(cls, user_type, user_id):
     return cls.objects.get(user_type = user_type, user_id = user_id)
-  
+
+
   @classmethod
   def update_or_create(cls, user_type, user_id, name=None, info=None, token=None):
     obj, created_p = cls.objects.get_or_create(user_type = user_type, user_id = user_id, defaults = {'name': name, 'info':info, 'token':token})

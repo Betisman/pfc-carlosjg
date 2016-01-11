@@ -22,6 +22,14 @@ from models import User
 
 from security import FIELDS_TO_SAVE
 
+
+
+
+
+
+import logging
+
+logger = logging.getLogger('helios_auth.views')
 def index(request):
   """
   the page from which one chooses how to log in.
@@ -137,6 +145,7 @@ def logout(request):
   return HttpResponseRedirect(return_url)
 
 def _do_auth(request):
+  logger.debug('en _do_auth()')
   # the session has the system name
   system_name = request.session['auth_system_name']
 
@@ -145,9 +154,11 @@ def _do_auth(request):
   
   # where to send the user to?
   redirect_url = "%s%s" % (settings.SECURE_URL_HOST,reverse(after))
+  logger.debug('REDIRECT_URL ------------------------------> ' + redirect_url)
   auth_url = system.get_auth_url(request, redirect_url=redirect_url)
   
   if auth_url:
+    logger.debug('after, redirect a ' + auth_url)
     return HttpResponseRedirect(auth_url)
   else:
     return HttpResponse("an error occurred trying to contact " + system_name +", try again later")
@@ -165,6 +176,9 @@ def start(request, system_name):
   # where to return to when done
   request.session['auth_return_url'] = request.GET.get('return_url', '/')
 
+  # if system_name == 'dnie':
+  #   return AUTH_SYSTEMS['dnie'].do_auth(request)
+
   return _do_auth(request)
 
 def perms_why(request):
@@ -174,6 +188,7 @@ def perms_why(request):
   return _do_auth(request)
 
 def after(request):
+  logger.debug('en after()')
   # which auth system were we using?
   if not request.session.has_key('auth_system_name'):
     do_local_logout(request)
@@ -208,5 +223,9 @@ def after_intervention(request):
   if request.session.has_key('auth_return_url'):
     return_url = request.session['auth_return_url']
     del request.session['auth_return_url']
+  if request.session.has_key('auth_system_name'):
+    if request.session['auth_system_name'] == 'dnie':
+      return HttpResponseRedirect("%s%s" % (settings.SECURE_URL_HOST, return_url))
+
   return HttpResponseRedirect("%s%s" % (settings.URL_HOST, return_url))
 

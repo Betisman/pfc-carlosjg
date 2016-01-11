@@ -1,0 +1,39 @@
+    1  sudo apt-get update
+    2  export http_proxy=http://jcjgomez:Odonkor000@proxy.indra.es:8080
+    3  export https_proxy=http://jcjgomez:Odonkor000@proxy.indra.es:8080
+    4  sudo apt-get update
+    5  sudo -E apt-get update
+    6  sudo apt-get install postgresql
+    7  sudo -E apt-get install postgresql
+    8  cd Descargas/
+    9  ll
+   10  git clone https://github.com/benadida/helios-server.git
+   11  cd helios-server/
+   12  ll
+   13  virtualenv venv
+   14  sudo -E apt-get install python-virtualenv
+   15  virtualenv venv
+   16  source venv/bin/activate
+   18  sudo -E apt-get install libpq-dev
+   20  sudo -E apt-get install python-dev
+   21  pip install -r requirements.txt
+Modoficar rest.sh. Sustituir la línea
+echo "from helios_auth.models import User; User.objects.create(user_type='google',user_id='ben@adida.net', info={'name':'Ben Adida'})" | python manage.py shell
+por
+echo "from helios_auth.models import User; User.objects.create(user_type='password',user_id='betisman@gmail.com', info={'name':'Carlos Jimenez'})" | python manage.py shell
+   22  ./reset.sh
+   23  sudo su -c "createuser --superuser carlos" postgres
+   29  sudo service postgresql restart
+   33  ./reset.sh
+   34  pip install amqp
+   35  ./reset.sh
+   36  pip install billiard
+   37  ./reset.sh
+   38  pip install pytz
+   39  ./reset.sh
+   psql --dbname helios
+   >>> alter role carlos with password 'carlos';
+   ### El password que hay que poner es el que tenemos en settings.py
+   ./reset.sh
+   40  history
+   41  history > ../../commands_helios_instalation.txt

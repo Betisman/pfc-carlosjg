@@ -28,4 +28,5 @@ urlpatterns = patterns('',
 
     # twitter
     (r'^twitter/follow', follow_view),
+
 )
