@@ -14,32 +14,26 @@
    14  sudo -E apt-get install python-virtualenv
    15  virtualenv venv
    16  source venv/bin/activate
-   17  pip install -r requirements.txt 
    18  sudo -E apt-get install libpq-dev
-   19  pip install -r requirements.txt 
    20  sudo -E apt-get install python-dev
-   21  pip install -r requirements.txt 
+   21  pip install -r requirements.txt
 Modoficar rest.sh. Sustituir la línea
 echo "from helios_auth.models import User; User.objects.create(user_type='google',user_id='ben@adida.net', info={'name':'Ben Adida'})" | python manage.py shell
 por
 echo "from helios_auth.models import User; User.objects.create(user_type='password',user_id='betisman@gmail.com', info={'name':'Carlos Jimenez'})" | python manage.py shell
-   22  ./reset.sh 
-   23  su -c "createuser --superuser carlos" postgres
-   24  su -c "createuser --superuser carlos" postgres
-   25  su -c "createuser --superuser carlos" postgres
-   26  su -c "createuser --superuser carlos" postgres
-   27  su -c "createuser --superuser carlos" postgres
-   28  su -c "createuser --superuser carlos" postgres
+   22  ./reset.sh
+   23  sudo su -c "createuser --superuser carlos" postgres
    29  sudo service postgresql restart
-   30  su -c "createuser --superuser carlos" postgres
-   31  su -c "createuser --superuser carlos" postgres
-   32  su
-   33  ./reset.sh 
+   33  ./reset.sh
    34  pip install amqp
-   35  ./reset.sh 
+   35  ./reset.sh
    36  pip install billiard
-   37  ./reset.sh 
+   37  ./reset.sh
    38  pip install pytz
-   39  ./reset.sh 
+   39  ./reset.sh
+   psql --dbname helios
+   >>> alter role carlos with password 'carlos';
+   ### El password que hay que poner es el que tenemos en settings.py
+   ./reset.sh
    40  history
    41  history > ../../commands_helios_instalation.txt
