@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="E:\PFC\dni\Android_DNIeApp_AUTENTICACION\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\libs\internal_impl-23.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
+        <dex dex="E:\PFC\dni\Android_DNIeApp_AUTENTICACION\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.0-7975765dab38d2a1ab9d3920c98391b15a5c2794.jar" />
+    </item>
+    <item
+        jar="E:\PFC\dni\Android_DNIeApp_AUTENTICACION\app\build\intermediates\exploded-aar\Android_DNIeApp_AUTENTICACION\dniedroid\unspecified\jars\libs\scprov-jdk15-1.46.99.3-UNOFFICIAL-ROBERTO-RELEASE.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="aa9ee7d1ac2856bf227eda6e54aae55b234ecca2">
+        <dex dex="E:\PFC\dni\Android_DNIeApp_AUTENTICACION\app\build\intermediates\pre-dexed\debug\scprov-jdk15-1.46.99.3-UNOFFICIAL-ROBERTO-RELEASE-3a13f587d71663adcd2bf8eb12e938d6b2a1e06f.jar" />
+    </item>
+    <item
+        jar="E:\PFC\pfcgit\pfc-carlosjg\src\clienteAndroid\ClienteAndroidEPS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\libs\internal_impl-23.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
+        <dex dex="E:\PFC\pfcgit\pfc-carlosjg\src\clienteAndroid\ClienteAndroidEPS\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.0-f7ffef7c1c7037710a160cca288cd036a1b2faf8.jar" />
+    </item>
+    <item
+        jar="E:\PFC\dni\Android_DNIeApp_AUTENTICACION\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
+        <dex dex="E:\PFC\dni\Android_DNIeApp_AUTENTICACION\app\build\intermediates\pre-dexed\debug\classes-e1d40d5c469e22527b1af912360550d6a0f39594.jar" />
+    </item>
+    <item
+        jar="E:\PFC\pfcgit\pfc-carlosjg\src\clienteAndroid\ClienteAndroidEPS\app\libs\radial-menu-v4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="5d8365e03c7b428815d3d8584332b1df298cbb9c">
+        <dex dex="E:\PFC\pfcgit\pfc-carlosjg\src\clienteAndroid\ClienteAndroidEPS\app\build\intermediates\pre-dexed\debug\radial-menu-v4-bab87bd15dc5f1888aabe3ab9a9b01970a342063.jar" />
+    </item>
+    <item
+        jar="E:\PFC\pfcgit\pfc-carlosjg\src\clienteAndroid\ClienteAndroidEPS\app\build\intermediates\exploded-aar\ClienteAndroidEPS\dniedroid\unspecified\jars\libs\scprov-jdk15-1.46.99.3-UNOFFICIAL-ROBERTO-RELEASE.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="aa9ee7d1ac2856bf227eda6e54aae55b234ecca2">
+        <dex dex="E:\PFC\pfcgit\pfc-carlosjg\src\clienteAndroid\ClienteAndroidEPS\app\build\intermediates\pre-dexed\debug\scprov-jdk15-1.46.99.3-UNOFFICIAL-ROBERTO-RELEASE-dac3e274b820684ac9d6f0ba3ef48d76c29ab37a.jar" />
+    </item>
+    <item
+        jar="E:\PFC\pfcgit\pfc-carlosjg\src\clienteAndroid\ClienteAndroidEPS\app\libs\bcprov-jdk15on-148.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="960dea7c9181ba0b17e8bab0c06a43f0a5f04e65">
+        <dex dex="E:\PFC\pfcgit\pfc-carlosjg\src\clienteAndroid\ClienteAndroidEPS\app\build\intermediates\pre-dexed\debug\bcprov-jdk15on-148-da9d6fa1d8b24d12b88d4d3e5edafc2e52266922.jar" />
+    </item>
+    <item
+        jar="E:\PFC\pfcgit\pfc-carlosjg\src\clienteAndroid\ClienteAndroidEPS\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
+        <dex dex="E:\PFC\pfcgit\pfc-carlosjg\src\clienteAndroid\ClienteAndroidEPS\app\build\intermediates\pre-dexed\debug\classes-3078551fc317b4ccfd5525805eb53d5b5d88562d.jar" />
+    </item>
+    <item
+        jar="E:\PFC\dni\Android_DNIeApp_AUTENTICACION\app\libs\radial-menu-v4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="5d8365e03c7b428815d3d8584332b1df298cbb9c">
+        <dex dex="E:\PFC\dni\Android_DNIeApp_AUTENTICACION\app\build\intermediates\pre-dexed\debug\radial-menu-v4-b5ae00c34d84773fca85c060c691f8f095bb7283.jar" />
+    </item>
+    <item
+        jar="E:\PFC\pfcgit\pfc-carlosjg\src\clienteAndroid\ClienteAndroidEPS\app\build\intermediates\exploded-aar\ClienteAndroidEPS\dniedroid\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="eae68091919c8d6d3c42bc2e33847b358d741189">
+        <dex dex="E:\PFC\pfcgit\pfc-carlosjg\src\clienteAndroid\ClienteAndroidEPS\app\build\intermediates\pre-dexed\debug\classes-85af42fe7dea8feb2b2f096d8b1e71557f246eec.jar" />
+    </item>
+    <item
+        jar="E:\PFC\dni\Android_DNIeApp_AUTENTICACION\app\libs\bcprov-jdk15on-148.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="960dea7c9181ba0b17e8bab0c06a43f0a5f04e65">
+        <dex dex="E:\PFC\dni\Android_DNIeApp_AUTENTICACION\app\build\intermediates\pre-dexed\debug\bcprov-jdk15on-148-75b37367357a16c096f3f4f5872bb7d5bc5e6f5e.jar" />
+    </item>
+    <item
+        jar="C:\Users\Carlos\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.0\support-annotations-23.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
+        <dex dex="E:\PFC\dni\Android_DNIeApp_AUTENTICACION\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.0-cf1fdd375a1fdab4a94c75ec94b4a81942b6f83f.jar" />
+    </item>
+    <item
+        jar="E:\PFC\pfcgit\pfc-carlosjg\src\clienteAndroid\ClienteAndroidEPS\app\libs\jsoup-1.7.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="872693211fd68d1c4e116cf90021603207725e19">
+        <dex dex="E:\PFC\pfcgit\pfc-carlosjg\src\clienteAndroid\ClienteAndroidEPS\app\build\intermediates\pre-dexed\debug\jsoup-1.7.2-34725f84b232af923fe26505395e70887d55c390.jar" />
+    </item>
+    <item
+        jar="E:\PFC\dni\Android_DNIeApp_AUTENTICACION\app\build\intermediates\exploded-aar\Android_DNIeApp_AUTENTICACION\dniedroid\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="eae68091919c8d6d3c42bc2e33847b358d741189">
+        <dex dex="E:\PFC\dni\Android_DNIeApp_AUTENTICACION\app\build\intermediates\pre-dexed\debug\classes-048c57298f2822b29a24cc26666dfb4aa15d629f.jar" />
+    </item>
+    <item
+        jar="E:\PFC\dni\Android_DNIeApp_AUTENTICACION\app\libs\jsoup-1.7.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="872693211fd68d1c4e116cf90021603207725e19">
+        <dex dex="E:\PFC\dni\Android_DNIeApp_AUTENTICACION\app\build\intermediates\pre-dexed\debug\jsoup-1.7.2-a9bfa9c17875a142147496ed29e0fe60943a5a55.jar" />
+    </item>
+
+</items>

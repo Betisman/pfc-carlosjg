@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/fondo_secundario">
+
+    <ImageView
+        android:id="@+id/banner_dgp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/banner_dgp_red"
+		android:scaleType="centerCrop"
+		android:adjustViewBounds="true"/>
+
+    <ImageView
+        android:id="@+id/texto_generico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_gravity="center"
+        android:background="@drawable/icono_superior_red"/>
+    
+    <RelativeLayout
+        android:id="@+id/grupo_opciones"
+	    android:layout_width ="fill_parent" 
+	    android:layout_height="fill_parent"
+	    android:layout_marginLeft="10dp"
+	    android:layout_marginRight="10dp"
+	    android:layout_marginBottom="30dp"
+	    android:gravity="bottom">
+        
+	    <TextView
+	        android:id="@+id/boton_opcion0"
+	        android:visibility="invisible"
+            android:layout_width="wrap_content"
+          	android:layout_height="wrap_content"
+	        android:layout_centerHorizontal="true"
+        	android:background="@drawable/texto_ayto_tributos_red"/>
+	    <TextView
+	        android:id="@+id/boton_opcion1"
+	        android:visibility="invisible"
+            android:layout_width="wrap_content"
+          	android:layout_height="wrap_content"
+	        android:layout_centerHorizontal="true"
+        	android:background="@drawable/texto_ayto_multas_red"/>
+	    <TextView
+	        android:id="@+id/boton_opcion2"
+	        android:visibility="invisible"
+            android:layout_width="wrap_content"
+          	android:layout_height="wrap_content"
+	        android:layout_centerHorizontal="true"
+        	android:background="@drawable/texto_ayto_datoscensales_red"/>
+	    <TextView
+	        android:id="@+id/boton_opcion3"
+	        android:visibility="invisible"
+            android:layout_width="wrap_content"
+          	android:layout_height="wrap_content"
+	        android:layout_centerHorizontal="true"
+        	android:background="@drawable/texto_ayto_expedientes_red"/>
+	    <TextView
+	        android:id="@+id/boton_opcion4"
+	        android:visibility="invisible"
+            android:layout_width="wrap_content"
+          	android:layout_height="wrap_content"
+	        android:layout_centerHorizontal="true"
+        	android:background="@drawable/texto_ayto_madrid_red"/>
+    </RelativeLayout>
+  
+</LinearLayout><!-- From: file:/E:/PFC/pfcgit/pfc-carlosjg/src/clienteAndroid/ClienteAndroidEPS/app/src/main/res/layout/main.xml -->

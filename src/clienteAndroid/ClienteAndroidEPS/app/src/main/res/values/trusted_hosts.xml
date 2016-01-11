@@ -1,0 +1,7 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <array name="trusted_hosts">
+        <item>B865130BEDCA38D27F69929420770BED86EFBC10</item> <!-- AYTO: AC Componentes Informaticos. Raiz FNMT -->
+        <item>2D3E48B5671DB00B6EFA4AFEEACC034E8122ACAC</item> <!-- AYTO: AC Componentes Informaticos. componentes informaticos-->
+        <item>5A2825904ED1B1CC7DCA4F11658DED9A01902BD9</item> <!-- AYTO: *.MADRID.es -->
+    </array>
+</resources>

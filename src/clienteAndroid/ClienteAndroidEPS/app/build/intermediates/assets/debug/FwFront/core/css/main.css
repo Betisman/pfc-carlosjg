@@ -1,0 +1,168 @@
+/*------------------------------------------------------------------
+[Master Estilos]
+-------------------------------------------------------------------*/
+@import "reset.css";
+@import "layout.css";
+/*	@import "fixed.css";*/
+@import "modul.css";
+/*@import "debug.css"; */
+
+/*------------------------------------------------------------------
+[Indice]
+1. Contenedoras
+	2. Cabecera / #header
+	3 Menu de Navegación horizontal / #navMenu
+	4 Rastro de Migas /#crumbTrail
+	5. GridContent / @import "layout.css"
+	6. Pie de página / #footer
+		6.1. Enlaces del pie / #footLinks
+		6.2. Navegación del pie / #footNav
+		6.3. Copyright /#copy		
+----------------------------------------------------------------*/
+/*	2 -Cabecera -*/	
+	#header{float:left; width:100%; height:5.69em; position:relative; background:#000; border-bottom:1px solid #fff}
+
+/* Especificos de Id ayto */
+	#IdCorp{position:relative; top:1.44em; left:1.56em; height:2.94em; width:38em; }
+		#IdCorp span{position:absolute; top:-1000px}
+		#IdCorp #idPortal span{ float:left; position:static; width:25em;overflow:hidden;  color:#fff; font-weight:bold; margin-left:.3em;}
+	#logoLink {display:block; float:left; width:136px; height:40px; margin-left:0.4em; margin-right:1.7em;background-image:url(../img/logoHead.png); position:relative; z-index:20}
+	#logoRaiz {color:#fff;font-family:Arial,Helvetica,sans-serif;font-size:0.55em;font-weight:normal; position:absolute; left:6.35em; top:3.2em;}
+	#idPortal{font-size:1.08em; float:left; margin-left:1.5em; padding:0.31em 0.25em 0.1em 0.5em; width:11.81em; height:2.4em;} /* [EP] */							
+	#idPortal a{font: bold 1em Arial, Helvetica, sans-serif;color:#fff;}
+	#idPortal a img{cursor:pointer;cursor:pointer;}
+		#idPortal a span{text-indent: -100em;} 
+
+/*- Menu Idiomas  -*/
+	#lenguaje{position:absolute; width:6em; top:0px; left:53.5em; z-index:1; background:url(../img/sep_Idioma.gif) top left no-repeat; padding-left:0.75em; }
+	/*-Combo idiomas-*/
+	#cboLanguaje .cabCbo {padding-top: 0.375em; margin-left: 17.5625em}
+	#cboLanguaje .cabCbo img {margin-right: 1px}
+	form#frmSelectLenguaje select {height: 1.7em}
+	#titIdioma {background-color: transparent; border: 1px solid #999999; margin-top:0.3125em; padding-left:0.25em; height:0.875em; overflow:hidden; width:4.375em; float:left}
+	#titIdioma p {font: 0.6875em Arial, Helvetica, sans-serif; color: #fff; text-align:left}
+	#btIdioma{float:left;padding:0.312em 1px 0 0 ;margin-left:1px}
+	#btIdioma a {cursor:pointer}
+	/*sin js*/
+	#idioma{float:left; margin:0.25em 0em; }
+	#btnSeleccionar{ float:left; margin:0.4em 0 0 0.2em; padding:0.1em 0.2em; background:#fff; color:#333; border:none;}
+	
+	#listaIdioma {font:0.688em Arial, Helvetica, sans-serif; position:absolute; top:1.818em; left:1.091em; z-index:5; background-color:#585858; display:none; border: 1px solid #999999; border-top:0;border-bottom:0;margin-top: 1px; }
+	#listaIdioma ul{margin:0;padding:0}
+	#listaIdioma li {list-style-type: none; margin:0; padding-top:1px; width:6.7em; background:#585858 url(../img/fnd_UL_SelLanguage.gif) no-repeat 4px 7px;color: #006699;border-bottom:1px solid #999999}
+	#listaIdioma li a{padding:0 0 0 1em;color:#fff}
+	#listaIdioma li a:hover{color:#fff;text-decoration:none; }
+	
+/*- Identificador de usuario -*/
+	#userId{display:none; position:absolute; top:0px; right:7.25em; height: 1.5em;  padding: 0.25em 0 0 0.31em; }
+	#userId span{ float:left; font-size:0.69em; display:block; color:#ccc}
+	#userId span.userName{font-weight:bold; width:auto; height:2em;}
+	#userId .iconAction1 {float:left; margin-left:0.25em; text-decoration:none; font-size:0.91em}
+	#userId .iconAction1 span{color:#fff; padding-right:2em; background:url(../img/icoLogIn.gif) right 2px no-repeat}
+	#userId .iconAction1 img{margin:0.13em}
+	#userId .login{float:left; color:#fff; margin-right:0.56em; }
+
+	#headMenu{position:absolute; top:0px; /*JESUS CAMBIADO POR EL SIGUIENTEright:7.25em;*/ right:.1em;height: 1.5em;  padding: 0.2em 0 0 0.31em; }
+	#headMenuAux li{background:transparent url(../img/sep_UL_footNav.gif) no-repeat scroll right 75%; display:inline; line-height:1em; padding:0 0.5em 0 0.5em;}
+	#headMenuAux li.last{background:none}
+	#headMenuAux li a{color:#ffffff; /*JESUS CAMBIADO POR EL SIGUIENTE font-size:0.625em;*/font-size:0.725em;}
+
+/*- Buscador -*/
+	#searchBox {position:absolute; height:3.69em; width:11.438em; bottom:0px; right:0; padding-left:0.93em; background: url(../img/backSearchBoxLeftShort.png) top left no-repeat; text-align:left; height:2.813em}
+	#searchBox	#searchForm { float:left; width:100%; height:3.69em; background:url(../img/backSearchBoxRightShort.png) top right no-repeat; height:2.813em; }
+	#searchBox	#searchForm label {float:left; margin:1.125em 0 0 0.31em;}
+	#searchBox	#searchForm label span{position:absolute; top:0; color:#fff; font-size:0.69em; width:0;overflow:hidden}
+	#searchBox	#searchForm #txtSearch{float:left; clear:left; width:9.3em; border:1px solid #666666; background:#eeeeee; color:#333333; padding:1px}
+	
+	#searchBox	#searchForm #searchButton.btn {position:absolute; bottom:7px; right:16px; margin:0; display:inline-block; padding:2px 0; border-width:0; overflow:visible; font:0.625em Arial,Sans-serif; line-height: 1.3em; background:transparent; color:#333333; cursor:pointer; text-decoration:none; }
+	#searchBox	#searchForm #searchButton.btn span {  margin:0; padding:2px 0; background:#fff; border-left:1px solid #eeeeee; border-right:1px solid #eeeeee;}
+    #searchBox	#searchForm #searchButton.btn span span { position:relative; padding:2px .4em; background:#fff; border-width:0; border-top:1px solid #eeeeee; border-bottom:1px solid #eeeeee;}
+    #searchBox	#searchForm #searchButton.btn:hover span, #searchBox #searchForm #searchButton.btn:hover span span{color:#000000; background:#ffffff; cursor:pointer;}
+	
+		
+/*	3 -Navegación horizontal -*/	
+	#navMenu{float:left; /*height:4.813em; */text-align:center; width:100%; clear:both; background:#444444 url(../img/backNavMenuItem.jpg) top left repeat-x; }
+		#navMenuList {margin-left:0em; text-align:left; background:transparent url(../img/backNavMenu.jpg) top left repeat-x; padding:0 0.188em; float:left; display:inline}
+		#navMenuList li{float:left}
+		#navMenuList li	a, #navMenuList span.active{ margin-left:0.188em; display:block; float:left; background:transparent url(../img/backNavMenuItem.jpg) top right repeat-x; color:#fff;	padding:0 0.38em; width: 8.9em; min-width:6.25em; max-width:9.688em; height:3.188em;}
+		#navMenuList li a:hover,
+		#navMenuList span.active,
+		#navMenuList a.active{background:transparent url(../img/backNavMenuItemOver.jpg) top right repeat-x; color:#333; text-decoration:none;}
+		#navMenuList li span.pesta{display:block}
+		#navMenuList a span.menuLabel{display:block;margin:2em 0px 0.42em 0 ; font-size:0.75em; line-height:1em; text-transform: uppercase; text-align:center}
+		#navMenuList a span.menuSpeak{display:block;font-size:0.63em;line-height:1em;color:#ccc}		
+			#navMenuList a:hover span.menuLabel{color:#000; text-decoration:underline;}
+			#navMenuList a:hover span.menuSpeak{color:#000; text-decoration:none}		
+		#navMenuList span.active span.menuLabel{display:block;margin:2em 0px 0.42em 0 ; font-size:0.75em; line-height:1em; text-transform: uppercase; text-align:center; color:#000;}
+		#navMenuList span.active span.menuSpeak{display:block;font-size:0.63em;line-height:1em; color:#000; text-decoration:none;}	
+        		
+		/* Alineación de textos de menu */
+		/* FF */
+		/*#navMenuList li	a, #navMenuList span.active{ display:table}
+		#navMenuList li span.pesta{display:table-cell; vertical-align:middle;}
+		#navMenuList a span.menuLabel, #navMenuList span.active span.menuLabel{margin:1em 0px 0.42em 0 ;}*/
+
+	/*	3.2 -SubMenu -*/	
+		#subNavMenuList{ float:left; clear:left;  text-align:left; padding-bottom:0.125em;/*JESUS nuevo diseño*/ background:#FFF; width:98.85%; border-left:.4em solid #4B5459;  border-bottom:.4em solid #4B5459;  border-right:.4em solid #4B5459 }
+		#subNavMenuList li{float:left; display:inline-block; margin:0 0.188em; padding:0.125em 0.375em 0.125em 0.188em; background:url(../img/sep_UL_subMenuList.gif) top right no-repeat}
+			#subNavMenuList li.last{background:none}
+		#subNavMenuList li	a{/* JESUS nuevo diseño */ color:#333; /* */font-size:0.75em; /* JESUS nuevo diseño font-weight:bold;*/ padding:0 0.2em; line-height:1.7em}		
+		 #subNavMenuList a.active{ /* JESUS nuevo diseño */color:#333; font-weight:bold;/* */ text-decoration:none;}
+		 /* JESUS nuevo diseño */#subNavMenuList li	a:hover{ text-decoration:underline;}/* */
+		
+	#inner {position: relative; top: -50%} /* for explorer only */
+	/* optional: #inner[id] {position: static;} */ 
+		
+/*	4 -Rastro de migas -*/	
+	#crumbTrail{clear:both; padding:0 0 0.18em 0; background:#fff}
+	#crumbTrail #start, #crumbTrail h2.currentChannel, #crumbTrail a, #crumbTrail span{font: 0.69em Arial, Helvetica, sans-serif; color: #999; display:inline;}
+	#crumbTrail span{color:#000;}
+
+	#crumbTrail #start{margin-left:0.45em}
+	#crumbTrail a {color: #006699;}
+	#crumbTrail h2.currentChannel, #crumbTrail span.trail{color: #333; line-height:1em}
+
+/* 5.- Menu Lateral */
+	ul.menuLevel1{background:#F4F5F7;float:left; padding:0.38em 0.13em}
+	ul.menuLevel1 li.n1 {float:left; clear:left; width:11.31em; margin-bottom:0.19em;}
+	ul.menuLevel1 li.n1 span {display:block; padding-left:0.75em; background:#dbe0e9 url(../img/bulletSideMenuGray.gif) top left no-repeat;color:#585858;}
+	ul.menuLevel1 li.n1 span a{font:0.688em Arial, Helvetica, sans-serif; color:#585858; line-height:1.36em}
+	ul.menuLevel1 li.n1.selected span { background:#333 url(../img/bulletSideMenuBlue.gif) top left no-repeat;}
+	ul.menuLevel1 li.n1.selected span a{ color:#fff}		
+	ul.menuLevel1 li.n1 ul.menuLevel2 {float:left; margin-left:0.56em; display:inline; background:#F4F5F7;}
+	ul.menuLevel1 li.n1 ul.menuLevel2 li.n2{float:left; clear:left; width:10.75em;}
+	ul.menuLevel1 li.n1 ul.menuLevel2 li.n2 span{ background:#F4F5F7 url(../img/bulletSideMenuGray.gif) top left no-repeat; padding-bottom:0.22em;}
+	ul.menuLevel1 li.n1 ul.menuLevel2 li.n2 span span{ background:none; display:inline; margin-left:0; padding:0;}
+	ul.menuLevel1 li.n1 ul.menuLevel2 li.n2 span a{color:#585858; }
+	ul.menuLevel1 li.n1 ul.menuLevel2 li.n2.selected span{background:#cee9f7 url(../img/bulletSideMenuBlack.gif) top left no-repeat;}
+	ul.menuLevel1 li.n1 ul.menuLevel2 li.n2.selected span a{color:#333}	
+	ul.menuLevel1 li.n1 ul.menuLevel2 li.n2 ul.menuLevel3{float:left; margin-left:0.56em; display:inline; }
+	ul.menuLevel1 li.n1 ul.menuLevel2 li.n2 ul.menuLevel3 li.n3{float:left; clear:left; width:10.19em }
+	ul.menuLevel1 li.n1 ul.menuLevel2 li.n2 ul.menuLevel3 li.n3 span{background:url(../img/bulletSideMenuGray.gif) top left no-repeat}
+	ul.menuLevel1 li.n1 ul.menuLevel2 li.n2 ul.menuLevel3 li.n3 span.documentoTipo{background:none;  width:auto; display:inline; float:none; padding-left:0;}
+	ul.menuLevel1 li.n1 ul.menuLevel2 li.n2 ul.menuLevel3 li.n3 span a{color:#585858;}
+	ul.menuLevel1 li.n1 ul.menuLevel2 li.n2 ul.menuLevel3 li.n3.selected span{background:#cee9f7 url(../img/bulletSideMenuBlack.gif) top left no-repeat;}
+	ul.menuLevel1 li.n1 ul.menuLevel2 li.n2 ul.menuLevel3 li.n3.selected span a{color:#333}
+
+/*	6 -Pie de página-*/
+	#footer {float:left; clear:both; width:100%; margin:1.63em 0; border-bottom:1px solid #d8dee1 }
+/*	6.1. Navegacion del pie / #footNav	*/
+	#footer #footNav {float: left; width:100%; height:1.81em;  background:transparent url(../img/backFooter.jpg) top left repeat-x; border-bottom:1px solid #D8DEE1; padding-top:0.38em}
+	#footer #footNav ul#footNavMain{float: left; padding-left:0.63em ;}
+	#footer #footNav ul#footNavAux {float: right;padding-right:0.63em }
+	/*Añadido jesus*/
+		#footer #footNav ul#footIzq {width:50%; float:left;}
+		/*..........*/
+	#footer ul li {line-height: 1em; background: transparent url(../img/sep_UL_footNav.gif) no-repeat bottom right; padding-right: 0.69em; margin-right: 0.44em; display:inline}
+	#footer ul li a {font: 0.625em Arial, Helvetica, sans-serif; color: #585858}
+	#footer ul li.last {background: none; padding:0; margin:0}
+	/*	6.2. Enlaces del pie / #footLinks	*/
+	#footer ul#footLinks {padding: 0.56em 0 0.438em 0.188em; float: left}
+	#footer ul#footLinks li {display: inline; float:left; height:1.125em; line-height: 1em; padding:0; margin-right: 0.688em ; background: transparent url(../img/sep_UL_footNav.gif) no-repeat right}
+	#footer ul#footLinks a { float:left; cursor:pointer; display:block; height:1.125em }
+	#footer ul#footLinks li.WAIAA {  background:url(../img/w3c_wai_aa.gif) no-repeat left center; width:3.125em }
+	#footer ul#footLinks li.WCAGAA {  background:url(../img/selloAA_p.gif) no-repeat left center; width:3.375em; }
+	#footer ul#footLinks li.TAU {  background:url(../img/taw2007.gif) no-repeat left center; width:3.438em }
+	#footer ul#footLinks a span { display:none }
+	#copy {float:right; padding:0.56em 0.56em 0 0;}
+	#copy p {font-size: 0.625em; color: #585858; }

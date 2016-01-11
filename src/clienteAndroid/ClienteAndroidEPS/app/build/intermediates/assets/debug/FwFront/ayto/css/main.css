@@ -1,0 +1,13 @@
+
+@import "secciones/boam.css";
+
+/*------------------------------------------------------------------
+[Estilos Comunes Ayuntamiento]
+-------------------------------------------------------------------*/
+/*	2 -Cabecera -*/	
+	#header{ background:black url(../../core/img/backHeadBlack.jpg) top right no-repeat;}
+/* Especificos de Id ayto */
+	#logoLink	{background-image:url(../../ayto/img/logoHead.png);text-indent:-3300em}
+	
+#searchBox {width:13.438em; }
+#searchBox	#searchForm #txtSearch{width:11.3em; }
