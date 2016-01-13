@@ -2,6 +2,8 @@ sudo apt-get install apache2
 sudo apt-get install openSSL
 cd /etc/apache2/mods-available
 sudo a2enmod ssl
+sudo apt-get install libapache2-ñmod-wsgi
+sudo a2enmod wsgi
 cd /etc/apache2/sites-available
 sudo cp 000-default.conf sitednie.conf
 cd /etc/apache2/sites-available
@@ -39,6 +41,16 @@ sudo gedit sitednie.conf &
 En <VirtualHost *:80> :
 
 ---- DocumentRoot /home/carlos/Descargas/helios-server
+	<Directory /home/carlos/Descargas/helios-server>
+		<Files wsgi.py>
+			Require all granted
+		</Files>
+	</Directory>
+
+	WSGIDaemonProcess / python-path=/home/carlos/Descargas/helios-server:/home/carlos/Descargas/helios-server/venv/lib/python2.7/site-packages
+    WSGIProcessGroup /
+    WSGIScriptAlias / /home/carlos/Descargas/helios-server/wsgi.py
+	
 
 En <VirtualHost _default_:443> :
 
@@ -58,6 +70,17 @@ En <VirtualHost _default_:443> :
 	SSLVerifyDepth  2
 --- Modificar donde se deba:
 	SSLOptions +StdEnvVars +ExportCertData
+	
+	
+	<Directory /home/carlos/Descargas/helios-server>
+		<Files wsgi.py>
+			Require all granted
+		</Files>
+	</Directory>
+
+	#WSGIDaemonProcess / python-path=/home/carlos/Descargas/helios-server:/home/carlos/Descargas/helios-server/venv/lib/python2.7/site-packages
+    WSGIProcessGroup /
+    WSGIScriptAlias / /home/carlos/Descargas/helios-server/wsgi.py
 -----------------------------
 
 sudo gedit /etc/apache2/ports.conf
