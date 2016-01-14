@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- From: file:/C:/Users/jp6149/AndroidstudioProjects/DnieDroidFNMT/app/src/main/res/values/trusted_hosts.xml -->
+    <eat-comment/>
+    <array name="trusted_hosts">
+        <item>B18D9D195669BA0F7829517566C25F422A277104</item> <!-- VeriSign Class 3 International Server CA - G3 -->
+        <item>1933061EA82851CEF85CB8C477A80FD7E0306353</item> <!-- VeriSign Class 3 International Server CA - G3 -->
+        <item>43F9B110D5BAFD48225231B0D0082B372FEF9A54</item> <!-- OU=FNMT Clase 2 CA,O=FNMT,C=ES -->
+        <item>ADD7098DC02EBC03C543F7C81B7E027E21A11E63</item> <!--  sEGURIDAD SOCIAL "segsockeystoreacgiss4_2013 -->
+		<item>CA93BDA233F3A55E8D3F1C09F7C9E300B012ACFA</item> <!--  sEGURIDAD SOCIAL "segsockeystore43 -->
+    </array>
+    <!-- From: file:/C:/Users/jp6149/AndroidstudioProjects/DnieDroidFNMT/app/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="app_name">DnieDroidFNMT</string>
+    <string name="psswd_dialog_cancel">Cancelar</string>
+    <string name="psswd_dialog_ok">Aceptar</string>
+    <string name="psswd_dialog_short">Contraseña</string>
+    <string name="psswd_dialog_show">Mostrar contraseña</string>
+    <string name="psswd_dialog_title">Introduzca contraseña</string>
+    <!-- From: file:/C:/Users/jp6149/AndroidstudioProjects/DnieDroidFNMT/app/src/main/res/values/styles.xml -->
+    <eat-comment/>
+    <style name="AppBaseTheme" parent="android:Theme.Light">
+        <!--
+            Theme customizations available in newer API levels can go in
+            res/values-vXX/styles.xml, while customizations related to
+            backward-compatibility can go here.
+        -->
+    </style>
+    <style name="AppTheme" parent="AppBaseTheme">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+    </style>
+</resources>

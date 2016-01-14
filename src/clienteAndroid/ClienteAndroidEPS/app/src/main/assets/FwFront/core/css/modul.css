@@ -1,0 +1,1484 @@
+
+
+/* Modulos especicos de seccion */
+
+/* HOME banner */
+	#sectionId {width:48.45em; height:1%;}
+	#sectionId .imgHolder {position:relative; }
+	#sectionId .imgHolder .imgBannerSecc{position:absolute; right:3px}
+	#sectionId .imgHolder .bannerText{text-align:left;position:absolute;top:0;left:0; width:100%;/*CAMBIADO ANTES ANCHO 99%*/ height:12em; z-index:2; padding:0; background:transparent url(../img/backSectionId2_short.png) top left no-repeat; overflow:hidden }
+		#sectionId .imgHolder .bannerText2{text-align:left;position:absolute;top:0;left:0; width:100%; height:8.8em; z-index:2; padding:0; background:transparent url(../img/backSectionId_archivo.png) bottom left no-repeat; overflow:hidden }
+	#sectionId .imgHolder .bannerText a{display:block;  color:#585858}
+	#sectionId .imgHolder .bannerText span.textBig1{font-size:1.56em;color:#585858; font-weight:bold; display:block; width:10.5em; line-height:1em;padding:0.68em;}
+	#sectionId .imgHolder .bannerText span.textBig2{font-size:1.3750em;color:#585858; font-weight:bold; display:block; width:11.5em; line-height:1em;padding:0.68em; }
+	#sectionId .imgHolder .bannerText span.textBig3{font-size:0.75em;color:#585858; display:block; width:13.33em; line-height:1.1em; margin-top:0.5em}
+	#sectionId .imgHolder .bannerText2 span.textBig4{font-size:1.56em;color:#585858; font-weight:bold; display:block; width:10.5em; line-height:1em;padding:0.68em;}
+	
+	/* Aviso semitransparente */
+	/* en BANNER */
+	#sectionId .imgHolder .bannerAviso,#sectionId .imgHolder .bannerTransparent{ position:absolute; right:0.625em; top:0.625em; width:29em; min-height:1.75em; height: auto !important; height:1.75em; z-index:2;}
+	#sectionId .imgHolder .bannerTransparent {; z-index:1;/*opacity:0.9; CON BANNER TRANSPARENT DENTRO SINO ESTO VA EN EL ESTILO DE ARRIBA*/ right:0em; top:0em;  border:1px solid #c1c1c1;padding:0.3em 0em 0.30em 0.4em; background:url(../img/bg_mod_avisos.gif) repeat-y left top #f1f8fb;box-shadow: 0.125em 0.125em 0.125em #666; -moz-box-shadow: 0.125em 0.125em 0.125em #666; -webkit-box-shadow: 0.125em 0.125em 0.125em #666; behavior: url(/FwFront/core/js/PIE.htc); }
+	#sectionId .imgHolder .bannerAviso span { color:#000; float:left; font-size:0.75em; padding: 0.3em 0; margin-right:0.25em }
+	#sectionId .imgHolder .bannerAviso span.info { background:url(../img/ico_info.gif) no-repeat left top; padding-left:2.5em; font-weight:bold }
+	#sectionId .imgHolder .bannerAviso span.aviso { background:url(../img/ico_avisos.gif) no-repeat left top; padding-left:2.5em; font-weight:bold }
+	#sectionId .imgHolder .bannerAviso ul { float:left; padding:0.125em 0 .5em; width:83%;}
+	#sectionId .imgHolder .bannerAviso ul li { float:left; padding:0 0.25em ; width:95%;}
+	#sectionId .imgHolder .bannerAviso ul li.last { background:none  }
+	#sectionId .imgHolder .bannerAviso ul li a { color:#216383; font-size:0.75em; float:left; line-height:1em; padding:0.5em 1em 0 3em;font-weight:bold;}
+
+
+	
+	/* en Detalle*/
+	
+
+/* Declaraciones de modulos extensibles */
+	/* Destacados de Home */
+	.destBody, .destBody a {color:#216383;}
+	.destBody a:hover, .destBody a:focus{text-decoration:underline;}
+	.bodyA{padding-left:0.688em; line-height:1em;}
+		.panelRelEspecial .bodyA { padding-left:0 }
+	
+/*	Azul con esquinas redondeadas 
+	.destHeadA{background:#EFF1F2 url(../img/backDestHeadRightRnd.gif) top right no-repeat; padding:0 0.25em 0 0; position:relative }
+	.destHeadA h3{background:#EFF1F2 url(../img/backDestHeadLeftRnd.gif) top left no-repeat; padding:0.13em 0.63em; line-height:0.9em}
+*/
+/*	Con Degradado 
+	.destHeadA {background:transparent url(../img/backDestHeadRightDeg.gif) top right repeat-x; padding:0 0.25em 0 0; position:relative }
+	.destHeadA h3{background:none; padding:0.13em 0.63em; line-height:0.9em}
+*/
+/*	Con Barras */
+	.destHeadA {padding:0; position:relative;  }
+	.destHeadA h4, .destHeadA h3{background:url(../img/backDestHeadBar2.gif) top right repeat-x; padding:0.2em 0.63em; line-height:0.9em; /*JESUS AJUSTES HOME width:90%*/}
+	.destHeadA h3.noLeft{background-image:none}
+	.destHeadA h3 a, .destHeadA h3 span, .destHeadA h4 a, .destHeadA h4 span{ font-size:0.75em; font-weight:bold; color:#333333}
+	.destHeadA h3 a, .destHeadA h4 a{font-size:0.75em; font-weight:bold;color:#216383; display:block; /*width:100%;*/}
+    	
+/*H3 destacados de la home y portadillas & H4 columna relacionados*/	
+	/*JESUS CAMBIADO AJUSTES HOME
+	.destHeadA h3 a .linkFrill, .destHeadA h4 a .linkFrill{ position:absolute; left:18em; top:.7em; width:1em; height:1em; background:url(../img/ico_flecha_link.gif) top left no-repeat}*/
+	/*JESUS NUEVO AJUSTE HOME*/
+	.destHeadA h3 a .linkFrill, .destHeadA h4 a .linkFrill{background:url("../img/ico_flecha_link.gif") no-repeat scroll left top transparent;
+display:block;
+height:1em;
+position:absolute;
+right:0.5em;
+top:0.75em;
+width:1em;}
+	
+	.distrib .destBody .destHeadA h3 a .linkFrill {	display:none;}
+	.destHeadA h3 a:hover .linkFrill{text-decoration:none}
+
+	.destSubHeadA {padding:0.13em 0.688em;}
+	.destSubHeadA a{font-size:0.688em;color:#333; font-weight:bold; }	
+		.relBody .destSubHeadA a { color:#585858; line-height:1.2em; font-weight:normal }
+
+	.destBody .headline{font-weight:bold; }
+
+	#contenedor131 .panel22 ul.listContents.punteado{ overflow:hidden; margin-top:1em; background:url("../img/borde_listado.gif") repeat-x top; width:100%; float:left; padding-top:0.7em;}
+	ul.listContents li{padding:0 0 0.182em 0; margin:0; float:left; width:95%}
+	ul.listContents li a{ font-size:0.75em; line-height:1.273em; color:#216383; text-decoration:none; display:block; padding:0 0.909em; background:transparent url(../img/bulletMenuMarino.gif) top left no-repeat; position:relative }
+	.noBullet ul.listContents li.conFoto a{ padding:0 0.509em; background:none; width: 7.5em;}
+	
+	ul.listContents li .lockImg5 a{ font-size:0.75em; line-height:1.273em; color:#216383; text-decoration:none; display:block; padding:0; background:none; position:relative }
+	
+	ul.listContents li a span.linkFrill{ position:absolute; margin-left:0.188em }
+	ul.listContents li a span.linkFrill:after{ content:""}
+	
+	ul.listContents li.impar { clear:left }
+	ul.listContents li.conFoto a{ float:left; width:5.7em /*margin-left:-0.455em*/}
+	
+	/* Diana para las listas de las redes sociales COMPARTIR*/
+	ul.listCompartir{clear:both;overflow:hidden;padding:.125em 0 .3125em .3125em}
+	ul.listCompartir li{float:left;padding-right:.25em;}
+	/* */
+	
+	/*DISTRIBUTIVA EMPRESAS y CIUDADANOS */
+	.panel22.gris .destBody, .panel12.gris .destBody, .panel2x.gris .destBody, .panel24.gris .destBody, .panel25.gris .destBody, .panel23.gris .destBody, .panel1x.gris .destBody{ background:url(../img/empre_fondo_cabecera.gif) repeat-x;  overflow:hidden;}
+	.panel22.gris .destHeadA, .panel12.gris .destHeadA{ margin-bottom:1.5em;}
+	.resaltado {background:#F8F8F8; border: 1px solid #C2C2C2; width: 23.59em; box-shadow: 0.125em 0.125em 0.125em #CCC; -moz-box-shadow: 0.125em 0.125em 0.125em #CCC; -webkit-box-shadow: 0.125em 0.125em 0.125em #CCC; -pie-box-shadow: 0.125em 0.125em 0.125em #CCC; behavior: url(/FwFront/core/js/PIE.htc);}
+	
+	/* DISTRIBUTIVA SEDE */
+	.panel1x.distrib .destHeadA { margin-bottom:.5em; padding: .5em 0; background: #31558e; }
+	.panel1x.distrib .destBody h3 { background: none; padding-right: .18em; }
+	.panel1x.distrib .destBody h3 a { font-size: 1em; }
+	.panel1x.distrib .destBody h3 a:link,
+	.panel1x.distrib .destBody h3 a:visited,
+	.panel1x.distrib .destBody h3 a:hover,
+	.panel1x.distrib .destBody h3 a:active { color: #FFF; }
+
+	/*-----------*/
+	/*MODULO DESTACADOS DISTRIBUTIVA EMPRESAS*/
+	.fondoDestacado{left:-9000em; overflow:hidden; position:absolute;}
+	.panel22.destacado	ul.listContents li.conFoto a{width:75%;}
+	.panel22.destacado	ul.listContents{ margin-bottom:0.7em; overflow:hidden;}
+	.panel22.destacado .destHeadA h3{ background:none; padding:0.4em 0.63em 0 0.63em}
+	.panel22.resaltado .destHeadA h3{ line-height: 0.9em; padding: 0.2em 0.63em;background: none; border-bottom: 1px solid #C2C2C2; width:91%; margin:0 auto;}
+	.panel22.destacado .fondoDestacado{position:absolute; bottom:0; left:0; width:100%; z-index:-1;}
+	.panel22.destacado .destBody .fondoDestacado{position:absolute; top:0; left:0; width:100%}
+	/*-----------*/
+	/*JESUS*/
+	ul.listContents li.conFoto2 a{ float:left; width:100% /*margin-left:-0.455em*/}
+	ul.listContents li.conFoto3 a{ display:inline;/*margin-left:-0.455em*/}
+	/*------------*/
+	ul.listContents li .lockImg1 a{ background:none; padding:0; margin:0;}
+	ul.listContents li a:hover{text-decoration:underline;}
+	ul.listContents li .description{margin-left:0.626em; display:inline;}
+		
+/*	.viewAll{position:absolute; bottom:-0.8em; right:0; }*/
+	.viewAll{clear:both; float:right; margin:0; padding:0; }
+	.viewAll a{font-size:0.688em; color:#216383; font-weight:bold; background: url(../img/ico_flecha_link.gif) no-repeat  4.35em 0.426em; padding-right: 1.5em;}
+	.viewMore{clear:both; float:right; margin:0; padding:0; }
+	.viewMore a{font-size:0.75em; color:#216383; padding-right: 1.5em;}
+	
+	/*Estilos enlaces resultados en mapa*/
+	.resultadosMapa{margin-bottom: 0.5em; margin-left: 0.7em; margin-top: 8em; background: url("../img/icoBulletMap.gif") no-repeat scroll left 0.1em transparent; padding-left: 2em; padding-top: 0.21em; color: #006699;font-size:0.75em;clear:both;}
+	.resultadosMapa a {color:#006699;}
+    .resultadosMapa a span.linkFrillFlecha:after {content: url("../img/ico_flecha_link.gif");}
+    .resultadosMapa a span.linkFrillFlecha {margin-left: 0.25em; margin-top: 0.59em;position: absolute;}
+		
+	.panelRel ul.listContents li a { color:#333; background-image:url(../img/bulletRelContList.gif) }
+	.panelRelEspecial ul.listContents li { background-color:#F1F1F1; margin:0pt 0pt 0.125em; padding:0.125em 0 0.3125em 0; line-height:0.8125em; width:100%}
+	.panelRelEspecial ul.listContents li a { margin-left:0.5em; color:#484848; background-image:url(../img/bulletSideMenuBlack.gif) }
+	
+	/* Lista en dos columnas con fotos */
+	ul.list2Colum li{ display:inline; width:48%; margin:0.5em 0 0.2em 0;}
+	
+	/* Lista en tres columnas con fotos */
+	ul.list3Colum li{ width:33.3% ; }
+	
+	/* [.mainDest] Especificos del destacado principal   */
+	.mainDest .destBody .headline{font-size:0.88em}
+	
+	.destBody .date{font-size:0.63em; color:#216383}
+	.itemAttrs .date{font-size:.75em; color:#216383}
+	.contentItem .itemAttrs .date{font-size:1em;}
+	.contentItem .itemAttrs .parrafo{padding-left:0em;}
+	
+	/* primer contenido dentro de un modulo destacado*/
+	.destMain{margin-top:0.375em}
+	.destMain{margin-top:0.375em}
+	
+	
+	.panelRelEspecial .destMain { margin-top:0 }
+	
+	.lockImg1{overflow:hidden;/*width:3.75em;*/ height:3.75em; float:left; margin:0 0.313em 0 0 } /* foto a la izquierda 60x60 */
+	.lockImg2{overflow:hidden;width:3.75em; height:3.75em; float:right; margin:0 0.313em 0 0 } /* foto a la derecha 60x60px */
+	.lockImg3{overflow:hidden;width:10.375em; height:3.75em; margin:0 0 0.313em 0 } /* foto centrada*/
+	.lockImg4{overflow:hidden;width:10.250em; height:3.75em; margin:0 0em 0.313em -0.06em } /* foto centrada 164x60px*/
+	
+	/*JESUS*/
+	.lockImg5{overflow:hidden;width:100%;  margin:0 0 0.313em 0 }
+	.lockImg6{overflow:hidden;width:5.62em; height:5.62em; float:left; margin:0 1em .3em 0 } /* foto a la izquierda 60x60 */
+	.lockImg8{overflow:hidden;width:8em; height:3.75em; float:left; margin:0 1em .3em 0 } 
+	.lockImg50{ width:45%; overflow:hidden; float:left; margin-bottom:1em; } 
+	.lockImg50 img{ width:10.2em;} 
+	ul.listContents li .lockImg6 a {background:none; padding:0;}
+	.destBodyChannel ul.listContents{ width:80%; position:relative;/*JESUS CAMBIADO ABSOLUTE*/}
+	ul.listContent50 li { margin:0.125em 0 0 0.5em; display:block}
+	ul.listContent50{ float:left; width:55%;}
+	ul.listContent50 li a {background:url("../img/bulletListContents.gif") no-repeat scroll left top transparent;color:#216383; float:left;font-size:0.75em;line-height:1.273em;padding:0 0.909em;text-decoration:none;
+}
+	/*---------*/
+
+	.cabeceraEntradilla div.parrafo p{font-size: 1em;}
+
+/* Destacados Relacionados [Columna Derecha] */
+	h3.destRelLabel{ margin:0; background:transparent url(../img/backRelContHead.gif) top left repeat-x; padding: 0.5em 0.25em 0.2em 0.783em; color:#333;font-size: 0.75em; text-transform:uppercase; font-weight:bold; border: 1px solid #e8e8e8; border-bottom:none}
+	.panelRel{margin-left:0; background:transparent url(../img/backDestRelBottom.jpg) bottom left repeat-x; border:1px solid #e8e8e8; }
+	.panelRelEspecial { margin-left:0 }
+	.panelRel .destBody {float:left; width:100%;}
+	.panelRel .destBody h3 {float:left; width:89%; display:block;}
+	.panelRel .bodyB { margin:0 0.50em; line-height:0.81em; clear:both;}
+	.panelRel .bodyA { margin:0 0.50em; line-height:0.81em; padding:0 }
+	
+	.panelRel .destHeadA {background:#ffffff none; padding:0;/*border-bottom: 1px solid #E8E8E8;*/}
+	.panelRel .destHeadA h3,.panelRel .destHeadA h4 { border-bottom:1px solid #e8e8e8; background:#ffffff none}
+	.panelRel .destHeadA h3{ margin:0 0.5em 0.27em 0.6em; padding:0.188em 0; line-height:0.8em }
+	.panelRel .destHeadA h4{ margin:0 0.588em 0.319em 0.588em; padding:0.219em 0; line-height:0.938em }
+	.panelRel .destHeadA h3 a,.panelRel .destHeadA h3 span,.panelRel .destHeadA h4 a,.panelRel .destHeadA h4 span { color:#585858; font-weight:bold }
+	.panelRel .destHeadA h4 a,.panelRel .destHeadA h4 span { font-size:0.750em }
+	.panelRel .description .parrafo { color:#585858;   }
+	
+/*- Lista de relacionados -*/
+	ul.relList li{float:left; clear:left; width:100%; padding-bottom:0.182em; background:transparent url(../img/bulletListContents.gif) top left no-repeat;}
+	ul.relList li a, ul.relList li span{font-size:0.688em; line-height:1.273em ;color:#216383; text-decoration:none; display:block; margin-left:0.909em}
+	ul.relList li a:hover{text-decoration:underline;}
+
+/* Portadilla  */
+	.bodyHeadline{clear:left; width:100%; min-height:5.13em; height:auto !important; height:5.13em; background:url(../img/backHeadlinePortadilla.jpg) top left repeat-x;}	
+	.bodyHeadline .headText{padding:0.375em 0.688em; line-height:1em}
+	.destBodyFlot{margin-left:4.38em;}
+
+/* Listados de canales*/
+	.channelList {float:left; width:100%;}
+	/*JESUS para listado TRAMITES*/
+	.destBodyChannel .destHeadA h3 a, .channelList li .destBodyChannel .destHeadA h3 span, .destBodyChannel .destHeadA h4 a, .channelList li .destBodyChannel .destHeadA h4 span{ color:#1C516A; display:block;/* QUITADO TRAMITES margin-left:5.5em */}
+	.channelList li {float:left; width:100%; clear:left; margin-bottom:1em; /*AÑADIDO TRAMITES*//*background: url(../img/fondo_listado.gif) top left repeat-x*/; }
+	.channelList li .destBodyChannel ul.listContents li { background:none; float:left;}
+	/*--*/
+	.destBodyChannel .destHeadA { background:#EFF1F2 url(../img/backDestHeadRightRnd.gif) top right no-repeat; padding:0 0.25em 0 0; width:80%;}
+	.destBodyChannel .destHeadA h3 , .destBodyChannel .destHeadA h4{background:/*QUITADO TRAMITES#EFF1F2*/ url(../img/backDestHeadLeftRnd.gif) top left no-repeat; padding:0.13em 0.63em; line-height:0.9em; }
+	.destBodyChannel {float:left; clear:left; width:100%;/* QUITADO TRAMITES min-height:3.75em; height:auto !important; height:3.75em;*/ }
+	.destBodyChannel .lockImg1 {border-right:0.625em solid #fff; position:absolute; z-index:10; }
+	.mainDest.first .destBodyChannel .lockImg1{ position:relative; z-index:2000;}
+	/*AÑADIDO TRAMITES COMPLETO*/
+
+	.channelList li .destBodyChannel .destHeadA { width:auto;}
+	/*--------*/
+	/*--------*/
+/*	.destBodyChannel .bodyA {padding-left:5.313em; }*/
+	/* Listado de contenidos dentro del canal*/
+	.destBodyChannel ul.listContents{ width:80%}
+	.destBodyChannel ul.listContents li {float:none; margin:0.125em 0 0 5.94em; display:block}
+
+	.channelList .contentList li{background:none}
+		.channelList .destBody .contentList .contentItem .itemAttrs .date strong, 
+		.channelList .destBody .contentList .contentItem .itemAttrs .date span{font-size:1em;}
+		
+/* Listados de canales*/
+	.contentListDest  { float:left; width:100%; margin-bottom:1em}
+	.contentListDest  .destHeadA {}
+	.contentListDest  .destHeadA h3 {background-image:none;}
+	.contentListDest  .destHeadA h3 a, .contentListDest .destHeadA h3 span {color:#333333;font-size:0.75em; font-weight:normal;}
+	.contentListDest	ul.listContents li{margin:0.125em 0; padding-left:0.63em}
+
+	.contentItem{ /*margin-left:5.94em; */color:#333333; float:left; padding-left:0.5em; }
+	.contentItem.anchoochenta{ width:85%;}
+	.contentItem .itemAttrs p{ font-size:0.75em;/*padding-left: 1em;*/}
+	.panelEI ul.contentList .contentItem .itemAttrs p strong{ font-size:1em;}
+	.contentItem .alertItem{background:url(../img/icoAlertItem.gif) top left no-repeat; padding:0.6em 0 0.3em 0em}
+	.contentItem .alertItem p{width:100%; background:transparent url(../img/backAlertItem.gif) top right no-repeat; }
+	.contentItem .alertItem span{background:#E9F1F5}
+	.contentItem .itemAttrs{line-height:1em; padding-left:0.78em;}
+	.contentItem .itemAttrs span, .contentItem .itemAttrs strong{font-size:0.688em }
+	.contentItem .itemAttrs a{border-bottom: 1px dotted #3F8CB2;color: #006699;text-decoration:none;}
+	.contentItem .itemAttrs a:hover{border-bottom: 1px solid #3F8CB2;color: #006699;text-decoration:none;}
+	.contentItem .itemAttrs .url span{padding-left: 1em;}
+	.contentItem .itemAttrs .mapa span{padding-left: 1em;}
+	.contentItem .itemAttrs .contentType span{/*padding-left: 1em;*/}
+	.contentItem .itemAttrs .tramite  a span { color:#216383; width:100%; padding:0; font-size:1em; }
+	.contentItem .itemAttrs .tramite  a{ font-size:0.6875em;}
+
+
+	.contentItem .itemAttrs .tramite  a:hover{ color:#216383; text-decoration:underline; width:100%;}
+	.contentItem .itemAttrs .description span, .contentItem .itemAttrs .description strong{font-size:1em }
+
+/* Listados de contenidos*/
+	/* current Channel y canal padre */
+	.channelTitles {color:#585858}
+	.channelTitles p{font-size:0.88em; float:left; clear:left}
+	.channelTitles p.current{font-size:1.29em; border-top:1px solid #f1f1f1; padding:0.15em 0 0.3em 0; color:#333; width:100%}
+	.channelTitles h3.current{font-size:1.29em; border-top:1px solid #f1f1f1; padding:0.15em 0 0.3em 0; color:#333; width:100%}
+	.channelTitles h3.detailTitle, .channelTitles h4.detailTitle{float:left; width:100%;font-size:1.125em; border-top:1px solid #f1f1f1; padding:0.15em 0 0.3em 0; color:#333}
+	.channelTitles  a{color:#006699}
+
+	/* Se aplica las propiedades de CLEARFIX para no modificar el codigo JSP */
+	.channelTitles:after {
+		content: ".";
+		display: block;
+		clear: both;
+		visibility: hidden;
+		line-height: 0;
+		height: 0;
+	}
+	 
+	.channelTitles {
+		display: inline-block;
+	}
+	 
+	html[xmlns] .channelTitles {
+		display: block;
+	}
+	 
+	* html .channelTitles {
+		height: 1%;
+	}
+
+	/* Formulario para guardar resultado de busqueda */
+	.resultBox{float: left; border:1px solid #e8e8e8; background:url(../img/backLongDeg.png) left top repeat-x; padding:1em 3%; width: 93.8%;}
+	.resultBox .filtroSinResultado .parrafo a{border-bottom: 1px dotted #3F8CB2;color: #006699;text-decoration:none;}
+	.resultBox .filtroSinResultado .parrafo  a:hover{border-bottom: 1px solid #3F8CB2;color: #006699;text-decoration:none;}
+	/*PROMOCIONES TRAMITES*/
+	.promoBox{float: left; padding:0.1em 0 0em 2%; width: 97.8%;}
+	.promoBox dt{ font-size:.9em; margin-top:0.6em}
+	.definicionGris{ background:url(../img/promo_des_gris.gif) left bottom repeat-x;  border-top:0.06em solid #dcdedf; border-bottom:0.11em solid #FFF; padding:0.4em 1em; color:#333; font-weight:bold;}
+	.definicionNaranja{ background:#fadfcc url(../img/promo_des_naranja.gif) left bottom repeat-x ; border-top:0.06em solid #ff9902; border-bottom:0.11em solid #FFF; padding:0.4em 1em; color:#333; font-weight:bold;}
+	.contentDefinicion ul { background:#f6f5f7 url(../img/promo_fondo_ul.jpg) left bottom repeat-x; padding:0 0 0.5em 1em;}
+	.contentDefinicion dd ul li{ border-top:1px solid #FFF; border-bottom:1px solid #dcdedf; background:url(../img/promo_bullet.gif) left 0.5em no-repeat; padding:.4em 1em;}
+	.contentDefinicion dd ul li a{ color:#216383; font-weight:bold; font-size:1.1em; }
+	.contentDefinicion dd ul li p{ font-size:0.6875em; margin:0; padding:0; line-height:1.4em;}
+	.contentDefinicion dd ul li.last{ border-bottom:none;}
+		.contentDefinicion dd ul li.first{ border-top:none;}
+	/*__*/
+	.saveResult{float:left; width:100%; clear:both}
+	.saveResultAction a{font-size:0.9167em}
+	.saveResultForm{float:left; width:100%; }
+	.saveResultForm .labelHoriz{color:#006699}
+	.saveResultForm .box3{margin-right:20px}	
+	.searchAdmin{float:left; clear:left; margin:0.5em 0; }
+	.searchAdmin a{ font:bold 0.75em Arial, Helvetica, sans-serif; color:#006699}
+	.searchMsg {float:left; clear:left; margin:0.5em 0; }
+	.searchMsg p{ font:normal 0.75em Arial, Helvetica, sans-serif; color:#333333}
+	.manageSearches{float:right;}
+
+	/* Filtro de búsqueda */
+	.filtro { float:left; clear:both;}
+	.filtro .resultFilter{float:left; font-size:0.75em; display:inline; padding-bottom:0.25em}
+	.resultList .filtro{ clear:none;}
+	/*JESUS para que pille estilos en campos con fieldset*/
+		.searchLabel span{font-size:0.75em; display:inline; padding-bottom:0.25em}
+		#refinado{ width:45em;}
+		#refinadoSmall{ width:33em;}
+		#saveResult fieldset{  float:left;}
+		.anadirBusqueda{ float:right;text-align:right; padding-top:0.02em;}
+		.anadirBusqueda .saveResultAction a{ font-size:.6875em}
+		.anadirBusqueda .resultFilter{ clear:both;}
+		.quisoDecir a:hover {text-decoration:underline;}
+	/*------*/
+	.filtro .resultFilter strong{color:#006699}
+	
+	/* Resultados y paginación */
+	.resultList .contentItem{margin-left:0.313em}
+	.resultTools{clear:both;padding:0; margin-bottom:1em; border-bottom:1px solid #C7C6CB; overflow:hidden; height:1%}
+	.resultTools .parrafo strong {padding-right: 1.5em}
+	.resultNo{float:left; font-size:0.688em; margin:0 1em; display:inline}
+	.pagination{float:right; text-align:right; margin:0 0 0.5em 0.5em; display:block}
+	.pagination a, .pagination strong, .pagination span{color:#216383;font-size:0.75em; padding: 0.07em 0.1em;}
+	.pagination strong {background: none repeat scroll 0 0 #006699; color: #FFFFFF; padding: 0.075em 0.33em;}
+	.pagination a:hover {background: none repeat scroll 0 0 #006699; color: #FFFFFF;}
+	
+	/* Item de contenido en listado */
+	.contentListDest li{float:left; width:100%;clear:left; margin-bottom:0.375em; padding-bottom:0.188em; background:#ffffff; }
+	.contentListDest li.par{float:left; width:100%; clear:left; margin-bottom:0.375em; padding-bottom:0.188em; background:#f2f2f2;}
+	.contentListDest .lockImg1{margin:0.313em}
+	
+
+	.contentList li{float:left; width:100%;clear:left; margin-bottom:0.375em; padding-bottom:0.188em; background:#ffffff; }
+	.contentList li.par{float:left; width:100%; clear:left; margin-bottom:0.375em; padding-bottom:0.188em; background:#f2f2f2;}
+	.contentList .lockImg1{margin:0.313em}	
+	.contentList li .tools{margin:0.5em; overflow:hidden}
+
+	
+/*	Especificos de tramite*/
+		.contentItem.tramite{ margin:0.5em 0 0 0; background:none;}
+		.contentItem.tramite a.accesoTramite{ background:url(../img/backLinkButtonLeft.jpg) left top  no-repeat; display:block; float:left; color:#000; padding:0 0 2px 3px; margin:0.3em 0; }
+		.contentItem.tramite .tramitacion {color:#585858}
+		.contentItem.tramite .tramitacion strong{color:#333}
+		.contentItem.tramite .tramitacion span {line-height:1.364em; padding:0.2em 0.2em 0.2em 1.5em; color:#333; margin-left:0.2em}
+		.contentItem.tramite .tramitacion span.online {background:url(../img/icoTramiteOnline.gif) top left no-repeat;padding-left:1.2em; }
+		.contentItem.tramite .tramitacion span.certificado    {background:url(../img/icoTramiteConCertificado.gif) top left no-repeat;/* COMENTADO JESUS padding-left:1.2em; */}
+		.contentItem.tramite .tramitacion span.sincertificado {background:url(../img/icoTramiteSinCertificado.gif) top left no-repeat;/* COMENTADO padding-left:1.2em; */}
+		.contentItem.tramite .tramitacion span.presencial {background:url(../img/icoTramitePresencial.gif) top left no-repeat; }
+		.contentItem.tramite .tramitacion span.telefonico {background:url(../img/icoTramiteTelefonico.gif) top left no-repeat;padding-left:1.4em;}
+		.contentItem.tramite .tramitacion span.fax {background:url(../img/icoTramiteFax.gif) top left no-repeat; padding-left:1.7em;}
+		.contentItem.tramite .tramitacion span.email {background:url(../img/icoTramiteEmail.gif) top left no-repeat; padding-left:1.6em;}
+		.contentItem.tramite .tramitacion span.correo {background:url(../img/icoTramiteMail.gif) top left no-repeat; padding-left:1.6em;}
+		.contentItem.tramite .impresos a{ color:#216383;background: url(../img/ico_flechaAzul_link.gif) no-repeat scroll 9.2em 0.38em transparent;padding-right:1em;}
+		.contentItem.tramite .impresos ul {}
+		.contentItem.tramite .impresos ul li{
+			float:left; clear:left; width:100%; font-size:0.688em; margin:0; background:transparent url(../img/bulletListContents.gif) top left no-repeat}
+		.contentItem.tramite .impresos ul li a{margin-left:1em}
+		.contentItem.tramite .impresos span.fileType, .contentItem.tramite .impresos span.fileSize{font-size:0.909em}
+		.itemTitle a, .itemTitle span {color:#006699; font-size:0.75em; line-height:1.5em}	
+		li .contentItem .itemTitle p{ padding-left:0.7em; background: url(../img/bulletMenuMarino.gif) no-repeat left 0.1em;}
+
+		
+	/* Aviso en Listado y Detalle*/
+	.contentItem .bannerAviso, 
+	.detailBody .bannerAviso{ background-color:#f1f8fb; border:1px solid #dfdfdf; display:block ; margin:0.5em  0.75em 0.5em 0.55em; padding:0.5em 0.3em;}
+	.contentItem .bannerAviso span,
+	.detailBody .bannerAviso span	{ color:#333; font-size:0.75em; padding: 0.4167em 0 0.6667em 3em; margin-right:0.25em }
+	.contentItem .bannerAviso span.info,
+	.detailBody .bannerAviso span.info { background:url(../img/ico_info.gif) no-repeat left top; font-weight:bold; display:block}
+	.contentItem .avisoTitle,
+	.detailBody .avisoTitle{ display:inline; padding:0.125em 0  }
+	.contentItem .bannerAviso .avisoTitle,
+	.detailBody .bannerAviso .avisoTitle { font-size:0.75em; font-weight:bold }
+	.contentItem .bannerAviso .avisoDesc, .detailBody .bannerAviso p,
+	.detailBody .bannerAviso .avisoDesc { font-size:0.75em; line-height:1.2em; margin-top:0.75em}
+	
+/* Aviso reducido en Listado y Detalle*/
+	.contentItem .bannerAvisoReducido, 
+	.detailBody .bannerAvisoReducido{ border:1px solid #dfdfdf; display:block ; margin:0.5em  0.75em 0.5em 0.55em; padding:0.5em 0.3em; width:33em; }
+	.contentItem .bannerAvisoReducido span,
+	.detailBody .bannerAvisoReducido span	{ color:#333; font-size:0.6875em; padding: 0.4167em 0 0.6667em 3em; margin-right:0.25em }
+	.contentItem .bannerAvisoReducido span.info,
+	.detailBody .bannerAvisoReducido span.info { font-weight:bold; display:block}
+	.contentItem .avisoTitle,
+	.detailBody .avisoTitle{ display:inline; padding:0.125em 0  }
+	.contentItem .bannerAvisoReducido .avisoTitle,
+	.detailBody .bannerAvisoReducido .avisoTitle { font-size:0.6875em; font-weight:bold }
+	.contentItem .bannerAvisoReducido .avisoDesc,
+	.detailBody .bannerAvisoReducido .avisoDesc { font-size:0.6875em; line-height:1.2em; margin-left:3em}
+	.avisoDesc a{border-bottom: 1px dotted #3F8CB2;color: #006699;text-decoration:none;}
+	.avisoDesc a:hover{border-bottom: 1px solid #3F8CB2;color: #006699; text-decoration:none;}
+
+
+	
+/*  DETALLES  */
+	/* Definicion de estilos aplicados en detalles */
+		
+		/*-- Estilos principales del formato detalle --*/
+		.detailBody {float:left; width:100%; color:#333; line-height:0.875em; border-bottom:1px solid #c5c5c5; }
+		.parrafo11, .parrafo, .parrafo12 {font-size:0.75em; padding:0.23em 0;line-height:1.27273em; color:#333333}
+		.parrafo11 {font-size:0.688em; }
+		.parrafo2 {font-size:0.75em; padding:0.23em 0; color:#333; font-weight:bold; line-height: 1.3em;}
+		.parrafoBig {font-size:0.75em; padding:0.375em 0; }
+		.parrafoBig a {border-bottom: 1px dotted #3F8CB2;color: #006699;text-decoration:none;}
+		.parrafoBig a:hover {border-bottom: 1px solid #3F8CB2;color: #006699;text-decoration:none;}
+		.botoneraTramites {font-size:0.75em; padding:1.23em 0;line-height: 1.272727em; color:#333333; margin-bottom: 1em;}
+		.detailBody .parrafo a{border-bottom: 1px dotted #3F8CB2;color: #006699;text-decoration:none;}
+		.detailBody .parrafo a:hover{border-bottom: 1px solid #3F8CB2;color: #006699;text-decoration:none;}
+		/*JESUS padding parrafo introducción*/
+		.bodyHeadline .headText .parrafoBig p{ padding-bottom:0.5em; }
+		/*------*/ 
+		.link{color:#216383}
+	
+	/* Contenido de WebEditPro dentro de div.parrafo */
+	/* Genericos */
+		.detailBody a{color:#216383}
+			.detailBody a span.fileSize{font-size:0.833em; color:#333}
+			.detailBody a span.fileType{font-size:0.833em; color:#333; text-transform:uppercase; padding-left:0em}
+			/*.detailBody a span.fileType.pdf{background:red;}*/
+			.detailBody a span.fileType.doc{background:blue;}
+			.detailBody a span.fileType.zip{background:orange;}
+			.detailBody a span.fileType.ppt{background:#216383;}
+			.detailBody a span.fileType.xls{background:#216383;}
+			.detailBody a span.fileType.gif{background:#216383;}
+			.detailBody a span.fileType.jpg{background:#216383;}
+			.detailBody a span.fileType.png{background:#216383;}
+			.detailBody a span.fileType.mp3{background:#216383;}
+			.detailBody a span.fileType.wav{background:#216383;}
+			.detailBody a span.fileType.au{background:#216383;}
+		.detailBody p.fieldLabel{color:#333333; font-weight:bold; margin:0.5em 0 0 0}			
+		.detailBody	.entradilla .author{font-size:0.75em; font-weight:bold}	
+		.detailBody	.entradilla .date{font-size:0.75em; color:#006699; font-weight:bold}	
+		.detailBody	.entradilla .fotoDetalle{width:8em; height:8em; background:none; overflow:hidden;}
+		.detailBody	.entradilla .bannerDetalle{width:100%;  background:none; overflow:hidden}
+		
+		.detailBody	.entradilla .headingList{ background:url(../img/backLineDotted.gif) top left repeat-x; margin:0.5em 0; font-size: 0.6875em; padding-top:0.5em}
+		.detailBody	.entradilla .headingList ul{ background:url(../img/backLineDotted.gif) bottom left repeat-x; padding-bottom:0.5em}
+		.detailBody	.entradilla .headingList ul li{margin-left:0.5em; background: transparent url(../img/bulletNewsDest.gif) top left no-repeat; padding-left:1em}
+		div.parrafo p {margin-bottom:0.5em}
+		/* Diana títulos h4, h5 */
+		div.parrafo h4, div.parrafo  h5{ padding:.3334em 0; font-weight: bold;} 
+		
+		div.parrafo ul,	div.parrafo ol,	div.parrafo dl{ }	
+	/*1er nivel*/
+		div.parrafo ul li, div.parrafo dl dd, div.parrafo dl dt, div.parrafo ol li, div.parrafoBig ol li, div.parrafoBig ul li{ margin:0.5em 0.5em; background: transparent url(../img/bulletContentList1.gif) top left no-repeat; padding-left:1em; /*overflow:hidden;*/}
+		/*listado filtro JESUS*/
+		.filtroSinResultado p{ font-size:.75em; clear: both;}
+		/*---------*/
+		div.parrafo ol li, div.parrafoBig ol li{ list-style:inside; list-style-type: decimal; background:none; overflow:visible; }
+			div.parrafo ul.listEntidades{ }
+			div.parrafo ul.listPersonas{ padding-left: 1em }
+	/*2º nivel */
+		div.parrafo ul li ul li{ margin-left:1em; background:transparent url(../img/bulletContentList1.gif) top left no-repeat; padding-left:1em}
+		
+		div.parrafo ol  li ul{padding: 0.5em 0 0.5em 0.4167em}
+		div.parrafo ol li ul li { padding: 0 0 0.25em 0.8333em; list-style-position: outside; list-style-type: none; background: transparent url(../img/bulletContentList1.gif) top left no-repeat;}
+		
+	/*-- Listado informacion generica --*/ 
+		.listadoInfo { font-size: 0.75em;}
+		.listadoInfo ul li{margin-left:0.5em; background:transparent url(../img/bulletContentList1.gif) top left no-repeat; padding-left:1em}	
+		.listadoInfo ol li{margin-left:0.5em; list-style:inside; list-style-type:decimal; background:none; padding-left:1em}
+        .listadoInfo .nivel1 a{border-bottom: 1px dotted #3F8CB2;color: #006699;text-decoration:none;}
+		.listadoInfo .nivel1 a:hover{border-bottom: 1px solid #3F8CB2;color: #006699;text-decoration:none;}
+		.listadoInfo li { color:#333; line-height:120%; }
+		.listadoInfo li strong{color:#333333}
+		.listadoInfo li strong.accesible{background:url(../img/instalacionAccesible.gif) 100% 0 no-repeat; padding:0 1.3em .6em 0}
+		.listadoInfo li pre {display:inline; font-size:1em; font-family: Arial, Helvetica, sans-serif; }
+		
+	/*  Sublistados */
+		.listadoInfo li ul li{margin-left:0.5em; background:transparent url(../img/bulletContentList1.gif) top left no-repeat; padding-left:1em}	
+		.listadoInfo li ol li{margin-left:0.5em; list-style-position:inside; list-style-type:decimal; background:none; padding-left:1em}
+
+		.listadoInfo ul.nivel1, .listadoInfo ul.nivel1 ul, .listadoInfo ul.nivel1 ol{padding:0.8333em 0 0.8333em 0.4167em}
+		.listadoInfo ul.nivel1 li ol li ul li{margin:0; padding: 0 0 0.25em 0.8333em; list-style-position: outside; background: transparent url(../img/bulletContentList1.gif) top left no-repeat;line-height:1.25em; list-style-type:none;}
+		
+	/*	Listados de publicaciones/Ediciones/Capítulos	*/
+		.listIssues {padding-top:0.2em}
+		.listIssues li{background:transparent url(../img/backLineDotted.gif) repeat-x scroll left top; line-height: 1em; padding:0.2em}
+		.listIssues li a, 
+		.listIssues li p{font-size: 0.750em; color: #216383; font-weight:bold; background:transparent url(../img/bulletRelContList.gif) left top no-repeat; padding-left: 1em;}
+		.listIssues li p span.fileSize{font-size:0.750em; background:none; color:#333;}
+	/* Di listado de entradillas panel22*/
+		.columna2 .panelEI .panel22 .destBody .bodyA .destMain ul li{margin:0;padding: 0 0 0.25em 0.8333em; list-style-position: outside; background: transparent url(../img/bulletContentList1.gif) top left no-repeat;line-height:1.25em;font-size:.75em;list-style-type:none;}
+		.columna2 .panelEI  .panel22 .destBody .bodyA .destMain ul li a, .panelEI .panel22 .destBody .bodyA .destMain ul li span{font-size:1em;}
+		.columna2 .panelEI .panel22 .destBody .bodyA .destMain ul.listContents li{background:none;}
+	/*	Fotos 	*/
+		.detailBody .entradilla div.ftl {  margin-right:1em}
+		.detailBody .entradilla div.ftr {  margin-left:1em}
+		.detailBody .entradilla div.fotoDetalle{  margin-bottom: 0.5em;}
+		
+	/* FAQs */
+  	.respuesta p { padding-top:0.2em; padding-bottom:0.5em; }
+		
+	/* Pestañas en detalle */	
+	.tabDetail{float:left;width:100%;background:url(../img/backTabDetail.gif) top left repeat-x; padding-top:1.313em;}
+	.tabDetail .tabContent  ul li a{/*border-bottom:1px dotted #ff6600; text-decoration:none;*/}
+	.tabDetail .tabContent  ul li a:hover {border-bottom:1px solid #216383;}
+	.tabDetail.tabContent .tabBody .parrafo a{border-bottom:1px dotted #ff6600; text-decoration:none;}
+	.tabDetail.tabContent .tabBody .parrafo a:hover {border-bottom:1px solid #216383; text-decoration:none;}
+	.tabHeader{float:left; width:100%; background:#fff; border-left:1px solid #E8E8E8; text-decoration:none;}
+	.tabHeader ul{}
+	.tabHeader ul li{float:left; font-size:0.688em; margin:0; padding:0.364em 0.709em; /*padding anterior: padding:0.364em 0.909em;____*/ background:#fff; border:1px solid #f1f1f1; border-right:1px solid #999999;border-bottom:1px solid #e8e8e8}
+	
+	.tabHeader ul li.selected{ border:1px solid #fff; background:#f1f1f1; border-right:1px solid #999999;}
+	.tabHeader ul li a{text-transform:uppercase; font-weight:bold; color:#585858;/*JESUS mano en pestañas*/cursor:pointer;}
+	.tabHeader ul li span{text-transform:uppercase; font-weight:bold; color:#000;}
+	.tabHeader ul li.last{}
+	
+	.tabContent{float:left;width:100%;background:url(../img/backTabContent.gif) top left repeat-x}
+	.tabContent .tabTag{border:1px solid #e8e8e8; border-top:1px solid #fff; padding:0.833em 0.5em; font-size:0.75em; font-weight:bold; color:#006699}
+	.tabContent .tabBody{border:1px solid #e8e8e8; border-top:none; padding:0.833em 0.5em;}
+	.tabBody .parrafo a{border-bottom: 1px dotted #3F8CB2;color: #069; text-decoration:none;}
+	.tabBody .parrafo a:hover{border-bottom: 1px solid #3F8CB2;color: #069; text-decoration:none;}
+	
+	
+	
+/*** Columna Informacion relacionada ***/
+		.contenedorFicha{width:100%; background-color:#FFF; margin-top:1.188em;}
+		.ficha  { border:1px solid #e8e8e8; margin-bottom:0.5em; background-color:#FFFFFF;}
+		.ficha strong{color:#585858}
+		.ficha a {color:#006699; }
+		.ficha a.email {color:#cc3300; display:block; width:100%; overflow:hidden}
+		.ficha .subficha p {color:#333; padding:0em 0.727em; font-size:0.688em; line-height:1.3em}
+		.ficha .subficha  {border-bottom: 1px solid #E8E8E8;}
+		.ficha .subficha .description {color:#585858; padding:0.188em 0 0 0 }
+		.ficha .subficha  a span.linkFrillBlack:after{ content:url("../img/ico_flechaBlack_link.gif")}
+		.ficha .subficha  a span.linkFrillBlack{margin-left: -0.8em; margin-top: 0.85em; position: absolute;}
+		.ficha .subficha a span.linkFrillBlue:after{ content:url("../img/ico_flechaAzul_link.gif")}
+		.ficha .subficha a span.linkFrillBlue{margin-left: 0.2em; margin-top: 0.85em; position: absolute;}
+		.ficha h3,.ficha h4,.ficha h5,.ficha h6, .titular5{ margin:0; background:transparent url(../img/backRelContHead.gif) top left repeat-x; padding: 0.25em 0.25em 0.25em 1em; color:#333;font-size: 0.687em; text-transform:uppercase; font-weight:bold}
+		.panel3x .subficha h4.sitioInteres {font-size:0.88em; color:#C35B17; font-weight:bold; margin-left:0.6em }
+		.ficha h4.info { }
+		.ficha h4.tramite { }						
+		.ficha h4.formSteps { }
+		/* Especificos de fichas de Tramites */
+		.contenedorFicha .ficha.tramite{background:#F3F5F7; padding:0; margin:0.8em 0;}
+		.ficha.tramite h4{background:#fff url(../img/backRelContHead.gif) repeat-x scroll left top; border-bottom:1px solid #e8e8e8}
+		.ficha.tramite h5{background:url(../img/backTramiteSubFichaH5.gif) bottom left repeat-x; padding:0.8em 0 0 0.2em; }
+			.ficha.tramite h5 span{padding:0.7em 0 0.16em 3.5em; text-transform:none; color:#585858; }
+			.ficha.tramite h5.online span{background:url(../img/ico_trOnline.gif) top left no-repeat}
+			.ficha.tramite h5.folder span{background:url(../img/ico_trCarpeta.gif) top left no-repeat}      
+			.ficha.tramite h5.phone span{background:url(../img/ico_trPhone.gif) top left no-repeat}
+			.ficha.tramite h5.inhouse span{background:url(../img/ico_trInHouse.gif) top left no-repeat}
+			.ficha.tramite h5.fax span{background:url(../img/ico_trFax.gif) top left no-repeat}
+			.ficha.tramite h5.mail span{background:url(../img/ico_trMail.gif) top left no-repeat}
+			.ficha.tramite h5.email span{background:url(../img/ico_trEmail.gif) top left no-repeat}
+
+			.ficha.tramite h5.help span{ background:url(../img/ico_trHelp.gif) top left no-repeat; }
+			.ficha.tramite h5.tramites span{ background:url(../img/ico_trTramites.gif) top left no-repeat; }
+			.ficha.tramite h5.poll span{ background:url(../img/ico_trPoll.gif) top left no-repeat; }
+			.ficha.tramite h5.print span{ background:url(../img/ico_trPrint.gif) top left no-repeat; }
+			.ficha.tramite h5.otro span{ background:url(../img/ico_trInfo.gif) top left no-repeat; }
+			
+			
+	/* LISTADOS EN FICHA */			
+		
+		
+		.ficha ul li{}
+		
+		
+		/* Genérico con líneas */
+		.ficha .nivel1{ padding:0; margin:0; }
+		.ficha .nivel1 li{margin:0 0.727em; padding:0.2em 0 0.4em; font-size: 0.6875em; color:#333; line-height:1.364em; border-top:1px solid #e4e4e4; overflow: hidden; }
+		.ficha .nivel1 .nivel2 li { font-size: 1em; }
+		.ficha .nivel1 p {padding-left:8px; font-size: 0.6875em; color:#333; line-height:1.364em}				
+		/* Genérico con bullet */
+		ul.bullet{margin:0 0.5em; border-top:1px solid #e4e4e4; padding:0.3em 0}
+		ul.bullet li { padding:0 0 0.5em 0.8em; background:url(../img/bulletRelContList.gif) left 0.15em no-repeat  }
+		ul.bullet li ul { border:0}
+		ul.bullet li ul li{ font-size:1em}
+		ul.bullet li a { font-size: 0.6875em; color:#333}
+		ul.bullet li a, ul.bullet li span, ul.bullet li strong{ font-size: 0.6875em; color:#333}
+		ul.bullet li a span{ font-size: 0.9em; color:#333}
+	
+		/* Documentacion Asociada */
+		ul.files{margin:0 0.5em; border-top:1px solid #e4e4e4; padding:0.3em 0}
+		ul.files li { padding:0 0 0.5em 0.8em; background:url(../img/bulletRelContList.gif) left 0.15em no-repeat  }
+		ul.files li ul { border:0}
+		ul.files li ul li{ font-size:1em}
+		ul.files li a { font-size: 0.6875em; color:#333}
+		ul.files li a, ul.files li span, ul.files li strong{ font-size: 0.6875em; color:#333}
+		ul.files li a span{ font-size: 0.9em; color:#333}
+	
+		/* Enlaces relacionados / Otros sitios */
+		ul.links{margin:0 0.5em; border-top:1px solid #e4e4e4; padding:0.3em 0; clear:both;}
+		ul.noLine{border-top:none }
+	  
+	  #columna2 .panelEI ul.links{ font-size:1.091em;  }
+	  #columna2 .panelEI ul.links li{ /*float:left;*/ width:100%;}
+		
+		ul.links li ul { border:0; margin-top: .2em; }
+		ul.links li ul li{ padding:0 0 0 1em; color:#333;}
+		
+
+		ul.links li a, ul.links li span, ul.links li strong{  font-size: 0.6875em; padding-left: 1em; color:#333; background:url(../img/bulletListContentsSel.gif) no-repeat left top;}
+		ul.links li span strong{ background:none; font-weight:bold; font-size:1em; padding-left:0;}
+		/*PARA AUMENTAR TAMAÑO LETRA LISTADOS .LINKS*/
+		.panel3x .subficha ul.links li a {font-size: 0.75em; background:url(../img/bulletMenuMarino.gif) no-repeat left top; color:#006699;}
+		.panel3x .subficha ul.links li span {font-size: 0.834em;}
+		/*__________*/
+		ul.links li a span{ font-size: 0.9em; color:#333; background:none;}	
+		ul.links li a span.documentoTipo{ padding-left:0;}	
+		
+		ul.links li a span.fileType, ul.links li a span.fileSize{ padding:0; display:inline;}
+				
+
+		/* Enlaces a tips de contenido */
+		ul.contents{ margin:0 0.5em; padding:0.3em 0}
+		ul.contents li { padding:0 0 0.5em 1.750em;  line-height:.7em; margin-bottom:0.3em; }
+		ul.contents li ul { border:0}
+		ul.contents li ul li{ font-size:1em}
+		ul.contents li a, ul.links li span, ul.links li strong{ font-size: 0.6875em; color:#333}
+		ul.contents li a span{ font-size: 0.9em; color:#333}					
+			/* Definicion de iconos tipo de doc */
+			ul.contents li.documento{ background: transparent url(../img/icoBulletDocument.gif) top left no-repeat;}
+			ul.contents li.presentacion{ background: transparent url(../img/icoBulletPresent.gif) top left no-repeat;}
+			ul.contents li.sonido{ background: transparent url(../img/icoBulletSound.gif) top left no-repeat;}
+			ul.contents li.imagen{ background: transparent url(../img/icoBulletImage.gif) top left no-repeat;}
+			ul.contents li.video{ background: transparent url(../img/icoBulletVideo.gif) top left no-repeat;}
+
+		/* Listados de trámites*/
+		ul.tramites{margin:0 0.5em; /*border-top:1px solid #e4e4e4;*/ padding:0.3em 0}
+		ul.tramites li { padding:0 0 0 .65em; background: transparent url(../img/bulletListContents.gif) left .25em no-repeat;}
+		ul.tramites li.certificado { padding-left:0; background:none}		
+		ul.tramites li ul li, 
+		ul.tramites li span a,
+		ul.tramites li p a,
+		ul.tramites li p span{ font-size:1em}
+		.ficha .subficha ul.tramites li p{ padding:0 0 0.45em 0} 
+		ul.tramites li a{ font-size:0.688em; color:#216383; text-decoration:none;}
+			ul.tramites li a:hover{text-decoration:underline}
+		ul.tramites li  .certificado{vertical-align:middle}
+		ul.tramites li span, ul.tramites li strong{ font-size:0.688em; color:#585858; text-decoration:none;/*margin-left:0.909em*/}
+		ul.tramites li a span, ul.tramites li a span{font-size:0.9em; display:inline; margin-left:0}
+		
+}
+	
+
+		/* Pasos de formulario */
+		ol.steps{margin:0 0.5em 0 0.5em; padding-bottom:0.3em} 
+		ol.steps li { margin:0 0.5em;padding:0.3em 0 0.2em 1.750em;  line-height:1.1em; margin-bottom:0.3em; background:transparent left 0.3em  no-repeat; border-top:1px solid #E4E4E4; font-size:0.688em;}
+		ol.steps li span, ol.steps li a { /*font-size: 0.6875em;*/ color:#585858; display:block}
+		ol.steps li strong { color:#333}
+				/* Iconos pasos */
+			ol.steps li.ico1on	{ background-image:url(../img/ico_1on.gif) }
+			ol.steps li.ico1off{ background-image:url(../img/ico_1off.gif) }
+			ol.steps li.ico2on	{ background-image:url(../img/ico_2on.gif) }
+			ol.steps li.ico2off{ background-image:url(../img/ico_2off.gif) }
+			ol.steps li.ico3on	{ background-image:url(../img/ico_3on.gif) }
+			ol.steps li.ico3off{ background-image:url(../img/ico_3off.gif) }
+			ol.steps li.ico4on	{ background-image:url(../img/ico_4on.gif) }
+			ol.steps li.ico4off{ background-image:url(../img/ico_4off.gif) }
+			ol.steps li.ico5on	{ background-image:url(../img/ico_5on.gif) }
+			ol.steps li.ico5off{ background-image:url(../img/ico_5off.gif) }
+			ol.steps li.ico6on	{ background-image:url(../img/ico_6on.gif) }
+			ol.steps li.ico6off{ background-image:url(../img/ico_6off.gif) }
+			 
+			ol.steps li.ico7on	{ background-image:url(../img/ico_7on.gif) }
+			ol.steps li.ico7off{ background-image:url(../img/ico_7off.gif) }
+			ol.steps li.ico8on	{ background-image:url(../img/ico_8on.gif) }
+			ol.steps li.ico8off{ background-image:url(../img/ico_8off.gif) }
+			ol.steps li.ico9on	{ background-image:url(../img/ico_9on.gif) }
+			ol.steps li.ico9off{ background-image:url(../img/ico_9off.gif) }
+			ol.steps li.ico10on	{ background-image:url(../img/ico_10on.gif) }
+			ol.steps li.ico10off{ background-image:url(../img/ico_10off.gif) }
+			ol.steps li.ico11on	{ background-image:url(../img/ico_11on.gif) }
+			ol.steps li.ico11off{ background-image:url(../img/ico_11off.gif) }
+			ol.steps li.ico12on	{ background-image:url(../img/ico_12on.gif) }
+			ol.steps li.ico12off{ background-image:url(../img/ico_12off.gif) }
+			ol.steps li.ico13on	{ background-image:url(../img/ico_13on.gif) }
+			ol.steps li.ico13off{ background-image:url(../img/ico_13off.gif) }
+			ol.steps li.ico14on	{ background-image:url(../img/ico_14on.gif) }
+			ol.steps li.ico14off{ background-image:url(../img/ico_14off.gif) }
+			ol.steps li.ico15on	{ background-image:url(../img/ico_15on.gif) }
+			ol.steps li.ico15off{ background-image:url(../img/ico_15off.gif) }
+			ol.steps li.ico16on	{ background-image:url(../img/ico_16on.gif) }
+			ol.steps li.ico16off{ background-image:url(../img/ico_16off.gif) }
+			ol.steps li.ico17on	{ background-image:url(../img/ico_17on.gif) }
+			ol.steps li.ico17off{ background-image:url(../img/ico_17off.gif) }
+			ol.steps li.ico18on	{ background-image:url(../img/ico_18on.gif) }
+			ol.steps li.ico18off{ background-image:url(../img/ico_18off.gif) }
+			ol.steps li.ico19on	{ background-image:url(../img/ico_19on.gif) }
+			ol.steps li.ico19off{ background-image:url(../img/ico_19off.gif) }
+			ol.steps li.ico20on	{ background-image:url(../img/ico_20on.gif) }
+			ol.steps li.ico20off{ background-image:url(../img/ico_20off.gif) }
+
+		/*ul.tasks{ padding: 0.5em 0 0.188em 0.375em; }*/		
+		ul.tasks{margin:0.3em 0 0 0; border-top:1px solid #e4e4e4; padding:0.3em 0.5em 0.3em 0.5em}
+		ul.tasks.page, .ficha.backg ul.tasks{border:0; background-color:#FFFFFF;}
+
+		ul.tasks li { padding:0 0 0.5em 1.750em; margin-bottom:0.3em; background:transparent top left no-repeat; display: block; line-height: 0.9em; }
+		ul.tasks li a { font-size: 0.6875em; color:#585858}
+		ul.tasks li form{line-height:60%}
+			/* Definicion de iconos tareas */
+			ul.tasks li.print { background-image: url(../img/icoBulletPrint.gif)}
+			ul.tasks li.mail{ background-image:  url(../img/icoBulletEnviar.gif)}
+			ul.tasks li.contactar{ background-image:  url(../img/icoBulletContact.gif) }		
+			ul.tasks li.mapa{ background-image:  url(../img/icoBulletMap.gif) }
+			ul.tasks li.transporte{background-image:  url(../img/icoBulletBus.gif) }
+			ul.tasks li.rss{ background-image:  url(../img/icoBulletRSS.gif) }
+			ul.tasks li.contacto{ background: transparent url(../img/icoBulletContact.gif) top left no-repeat;}
+			ul.tasks li.evento{ background: transparent url(../img/icoBulletEvento.gif) top left no-repeat;}
+			ul.tasks li.consejos { background: transparent url(../img/icoBulletConsejos.gif) top left no-repeat;}
+			ul.tasks li.ayuda{ background: transparent url(../img/icoBulletAyuda.gif) top left no-repeat;}
+			ul.tasks li.suscripcion{ background: transparent url(../img/icoSuscribir.gif) top left no-repeat; overflow:hidden; }
+			ul.tasks li.favs{ background: transparent url(../img/icoAnadirFav.gif) top left no-repeat; overflow:hidden; }
+			ul.tasks li.propuestos{ background: transparent url(../img/icoForo_on.gif) top left no-repeat; overflow:hidden; }			
+			ul.tasks li.marcar{ background: transparent url(../img/icoMarcar.gif) top left no-repeat; overflow:hidden; }
+		ul.legend {margin:0.3em 0.5em 0 0.5em; border-top:1px solid #e4e4e4; padding:0.3em 0}
+		ul.legend li{ padding:0 0 0.5em 1.750em;  line-height:.7em; margin-bottom:0.3em; background:transparent }
+		ul.legend li span { font-size: 0.6875em; color:#585858}			
+			ul.legend li.msg_on{background: transparent url(../img/icoForo_on.gif) top left no-repeat; overflow:hidden; }
+			ul.legend li.msg_off{background: transparent url(../img/icoForo_off.gif) top left no-repeat; overflow:hidden; }
+			ul.legend li.msgRv_on{background: transparent url(../img/icoMensaje_on.gif) top left no-repeat; overflow:hidden; }
+			ul.legend li.msgRv_off{background: transparent url(../img/icoMensaje_off.gif) top left no-repeat; overflow:hidden; }									
+		/* TagCloud */	
+		ul.searchCloud {margin:0 0.5em; border-top:1px solid #e4e4e4; padding:0.3em 0; font-size:0.6875em; padding-bottom:1em; clear:left; overflow:hidden; height:1%}
+		.searchCloud li {display:inline;font-weight:bold; padding:0.3em 0.73em 0.18em 0; float:left}
+		.searchCloud li.tag0 {font-size:1.75em;}
+		.searchCloud li.tag0 a {color:#333333;}
+		.searchCloud li.tag1 {font-size:1.545em;}
+		.searchCloud li.tag1 a {color:#333333;}
+		.searchCloud li.tag2 {font-size:1.364em;}
+		.searchCloud li.tag2 a {color:#4D4D4D;}
+		.searchCloud li.tag3 {font-size:1.272em;}
+		.searchCloud li.tag3 a {color:#666666;}
+		.searchCloud li.tag4 {font-size:1.18em;}
+		.searchCloud li.tag4 a {color:#808080;}
+		.searchCloud li.tag5 {font-size:1.091em;}
+		.searchCloud li.tag5 a {color:#999999;}
+		.searchCloud li.tag6 {font-size:1em;}
+		.searchCloud li.tag6 a {color:#B3B3B3;}
+
+		/* BLOG: Archivo */	
+		ul.blogArchive {margin:0 0.5em; border-top:1px solid #e4e4e4;}
+			
+		/* BLOG: Relacionados */
+		.archives, .ratedList, .mostComment{margin:0 0.5em 0 0.5em; padding-bottom:0.3em}
+		.archives li, 
+		.ratedList li, 
+		.mostComment li { padding:0.2em 0 0.2em 0.7em;  line-height:0.875em; margin-bottom:0.3em; background:transparent url(../img/bulletRelContList.gif) no-repeat scroll left 0.15em; border-top:1px solid #E4E4E4}		
+		.archives li span, .ratedList li span, .mostComment li span, 
+		.archives li a, .ratedList li a, .mostComment li a{ font-size: 0.6875em; color:#585858; display:block; color:#333}		
+		.archives li strong, .ratedList li strong, .mostComment li strong { color:#333}
+		.ficha p.fichaLinks{text-align:right; margin:0 0.5em 0.3em 0.5em}
+		.ficha p.fichaLinks a{font-size:0.6875em}
+
+		/* Lista Desplegable */
+		.listDesplegable li{background:transparent url(../img/bulletRelContList.gif) left 0.15em no-repeat;line-height: 1em; padding:0 0 0.5em 0.875em;}
+			.listDesplegable li span.titNivel, 
+			.listDesplegable li.plegable span.titNivel, 
+			.listDesplegable li a,
+			.listDesplegable li span{
+				font-size: 0.6875em;color: #333; font-size:0.75em; margin-left:0.4em;
+			}
+			.listDesplegable li.plegable span.titNivel{color:#C35B17}
+			.listDesplegable li a span{font-size:0.909em;}
+		
+		.listDesplegable ul.subnivel1 { background-color: #fff; padding: 0 0 0.909em 0; margin-top: 0.091em; margin-left:1em;}
+		.listDesplegable ul.subnivel1 li {}
+		.listDesplegable ul.subnivel1 li a { font-weight: normal; }		
+		.listDesplegable ul.subnivel2 { padding: 0 0 0 1.818em; }
+		.listDesplegable li ul.subnivel1 li ul.subnivel2 li a { font-weight: normal; }
+		
+		/* Galería fotográfica */		
+		.photoGallery {float:left; width:100%; background:#efefef; padding:1.125em 0;}
+		.photoGallery ul {clear:both; float:left; width:100%; }
+		.photoGallery ul li { width:9.375em; padding:0 1.125em 1.125em 1.125em;}
+		.photoGallery li p.galleryItem{display:block; float:left; background:#fff; text-align:center; width:9.375em; height:6.250em; padding:0.125em; overflow:hidden; font-size:1em; }
+		/*.photoGallery li a.galleryItem img{ height:6.250em; }*/
+		.photoGallery li p.galleryFoot{float:left; font-size:0.6875em; color:#006699; padding-top:0.3em}
+		span.fileType, span.fileSize {color:#000; font-weight:bold}
+		.columna1 .panel2x .listContents span.fileType, .columna1 .panel2x .listContents span.fileSize {font-weight:normal;  color:#216383}
+
+		/* Tablas Detalle*/
+		.detailBody table {color:#333333; width:100%; font-weight:normal; border: 0.313em solid #EAEAEA; margin-bottom: 1em; background: url(../img/backTabContent.gif) repeat-x scroll left top transparent;}
+		.detailBody table caption {text-align:left; display:block}
+		.detailBody table caption.special {color:#006699; font-weight:bold}
+		
+		.detailBody table thead{min-height: 1.875em; background:#999999; color:#ffffff}
+		.detailBody table td, .detailBody table th, .detailBody table caption { vertical-align:middle; line-height:1.5em; text-align:left}
+		.detailBody table td, 
+		.detailBody table th{border-bottom:1px solid #EAEAEA; border-right:1px solid #EAEAEA} 
+		.detailBody table th{padding:0.455em; font-weight:normal; }
+			.detailBody table th.doWrap{white-space:normal;} 
+			.detailBody table th.noWrap{white-space:nowrap;} 
+			.detailBody table th.centrado {text-align:center;}
+		.detailBody table tr.par{background-color:#F4F4F4}
+		
+		.detailBody table tbody td, 
+		.detailBody table tbody th,
+		.detailBody table tfoot td,
+		.detailBody table tfoot th {padding: 0.455em;}		
+		
+		.detailBody table td p{margin:0;}
+		.detailBody table td.centrado, .detailBody table tr.centrado td, .detailBody table tr.centrado th{text-align: center;}
+		.detailBody table td.derecha, .detailBody table tr.derecha td, .detailBody table tr.derecha th{text-align: right;}
+		.detailBody table td.destacado, .detailBody table tr.destacado td, .detailBody table tr.destacado th{font-weight:bold; border-top: 1px solid #999999;}
+		.detailBody table ul li, .detailBody table ol li{font-size:1em; color:#333333; line-height:1.27273em}
+
+		.detailBody table.fixed{font-size:0.818em; table-layout:fixed; overflow:hidden} 
+		.detailBody table.fixed td{line-height:1em} 
+		.detailBody table.reduced{font-size:0.818em;} 
+		.detailBody table.reduced td{overflow:hidden; line-height:1em} 
+		.detailBody table.reduced thead th{white-space:normal;} 
+
+		/* Tablas dentro de campos Tiny: div class="parrafo" */
+		div.parrafo table td, .detailBody div.parrafo table th, .detailBody div.parrafo table caption{font-size:1em}
+
+/*+++ FORMULARIOS +++*/
+
+/* Filtros de resultados */
+	/* Búsqueda en Resultados - Dentro de FICHA */
+	span.fileType, span.fileSize {color:#000; font-weight:bold}
+	.ficha .fichaFilter{margin: 0.125em 0.3em 0.125em 0.315em /*0.636em*/;border-top:1px solid #E4E4E4; overflow:hidden}
+	.ficha .labelUp{font-weight:normal; color:#585858 }
+	.ficha .fichaFilter .textBox{width:11.6em; border:1px solid #e8e8e8}
+	.ficha .fichaFilter .btnFiltroImg{position:relative; top:-1px; left:0em; padding:0; background:url(../img/icoSearchGoBlack.gif) top left no-repeat; width:1.5em; height:1.65em; }
+	.ficha .fichaFilter .btnFiltroImg span{display:none}
+
+
+	.ficha p.searchFilterLink{ margin:0.636em 0.636em 0.636em 0.636em; padding: 0.125em 0 0.125em 0;  font-size: 0.688em; text-transform:uppercase; border-bottom:1px solid #e4e4e4; background:url(../img/icoSearchOptionGray.gif) right top no-repeat;}
+	.ficha p.searchFilterLink a {color:#333;display:block; }
+	.ficha p.searchFilterLink img.icoAction{float:right; }
+	.ficha p.filterText{padding:0.125em 0.636em 0.4em 0.636em; font-size:0.688em;  line-height:1.2em; color:#585858}
+
+	/* Buscadores y Filtros Específicos (2 Vistas: Pueden ir en columna derecha o en mitad del contenido) */
+	.filterMain{float:left; width:100%; }
+	.filterBox{float:left; padding:0.50em; border:1px solid #e8e8e8;}	
+		.filterMain .filterBox{width:47em; }/*   en el contenido */
+		 .contenedorFicha .filterBox{} 		/* en la ficha lateral */
+
+	.fichaNext{float:left; width:11.375em; border:1px solid #e8e8e8; border-top:0; }
+	.filterTitle{font-size:0.688em; color:#333;text-transform:uppercase; border-bottom:1px solid #e8e8e8}
+	
+	.labelFilter{float:left; margin:0.3em 1em 0.3em 0; border-bottom:1px solid #e8e8e8; width:10.313em; /*background:gray;*/ }
+	.contenedorFicha .labelFilter{margin-right:0}
+
+	.labelFilter .selectCol{float:left;}
+		.filterMain .labelFilter .selectCol{clear:left}
+		.contenedorFicha .labelFilter .selectCol{clear:none}
+	/*.labelSide{float:left; width:145px} */
+
+	.labelDate{float:left; margin:0.3em 1em 0.3em 0; width:10.313em;}
+		.contenedorFicha .labelDate{margin-right:0}
+		.filterMain .labelDate{margin-right:1em}
+	.busCertificado {margin: -4px}
+	
+/* Formularios Generales*/
+	/* Grid de Formularios: 12 Columnas de 62px 
+		http://spreadsheets.google.com/ccc?key=rdUnWF9Oe-unf13mFOExxrQ#
+	*/ 
+	
+	.aplicacion { background:url(../img/fnd_aplicacion.gif) repeat-x left top; padding:0.5em 0; border: 1px solid #e8e8e8; clear:left; height:1%; overflow:hidden; margin-bottom:1em;}
+	.aplicacionTitle { }
+	.aplicacionTitle p { font-size:0.75em; font-weight:bold; color:#006699; padding:0.5em 0 0 0.667em; }
+	.aplicacionBody { padding:0 0.5em; }
+	.aplicacionBody.debug {background:url(../img/GridColsForm.gif) 0.5em 0.5em repeat}
+	.formBox { clear:both; width:100%; }
+	.formBox form {  }
+	.aplicacion .listSelector{float:left; clear:left; font-size:0.688em; margin:0.5em 1em; display:inline}
+	.aplicacion .listSelector	a {color:#216383}
+	.aplicacionBodySmall {padding:0.4em 0.5em;}
+
+	.tableBox { clear:both; width:100% }
+	.tableBox table { width:99%;  margin: 0 auto 0.5em auto }
+
+		table.fixed{font-size:0.8em; table-layout:fixed; overflow:hidden} 
+		table.reduced{font-size:0.8em; } 
+		table td{overflow:hidden} 
+		table.reduced thead th{white-space:normal;} 
+
+	.tableBox table caption {font-size:0.75em; text-align:left; display:block; width:100%}
+	.tableBox table caption.special {font-weight:bold}
+
+	.tableBox table thead {background-color :#999999; }
+	.tableBox table thead tr { color:#fff; font-weight:normal }
+	.tableBox table thead tr th { white-space:normal; padding:0.4167em; border-bottom: 1px solid #E6E7E8; font-size:0.75em; text-align:left; font-weight:normal}
+
+	.tableBox table tr.par { background-color:#F4F4F4 }	
+	
+	.tableBox table td, 
+	.tableBox table tbody th{font-size:0.75em; padding:0.5455em;}
+	.tableBox table td label{font-size:1.3333em; margin:0}
+	.tableBox table td input{font-size:1.2222em; margin:0}
+		
+	.tableBox table td, 
+	.tableBox table th,
+	.tableBox table tr td, 
+	.tableBox table tr th	{text-align: left; vertical-align:top; border-bottom: 1px solid #E6E7E8}
+		
+	.tableBox table td.cen, 
+	.tableBox table th.cen,
+	.tableBox table tr.cen td, 
+	.tableBox table tr.cen th	{text-align: center;}
+		
+	.tableBox table td.der, 
+	.tableBox table th.der,
+	.tableBox table tr.der td , 
+	.tableBox table tr.der th {text-align: right;}
+		
+	.tableBox table td.dest, 
+	.tableBox table th.dest,
+	.tableBox table tr.dest td , 
+	.tableBox table tr.dest th {font-weight:bold }
+		
+	.tableBox table td ul li{font-size:1em}
+	.tableBox table td p{margin:0;}
+			
+	.tableBox table tr.par{background-color:#F7F7F8;}
+
+	.tableBox table td a.btn{font-size:0.9167em; }
+	
+
+	
+	.ayudaAd, .objectBack{ float:right; clear:none; width:97%; margin:0.5em 0 0.5em 1em; padding-bottom:0.5em; display:inline}
+	.ayudaAd, .objectBack2{ float:right; clear:none; width:97%; margin:0.5em 0 0.5em 1em; padding-bottom:0.5em; display:inline}
+	.objectBack.top{float:right; clear:none; width:auto; margin:0; padding-bottom:0; display:inline; text-align:right}
+	.ayudaAd a , .objectBack a{color:#216383 }
+	.ayudaAd a , .objectBack2 a{color:#216383 }
+	.ayudaAd a img { float:right; margin-right:0.35em  }
+	.ayudaAd a span, .objectBack a span { float:right; font-size:0.6875em; line-height:1.2em; cursor:pointer  }
+	.ayudaAd a span, .objectBack a:hover span { text-decoration:underline; }
+	.ayudaAd a span, .objectBack2 a span { float:right; font-size:0.6875em; line-height:1.2em; cursor:pointer  }
+	.ayudaAd a span strong { float:left; clear:left  }
+	
+	/* Anchos de fieldset o div agrupador */	
+	.field, .field1, .field1b, .field2, .field3,	.field4, .field5, .field6, .field7, .field8, .field9, .field10, .field11, .field12{ float:left; margin:0.5em 0; display:inline; }
+	.control1, .control2, .control3, .control4, .control5, .control6, .control7, .control8, .control9, .contro110, .control11, .control12{margin-right:0.1em; display:inline}
+	.field, .control {width:100%}
+	.field1,  .control1{width:3.875em}	/* 62px		*/
+	.field2,  .control2{width:7.75em}	/* 124px	*/
+	.field3,  .control3{width:11.625em}	/* 186px	*/
+	.field4,  .control4{width:15.5em}	/* 248px	*/
+	.field5,  .control5{width:19.375em}	/* 310px	*/
+	.field6,  .control6{width:23.25em}	/* 372px 	*/
+	.field7,  .control7{width:27.125em}	/* 434px	*/
+	.field8,  .control8{width:31em}		/* 496px 	*/
+	.field9,  .control9{width:34.875em}	/* 558px	*/
+	.field10, .control10{width:38.75em}	/* 620px	*/
+	.field11, .control11{width:42.625em}/* 682px	*/
+	.field12, .control12{width:46.5em}	/* 744px	*/
+
+	/* el estilo row en formularios se usa para manejar las columnas */
+	#generico .row{clear:both}	
+	
+	/*CURSOR BOTONES ELEMINAR BACK*/
+	.field12.cll .ficha td img.botonEliminar{ cursor:pointer;}
+	
+	.actions{float:left; margin:0.5em 0 0.5em  0; width:100%; padding-bottom:0.5em}	
+	.avSearch{float:left; clear:left; width:100%; margin-top:0.5em; padding-top:0.5em; border-top:1px solid #eeeeee}
+		
+	.liquid{float:left;}
+	.notLiquid{float:left; clear:both; width:100%;}
+
+	/* Anchos de label*/
+	.selectCol{width:13.8em;}
+	.inputCol{width:13.3em;}
+	.dateText{width:6em; float:left; clear:left}
+
+	.labelUp, .labelUp1,.labelUp2, .labelUp3, .labelEsp, .labelCheck, .labelCheck2{font-size:0.75em; color:#333;font-weight:normal; line-height:1.5em; clear:both; width:100%; display:block }
+	
+	/*BUSCADOR AVANZADO*/
+	#formApSearchCont .box9{ margin-bottom:1em;}
+	#formApSearchCont .buscarEn .labelOpciones{font-size:0.75em; color:#585858}
+	#formApSearchCont .buscarEn { margin-top:-1em}
+	#formApSearchCont .buscarEn legend{ display:block; font-size:0.75em; font-weight:bold; color:#585858;}
+	/*--------*/
+	.labelLegend{font-size:0.75em; color:#333;font-weight:bold; line-height:1.5em; clear:both; display:block }	
+		.labelUp2{color:#585858; line-height:1.5em}
+		.labelUp3{color:#585858; line-height:1.5em; font-weight:normal}
+		.labelEsp{position:relative; top:0.5em; left:0}
+		.labelCheck{font-weight:normal; clear:none; line-height:1em; width:auto; vertical-align:top; padding-top:0.2727em}
+		.labelCheck2{font-weight:normal; position:relative; top:-3px; display:inline; width:auto;}		
+		 .checkbox01{float:left}
+		.labelHoriz{font-size:0.688em;font-size:0.75em; color:#333;font-weight:bold; line-height:1.5em; margin-right:1em;}
+		fieldset.separat{border-bottom:1px solid #efefef; margin-bottom:1em; padding-bottom:0.5em}
+		.alinear label{ width:33.3%; float:left;}
+		.aplicacionBody fieldset{ margin-bottom:1em;}
+	
+		/* Diana, para que se vean los legend de los formularios*/
+	legend.parrafo{display:block;font-weight:bold;position:relative;top:0;left:0;}
+				
+/* Anchos de input y select basados en modulo 3.875em/62px. Calles de 1em/12px | font-size:12px  URL: http://spreadsheets.google.com/ccc?key=rdUnWF9Oe-unf13mFOExxrQ&hl=en */	
+	.box1{width:4.167em}		/* 50px	*/
+	.box2{width:9.333em}		/*112px	*/
+	.box3{width:14.5em}		/*174px	*/
+	.box4{width:19.667em}		/*236px	*/
+	.box5{width:24.833em}		/*298px	*/
+	.box6{width:30em}			/*360px */
+	.box7{width:35.167em}		/*422px	*/
+	.box7b{width:34em}		/*solo se usa en adm busquedas guardadas	*/
+	.box8{width:40.333em}		/*484px */
+	.box9{width:45.5em}		/*546px	*/
+	.box10{width:50.667em}	/*608px	*/
+	.box11{width:55.833em}	/*670px	*/
+	.box12{width:61em}			/*732px	*/	
+
+	/*Ajuste para los Select +4px*/
+		select.box1{width:4.5em}	/* 54px	*/
+		select.box2{width:9.666em}	/*116px	*/
+		select.box3{width:14.833em}	/*178px	*/
+		select.box4{width:20em}		/*240px	*/
+		select.box5{width:25.166em}	/*302px	*/
+		select.box6{width:30.333em}	/*364px */
+		select.box7{width:35.5em}	/*426px	*/
+		select.box8{width:40.667em}	/*488px */
+		select.box9{width:45.833em}	/*550px	*/
+		select.box10{width:51em}	/*612px	*/
+		select.box11{width:56.166em}/*674px	*/
+		select.box12{width:61.333em}/*736px	*/	
+
+	/* Altos para los textarea */
+	textarea.altura1 { height: 2.438em }	/*39px*/
+	textarea.altura2 { height: 4.875em }	/*78px*/
+	textarea.altura3 { height: 7.313em } 	/*117px*/
+	textarea.altura4 { height: 9.750em }	/*156px*/
+	textarea.altura5 { height: 12.188em }	/*195px*/
+	textarea.altura6 { height: 14.625em }	/*234px*/
+	
+	/* Botoneras */
+	.boton01, .boton02, .boton03 {font-size:0.6875em; background:#585858; border:none; color:#eeeeee; margin:0.3em; padding:0.3em  0.5em 0.3em 0.5em ; position:relative; top:-3px; cursor:pointer}							
+	.boton01:hover, .boton02:hover, .boton03:hover{background:#333333; color:#fff;} 	
+	.bt_date{float:left; margin: 0.125em 0 0 0.3em; background:transparent url(../img/butCalendar.jpg) top left no-repeat; width:1.7em; height:1.6em; border:none; cursor:pointer; padding:0 }
+
+	.btnFiltro{float:right; clear:both; padding:0 0.4em}
+	.btnBoxRight{float:right; clear:both; padding:0 0.4em; margin-right:1.9em}
+	
+	/* GButtons */
+    .btn {display:inline-block; background:none; margin:0 0 0 0.5em; padding:3px 0; border-width:0; overflow:visible; font:0.6875em Arial,Sans-serif; line-height: 1.3em; text-decoration:none; color:#eee; cursor:pointer; }
+	.btn span { background:#585858; margin:0; padding:3px 0; border-left:1px solid #999999; border-right:1px solid #999999;}
+    .btn span span { position:relative; padding:3px 0.5em; border-width:0; border-top:1px solid #999999; border-bottom:1px solid #999999; }
+     /* Over & Activos*/ 
+    .btn:hover span, .btn:hover span span{cursor:pointer;  background:#333333; border-color:#216383 ; color:#fff; }
+	.btn:hover{text-decoration:none}
+
+	 div.btn {padding:2px 0}	
+	 div.btn span { padding:5px 0}
+	 div.btn span span { padding:5px 0.5em}
+	 div.btn span span input{font-size:1.38em; border:0; padding:0 3px; margin:0 ;background:none; color:#ffffff}	 
+	 
+	a.btn {border-top:1px solid #ffffff; color:#EEEEEE}	/*Baja un px el enlace para alinearlo con el button (FF + IE8) */	
+	.btnRight{float:right; margin:0 0.5em; }
+	.btnRight img{ cursor:pointer; margin-top:.1em;} 
+	.btnRc{font-size:0.6875em;background:#585858;border:1px solid #d7d7d7;color:#ffffff;margin:0.3em;padding:0.3em 0.5em 0.3em 0.5em;cursor:pointer;}
+	.btnRc:hover{background:#333333; color:#fff;} 
+	.btnRc input{border:0; background:none; font-size:1em; color:#ffffff}
+
+	
+	/* buttons as links en las fichas*/	
+	#btnSuscribe {color:#333333; font-family:Arial,Helvetica,sans-serif;}		
+	.btnAsLink { float:left; font-size:0.6875em; margin:0; padding:0; border:none; color:#333333; cursor:pointer; display:inline; text-align:left; line-height:1em; background:none;}
+	.btnAsLink:hover {text-decoration:underline;}
+
+	/* Captcha */
+	form .enlaces { color:#333333; font-size:0.6875em; padding-top:0.6em; display:block; margin-left:.5em;}
+	.suscripcion form .enlaces { margin-left: 0; line-height: 1.3em; display:inline; }
+
+	.suscripcion #btnSuscribe { color: #585858;}
+	img.icon, 
+	img.iconRefresh  {display:inline; float:left;margin:0 5px 0 0; width:18px;}
+	#postCaptcha{float:left; clear:left; margin-top:1em }
+	.postContent .fotoDetalle{width:8em; height:8em; background:#efefef; overflow:hidden}
+
+	/* Formularios (resert ficheros) */
+	form .file_reset { color:#333333; font-size:0.6875em; padding-top:0.6em;}
+	form .file_reset img {margin-left:1em;}
+	
+	
+	/* Calendarios desplagables */
+	div.calendar { display:none; position:absolute; width:12.5em; z-index:200; background-color:#fff; border:1px solid #216383; }
+	div.calendar img { border:none; }
+	div.calendar p { height:1.8em; padding:0.3em; color:#333333; font-size:0.688em; border-bottom:none; }
+	div.calendar p.cierre { padding:0.3em; background:#dbdbdb; text-align:right; } 
+	div.calendar span.txtmonth { float:left; width:15.455em; color:#333333; text-align:center; font-weight:bold; font-family:Arial; } 
+	div.calendar span.nullDat { color:#ccc; font-weight:bold; font-family:Arial; } 
+	div.calendar img.nextmonth { float:right; width:0.909em; padding-top:0.1em; } 
+	div.calendar img.backmonth { float:left; width:0.909em; padding-top:0.1em; } 
+	div.calendar a { color:#216383;  } 
+	div.calendar table { width:12.438em;; margin:0 0 0 1px; padding-bottom:0.313em; }
+	div.calendar table th, div.calendar table td { width:14.2%; text-align:center; padding:0 ;font-size:0.688em; }
+	div.calendar table th { background:#F4F1EA; color:#585858; font-weight:normal; }
+	div.calendar table td { }
+	div.calendar table td.celdaOtroMes { color:#585858; }
+	div.calendar table td.today { background-color:#F4F1EA; border:1px dashed #216383 }
+	div.calendar table td.nullDat { background-color:#999999; }
+	div.calendar table td.nullDat a { color:#FFF; }
+	div.calendar table strike { color:#585858; }
+	.clearcal:after { content:"."; height:0; clear:both; display:block; visibility:hidden; }
+
+	/* Textos de apoyo */
+	.notes{font-size:0.6875em; color:#585858; margin:0.5em 0; line-height:1.2em}
+	.cuerpo12{ font-size:0.75em;}
+	.margen2em{ margin-left:2em;}
+	.field9.c01.margen2em .bdCalendarDiv{ margin-left:12em;}
+	.miniNotes{font-size:0.6875em; color:#585858; margin:0.5em 0; line-height:1.2em}
+	.hint{font-size:0.6875em; color:#F00; margin:0; clear:both; display:block; line-height:1.2em; }
+	.asterisco{display:inline-block; color:#FF0000; width:0em; height:1em; padding-left:1em;margin:0; line-height:1em; overflow:hidden; background:url(../img/asterisco.gif) center left no-repeat;}
+	.errorField{background:#FFFFA0;}
+	.errorMsg{color:#585858; margin:0.5em 0; padding:0.3em; line-height:1.2em; background:#FFFFA0;}
+		
+	
+	/* Navegación por Pestañas (En resultados del buscador) */
+	.navTabMenu, .navTabMenu1{ float:left; width:100%; clear:both; text-align:center;  padding-top:1em}
+	.navTabMenuList{text-align:left; float:left; width:100%; background:#ffffff url(../img/backTabMenu.png) left bottom repeat-x; }	
+	.navTabMenuList li{float:left; width:8em; height:2em;  color:#333; text-align:center; padding:0 0 0 0; margin:0 0 0 0.75em; display:inline}
+	.navTabMenuList li strong, .navTabMenuList li span{ font-size:0.6875em; float:left; width:100%; text-align:center; margin:0; padding:0.3em 0 0 0; line-height:1em}
+	.navTabMenuList .currentTab{border:1px solid #fff; border-bottom:0; width:9em;}
+	.navTabMenuList .currentTabBody{border:1px solid #DBDBDB; border-bottom:0; background:#f1f1f1;padding-top:0.3em; height: 2.6em; padding-top: 0.3em; position: relative;top: -0.7em;}
+ 	.navTabMenuList .navTab{ border:1px solid #DBDBDB; border-bottom:0; background:#fff; width:9em; padding-top:0.3em;}
+ 	.navTabMenuList .navTab a{display:block; height:1.938em; border:1px solid #fff; border-bottom:0; color:#333;}
+	.navTabMenuList .navTab a:hover strong{text-decoration:underline;}
+
+	/* Navegación por Pestañas (En resultados del buscador) con opción de guardar*/
+	.halfTabMenuList{text-align:left; float:left;width:100%; margin:0; margin:1px 0}	
+	.halfTabMenuList li{float:left; width:32em; color:#333;  display:inline;  text-align:center;  font-size:0.75em; margin:0; padding:0.364em 0; background:#f1f1f1; border:1px solid #f1f1f1; border-right:1px solid #999999;border-bottom:1px solid #e8e8e8;}
+	.halfTabMenuList li.selected{ border:1px solid #fff; background:#fff; border-right:1px solid #999999;}
+	.halfTabMenuList li a{color:#585858; }
+	.halfTabMenuList li span{color:#000; }
+	.halfTabMenuList li.last{border-right:1px solid #f1f1f1}
+
+		
+	/* Navegación por Pestañas de primer nivel */
+	.navTabMenuList1{text-align:left; float:left;}
+	.navTabMenuList1 li{ float:left; width:8em; height:2em; margin:0 0 0 0.75em; display:inline }
+	.navTabMenuList1 li span,.navTabMenuList1 li a{ height:1.9em; display:block; font-size:0.688em; text-align:center; margin:0; line-height:1em; padding-top:0.918em; font-weight:bold; text-transform:uppercase }
+	.navTabMenuList1 li.navTab { background-color:#ccc; border:1px solid #dbdbdb; border-bottom:none }
+	.navTabMenuList1 li.navTab .OneLine { border:1px solid #fff; border-bottom:none; color:#585858 }
+	.navTabMenuList1 li.currentTab { border:1px solid #fff; border-bottom:none }
+	.navTabMenuList1 li.currentTab .OneLine{ border:1px solid #DBDBDB; border-bottom:none; background:#fff; color:#333 }	
+
+	/* Navegación por Pestañas de segundo nivel */
+	.navTabMenu2{ width:100%; float:left; clear:both; margin: 0 0 0.188em 0; background-color:#f1f1f1 }
+	.navTabMenuList2{ text-align:left; float:left; padding-left:0.75em }
+	.navTabMenuList2 li{ float:left; text-align:center; padding:0 0.813em; border:1px solid #ddd; border-left:1px solid #999999; border-bottom:1px solid #e8e8e8 }
+	.navTabMenuList2 li a, .navTabMenuList2 li span{float:left; font-size:0.688em; font-weight:bold; display:block; line-height:1em; height:1.4em; padding-top:0.4em; text-align:center; }
+	.navTabMenuList2 li.currentTab{ background-color:#fff; border-bottom:1px solid #fff }
+	.navTabMenuList2 li.last{ border-right:1px solid #999999 }
+	.navTabMenuList2 li.navTab .OneLine{ color:#585858 }
+	.navTabMenuList2 li.currentTab .OneLine{ color:#333 }
+	
+/* Menu informativo con Pasos (En aplicaciones) */
+	.navTabPasos{height:1.312em; width:100%; clear:both; margin: 0.625em 0 0.063em 0; background:transparent url(../img/fnd_menuPasos.gif) top left repeat-x; padding-top:0.813em }
+	.navTabPasosList{ float:left; padding:0 0 0 1.938em }
+	.navTabPasosList li{float:left; width:2.500em; height:1.313em; color:#333; text-align:center; padding:0 0 0 0; margin:0 0.688em 0 0; display:inline; background:url(../img/menuTabPasos.gif) no-repeat left bottom }
+	.navTabPasosList li.selected{ background:url(../img/menuTabPasosSel.gif) no-repeat left bottom }
+	.navTabPasosList li span{ float:left; width:100%; text-align:center; font-size:1.125em; font-weight:bold; color:#ccc; width:1.944em; padding-top:0.167em }
+	.navTabPasosList li.selected span{ color:#fff }
+/* Indicador del paso en que estamos */
+	.navTabPasos .indicador { float:right; margin-right:0.938em; padding:0 0.938em; background:url(../img/fnd_pasos.gif) repeat-x left bottom }
+	.navTabPasos .indicador p { font-size:0.75em; color:#333 }
+		
+/* Mensajes del sistema, avisos, errores.. */
+	.errorForm{border:1px solid #ddd; padding:1em; margin: 0 0 0.5em}
+		.errorForm p.tit{font-size:0.75em; color:#cc3300;}
+		.errorForm ul li{font-size:0.75em; color:#cc3300; background:transparent url(../img/bulletRelContList.gif) left 0.2em no-repeat; padding-left:1em;}		
+	
+	.sysBlock{ float:left; width:100%; background:url(../img/backSysMessage.gif) top left repeat-x; }
+	
+	#sysMessage{ padding:4.6875em 4.6875em 2.6875em 7.375em; }
+		.txtAdvice { background: url(../img/icoMsgError.gif) top left no-repeat }
+		.txtOk { background: url(../img/icoMsgOk.gif) top left no-repeat }	 	
+		.txtInfo { background: url(../img/icoMsgInfo.gif) top left no-repeat }
+		#sysMessage p{font-size:0.75em; color:#333; line-height:1.27em}
+		#sysMessage p.main, #sysMessage a{color:#006699; font-weight:bold;}
+		
+		
+/* Login y Registro*/
+	#registro { background:url(../img/fnd_registro.gif) repeat-x left top; padding-top:23px }
+	#registro p.solicitud { font-size:0.688em; line-height:1.27273em; padding:0.8125em 0 0.75em 2.089em; width:66% }
+	#registro .formularioAlta { padding:1em 0 1em 1.4375em; border-top:1px solid #F1F1F1;}
+	#registro .recuperacion { width:23.4375em; margin:0 auto; padding-left:0 }
+	#registro .recuperacion form input#email { width:29.1em }
+	#registro .formularioAlta form fieldset { margin-bottom:0.5em }
+	#registro .formularioAlta form label.caja1ftl { float:left; width:33.3% }
+	#registro .formularioAlta form label.caja1ft2 { float:left; width:66.6% }
+	#registro .formularioAlta form label #apellido1 { width:16.15em }
+	#registro .formularioAlta form label #apellido2 { clear:none; width:16.15em; margin-left:0.4em }
+	#registro .formularioAlta form label span { font-size:0.6875em; color:#666; font-weight:bold; display:block; clear:left }
+	#registro .formularioAlta form label span.info { font-weight:normal; line-height:1.25em; margin-top:1.5em }
+	#registro .formularioAlta form label input { float:left; clear:left; width:14.4em; border:1px solid #666 }
+	#registro .formularioAlta form .botonera{ margin: 0.9em 0 0 0 }
+	#registro .formularioAlta form .botonera span.accesoTramite{ margin-left:6.3em; float:left; display:inline }
+	#registro .recuperacion form .botonera span.accesoTramite { margin-right:0 }
+	.botonera.linetop { border-top:1px solid #f1f1f1; margin: 0.5em 0 0 0; padding-top:0.5em }
+	.botonera span.accesoTramite,a.accesoTramite{ background:url(../img/backLinkButtonLeft.jpg) left top  no-repeat; display:block; float:left; color:#000; padding:0 0 2px 3px }
+	.botonera span.accesoTramite input,a.accesoTramite span{ padding:1px 10px 3px 7px; float:left; background:url(../img/backLinkButtonRight.jpg) right top no-repeat;color:#000; text-transform:uppercase; border:none; cursor:pointer; overflow:visible; font-size:0.75em; }
+	a.accesoTramite span{ padding-top:0 }
+	#registro .olvidoUser { border-top:1px solid #f1f1f1; padding:0.5em 0 0.5em 1em ; margin-top:1em}
+	#registro .olvidoUser a img { float:left; margin-right:0.35em  }
+	#registro .olvidoUser a span { float:left; font-size:0.6875em; color:#666; line-height:1em; cursor: pointer}
+	#registro .olvidoUser a:hover span{text-decoration:underline}
+	
+	#logMensaje{font-size:1em;clear:both;overflow:hidden;}
+	#logMensaje .aviso{padding:3em 0 3em 6.5em;}
+	#logMensaje .txtAdvice{background: url(../img/icoMsgError.gif) -.5em -2em no-repeat}
+	#logMensaje .aviso p{font-size:0.75em;line-height:1.27em;color:#333}
+	#logMensaje p.main, #logMensaje a{color:#069;font-weight:bold}	
+	
+/* Panel derecho del registro --> Donde viene un texto explicativo*/
+	#avisoRegistro { border:1px solid #e3e3e3; padding-bottom:1em }
+	#avisoRegistro.login { min-height:14em; height:auto !important; height:14em; padding-bottom:0 }
+	#avisoRegistro .cabeceraR { background:#ffffff url(../img/fnd_avisoRegistro.gif) repeat-x left top; padding:0 0.4375em }
+	#avisoRegistro .bodyR { padding:0 0.4375em }
+	#avisoRegistro .cabeceraR span { border-bottom:1px solid #e3e3e3; font-size:0.6875em; color:#333; text-transform:uppercase; font-weight:bold; padding:0.1em 0; display:block }
+	#avisoRegistro .bodyR p.parrafo { color:#333; margin: 0.375em 0 1.4375em 0; padding-left:0.25em }
+	#avisoRegistro .bodyR span.ventajas { color:#006699; font-weight:bold; font-size:0.75em; padding-left:0.25em }
+	#avisoRegistro .bodyR ul.listadoRegistro li { margin-left:0.9090em; color:#333; font-size:0.75em; background:url(../img/bulletRelContList.gif) no-repeat left center; padding-left:1.27em }
+	#avisoRegistro .bodyR ul.listadoRegistro li a{color:#006699}
+	#avisoRegistro .bodyR ul.pasos  { padding-top:3px }
+	#avisoRegistro .bodyR ul.pasos li { color:#333; font-size:0.6875em; background:url(../img/bulletPasos.gif) no-repeat 0.8181em center; padding:6px 0 6px 1.9090em; border-bottom:1px solid #e4e4e4 }
+	#avisoRegistro .bodyR ul.pasos li.active { background:url(../img/fnd_pasosSel.gif) repeat-x left bottom }
+	#avisoRegistro .bodyR a.accesoTramite { float:right; margin-top:0.5em }
+	
+	/* Caja del registro que pinta la linea gris bottom*/
+	#registro .cajaRegistro { border-bottom:1px solid #f1f1f1; min-height:10em; height:auto !important; height:10em }
+	#registro .cajaRegistro p.aviso { font-size:0.75em; font-weight:bold; line-height:1.27273em; padding:0.8125em 0 0.75em 1.9166em; width:66% }
+
+/* Estilo spra el mapa web */
+	.columMapa{ float:left; width:100%; height:auto; background:#f6f6f7 url(../img/fnd_mapa.gif) repeat-x left bottom ;margin-bottom:0.38em }
+	.columMapa .titleMap{ float:left; width:100%; background:#dcdedf url(../img/fnd_tit_map.gif) repeat-x left top; margin-bottom:2px; border-bottom:2px solid #fff }
+	.columMapa .titleMap a{ float:left; padding:0.500em 0.833em 0.500em 1.083em; color:#333; font-size:0.75em }
+	.columMapa .titleMap a span.linkFrill{ color:#216383; font-weight:bold }
+	.columMapa .bodyMap{ float:left }
+	.columMapa .bodyMap ul { float:left; padding:0.5em 0em 0.5em 0.5em ; display:inline; }	
+	.columMapa .bodyMap ul li { clear:left; float:left; width:10.5em; display:inline;  background:transparent url(../img/bulletMenuMarino.gif) no-repeat scroll left top;  padding-bottom:0.182em; }
+	.columMapa .bodyMap ul li a:hover{ text-decoration:underline }
+	.columMapa .bodyMap ul.listContentsMap li {position:relative;}
+	.columMapa .bodyMap ul.listContentsMap li a.lnkDesplegable{ display:inline;line-height:0; margin:0; padding:0; position:absolute; top:0.2em; left:-0.4em}		
+	.columMapa .bodyMap ul.listContentsMap li a{ color:#216383; display:block; font-size:0.75em; line-height:1.273em; margin-left:0.909em; padding-right:0.909em; text-decoration:none; position:relative; }
+	.columMapa .bodyMap ul.listContentsMap li a:hover{text-decoration:underline;}
+/*	.columMapa .bodyMap ul.listContentsMap li .agrupN1 span.linkFrill{ position:absolute; margin-left:0.188em; color:#000 }	*/
+	.columMapa .bodyMap ul.listContentsMap ul  { padding:0.25em 0 0 0.875em}
+	.columMapa .bodyMap ul.listContentsMap ul li  { width:9.1875em; background:transparent url(../img/bulletSideMenuBlack.gif) no-repeat scroll left top; position:relative}
+	.columMapa .bodyMap ul.agrupN2 li a, 
+	.columMapa .bodyMap ul.agrupN3 li a { color:#000; display:block; font-size:0.688em; line-height:1.273em; margin-left:0.909em; padding-right:0.909em; text-decoration:none; position:relative }	listContentsMap
+
+	.columMapa .bodyMap ul.agrupN2 li a.lnkDesplegable{ display:inline;line-height:0; margin:0; padding:0; position:absolute; top:0.2em; left:-0.4em}
+	
+	.columMapa .bodyMap ul.agrupN2 li a{font-weight:bold; padding-bottom:0.3em} 
+	.columMapa .bodyMap ul.agrupN3 li a{font-weight:normal} 
+/*	.columMapa .bodyMap ul.listContentsMap ul.agrupN2  li span.linkFrill  { position:absolute; margin-left:0.188em; color:#216383 }*/
+
+/* Listado de blogs */
+	.blogBlock {float:left; width:100%; clear:left; margin-bottom:1em; }	
+/* Bloque de contenidos el blog */
+	.postBlock{float:left; width:100%; margin-top:0.5em; padding-bottom:0.5em;  border-bottom:1px solid #c5c5c5; }
+	
+/* TAGS*/
+	.tags{float:left; width:100%; margin-top:0.5em; padding-bottom:0.5em;  border-bottom:1px solid #c5c5c5; }
+	.tagLabel{float:left; padding:0 0.5em; font:bold 0.75em Arial, Helvetica, sans-serif; color:#333333}
+	.taglist li{float:left; padding:0 0.25em; font:normal 0.75em Arial, Helvetica, sans-serif; }
+	.taglist li a{color:#006699;}
+
+/* VALORACIONES */	
+/*SE HA CAMBIADO ICO_RATE_SPRITE.PNG X ICO_RATE_SPRITE.GIF*/
+	.ratings { position:relative; float:left; width:100%; margin-top:0.5em; padding-bottom:0.5em; border-bottom:1px solid #c5c5c5}
+	.ratings a { color:#4C7094; font-family:Arial, Helvetica, sans-serif; }
+	.ratings img { height:auto; margin-top:-1px; vertical-align:middle; width:auto; }
+	
+	.rateVoteSet, .rateResultSet{ display:inline; float:left; margin-right:3em}
+	.voteCall , .voteText, .numVotes{ display:inline; float:left; font:bold 0.75em Arial, Helvetica, sans-serif; color:#333333; position:relative; top:2px}
+	.numVotes{font-weight:normal}
+	
+	.rateVote{ background:#ffffff  url(../img/ico_rate_sprite.gif) repeat 0 0; float:left; height:20px; margin:0 4px 0 3px; position:relative; width:75px; display:block; }
+	.rateVote a{ display:block; height:19px; position:absolute; }
+	.rateVote a:hover{ background:#ffffff url(../img/ico_rate_sprite.gif) repeat-x  0 -38px; }
+	.voted{ background:#ffffff url(../img/ico_rate_sprite.gif) repeat-x  0 -19px; }
+	
+	.vote1 { width:15px; z-index:9; }
+	.vote2 { width:30px; z-index:8; }
+	.vote3 { width:45px; z-index:7; }
+	.vote4 { width:60px; z-index:6; }
+	.vote5 { width:75px; z-index:5; }
+	
+	.voteRes {background:#ffffff  url(../img/ico_rate_sprite.gif) repeat 0 0; float:left; height:20px; margin:0 4px 0 3px; position:relative; width:75px; display:inline; }
+	.voteResult { display:block; height:19px; position:absolute; background:#ffffff  url(../img/ico_rate_sprite.gif) repeat 0 -57px; overflow:hidden}
+	.voteResult span.text{display:block; text-indent:-30000px}
+	
+	
+/* COMENTARIOS */
+	.comments{float:left; clear:left; width:100%}
+	.commentTools{float:left; width:100%; margin-bottom:0.5em; padding:0.5em 0; background: url(../img/backLineDotted.gif) left bottom repeat-x; }
+	.commentTools .counter{float:left; padding:0 0.5em; font:bold 0.75em Arial, Helvetica, sans-serif; color:#333333}
+	.commentTools .tools{float:right; padding:0 0.5em;}
+	
+	.commentListCont {float:left; clear:left; width:100%; margin-bottom:1em   }
+	.commentListCont  .pagination{clear:both; float:none}
+	ul.commentList{float:left; clear:left; width:100%; margin-top:0.5em; }
+	li.comment{float:left; clear:left; width:100%; margin-bottom:0.5em; padding:0.5em 0; background: url(../img/backLineDotted.gif) left bottom repeat-x;}
+		.commentHead{ float:left; width:100%; background:#EFF1F2 url(../img/backDestHeadRightRnd.gif) top right no-repeat; padding:0.25em 0;}
+			.commentHead a{color:#006699}		
+			.commentAuthor{float:left; font:bold 0.75em Arial, Helvetica, sans-serif; color:#333333; padding:0 0.5em}			
+			.commentDate{float:left; font:normal 0.75em Arial, Helvetica, sans-serif; color:#333333; }
+			.commentOnPost{float:left; clear:left; font:bold 0.75em Arial, Helvetica, sans-serif; color:#333333; padding:0 0.5em}
+			.commentDate a{color:#006699}
+		.commentNum{float:right; font:normal 0.75em Arial, Helvetica, sans-serif; color:#333333; padding:0 1em}
+		.commentBody{float:left; clear:both; width:100%; margin:1em 0; font:normal 0.75em Arial, Helvetica, sans-serif}
+		.adminTools{clear:left; border-top:1px solid #eeeeee; padding-top:0.5em}
+
+
+	.commentEdit{float:left; clear:both; width:100%; }
+	.commentEditHead{float:left; width:100%; background:#EFF1F2 url(../img/backDestHeadRightRnd.gif) top right no-repeat; padding:0.25em 0; }
+	.commentEditHead span{font:bold 0.75em Arial, Helvetica, sans-serif; color:#333333; padding:0 0.5em}
+	.commentEditBody{float:left; clear:both; width:100%; margin:0.5em 0 }
+	.commentEditBody p{font:bold 0.75em Arial, Helvetica, sans-serif; color:#333333; padding:0.25em}
+	.commentEditBody p .commentEditAuthor{font-weight:bold; color:#006699;}
+	.commentEditBody .commentEditText{width:98%; margin-bottom:0.5em}
+	.golden .section { width: 62%;}
+	/*SUSCRIPCIÓN TRÁMITES*/
+	.formApp input#captcha {clear:left;float:left;	margin-top:1em;}
+	#btnReload {color:#333333;cursor:pointer;font-size:0.6875em;left:18.2em;line-height:1.5em;margin:0;padding:0 0 0.5em;position:relative;top:-8.8182em;}
+/*----------*/
+.destBodyChannel ul.listContents{ position:static; overflow:visible; float:left; margin-left:-4em;}
+/*Diana Citas y abreviaturas */
+q{quotes: '"' '"' "'" "'";}
+q:after {content: close-quote;}
+q:before{content: open-quote;}
+abbr, acronym { display:inline-block;border-bottom: 1px dashed #31558E;}
+/*ESPECIALES TRAMITES*/
+#contenedor131 .panel22 .destBody p{ color:#333; font-size:0.75em; min-height:5em;}
+li.n1.principales{ background:#294b8A url("../img/fondo_principal.gif") repeat-x; }
+ul.menuLevel1 li.n1.principales span {background:url("../img/ico_flecha_blanco.gif") no-repeat  right center;color:#585858;display:block;margin:0.3em 0.5em 0.3em 0;padding-left:0.75em;}
+ul.menuLevel1 li.n1.principales span a{ color:#FFF; font-weight:bold; display:block;}
+.menuLevel1.margenTop0{padding-top:0;}
+.columna2 .panel22.gris ul.listContents li a{ background:url("../img/bulletMenuMarino.gif") no-repeat top left;}
+
+.paginacionGaleria{ width:100%; float:left;}
+.bodyHeadline .galeriaFotografica ul{ padding:1em 0 0 1em;}
+.bodyHeadline .galeriaFotografica ul li{ width:30.3%; float:left; margin:0 1em 1em 0; text-align:center; line-height:1em; background:#EDEDED; height:12em;}
+.bodyHeadline .galeriaFotografica ul li div{ border:5px solid #EDEDED; background:#EDEDED; height:7em; overflow:hidden;}
+.bodyHeadline .galeriaFotografica ul li div img{width:100%;}
+
+.bodyHeadline .galeriaFotografica ul li p a {font-size:0.75em; color:#006699;}
+.bodyHeadline .galeriaFotografica ul li p a span.documentoTipo {font-size:0.9167em; color:#333; line-height:1em;}
+
+
+/*REDES SOCIALES*/
+.icoCompartir ul{  margin:0 0.5em ; overflow:hidden; border-top:1px solid #E4E4E4; padding-top:.5em; padding-bottom:0.5em;}
+.icoCompartir ul li{ float:left; margin-right:0.5em;}
+ul.listadoGenerico {border-top:1px solid #E4E4E4; margin:0 0.5em; padding:0.35em 0 0.5em 0.3125em;}
+.listadoGenerico li.facebook {background:url("../img/ico_facebook.gif") no-repeat scroll 0 0.1em transparent;margin-bottom:0.3em;padding:0.4em 0 0.4em 1.9em;}
+.listadoGenerico li.twitter {background:url("../img/ico_twitter.gif") no-repeat scroll 0 0.1em transparent;margin-bottom:0.3em;padding:0.4em 0 0.4em 1.9em;}
+.listadoGenerico li.youtube {background:url("../img/ico_youtube.gif") no-repeat scroll 0 0.1em transparent;margin-bottom:0.3em;padding:0.4em 0 0.4em 1.9em;}
+.listadoGenerico li.flickr {background:url("../img/ico_flickr.gif") no-repeat scroll 0 0.1em transparent;margin-bottom:0.3em;padding:0.4em 0 0.4em 1.9em;}
+
+.listadoGenerico li a{color:#333333; font-size:0.6875em;}
+
+.botonesCompartir {float:left;margin-top:1em;width:100%;}
+.botonesCompartir ul li {float:left;width:25%;}
+
+/* carrusel */
+.carruselHome .bodyA{padding:0;}
+.carruselHome .destMain{margin:0;}
+.carruselHome ul li{position:relative;float:left;width:11.5em;margin:0 .75em .75em 0;height:19.8125em;background:#333;color:#fff}
+.carruselHome ul li.even{margin:0 0 .75em;}
+.carruselHome ul li .lockImg1{width:11.5em;height:9.9375em;}
+.carruselHome ul li.even .lockImg1{position:absolute;bottom:0;}
+.carruselHome ul li a,.carruselHome ul li .parrafo{display:block;padding:.5em;color:#fff}
+.carruselHome ul li a span{color:#fff}
+.carruselHome .juventudTema{position:absolute; top:7.95em;left:0;background:#000;height:2em;overflow:hidden;}
+.carruselHome .juventudTema h3{font:300 1.5em Arial, Verdana; line-height: 1.25em; color:#ff6903}
+.carruselHome ul li.even .juventudTema{top:9.9em}
+
+.carruselHome .comments{position:absolute;top:-3000em; left:-3000em;}
+.carruselHome .rateResultSet{position:absolute;top:-3000em; left:-3000em;}
+
+/* carrusel con javascript */
+
+.carruselHomeJs .bodyA{padding:0;}
+.carruselHomeJs .destMain{margin:0;}
+.carruselHomeJs ul li{float:left;display:none;width:23.75em;margin:0 .75em .75em 0;height:40.25em;background:#333;color:#fff}
+.carruselHomeJs ul li.activado{display:block;position:relative}
+.carruselHomeJs ul li .lockImg1{position:absolute;top:0;left:0;width:23.75em;height:40.25em;}
+.carruselHomeJs .juventudTema{position:absolute; top:13.875em;background:#000;padding: 0 .5em;}
+.carruselHomeJs .juventudTema h3{font:300 1.75em Arial, Verdana;color:#ff6903}
+.carruselHomeJs .description{position:absolute; top:16.125em;height:12em;background:#e55d00;width:22.75em;padding:.5em;color:#fff}
+.carruselHomeJs .description h4{font:300 1em Arial, Verdana;color:#fff}
+.carruselHomeJs .description h4 a, .carruselHomeJs .description h4 span{color:#fff}
+.carruselHomeJs .description p{padding:.4167em 0;font:300 .75em Arial, Verdana;color:#fff}
+.carruselHomeJs .carruselHomeJsul li a span{color:#fff}
+
+.carruselBullet{position:absolute;top:28em; right:0; width:auto;z-index:999999;}
+.carruselHomeJs ul.carruselBullet li{float:left;display:block;margin:0;width:1em;height:1em;background:#000 url("../img/carousel_bullet.gif") 50% 50%;color:#fff;}
+.carruselHomeJs ul.carruselBullet li.activado{background-color:#fff;}
+.carruselHomeJs ul.carruselBullet li a{color:#fff;display:block;text-indent:-80000em;width:1em;height:1em;}
+
+.carruselHomeJs .comments{position:absolute;top:28em; left:0; width:auto;z-index:999999;}
+.carruselHomeJs .rateResultSet{position:absolute;top:28em; left:3em; width:auto;z-index:999999;}
+
+
+/*	 Zona de usuario y logout-*/	
+#loginArea{float:left;clear:both; width:100%; padding:0 0 0.18em 0; background:#fff;}
+#userName{float:right; margin:0 4em 0 0;color:#333333; font:0.75em Arial, Helvetica, sans-serif normal; line-height:1.5455em }
+#userName span{font-weight:bold}
+#logout{float:right; margin: 0 0.5em 0 0; padding: 0 0 0 1.3em; background:transparent url(../img/butLogOut.gif) top left no-repeat;  }
+#logout a{color:#336699; font: bold 0.6875em Arial, Helvetica, sans-serif normal; line-height:1.5455em }
+
+
+/*CALENDARIO ESTILOS COMPARTIDOS*/
+table.calendario td.finde {background-color:#E8E5D4;}
+table.calendario td {background-color:#FFFFFF;font-size:0.8em;padding:0 0 0.15em;text-align:center;width:14%;}
+table.calendario {font-size:0.8em; width:80%}
+table.calendario {border-collapse:collapse;border-spacing:0;font-size:1em;}
+table.calendario td.diaActual {background-color:#E6F0F8;}
+table.calendario th {background-color:#EEEEEE;border-bottom:1px solid #DDEBF6;border-right:1px solid #DDEBF6;color:#2C5766;font-size:0.8em;}
+table.calendarioDerecha td.finde {background-color:#E8E5D4;}
+table.calendarioDerecha td {background-color:#FFFFFF;font-size:0.8em;padding:0 0 0.15em;text-align:center;width:14%;}
+table.calendarioDerecha {font-size:0.8em; width:80%}
+table.calendarioDerecha {border-collapse:collapse;border-spacing:0;font-size:1em;}
+table.calendarioDerecha td.diaActual {background-color:#E6F0F8;}
+table.calendarioDerecha th {background-color:#EEEEEE;border-bottom:1px solid #DDEBF6;border-right:1px solid #DDEBF6;color:#2C5766;font-size:0.8em;}
+table.calendarioDerecha{ font-size:0.75em; width:70%;}
+.calendario_titulo{ float:left; width:7.45em; text-align:center;}
+/*
+.calendario_flecha{ float:left; }
+.calendario_flecha_d{ float:left; }
+.contenedor_calendario{ float:left; width:15em;}
+.navegacion_calendario a{ margin:0 .1em; }
+.contenedor_calendario a{color:#216383}
+table.calendario{font-size:0.75em; width:70%;}
+.navegacion_calendario {float:left;  margin-top:.5em; width:80%;}
+.contenedorFicha .navegacion_calendario { width:auto;}*/	
+
+/*CALENDARIO FORMULARIO*/
+table.calendario td.finde {background-color:#E8E5D4;}
+table.calendario {border-collapse:separate;margin:0;font-size:1em;border-spacing:2px;width:auto;}
+table.calendario thead tr { height:1em }
+table.calendario td.diaActual {background-color:#EAEAEA;font-weight:bold}
+table.calendario th {text-align: center; font-size:0.6875em; color:#999; font-weight:normal}
+table.calendario tbody td { width:1.8em; height:1.6em; text-align: center; font-size: 0.75em; color: #333333; border:1px solid #CCCCCC;padding:0; }
+table.calendario tbody td a:visited{color:#442299}
+table.calendario td.diaActual, 	#calendario td.findeActual {border:1px solid #31558E}
+table.calendario td.diaActual strong, #calendario td.findeActual strong {color: #31558E;}
+table.calendario td.actualEvent {background:#ccc }
+table.calendario td.eventDay, #calendario td.findeEvent {border:1px solid #CCCCCC }
+table.calendario td.vacio { border:1px solid #CCCCCC}
+.calendario_flecha{ float:left; }
+.calendario_flecha_d{ float:left; }
+.contenedor_calendario{ float:left; width:15em;}
+.contenedor_calendario abbr, acronym { display:inline-block;border-bottom: 1px dotted #31558E;}
+.navegacion_calendario a{ margin:0 .1em; }
+.contenedor_calendario a{color:#216383}
+.navegacion_calendario {float:left;  margin-top:.5em; width:80%;}
+.contenedorFicha .navegacion_calendario { width:auto;}
+.calendario_titulo {text-transform: uppercase;float:left;font-size:0.75em; text-align:center; margin:0 0.30em;}
+.diaVacio{visibility:hidden;}
+
+.ajuste{margin-top: -15px;}
+
+/*CALENDARIO COLUMNA DERECHA*/
+.ficha .subficha table.calendario {border-collapse:separate;margin:0;font-size:1.255em;border-spacing:2px;width:auto;}
+.ficha .subficha .navegacion_calendario .calendario_titulo {text-transform: uppercase;float:left;font-size:1em; text-align:center; margin:0;}
+.ficha .subficha strong {margin-right:0.5em}
+.icoCalendario{margin-right:0.5em; position:relative; top:1.88em; left:4em;}
+
+
+/* Se crea una clase con subrayado para aplicarla en casos puntuales*/
+a.punteado  {border-bottom: 1px dotted #3F8CB2;color: #006699;text-decoration:none;}
+a:hover.punteado   { border-bottom: 1px solid #3F8CB2;color: #006699; text-decoration:none;}
+

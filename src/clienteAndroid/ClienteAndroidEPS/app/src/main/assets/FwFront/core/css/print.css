@@ -1,0 +1,152 @@
+/*-- Estilos Generales --*/
+html{ margin:0 !important; padding:0 !important;}
+body{ margin:0 !important; padding:0 !important; width: 100% !important;}
+a:link{text-decoration:underline !important;}
+#wrapper {text-align:center !important; width:100% !important;}
+
+#wrapperContent {margin:auto !important; text-align:left !important; width:100% !important;}
+/*-- Fin Estilos Generales --*/
+
+/*-- Estilos Cabecera --*/
+#header {background: none #2A4B8A !important; border:none !important; float:none !important; height:5.69em !important; position:relative !important; width:100% !important; margin-bottom: 2em !important;}
+
+#IdCorp {height:2.94em !important; left:1.56em !important; position:relative !important; top:1.44em !important;}
+
+#headMenu {display:none !important;}
+#searchBox {display:none !important;}
+
+#navMenu {display:none !important;}
+
+#crumbTrail {display:none !important;}
+
+#lenguaje{display:none !important;}
+/*-- Fin Estilos Cabecera --*/
+
+/*-- Estilos contenido --*/
+
+#gridContainer14, #gridContainer5 {background: none !important; float:none !important; width:100% !important;}
+
+#gridColum1{display:none !important;}
+
+#gridContainer5 #gridColum1{display:block !important; width:auto !important;}
+
+.panel {display:none !important;}
+
+#gridColum2  {float:none !important; width:auto !important;}
+
+#contenedor121, #contenedor211, #contenedor31, #contenedor1111, #contenedor22, #contenedor13, #contenedor112, #contenedor4, #contenedor41, #contenedor5 {background:none !important; width:100% !important;}
+
+#contenedor31 #columna1 {float:left !important; width: 69% !important; margin-right: 1% !important;}
+
+#contenedor31 #columna2 {background:none !important; float:left !important; width: 29% !important;}
+
+#contenedor31 #columna1 .panel {display:block !important; width:100% !important;}
+#contenedor31 #columna2 .panel {display:block !important; width:100% !important;}
+
+#contenedor41 #columna1 {float:left !important; width: 69% !important; margin-right: 1% !important;}
+
+#contenedor41 #columna2 {background:none !important; float:left !important; width: 29% !important;}
+
+#contenedor41 #columna1 .panel {display:block !important; width:100% !important;}
+#contenedor41 #columna2 .panel {display:block !important; width:100% !important;}
+
+#contenedor4 #columna1 {float:left !important; width: 69% !important; margin-right: 1% !important;}
+
+#contenedor4 #columna2 {background:none !important; float:left !important; width: 29% !important;}
+
+#contenedor4 #columna1 .panel {display:block !important; width:100% !important;}
+#contenedor4 #columna2 .panel {display:block !important; width:100% !important;}
+
+
+#contenedor5 #columna1 {float:none !important; width: 95% !important;}
+
+#contenedor5 #columna1 .panel{display:block !important; width:100% !important;}
+
+#contenedor5 #columna1 .panel4x{display:block !important; float:left !important; width:100% !important;}
+#contenedor5 #columna1 .panel1x {display:none !important; float:right !important; width:28% !important;}
+
+.file_reset, .captchaField, .btn  {display:none !important;}
+
+.first  {clear:left !important; margin-left:0 !important;}
+
+.panel3x {display:block !important; float:none !important; width: 100% !important;}
+
+
+.panel1x{display:block !important; float:left !important; width: 100% !important;}
+
+.panel32{display:block !important; float:left !important; width: 49% !important;}
+.panel22{display:block !important; float:left !important; width: 49% !important;}
+
+.channelTitles p {clear:none !important; float:none !important; font-size:0.88em !important;}
+
+.channelTitles h3.detailTitle {border-top:1px solid #F1F1F1 !important;color:#333333 !important;float:none !important;font-size:1.125em !important;padding:0.15em 0 0.3em !important;width:100% !important;}
+
+.detailBody {border:none !important;color:#333333 !important;float:none !important;}
+
+.tabDetail {background:none !important;float:none !important;padding-top:1.313em !important;width:100% !important;}
+
+.tabHeader {display: none!important;}
+
+.tabHeader ul li.selected {background:none !important;border:none !important;}
+
+.tabHeader ul li {background:none !important;border: none !important;float:none !important;margin:0 !important;}
+
+.tabHeader ul li a {color:#585858!important;font-weight:bold!important;text-transform:uppercase!important;}
+
+.tabContent {background: none!important;float:none!important;width:100%!important;}
+
+.tabContent div.oculto{display: block!important;background: none!important;float:none!important;width:100%!important;}
+
+.oculto{display: block!important;}
+
+.tabContent .tabTag { background:url(../img/backTabContent.gif) repeat-x scroll left top transparent; border: 0 !important;color:#006699 !important;font-weight:bold !important;padding:0.833em 0.5em !important;}
+
+.tabContent .tabTag .oculto{display:block !important;float:none !important;}
+
+.tabContent .tabBody {border: none!important;}
+
+h4.ocultoDesplazado{display:block !important;float:none !important;position:relative !important;left:0em;top:0em}
+
+p.oculto{display:block !important;}
+
+.contenedorFicha span.oculto{display:none !important;}
+
+.aplicacion{background:none !important; width:47em}
+
+.contenedorFicha {float:none !important;margin-top:1.188em !important;width:100% !important;}
+.parrafo11, .parrafo, .parrafo12 {color:#333333!important;font-size:0.75em!important;line-height:1.27273em!important;}
+.ratings{ display:none!important;}
+.comments{ display:none!important;}
+
+.objectBack{ display:none!important;}
+
+.backg, ul.tasks{display:none!important;}
+
+.icoCompartir, .botonesCompartir{display:none!important;}
+
+div.parrafo p {margin-bottom:0.5em!important;}
+
+#sectionId .imgHolder .bannerAviso, #sectionId .imgHolder .bannerTransparent{ display:none!important;}
+
+.panelBanner{ display:block!important; float:left!important; width: 100%!important;}
+
+
+.panel4x .resultBox{ display:block!important; float:none !important; width: 100%!important; background:none !important; border: none !important;}
+
+.navTabMenu{display:none!important;}
+/*-- Fin Estilos contenido --*/
+
+/*-- Estilos Footer --*/
+#footer {border: none!important;float:none!important;width:100%!important;}
+
+#footer #footNav {display: none!important;}
+
+#footer ul#footLinks {display: none!important;}
+
+#copy{ float:none; padding: 0; text-align: center;}
+
+/*-- Fin Estilos Footer --*/
+.saveResultAction.ftr{ display:none;}
+div.parrafo ul li, div.parrafo dl dd, div.parrafo dl dt, div.parrafo ol li{ overflow:auto}
+
+#vgn-div-float-bottom-left {display: none!important;}

@@ -1,0 +1,287 @@
+/***** Estructura *****/
+	
+/* Sin el reset decimal de % em */
+	body {font-size:100%;}
+
+/*	1 -Contenedoras -*/
+	#wrapper {width:100%; text-align:center}
+		#wrapperContent  {width: 60.5em; margin: auto; text-align: left; }
+		
+/* GRID: 5Col * 184pix + 3Calles * 12Pix = 968px
+	184 * 5 = 	920px
+	+ 
+	4 * 12  = 	 48px
+				968px = 60.5em	
+Anchos:
+	60.5em		[ 5 col ]	968px
+	48.25em		[ 4 col ]	772px
+	36em 		[ 3 col ] 	576px
+	23.75em		[ 2 col ] 	380px
+	11.5em		[ 1 col ] 	184px
+
+Altos:
+	panel1	82px 	5.13em	
+	panel2	170px	10.63em	82x2 + 6px = 170
+	panel3	258px	16.13em	82*3 + 12
+	panel4	346px	21.63em 82*4 + 18
+	panel5	434px	27.13em	82*5 + 24
+	panel6	522px	32.63em	82*6 + 30
+*/	
+ 
+/* Contenedoras de Grid */	
+	#gridContainer14, #gridContainer5{width: 60.5em; float:left}
+		#gridContainer14{background:transparent url(../img/backGridMenu.gif) left top repeat-y; background-size:80% auto;} 	
+	/* Con Menu - Estructura 13 */
+	#gridContainer14 #gridColum1 { width: 11.5em; float: left;}				
+	#gridContainer14 #gridColum2 { width: 48.25em; float: right; }
+	/* Sin Menu - Estructura 4 */
+	#gridContainer5 #gridColum1 { width: 60.5em; float: left; min-height: 28em}
+	
+	#gridColum1 {min-height:28em; height:auto !important; height:28em /* Altura mínima de las plantillas*/	}
+	
+/***** Contenedoras generales a 3 col *****/
+	#contenedor12, #contenedor21, #contenedor3, #contenedor111
+	{
+		width: 100%;
+		/*width: 99%; probar a 800x600*/
+		background: none; 
+	}
+
+	/* Grid: 4Col * 184pix + 3Calles* 13Pix = 775 */
+		
+	/***** Columnas con formato de estructura 12 *****/
+	#contenedor12 #columna1 { width: 11.5em; float: left; }
+	#contenedor12 #columna2 { width: 23.75em; float: left; margin-left: 0.75em; }
+	
+	/***** Columnas con formato de estructura 21 *****/
+	#contenedor21 #columna1 { width: 23.75em; float: left; }
+	#contenedor21 #columna2 { width: 11.5em; float: left; margin-left: 0.75em; }
+	
+	/***** Columnas con formato de estructura 3 *****/
+	#contenedor3 #columna1 { width: 36em; float: left; }
+	
+	/***** Columnas con formato de estructura 111 *****/
+	#contenedor111 #columna1 { width: 11.5em; float: left; }
+	#contenedor111 #columna2 { width: 11.5em; float: left; margin-left: 0.75em; }
+	#contenedor111 #columna3 { width: 11.5em; float: left; margin-left: 0.75em; }
+
+
+
+/***** Contenedoras generales a 4 col *****/
+	#contenedor121, #contenedor211, #contenedor31, #contenedor1111, #contenedor22, #contenedor13, #contenedor112, #contenedor4
+	{
+		width: 100%;
+		/*width: 99%; probar a 800x600*/
+		background: none; 
+	}
+			
+	/***** Columnas con formato de estructura 1111 *****/
+	#contenedor1111 #columna1 { width: 11.5em; float: left; }
+	#contenedor1111 #columna2 { width: 11.5em; float: left; margin-left: 0.75em; }
+	#contenedor1111 #columna3 { width: 11.5em; float: left; margin-left: 0.75em; }
+	#contenedor1111 #columna4 { width: 11.5em; float: right; }
+	* html #contenedor1111 #columna4 { width: 11.4375em; }
+
+	
+	/***** Columnas con formato de estructura 121 *****/
+	#contenedor121 #columna1 { width: 11.5em; float: left; }
+	#contenedor121 #columna2 { width: 23.75em; float: left; margin-left: 0.75em; }
+	#contenedor121 #columna3 { width: 11.5em; float: right; }
+	* html #contenedor121 #columna3 {}
+	
+	/***** Columnas con formato de estructura 211 *****/
+	#contenedor211 #columna1 { width: 23.75em; float: left; }
+	#contenedor211 #columna2 { width: 11.5em; float: left; margin-left: 0.75em; }
+	#contenedor211 #columna3 { width: 11.5em; float: right; }
+	* html #contenedor211 #columna3 {}
+	
+	/***** Columnas con formato de estructura 221 *****/
+	#contenedor221 #columna1 {float:left;width:23.75em;}
+	#contenedor221 #columna2 {float:left;margin-left:0.75em;width:23.75em;}
+  #contenedor221 #columna3 {float:right;width:11.5em;} 
+	* html #contenedor221 #columna3 {}
+	
+	/***** Columnas con formato de estructura 31 *****/
+	#contenedor31 #columna1 { width: 36em; float: left; }
+	#contenedor31 #columna2 { width: 11.5em; float: right; background:#ffffff}
+	* html #contenedor31 #columna2 { }
+	
+	/***** Columnas con formato de estructura 22 *****/
+	#contenedor22 #columna1 { width: 23.75em; float: left; }
+	#contenedor22 #columna2 { width: 23.75em; float: right; }
+	
+	/***** Columnas con formato de estructura 13 *****/
+	#contenedor13 #columna1 { width: 11.5em; float: left; }
+	#contenedor13 #columna2 { width: 36em; float: right; }
+	* html #contenedor13 #columna1 { }
+	
+	/***** Columnas con formato de estructura 112 *****/
+	#contenedor112 #columna1 { width: 11.5em; float: left; }
+	#contenedor112 #columna2 { width: 11.5em; float: left; margin-left: 0.75em; }
+	#contenedor112 #columna3 { width: 23.75em; float: right; }
+	
+	/***** Columnas con formato de estructura 4 *****/
+	#contenedor4 #columna1 { width:48.438em}
+	
+	
+/***** Contenedoras generales a 5 col *****/
+	#contenedor11111,
+	#contenedor1112,
+	#contenedor1121,
+	#contenedor1121,
+	#contenedor1211,
+	#contenedor2111,	
+	#contenedor113, 
+	/*#contenedor131,*/ 
+	#contenedor311, 
+	#contenedor221,
+	#contenedor212,
+	#contenedor122,
+	#contenedor122,
+	#contenedor23, 
+	#contenedor32, 
+	#contenedor41, 
+	#contenedor14, 
+	#contenedor5 
+	{
+		width: 100%;
+		background: none; 
+	}
+	#contenedor131 {background:transparent url(../img/backGridMenu.gif) left top repeat-y; overflow:hidden;background-size:80% auto;}
+/*			
+
+*/	/***** Columnas con formato de estructura 1111 *****/
+	#contenedor11111 #columna1 { width: 11.5em; float: left; }
+	#contenedor11111 #columna2 { width: 11.5em; float: left; margin-left: 0.75em; }
+	#contenedor11111 #columna3 { width: 11.5em; float: left; margin-left: 0.75em; }
+	#contenedor11111 #columna4 { width: 11.5em; float: left; margin-left: 0.75em; }
+	#contenedor11111 #columna5 { width: 11.5em; float: right; }
+	* html #contenedor1111 #columna4 { width: 11.4375em; }
+	
+	/***** Columnas con formato de estructura 121 *****/
+	#contenedor131 #columna1 { width: 11.5em; float: left; }
+	#contenedor131 #columna2 { width: 36em ; float: left; margin-left: 0.75em; }
+	#contenedor131 #columna3 { width: 11.5em; float: right; }
+	/*AÑADIDO JESUS*/#contenedor131 .panel22{ width: 17.625em}
+	* html #contenedor121 #columna3 {}#contenedor131
+	
+	/***** Columnas con formato de estructura 211 *****/
+	#contenedor311 #columna1 { width: 36em ; float: left; }
+	#contenedor311 #columna2 { width: 11.5em; float: left; margin-left: 0.75em; }
+	#contenedor311 #columna3 { width: 11.5em; float: right; }
+	* html #contenedor211 #columna3 {}
+	
+	/***** Columnas con formato de estructura 31 *****/
+	#contenedor41 #columna1 { width: 48.25em; float: left; }
+	#contenedor41 #columna2 { width: 11.5em; float: right; background:#ffffff}
+	* html #contenedor31 #columna2 { }
+		
+	/***** Columnas con formato de estructura 13 *****/
+	#contenedor14 #columna1 { width: 11.5em; float: left; }
+	#contenedor14 #columna2 { width: 48.25em; float: right; }
+	* html #contenedor13 #columna1 { }
+		
+	/***** Columnas con formato de estructura 4 *****/
+	#contenedor5 #columna1 { width:60.5em}
+	
+/***** Definicion de los paneles especiales *****/
+	.panel { float:left; width:100%; margin-bottom: 0.38em; }
+	.sinPanel{  } /* envuelve sin hacer nada */
+
+/* Nuevos Paneles con ancho x alto */
+	.panel11, 	.panel21, 	.panel31, 	.panel41, 
+	.panel12, 	.panel22, 	.panel32, 	.panel42, 
+	.panel13, 	.panel23, 	.panel33, 	.panel43, 
+	.panel14, 	.panel24, 	.panel34, 	.panel44, 
+	.panel15, 	.panel25, 	.panel35, 	.panel45, 
+	.panel16, 	.panel26, 	.panel36, 	.panel46, 
+	.panel1, .panelx1,	.panel2, .panelx2,	.panel3, .panelx3,	.panel4, .panelx4,	.panel5, .panelx5,	.panel6, .panelx6,
+	.panel1x,	.panel2x,	.panel3x,	.panel4x,
+	.panelHeadline			
+		{float:left; display:inline; margin: 0 0 0.63em 0.75em; /* overflow:hidden;
+		 overflow:visible !important; /*ie7, ff [evita que crezca el panel]
+		 overflow:hidden;  ie6 [evita que crezca el panel] */
+		 position:relative;
+		 
+		}
+	/*altura1*/
+	.panel11{width:11.5em; min-height:5.13em; height:auto !important; height:5.13em;}
+	.panel21{width:23.75em; min-height:5.13em; height:auto !important; height:5.13em;}
+	.panel31{width:36em; min-height:5.13em; height:auto !important; height:5.13em; }	
+	.panel41{width:48.25em; min-height:5.13em; height:auto !important; height:5.13em; }		
+	/*altura2*/
+	.panel12{width:11.5em; 	min-height:10.63em; height:auto !important; height:10.63em;}
+	.panel22{width:23.75em; min-height:10.63em; height:auto !important; height:10.63em;}
+	.panel32{width:36em; min-height:10.63em; height:auto !important; height:10.63em;}
+	.panel42{width:48.25em; min-height:10.63em; height:auto !important; height:10.63em;}
+	/*altura3*/
+	.panel13{width:11.5em; min-height:16.13em; height:auto !important; height:16.13em;}
+	.panel23{width:23.75em; min-height:16.13em; height:auto !important; height:16.13em;}
+	.panel33{width:36em; min-height:16.13em; height:auto !important; height:16.13em;}
+	.panel43{width:48.25em; min-height:16.13em; height:auto !important; height:16.13em;}	
+	/*altura4*/
+	.panel14{width:11.5em; min-height:21.63em; height:auto !important; height:21.63em; }
+	.panel24{width:23.75em; min-height:21.63em;  height:auto !important; height:21.63em; }
+	.panel34{width:36em; min-height:21.63em;  height:auto !important; height:21.63em; }
+	.panel44{width:48.25em; min-height:21.63em;  height:auto !important; height:21.63em; }	
+	/*altura5*/
+	.panel15{width:11.5em; min-height:27.13em; height:auto !important; height:27.13em; }
+	.panel25{width:23.75em; min-height:27.13em;  height:auto !important; height:27.13em; }
+	.panel35{width:36em; min-height:27.13em;  height:auto !important; height:27.13em; }
+	.panel45{width:48.25em; min-height:27.13em;  height:auto !important; height:27.13em; }	
+	/*altura6*/
+	.panel16{width:11.5em; min-height:32.63em; height:auto !important; height:32.63em; }
+	.panel26{width:23.75em; min-height:32.63em;  height:auto !important; height:32.63em; }
+	.panel36{width:36em; min-height:32.63em;  height:auto !important; height:32.63em; }
+	.panel46{width:48.25em; min-height:32.63em;  height:auto !important; height:32.63em; }	
+	/*altura7*/
+	.panel17{width:11.5em; min-height:38.13em; height:auto !important; height:38.13em; }
+	.panel27{width:23.75em; min-height:38.13em;  height:auto !important; height:38.13em; }
+	.panel37{width:36em; min-height:38.13em;  height:auto !important; height:38.13em; }
+	.panel47{width:48.25em; min-height:38.13em;  height:auto !important; height:38.13em; }
+
+	/* Paneles clásicos de altura fija, sin ancho */
+	.panel1, .panelx1{min-height:5.13em;  height:auto !important; height:5.13em;}
+	.panel2, .panelx2{min-height:10.63em; height:auto !important; height:10.63em;}
+	.panel3, .panelx3{min-height:16.13em; height:auto !important; height:16.13em;}
+	.panel4, .panelx4{min-height:21.63em; height:auto !important; height:21.63em;}
+	.panel5, .panelx5{min-height:27.13em; height:auto !important; height:27.13em;}
+	.panel6, .panelx6{min-height:32.63em; height:auto !important; height:32.63em;}
+	
+	/* Nuevos paneles destacados, columna derecha */
+	.panelRel{width: 11.375em ; min-height:6.063em; height:auto !important; height:6.063em;  }
+	
+	/* Nuevos paneles SOLO ANCHO */
+	.panel1x{width:11.5em;}
+	.panel2x{width:23.75em; }
+	.panel3x{width:36em; }
+	.panel4x{width:48.25em; }
+	
+	.last{margin-right:0; clear:right}
+	.first{margin-left:0; clear:left}
+
+/* Paneles ESPECIALES */	
+	.panelBanner{min-height:8.75em; height:auto !important; height:8.75em; 
+		margin-left:0; overflow:hidden;}
+		
+
+/* Agrupadores de paneles por fila */
+	.row{clear:both;}
+
+/* Agrupadores de paneles por columna */
+	.column1{ float:left; width:11.5em; display:inline}
+	.column2{ float:left; width:23.75em; display:inline}
+	.column3{ float:left; width:36em; display:inline}
+
+	/* Reset de paneles en 1ª columna*/
+	.column1 .panel11, 	.column1 .panel21, 	.column1 .panel31, 	.column1 .panel41, 
+	.column1 .panel12, 	.column1 .panel22, 	.column1 .panel32, 	.column1 .panel42, 
+	.column1 .panel13, 	.column1 .panel23, 	.column1 .panel33, 	.column1 .panel43, 
+	.column1 .panel14, 	.column1 .panel24, 	.column1 .panel34, 	.column1 .panel44, 
+	.column1 .panel15, 	.column1 .panel25, 	.column1 .panel35, 	.column1 .panel45, 
+	.column1 .panel16, 	.column1 .panel26, 	.column1 .panel36, 	.column1 .panel46, 
+	.column1 .panel1, 	.column1 .panelx1,	.column1 .panel2, 	.column1 .panelx2,	
+	.column1 .panel3, 	.column1 .panelx3,	.column1 .panel4, 	.column1 .panelx4,	
+	.column1 .panel5, 	.column1 .panelx5,	.column1 .panel6, 	.column1 .panelx6,
+	.column1 .panel1x,	.column1 .panel2x,	.column1 .panel3x,	.column1 .panel4x
+	{margin-left:0; clear:left}
