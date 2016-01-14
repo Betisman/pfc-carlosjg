@@ -1,0 +1,16 @@
+{% extends TEMPLATE_BASE %}
+
+{% block content %}
+<h1>Usuario no encontrado</h1>
+
+<p>
+El DNIe introducido no parece corresponderse con ningún usuario / votante con permiso de uso de la aplicación. Si considera esto como un error, por favor, póngase en contacto con el administrador del sistema.
+</p>
+
+<form method="POST" action="">
+<input type="hidden" value="{{csrf_token}}" />
+<input type="submit" value="Volver a intentar el login" /><br /><br />
+<a href="http://google.com">He terminado, quiero salir de esta aplicación.</a>.
+</form>
+
+{% endblock %}

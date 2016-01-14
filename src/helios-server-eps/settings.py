@@ -194,7 +194,7 @@ SECURE_URL_HOST = "https://localhost:8443"
 SOCIALBUTTONS_URL_HOST= get_from_env("SOCIALBUTTONS_URL_HOST", SECURE_URL_HOST).rstrip("/")
 
 # election stuff
-SITE_TITLE = get_from_env('SITE_TITLE', 'Universidad San Pablo CEU - Elecciones EPS (powered byHelios Voting)')
+SITE_TITLE = get_from_env('SITE_TITLE', 'Universidad San Pablo CEU - Elecciones EPS (powered by Helios Voting)')
 MAIN_LOGO_URL = get_from_env('MAIN_LOGO_URL', '/static/logo.png')
 ALLOW_ELECTION_INFO_URL = (get_from_env('ALLOW_ELECTION_INFO_URL', '0') == '1')
 
@@ -217,8 +217,9 @@ HELIOS_PRIVATE_DEFAULT = False
 
 # authentication systems enabled
 #AUTH_ENABLED_AUTH_SYSTEMS = ['password','facebook','twitter', 'google', 'yahoo']
-AUTH_ENABLED_AUTH_SYSTEMS = get_from_env('AUTH_ENABLED_AUTH_SYSTEMS', 'dnie').split(",")
 AUTH_DEFAULT_AUTH_SYSTEM = get_from_env('AUTH_DEFAULT_AUTH_SYSTEM', None)
+AUTH_ENABLED_AUTH_SYSTEMS = get_from_env('AUTH_ENABLED_AUTH_SYSTEMS', 'dnie').split(",")
+AUTH_DEFAULT_AUTH_SYSTEM = 'dnie'
 
 # google
 GOOGLE_CLIENT_ID = get_from_env('GOOGLE_CLIENT_ID', '')
@@ -254,7 +255,8 @@ CLEVER_CLIENT_SECRET = get_from_env('CLEVER_CLIENT_SECRET', "")
 
 # email server
 EMAIL_HOST = get_from_env('EMAIL_HOST', 'localhost')
-EMAIL_PORT = int(get_from_env('EMAIL_PORT', "2525"))
+#EMAIL_PORT = int(get_from_env('EMAIL_PORT', "2525"))
+EMAIL_PORT = int(get_from_env('EMAIL_PORT', "1025"))
 EMAIL_HOST_USER = get_from_env('EMAIL_HOST_USER', '')
 EMAIL_HOST_PASSWORD = get_from_env('EMAIL_HOST_PASSWORD', '')
 EMAIL_USE_TLS = (get_from_env('EMAIL_USE_TLS', '0') == '1')

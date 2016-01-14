@@ -27,7 +27,11 @@ def get_user_info_after_auth(request):
     # user = User.get_by_dni('password', request.session['password_user_id'])
     dnie = get_dni_info_from_ssl(request)
     logger.debug('------------------------------------' + dnie.serialNumber)
-    user = User.get_by_type_and_id('dnie', dnie.serialNumber)
+    try:
+        user = User.get_by_type_and_id('dnie', dnie.serialNumber)
+    except Exception as dne:
+        logger.error(dne)
+        user = None
 
     #del request.session['password_user_id']
     if user is None:

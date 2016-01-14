@@ -620,6 +620,9 @@ def one_election_cast_confirm(request, election):
     return render_template(request, 'election_not_started', {'election': election})
 
   voter = get_voter(request, user, election)
+  logging.debug(voter)
+  logging.debug(user)
+  logging.debug(election.openreg)
 
   # auto-register this person if the election is openreg
   if user and not voter and election.openreg:
@@ -699,7 +702,7 @@ def one_election_cast_confirm(request, election):
         'return_url': return_url,
         'status_update_label': status_update_label, 'status_update_message': status_update_message,
         'show_password': show_password, 'password_only': password_only, 'password_login_form': password_login_form,
-        'bad_voter_login': bad_voter_login})
+        'bad_voter_login': bad_voter_login, 'auth_systems': auth_systems})
       
   if request.method == "POST":
     check_csrf(request)

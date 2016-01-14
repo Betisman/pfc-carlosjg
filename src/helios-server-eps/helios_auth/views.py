@@ -158,7 +158,7 @@ def _do_auth(request):
   auth_url = system.get_auth_url(request, redirect_url=redirect_url)
   
   if auth_url:
-    logger.debug('after, redirect a ' + auth_url)
+    logger.debug('_do_auth, redirect a ' + auth_url)
     return HttpResponseRedirect(auth_url)
   else:
     return HttpResponse("an error occurred trying to contact " + system_name +", try again later")
@@ -187,24 +187,37 @@ def perms_why(request):
 
   return _do_auth(request)
 
+def not_user(request):
+  if request.method == "GET":
+    return render_template(request, "not_user")
+  return _do_auth(request)
+
 def after(request):
   logger.debug('en after()')
   # which auth system were we using?
   if not request.session.has_key('auth_system_name'):
+    logger.debug('not reques.session.has_key"auth_system_name")')
     do_local_logout(request)
     return HttpResponseRedirect("/")
     
   system = AUTH_SYSTEMS[request.session['auth_system_name']]
+  logger.debug(system)
   
   # get the user info
   user = system.get_user_info_after_auth(request)
+  logger.debug('user: ')
+  logger.debug(user)
 
   if user:
+    logger.debug('in user:')
     # get the user and store any new data about him
     user_obj = User.update_or_create(user['type'], user['user_id'], user['name'], user['info'], user['token'])
     
     request.session['user'] = user
   else:
+    logger.debug('in else')
+    if request.session['auth_system_name'] == 'dnie':
+      return HttpResponseRedirect("%s?%s" % (reverse(not_user), urllib.urlencode({'system_name' : request.session['auth_system_name']})))
     return HttpResponseRedirect("%s?%s" % (reverse(perms_why), urllib.urlencode({'system_name' : request.session['auth_system_name']})))
 
   # does the auth system want to present an additional view?
