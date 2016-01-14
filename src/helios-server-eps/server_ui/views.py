@@ -45,12 +45,15 @@ def home(request):
     auth_systems.remove('password')
   except: pass
 
-  ssl_client_s_dn = request.META['SSL_CLIENT_S_DN']
-  ssl_client_s_dn = ssl_client_s_dn.replace('\,', 'XXXCOMAXXX')
-  sd = dict(u.split("=") for u in ssl_client_s_dn.split(","))
-  for fff in sd:
-    sd[fff] = sd[fff].replace('XXXCOMAXXX', ',')
-  dni = sd['serialNumber']
+  try:
+    ssl_client_s_dn = request.META['SSL_CLIENT_S_DN']
+    ssl_client_s_dn = ssl_client_s_dn.replace('\,', 'XXXCOMAXXX')
+    sd = dict(u.split("=") for u in ssl_client_s_dn.split(","))
+    for fff in sd:
+      sd[fff] = sd[fff].replace('XXXCOMAXXX', ',')
+    dni = sd['serialNumber']
+  except KeyError:
+    dni = None
 
 
 
