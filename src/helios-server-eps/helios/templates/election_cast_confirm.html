@@ -56,10 +56,10 @@ window.onbeforeunload = function(evt) {
 
     {% if show_password %}
         {% if user %}
-            <h1>Wait!2</h1>
+            <h1>Espere!</h1>
             <p>
-                You are logged in as <u>{{user.display_html_small|safe}}</u>, but this election<br />
-                requires election-specific credentials.
+                Está logado en el sistema como <u>{{user.display_html_small|safe}}</u>, pero esta elección<br />
+                requiere unas credenciales específicas.
             </p>
         {% endif %}
         {% with cast_ballot="1" %}
@@ -69,16 +69,18 @@ window.onbeforeunload = function(evt) {
     {% else %}
 
         {% if user %}
-            <h1>Sorry!<h1>
-            <b>Sorry, you are <em>
+            <h1>¡Disculpe!<h1>
+            <b>Disculpe, usted <em>
               {% if election.openreg %}
-                <u>not eligible</u></em> for this election.
+                <!--<u>not eligible</u></em> for this election.-->
+                <u>no está censado</u></em> para esta elección.
               {% else %}
-                not registered</em> for this election, and registration is closed.
+                <!--not registered</em> for this election, and registration is closed.-->
+                <u>no está censado</u></em> para esta elección. y el período de censo ya ha sido cerrado.
               {% endif %}
               </b><br /></p>
             <p>
-                [<a href="{% url "helios.views.one_election_view" election.uuid %}">return to the main election page</a>]
+                [<a href="{% url "helios.views.one_election_view" election.uuid %}">Volver a la página principal de la elección</a>]
             </p>
         {% else %}
             <p>
@@ -87,7 +89,8 @@ window.onbeforeunload = function(evt) {
 
               {% if election.eligibility %}
               {% else %}
-               This election is open to <em>anyone</em>, so log in with your preferred account.
+                Esta elección está abierta a <em>cualquier votante</em>. Por favor, lóguese con su cuenta preferida.
+               <!--This election is open to <em>anyone</em>, so log in with your preferred account.-->
               {% endif %}
 
             {% else %}

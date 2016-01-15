@@ -1,5 +1,5 @@
 {% extends 'server_ui/templates/base.html' %}
-{% block title %}Confirm Vote{% endblock %}
+{% block title %}Confirmar el voto{% endblock %}
 
 {% block content %}
 <script language="javascript">
@@ -12,20 +12,20 @@ function show_waiting() {
   $('#waiting_div').show();
 }
 </script>
-<h1>Confirm your Vote</h1>
+<h1>Confirme su voto</h1>
 
 {% if error %}
 <p style="color: red;">{{error}}</p>
 {% endif %}
 
-<h3>Your Ballot</h3>
+<h3>Su voto:</h3>
 
 <p style="font-size:1.6em;">
     <tt>{{vote_fingerprint}}</tt>
 </p>
 
 <div id="cast_div">
-<h3>Cast Your Ballot with your Credentials</h3>
+<h3>Emita su voto con sus credenciales</h3>
 
 <form method="post" onsubmit="show_waiting();" action="">
     <input type="hidden" name="csrf_token" value="{{csrf_token}}" />
@@ -38,12 +38,13 @@ function show_waiting() {
 </form>
 
 <p>
-    Forgot your password? <a href="{% url "helios_auth.auth_systems.password.password_forgotten_view" %}?return_url={% url "server_ui.views.cast_confirm" %}">Have it emailed to you</a>.<br />(don't worry, we won't forget your vote).
+    ¿Olvidó su contraseña? <a href="{% url "helios_auth.auth_systems.password.password_forgotten_view" %}?return_url={% url "server_ui.views.cast_confirm" %}">Reenvío por email</a>.<br />(no se preocupe, no nos olvidaremos de su voto).
 </p>
 </div>
 
 <div id="waiting_div" align="center">
-  Verifying and Casting your ballot<br />
+  Verificando y emitiendo su voto.<br />
+    {#Verifying and Casting your ballot<br />#}
   <img src="/static/helios/loading.gif" />
 </div>
 

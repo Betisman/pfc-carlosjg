@@ -111,7 +111,7 @@ function verify_single_ballot(election_url, audit_trail) {
 <body>
 <div id="wrapper">
 <div id="banner">
-    Helios Single-Ballot Verifier
+    Helios - Verificador de Voto Individual
 </div>
 <div id="content">
 
@@ -120,21 +120,24 @@ Loading verifier...
 </div>
 
 <div id="dummy_bigint" style="display:none;">
-Your browser does not have the Java plugin installed.<br /><br />
-At this time, the Java plugin is required for browser-based ballot auditing, although it is not required for ballot preparation.
+  Su navegador no tiene el plugin de Java instalado.<br /><br />
+Por ahora, el plugin de Java es necesario para las auditorías de voto basadas en navegador web, aunque no se requiere para la preparación del voto.
 </div>
 
 <div id="verifier" style="display:none;">
 <p style="font-size: 16pt;">
-    This single-ballot verifier lets you enter an audited ballot<br />and verify that it was prepared correctly.
+    {#This single-ballot verifier lets you enter an audited ballot<br />and verify that it was prepared correctly.#}
+  Este verificador de voto individual le permite auditar un voto (papeleta) y verificar que ha sido preparado correctamente.
 </p>
 
 <form onsubmit="try {verify_single_ballot(this.election_url.value, this.audit_trail.value);} catch (e) {E = e;} return false;">
-Enter the Election URL:
+{#Enter the Election URL:#}
+  Introduzca la URL de la elección:
     <input type="text" size="50" name="election_url" id="election_url" /><br />
 
 <p>
-Your Ballot:
+{#Your Ballot:#}
+  Su voto:
 </p>
 
 <textarea name="audit_trail" cols="80" rows="7">

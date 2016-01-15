@@ -2,16 +2,18 @@
 {% block title %}Confirm Vote{% endblock %}
 
 {% block content %}
-<h1>Your Vote was Cast</h1>
+<h1>Su voto ha sido emitido</h1>
 
 <p>
-    A vote was successfully cast for <b>{{voter.voter_id}}</b>, with vote fingerprint:
+    Se ha emitido satisafactoriamente un voto por parte de <b>{{voter.voter_id}}</b>, con la huella:
+    {#A vote was successfully cast for <b>{{voter.voter_id}}</b>, with vote fingerprint:#}
     <br /><br />
     <tt style="font-size: 2em;">{{voter.vote_hash}}</tt>
 </p>
 
-<p>
-    Visit the <a href="{% url "helios.views.one_election_view" election.uuid %}">election homepage</a>.
+<a>
+    {#Visit the <a href="{% url "helios.views.one_election_view" election.uuid %}">election homepage</a>.#}
+    Visite la <a href="{% url "helios.views.one_election_view" election.uuid %}">página inicial de la elección</a>.
 </p>
 
 {% endblock %}

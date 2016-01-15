@@ -1,11 +1,12 @@
 {% extends TEMPLATE_BASE %}
 
-{% block title %}Compute Tally &mdash; {{election.name}}{% endblock %}
+{% block title %}Computar resutlados (Compute Tally) &mdash; {{election.name}}{% endblock %}
 {% block content %}
   <h2 class="title">{{election.name}} &mdash; Compute Tally <span style="font-size:0.7em;">[<a href="{% url "helios.views.one_election_view" election.uuid %}">cancel</a>]</span></h2>
 
   <p>
     You are about to compute the tally for this election. You only will then see the results.
+    Está a punto de computar los resultados de la elección. Una vez computado tan sólo usted podrá ver los resultados.
   </p>
 
   <form method="POST" action="">

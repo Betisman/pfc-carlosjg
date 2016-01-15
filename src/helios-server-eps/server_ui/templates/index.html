@@ -46,7 +46,7 @@ More than <b>100,000 votes</b> have been cast using Helios.
     {% endfor %}
   </p>
   {% else %}
-  <h4>no featured elections at the moment</h4>
+  <h4>No hay elecciones destacadas por el momento</h4>
 
   {% endif %}
 {% endif %}
@@ -64,8 +64,8 @@ More than <b>100,000 votes</b> have been cast using Helios.
 {% if user %}
 <!--<div class="row right">{{user.display_html_big|safe}}</div>-->
 {% if create_p %}
-<a class="small button" href="{% url "helios.views.election_new" %}">create election</a>
-<h5 class="subheader">Administration</h5>
+<a class="small button" href="{% url "helios.views.election_new" %}">Crear elección</a>
+<h5 class="subheader">Administración</h5>
 {% if elections_administered %}
 <ul>
 {% for election in elections_administered %}
@@ -73,10 +73,10 @@ More than <b>100,000 votes</b> have been cast using Helios.
 {% endfor %}
 </ul>
 {% else %}
-<em>none yet</em>
+<em>Ninguna todavía</em>
 {% endif %}
 <div class="row right">
-<a class="tiny button" href="{% url "helios.views.elections_administered" %}">see all</a>
+<a class="tiny button" href="{% url "helios.views.elections_administered" %}">Ver todas</a>
 </div>
 <div class="row"></div>
 {% endif %}
@@ -89,17 +89,18 @@ More than <b>100,000 votes</b> have been cast using Helios.
 {% endfor %}
 </ul>
 {% else %}
-<em>none yet</em>
+<em>Ninguna todavía</em>
 {% endif %}
-<div class="row right"><a class="tiny button" href="{% url "helios.views.elections_voted" %}">see all</a></div>
+<div class="row right"><a class="tiny button" href="{% url "helios.views.elections_voted" %}">Ver todas</a></div>
 <div class="row"></div>
 {% else %}
 {% if settings.SHOW_LOGIN_OPTIONS %}
-<h5>Log In to Start Voting</h5>
+<h5>Acceda para empezar a votar</h5>
 {{login_box|safe}}
 {% else %}
 <p>
-Select an election to start voting. You will be asked for your voting credentials after you complete a ballot.
+  Selecciona una elección para comenzar a votar. Se le preguntará por sus credenciales después de que complete una boleta.
+{#Select an election to start voting. You will be asked for your voting credentials after you complete a ballot.#}
 </p>
 {% endif %}
 {% endif %}

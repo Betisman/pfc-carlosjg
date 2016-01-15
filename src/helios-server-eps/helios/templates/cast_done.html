@@ -1,11 +1,11 @@
 {% extends TEMPLATE_BASE %}
-{% block title %}Confirm Vote{% endblock %}
+{% block title %}Confirmar el voto{% endblock %}
 
 {% block content %}
-<h1>{{election.name}} &mdash; Vote Successfully Cast!</h1>
+<h1>{{election.name}} &mdash; ¡¡Voto emitido satisfactoriamente!!</h1>
 
 <p>
-    Congratulations, your vote has been <b><u>successfully cast</u></b>!
+    Enhorabuena, su voto ha sido <b><u>satisfactoriamente emitido</u></b>.
 </p>
 
 <p>
@@ -18,13 +18,13 @@
 </p>
 
 {% if logout %}
-<p><b>For your safety, we have logged you out.</b></p>
+<p><b>Por su seguridad, ha sido desconectado del sistema.</b></p>
 <iframe width="0" height="0" border="0" frameborder="0" src="/auth/logout">
 </iframe>
 {% endif %}
 
 <p style="font-size: 1.4em;">
-[ <a href="{% url "helios.views.one_election_view" election.uuid %}">return to election info</a> ]
+[ <a href="{% url "helios.views.one_election_view" election.uuid %}">Volver a la página de información de la elección.</a> ]
 </p>
 
 {% endblock %}

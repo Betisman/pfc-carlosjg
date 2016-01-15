@@ -19,13 +19,13 @@
 You are logged in as <u>{{voter.display_html_big|safe}}</u><br /><br />
 
     <button type="submit" class="large">CAST this ballot</button>
-    <span style="font-size:0.8em;"><br />You can cast as many ballots as you want.<br />Only the last one counts.</span>
+    <span style="font-size:0.8em;"><br />Puede usted votar tantas veces como quiera.<br />Sólo cuenta la última vez que lo haga.</span>
 </form>
 
 <p>
     <button class="tiny" onclick="document.location='./view';">cancel</button><br />
-    <span style="font-size:0.8em;">If you cancel now, your ballot will <em>NOT</em> be recorded.<br />
-    You can start the voting process over again, of course.</span>
+    <span style="font-size:0.8em;">Si cancela ahora, su voto <em>NO</em> será contabilizado.<br />
+    Por supuesto, puede recomenzar el proceso de voto de nuevo.</span>
 </p>
 
 <!-- for now, for CSRF protection, no auto-submit just yet (benadida) -->
@@ -34,11 +34,11 @@ You are logged in as <u>{{voter.display_html_big|safe}}</u><br /><br />
 </div>
   {% else %}
 <p style="font-size:1.4em;">
-  voting has stopped, sorry.
+  El proceso de votación ha finalizado, disculpe.
 </p>
   {% endif %}
 {% else %}
 <p style="font-size:1.4em;">
-  voting has not yet begun, sorry.
+  Disculpe, pero el proceso de votación todavía no ha comenzado.
 </p>
 {% endif %}

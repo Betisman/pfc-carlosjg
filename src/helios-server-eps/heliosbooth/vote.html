@@ -66,7 +66,8 @@ window.onbeforeunload = function(evt) {
     evt = window.event;
   }
 
-  var message = "If you leave this page with an in-progress ballot, your ballot will be lost.";
+  //var message = "If you leave this page with an in-progress ballot, your ballot will be lost.";
+  var message = "Si abandona esta página con la preparación de un voto en proceso, éste puede perderse.";
 
   if (evt) {
     evt.returnValue = message;
@@ -76,7 +77,8 @@ window.onbeforeunload = function(evt) {
 };
 
 BOOTH.exit = function() {
-    if (confirm("Are you sure you want to exit the booth and lose all information about your current ballot?")) {
+    //if (confirm("Are you sure you want to exit the booth and lose all information about your current ballot?")) {
+    if (confirm("¿Está seguro de que quiere salir de la cabina de votación y perder toda la información sobre su voto actual?")) {
         BOOTH.started_p = false;
         window.location = BOOTH.election.cast_url;
     }
@@ -339,7 +341,8 @@ BOOTH.click_checkbox = function(question_num, answer_num, checked_p) {
 
      // do the warning only if the question allows more than one option, otherwise it's confusing
      if (BOOTH.election.questions[question_num].max > 1) {
-        $('#warning_box').html("Maximum number of options selected.<br />To change your selection, please de-select a current selection first.");
+        //$('#warning_box').html("Maximum number of options selected.<br />To change your selection, please de-select a current selection first.");
+        $('#warning_box').html("Máximo número de opciones seleccionadas <br />Para cambiar su selección, por favor de-seleccione alguna opción primero.");
      }
   } else {
      // enable the other checkboxes
@@ -351,7 +354,7 @@ BOOTH.click_checkbox = function(question_num, answer_num, checked_p) {
 };
 
 BOOTH.show_processing_before = function(str_to_execute) {
-    $('#processing_div').html("<h3 align='center'>Processing...</h3>");
+    $('#processing_div').html("<h3 align='center'>Procesando...</h3>");
     BOOTH.show($('#processing_div'));
 
     // add a timeout so browsers like Safari actually display the processing message
@@ -486,7 +489,8 @@ BOOTH.wait_for_ciphertexts = function() {
     var percentage_done = Math.round((100 * answers_done.length) / BOOTH.encrypted_answers.length);
 
     if (BOOTH.total_cycles_waited > 250) {
-      alert('there appears to be a problem with the encryption process.\nPlease email help@heliosvoting.org and indicate that your encryption process froze at ' + percentage_done + '%');
+      //alert('there appears to be a problem with the encryption process.\nPlease email help@heliosvoting.org and indicate that your encryption process froze at ' + percentage_done + '%');
+      alert('Parece que hay un problema con el proceso de encriptado.\nPor favor, envíe un email al administrador (carlosjimenezgomez@gmail.com) indicando que el proceso de encriptado se ha congelado al ' + percentage_done + '%');
       return;
     }
 
@@ -555,7 +559,8 @@ BOOTH.audit_ballot = function() {
 
 BOOTH.post_audited_ballot = function() {
   $.post(BOOTH.election_url + "/post-audited-ballot", {'audited_ballot': BOOTH.audit_trail}, function(result) {
-    alert('This audited ballot has been posted.\nRemember, this vote will only be used for auditing and will not be tallied.\nClick "back to voting" and cast a new ballot to make sure your vote counts.');
+    //alert('This audited ballot has been posted.\nRemember, this vote will only be used for auditing and will not be tallied.\nClick "back to voting" and cast a new ballot to make sure your vote counts.');
+    alert('Este voto auditado ha sido publicado.\nRecuerde, este voto sólo se utilizará para auditoría y no será contabilizado.\nClicke en "volver a la votación" y emita un nuevo voto para asegurarse de que su voto se contabiliza.');
   });
 };
 
@@ -585,7 +590,8 @@ BOOTH.cast_ballot = function() {
 };
 
 BOOTH.show_receipt = function() {
-    UTILS.open_window_with_content("Your smart ballot tracker for " + BOOTH.election.name + ": " + BOOTH.encrypted_ballot_hash);
+//    UTILS.open_window_with_content("Your smart ballot tracker for " + BOOTH.election.name + ": " + BOOTH.encrypted_ballot_hash);
+    UTILS.open_window_with_content("Su smart ballot tracker para " + BOOTH.election.name + ": " + BOOTH.encrypted_ballot_hash);
 };
 
 BOOTH.do_done = function() {
@@ -600,17 +606,21 @@ BOOTH.do_done = function() {
       </table>
   </div>
   <div id="election_div" class="panel">
-    <h3>Checking capabilities and loading election booth...</h3>
-    <div align="center"><img src="loading.gif" /><br />This may take up to 10 seconds</div>
+    <!--<h3>Checking capabilities and loading election booth...</h3>-->
+    <h3>Comprobando las capacidades y cargando la cabina de votación...</h3>
+<!--    <div align="center"><img src="loading.gif" /><br />This may take up to 10 seconds</div>-->
+    <div align="center"><img src="loading.gif" /><br />Esto puede tardar unos 10 segundos</div>
   </div>
 
   <div id="error_div" class="panel" style="display: none;">
-    <h3>There's a problem</h3>
+    <h3>Hay un problema</h3>
     <p>
-      It appears that your browser does not have Java enabled. Helios needs Java to perform encryption within the browser.
+      <!--It appears that your browser does not have Java enabled. Helios needs Java to perform encryption within the browser.-->
+      Parece que tu navegador no tiene Java habilitdao. Helios necesita Java para realizar encriptación en el navegador.
     </p>
     <p>
-      You may be able to install Java by visiting <a target="_new" href="http://java.com">java.com</a>.
+      <!--You may be able to install Java by visiting <a target="_new" href="http://java.com">java.com</a>.-->
+      Puede instalar Java visitando <a target="_new" href="http://java.com">java.com</a>.
     </p>
   </div>
 
@@ -618,14 +628,14 @@ BOOTH.do_done = function() {
   </div>
 
   <div id="processing_div" class="panel" style="display:none;">
-      <h3 align="center">Processing....</h3>
+      <h3 align="center">Procesando....</h3>
   </div>
 
   <div id="encrypting_div" class="panel" style="display:none;">
-      <h3 align="center">Helios is now encrypting your ballot<br />
+      <h3 align="center">Helios está ahora encriptando su voto<br />
           <img src="encrypting.gif" /> <span style="font-size:0.7em; display:none;" id="percent_done_container">(<span id="percent_done">0</span>%)</span></h3>
 
-      <p align="center"><b>This may take up to two minutes.</b>
+      <p align="center"><b>Esto puede tardar hasta 2 minutos.</b>
   </div>
 
   <div id="seal_div" class="panel">

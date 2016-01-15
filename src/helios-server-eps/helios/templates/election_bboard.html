@@ -1,37 +1,39 @@
 {% extends TEMPLATE_BASE %}
 
 {% block title %}Ballot Tracking Center for {{election.name}}{% endblock %}
+{% block title %}Centro de Seguimiento de Papeletas para {{election.name}}{% endblock %}
 
 {% block content %}
   <h2 class="title">{{election.name}} &mdash; Ballot Tracking Center <span style="font-size:0.7em;">[<a href="{% url "helios.views.one_election_view" election_uuid=election.uuid %}">back to election</a>]</span></h2>
 
 <p>
   This is the ballot tracking center, which displays the tracking numbers of all cast ballots in this election.
+  Este es el Centro de Seguimiento de Papeletas, donde se muestra el número de seguimiento de todos los votos emitidos en esta elección.
   </p>
 
 <p>
-  <b>{{election.num_cast_votes}}</b> cast votes.
+  <b>{{election.num_cast_votes}}</b> votos emitidos.
 </p>
 
-Voters {{offset_plus_one}} - {{offset_plus_limit}} &nbsp;&nbsp;
+Votantes {{offset_plus_one}} - {{offset_plus_limit}} &nbsp;&nbsp;
 
 {% if next_after %}
-<a href="./bboard?after={{next_after}}&offset={{offset_plus_limit}}">next {{limit}}</a> &nbsp;&nbsp;
+<a href="./bboard?after={{next_after}}&offset={{offset_plus_limit}}">siguiente {{limit}}</a> &nbsp;&nbsp;
 {% endif %}
 
 {% ifequal offset 0 %}
 {% else %}
-<a href="./bboard">back to start</a> &nbsp;&nbsp;
+<a href="./bboard">Volver al principio</a> &nbsp;&nbsp;
 {% endifequal %}
 {% if more_p %}
-<a href="./bboard?after={{next_after}}&offset={{next_offset}}">next {{limit}}</a>
+<a href="./bboard?after={{next_after}}&offset={{next_offset}}">siguiente {{limit}}</a>
 {% endif %}
 <table class="pretty">
 <tr><th>
 {% if election.use_voter_aliases %}
 Alias
 {% else %}
-Name
+Nombre
 {% endif %}
 </th><th>Smart Ballot Tracker</th></tr>
 {% for voter in voters %}
