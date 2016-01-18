@@ -737,6 +737,9 @@ def one_election_cast_confirm(request, election):
   
 @election_view()
 def one_election_cast_done(request, election):
+  import logging
+  logger = logging.getLogger('helios_views')
+  logger.debug('one_election_view')
   """
   This view needs to be loaded because of the IFRAME, but then this causes 
   problems if someone clicks "reload". So we need a strategy.
@@ -745,7 +748,10 @@ def one_election_cast_done(request, election):
   user = get_user(request)
   voter = get_voter(request, user, election)
 
+  logger.debug(user)
+  logger.debug(voter)
   if voter:
+    logger.debug('if voter')
     votes = CastVote.get_by_voter(voter)
     vote_hash = votes[0].vote_hash
     cv_url = get_castvote_url(votes[0])
@@ -753,14 +759,21 @@ def one_election_cast_done(request, election):
     # only log out if the setting says so *and* we're dealing
     # with a site-wide voter. Definitely remove current_voter
     if voter.user == user:
+      logger.debug('if voter.user == user')
       logout = settings.LOGOUT_ON_CONFIRMATION
+      logger.debug(user.user_type)
+      if user.user_type == 'dnie':
+        logger.debug('if user.user_type == dnie')
+        logout = False
     else:
+      logger.debug('else (if voter.user == user)')
       logout = False
       del request.session['CURRENT_VOTER_ID']
 
     save_in_session_across_logouts(request, 'last_vote_hash', vote_hash)
     save_in_session_across_logouts(request, 'last_vote_cv_url', cv_url)
   else:
+    logger.debug('else (if voter)')
     vote_hash = request.session['last_vote_hash']
     cv_url = request.session['last_vote_cv_url']
     logout = False
@@ -773,7 +786,7 @@ def one_election_cast_done(request, election):
   #   auth_views.do_local_logout(request)
   
   # tweet/fb your vote
-  socialbuttons_url = get_socialbuttons_url(cv_url, 'I cast a vote in %s' % election.name) 
+  socialbuttons_url = get_socialbuttons_url(cv_url, 'I cast a vote in %s' % election.name)
   
   # remote logout is happening asynchronously in an iframe to be modular given the logout mechanism
   # include_user is set to False if logout is happening

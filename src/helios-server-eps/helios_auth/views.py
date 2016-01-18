@@ -141,7 +141,7 @@ def logout(request):
   response = do_complete_logout(request, return_url)
   if response:
     return response
-  
+
   return HttpResponseRedirect(return_url)
 
 def _do_auth(request):
