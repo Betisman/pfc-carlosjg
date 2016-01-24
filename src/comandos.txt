@@ -96,3 +96,21 @@ sudo gedit /etc/apache2/ports.conf
 
 sudo a2ensite sitednie.conf
 sudo service apache2 restart
+
+
+
+
+
+
+
+
+
+
+
+------- Para exportar los certificados a la app Android
+
+keytool -keystore keystore.jks -import -alias root -file acraiz-dnie.cer -trustcacerts
+
+keytool -keystore keystore.jks -import -alias servidor -file server.crt -trustcacerts
+
+keytool -importkeystore -srckeystore keystore.jks -destkeystore keystore.bks -srcstoretype JKS -deststoretype BKS -srcstorepass logaritmo -deststorepass logaritmo -provider org.bouncycastle.jce.provider.BouncyCastleProvider -providerpath "../bcprov-jdk16-1.45.jar"
