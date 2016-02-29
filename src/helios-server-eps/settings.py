@@ -188,6 +188,8 @@ URL_HOST = "http://localhost:8001"
 SECURE_URL_HOST = "https://localhost:8443"
 URL_HOST = "http://192.168.1.153:8001"
 SECURE_URL_HOST = "https://192.168.1.153:8443"
+URL_HOST = 'http://localhost:8005'
+SECURE_URL_HOST = 'https://localhost:443'
 
 # this additional host is used to iframe-isolate the social buttons,
 # which usually involve hooking in remote JavaScript, which could be
@@ -221,7 +223,9 @@ HELIOS_PRIVATE_DEFAULT = False
 #AUTH_ENABLED_AUTH_SYSTEMS = ['password','facebook','twitter', 'google', 'yahoo']
 AUTH_DEFAULT_AUTH_SYSTEM = get_from_env('AUTH_DEFAULT_AUTH_SYSTEM', None)
 AUTH_ENABLED_AUTH_SYSTEMS = get_from_env('AUTH_ENABLED_AUTH_SYSTEMS', 'dnie').split(",")
-AUTH_DEFAULT_AUTH_SYSTEM = 'dnie'
+AUTH_ENABLED_AUTH_SYSTEMS = ['google', 'facebook', 'dnie']
+#AUTH_DEFAULT_AUTH_SYSTEM = 'dnie'
+AUTH_DEFAULT_AUTH_SYSTEM = None
 
 # google
 GOOGLE_CLIENT_ID = get_from_env('GOOGLE_CLIENT_ID', '')
@@ -231,6 +235,7 @@ GOOGLE_CLIENT_SECRET = get_from_env('GOOGLE_CLIENT_SECRET', '')
 FACEBOOK_APP_ID = get_from_env('FACEBOOK_APP_ID','')
 FACEBOOK_API_KEY = get_from_env('FACEBOOK_API_KEY','')
 FACEBOOK_API_SECRET = get_from_env('FACEBOOK_API_SECRET','')
+FACEBOOK_APP_ID = '979148228820900'
 
 # twitter
 TWITTER_API_KEY = ''

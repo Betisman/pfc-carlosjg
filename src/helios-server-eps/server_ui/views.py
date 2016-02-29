@@ -45,6 +45,25 @@ def home(request):
     auth_systems.remove('password')
   except: pass
 
+  """
+  ssl_client_s_dn = request.META['SSL_CLIENT_S_DN']
+  ssl_client_s_dn = ssl_client_s_dn.replace('\,', 'XXXCOMAXXX')
+  params = dict(u.split("=") for u in ssl_client_s_dn.split(","))
+  for param in params:
+    params[param] = params[param].replace('XXXCOMAXXX', ',')
+  return DNIe(params['CN'], params['GN'], params['SN'], params['serialNumber'], params['C'])
+  """
+  import logging
+  logger = logging.getLogger("home")
+  try:
+    for meta in request.META:
+      if (str(meta).find('SSL') > -1):
+        logger.debug(meta + ': ' + request.META[meta])
+      else:
+        logger.debug(meta + ': --')
+  except Exception:
+    logger.debug("Pues no")
+
   try:
     ssl_client_s_dn = request.META['SSL_CLIENT_S_DN']
     ssl_client_s_dn = ssl_client_s_dn.replace('\,', 'XXXCOMAXXX')
@@ -54,10 +73,14 @@ def home(request):
     dni = sd['serialNumber']
   except KeyError:
     dni = None
+  """
+  if dni and not user:
+    logger.debug("dni and not user")
+    if len(settings.AUTH_ENABLED_AUTH_SYSTEMS) == 1:
+      logger.debug('redirect desde home ----------------- ' + settings.AUTH_ENABLED_AUTH_SYSTEMS[0])
+      return HttpResponseRedirect(reverse(auth_views.start, args=[settings.AUTH_ENABLED_AUTH_SYSTEMS[0]])+ '?return_url=' + request.GET.get('return_url', ''))
 
-
-
-
+  """
   login_box = auth_views.login_box_raw(request, return_url="/", auth_systems=auth_systems)
 
   return render_template(request, "index", {'elections': featured_elections,

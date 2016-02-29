@@ -34,11 +34,14 @@ def index(request):
   """
   the page from which one chooses how to log in.
   """
-  
+  logger.debug("helios_auth/views.py")
   user = get_user(request)
+  logger.debug(user)
+
 
   # single auth system?
   if len(helios_auth.ENABLED_AUTH_SYSTEMS) == 1 and not user:
+    logger.debug('redirect ----------------- ' + helios_auth.ENABLED_AUTH_SYSTEMS[0])
     return HttpResponseRedirect(reverse(start, args=[helios_auth.ENABLED_AUTH_SYSTEMS[0]])+ '?return_url=' + request.GET.get('return_url', ''))
 
   #if helios_auth.DEFAULT_AUTH_SYSTEM and not user:
@@ -196,7 +199,7 @@ def after(request):
   logger.debug('en after()')
   # which auth system were we using?
   if not request.session.has_key('auth_system_name'):
-    logger.debug('not reques.session.has_key"auth_system_name")')
+    logger.debug('not request.session.has_key"auth_system_name")')
     do_local_logout(request)
     return HttpResponseRedirect("/")
     
@@ -236,9 +239,9 @@ def after_intervention(request):
   if request.session.has_key('auth_return_url'):
     return_url = request.session['auth_return_url']
     del request.session['auth_return_url']
-  if request.session.has_key('auth_system_name'):
-    if request.session['auth_system_name'] == 'dnie':
-      return HttpResponseRedirect("%s%s" % (settings.SECURE_URL_HOST, return_url))
+  # if request.session.has_key('auth_system_name'):
+  #   if request.session['auth_system_name'] == 'dnie':
+  #     return HttpResponseRedirect("%s%s" % (settings.SECURE_URL_HOST, return_url))
 
   return HttpResponseRedirect("%s%s" % (settings.URL_HOST, return_url))
 
