@@ -42,11 +42,17 @@ public class DNIeAdmin extends FragmentActivity {
     int m_SelectedAct = NOTIFICACION_OPT_NO_OP;
 
     // Urls de acceso a servicios del Ayuntamiento
-    private static final String URL_AYUNTAMIENTO= "http://www.madrid.es/portales/munimadrid/es/Inicio/Ayuntamiento?vgnextfmt=default&vgnextchannel=ce069e242ab26010VgnVCM100000dc0ca8c0RCRD";
-    private static final String URL_MULTAS 		= "https://sede-c.madrid.es/portal/site/tramites/template.LOGIN/action.process/?realm=realm1&loginType=ssl&rl=/portal/site/tramites/menuitem.29e9b77c901fb5b380d480d45141b2a0/?vgnextoid=23d8adb92e389210VgnVCM100000171f5a0aRCRD";
-    private static final String URL_CENSO		= "https://sede-c.madrid.es/portal/site/tramites/template.LOGIN/action.process/?realm=realm1&loginType=ssl&rl=/portal/site/tramites/menuitem.378c1b1111a70f38c134c1344680a5a0/?vgnextoid=273fec942a6d9210VgnVCM100000171f5a0aRCRD";
-	private static final String URL_EXPEDIENTES = "https://sede-c.madrid.es/portal/site/tramites/template.LOGIN/action.process/?realm=realm1&loginType=ssl&rl=/portal/site/tramites/menuitem.744d92db5bd2a648c134c1344680a5a0/?vgnextoid=6320115579d89210VgnVCM100000171f5a0aRCRD";
-	private static final String URL_TRIBUTOS 	= "https://sede-c.madrid.es/portal/site/tramites/template.LOGIN/action.process/?realm=realm1&loginType=ssl&rl=/portal/site/tramites/menuitem.0d1df42f88c5b5b380d480d45141b2a0/?vgnextoid=85e5eb4119989210VgnVCM100000171f5a0aRCRD";
+//    private static final String URL_AYUNTAMIENTO= "http://www.madrid.es/portales/munimadrid/es/Inicio/Ayuntamiento?vgnextfmt=default&vgnextchannel=ce069e242ab26010VgnVCM100000dc0ca8c0RCRD";
+//    private static final String URL_MULTAS 		= "https://sede-c.madrid.es/portal/site/tramites/template.LOGIN/action.process/?realm=realm1&loginType=ssl&rl=/portal/site/tramites/menuitem.29e9b77c901fb5b380d480d45141b2a0/?vgnextoid=23d8adb92e389210VgnVCM100000171f5a0aRCRD";
+//    private static final String URL_CENSO		= "https://sede-c.madrid.es/portal/site/tramites/template.LOGIN/action.process/?realm=realm1&loginType=ssl&rl=/portal/site/tramites/menuitem.378c1b1111a70f38c134c1344680a5a0/?vgnextoid=273fec942a6d9210VgnVCM100000171f5a0aRCRD";
+//	private static final String URL_EXPEDIENTES = "https://sede-c.madrid.es/portal/site/tramites/template.LOGIN/action.process/?realm=realm1&loginType=ssl&rl=/portal/site/tramites/menuitem.744d92db5bd2a648c134c1344680a5a0/?vgnextoid=6320115579d89210VgnVCM100000171f5a0aRCRD";
+//	private static final String URL_TRIBUTOS 	= "https://sede-c.madrid.es/portal/site/tramites/template.LOGIN/action.process/?realm=realm1&loginType=ssl&rl=/portal/site/tramites/menuitem.0d1df42f88c5b5b380d480d45141b2a0/?vgnextoid=85e5eb4119989210VgnVCM100000171f5a0aRCRD";
+
+	private static final String URL_AYUNTAMIENTO= "https://192.168.1.153:8443";
+	private static final String URL_MULTAS 		= "https://192.168.1.153:8443";
+	private static final String URL_CENSO		= "https://192.168.1.153:8443";
+	private static final String URL_EXPEDIENTES = "https://192.168.1.153:8443";
+	private static final String URL_TRIBUTOS 	= "https://192.168.1.153:8443";
 
 	private static final int NOTIFICACION_OPT_NO_OP	= -1;
 	private static final int NOTIFICACION_OPT_0 	= 0;	// Tributos

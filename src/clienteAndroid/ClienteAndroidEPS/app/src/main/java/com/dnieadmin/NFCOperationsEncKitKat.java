@@ -33,12 +33,25 @@ import org.apache.http.HttpEntity;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.util.EntityUtils;
 
+import java.io.BufferedInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.SocketTimeoutException;
+import java.net.URL;
 import java.nio.charset.Charset;
 import java.security.KeyStore;
 import java.security.KeyStoreSpi;
 import java.security.Security;
+import java.security.cert.Certificate;
+import java.security.cert.CertificateFactory;
+import java.security.cert.X509Certificate;
+import java.util.Scanner;
+
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.KeyManager;
+import javax.net.ssl.KeyManagerFactory;
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManagerFactory;
 
 import de.tsenger.androsmex.data.CANSpecDO;
 import de.tsenger.androsmex.data.CANSpecDOStore;
@@ -57,6 +70,7 @@ import es.gob.jmulticard.ui.passwordcallback.CancelledOperationException;
 import es.gob.jmulticard.ui.passwordcallback.DNIeDialogManager;
 import es.inteco.labs.net.DNIeCaCertsManager;
 import es.inteco.labs.net.DroidHttpClient;
+import es.inteco.labs.net.auth.dnie.DNIeKeyManagerImpl;
 
 @SuppressLint("NewApi")
 public class NFCOperationsEncKitKat extends Activity implements ReaderCallback {
@@ -186,8 +200,8 @@ public class MyTaskDNIe extends AsyncTask<Void, Integer, Void>
 			try
 			{
 				// Lanzamos la operación de lectura del DNIe
-				//CargarCDF();
-				CargarDGs();
+				CargarCDF();
+				//CargarDGs();
 
 				// Si llegamos hasta aquí, hemos solicitado y presentado el PIN,
 				// de manera que ya no reintentaremos la conexión
@@ -412,6 +426,7 @@ public class MyTaskDNIe extends AsyncTask<Void, Integer, Void>
 
 			// Cargamos certificados y keyReferences
 			m_ksUserDNIe = KeyStore.getInstance("MRTD");
+			//m_ksUserDNIe = KeyStore.getInstance("DNI");
 			m_ksUserDNIe.load(null, null);
 
 			// Actualizamos la BBDD de los CAN para añadir estos datos si no los tuviéramos
@@ -658,6 +673,59 @@ public class MyTaskDNIe extends AsyncTask<Void, Integer, Void>
 		m_readDg11 = sharedPreferences.getBoolean(SETTING_READ_DG11, true);
 	}
 
+	public HttpsURLConnection setUpHttpsConnection(String urlString)
+	{
+		try
+		{
+			// Load CAs from an InputStream
+			// (could be from a resource or ByteArrayInputStream or ...)
+			CertificateFactory cf = CertificateFactory.getInstance("X.509");
+
+			InputStream caInput = new BufferedInputStream(this.getBaseContext().getAssets().open("CARLOSPFCUSPEPS.crt"));
+			Certificate ca = cf.generateCertificate(caInput);
+			System.out.println("ca=" + ((X509Certificate) ca).getSubjectDN());
+
+			// Create a KeyStore containing our trusted CAs
+			//String keyStoreType = KeyStore.getDefaultType();
+			String keyStoreType = KeyStore.getDefaultType();
+			KeyStore keyStore = KeyStore.getInstance(keyStoreType);
+			keyStore.load(null, null);
+			keyStore.setCertificateEntry("ca", ca);
+
+			// Create a TrustManager that trusts the CAs in our KeyStore
+			String tmfAlgorithm = TrustManagerFactory.getDefaultAlgorithm();
+			TrustManagerFactory tmf = TrustManagerFactory.getInstance(tmfAlgorithm);
+			tmf.init(keyStore);
+
+
+			// Certificados cliente en KeyManagers
+			KeyManagerFactory kmf = KeyManagerFactory.getInstance(KeyManagerFactory.getDefaultAlgorithm());
+			kmf.init(m_ksUserDNIe, "Pavone16!".toCharArray());
+
+
+
+
+			// Create an SSLContext that uses our TrustManager
+			SSLContext context = SSLContext.getInstance("TLS");
+			context.init(kmf.getKeyManagers(), tmf.getTrustManagers(), null);
+			//context.init(null, tmf.getTrustManagers(), null);
+			//context.init(new KeyManager[]{new DNIeKeyManagerImpl(m_ksUserDNIe, (char[])null)}, tmf.getTrustManagers(), null);
+
+			// Tell the URLConnection to use a SocketFactory from our SSLContext
+			URL url = new URL(urlString);
+			HttpsURLConnection urlConnection = (HttpsURLConnection)url.openConnection();
+			urlConnection.setSSLSocketFactory(context.getSocketFactory());
+
+			return urlConnection;
+		}
+		catch (Exception ex)
+		{
+			//Log.e("", "Failed to establish SSL connection to server: " + ex.toString());
+			ex.printStackTrace();
+			return null;
+		}
+	}
+
     public boolean ConectarSSL() throws Exception
     {
 		try
@@ -667,17 +735,24 @@ public class MyTaskDNIe extends AsyncTask<Void, Integer, Void>
 			textoProcessDlg="Lanzando conexion...";
 			myHandler.post(updateStatus);
 
-			// Creamos el objeto que gestionará los certificados adicionales
-			MyCaCertificate myCert = new MyCaCertificate(NFCOperationsEncKitKat.this);
-			DNIeCaCertsManager.setCaCertHandler(myCert);
+			if (1 == 0) {
+				// Creamos el objeto que gestionará los certificados adicionales
+				MyCaCertificate myCert = new MyCaCertificate(NFCOperationsEncKitKat.this);
+				DNIeCaCertsManager.setCaCertHandler(myCert);
 
-			HttpEntity webContent = DroidHttpClient.executeRequest(m_SSLtargetURL, myContext, m_ksUserDNIe);
+				HttpEntity webContent = DroidHttpClient.executeRequest(m_SSLtargetURL, myContext, m_ksUserDNIe);
 
-			String codificacion = EntityUtils.getContentCharSet(webContent);
-  			codificacion = (codificacion==null) ? "utf-8" : codificacion;
+				String codificacion = EntityUtils.getContentCharSet(webContent);
+				codificacion = (codificacion == null) ? "utf-8" : codificacion;
 
-			m_SSLresultado = new String(EntityUtils.toByteArray(webContent),Charset.forName(codificacion));
-			DroidHttpClient.cleanCookies();
+				m_SSLresultado = new String(EntityUtils.toByteArray(webContent), Charset.forName(codificacion));
+				DroidHttpClient.cleanCookies();
+			}else{
+				HttpsURLConnection urlConnection = setUpHttpsConnection(m_SSLtargetURL);
+				InputStream in = urlConnection.getInputStream();
+
+				m_SSLresultado = in.toString();
+			}
 		}
 		catch (ClientProtocolException e) {
 			textoResultDlg = "No se ha podido establecer la conexión.";
