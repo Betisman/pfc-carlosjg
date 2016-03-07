@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="paddingTopPages">15dp</dimen>
+    <dimen name="paddingSidesPages">25dp</dimen>
+    
+    
+    <dimen name="textSizeHeader">20dp</dimen>
+    <dimen name="textSizeSubHeader">16dp</dimen>
+    <dimen name="textSizeHelpDescription">14dp</dimen>
+    <dimen name="textSizeLabel">12dp</dimen>
+    <dimen name="textSizeBody">24dp</dimen>
+    <dimen name="textSizeBodyBig">36dp</dimen>
+    <dimen name="textSizeSmall">18dp</dimen>
+    <dimen name="textSizeVerySmall">11dp</dimen>
+    <dimen name="textPoints">60dp</dimen>
+        
+</resources>

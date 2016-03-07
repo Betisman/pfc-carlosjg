@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" 
+    android:background="@drawable/fondo_secundario">
+
+    <ImageView
+        android:id="@+id/banner_dgp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/banner_dgp_red"
+		android:scaleType="centerCrop"
+		android:adjustViewBounds="true"/>
+
+    <ImageView
+        android:id="@+id/texto_generico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_gravity="center"
+        android:background="@drawable/icono_superior_75"/>
+    
+    <RelativeLayout
+        android:id="@+id/grupo_opciones"
+	    android:layout_width ="fill_parent" 
+	    android:layout_height="fill_parent"
+    	android:orientation="vertical" 
+	    android:layout_margin="20dp"
+	    android:gravity="bottom">
+	        
+	    <TextView
+	        android:id="@+id/boton_opcion0"
+	        android:visibility="invisible"
+            android:layout_width="wrap_content"
+          	android:layout_height="wrap_content"
+	        android:layout_centerHorizontal="true"
+        	android:background="@drawable/texto_ayto_tributos"/>
+	    <TextView
+	        android:id="@+id/boton_opcion1"
+	        android:visibility="invisible"
+            android:layout_width="wrap_content"
+          	android:layout_height="wrap_content"
+	        android:layout_centerHorizontal="true"
+        	android:background="@drawable/texto_ayto_multas"/>
+	    <TextView
+	        android:id="@+id/boton_opcion2"
+	        android:visibility="invisible"
+            android:layout_width="wrap_content"
+          	android:layout_height="wrap_content"
+	        android:layout_centerHorizontal="true"
+        	android:background="@drawable/texto_ayto_datoscensales"/>
+	    <TextView
+	        android:id="@+id/boton_opcion3"
+	        android:visibility="invisible"
+            android:layout_width="wrap_content"
+          	android:layout_height="wrap_content"
+	        android:layout_centerHorizontal="true"
+        	android:background="@drawable/texto_ayto_expedientes"/>
+	    <TextView
+	        android:id="@+id/boton_opcion4"
+	        android:visibility="invisible"
+            android:layout_width="wrap_content"
+          	android:layout_height="wrap_content"
+	        android:layout_centerHorizontal="true"
+        	android:background="@drawable/texto_ayto_madrid"/>
+    </RelativeLayout>   				
+</LinearLayout>

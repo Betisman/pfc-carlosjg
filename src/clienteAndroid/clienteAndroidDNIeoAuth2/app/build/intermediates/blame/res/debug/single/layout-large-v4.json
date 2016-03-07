@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\layout-large-v4\\activity_help.xml",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\layout-large\\activity_help.xml"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\layout-large-v4\\dnie_00.xml",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\layout-large\\dnie_00.xml"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\layout-large-v4\\nfcactkitkat.xml",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\layout-large\\nfcactkitkat.xml"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\layout-large-v4\\fnmtks.xml",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\layout-large\\fnmtks.xml"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\layout-large-v4\\webviewlayout.xml",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\layout-large\\webviewlayout.xml"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\layout-large-v4\\main.xml",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\layout-large\\main.xml"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\layout-large-v4\\socketopsssl.xml",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\layout-large\\socketopsssl.xml"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\layout-large-v4\\can_entry.xml",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\layout-large\\can_entry.xml"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\layout-large-v4\\nfcact2.xml",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\layout-large\\nfcact2.xml"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\layout-large-v4\\passwordentry.xml",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\layout-large\\passwordentry.xml"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\layout-large-v4\\can_list.xml",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\layout-large\\can_list.xml"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\layout-large-v4\\list_mrtd_row.xml",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\layout-large\\list_mrtd_row.xml"
+    }
+]

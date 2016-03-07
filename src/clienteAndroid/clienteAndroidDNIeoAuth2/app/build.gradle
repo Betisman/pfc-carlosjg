@@ -1,0 +1,33 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "21.1.2"
+
+    defaultConfig {
+        applicationId "com.dnieadmin"
+        minSdkVersion 17
+        targetSdkVersion 21
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
+        }
+    }
+}
+
+dependencies {
+    compile 'com.android.support:support-v4:23.0.0'
+    compile files('libs/bcprov-jdk15on-148.jar')
+    compile files('libs/jsoup-1.7.2.jar')
+    compile files('libs/radial-menu-v4.jar')
+    compile project(':dniedroid')
+}
+
+repositories {
+    flatDir {
+        dirs 'libs'
+    }
+}

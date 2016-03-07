@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="dniedroid-unspecified">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Android_DNIeApp_AUTENTICACION/dniedroid/unspecified/jars/libs/scprov-jdk15-1.46.99.3-UNOFFICIAL-ROBERTO-RELEASE.jar!/" />
+      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Android_DNIeApp_AUTENTICACION/dniedroid/unspecified/res" />
+      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/Android_DNIeApp_AUTENTICACION/dniedroid/unspecified/jars/classes.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
