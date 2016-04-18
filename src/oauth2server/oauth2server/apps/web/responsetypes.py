@@ -31,7 +31,11 @@ class AbstractResponseType(object):
 
 class CodeResponseType(AbstractResponseType):
 
-    def process(self, client, authorized, scopes, redirect_uri, state):
+    def process(self, client, authorized, scopes, redirect_uri, state, dnie, client_type=None):
+        import logging
+        logger = logging.getLogger('proccess')
+        logger.debug("client(%s), authorized(%s), scopes(%s), redirect_uri(%s), state(%s), die(%s)" %(client, authorized, scopes, redirect_uri, state, dnie))
+
         if not authorized:
             return self.denied_redirect(
                 state=state, redirect_uri=redirect_uri)
@@ -44,13 +48,23 @@ class CodeResponseType(AbstractResponseType):
         )
         auth_code.scopes.add(*scopes)
 
-        query_string = urllib.urlencode({
-            'code': auth_code.code,
-            'state': state,
-        })
+        if client_type is None:
+            query_string = urllib.urlencode({
+                'code': auth_code.code,
+                'state': state,
+                'dnie': dnie.serialNumber
+            })
 
-        return HttpResponseRedirect('{}?{}'.format(
-            redirect_uri, query_string))
+            return HttpResponseRedirect('{}?{}'.format(
+                redirect_uri, query_string))
+        elif client_type == 'androidnfcapp':
+            d = {'code': auth_code.code, 'state': state, 'dnie': dnie.serialNumber}
+            import json
+            from django.http import HttpResponse
+            return HttpResponse(json.dumps(d), content_type='application/json')
+        else:
+            return self.denied_redirect(
+                state=state, redirect_uri=redirect_uri)
 
 
 class ImplicitResponseType(AbstractResponseType):
