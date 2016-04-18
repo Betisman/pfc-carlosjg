@@ -1,5 +1,31 @@
 [
     {
+        "outputFile": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\values-v11\\values-v11.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endLine": 4,
+                    "endColumn": 12,
+                    "endOffset": 187
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\exploded-aar\\clienteAndroidDNIeoAuth2\\dniedroid\\unspecified\\res\\values-v11\\values-v11.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 190,
+                        "endLine": 6,
+                        "endColumn": 12,
+                        "endOffset": 322
+                    }
+                }
+            }
+        ]
+    },
+    {
         "outputFile": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\values-v11\\values-v11.xml",
         "map": [
             {

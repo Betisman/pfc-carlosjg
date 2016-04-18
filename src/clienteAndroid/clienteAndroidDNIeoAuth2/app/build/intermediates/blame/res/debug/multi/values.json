@@ -1,5 +1,3438 @@
 [
     {
+        "outputFile": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\values\\values.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endLine": 7,
+                    "endColumn": 12,
+                    "endOffset": 566
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\trusted_hosts.xml",
+                    "position": {
+                        "startLine": 1,
+                        "startColumn": 4,
+                        "startOffset": 75,
+                        "endLine": 6,
+                        "endColumn": 12,
+                        "endOffset": 586
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 8,
+                    "startColumn": 4,
+                    "startOffset": 571,
+                    "endColumn": 51,
+                    "endOffset": 618
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 224,
+                        "endColumn": 51,
+                        "endOffset": 271
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 9,
+                    "startColumn": 4,
+                    "startOffset": 623,
+                    "endColumn": 41,
+                    "endOffset": 660
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 182,
+                        "endColumn": 41,
+                        "endOffset": 219
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 10,
+                    "startColumn": 4,
+                    "startOffset": 665,
+                    "endColumn": 41,
+                    "endOffset": 702
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 140,
+                        "endColumn": 41,
+                        "endOffset": 177
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 11,
+                    "startColumn": 4,
+                    "startOffset": 707,
+                    "endColumn": 41,
+                    "endOffset": 744
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 98,
+                        "endColumn": 41,
+                        "endOffset": 135
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 12,
+                    "startColumn": 4,
+                    "startOffset": 749,
+                    "endColumn": 36,
+                    "endOffset": 781
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\colors.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 200,
+                        "endColumn": 36,
+                        "endOffset": 232
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 13,
+                    "startColumn": 4,
+                    "startOffset": 786,
+                    "endColumn": 35,
+                    "endOffset": 817
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\colors.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 127,
+                        "endColumn": 35,
+                        "endOffset": 158
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 14,
+                    "startColumn": 4,
+                    "startOffset": 822,
+                    "endColumn": 42,
+                    "endOffset": 860
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 42,
+                        "endOffset": 93
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 15,
+                    "startColumn": 4,
+                    "startOffset": 865,
+                    "endColumn": 36,
+                    "endOffset": 897
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\colors.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 90,
+                        "endColumn": 36,
+                        "endOffset": 122
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 16,
+                    "startColumn": 4,
+                    "startOffset": 902,
+                    "endColumn": 49,
+                    "endOffset": 947
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 384,
+                        "endColumn": 49,
+                        "endOffset": 429
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 17,
+                    "startColumn": 4,
+                    "startOffset": 952,
+                    "endColumn": 47,
+                    "endOffset": 995
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 434,
+                        "endColumn": 47,
+                        "endOffset": 477
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 18,
+                    "startColumn": 4,
+                    "startOffset": 1000,
+                    "endColumn": 48,
+                    "endOffset": 1044
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 482,
+                        "endColumn": 48,
+                        "endOffset": 526
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 19,
+                    "startColumn": 4,
+                    "startOffset": 1049,
+                    "endColumn": 48,
+                    "endOffset": 1093
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 531,
+                        "endColumn": 48,
+                        "endOffset": 575
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 20,
+                    "startColumn": 4,
+                    "startOffset": 1098,
+                    "endColumn": 49,
+                    "endOffset": 1143
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 580,
+                        "endColumn": 49,
+                        "endOffset": 625
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 21,
+                    "startColumn": 4,
+                    "startOffset": 1148,
+                    "endColumn": 49,
+                    "endOffset": 1193
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 630,
+                        "endColumn": 49,
+                        "endOffset": 675
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 22,
+                    "startColumn": 4,
+                    "startOffset": 1198,
+                    "endColumn": 50,
+                    "endOffset": 1244
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 680,
+                        "endColumn": 50,
+                        "endOffset": 726
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 23,
+                    "startColumn": 4,
+                    "startOffset": 1249,
+                    "endColumn": 49,
+                    "endOffset": 1294
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 731,
+                        "endColumn": 49,
+                        "endOffset": 776
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 24,
+                    "startColumn": 4,
+                    "startOffset": 1299,
+                    "endColumn": 50,
+                    "endOffset": 1345
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 781,
+                        "endColumn": 50,
+                        "endOffset": 827
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 25,
+                    "startColumn": 4,
+                    "startOffset": 1350,
+                    "endColumn": 46,
+                    "endOffset": 1392
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 832,
+                        "endColumn": 46,
+                        "endOffset": 874
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 26,
+                    "startColumn": 4,
+                    "startOffset": 1397,
+                    "endColumn": 47,
+                    "endOffset": 1440
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 879,
+                        "endColumn": 47,
+                        "endOffset": 922
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 27,
+                    "startColumn": 4,
+                    "startOffset": 1445,
+                    "endColumn": 51,
+                    "endOffset": 1492
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 927,
+                        "endColumn": 51,
+                        "endOffset": 974
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 28,
+                    "startColumn": 4,
+                    "startOffset": 1497,
+                    "endColumn": 51,
+                    "endOffset": 1544
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 979,
+                        "endColumn": 51,
+                        "endOffset": 1026
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 29,
+                    "startColumn": 4,
+                    "startOffset": 1549,
+                    "endColumn": 51,
+                    "endOffset": 1596
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 1031,
+                        "endColumn": 51,
+                        "endOffset": 1078
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 30,
+                    "startColumn": 4,
+                    "startOffset": 1601,
+                    "endColumn": 51,
+                    "endOffset": 1648
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 4,
+                        "startOffset": 1083,
+                        "endColumn": 51,
+                        "endOffset": 1130
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 31,
+                    "startColumn": 4,
+                    "startOffset": 1653,
+                    "endColumn": 51,
+                    "endOffset": 1700
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 4,
+                        "startOffset": 1135,
+                        "endColumn": 51,
+                        "endOffset": 1182
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 32,
+                    "startColumn": 4,
+                    "startOffset": 1705,
+                    "endColumn": 51,
+                    "endOffset": 1752
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 4,
+                        "startOffset": 1187,
+                        "endColumn": 51,
+                        "endOffset": 1234
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 33,
+                    "startColumn": 4,
+                    "startOffset": 1757,
+                    "endColumn": 51,
+                    "endOffset": 1804
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 4,
+                        "startOffset": 1239,
+                        "endColumn": 51,
+                        "endOffset": 1286
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 34,
+                    "startColumn": 4,
+                    "startOffset": 1809,
+                    "endColumn": 51,
+                    "endOffset": 1856
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 28,
+                        "startColumn": 4,
+                        "startOffset": 1291,
+                        "endColumn": 51,
+                        "endOffset": 1338
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 35,
+                    "startColumn": 4,
+                    "startOffset": 1861,
+                    "endColumn": 51,
+                    "endOffset": 1908
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 29,
+                        "startColumn": 4,
+                        "startOffset": 1343,
+                        "endColumn": 51,
+                        "endOffset": 1390
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 36,
+                    "startColumn": 4,
+                    "startOffset": 1913,
+                    "endColumn": 51,
+                    "endOffset": 1960
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 30,
+                        "startColumn": 4,
+                        "startOffset": 1395,
+                        "endColumn": 51,
+                        "endOffset": 1442
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 37,
+                    "startColumn": 4,
+                    "startOffset": 1965,
+                    "endColumn": 51,
+                    "endOffset": 2012
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 31,
+                        "startColumn": 4,
+                        "startOffset": 1447,
+                        "endColumn": 51,
+                        "endOffset": 1494
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 38,
+                    "startColumn": 4,
+                    "startOffset": 2017,
+                    "endColumn": 51,
+                    "endOffset": 2064
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 32,
+                        "startColumn": 4,
+                        "startOffset": 1499,
+                        "endColumn": 51,
+                        "endOffset": 1546
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 39,
+                    "startColumn": 4,
+                    "startOffset": 2069,
+                    "endColumn": 51,
+                    "endOffset": 2116
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 33,
+                        "startColumn": 4,
+                        "startOffset": 1551,
+                        "endColumn": 51,
+                        "endOffset": 1598
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 40,
+                    "startColumn": 4,
+                    "startOffset": 2121,
+                    "endColumn": 51,
+                    "endOffset": 2168
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 34,
+                        "startColumn": 4,
+                        "startOffset": 1603,
+                        "endColumn": 51,
+                        "endOffset": 1650
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 41,
+                    "startColumn": 4,
+                    "startOffset": 2173,
+                    "endColumn": 52,
+                    "endOffset": 2221
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 35,
+                        "startColumn": 4,
+                        "startOffset": 1655,
+                        "endColumn": 52,
+                        "endOffset": 1703
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 42,
+                    "startColumn": 4,
+                    "startOffset": 2226,
+                    "endColumn": 52,
+                    "endOffset": 2274
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 36,
+                        "startColumn": 4,
+                        "startOffset": 1708,
+                        "endColumn": 52,
+                        "endOffset": 1756
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 43,
+                    "startColumn": 4,
+                    "startOffset": 2279,
+                    "endColumn": 52,
+                    "endOffset": 2327
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 37,
+                        "startColumn": 4,
+                        "startOffset": 1761,
+                        "endColumn": 52,
+                        "endOffset": 1809
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 44,
+                    "startColumn": 4,
+                    "startOffset": 2332,
+                    "endColumn": 52,
+                    "endOffset": 2380
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 38,
+                        "startColumn": 4,
+                        "startOffset": 1814,
+                        "endColumn": 52,
+                        "endOffset": 1862
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 45,
+                    "startColumn": 4,
+                    "startOffset": 2385,
+                    "endColumn": 52,
+                    "endOffset": 2433
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 39,
+                        "startColumn": 4,
+                        "startOffset": 1867,
+                        "endColumn": 52,
+                        "endOffset": 1915
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 46,
+                    "startColumn": 4,
+                    "startOffset": 2438,
+                    "endColumn": 52,
+                    "endOffset": 2486
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 40,
+                        "startColumn": 4,
+                        "startOffset": 1920,
+                        "endColumn": 52,
+                        "endOffset": 1968
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 47,
+                    "startColumn": 4,
+                    "startOffset": 2491,
+                    "endColumn": 52,
+                    "endOffset": 2539
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 41,
+                        "startColumn": 4,
+                        "startOffset": 1973,
+                        "endColumn": 52,
+                        "endOffset": 2021
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 48,
+                    "startColumn": 4,
+                    "startOffset": 2544,
+                    "endColumn": 52,
+                    "endOffset": 2592
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 42,
+                        "startColumn": 4,
+                        "startOffset": 2026,
+                        "endColumn": 52,
+                        "endOffset": 2074
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 49,
+                    "startColumn": 4,
+                    "startOffset": 2597,
+                    "endColumn": 52,
+                    "endOffset": 2645
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 43,
+                        "startColumn": 4,
+                        "startOffset": 2079,
+                        "endColumn": 52,
+                        "endOffset": 2127
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 50,
+                    "startColumn": 4,
+                    "startOffset": 2650,
+                    "endColumn": 52,
+                    "endOffset": 2698
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 44,
+                        "startColumn": 4,
+                        "startOffset": 2132,
+                        "endColumn": 52,
+                        "endOffset": 2180
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 51,
+                    "startColumn": 4,
+                    "startOffset": 2703,
+                    "endColumn": 52,
+                    "endOffset": 2751
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 45,
+                        "startColumn": 4,
+                        "startOffset": 2185,
+                        "endColumn": 52,
+                        "endOffset": 2233
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 52,
+                    "startColumn": 4,
+                    "startOffset": 2756,
+                    "endColumn": 52,
+                    "endOffset": 2804
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 46,
+                        "startColumn": 4,
+                        "startOffset": 2238,
+                        "endColumn": 52,
+                        "endOffset": 2286
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 53,
+                    "startColumn": 4,
+                    "startOffset": 2809,
+                    "endColumn": 52,
+                    "endOffset": 2857
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 47,
+                        "startColumn": 4,
+                        "startOffset": 2291,
+                        "endColumn": 52,
+                        "endOffset": 2339
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 54,
+                    "startColumn": 4,
+                    "startOffset": 2862,
+                    "endColumn": 52,
+                    "endOffset": 2910
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 48,
+                        "startColumn": 4,
+                        "startOffset": 2344,
+                        "endColumn": 52,
+                        "endOffset": 2392
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 55,
+                    "startColumn": 4,
+                    "startOffset": 2915,
+                    "endColumn": 53,
+                    "endOffset": 2964
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 49,
+                        "startColumn": 4,
+                        "startOffset": 2397,
+                        "endColumn": 53,
+                        "endOffset": 2446
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 56,
+                    "startColumn": 4,
+                    "startOffset": 2969,
+                    "endColumn": 53,
+                    "endOffset": 3018
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 50,
+                        "startColumn": 4,
+                        "startOffset": 2451,
+                        "endColumn": 53,
+                        "endOffset": 2500
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 57,
+                    "startColumn": 4,
+                    "startOffset": 3023,
+                    "endColumn": 53,
+                    "endOffset": 3072
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 51,
+                        "startColumn": 4,
+                        "startOffset": 2505,
+                        "endColumn": 53,
+                        "endOffset": 2554
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 58,
+                    "startColumn": 4,
+                    "startOffset": 3077,
+                    "endColumn": 53,
+                    "endOffset": 3126
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 52,
+                        "startColumn": 4,
+                        "startOffset": 2559,
+                        "endColumn": 53,
+                        "endOffset": 2608
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 59,
+                    "startColumn": 4,
+                    "startOffset": 3131,
+                    "endColumn": 53,
+                    "endOffset": 3180
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 53,
+                        "startColumn": 4,
+                        "startOffset": 2613,
+                        "endColumn": 53,
+                        "endOffset": 2662
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 60,
+                    "startColumn": 4,
+                    "startOffset": 3185,
+                    "endColumn": 53,
+                    "endOffset": 3234
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 54,
+                        "startColumn": 4,
+                        "startOffset": 2667,
+                        "endColumn": 53,
+                        "endOffset": 2716
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 61,
+                    "startColumn": 4,
+                    "startOffset": 3239,
+                    "endColumn": 53,
+                    "endOffset": 3288
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 55,
+                        "startColumn": 4,
+                        "startOffset": 2721,
+                        "endColumn": 53,
+                        "endOffset": 2770
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 62,
+                    "startColumn": 4,
+                    "startOffset": 3293,
+                    "endColumn": 53,
+                    "endOffset": 3342
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 56,
+                        "startColumn": 4,
+                        "startOffset": 2775,
+                        "endColumn": 53,
+                        "endOffset": 2824
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 63,
+                    "startColumn": 4,
+                    "startOffset": 3347,
+                    "endColumn": 53,
+                    "endOffset": 3396
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 57,
+                        "startColumn": 4,
+                        "startOffset": 2829,
+                        "endColumn": 53,
+                        "endOffset": 2878
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 64,
+                    "startColumn": 4,
+                    "startOffset": 3401,
+                    "endColumn": 53,
+                    "endOffset": 3450
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 58,
+                        "startColumn": 4,
+                        "startOffset": 2883,
+                        "endColumn": 53,
+                        "endOffset": 2932
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 65,
+                    "startColumn": 4,
+                    "startOffset": 3455,
+                    "endColumn": 53,
+                    "endOffset": 3504
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 59,
+                        "startColumn": 4,
+                        "startOffset": 2937,
+                        "endColumn": 53,
+                        "endOffset": 2986
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 66,
+                    "startColumn": 4,
+                    "startOffset": 3509,
+                    "endColumn": 53,
+                    "endOffset": 3558
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 60,
+                        "startColumn": 4,
+                        "startOffset": 2991,
+                        "endColumn": 53,
+                        "endOffset": 3040
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 67,
+                    "startColumn": 4,
+                    "startOffset": 3563,
+                    "endColumn": 53,
+                    "endOffset": 3612
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 61,
+                        "startColumn": 4,
+                        "startOffset": 3045,
+                        "endColumn": 53,
+                        "endOffset": 3094
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 68,
+                    "startColumn": 4,
+                    "startOffset": 3617,
+                    "endColumn": 53,
+                    "endOffset": 3666
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 62,
+                        "startColumn": 4,
+                        "startOffset": 3099,
+                        "endColumn": 53,
+                        "endOffset": 3148
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 69,
+                    "startColumn": 4,
+                    "startOffset": 3671,
+                    "endColumn": 50,
+                    "endOffset": 3717
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 63,
+                        "startColumn": 4,
+                        "startOffset": 3153,
+                        "endColumn": 50,
+                        "endOffset": 3199
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 70,
+                    "startColumn": 4,
+                    "startOffset": 3722,
+                    "endColumn": 50,
+                    "endOffset": 3768
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 64,
+                        "startColumn": 4,
+                        "startOffset": 3204,
+                        "endColumn": 50,
+                        "endOffset": 3250
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 71,
+                    "startColumn": 4,
+                    "startOffset": 3773,
+                    "endColumn": 50,
+                    "endOffset": 3819
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 65,
+                        "startColumn": 4,
+                        "startOffset": 3255,
+                        "endColumn": 50,
+                        "endOffset": 3301
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 72,
+                    "startColumn": 4,
+                    "startOffset": 3824,
+                    "endColumn": 50,
+                    "endOffset": 3870
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 66,
+                        "startColumn": 4,
+                        "startOffset": 3306,
+                        "endColumn": 50,
+                        "endOffset": 3352
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 73,
+                    "startColumn": 4,
+                    "startOffset": 3875,
+                    "endColumn": 50,
+                    "endOffset": 3921
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 67,
+                        "startColumn": 4,
+                        "startOffset": 3357,
+                        "endColumn": 50,
+                        "endOffset": 3403
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 74,
+                    "startColumn": 4,
+                    "startOffset": 3926,
+                    "endColumn": 50,
+                    "endOffset": 3972
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 68,
+                        "startColumn": 4,
+                        "startOffset": 3408,
+                        "endColumn": 50,
+                        "endOffset": 3454
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 75,
+                    "startColumn": 4,
+                    "startOffset": 3977,
+                    "endColumn": 50,
+                    "endOffset": 4023
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 69,
+                        "startColumn": 4,
+                        "startOffset": 3459,
+                        "endColumn": 50,
+                        "endOffset": 3505
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 76,
+                    "startColumn": 4,
+                    "startOffset": 4028,
+                    "endColumn": 50,
+                    "endOffset": 4074
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 70,
+                        "startColumn": 4,
+                        "startOffset": 3510,
+                        "endColumn": 50,
+                        "endOffset": 3556
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 77,
+                    "startColumn": 4,
+                    "startOffset": 4079,
+                    "endColumn": 50,
+                    "endOffset": 4125
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 71,
+                        "startColumn": 4,
+                        "startOffset": 3561,
+                        "endColumn": 50,
+                        "endOffset": 3607
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 78,
+                    "startColumn": 4,
+                    "startOffset": 4130,
+                    "endColumn": 50,
+                    "endOffset": 4176
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 72,
+                        "startColumn": 4,
+                        "startOffset": 3612,
+                        "endColumn": 50,
+                        "endOffset": 3658
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 79,
+                    "startColumn": 4,
+                    "startOffset": 4181,
+                    "endColumn": 50,
+                    "endOffset": 4227
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 73,
+                        "startColumn": 4,
+                        "startOffset": 3663,
+                        "endColumn": 50,
+                        "endOffset": 3709
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 80,
+                    "startColumn": 4,
+                    "startOffset": 4232,
+                    "endColumn": 50,
+                    "endOffset": 4278
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 74,
+                        "startColumn": 4,
+                        "startOffset": 3714,
+                        "endColumn": 50,
+                        "endOffset": 3760
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 81,
+                    "startColumn": 4,
+                    "startOffset": 4283,
+                    "endColumn": 50,
+                    "endOffset": 4329
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 75,
+                        "startColumn": 4,
+                        "startOffset": 3765,
+                        "endColumn": 50,
+                        "endOffset": 3811
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 82,
+                    "startColumn": 4,
+                    "startOffset": 4334,
+                    "endColumn": 50,
+                    "endOffset": 4380
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 76,
+                        "startColumn": 4,
+                        "startOffset": 3816,
+                        "endColumn": 50,
+                        "endOffset": 3862
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 83,
+                    "startColumn": 4,
+                    "startOffset": 4385,
+                    "endColumn": 49,
+                    "endOffset": 4430
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 276,
+                        "endColumn": 49,
+                        "endOffset": 321
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 84,
+                    "startColumn": 4,
+                    "startOffset": 4435,
+                    "endColumn": 34,
+                    "endOffset": 4465
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\colors.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 34,
+                        "endOffset": 85
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 85,
+                    "startColumn": 4,
+                    "startOffset": 4470,
+                    "endColumn": 52,
+                    "endOffset": 4518
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\color.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 326,
+                        "endColumn": 52,
+                        "endOffset": 374
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 86,
+                    "startColumn": 4,
+                    "startOffset": 4523,
+                    "endColumn": 36,
+                    "endOffset": 4555
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\colors.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 163,
+                        "endColumn": 36,
+                        "endOffset": 195
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 88,
+                    "startColumn": 4,
+                    "startOffset": 4745,
+                    "endColumn": 55,
+                    "endOffset": 4796
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\dimens.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 798,
+                        "endColumn": 55,
+                        "endOffset": 849
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 89,
+                    "startColumn": 4,
+                    "startOffset": 4801,
+                    "endColumn": 43,
+                    "endOffset": 4840
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\dimens.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 669,
+                        "endColumn": 43,
+                        "endOffset": 708
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 90,
+                    "startColumn": 4,
+                    "startOffset": 4845,
+                    "endColumn": 48,
+                    "endOffset": 4889
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\dimensions.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 102,
+                        "endColumn": 48,
+                        "endOffset": 146
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 91,
+                    "startColumn": 4,
+                    "startOffset": 4894,
+                    "endColumn": 46,
+                    "endOffset": 4936
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\dimensions.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 46,
+                        "endOffset": 97
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 92,
+                    "startColumn": 4,
+                    "startOffset": 4941,
+                    "endColumn": 43,
+                    "endOffset": 4980
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\dimens.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 713,
+                        "endColumn": 43,
+                        "endOffset": 752
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 93,
+                    "startColumn": 4,
+                    "startOffset": 4985,
+                    "endColumn": 49,
+                    "endOffset": 5030
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\dimens.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 619,
+                        "endColumn": 49,
+                        "endOffset": 664
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 94,
+                    "startColumn": 4,
+                    "startOffset": 5035,
+                    "endColumn": 41,
+                    "endOffset": 5072
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\dimensions.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 541,
+                        "endColumn": 41,
+                        "endOffset": 578
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 95,
+                    "startColumn": 4,
+                    "startOffset": 5077,
+                    "endColumn": 43,
+                    "endOffset": 5116
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\dimensions.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 356,
+                        "endColumn": 43,
+                        "endOffset": 395
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 96,
+                    "startColumn": 4,
+                    "startOffset": 5121,
+                    "endColumn": 46,
+                    "endOffset": 5163
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\dimensions.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 400,
+                        "endColumn": 46,
+                        "endOffset": 442
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 97,
+                    "startColumn": 4,
+                    "startOffset": 5168,
+                    "endColumn": 45,
+                    "endOffset": 5209
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\dimensions.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 161,
+                        "endColumn": 45,
+                        "endOffset": 202
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 98,
+                    "startColumn": 4,
+                    "startOffset": 5214,
+                    "endColumn": 54,
+                    "endOffset": 5264
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\dimensions.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 256,
+                        "endColumn": 54,
+                        "endOffset": 306
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 99,
+                    "startColumn": 4,
+                    "startOffset": 5269,
+                    "endColumn": 44,
+                    "endOffset": 5309
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\dimensions.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 311,
+                        "endColumn": 44,
+                        "endOffset": 351
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 100,
+                    "startColumn": 4,
+                    "startOffset": 5314,
+                    "endColumn": 44,
+                    "endOffset": 5354
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\dimensions.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 447,
+                        "endColumn": 44,
+                        "endOffset": 487
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 101,
+                    "startColumn": 4,
+                    "startOffset": 5359,
+                    "endColumn": 48,
+                    "endOffset": 5403
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\dimensions.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 207,
+                        "endColumn": 48,
+                        "endOffset": 251
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 102,
+                    "startColumn": 4,
+                    "startOffset": 5408,
+                    "endColumn": 48,
+                    "endOffset": 5452
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\dimensions.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 492,
+                        "endColumn": 48,
+                        "endOffset": 536
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 103,
+                    "startColumn": 4,
+                    "startOffset": 5457,
+                    "endColumn": 40,
+                    "endOffset": 5493
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\dimens.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 757,
+                        "endColumn": 40,
+                        "endOffset": 793
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 104,
+                    "startColumn": 4,
+                    "startOffset": 5498,
+                    "endColumn": 40,
+                    "endOffset": 5534
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\dimens.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 4,
+                        "startOffset": 855,
+                        "endColumn": 40,
+                        "endOffset": 891
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 105,
+                    "startColumn": 4,
+                    "startOffset": 5539,
+                    "endColumn": 55,
+                    "endOffset": 5590
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 59,
+                        "startColumn": 4,
+                        "startOffset": 3927,
+                        "endColumn": 55,
+                        "endOffset": 3978
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 106,
+                    "startColumn": 4,
+                    "startOffset": 5595,
+                    "endColumn": 51,
+                    "endOffset": 5642
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 3,
+                        "startColumn": 4,
+                        "startOffset": 128,
+                        "endColumn": 51,
+                        "endOffset": 175
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 107,
+                    "startColumn": 4,
+                    "startOffset": 5647,
+                    "endColumn": 77,
+                    "endOffset": 5720
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 12,
+                        "startColumn": 4,
+                        "startOffset": 777,
+                        "endColumn": 77,
+                        "endOffset": 850
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 108,
+                    "startColumn": 4,
+                    "startOffset": 5725,
+                    "endColumn": 56,
+                    "endOffset": 5777
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 4,
+                        "startOffset": 181,
+                        "endColumn": 56,
+                        "endOffset": 233
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 109,
+                    "startColumn": 4,
+                    "startOffset": 5782,
+                    "endColumn": 80,
+                    "endOffset": 5858
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 481,
+                        "endColumn": 80,
+                        "endOffset": 557
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 110,
+                    "startColumn": 4,
+                    "startOffset": 5863,
+                    "endColumn": 76,
+                    "endOffset": 5935
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 6,
+                        "startColumn": 4,
+                        "startOffset": 319,
+                        "endColumn": 76,
+                        "endOffset": 391
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 111,
+                    "startColumn": 4,
+                    "startOffset": 5940,
+                    "endColumn": 78,
+                    "endOffset": 6014
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 4,
+                        "startOffset": 239,
+                        "endColumn": 78,
+                        "endOffset": 313
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 112,
+                    "startColumn": 4,
+                    "startOffset": 6019,
+                    "endColumn": 82,
+                    "endOffset": 6097
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 7,
+                        "startColumn": 4,
+                        "startOffset": 397,
+                        "endColumn": 82,
+                        "endOffset": 475
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 113,
+                    "startColumn": 4,
+                    "startOffset": 6102,
+                    "endColumn": 69,
+                    "endOffset": 6167
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 9,
+                        "startColumn": 4,
+                        "startOffset": 563,
+                        "endColumn": 69,
+                        "endOffset": 628
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 114,
+                    "startColumn": 4,
+                    "startOffset": 6172,
+                    "endColumn": 62,
+                    "endOffset": 6230
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 10,
+                        "startColumn": 4,
+                        "startOffset": 634,
+                        "endColumn": 62,
+                        "endOffset": 692
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 115,
+                    "startColumn": 4,
+                    "startOffset": 6235,
+                    "endColumn": 77,
+                    "endOffset": 6308
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 11,
+                        "startColumn": 4,
+                        "startOffset": 698,
+                        "endColumn": 77,
+                        "endOffset": 771
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 116,
+                    "startColumn": 4,
+                    "startOffset": 6313,
+                    "endColumn": 60,
+                    "endOffset": 6369
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 50,
+                        "startColumn": 4,
+                        "startOffset": 3294,
+                        "endColumn": 60,
+                        "endOffset": 3350
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 117,
+                    "startColumn": 4,
+                    "startOffset": 6374,
+                    "endColumn": 85,
+                    "endOffset": 6455
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 51,
+                        "startColumn": 4,
+                        "startOffset": 3356,
+                        "endColumn": 85,
+                        "endOffset": 3437
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 118,
+                    "startColumn": 4,
+                    "startOffset": 6460,
+                    "endColumn": 90,
+                    "endOffset": 6546
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 52,
+                        "startColumn": 4,
+                        "startOffset": 3443,
+                        "endColumn": 90,
+                        "endOffset": 3529
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 119,
+                    "startColumn": 4,
+                    "startOffset": 6551,
+                    "endColumn": 69,
+                    "endOffset": 6616
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 57,
+                        "endColumn": 69,
+                        "endOffset": 122
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 120,
+                    "startColumn": 4,
+                    "startOffset": 6621,
+                    "endColumn": 49,
+                    "endOffset": 6666
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 58,
+                        "startColumn": 4,
+                        "startOffset": 3876,
+                        "endColumn": 49,
+                        "endOffset": 3921
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 121,
+                    "startColumn": 4,
+                    "startOffset": 6671,
+                    "endColumn": 90,
+                    "endOffset": 6757
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 57,
+                        "startColumn": 4,
+                        "startOffset": 3784,
+                        "endColumn": 90,
+                        "endOffset": 3870
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 122,
+                    "startColumn": 4,
+                    "startOffset": 6762,
+                    "endColumn": 74,
+                    "endOffset": 6832
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 55,
+                        "startColumn": 4,
+                        "startOffset": 3652,
+                        "endColumn": 74,
+                        "endOffset": 3722
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 123,
+                    "startColumn": 4,
+                    "startOffset": 6837,
+                    "endColumn": 54,
+                    "endOffset": 6887
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 56,
+                        "startColumn": 4,
+                        "startOffset": 3728,
+                        "endColumn": 54,
+                        "endOffset": 3778
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 124,
+                    "startColumn": 4,
+                    "startOffset": 6892,
+                    "endColumn": 92,
+                    "endOffset": 6980
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 17,
+                        "startColumn": 4,
+                        "startOffset": 1104,
+                        "endColumn": 92,
+                        "endOffset": 1192
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 125,
+                    "startColumn": 4,
+                    "startOffset": 6985,
+                    "endColumn": 32,
+                    "endOffset": 7013
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 1198,
+                        "endColumn": 40,
+                        "endOffset": 1234
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 126,
+                    "startColumn": 4,
+                    "startOffset": 7018,
+                    "endColumn": 58,
+                    "endOffset": 7072
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 20,
+                        "startColumn": 4,
+                        "startOffset": 1314,
+                        "endColumn": 58,
+                        "endOffset": 1368
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 127,
+                    "startColumn": 4,
+                    "startOffset": 7077,
+                    "endColumn": 72,
+                    "endOffset": 7145
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 19,
+                        "startColumn": 4,
+                        "startOffset": 1240,
+                        "endColumn": 72,
+                        "endOffset": 1308
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 128,
+                    "startColumn": 4,
+                    "startOffset": 7150,
+                    "endColumn": 67,
+                    "endOffset": 7213
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 15,
+                        "startColumn": 4,
+                        "startOffset": 955,
+                        "endColumn": 67,
+                        "endOffset": 1018
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 129,
+                    "startColumn": 4,
+                    "startOffset": 7218,
+                    "endColumn": 78,
+                    "endOffset": 7292
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 16,
+                        "startColumn": 4,
+                        "startOffset": 1024,
+                        "endColumn": 78,
+                        "endOffset": 1098
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 130,
+                    "startColumn": 4,
+                    "startOffset": 7297,
+                    "endColumn": 52,
+                    "endOffset": 7345
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 1431,
+                        "endColumn": 52,
+                        "endOffset": 1479
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 131,
+                    "startColumn": 4,
+                    "startOffset": 7350,
+                    "endColumn": 55,
+                    "endOffset": 7401
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 23,
+                        "startColumn": 4,
+                        "startOffset": 1485,
+                        "endColumn": 55,
+                        "endOffset": 1536
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 132,
+                    "startColumn": 4,
+                    "startOffset": 7406,
+                    "endColumn": 55,
+                    "endOffset": 7457
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 24,
+                        "startColumn": 4,
+                        "startOffset": 1542,
+                        "endColumn": 55,
+                        "endOffset": 1593
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 133,
+                    "startColumn": 4,
+                    "startOffset": 7462,
+                    "endColumn": 54,
+                    "endOffset": 7512
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 25,
+                        "startColumn": 4,
+                        "startOffset": 1599,
+                        "endColumn": 54,
+                        "endOffset": 1649
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 134,
+                    "startColumn": 4,
+                    "startOffset": 7517,
+                    "endColumn": 52,
+                    "endOffset": 7565
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 26,
+                        "startColumn": 4,
+                        "startOffset": 1655,
+                        "endColumn": 52,
+                        "endOffset": 1703
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 135,
+                    "startColumn": 4,
+                    "startOffset": 7570,
+                    "endColumn": 55,
+                    "endOffset": 7621
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 21,
+                        "startColumn": 4,
+                        "startOffset": 1374,
+                        "endColumn": 55,
+                        "endOffset": 1425
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 136,
+                    "startColumn": 4,
+                    "startOffset": 7626,
+                    "endColumn": 49,
+                    "endOffset": 7671
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 54,
+                        "startColumn": 4,
+                        "startOffset": 3601,
+                        "endColumn": 49,
+                        "endOffset": 3646
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 137,
+                    "startColumn": 4,
+                    "startOffset": 7676,
+                    "endColumn": 77,
+                    "endOffset": 7749
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 43,
+                        "startColumn": 4,
+                        "startOffset": 2726,
+                        "endColumn": 77,
+                        "endOffset": 2799
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 138,
+                    "startColumn": 4,
+                    "startOffset": 7754,
+                    "endColumn": 62,
+                    "endOffset": 7812
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 42,
+                        "startColumn": 4,
+                        "startOffset": 2662,
+                        "endColumn": 62,
+                        "endOffset": 2720
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 139,
+                    "startColumn": 4,
+                    "startOffset": 7817,
+                    "endColumn": 63,
+                    "endOffset": 7876
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 41,
+                        "startColumn": 4,
+                        "startOffset": 2597,
+                        "endColumn": 63,
+                        "endOffset": 2656
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 140,
+                    "startColumn": 4,
+                    "startOffset": 7881,
+                    "endColumn": 78,
+                    "endOffset": 7955
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 44,
+                        "startColumn": 4,
+                        "startOffset": 2805,
+                        "endColumn": 78,
+                        "endOffset": 2879
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 141,
+                    "startColumn": 4,
+                    "startOffset": 7960,
+                    "endColumn": 58,
+                    "endOffset": 8014
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 40,
+                        "startColumn": 4,
+                        "startOffset": 2537,
+                        "endColumn": 58,
+                        "endOffset": 2591
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 142,
+                    "startColumn": 4,
+                    "startOffset": 8019,
+                    "endColumn": 59,
+                    "endOffset": 8074
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 36,
+                        "startColumn": 4,
+                        "startOffset": 2299,
+                        "endColumn": 59,
+                        "endOffset": 2354
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 143,
+                    "startColumn": 4,
+                    "startOffset": 8079,
+                    "endColumn": 56,
+                    "endOffset": 8131
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 38,
+                        "startColumn": 4,
+                        "startOffset": 2413,
+                        "endColumn": 56,
+                        "endOffset": 2465
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 144,
+                    "startColumn": 4,
+                    "startOffset": 8136,
+                    "endColumn": 64,
+                    "endOffset": 8196
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 53,
+                        "startColumn": 4,
+                        "startOffset": 3535,
+                        "endColumn": 64,
+                        "endOffset": 3595
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 145,
+                    "startColumn": 4,
+                    "startOffset": 8201,
+                    "endColumn": 51,
+                    "endOffset": 8248
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 37,
+                        "startColumn": 4,
+                        "startOffset": 2360,
+                        "endColumn": 51,
+                        "endOffset": 2407
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 146,
+                    "startColumn": 4,
+                    "startOffset": 8253,
+                    "endColumn": 62,
+                    "endOffset": 8311
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 35,
+                        "startColumn": 4,
+                        "startOffset": 2235,
+                        "endColumn": 62,
+                        "endOffset": 2293
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 147,
+                    "startColumn": 4,
+                    "startOffset": 8316,
+                    "endColumn": 64,
+                    "endOffset": 8376
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 39,
+                        "startColumn": 4,
+                        "startOffset": 2471,
+                        "endColumn": 64,
+                        "endOffset": 2531
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 148,
+                    "startColumn": 4,
+                    "startOffset": 8381,
+                    "endColumn": 77,
+                    "endOffset": 8454
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 34,
+                        "startColumn": 4,
+                        "startOffset": 2156,
+                        "endColumn": 77,
+                        "endOffset": 2229
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 149,
+                    "startColumn": 4,
+                    "startOffset": 8459,
+                    "endColumn": 102,
+                    "endOffset": 8557
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 48,
+                        "startColumn": 4,
+                        "startOffset": 3106,
+                        "endColumn": 102,
+                        "endOffset": 3204
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 150,
+                    "startColumn": 4,
+                    "startOffset": 8562,
+                    "endColumn": 82,
+                    "endOffset": 8640
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 49,
+                        "startColumn": 4,
+                        "startOffset": 3210,
+                        "endColumn": 82,
+                        "endOffset": 3288
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 151,
+                    "startColumn": 4,
+                    "startOffset": 8645,
+                    "endColumn": 66,
+                    "endOffset": 8707
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 47,
+                        "startColumn": 4,
+                        "startOffset": 3038,
+                        "endColumn": 66,
+                        "endOffset": 3100
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 152,
+                    "startColumn": 4,
+                    "startOffset": 8712,
+                    "endColumn": 56,
+                    "endOffset": 8764
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 45,
+                        "startColumn": 4,
+                        "startOffset": 2885,
+                        "endColumn": 56,
+                        "endOffset": 2937
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 153,
+                    "startColumn": 4,
+                    "startOffset": 8769,
+                    "endColumn": 93,
+                    "endOffset": 8858
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 46,
+                        "startColumn": 4,
+                        "startOffset": 2943,
+                        "endColumn": 93,
+                        "endOffset": 3032
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 154,
+                    "startColumn": 4,
+                    "startOffset": 8863,
+                    "endColumn": 50,
+                    "endOffset": 8909
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 27,
+                        "startColumn": 4,
+                        "startOffset": 1713,
+                        "endColumn": 50,
+                        "endOffset": 1759
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 155,
+                    "startColumn": 4,
+                    "startOffset": 8914,
+                    "endColumn": 57,
+                    "endOffset": 8967
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 28,
+                        "startColumn": 4,
+                        "startOffset": 1765,
+                        "endColumn": 57,
+                        "endOffset": 1818
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 156,
+                    "startColumn": 4,
+                    "startOffset": 8972,
+                    "endColumn": 54,
+                    "endOffset": 9022
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 32,
+                        "startColumn": 4,
+                        "startOffset": 2034,
+                        "endColumn": 54,
+                        "endOffset": 2084
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 157,
+                    "startColumn": 4,
+                    "startOffset": 9027,
+                    "endColumn": 64,
+                    "endOffset": 9087
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 33,
+                        "startColumn": 4,
+                        "startOffset": 2090,
+                        "endColumn": 64,
+                        "endOffset": 2150
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 158,
+                    "startColumn": 4,
+                    "startOffset": 9092,
+                    "endColumn": 72,
+                    "endOffset": 9160
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 30,
+                        "startColumn": 4,
+                        "startOffset": 1881,
+                        "endColumn": 72,
+                        "endOffset": 1949
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 159,
+                    "startColumn": 4,
+                    "startOffset": 9165,
+                    "endColumn": 77,
+                    "endOffset": 9238
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 31,
+                        "startColumn": 4,
+                        "startOffset": 1955,
+                        "endColumn": 77,
+                        "endOffset": 2028
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 160,
+                    "startColumn": 4,
+                    "startOffset": 9243,
+                    "endColumn": 55,
+                    "endOffset": 9294
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 29,
+                        "startColumn": 4,
+                        "startOffset": 1824,
+                        "endColumn": 55,
+                        "endOffset": 1875
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 161,
+                    "startColumn": 4,
+                    "startOffset": 9299,
+                    "endColumn": 49,
+                    "endOffset": 9344
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 13,
+                        "startColumn": 4,
+                        "startOffset": 856,
+                        "endColumn": 49,
+                        "endOffset": 901
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 162,
+                    "startColumn": 4,
+                    "startOffset": 9349,
+                    "endColumn": 46,
+                    "endOffset": 9391
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\strings.xml",
+                    "position": {
+                        "startLine": 14,
+                        "startColumn": 4,
+                        "startOffset": 907,
+                        "endColumn": 46,
+                        "endOffset": 949
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 163,
+                    "startColumn": 4,
+                    "startOffset": 9396,
+                    "endLine": 170,
+                    "endColumn": 12,
+                    "endOffset": 9683
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 8,
+                        "startColumn": 4,
+                        "startOffset": 234,
+                        "endLine": 15,
+                        "endColumn": 12,
+                        "endOffset": 528
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 171,
+                    "startColumn": 4,
+                    "startOffset": 9688,
+                    "endLine": 173,
+                    "endColumn": 12,
+                    "endOffset": 9843
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 18,
+                        "startColumn": 4,
+                        "startOffset": 569,
+                        "endLine": 20,
+                        "endColumn": 12,
+                        "endOffset": 726
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 174,
+                    "startColumn": 4,
+                    "startOffset": 9848,
+                    "endLine": 180,
+                    "endColumn": 12,
+                    "endOffset": 10171
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 29,
+                        "startColumn": 4,
+                        "startOffset": 1086,
+                        "endLine": 35,
+                        "endColumn": 12,
+                        "endOffset": 1415
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 181,
+                    "startColumn": 4,
+                    "startOffset": 10176,
+                    "endColumn": 35,
+                    "endOffset": 10207
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 37,
+                        "startColumn": 4,
+                        "startOffset": 1423,
+                        "endColumn": 36,
+                        "endOffset": 1455
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 182,
+                    "startColumn": 4,
+                    "startOffset": 10212,
+                    "endLine": 189,
+                    "endColumn": 12,
+                    "endOffset": 10610
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 47,
+                        "startColumn": 4,
+                        "startOffset": 1774,
+                        "endLine": 54,
+                        "endColumn": 12,
+                        "endOffset": 2179
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 190,
+                    "startColumn": 4,
+                    "startOffset": 10615,
+                    "endLine": 192,
+                    "endColumn": 12,
+                    "endOffset": 10746
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 112,
+                        "startColumn": 4,
+                        "startOffset": 4368,
+                        "endLine": 114,
+                        "endColumn": 12,
+                        "endOffset": 4501
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 193,
+                    "startColumn": 4,
+                    "startOffset": 10751,
+                    "endLine": 198,
+                    "endColumn": 12,
+                    "endOffset": 11090
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 22,
+                        "startColumn": 4,
+                        "startOffset": 734,
+                        "endLine": 27,
+                        "endColumn": 12,
+                        "endOffset": 1078
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 199,
+                    "startColumn": 4,
+                    "startOffset": 11095,
+                    "endLine": 202,
+                    "endColumn": 12,
+                    "endOffset": 11302
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 121,
+                        "startColumn": 4,
+                        "startOffset": 4724,
+                        "endLine": 124,
+                        "endColumn": 12,
+                        "endOffset": 4934
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 203,
+                    "startColumn": 4,
+                    "startOffset": 11307,
+                    "endLine": 206,
+                    "endColumn": 12,
+                    "endOffset": 11503
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 116,
+                        "startColumn": 4,
+                        "startOffset": 4513,
+                        "endLine": 119,
+                        "endColumn": 12,
+                        "endOffset": 4712
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 207,
+                    "startColumn": 4,
+                    "startOffset": 11508,
+                    "endLine": 210,
+                    "endColumn": 12,
+                    "endOffset": 11710
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 42,
+                        "startColumn": 4,
+                        "startOffset": 1561,
+                        "endLine": 45,
+                        "endColumn": 12,
+                        "endOffset": 1766
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 211,
+                    "startColumn": 4,
+                    "startOffset": 11715,
+                    "endLine": 214,
+                    "endColumn": 12,
+                    "endOffset": 11906
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 78,
+                        "startColumn": 4,
+                        "startOffset": 3045,
+                        "endLine": 81,
+                        "endColumn": 12,
+                        "endOffset": 3239
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 215,
+                    "startColumn": 4,
+                    "startOffset": 11911,
+                    "endLine": 218,
+                    "endColumn": 12,
+                    "endOffset": 12095
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 73,
+                        "startColumn": 4,
+                        "startOffset": 2846,
+                        "endLine": 76,
+                        "endColumn": 12,
+                        "endOffset": 3033
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 219,
+                    "startColumn": 4,
+                    "startOffset": 12100,
+                    "endLine": 220,
+                    "endColumn": 12,
+                    "endOffset": 12185
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 39,
+                        "startColumn": 4,
+                        "startOffset": 1463,
+                        "endLine": 40,
+                        "endColumn": 12,
+                        "endOffset": 1549
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 221,
+                    "startColumn": 4,
+                    "startOffset": 12190,
+                    "endLine": 222,
+                    "endColumn": 12,
+                    "endOffset": 12261
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 56,
+                        "startColumn": 4,
+                        "startOffset": 2187,
+                        "endLine": 57,
+                        "endColumn": 12,
+                        "endOffset": 2259
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 223,
+                    "startColumn": 4,
+                    "startOffset": 12266,
+                    "endLine": 226,
+                    "endColumn": 13,
+                    "endOffset": 12475
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 68,
+                        "startColumn": 4,
+                        "startOffset": 2621,
+                        "endLine": 71,
+                        "endColumn": 13,
+                        "endOffset": 2833
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 227,
+                    "startColumn": 4,
+                    "startOffset": 12480,
+                    "endLine": 229,
+                    "endColumn": 13,
+                    "endOffset": 12611
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 64,
+                        "startColumn": 4,
+                        "startOffset": 2476,
+                        "endLine": 66,
+                        "endColumn": 13,
+                        "endOffset": 2609
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 230,
+                    "startColumn": 4,
+                    "startOffset": 12616,
+                    "endLine": 233,
+                    "endColumn": 13,
+                    "endOffset": 12791
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 93,
+                        "startColumn": 4,
+                        "startOffset": 3642,
+                        "endLine": 96,
+                        "endColumn": 13,
+                        "endOffset": 3820
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 234,
+                    "startColumn": 4,
+                    "startOffset": 12796,
+                    "endLine": 237,
+                    "endColumn": 13,
+                    "endOffset": 12973
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 83,
+                        "startColumn": 4,
+                        "startOffset": 3251,
+                        "endLine": 86,
+                        "endColumn": 13,
+                        "endOffset": 3431
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 238,
+                    "startColumn": 4,
+                    "startOffset": 12978,
+                    "endLine": 241,
+                    "endColumn": 13,
+                    "endOffset": 13160
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 88,
+                        "startColumn": 4,
+                        "startOffset": 3444,
+                        "endLine": 91,
+                        "endColumn": 13,
+                        "endOffset": 3629
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 242,
+                    "startColumn": 4,
+                    "startOffset": 13165,
+                    "endLine": 245,
+                    "endColumn": 13,
+                    "endOffset": 13354
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 59,
+                        "startColumn": 4,
+                        "startOffset": 2271,
+                        "endLine": 62,
+                        "endColumn": 13,
+                        "endOffset": 2463
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 246,
+                    "startColumn": 4,
+                    "startOffset": 13359,
+                    "endLine": 248,
+                    "endColumn": 13,
+                    "endOffset": 13486
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 98,
+                        "startColumn": 4,
+                        "startOffset": 3833,
+                        "endLine": 100,
+                        "endColumn": 13,
+                        "endOffset": 3962
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 249,
+                    "startColumn": 4,
+                    "startOffset": 13491,
+                    "endLine": 252,
+                    "endColumn": 12,
+                    "endOffset": 13668
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 102,
+                        "startColumn": 4,
+                        "startOffset": 3975,
+                        "endLine": 105,
+                        "endColumn": 12,
+                        "endOffset": 4155
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 253,
+                    "startColumn": 4,
+                    "startOffset": 13673,
+                    "endLine": 256,
+                    "endColumn": 12,
+                    "endOffset": 13859
+                },
+                "from": {
+                    "file": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\values\\styles.xml",
+                    "position": {
+                        "startLine": 107,
+                        "startColumn": 4,
+                        "startOffset": 4167,
+                        "endLine": 110,
+                        "endColumn": 12,
+                        "endOffset": 4356
+                    }
+                }
+            }
+        ]
+    },
+    {
         "outputFile": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\values\\values.xml",
         "map": [
             {

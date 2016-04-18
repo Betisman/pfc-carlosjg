@@ -46,7 +46,8 @@ public class DNIeAdmin extends FragmentActivity {
 	private static final String URL_EXPEDIENTES = "https://sede-c.madrid.es/portal/site/tramites/template.LOGIN/action.process/?realm=realm1&loginType=ssl&rl=/portal/site/tramites/menuitem.744d92db5bd2a648c134c1344680a5a0/?vgnextoid=6320115579d89210VgnVCM100000171f5a0aRCRD";
 	private static final String URL_TRIBUTOS 	= "https://sede-c.madrid.es/portal/site/tramites/template.LOGIN/action.process/?realm=realm1&loginType=ssl&rl=/portal/site/tramites/menuitem.0d1df42f88c5b5b380d480d45141b2a0/?vgnextoid=85e5eb4119989210VgnVCM100000171f5a0aRCRD";
 
-	private static final String URL_CENSO		= "https://192.168.1.153:8443/web/authorize/?response_type=code&client_id=testclient&redirect_uri=http://192.168.1.153:8002/auth/after/&state=somestate&client_type=androidnfcapp";
+	private static final String URL_CENSO		= "https://192.168.1.153:8443/web/authorize/?response_type=code&client_id=testclient&redirect_uri=h&state=somestate&client_type=androidnfcapp&step=1";
+	//private static final String URL_CENSO		= "https://192.168.1.153:8443/api/v1/tokens?code=c33b065b-4ea0-4fd0-83ef-3bb94a8a27d5&client_secret=testpassword&grant_type=authorization_code&client_id=testclient";
 
 	private static final int NOTIFICACION_OPT_NO_OP	= -1;
 	private static final int NOTIFICACION_OPT_0 	= 0;	// Tributos
