@@ -26,3 +26,12 @@ OAUTH2_SERVER = {
     'REFRESH_TOKEN_LIFETIME': 3600,
     'IGNORE_CLIENT_REQUESTED_SCOPE': False,
 }
+
+
+# set up logging
+import logging
+logging.basicConfig(
+    filename='/home/carlos/pfc/oauth.log',
+    level = logging.DEBUG,
+    format = '%(asctime)s %(levelname)s %(message)s'
+)

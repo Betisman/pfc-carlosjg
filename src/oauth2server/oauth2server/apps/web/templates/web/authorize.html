@@ -3,10 +3,16 @@
 
 {% block content %}
 <div class="jumbotron">
-    <form action="" method="post">
+    <form action="" method="post" id="formulario">
         {% csrf_token %}
 
         <p class="lead">Client <b>{{ client.client_id }}</b> would like to perform actions on your behalf</p>
+        <p>Cadena: {{ prueba }}</p>
+        {% if dnie %}
+            <p>{{ dnie.givenName }}</p>
+        {% else %}
+            <p>cagao</p>
+        {% endif %}
 
         {% for chunk in scopes|chunk_evenly:1 %}
         <div class="row">
@@ -25,7 +31,7 @@
             <div class="col-md-6">
                 <button class="btn btn-lg btn-block btn-success"
                         name="{{ form.authorize.name }}"
-                        value="1">Authorize</button>
+                        value="1" onclick="showAndroidToast('Hola, pepsicola');">Authorize!!</button>
             </div>
             <div class="col-md-6">
                 <button class="btn btn-lg btn-block btn-danger"
@@ -35,5 +41,26 @@
         </div>
     </form>
 </div>
+<script>
+    window.onload = function() {
+        if (window.jQuery) {
+            // jQuery is loaded
+            Android.showToast("Yeah!");
+        } else {
+            // jQuery is not loaded
+            Android.showToast("Doesn't Work");
+        }
+    }
+    function showAndroidToast(toast) {
+        var kvpairs = [];
+        var form = document.getElementById('formulario');
+        for ( var i = 0; i < form.elements.length; i++ ) {
+           var e = form.elements[i];
+           kvpairs.push(encodeURIComponent(e.name) + "=" + encodeURIComponent(e.value));
+        }
+        var queryString = kvpairs.join("&");
+        Android.showToast(queryString);
 
+    }
+</script>
 {% endblock %}
