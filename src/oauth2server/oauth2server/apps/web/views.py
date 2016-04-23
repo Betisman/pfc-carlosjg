@@ -120,6 +120,7 @@ class AuthorizeView(View):
             # Si la peticion viene desde la app Android, vamos por otro camino
             #if request.step == '1':
             if request.POST['step'] == '1':
+                logger.debug('request.POST["step"]: ' + request.POST['step'])
                 permisosObj = OAuthScope.objects.all()
                 from django.core import serializers
                 data = serializers.serialize('json', permisosObj)
@@ -135,17 +136,28 @@ class AuthorizeView(View):
         permisosObj = OAuthScope.objects.all()
         scopes = [1,2]
 
-
-        logger.debug('hhhhhhhhhhhhhhhhhhhhhhh: ' + request.redirect_uri)
-        return factory(response_type=request.response_type).process(
-            client=request.client,
-            authorized=authorized,
-            scopes=scopes,
-            redirect_uri=request.redirect_uri,
-            state=request.state,
-            dnie=dnie,
-            client_type=request.client_type
-        )
+        logger.debug('redirect_uri: ' + request.redirect_uri)
+        logger.debug('request.response_type('+request.response_type+')')
+        logger.debug('request.client('+str(request.client)+')')
+        logger.debug('authorized('+str(authorized)+')')
+        logger.debug('scopes('+str(scopes)+')')
+        logger.debug('request.redirect_uri('+str(request.redirect_uri)+')')
+        logger.debug('state='+str(request.state)+'')
+        logger.debug('dnie='+str(dnie)+'')
+        logger.debug('client_type='+str(request.POST["client_type"])+'')
+        try:
+            return factory(response_type=request.response_type).process(
+                client=request.client,
+                authorized=authorized,
+                scopes=scopes,
+                redirect_uri=request.redirect_uri,
+                state=request.state,
+                dnie=dnie,
+                client_type=request.POST['client_type']
+            )
+        except Exception as e:
+            logger.error(e.message)
+            logger.error(e)
 
     def _render(self, request, form, dnie, cadena, prueba):
         return HttpResponse(render(request, self.template_name, {
