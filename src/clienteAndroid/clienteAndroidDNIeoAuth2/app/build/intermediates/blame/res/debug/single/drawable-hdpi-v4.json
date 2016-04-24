@@ -1,15 +1,115 @@
 [
     {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\checked_false.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\checked_false.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_superior.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icono_superior.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_permisopuntos_red.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_permisopuntos_red.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_multas_selected.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icono_multas_selected.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_revistatrafico_red.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_revistatrafico_red.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_madrid.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_madrid.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_datoscensales_selected.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icon_datoscensales_selected.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_datoscensales.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_datoscensales.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\checked_false.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\checked_false.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\fondo_secundario_rec.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\fondo_secundario_rec.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_transportes_selected.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icon_transportes_selected.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_multas_red.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_multas_red.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_vehiculos_selected.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icono_vehiculos_selected.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_launcher.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\services_button_pressed.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\services_button_pressed.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_superior_red.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icono_superior_red.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_puntos.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icono_puntos.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_tributos.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_tributos.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\boton_nuevodnie_pulsado.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\boton_nuevodnie_pulsado.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_conductores.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icono_conductores.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_ayuntamiento_red.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_ayuntamiento_red.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_launch.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\exploded-aar\\Android_DNIeApp_AUTENTICACION\\dniedroid\\unspecified\\res\\drawable-hdpi\\ic_launch.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_datoscensales_selected.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icon_datoscensales_selected.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_portal2.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icono_portal2.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_gestionmultas_red.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_gestionmultas_red.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\logo_dgt_red.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\logo_dgt_red.png"
+    },
+    {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\help_ayto_red.png",
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\help_ayto_red.png"
     },
     {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_portal4.png",
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icono_portal4.png"
-    },
-    {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_superior.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icono_superior.png"
     },
     {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_pdf.png",
@@ -20,20 +120,16 @@
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_madrid_red.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_revistatrafico_red.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_revistatrafico_red.png"
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_expedientes_selected.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icon_expedientes_selected.png"
     },
     {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_superior_red.png",
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icono_superior_red.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_expedientes_selected.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icon_expedientes_selected.png"
-    },
-    {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\checked_false.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\checked_false.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_dni.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icono_dni.png"
     },
     {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_estadisticasconductores.png",
@@ -52,10 +148,6 @@
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icon_expedientes.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_transportes_selected.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icon_transportes_selected.png"
-    },
-    {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_permisopuntos.png",
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_permisopuntos.png"
     },
@@ -68,8 +160,12 @@
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_multas.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\services_button_pressed.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\services_button_pressed.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_superior.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icono_superior.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\botonvolver.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\botonvolver.png"
     },
     {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\banner_dgp_red.png",
@@ -80,24 +176,20 @@
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\checked_true.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_conductores.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icono_conductores.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\boton_estadisticasconductor.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\boton_estadisticasconductor.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_ayuntamiento_red.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_ayuntamiento_red.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_expedientes_selected.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icon_expedientes_selected.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_launch.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\exploded-aar\\Android_DNIeApp_AUTENTICACION\\dniedroid\\unspecified\\res\\drawable-hdpi\\ic_launch.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\logo_dgt_red.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\logo_dgt_red.png"
     },
     {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\xmlboton_volver.xml",
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\xmlboton_volver.xml"
-    },
-    {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_datoscensales_selected.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icon_datoscensales_selected.png"
     },
     {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_portal0.png",
@@ -108,10 +200,6 @@
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icono_vehiculos2.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_portal2.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icono_portal2.png"
-    },
-    {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\fondo800_dni.png",
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\fondo800_dni.png"
     },
@@ -120,40 +208,80 @@
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icono_vehiculos.png"
     },
     {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_vehiculos2.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icono_vehiculos2.png"
+    },
+    {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_aproxime_peq.png",
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_aproxime_peq.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\logo_dgt_red.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\logo_dgt_red.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_permisopuntos.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_permisopuntos.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_portal3.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icono_portal3.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_ayuntamiento_selected.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icon_ayuntamiento_selected.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\caja_buzon.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\caja_buzon.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\services_button_pressed.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\services_button_pressed.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_multas.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icono_multas.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_datoscensales_red.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_datoscensales_red.png"
     },
     {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ejemplo.png",
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_ejemplo.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_gestionmultas.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_gestionmultas.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_revista_selected.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icono_revista_selected.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\boton_info.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\boton_info.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_estadisticasconductores.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_estadisticasconductores.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_datoscensales.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_datoscensales.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_vehiculos.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icono_vehiculos.png"
     },
     {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\boton_info_pulsado.png",
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\boton_info_pulsado.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\help_ayto_red.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\help_ayto_red.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pastilla_dnie.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\pastilla_dnie.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pastilla_dni_red.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\pastilla_dni_red.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_dnimovil.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_dnimovil.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_aproxime.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_aproxime.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_can_blanco.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_can_blanco.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_gestionmultas.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_gestionmultas.png"
     },
     {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\boton_redondo_1.xml",
@@ -164,24 +292,84 @@
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icono_superior_75.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_multas_selected.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icono_multas_selected.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_ayuntamiento.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icon_ayuntamiento.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ejemplo_50.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_ejemplo_50.png"
-    },
-    {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_dnimovil2_red.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_dnimovil2_red.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_estadisticasvehiculos_red.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_estadisticasvehiculos_red.png"
     },
     {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_conductores_selected.png",
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icono_conductores_selected.png"
     },
     {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_dnimovil2_red.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_dnimovil2_red.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_portal2.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icono_portal2.png"
+    },
+    {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\alert_dialog_icon.png",
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\alert_dialog_icon.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pastilla_dni.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\pastilla_dni.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\fondo_secundario_rec.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\fondo_secundario_rec.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_dnimovil2_red.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_dnimovil2_red.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\textobienvenida_red.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\textobienvenida_red.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\boton_info_pulsado.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\boton_info_pulsado.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\caja_buzon.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\caja_buzon.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_estadisticasconductores_red.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_estadisticasconductores_red.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_ayuntamiento_red.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_ayuntamiento_red.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\boton_info.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\boton_info.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_datoscensales.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_datoscensales.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_portal0.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icono_portal0.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_multas_selected.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icono_multas_selected.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_gestionmultas.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_gestionmultas.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\boton_info2.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\boton_info2.png"
     },
     {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\destroyentry.png",
@@ -192,44 +380,52 @@
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\boton_revista.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_aproxime.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_aproxime.png"
-    },
-    {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_vehiculos_selected.png",
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icono_vehiculos_selected.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\boton_nuevodnie.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\boton_nuevodnie.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_portal3.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icono_portal3.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\caja_buzon.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\caja_buzon.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\progresscontainer.xml",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\progresscontainer.xml"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ejemplo_50.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_ejemplo_50.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ejemplo.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_ejemplo.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_revista.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icono_revista.png"
     },
     {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_puntos.png",
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icono_puntos.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_ayuntamiento.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_ayuntamiento.png"
-    },
-    {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_multas_red.png",
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_multas_red.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\fondo_secundario_rec.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\fondo_secundario_rec.png"
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_ayuntamiento.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_ayuntamiento.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_can_blanco.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_can_blanco.png"
-    },
-    {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\textobienvenida_red.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\textobienvenida_red.png"
-    },
-    {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\dni30_peq.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\dni30_peq.png"
-    },
-    {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_multas.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icono_multas.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_expedientes.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_expedientes.png"
     },
     {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\boton_estadisticasconductor.png",
@@ -238,6 +434,18 @@
     {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_revista.png",
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icono_revista.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\shape_gradient.xml",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\shape_gradient.xml"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\services_button_shadow.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\services_button_shadow.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\banner_dgp.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\banner_dgp.png"
     },
     {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_dni.png",
@@ -252,60 +460,52 @@
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\xmlboton_nuevodnie.xml"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\boton_nuevodnie_pulsado.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\boton_nuevodnie_pulsado.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\boton_permisopuntos.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\boton_permisopuntos.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_datoscensales_red.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_datoscensales_red.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_ayuntamiento.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_ayuntamiento.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_ayuntamiento.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icon_ayuntamiento.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_can_blanco.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_can_blanco.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_revistatrafico.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_revistatrafico.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_multas_selected.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icon_multas_selected.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_transportes.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icon_transportes.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_pdf.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icono_pdf.png"
     },
     {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_multas.png",
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icon_multas.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_dnimovil2.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_dnimovil2.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\boton_redondo_1.xml",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\boton_redondo_1.xml"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\services_button.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\services_button.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\xmlboton_volver.xml",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\xmlboton_volver.xml"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_expedientes.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_expedientes.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\boton_revista.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\boton_revista.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\dni30_grey_peq.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\dni30_grey_peq.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_revistatrafico.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_revistatrafico.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_dni_red.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icono_dni_red.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ejemplo_75.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_ejemplo_75.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\botonvolver.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\botonvolver.png"
-    },
-    {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_expedientes_red.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_expedientes_red.png"
-    },
-    {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_datoscensales.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icon_datoscensales.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_aproxime_peq.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_aproxime_peq.png"
     },
     {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_ayuntamiento_selected.png",
@@ -316,84 +516,208 @@
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_estadisticasvehiculos.png"
     },
     {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\dni30_grey_peq.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\dni30_grey_peq.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\dni30_peq.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\dni30_peq.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_datoscensales.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icon_datoscensales.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_transportes.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icon_transportes.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_multas.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icono_multas.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_madrid_red.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_madrid_red.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_conductores_selected.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icono_conductores_selected.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\boton_nuevodnie_pulsado.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\boton_nuevodnie_pulsado.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_datoscensales_red.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_datoscensales_red.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_estadisticasvehiculos.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_estadisticasvehiculos.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\fondo_secundario.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\fondo_secundario.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_dni_red.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icono_dni_red.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\alert_dialog_icon.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\alert_dialog_icon.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_ayuntamiento.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icon_ayuntamiento.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_portal3.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icono_portal3.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_revistatrafico.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_revistatrafico.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_transportes.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icon_transportes.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_dnimovil2.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_dnimovil2.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_ayuda.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icono_ayuda.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\services_button.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\services_button.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_multas.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icon_multas.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_expedientes.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_expedientes.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\dni30_grey_peq.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\dni30_grey_peq.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\botonvolver_pulsado.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\botonvolver_pulsado.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_dni_red.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icono_dni_red.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\botonvolver.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\botonvolver.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ejemplo_50.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_ejemplo_50.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_expedientes_red.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_expedientes_red.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_datoscensales.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icon_datoscensales.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_superior_75.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icono_superior_75.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_revistatrafico_red.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_revistatrafico_red.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\services_button.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\services_button.png"
+    },
+    {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\banner_dgp.png",
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\banner_dgp.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_expedientes_red.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_expedientes_red.png"
     },
     {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pastilla_dni_red.png",
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\pastilla_dni_red.png"
     },
     {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\checked_true.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\checked_true.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_tributos_red.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_tributos_red.png"
+    },
+    {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ejemplo_75.png",
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_ejemplo_75.png"
-    },
-    {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\fondo_secundario.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\fondo_secundario.png"
-    },
-    {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pastilla_dnie.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\pastilla_dnie.png"
-    },
-    {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_revista_selected.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icono_revista_selected.png"
     },
     {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\boton_info2.png",
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\boton_info2.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\boton_permisopuntos.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\boton_permisopuntos.png"
-    },
-    {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\boton_nuevodnie.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\boton_nuevodnie.png"
-    },
-    {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_puntos_selected.png",
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icono_puntos_selected.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_tributos_red.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_tributos_red.png"
-    },
-    {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_tributos.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_tributos.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\banner_dgp_red.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\banner_dgp_red.png"
     },
     {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\progresscontainer.xml",
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\progresscontainer.xml"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\boton_estadisticasvehiculo.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\boton_estadisticasvehiculo.png"
-    },
-    {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\textobienvenida.png",
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\textobienvenida.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\fondo1080_dni.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\fondo1080_dni.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_dnimovil2.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_dnimovil2.png"
     },
     {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_can_blanco_red.png",
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_can_blanco_red.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_permisopuntos_red.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_permisopuntos_red.png"
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\fondo1080_dni.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\fondo1080_dni.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_launcher.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_aproxime.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_aproxime.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\boton_multas.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\boton_multas.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_portal4.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icono_portal4.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\fondo1080_dni.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\fondo1080_dni.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_launch.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\exploded-aar\\clienteAndroidDNIeoAuth2\\dniedroid\\unspecified\\res\\drawable-hdpi\\ic_launch.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_puntos_selected.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icono_puntos_selected.png"
     },
     {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_ayuda.png",
@@ -404,20 +728,20 @@
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\logo_dgt.png"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_dnimovil.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_dnimovil.png"
-    },
-    {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\shape_gradient.xml",
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\shape_gradient.xml"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pastilla_dni.png",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\pastilla_dni.png"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\fondo800_dni.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\fondo800_dni.png"
     },
     {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_portal1.png",
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icono_portal1.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_multas.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_multas.png"
     },
     {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\botonvolver_pulsado.png",
@@ -432,8 +756,124 @@
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\help_ayto.png"
     },
     {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\xmlboton_nuevodnie.xml",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\xmlboton_nuevodnie.xml"
+    },
+    {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_madrid.png",
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_madrid.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\dni30_peq.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\dni30_peq.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\logo_dnie3.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\logo_dnie3.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\fondo_secundario.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\fondo_secundario.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pastilla_dnie.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\pastilla_dnie.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_revista_selected.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\icono_revista_selected.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\boton_permisopuntos.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\boton_permisopuntos.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\boton_nuevodnie.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\boton_nuevodnie.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\destroyentry.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\destroyentry.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_expedientes.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icon_expedientes.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_tributos_red.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_tributos_red.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_ayto_tributos.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_ayto_tributos.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\boton_estadisticasvehiculo.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\boton_estadisticasvehiculo.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\boton_info.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\boton_info.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_conductores.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icono_conductores.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icon_transportes_selected.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icon_transportes_selected.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\boton_estadisticasvehiculo.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\boton_estadisticasvehiculo.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\icono_portal1.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\icono_portal1.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_permisopuntos_red.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_permisopuntos_red.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\ic_launcher.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\ic_launcher.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\textobienvenida.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\textobienvenida.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\boton_multas.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\boton_multas.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_can_blanco_red.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\texto_can_blanco_red.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_dnimovil.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\texto_dnimovil.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\textobienvenida_red.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\textobienvenida_red.png"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\pastilla_dni.png",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\drawable-hdpi\\pastilla_dni.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\boton_multas.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\boton_multas.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\logo_dgt.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\logo_dgt.png"
+    },
+    {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\help_ayto.png",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\drawable-hdpi\\help_ayto.png"
     },
     {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4\\texto_gestionmultas_red.png",
