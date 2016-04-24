@@ -8,13 +8,22 @@ import urllib, urllib2, cgi
 """
 Control de autenticacion basada en el DNIe espanol
 """
+STATUS_UPDATES = False
 
 def dnie_url(url, params):
     #http://localhost:9011/web/authorize/?response_type=code&client_id=testclient&redirect_uri=https://www.example.com&state=somestate
+  logger = logging.getLogger('dnie')
+  ipport = 'localhost:9011'
+  ipport = '192.168.1.153:8001'
+  ipport = '192.168.1.153:8443'
   if params:
-    return "http://localhost:9011%s?%s" % (url, urllib.urlencode(params))
+    logger.info("http://%s%s?%s" % (ipport, url, urllib.urlencode(params)))
+    #return "http://%s%s?%s" % (ipport, url, urllib.urlencode(params))
+    return "https://%s%s?%s" % (ipport, url, urllib.urlencode(params))
   else:
-    return "http://localhost:9011%s" % url
+    logger.info("http://%s%s" % (ipport, url))
+    #return "http://%s%s" % (ipport, url)
+    return "https://%s%s" % (ipport, url)
 
 def dnie_get(url, params):
   full_url = dnie_url(url,params)
@@ -26,6 +35,8 @@ def dnie_get(url, params):
 
 def dnie_post(url, params):
   full_url = dnie_url(url, None)
+  logger = logging.getLogger('dnie')
+  logger.info("full_url(%s), params(%s)" % (full_url, urllib.urlencode(params)))
   return urllib2.urlopen(full_url, urllib.urlencode(params)).read()
 
 def can_create_election(user_id, user_info):
@@ -40,6 +51,7 @@ def get_info_from_certificate():
 def get_auth_url(request, redirect_url = None):
   request.session['dnie_redirect_uri'] = redirect_url
   request.session['dnie_redirect_uri'] = 'http://localhost:8005/auth/after/'
+  request.session['dnie_redirect_uri'] = 'https://192.168.1.153:8442/auth/after/'
   """return facebook_url('/oauth/authorize', {
       'client_id': APP_ID,
       'redirect_uri': redirect_url,
@@ -62,12 +74,27 @@ def get_user_info_after_auth(request):
       'code' : request.GET['code']
       })
   """
+  logger = logging.getLogger('dnie')
+  logger.debug('get_user_info_after_auth')
+  mstring = []
+  for key in request.GET.iterkeys():
+    valuelist = request.GET.getlist(key)
+    mstring.extend(['%s=%s' % (key, val) for val in valuelist])
+    logger.debug('*'+key+'*=*'+val+'*')
+  msg = ','.join(mstring)
+  logger.debug(msg)
+  logger.debug('clienttype: ' + request.GET['client_type'])
+  if request.GET['client_type'] == 'androidnfcapp':
+      return get_user_info_after_auth_androidClient(request)
+
+  logger.info('ahora el dni_post')
   args = dnie_post('/api/v1/tokens/', {
       'grant_type': 'authorization_code',
       'code': request.GET['code'],
       'client_id': 'testclient',
       'client_secret': 'testpassword'
   })
+  logger.info(args)
   #     'client_id' : '1',
   #     #'client_id' : APP_ID,
   #     'redirect_uri' : request.session['dnie_redirect_uri'],
@@ -87,7 +114,17 @@ def get_user_info_after_auth(request):
 
   #return {'type': 'facebook', 'user_id' : info['id'], 'name': info.get('name'), 'email': info.get('email'), 'info': info, 'token': {'access_token': access_token}}
   return {'type': 'dnie', 'user_id' : info['id'], 'name': info.get('name'), 'email': info.get('email'), 'info': info, 'token': {'access_token': access_token}}
-  return {}
+
+
+def get_user_info_after_auth_androidClient(request):
+    logger = logging.getLogger('dnie')
+    logger.debug('get_user_info_after_auth_androidClient')
+    logger.debug('info: ' + request.GET['info'])
+    logger.debug('access_token: ' + request.GET['access_token'])
+    import json
+    info = json.loads(request.GET['info'])
+    access_token = request.GET['access_token']
+    return {'type': 'dnie', 'user_id' : info['id'], 'name': info.get('name'), 'email': info.get('email'), 'info': info, 'token': {'access_token': access_token}}
 
 
 class DNIe:

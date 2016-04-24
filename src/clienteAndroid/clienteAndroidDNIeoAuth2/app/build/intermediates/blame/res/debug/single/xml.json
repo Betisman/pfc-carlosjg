@@ -1,5 +1,9 @@
 [
     {
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\xml\\filter_nfc.xml",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\xml\\filter_nfc.xml"
+    },
+    {
         "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\xml\\filter_nfc.xml",
         "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\xml\\filter_nfc.xml"
     }
