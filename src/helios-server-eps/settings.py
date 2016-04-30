@@ -185,11 +185,12 @@ URL_HOST = get_from_env("URL_HOST", "http://localhost:8000").rstrip("/")
 SECURE_URL_HOST = get_from_env("SECURE_URL_HOST", URL_HOST).rstrip("/")
 
 URL_HOST = "http://localhost:8001"
-SECURE_URL_HOST = "https://localhost:8443"
-URL_HOST = "http://192.168.1.153:8001"
+#SECURE_URL_HOST = "https://localhost:8443"
+URL_HOST = "http://192.168.1.153:8002"
 SECURE_URL_HOST = "https://192.168.1.153:8443"
-URL_HOST = 'http://localhost:8005'
-SECURE_URL_HOST = 'https://localhost:443'
+SECURE_URL_HOST = "https://192.168.1.153:8442"
+#URL_HOST = 'http://localhost:8005'
+#SECURE_URL_HOST = 'https://localhost:443'
 
 # this additional host is used to iframe-isolate the social buttons,
 # which usually involve hooking in remote JavaScript, which could be
