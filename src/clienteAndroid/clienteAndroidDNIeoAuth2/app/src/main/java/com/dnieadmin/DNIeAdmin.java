@@ -25,37 +25,12 @@ public class DNIeAdmin extends FragmentActivity {
 	public String m_url;
 
 	private boolean doubleBackToExitPressedOnce = false;
-
-	// Menú circular
-	private MyRadialMenuWidget pieMenu;
-	public MyRadialMenuItem itemTributos;
-	public MyRadialMenuItem itemMultas;
-	public MyRadialMenuItem itemCenso;
-	public MyRadialMenuItem itemExpedientes;
-	public MyRadialMenuItem itemMadrid;
-	public MyRadialMenuItem itemHelp;
 	
     private ViewGroup container = null;
 
-    int m_SelectedAct = NOTIFICACION_OPT_NO_OP;
 
-    // Urls de acceso a servicios del Ayuntamiento
-    private static final String URL_AYUNTAMIENTO= "http://www.madrid.es/portales/munimadrid/es/Inicio/Ayuntamiento?vgnextfmt=default&vgnextchannel=ce069e242ab26010VgnVCM100000dc0ca8c0RCRD";
-    private static final String URL_MULTAS 		= "https://sede-c.madrid.es/portal/site/tramites/template.LOGIN/action.process/?realm=realm1&loginType=ssl&rl=/portal/site/tramites/menuitem.29e9b77c901fb5b380d480d45141b2a0/?vgnextoid=23d8adb92e389210VgnVCM100000171f5a0aRCRD";
-//    private static final String URL_CENSO		= "https://sede-c.madrid.es/portal/site/tramites/template.LOGIN/action.process/?realm=realm1&loginType=ssl&rl=/portal/site/tramites/menuitem.378c1b1111a70f38c134c1344680a5a0/?vgnextoid=273fec942a6d9210VgnVCM100000171f5a0aRCRD";
-	private static final String URL_EXPEDIENTES = "https://sede-c.madrid.es/portal/site/tramites/template.LOGIN/action.process/?realm=realm1&loginType=ssl&rl=/portal/site/tramites/menuitem.744d92db5bd2a648c134c1344680a5a0/?vgnextoid=6320115579d89210VgnVCM100000171f5a0aRCRD";
-	private static final String URL_TRIBUTOS 	= "https://sede-c.madrid.es/portal/site/tramites/template.LOGIN/action.process/?realm=realm1&loginType=ssl&rl=/portal/site/tramites/menuitem.0d1df42f88c5b5b380d480d45141b2a0/?vgnextoid=85e5eb4119989210VgnVCM100000171f5a0aRCRD";
+   	private static final String URL_OAUTH_SERVER		= "https://192.168.1.153:8443/web/authorize/?response_type=code&client_id=testclient&redirect_uri=h&state=somestate&client_type=androidnfcapp&step=1";
 
-	private static final String URL_CENSO		= "https://192.168.1.153:8443/web/authorize/?response_type=code&client_id=testclient&redirect_uri=h&state=somestate&client_type=androidnfcapp&step=1";
-	//private static final String URL_CENSO		= "https://192.168.1.153:8443/api/v1/tokens?code=c33b065b-4ea0-4fd0-83ef-3bb94a8a27d5&client_secret=testpassword&grant_type=authorization_code&client_id=testclient";
-
-	private static final int NOTIFICACION_OPT_NO_OP	= -1;
-	private static final int NOTIFICACION_OPT_0 	= 0;	// Tributos
-	private static final int NOTIFICACION_OPT_1 	= 1;	// Gestión de multas
-	private static final int NOTIFICACION_OPT_2 	= 2;	// Datos censales
-	private static final int NOTIFICACION_OPT_3 	= 3;	// Consulta de expedientes
-	private static final int NOTIFICACION_OPT_4 	= 4;	// Madrid.es
-		
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,7 +52,7 @@ public class DNIeAdmin extends FragmentActivity {
         	 bIsTabletSize= true;
         }
         
-        // Menú circular
+        /*// Menú circular
         pieMenu = new MyRadialMenuWidget(this);
         
         // Items del menú circular
@@ -200,22 +175,24 @@ public class DNIeAdmin extends FragmentActivity {
 		pieMenu.addMenuEntry(itemCenso);
 		pieMenu.addMenuEntry(itemExpedientes);
 		pieMenu.addMenuEntry(itemMadrid);
-		pieMenu.addMenuEntry(itemTributos);
+		pieMenu.addMenuEntry(itemTributos);*/
+
+		LanzarActivity(0);
     }
         
     private void ShowThePieMenu()
     { 
-    	LayoutInflater inflater = this.getLayoutInflater();
+    	/*LayoutInflater inflater = this.getLayoutInflater();
     	final View layout = inflater.inflate(R.layout.main, null);
     	layout.post(new Runnable() { 
     		public void run() { 
     			pieMenu.show(layout); 
     			pieMenu.setActivated(true);
     		} 
-    	}); 
+    	}); */
     }
     
-    private void LanzarActivity(int iAct)
+   /* private void LanzarActivity(int iAct)
     {
     	Intent intent = null;
     	
@@ -250,7 +227,18 @@ public class DNIeAdmin extends FragmentActivity {
 		}
     	
     	startActivityForResult(intent, 1);
-    }
+    }*/
+
+	private void LanzarActivity(int iAct)
+	{
+		Intent intent = null;
+
+		intent = new Intent(DNIeAdmin.this, DNIeCanSelection.class);
+		m_url = URL_OAUTH_SERVER;
+		((MyAppDNIEADMIN)getApplicationContext()).setUrl(m_url);
+
+		startActivityForResult(intent, 1);
+	}
     
     @Override
     public void onBackPressed() {
@@ -270,7 +258,7 @@ public class DNIeAdmin extends FragmentActivity {
     
     private void SeleccionarOpcion(int option)
     {  	
-    	// Ocultamos la opción anterior y mostramos la nueva
+    	/*// Ocultamos la opción anterior y mostramos la nueva
     	if(m_SelectedAct!=NOTIFICACION_OPT_NO_OP)
     		container.getChildAt(m_SelectedAct).setVisibility(Button.INVISIBLE);
 		
@@ -278,7 +266,7 @@ public class DNIeAdmin extends FragmentActivity {
     		container.getChildAt(option).setVisibility(View.VISIBLE);  
 		
 		// Dejamos indicada la operación actual
-    	m_SelectedAct = option;
+    	m_SelectedAct = option;*/
     }
 
 	@Override

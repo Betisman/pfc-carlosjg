@@ -6,6 +6,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.nfc.NfcAdapter;
 import android.nfc.NfcAdapter.ReaderCallback;
 import android.nfc.Tag;
@@ -19,21 +20,26 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.dnieadmin.gui.MyCaCertificate;
 import com.dnieadmin.gui.MyPasswordDialog;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.util.EncodingUtils;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.net.SocketTimeoutException;
+import java.net.URLEncoder;
 import java.nio.charset.Charset;
 import java.security.KeyStore;
 import java.security.Security;
@@ -478,7 +484,47 @@ public class MyTaskDNIe extends AsyncTask<Void, Integer, Void>
   			codificacion = (codificacion==null) ? "utf-8" : codificacion;
 
 			m_SSLresultado = new String(EntityUtils.toByteArray(webContent),Charset.forName(codificacion));
+
+			// Hemos recogido el contenido del formulario. Hay que mostrarlo y que el usuario lo acepte.
+			// Por ahora simulamos que lo hace.
+			//Toast.makeText(myContext, m_SSLresultado.substring(0, 50), Toast.LENGTH_LONG);
+
+			String url2 = "https://192.168.1.153:8443/web/authorize/?response_type=code&client_id=testclient&redirect_uri=h&state=somestate&client_type=androidnfcapp&step=2";
+			webContent = DroidHttpClient.executeRequest(url2, myContext, m_ksUserDNIe);
+			m_SSLresultado = new String(EntityUtils.toByteArray(webContent),Charset.forName(codificacion));
+			//Toast.makeText(myContext, m_SSLresultado.substring(0, 50), Toast.LENGTH_LONG);
+
+			JSONObject jsonObj = new JSONObject(m_SSLresultado);
+			String state = jsonObj.getString("state");
+			String code = jsonObj.getString("code");
+			String dni = jsonObj.getString("dnie");
+			String url3 = "https://192.168.1.153:8443/api/v1/tokens?code="+code+"&client_secret=testpassword&grant_type=authorization_code&client_id=testclient";
+
+			webContent = DroidHttpClient.executeRequest(url3, myContext, m_ksUserDNIe);
+			m_SSLresultado = new String(EntityUtils.toByteArray(webContent),Charset.forName(codificacion));
+			jsonObj = new JSONObject(m_SSLresultado);
+			String tokenid = jsonObj.getString("id");
+			String accessToken = jsonObj.getString("access_token");
+			String expiresIn = jsonObj.getString("expires_in");
+			String tokenType = jsonObj.getString("token_type");
+			String scope = jsonObj.getString("scope");
+			String refreshToken = jsonObj.getString("refresh_token");
+
+			String url4 = "https://192.168.1.153:8443/web/me?access_token="+accessToken+"&client_secret=testpassword&grant_type=authorization_code&client_id=testclient";
+			webContent = DroidHttpClient.executeRequest(url4, myContext, m_ksUserDNIe);
+			m_SSLresultado = new String(EntityUtils.toByteArray(webContent),Charset.forName(codificacion));
+			jsonObj = new JSONObject(m_SSLresultado);
+
 			DroidHttpClient.cleanCookies();
+
+			//WebView webview = new WebView(this);
+			//setContentView(webview);
+			byte[] post = EncodingUtils.getBytes("info="+m_SSLresultado+"&auth_system_name=dnie&access_token="+accessToken, "BASE64");
+			//webview.postUrl("https://www.192.168.1.153/auth/after/", post);
+
+			Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://192.168.1.153:8442/auth/after/?client_type=androidnfcapp&auth_system_name=dnie&access_token="+accessToken+"&info="+ URLEncoder.encode(m_SSLresultado, "utf-8")));
+			startActivity(browserIntent);
+			System.exit(0);
 		}
 		catch (ClientProtocolException e) {
 			textoResultDlg = "No se ha podido establecer la conexión.";
