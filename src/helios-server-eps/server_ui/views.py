@@ -42,7 +42,8 @@ def home(request):
 
   auth_systems = copy.copy(settings.AUTH_ENABLED_AUTH_SYSTEMS)
   try:
-    auth_systems.remove('password')
+    #auth_systems.remove('password')
+    pass
   except: pass
 
   """
