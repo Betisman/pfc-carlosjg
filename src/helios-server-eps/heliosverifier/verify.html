@@ -3,6 +3,7 @@
 <head>
   <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8" /> 
   <title>Helios Voting System -- Verifier</title>
+  <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="css/booth.css" />
   <link rel="stylesheet" type="text/css" href="css/forms.css" />
   <script language="javascript" src="js/jscrypto/jsbn.js"></script>
@@ -252,31 +253,36 @@ $(document).ready(function() {
 });
 </script>
 </head>
-<body>
-<div id="wrapper">
-<div id="banner">
-    Helios Election Verifier
-</div>
-<div id="content">
+  <body>
+    <div id="wrapper" class="container">
+      <div class="panel panel-danger">
+        <div class="panel-heading clearfix">
+          <div id="banner" class="panel-title">
+              Helios - Verificador de Elecciones
+          </div>
+        </div>
+        <div id="content" class="panel-body">
+          <div id="verifier_loading">
+            Cargando verificador...
+          </div>
 
-<div id="verifier_loading">
-loading verifier ...
-</div>
+          <div id="verifier" align="center" style="display:none;">
+            Introduzca la URL de la elección:
+            <form onsubmit="try{load_election_and_ballots(this.election_url.value);} catch (e) {} return false;">
+                <input type="text" size="50" name="election_url" id="election_url" /><br />
+                <input type="submit" value="Comenzar verificación" class="btn btn-danger"/>
+            </form>
+          </div>
 
-<div id="verifier" align="center" style="display:none;">
-Enter the Election URL:
-<form onsubmit="try{load_election_and_ballots(this.election_url.value);} catch (e) {} return false;">
-    <input type="text" size="50" name="election_url" id="election_url" /><br />
-    <input type="submit" value="start verification" />
-</form>
-</div>
+          <br /><br />
+          <div id="results">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="applet_div">
+    </div>
 
-<br /><br />
-<div id="results">
-</div>
-</div>
-</div>
-<div id="applet_div">
-</div>
-</body>
+    <script language="javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
+  </body>
 </html>

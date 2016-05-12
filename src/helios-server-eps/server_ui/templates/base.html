@@ -4,11 +4,12 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}{% endblock %}</title>
-  
+
   <link rel="stylesheet" href="/static/foundation/css/foundation.css">
   <link rel="stylesheet" href="/static/foundation-tweaks.css">
+    <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
 
 {% if settings.DEBUG %}  
   <script src="/static/foundation/js/vendor/custom.modernizr.js"></script>
@@ -17,6 +18,7 @@
   <script language="javascript" src="/static/helios/js/jqsplitdatetime.js"></script>
   <script language="javascript" src="/static/helios/helios/jquery.json.min.js"></script>
   <script language="javascript" src="/static/foundation/js/foundation.min.js"></script>
+  <script language="javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
 
 {% else %}
 <script language="javascript" src="/static/20140302-helios-combined.js"></script>
@@ -32,8 +34,8 @@
   <nav class="top-bar">
     <ul class="title-area">
       <!-- Title Area -->
-      <li class="name">
-        <h1><a href="/"><img src="/static/tinylogo.png"></a></h1>
+      <li class="name logoupleft">
+        <h1><a href="/"><img src="/static/logo_uspceu.png"></a></h1>
       </li>
       <li class="toggle-topbar menu-icon"><a href="#"><span>menu</span></a></li>
     </ul>
@@ -73,7 +75,7 @@
 
   <!-- Main Page Content and Sidebar -->
 
-  <div class="row" id="contentbody">
+  <div class="row container-fluid" id="contentbody">
       {% block content %}{% endblock %}
   </div>
   
@@ -88,7 +90,7 @@
     </span>-->
     {% if user %}
     logged in as <b>{{user.display_html_small|safe}}</b>&nbsp;&nbsp;
-    <a class="tiny button" href="{% url "helios_auth.views.logout" %}?return_url={{CURRENT_URL}}">logout</a><br />
+      <a class="tiny button btn btn-primary" href="{% url "helios_auth.views.logout" %}?return_url={{CURRENT_URL}}">logout</a>
     {% else %}
     {% if voter %}
     You are signed in as voter <u>{% if voter.alias %}{{voter.alias}}{% else %}{{voter.name}}{% endif %}</u> in election <u>{{voter.election.name}}</u>. [<a href="{{settings.SECURE_URL_HOST}}{% url "helios_auth.views.logout" %}?return_url={{CURRENT_URL}}">sign out</a>]

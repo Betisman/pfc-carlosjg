@@ -173,10 +173,10 @@ def do_auth(request):
     logger.error(get_dni_info_from_ssl(request))
     return settings.SECURE_URL_HOST
 
-def do_logout(user_for_remote, request):
-    import logging
-    logger = logging.getLogger('dnie')
-    logger.debug('metaaaaaaaa')
-    logger.debug(request.META['SSL_CLIENT_S_DN'])
+def do_logout(request):
+    # import logging
+    # logger = logging.getLogger('dnie')
+    # logger.debug('metaaaaaaaa')
+    # logger.debug(request.META['SSL_CLIENT_S_DN'])
     return None
 
