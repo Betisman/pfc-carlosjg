@@ -25,6 +25,18 @@ def dnie_url(url, params):
     #return "http://%s%s" % (ipport, url)
     return "https://%s%s" % (ipport, url)
 
+def dnie_url_step2(url, params):
+  logger = logging.getLogger('dnie')
+  ipport = '192.168.1.153:8553'
+  if params:
+    logger.info("http://%s%s?%s" % (ipport, url, urllib.urlencode(params)))
+    #return "http://%s%s?%s" % (ipport, url, urllib.urlencode(params))
+    return "https://%s%s?%s" % (ipport, url, urllib.urlencode(params))
+  else:
+    logger.info("http://%s%s" % (ipport, url))
+    #return "http://%s%s" % (ipport, url)
+    return "https://%s%s" % (ipport, url)
+
 def dnie_get(url, params):
   full_url = dnie_url(url,params)
   try:
@@ -39,8 +51,14 @@ def dnie_post(url, params):
   logger.info("full_url(%s), params(%s)" % (full_url, urllib.urlencode(params)))
   return urllib2.urlopen(full_url, urllib.urlencode(params)).read()
 
+def dnie_post_step2(url, params):
+  full_url = dnie_url_step2(url, None)
+  logger = logging.getLogger('dnie')
+  logger.info("full_url(%s), params(%s)" % (full_url, urllib.urlencode(params)))
+  return urllib2.urlopen(full_url, urllib.urlencode(params)).read()
+
 def can_create_election(user_id, user_info):
-  return False
+  return True
 
 def send_message(user_id, user_name, user_info, subject, body):
   pass
@@ -83,12 +101,14 @@ def get_user_info_after_auth(request):
     logger.debug('*'+key+'*=*'+val+'*')
   msg = ','.join(mstring)
   logger.debug(msg)
-  logger.debug('clienttype: ' + request.GET['client_type'])
-  if request.GET['client_type'] == 'androidnfcapp':
+  try:
+    logger.debug('clienttype: ' + request.GET['client_type'])
+    if request.GET['client_type'] == 'androidnfcapp':
       return get_user_info_after_auth_androidClient(request)
-
+  except Exception:
+    pass
   logger.info('ahora el dni_post')
-  args = dnie_post('/api/v1/tokens/', {
+  args = dnie_post_step2('/api/v1/tokens/', {
       'grant_type': 'authorization_code',
       'code': request.GET['code'],
       'client_id': 'testclient',
@@ -109,7 +129,7 @@ def get_user_info_after_auth(request):
   access_token_req = utils.from_json(args)
   access_token = access_token_req['access_token']
 
-  info = utils.from_json(dnie_post('/web/me', {'access_token':access_token}))
+  info = utils.from_json(dnie_post_step2('/web/me', {'access_token':access_token}))
   #info = {'user_id': '53159931P'}
 
   #return {'type': 'facebook', 'user_id' : info['id'], 'name': info.get('name'), 'email': info.get('email'), 'info': info, 'token': {'access_token': access_token}}
@@ -153,10 +173,10 @@ def do_auth(request):
     logger.error(get_dni_info_from_ssl(request))
     return settings.SECURE_URL_HOST
 
-def do_logout(user_for_remote, request):
-    import logging
-    logger = logging.getLogger('dnie')
-    logger.debug('metaaaaaaaa')
-    logger.debug(request.META['SSL_CLIENT_S_DN'])
+def do_logout(request):
+    # import logging
+    # logger = logging.getLogger('dnie')
+    # logger.debug('metaaaaaaaa')
+    # logger.debug(request.META['SSL_CLIENT_S_DN'])
     return None
 
