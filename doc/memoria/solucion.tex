@@ -39,7 +39,45 @@
 		\section{Diseño}\label{diseño}
 			\subsection{Diseño del esquema de votación}\label{disenhoEsquemaVoto}
 				\subsubsection{Registro}
+					La fase de registro de votantes en el sistema no será interactivo en cuanto a que no es el propio votante el que debe inscribirse para poder votar en las elecciones, sino que es la Autoridad Electoral la que lo registra en el censo. En esta fase, pues, se trata de establecer el censo de votantes que tienen autoridad para votar en el proceso electoral.
+					
+					Como se advierte en el análisis se ha tomado en consideración que sean los administradores del sistema quienes tengan responsabilidad sobre el tratamiento del censo, por lo que se ha de cargar en el sistema y éste es el que lo va a tratar.
+					
+					El censo ha de cargarse en dos servicios del sistema, tanto en el servidor de autenticación como en el sistema de votación.
+					
+					El censo del subsistema de autenticación se utilizará para llevar el control de los votantes que tienen derecho de acceso al sistema, por lo que a los votantes se les puede añadir otros usuarios necesarios para llevar a término la votación, como pueden ser administradores o auditores, aunque estos no tengan derecho de voto. Así se conformaría la base de usuarios activos del sistema.
+					
+					En el subsistema de voto también se vuelca el censo para cada uno de los diferentes procesos de voto que conformen la elección.
+					
+					El procedimiento a seguir consistirá en que la Autoridad Organizadora del Proceso Electoral, la Universidad, proveerá una lista del censo a los administradores del sistema. El administrador utilizará la función de carga de votantes con la lista proporcionada para realizar la carga inicial de votantes para cada una de las subelecciones que se configuren.
+					
+					La lista proporcionada por la Universidad debe contener la siguiente información de cada uno de los votantes:
+						\begin{itemize}
+							\item Nombre y apellidos
+							\item DNI
+							\item Clase / grupo de votantes
+							\item E-mail
+						\end{itemize}
+						
+					La carga de los votantes a través de su aplicación se realiza subiendo un fichero csv con la información requerida. Este fichero se pone a disposición de la cola de procesos, la cual, llegado el momento volcará cada uno de los registros en la base de datos del sistema de votación.
+					
+					\notasDuda{Falta definir el proceso de carga de votantes para el servicio de autenticación.}
+					
 				\subsubsection{Identificación}
+					El servicio de identificación es un subsistema clave en el proceso electoral. En él recae parte de la responsabilidad de la robustez del sistema, en cuanto a que debe asegurar varios de los requisitos básicos que definen el voto electrónico en concreto:
+					
+		\notasInfo{Esto es así según los requisitos de Fujioka, si se utilizan los de la UNEX, se puede modificar.}
+		\begin{description}
+			\item[Solidez:] Debe asegurar que un votante deshonesto no tenga capacidad de acceder al sistema e interrumpir la votación. Es decir, que sólo debe dar acceso a los votantes que realmente deben ingresar al sistema de votación.
+			
+			\item[Elegibilidad:] Este requisito implica que el sistema debe controlar que ningún votante que no tenga permitido el voto pueda votar. Aunque es el proceso de votación el que debe controlar esta circunstancia cuando un usuario trata de emitir un voto, el sistema de votación, de forma análoga al requisito anterior, también debe proteger el sistema evitando el acceso a aquellos que, directamente, no tengan permisos para votar.
+			
+			\item[Sin duplicados:] El sistema debe evitar que un votante duplique o reemplace el voto de otro. Igualmente, aunque es el sistema de votación el que debe tener mecanismos que controlen esta situación, la primera barrera debe ser la servicio de autenticación del votante.
+			
+		\end{description}
+
+					
+					
 				\subsubsection{Elección de candidatura}
 				\subsubsection{Votación}
 				\subsubsection{Escrutinio}

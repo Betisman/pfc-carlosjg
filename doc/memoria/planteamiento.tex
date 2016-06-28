@@ -469,9 +469,9 @@ En el caso de las Elecciones a la Junta de Escuela de la EPS, podemos pensar en 
 			\item Externalizar el listado de votantes para que no lo gestione Helios, sino el organizador de la Elección.
 			\item Cambiar los métodos de autenticación para que el permitido sea el DNIe.
 			\item \textst{Modificar la cabina de votación virtual para poder firmar el voto con el certificado digital del DNIe.}
-			\item Adaptar el almacenamiento del voto mientras la elección está abierta a que éste esté firmado digitalmente por el votante.
-			\item Modificar el proceso de escrutinio. Una vez cerrada la votación y abierta la urna, los votos han de ser separados de la firma digital de sus votantes. Esta firma se utilizará para establecer la participación sobre el censo.
-			\item Adaptar el proceso de la votación y el escrutinio a la existencia de múltiples mesas electorales, imitando el concepto de mesas, colegios y circunscripciones de las elecciones a mayor escala. En las Elecciones a Junta de Escuela, teniendo en cuenta las características del votante, el censo es diferente y las papeletas también deben serlo, ya que se elige entre diferentes candidatos.
+			\item \textst{Adaptar el almacenamiento del voto mientras la elección está abierta a que éste esté firmado digitalmente por el votante.}
+			\item \textst{Modificar el proceso de escrutinio. Una vez cerrada la votación y abierta la urna, los votos han de ser separados de la firma digital de sus votantes. Esta firma se utilizará para establecer la participación sobre el censo.}
+			\item \textst{Adaptar el proceso de la votación y el escrutinio a la existencia de múltiples mesas electorales, imitando el concepto de mesas, colegios y circunscripciones de las elecciones a mayor escala. En las Elecciones a Junta de Escuela, teniendo en cuenta las características del votante, el censo es diferente y las papeletas también deben serlo, ya que se elige entre diferentes candidatos.}
 			\item Modificar la interfaz web del sistema para adecuarla a las Elecciones a la Junta de Escuela de la EPS.
 		\end{itemize}
 		
@@ -487,7 +487,7 @@ En el caso de las Elecciones a la Junta de Escuela de la EPS, podemos pensar en 
 		
 		\subsection{Diagrama Entidad-Relación}\label{helios_diagrama_er}
 		
-			A continuación se muestra el diagrama entidad-relación del sistema Helios Voting real. Se ha obtenido con una herramienta, SchemaSpy\footnote{http://schemaspy.sourceforge.net/}, que permite obtener el diagrama directamente de una base de datos PostgreSQL ya existente.
+			A continuación se muestra el diagrama entidad-relación del sistema Helios Voting real. \footnote{Generado automáticamente con la herramienta, SchemaSpy (\url{http://schemaspy.sourceforge.net/}), que permite obtener el diagrama directamente de una base de datos PostgreSQL ya existente.}
 			
 			\begin{figure}[htbp]
 				\centering
@@ -497,11 +497,14 @@ En el caso de las Elecciones a la Junta de Escuela de la EPS, podemos pensar en 
 			\end{figure}
 			
 			
-			En el esquema se distinguen 3 grupos de entidades. Por un lado, las propias del core de Helios, cuyos nombres comienzan por \textit{helios\_}. Por otro, están las que utilizan las herramientas Celery (las que comienzan por \textit{djcelery\_}) y Kombu (las que comienzan por \textit{djkombu\_}).
+			En el esquema se distinguen 3 clases de entidades:
+			\begin{itemize}
+				\item Las propias del core de Helios, cuyos nombres comienzan por \textit{helios\_}. 
+				\item Las entidades que utilizan la herramienta Celery (las que comienzan por \textit{djcelery\_}).
+				\item Las entidades que utiliza la herramienta Kombu (las que comienzan por \textit{djkombu\_}).
+			\end{itemize}
 			
-			Con respecto a las que forman la capa de negocio del sistema Helios, se observa un diseño bastante simple, aunque adecuado para las necesidades del sistema.
-	
-			Contiene las siguientes entidades:
+			Con respecto al primer grupo, las que forman la capa de negocio del sistema Helios, se observa un diseño bastante simple, aunque adecuado para las necesidades del sistema:
 	
 			\begin{description}
 				\item [helios\_election] Es la tabla que almacena las diferentes elecciones que crean los administradores.
@@ -521,4 +524,17 @@ En el caso de las Elecciones a la Junta de Escuela de la EPS, podemos pensar en 
 			\end{description}
 	
 	
+	
+		\subsection{Flujo oAuth DNIe}
+		Para utilizar el DNIe como herramienta de identificación de votantes se ha implementado una variación del protocolo oAuth de 3 patas (3-legged oAuth).
+	
+	\begin{figure}[htbp]
+		\centering
+			\includegraphics[height=.5\textwidth]{imgs/flujoOAuth01.jpg}
+		\caption{Flujo oAuth adaptado para permitir el uso del DNIe}
+		\label{fig:flujoOAuth01}
+	\end{figure}
+	
+	
+	\notasInfo[inine]{Hay que explicar el flujo que se ha implementado para el oAuth. Ver en el código.}
 	
