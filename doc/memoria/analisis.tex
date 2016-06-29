@@ -38,28 +38,29 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			
 			\begin{description}[font=$\bullet$\ \ ]
 				\item[Título:] AQUÍ VA EL TÍTULO ******************** 
-				\item[Descripción:] El sistema consiste en una plataforma de voto electrónico remoto por Internet, seguro, anónimo y tratando de implementar el máximo de requisitos exigibles al voto electrónico que cumplan con el objetivo. El desarrollo es ad-hoc según las normas de las elecciones que van a tomar parte. (************)Pese a ser un diseño dirigido a unos tipos de elecciones concretas, se puede modularizar el sistema para que, implementando unas nuevas reglas, el sistema sirva de base a otros procesos.(************). Los votantes dispondrán de unas credenciales digitales que servirán para que se puedan identificar unívocamente en el sistema, sin suplantaciones. (**************** DNIe? TUI? user/password? *****************). Estas credenciales se implementan basándose en certificados digitales que aseguran la autenticidad del votante. Una vez el votante se autentica contra el sistema y el censo (proporcionado por la Universidad y cargado previamente en el sistema), se le presenta el surtido de papeletas entre las que puede elegir a sus representantes. Este conjunto de papeletas ha de ser calculado por el sistema teniendo en cuenta el tipo de votante con el que interacciona (estudiante/profesor/empleado, carrera, grupo/clase...).Una vez seleccionada la papeleta, emite el voto. El voto consiste en que el votante firma digitalmente un sobre lógico en el que va la papeleta cifrada. Este sobre se envía al sistema, donde un módulo urna digital se encarga de almacenarlo hasta la finalización del periodo de votación. Una vez llega el fin de este periodo, los administradores de la elección abren la urna. Para ello, requieren de una clave criptográfica que estará troceada y repartida entre varios miembros. La apertura de la urna implica la anonimización de los votos, rompiendo la relación entre un votante y el voto que ha emitido. Una vez cumplido con el requisito del voto anónimo y eliminada la trazabilidad del voto, estos tienen que ser descifrados para, a continuación, ser contados. Al finalizar el escrutinio, se publican los resultados. Junto a la publicación de los resultados, se deben publicar unas listas para que los votantes puedan verificar que el voto digital que emitieron no ha sido alterado y, además, ha formado parte del escrutinio.
+				\item[Descripción:] \textst{El sistema consiste en una plataforma de voto electrónico remoto por Internet, seguro, anónimo y tratando de implementar el máximo de requisitos exigibles al voto electrónico que cumplan con el objetivo. El desarrollo es ad-hoc según las normas de las elecciones que van a tomar parte. (************)Pese a ser un diseño dirigido a unos tipos de elecciones concretas, se puede modularizar el sistema para que, implementando unas nuevas reglas, el sistema sirva de base a otros procesos.(************). Los votantes dispondrán de unas credenciales digitales que servirán para que se puedan identificar unívocamente en el sistema, sin suplantaciones. (**************** DNIe? TUI? user/password? *****************). Estas credenciales se implementan basándose en certificados digitales que aseguran la autenticidad del votante. Una vez el votante se autentica contra el sistema y el censo (proporcionado por la Universidad y cargado previamente en el sistema), se le presenta el surtido de papeletas entre las que puede elegir a sus representantes. Este conjunto de papeletas ha de ser calculado por el sistema teniendo en cuenta el tipo de votante con el que interacciona (estudiante/profesor/empleado, carrera, grupo/clase...).Una vez seleccionada la papeleta, emite el voto. El voto consiste en que el votante firma digitalmente un sobre lógico en el que va la papeleta cifrada. Este sobre se envía al sistema, donde un módulo urna digital se encarga de almacenarlo hasta la finalización del periodo de votación. Una vez llega el fin de este periodo, los administradores de la elección abren la urna. Para ello, requieren de una clave criptográfica que estará troceada y repartida entre varios miembros. La apertura de la urna implica la anonimización de los votos, rompiendo la relación entre un votante y el voto que ha emitido. Una vez cumplido con el requisito del voto anónimo y eliminada la trazabilidad del voto, estos tienen que ser descifrados para, a continuación, ser contados. Al finalizar el escrutinio, se publican los resultados. Junto a la publicación de los resultados, se deben publicar unas listas para que los votantes puedan verificar que el voto digital que emitieron no ha sido alterado y, además, ha formado parte del escrutinio.}
 			\end{description}
 			
-			El sistema consiste en una plataforma de voto electrónico remoto por Internet, seguro, anónimo y tratando de implementar el máximo de requisitos exigibles al voto electrónico que cumplan con el objetivo. El desarrollo es ad-hoc según las normas de las elecciones que van a tomar parte.
+			\textst{El sistema consiste en una plataforma de voto electrónico remoto por Internet, seguro, anónimo y tratando de implementar el máximo de requisitos exigibles al voto electrónico que cumplan con el objetivo. El desarrollo es ad-hoc según las normas de las elecciones que van a tomar parte.
 			La identificación de los votantes en el sistema ha de ser unívoca, evitando que un votante pueda ver su identidad suplantada por otro.
 			Los usuarios que intenten acceder al sistema de voto y no pertenezcan al censo oficial, proporcionado por la Autoridad Electoral de la Universidad, han de ser identificados y su acceso al mismo rechazado, pues hay que cumplir el requisito de Autenticidad del voto/votante.
 			El sistema debe proporcionar al votante las distintas opciones entre las que puede elegir para ejercer su voto teniendo en cuenta el tipo de votante registrado y las reglas de le elección que le aplican.
 			Una vez seleccionado el voto que quiere ingresar en la urna electrónica, el sistema debe asegurar que éste es correcto, para avisar al votante que lo corrija en caso contrario y no emitir un voto incoherente en el sistema. En el caso de un voto coherente (votos válidos y votos nulos), el sistema debe, en primer lugar destruir la relación entre el voto y el votante, cumpliendo con el requisito de privacidad del voto o anonimato del votante, el voto es secreto, por lo que hay que asegurar que no existe una trazabilidad que pudiese llegar a relacionar un voto con la identidad del votante que lo sufragó.
 			El sistema debe proporcionar un mecanismo por el cual un votante tenga la capacidad de confirmar que su voto ha sido correctamente incluido en la urna electrónica. Debe poder asegurarse de que \textit{ha votado}.
 			Del mismo modo, el sistema ha de asegurar que los votos, ya desligados de la identidad del votante, son correctamente almacenados en la urna electrónica y correctamente contados en la fase de recuento o consolidación de votos. Teniendo en cuenta las reglas de la elección, debe asegurar que todos los votos son correctamente contados y que sólo lo son una vez.
-			Una vez finalizado el recuento, y difundidos los resultados, el sistema debe proporcionar un mecanismo para que un votante pueda confirmar que su voto ha sido incluido correctamente en los resultados ofrecidos por el sistema sin que se viole la privacidad de su voto.
+			Una vez finalizado el recuento, y difundidos los resultados, el sistema debe proporcionar un mecanismo para que un votante pueda confirmar que su voto ha sido incluido correctamente en los resultados ofrecidos por el sistema sin que se viole la privacidad de su voto.}
+			\todo[inline]{Lo tachado es porque ya no es correcto al utilizar Helios}
 			
 			Adicionalmente, el sistema debe proporcionar funcionalidades externas al proceso de voto.
 			Debe tener un sistema de carga y gestión de los datos electorales (reglas de la elección, urnas, circunscripciones, candidatos, censo).
 			Debe proporcionar herramientas que permitan la monitorización del proceso para comprobar el estado del mismo, además de herramientas de transparencia para que pueda ser auditado en tiempo real por las autoridades competentes.
 			
-			\subsection{Restricciones generales}\label{requisitosRestriccionesGenerales}
-				\begin{enumerate}
-					\item Primera restricción *********************
-					\item Segunda restricción *********************
-				\end{enumerate}
-				\todo[inline]{Restricciones}
+			%\subsection{Restricciones generales}\label{requisitosRestriccionesGenerales}
+				%\begin{enumerate}
+					%\item Primera restricción *********************
+					%\item Segunda restricción *********************
+				%\end{enumerate}
+				%\todo[inline]{Restricciones}
 			
 			\subsection{Requisitos funcionales}\label{requisitosFuncionales}
 				\begin{description}[font=$\bullet$\ \ ]
@@ -79,7 +80,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 				\end{description}
 				
 			\subsection{Requisitos propios del voto electrónico}\label{requisitosVotoElectronico}
-			\todo[inline]{AQUÍ HAY QUE DEFINIR LOS REQUISITOS DEL VOTO ELECTRÓNICO. DEPENDE DEL AUTOR, HAY UNOS U OTROS. HABRÁ QUE DEFINIR CUÁLES SON LOS QUE VAMOS A TENER EN CUENTA PARA ESTE PROYECTO. ESTÁN EN --TEMP-- ESPERANDO A QUE TOME LA DECISIÓN}
+			\todo[inline]{AQUÍ HAY QUE DEFINIR LOS REQUISITOS DEL VOTO ELECTRÓNICO. DEPENDE DEL AUTOR, HAY UNOS U OTROS. HABRÁ QUE DEFINIR CUÁLES SON LOS QUE VAMOS A TENER EN CUENTA PARA ESTE PROYECTO. ESTÁN EN --TEMP-- ESPERANDO A QUE TOME LA DECISIÓN. Fujioka? UNEX? MoralesRocha?}
 			A partir de los requisitos estudiados al estudiar el estado actual del voto electrónico en \ref{introduccionRequisitosVotoElectronico}, consideramos los siguientes requisitos como los implícitos al voto electrónico:
 			
 				\begin{description}[font=$\bullet$\ \ ]
@@ -111,6 +112,8 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 				\end{description}
 			
 				
+				
+				
 			\subsection{Requisitos del proceso electoral}\label{requisitosProceso}
 				\begin{description}[font=$\bullet$\ \ ]
 					\item[Ejemplo]: Aquí va un requisito.
@@ -126,6 +129,8 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 					
 				\end{description}
 			
+			
+			\todo[inline]{Como lo hice en dos documentos diferentes, al unificarlo, tengo partes repetidas. Hay que borrar los repetidos.}
 		
 			\subsection{Necesidades del esquema de voto electrónico}
 			\begin{description}[font=$\bullet$\ \ ]
@@ -157,7 +162,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			\todo[inline]{ESTO ES TEMPORAL. VOY A IR HACIENDO UNA LISTA DE REQUISITOS SEGÚN LOS VOY CONOCIENDO. ESTA LISTA ES EL BATIBURRILLO, CUANDO ESTÉN CLAROS, LOS VOY COLOCANDO EN SUS TIPOS CORRESPONDIENTES Y LOS DEFINIMOS FORMALMENTE SEGÚN LA PLANTILLA}
 			
 			
-			\todo[inline]{OTRA FORMA EN LA QUE PODEMOS ORDENAR LA ESPECIFICACIÓN DE REQUISITOS  HAY QUE RE-REDACTARLO}
+			\todo[inline]{OTRA FORMA EN LA QUE PODEMOS ORDENAR LA ESPECIFICACIÓN DE REQUISITOS  HABRíA QUE RE-REDACTARLOS}
 			
 			Para la especificación de los requisitos que ha de satisfacer el sistema, se van a seguir algunas de las recomendaciones del IEEE en el estándar IEEE 830-1998 \cite{Ieee1998}, ya que éste establece las normas para la realización de un documento formal y completo de especificación de requisitos (SRS en inglés).
 			
@@ -203,13 +208,13 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			\subsection{Requisitos del proyecto}\label{xxxxxx6}
 			\subsection{Requisitos de soporte}\label{xxxxxx7}
 			
-\color{orange}
-**** LO QUE HAY QUE DESARROLLAR ****
-Requisitos de Usuarios: Necesidades que los usuarios expresan verbalmente
-Requisitos del Sistema: Son los componentes que el sistema debe tener para realizar determinadas tareas
-Requisitos Funcionales: Servicios que el sistema debe proporcionar
-Requisitos no funcionales: Restricciones que afectan al sistema
-\color{black}
+%\color{orange}
+%**** LO QUE HAY QUE DESARROLLAR ****
+%Requisitos de Usuarios: Necesidades que los usuarios expresan verbalmente
+%Requisitos del Sistema: Son los componentes que el sistema debe tener para realizar determinadas tareas
+%Requisitos Funcionales: Servicios que el sistema debe proporcionar
+%Requisitos no funcionales: Restricciones que afectan al sistema
+%\color{black}
 
 		% ------------------------------------------------------------------
 		%%%%%% fin ESPECIFICACIÓN DE REQUISITOS %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -270,6 +275,7 @@ Requisitos no funcionales: Restricciones que afectan al sistema
 						Junto con los cuatro roles expuestos, encontramos un quinto actor en la figura de la Autoridad Certificadora. Esta entidad es la encargada de generar, administrar, validar y verificar las credenciales que han de usar cada uno de los votantes para emitir el voto, así como los de cada uno de los actores del proceso (administradores, miembros de la Junta Electoral, auditores o incluso los sistemas y sus comunicaciones).
 						Al hacer uso del DNIe para la identificación y firma del votante, en estas fases, es la Dirección General de la Policía, dependiente del Ministerio del Interior, la que actúa como Autoridad de Certificación, combinando dos pares de claves con un ciudadano concreto a través de la emisión de sendos Certificados de conformidad con los términos de la Declaración de Prácticas y Políticas de Certificación (DPC) \cite{politicasDeCertificacion:2006}\cite{politicasDeCertificacion:2014} que rige el funcionamiento y operaciones de la Infraestructura de Clave Pública de los Certificados de identidad pública y firma electrónica del Documento Nacional de Identidad (DNIe).
 				
+					\todo[inline]{Al utilizar Heliso, falta la figura del Trustee}
 				\end{description}
 				
 				Los usuarios cuyo rol sea Votante son los únicos que tienen capacidad para poder votar en la elección.
@@ -326,36 +332,147 @@ del sistema. Además, es preciso elaborar un diagrama de navegación, reflejando l
 pantallas a las que tienen acceso los diferentes roles de usuario y la conexión entre éstas. }
 				
 				
-				
-				
-	\begin{figure}[htbp]
-		\centering
-			\includegraphics[width=1\textwidth]{imgs/DFDContexto.png}
-		\caption{DFD Contexto}
-		\label{fig:dfdcontexto}
-	\end{figure}
+				\todo[inline]{He eliminado los diagramas que tenía porque ya no se corresponden con el nuevo sistema.}
+				%
+	%\begin{figure}[htbp]
+		%\centering
+			%\includegraphics[width=1\textwidth]{imgs/DFDContexto.png}
+		%\caption{DFD Contexto}
+		%\label{fig:dfdcontexto}
+	%\end{figure}
 	
 	
-	\begin{figure}[htbp]
-		\centering
-			\includegraphics[width=1\textwidth]{imgs/DFD0.png}
-		\caption{DFD 0}
-		\label{fig:dfd0}
-	\end{figure}
-	
-	\begin{figure}[htbp]
-		\centering
-			\includegraphics[width=.7\textwidth]{imgs/DFD1_GestionarVotante.png}
-		\caption{DFD 1. Gestionar votante}
-		\label{fig:dfd1}
-	\end{figure}
-	
-	\begin{figure}[htbp]
-		\centering
-			\includegraphics[width=1\textwidth]{imgs/CASO_DE_USO_1_Votante.jpg}
-		\caption{Caso de uso 1. Votante}
-		\label{fig:casouso1}
-	\end{figure}
+	%\begin{figure}[htbp]
+		%\centering
+			%\includegraphics[width=1\textwidth]{imgs/DFD0.png}
+		%\caption{DFD 0}
+		%\label{fig:dfd0}
+	%\end{figure}
+	%
+	%\begin{figure}[htbp]
+		%\centering
+			%\includegraphics[width=.7\textwidth]{imgs/DFD1_GestionarVotante.png}
+		%\caption{DFD 1. Gestionar votante}
+		%\label{fig:dfd1}
+	%\end{figure}
+	%
+	%\begin{figure}[htbp]
+		%\centering
+			%\includegraphics[width=1\textwidth]{imgs/CASO_DE_USO_1_Votante.jpg}
+		%\caption{Caso de uso 1. Votante}
+		%\label{fig:casouso1}
+	%\end{figure}
 	
 	\section{Esquema de Voto Electrónico}\label{analisisEsquemaVotoElectronico}
+	
+	
+	% *************************************************************************************************************** %
+% 			HELIOS VOTING
+% *************************************************************************************************************** %
+		\section{Helios Voting}\label{planteamiento_HeliosVoting}
+		\todo[inline]{He movido esta sección desde Planteamiento a Análisis porque creo que es donde debo comentar qué sistema hemos elegido para adaptar y los motivos que nos han llevado a ello.}
+		
+		Tras el estudio de varias soluciones ya implementadas y de una solución diseñada desde cero, he decidido usar un sistema ya desarrollado como base para el diseño de la solución que lleve a cabo el proceso electoral en la Escuela.
+		
+		Los motivos que se han tenido en cuenta para seleccionar un desarrollo de terceros frente a uno propio son los siguientes:
+		\begin{itemize}
+			\item Para mantener la fiabilidad de un sistema de voto por Internet es fundamental una buena base criptográfica y unos protocolos cimentados en sólidos procesos matemáticos. Este concepto tan crucial he preferido delegarlo en el sistema Helios Voting, diseñado Ben Adida \footnote{\url{http://ben.adida.net/}}, doctor en Ingeniería Informática en Criptografía y Seguridad de la Información por el MIT \footnote{\url{http://mit.edu/}} (Massachussetts Institute of Technology). Además, el creador del sistema fue asesorado \footnote{\url{https://vote.heliosvoting.org/about}} directamente por profesionales con muchísima experiencia acreditada en conceptos tales como el voto electrónico y criptografía como pueden ser Lessig, Benaloh \footnote{\url{http://research.microsoft.com/~benaloh/}} o Rivest \footnote{\url{http://people.csail.mit.edu/rivest/}}, entre otros. Con esta carta de presentación, se observa que el nivel de protocolos criptográficos tiene un amplio sustento académico detrás. Igualmente, existen multitud de artículos en los que se presentan, estudian y discuten los protocolos criptográficos del sistema Helios Voting en sus diferentes versiones. Incluso en muchos de estos artículos se ofrecen alternativas a distintos elementos para aumentar la seguridad del sistema o para introducir alternativas a sistemas de voto pero manteniendo la máxima seguridad para que el sistema siga siendo E2E-verifiable.
+			
+			\item Helios es un sistema de voto por Internet basado en desarrollo de código abierto. Está escrito en Python, utilizando Django como framework de desarrollo. Esta filosofía de software libre permite que el código pueda ser reutilizado y modificado para adaptarlo a las necesidades de la Escuela. Además, el lenguaje utilizado es bastante potente y la facilidad de integración con los recursos que provee la Escuela es un punto importante que se ha tenido en cuenta.
+			
+			\item El proyecto Helios Voting está activo. Aunque la frecuencia de actualizaciones en el código o las conversaciones en el grupo de Google del proyecto ha decaído este último año 2015, el proyecto está activo y los desarrolladores implicados. Además, se observa que hay mucha gente interesada en el mismo que realizan forks del código para realizar sus propias modificaciones y/o aportaciones al mismo. Asimismo, proyectos como Ágora Voting nacieron a partir de un fork de Helios Voting, aunque actualmente hayan virado a otros protocolos criptográficos.
+			
+			\item Según algunos informes\cite{carter2013} desarrollados estudiando una experiencia real del sistema, Helios Voting es un ejemplo de sistema electoral por Internet E2E-verificable y lo reconocen como un ``\textit{estándar en verificabilidad de voto por Internet}''. Proporciona al proceso electoral todas las garantías que aporta la verificabilidad E2E, como la capacidad de observar pruebas de conocimiento cero no interactivas que verifican que cada voto fue incluido correctamente y que el escrutinio completo fue computado con precisión. 
+			
+			\item Una de las debilidades de Helios Voting es que el protocolo en el que se basa no es efectivo ante la coerción. Por ello, su propio desarrollador indica que es un sistema pensado para elecciones con bajo riesgo de coerción. Las elecciones a llevar a cabo en la Escuela Politécnica Superior cumplen con esta propiedad, pues el riesgo de que se intente coartar a algún votante es mínimo.
+			
+			\item ffff \todo{Cifrado homomórfico aditivo, para no tener que descifrar los votos en el escrutinio}
+			\item ffff \todo{Ya implementa login oAuth para diferentes proveedores. Aunque hay que implementar el flujo de forma especial para el DNIe, ya tiene definido el framework donde encajarlo.}
+		\end{itemize}	
+		
+		\notasCambio[inline]{No me gusta nada cómo está redactado esto ni me parece que esté en el sitio correcto. Cambiar.}
+
+
+			\subsection{Fases de la elección en Helios}\label{planteamiento_HeliosVoting_Fases}
+				Una elección con el sistema Helios Voting se desarrolla a través de una serie de fases o acciones.
+				
+				
+				\begin{figure}[hp]
+					\centering
+						\includegraphics[width=1\textwidth]{imgs/HeliosFases.jpg}
+					\caption{Fases de una elección en Helios Voting}
+					\label{fig:Helios.Fases}
+				\end{figure}
+				
+				
+				\begin{description}
+					\item[Crear elección]	El primer paso del protocolo de Helios es la creación de la Elección. Corresponde al administrador logarse en el sistema y crear la elección. Para ello, puede poner el nombre y descripción del Proceso, seleccionar si es una elección al uso o un referéndum, si se usan los nombres de los votantes o pseudónimos, si se presentan los nombres de los candidatos a cada votante en orden aleatorio y si la elección es privada para los votantes registrados o abierta a cualquier votante.
+					
+					\item[Preparar la elección] Antes de abrir el proceso de votación hay que preparar la elección. Para ello hay tres elementos que requieren ser inicializados.
+					
+						\begin{description}
+						
+							\item[Preguntas] Helios funciona a base de preguntas al electorado. Con una elección creada, el primer paso debería ser formular dichas preguntas y sus posibles respuestas, así como si es multiselección o de elección simple.
+							\item[Censo de votantes] Es necesario incluir un censo de votantes o permitir una votación abierta. En el caso del censo, Helios permite hacer cargas de ficheros csv con la información del votante (id, email y nombre). También permite que cualquiera pueda emitir un voto.
+							
+							\item [Trustees] En voto electrónico, es necesario tener entidades de las que poder fiarse para el correcto funcionamiento de la elección. Como es complicado que exista una entidad externa que cumpla con los requisitos, esto se emula utilizando varios trustees. Básicamente, los trustees son entidades fiables que es difícil que se puedan poner de acuerdo entre sí para falsear la elección. Estas entidades combinan sus claves públicas y privadas para formar la clave pública y privada de la elección a utilizar en la encriptación de los votos y la desencriptación del resultado del escrutinio. En Helios, el propio sistema es un trustee, suficiente para llevar a cabo los procesos criptográficos en caso de que no se defina ninguna entidad o usuario confiable adicional.
+							
+								\begin{description}
+									\item [Setup key - generate key]
+									\item [Save secret key]
+									\item [Upload public key] (verify private key)
+								\end{description}					
+							
+						\end{description}
+					
+					\item [Congelar papeleta y abrir la elección]
+					
+					\item [Votar]
+					
+					\item [Compute encrypted tally] (close election and compute)
+					
+					\item [Trustees for decryption]
+					
+					\item [Combine trustee decryption and compute results]
+					
+					\item [Difusión de resultados]
+					
+				\end{description}
+			
+			\subsection{Auditorías}\label{planteamiento_HeliosVoting_auditoria}
+				Las auditorías son procesos fundamentales para la fiabilidad de un sistema de voto por Internet. En este caso vamos a introducir aquellas que, usando pruebas de conocimiento nulo (\ref{primitivaPruebasConocimientoNulo}), permiten comprobar el correcto funcionamiento de cada proceso de la elección. 
+			
+				Durante el período de votación, tanto el votante como entidades externas pueden realizar una serie de pruebas o auditorías para confirmar el correcto estado del proceso. Estas auditorías se realizan a distintos niveles dependiendo del actor que desee realizarlas, así los votantes pueden realizar auditorías de correctitud de su voto emitido, mientras que auditores externos no pueden llevar a cabo estas comprobaciones. Sin embargo, tanto los primeros como los segundos pueden realizar una auditoría al escrutinio.
+				
+				La interfaz de usuario de Helios posee una zona dedicada a las pruebas de auditoría. En ellas, según se va avanzando en la Elección, van apareciendo enlaces e instrucciones según se pueden comenzar a realizar pruebas a diferentes elementos del sistema.
+				
+				Las auditorías de procesos que permite Helios Voting durante el proceso de votación:
+				
+				\begin{description}
+					\item [Verificación de la papeleta (antes de votar)]
+					El sistema permite verificar una papeleta cifrada previamente a su sufragio. La papeleta verificada no será la que se utilice para votar y no será, por tanto, contada sino que, por medidas para combatir la coerción, habrá que volver a encriptarla de nuevo cuando se quiera emitir el voto.
+					Una vez el votante está en la cabina de voto virtual y ha encriptado sus opciones de voto, el sistema permite realizar una verificación para asegurarse de que la encriptación de estas ha sido correcta. Para ello, el sistema presenta al votante la información para auditar su papeleta (ballot audit info) \notasInfo{Poner aquí qué significa esta información}. Este texto es el que debe copiar el votante para utilizar en la herramienta de verificación de papeletas. En ésta, se incluye dicho texto y la URL de la elección datos suficientes para realizar la verificación.
+					\todo[inline]{Explicar en qué consiste la verificación. IMPORTANTE y delicado. Valorar.}
+					Una vez hemos auditado nuestro voto, tenemos la posibilidad de publicar la papeleta auditada en el \textit{Helios tracking center}, permitiendo a otras entidades realizar una doble comprobación de la verificación de la papeleta.
+					
+					
+					\item [Lista de papeletas auditadas]
+						Como hemos avanzado en el punto anterior, en el momento de realizar la votación, el votante puede realizar una verificación del contenido encriptado de su papeleta. El sistema le permite, una vez realizada la comprobación, publicar esta \textit{papeleta abierta} en un tablón con una lista de papeletas auditadas. En cualquier momento de la elección, cualquier usuario, sea votante o no, puede acceder a esta lista y realizar la misma verificación sobre las papeletas ahí publicadas. Estas papeletas, no obstante, no son las que se han utilizado para emitir el voto, pues ya se ha comentado que una vez el votante la \textit{abre} para su verificación, ha de reencriptar su voto para \textit{meterlo en la urna} definitivamente.
+						
+						
+					\item [Auditoría del escrutinio]
+						Una vez se ha realizado el escrutinio, el sistema permite a los observadores interesados, realizar una prueba para verificar la veracidad del resultado.
+						\notasInfo[inline]{Es necesario comentar en qué consiste la auditoría del escrutinio.}
+						
+						
+				\end{description}
+				
+			\subsection{Protocolo criptográfico}\label{planteamiento_HeliosVoting_protocoloCriptografico}
+				Otra de las piedras angulares en las que se debe basar un sistema de votación por Internet es en su protocolo criptográfico y en las primitivas que utiliza, base para poder argumentar la fiabilidad de los procesos que se realizan.
+				
+				Helios Voting basa su seguridad criptográfica en un protocolo de cifrado homomórfico (\ref{primitivaCifradoHomomorfico}).
+				
+				El voto se encripta en el navegador del cliente utilizando una implementación del algoritmo de ElGamal Exponencial realizada en Javascript. Como se ha explicado en \ref{primitivaCifradoHomomorfico_elgamal}
+			
+
 	

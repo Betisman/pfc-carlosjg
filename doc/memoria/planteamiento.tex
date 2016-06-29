@@ -24,9 +24,11 @@
 		\item[Verificable] Se puede verificar que los votos han sido contados y forman parte del resultado del escrutinio.
 		\item[Auditable] El sistema debe proporcionar mecanismos para que pueda llevarse una auditoría del mismo antes, durante y después del proceso. 
 	\end{description}
-	El germen de la idea del proyecto, como se comenta en las Motivaciones del proyecto (\ref{motivacion}) era la búsqueda de soluciones para elecciones generales, autonómicas, municipales, etc. Elecciones que afectan a la población. Junto a la idea de desarrollar soluciones para este tipo de comicios, también está el estudio de las circunstancias por las que todavía no se han implementado sistemas de este tipo en España de carácter general.
 	
-	Al realizar el estudio del estado del arte actual, se puede recopilar una ingente documentación teórica sobre diferentes sistemas, paradigmas y esquemas de todo tipo de votación electrónica. Hay muchos artículos y tesis muy importantes que tratan de desarrollar sistemas de este tipo, desde el punto de vista teórico hasta el prototipo práctico. Incluso tenemos estados que han implementado una solución con carácter vinculante. En este PFC, lejos de tratar de encontrar una solución novedosa y revolucionaria, vamos a tratar de plasmar un conjunto de ideas y proposiciones de diferentes autores para implementar un sistema propio para la escuela que cumpla con el mayor número de requisitos básicos y deseables para el voto electrónico, teniendo en cuenta además, la variante del factor remoto, es decir, que cumpla, además con los requisitos de control, confiabilidad y seguridad que hagan viable el voto a través de Internet.
+	
+	El germen de la idea del proyecto, como se comenta en las Motivaciones del proyecto (\ref{motivacion}) era la búsqueda de soluciones para elecciones generales, autonómicas, municipales, etc. Junto a la idea de desarrollar soluciones para este tipo de comicios, también está el estudio de las circunstancias por las que todavía no se han implementado sistemas de este tipo en España de carácter general.
+	
+	Al realizar el estudio del estado del arte, se puede recopilar una ingente documentación teórica sobre diferentes sistemas, paradigmas y esquemas de todo tipo de votación electrónica. Hay muchos artículos y tesis muy importantes que tratan de desarrollar sistemas de este tipo, desde el punto de vista teórico hasta el prototipo práctico. Incluso tenemos estados que han implementado una solución con carácter vinculante. En este PFC, lejos de tratar de encontrar una solución novedosa y revolucionaria, vamos a tratar de plasmar un conjunto de ideas y proposiciones de diferentes autores para implementar un sistema propio para la escuela que cumpla con el mayor número de requisitos básicos y deseables para el voto electrónico, teniendo en cuenta el factor remoto, es decir, que cumpla - además de con los requisitos del voto electrónico - con requisitos de control, confiabilidad y seguridad que hagan viable el voto a través de Internet.
 	
 	Así pues, el objetivo general del PFC será:
 	
@@ -41,6 +43,7 @@
 		\item Definir un esquema de voto electrónico que soporte la implementación del sistema en base a los requisitos del mismo.
 		\item Especificar el mecanismo y los protocolos para la identificación de votantes en el sistema y la emisión de los votos sin coerción.
 		\item Especificar los mecanismos y protocolos para una segura recepción de los votos, así como un correcto escrutinio y una veraz publicación de resultados.
+		\item Plantear un sistema de voto existente que cumpla con los requisitos del voto electrónico y sea adaptable a las necesidades de los procesos electorales a acometer.
 		\item ...
 		\item ...\todo[inline]{SEGUIR CON LOS OBJETIVOS}
 	\end{enumerate}
@@ -55,6 +58,9 @@
 % 			DESCRIPCIÓN DEL SISTEMA REAL
 % *************************************************************************************************************** %
 \section{Descripción del sistema actual}\label{descripcionSistemaReal}
+	
+	En estos momentos, las elecciones en la Escuela Politécnica Superior se realizan con el método tradicional de voto en urna, sin componentes electrónicos que gestionen el proceso.
+	
 		\subsection{Elecciones a la Junta de Escuela de la EPS}\label{analisisJuntaEPS}
 			\subsubsection{Definición de la Junta de Escuela}\label{definicionJuntaEscuela}
 				Según el documento \textbf{NORMAS DE ORGANIZACIÓN Y FUNCIONAMIENTO DE LA UNIVERSIDAD SAN PABLO-CEU}\cite{normasCEU}, en su Artículo 9, \textit{''Las Facultades, Escuelas y Centros integrados o adscritos son las instancias responsables de la organización de la enseñanza e investigación, de acuerdo con las directrices emanadas de los órganos superiores de la Universidad, y de los procesos académicos, administrativos y de gestión conducentes a la obtención de títulos de carácter oficial y validez en todo el territorio nacional, así como de aquellas otras funciones que determinen las presentes Normas de Organización y Funcionamiento y los restantes reglamentos universitarios.''}
@@ -98,109 +104,11 @@
 		
 		
 		\subsection{Elecciones de delegados y subdelegados de curso en la EPS}\label{analisisDelegadosEPS}
+			\todo[inline]{Si hacemos estas elecciones hay que incluir lo que venga en las Normas de Organización y Funcionamiento}
+			\subsubsection{Proceso electoral}\label{procesoElectoralDelegadosEPS}
+			\todo[inline]{ AQUÍ HACE FALTA ENCONTRAR UN TEXTO LEGAL EXPLICANDO EL PROCEDIMIENTO DE LAS ELECCIONES }
 		
-		
-% *************************************************************************************************************** %
-% 			HELIOS VOTING
-% *************************************************************************************************************** %
-		\section{Helios Voting}\label{planteamiento_HeliosVoting}
-		Tras el estudio de varias soluciones ya implementadas y de una solución diseñada desde cero, he decidido usar un sistema ya desarrollado como base para el diseño de la solución que lleve a cabo el proceso electoral en la Escuela.
-		
-		Los motivos que se han tenido en cuenta para seleccionar un desarrollo de terceros frente a uno propio son los siguientes:
-		\begin{itemize}
-			\item Para mantener la fiabilidad de un sistema de voto por Internet es fundamental una buena base criptográfica y unos protocolos cimentados en sólidos procesos matemáticos. Este concepto tan crucial he preferido delegarlo en el sistema Helios Voting, diseñado Ben Adida \footnote{\url{http://ben.adida.net/}}, doctor en Ingeniería Informática en Criptografía y Seguridad de la Información por el MIT \footnote{\url{http://mit.edu/}} (Massachussetts Institute of Technology). Además, el creador del sistema fue asesorado \footnote{\url{https://vote.heliosvoting.org/about}} directamente por profesionales con muchísima experiencia acreditada en conceptos tales como el voto electrónico y criptografía como pueden ser Lessig, Benaloh \footnote{\url{http://research.microsoft.com/~benaloh/}} o Rivest \footnote{\url{http://people.csail.mit.edu/rivest/}}, entre otros. Con esta carta de presentación, se observa que el nivel de protocolos criptográficos tiene un amplio sustento académico detrás. Igualmente, existen multitud de artículos en los que se presentan, estudian y discuten los protocolos criptográficos del sistema Helios Voting en sus diferentes versiones. Incluso en muchos de estos artículos se ofrecen alternativas a distintos elementos para aumentar la seguridad del sistema o para introducir alternativas a sistemas de voto pero manteniendo la máxima seguridad para que el sistema siga siendo E2E-verifiable.
-			
-			\item Helios es un sistema de voto por Internet basado en desarrollo de código abierto. Está escrito en Python, utilizando Django como framework de desarrollo. Esta filosofía de software libre permite que el código pueda ser reutilizado y modificado para adaptarlo a las necesidades de la Escuela. Además, el lenguaje utilizado es bastante potente y la facilidad de integración con los recursos que provee la Escuela es un punto importante que se ha tenido en cuenta.
-			
-			\item El proyecto Helios Voting está activo. Aunque la frecuencia de actualizaciones en el código o las conversaciones en el grupo de Google del proyecto ha decaído este último año 2015, el proyecto está activo y los desarrolladores implicados. Además, se observa que hay mucha gente interesada en el mismo que realizan forks del código para realizar sus propias modificaciones y/o aportaciones al mismo. Asimismo, proyectos como Ágora Voting nacieron a partir de un fork de Helios Voting, aunque actualmente hayan virado a otros protocolos criptográficos.
-			
-		\end{itemize}	
-		
-		\notasCambio[inline]{No me gusta nada cómo está redactado esto ni me parece que esté en el sitio correcto. Cambiar.}
-
-
-			\subsection{Fases de la elección en Helios}\label{planteamiento_HeliosVoting_Fases}
-				Una elección con el sistema Helios Voting se desarrolla a través de una serie de fases o acciones.
-				
-				
-				\begin{figure}[hp]
-					\centering
-						\includegraphics[width=1\textwidth]{imgs/HeliosFases.jpg}
-					\caption{Fases de una elección en Helios Voting}
-					\label{fig:Helios.Fases}
-				\end{figure}
-				
-				
-				\begin{description}
-					\item[Crear elección]	El primer paso del protocolo de Helios es la creación de la Elección. Corresponde al administrador logarse en el sistema y crear la elección. Para ello, puede poner el nombre y descripción del Proceso, seleccionar si es una elección al uso o un referéndum, si se usan los nombres de los votantes o pseudónimos, si se presentan los nombres de los candidatos a cada votante en orden aleatorio y si la elección es privada para los votantes registrados o abierta a cualquier votante.
-					
-					\item[Preparar la elección] Antes de abrir el proceso de votación hay que preparar la elección. Para ello hay tres elementos que requieren ser inicializados.
-					
-						\begin{description}
-						
-							\item[Preguntas] Helios funciona a base de preguntas al electorado. Con una elección creada, el primer paso debería ser formular dichas preguntas y sus posibles respuestas, así como si es multiselección o de elección simple.
-							\item[Censo de votantes] Es necesario incluir un censo de votantes o permitir una votación abierta. En el caso del censo, Helios permite hacer cargas de ficheros csv con la información del votante (id, email y nombre). También permite que cualquiera pueda emitir un voto.
-							
-							\item [Trustees] En voto electrónico, es necesario tener entidades de las que poder fiarse para el correcto funcionamiento de la elección. Como es complicado que exista una entidad externa que cumpla con los requisitos, esto se emula utilizando varios trustees. Básicamente, los trustees son entidades fiables que es difícil que se puedan poner de acuerdo entre sí para falsear la elección. Estas entidades combinan sus claves públicas y privadas para formar la clave pública y privada de la elección a utilizar en la encriptación de los votos y la desencriptación del resultado del escrutinio. En Helios, el propio sistema es un trustee, suficiente para llevar a cabo los procesos criptográficos en caso de que no se defina ninguna entidad o usuario confiable adicional.
-							
-								\begin{description}
-									\item [Setup key - generate key]
-									\item [Save secret key]
-									\item [Upload public key] (verify private key)
-								\end{description}					
-							
-						\end{description}
-					
-					\item [Congelar papeleta y abrir la elección]
-					
-					\item [Votar]
-					
-					\item [Compute encrypted tally] (close election and compute)
-					
-					\item [Trustees for decryption]
-					
-					\item [Combine trustee decryption and compute results]
-					
-					\item [Difusión de resultados]
-					
-				\end{description}
-			
-			\subsection{Auditorías}\label{planteamiento_HeliosVoting_auditoria}
-				Las auditorías son procesos fundamentales para la fiabilidad de un sistema de voto por Internet. En este caso vamos a introducir aquellas que, usando pruebas de conocimiento nulo (\ref{primitivaPruebasConocimientoNulo}), permiten comprobar el correcto funcionamiento de cada proceso de la elección. 
-			
-				Durante el período de votación, tanto el votante como entidades externas pueden realizar una serie de pruebas o auditorías para confirmar el correcto estado del proceso. Estas auditorías se realizan a distintos niveles dependiendo del actor que desee realizarlas, así los votantes pueden realizar auditorías de correctitud de su voto emitido, mientras que auditores externos no pueden llevar a cabo estas comprobaciones. Sin embargo, tanto los primeros como los segundos pueden realizar una auditoría al escrutinio.
-				
-				La interfaz de usuario de Helios posee una zona dedicada a las pruebas de auditoría. En ellas, según se va avanzando en la Elección, van apareciendo enlaces e instrucciones según se pueden comenzar a realizar pruebas a diferentes elementos del sistema.
-				
-				Las auditorías de procesos que permite Helios Voting durante el proceso de votación:
-				
-				\begin{description}
-					\item [Verificación de la papeleta (antes de votar)]
-					El sistema permite verificar una papeleta cifrada previamente a su sufragio. La papeleta verificada no será la que se utilice para votar y no será, por tanto, contada sino que, por medidas para combatir la coerción, habrá que volver a encriptarla de nuevo cuando se quiera emitir el voto.
-					Una vez el votante está en la cabina de voto virtual y ha encriptado sus opciones de voto, el sistema permite realizar una verificación para asegurarse de que la encriptación de estas ha sido correcta. Para ello, el sistema presenta al votante la información para auditar su papeleta (ballot audit info) \notasInfo{Poner aquí qué significa esta información}. Este texto es el que debe copiar el votante para utilizar en la herramienta de verificación de papeletas. En ésta, se incluye dicho texto y la URL de la elección datos suficientes para realizar la verificación.
-					\notasInfo[inline]{Explicar en qué consiste la verificación}
-					Una vez hemos auditado nuestro voto, tenemos la posibilidad de publicar la papeleta auditada en el \textit{Helios tracking center}, permitiendo a otras entidades realizar una doble comprobación de la verificación de la papeleta.
-					
-					
-					\item [Lista de papeletas auditadas]
-						Como hemos avanzado en el punto anterior, en el momento de realizar la votación, el votante puede realizar una verificación del contenido encriptado de su papeleta. El sistema le permite, una vez realizada la comprobación, publicar esta \textit{papeleta abierta} en un tablón con una lista de papeletas auditadas. En cualquier momento de la elección, cualquier usuario, sea votante o no, puede acceder a esta lista y realizar la misma verificación sobre las papeletas ahí publicadas. Estas papeletas, no obstante, no son las que se han utilizado para emitir el voto, pues ya se ha comentado que una vez el votante la \textit{abre} para su verificación, ha de reencriptar su voto para \textit{meterlo en la urna} definitivamente.
-						
-						
-					\item [Auditoría del escrutinio]
-						Una vez se ha realizado el escrutinio, el sistema permite a los observadores interesados, realizar una prueba para verificar la veracidad del resultado.
-						\notasInfo[inline]{Es necesario comentar en qué consiste la auditoría del tally.}
-						
-						
-				\end{description}
-				
-			\subsection{Protocolo criptográfico}\label{planteamiento_HeliosVoting_protocoloCriptografico}
-				Otra de las piedras angulares en las que se debe basar un sistema de votación por Internet es en su protocolo criptográfico y en las primitivas que utiliza, base para poder argumentar la fiabilidad de los procesos que se realizan.
-				
-				Helios Voting basa su seguridad criptográfica en un protocolo de cifrado homomórfico (\ref{primitivaCifradoHomomorfico}).
-				
-				El voto se encripta en el navegador del cliente utilizando una implementación del algoritmo de ElGamal Exponencial realizada en Javascript. Como se ha explicado en \ref{primitivaCifradoHomomorfico_elgamal}
-			
-
+			\paragraph{Plazos}\label{plazosElectoralesDelegadosEPS}
 
 
 % *************************************************************************************************************** %
@@ -292,11 +200,14 @@
 				\par
 				Podemos asumir, entonces que hay 8 circunscripciones. Por las normas de estas elecciones, para cada circunscripción se eligen 2 representantes que serán los que acaben formando la Junta de Escuela, con 16 cargos electos.
 				\todo[inline]{\\************* CREO QUE ESTÁ MAL. REALMENTE, LOS ALUMNOS SON UNA ÚNICA CIRCUNSCRIPCIÓN: SU CENSO LO FORMAN LOS DELEGADOS Y SUBSELEGADOS DE CADA UNO DE LOS GRUPOS, QUE COMPONEN TAMBIÉN LOS CANDIDATOS. CANDIDATOS = CENSO EN ESTA ''CIRCUNSCRIPCIÓN''}
+				\todo[inline]{¿merece la pena el rollo este de hablar de circunscripciones a nivel nacional?}
 				\par
 				\par
 				La Universidad deberá elaborar un censo con los alumnos y profesores que tienen derecho a votar en las Elecciones, así como definir en qué circunscripción lo harán, para que tengan conocimiento de entre qué candidatos pueden elegir a sus representantes. De cara al sistema, es importante conocer estas divisiones, tanto para el conteo de los votos, como para la gestión de los candidatos en el momento en el que se presentan al votante.
 				\par
 				Por tanto, es necesario tener un sistema que cargue el censo electoral elaborado por la Universidad, así como la definición de las circunscripciones y la relación entre estas y el propio censo de votantes.
+				
+				\notasInfo[inline]{En el análisis debo comentar que el tema de las circunscripciones lo salvamos creando diferentes elecciones, para cada grupo de electores.}
 				
 			\subsubsection{Registro de votantes}\label{fase_electoral_preelectoral_registro}
 				En muchos procesos electorales no existe un censo oficial elaborado por la Autoridad Electoral o alguna otra institución relacionada (como puede ser el INE en España). En ese caso, en multitud de estados se procede a una fase de registro en la cual se permite (en algunos casos, se obliga) a los ciudadanos a que se registren en un listado de votantes. Es el paso previo para poder votar. Una vez finalizada esta fase de registro, la Autoridad Electoral posee un censo \textit{oficial} de votantes.
@@ -363,14 +274,16 @@ Con este planteamiento, parece que el uso del DNIe es una buena idea. Por un lad
 								\item Extranjeros con derecho a voto pueden no tener DNIe, pero deberían poder votar con el pasaporte.
 								\item Certificados caducados. Que los certificados que lleva consigo el DNIe no tengan la misma fecha de caducidad que el propio documento es un punto en contra, ya que los usuarios no lo renuevan al ver que no tienen que hacerlo con el documento físico.
 								\item Rotura del chip que contiene los certificados.
-								\item Limitaciones técnicas para las aplicaciones web. En el estado actual de la tecnología, es necesario hacer uso de un applet de Java para poder firmar con el DNIe. De cara a la identificación, ya hay software Javascript que se salta este paso, aunque no a la hora de firmar, para lo cual, hoy por hoy, no hay alternativa. Este detalle es una limitación importante, quizá no para el oto electrónico, pero sí para el voto universal por Internet, ya que requiere de más tecnología que simplemente un dispositivo conectado a Internet y un lector. Además, el uso de applets está cada vez peor visto en Internet y se recomienda no implementar alternativas basadas en el estándar W3C. Por desgracia, este organismo todavía no tiene definido de una manera versátil cómo afrontar el problema de la criptografía en los nuevos estándares web.
+								\item Limitaciones técnicas para las aplicaciones web. En el estado actual de la tecnología, es necesario hacer uso de un applet de Java para poder firmar con el DNIe. De cara a la identificación, ya hay software Javascript que se salta este paso, aunque no a la hora de firmar, para lo cual, hoy por hoy, no hay alternativa. Este detalle es una limitación importante, quizá no para el voto electrónico, pero sí para el voto ubicuo por Internet, ya que requiere de más tecnología que simplemente un dispositivo conectado a Internet y un lector. Además, el uso de applets está cada vez más limitado en Internet, en desuso, y se recomienda implementar alternativas basadas en el estándar W3C. Por desgracia, este organismo todavía no tiene definido de una manera versátil cómo afrontar el problema de la criptografía con certificados digitales personales en los nuevos estándares web.
 								\item Necesidad de HW externo, como son los lectores de Smartcard. Para poder utilizar el DNIe como identificador, el sistema tiene que poder leer los datos que le indica. Si hacemos uso de los certificados que contiene, necesitamos un lector externo, lo cual quizás no sea un problema si usamos un PC que tenemos en casa, pero sí que puede serlo cuando queremos votar desde otro ordenador o incluso desde un dispositivo móvil, donde ya no es tan simple que tengamos este lector y que sea compatible.
-Cierto es que podríamos hacer uso de la banda MRZ del documento escaneándola pero... \notasDuda{******** no estoy seguro, qué pasa con fotocopias??, yo me fiaría de los certificados} \todo[inline]{...}
+Cierto es que podríamos hacer uso de la banda MRZ del documento escaneándola pero solamente con este dato no se puede mantener un nivel aceptable de seguridad. Por ejemplo, se podría identificar un usuario con una fotocopia de un DNI, lo cual en unas elecciones oficiales en España no está permitido.
 							\end{itemize}
 							
 				A partir de enero de 2015, el Ministerio del Interior de España, a través de la Dirección General de la Policía, ya está proporcionando a los ciudadanos una nueva versión del DNIe, la cual, entre varios avances, posee, junto al chip electrónico, otro chip de radiofrecuencia basado en tecnología NFC.
 				
 				Sin entrar en los posibles problemas de seguridad que implica el uso de chips de radiofrecuencia, se observa interesante este avance en cuanto a una aplicación de voto por Internet. Hoy en día son muchos los dispositivos móviles (smartphones y tablets) que disponen de un lector de chips por NFC, con lo que el inconveniente de necesitar lectores externos para identificación del votante y firma digital del voto ya no existiría. El votante podría votar desde una app instalada en su smartphone sin necesidad de elementos externos, ya que este chip NFC contiene los mismos certificados que el chip por contacto que existía hasta ahora en la primera versión del DNIe.
+				
+				\todo[inline]{Se puede adelantar que sería interesante poder votar en la web desde el móvil en vez de desde la app.}
 				
 				\todo[inline]{Explicar un poco más el nuevo DNIe, ventajas e inconvenientes para el voto por Internet, así como un poco su funcionamiento con los cambios respecto al DNIe 1.0 ------- aunque todo esto va en Estado de la cuestión}
 
@@ -387,7 +300,7 @@ Cierto es que podríamos hacer uso de la banda MRZ del documento escaneándola per
 
 				\end{itemize}
 
-En el caso de las Elecciones a la Junta de Escuela de la EPS, podemos pensar en la primera opción. No obstante, como se explica en próximos capítulos, el hecho de necesitar certificados de firma para cifrar y firmar el voto por seguridad, nos hace que tengamos que plantearnos una solución para este problema. Con una simple identificación de usuario / contraseña no lo vamos a poder resolver, así que se tiene que buscar una alternativa. Sería inteligente tratar de buscar una alternativa que sirva tanto para el paso de votación como para el de identificación, por seguridad, así que podríamos pensar en DNIe. Pero en la Universidad podemos tener miembros del censo que no posean este documento (estropeado, caducado, extranjeros). La forma que tiene la Universidad de acreditar que un alumno forma parte de ella es con un carnet universitario que se entrega tanto a alumnos como a profesionales. Podría ser este documento, el oficial en la Escuela, el que se use como identificador de votante, con lo que estamos hablando de utilizar una smartcard especial, emitida por la propia Autoridad Electoral de forma previa. \notasInfo{Lo que pasa es que me temo que estas tarjetas no tienen certificados, con lo que tampoco van a valer para la votación}.
+En el caso de las Elecciones a la Junta de Escuela de la EPS, podemos pensar en la primera opción. \textst{No obstante, como se explica en próximos capítulos, el hecho de necesitar certificados de firma para cifrar y firmar el voto por seguridad, nos hace que tengamos que plantearnos una solución para este problema.} \notasInfo{Con el nuevo protocolo, esto es MENTIRAA} Con una simple identificación de usuario / contraseña no lo vamos a poder resolver, así que se tiene que buscar una alternativa. Sería inteligente tratar de buscar una alternativa que sirva tanto para el paso de votación como para el de identificación, por seguridad, así que podríamos pensar en DNIe. Pero en la Universidad podemos tener miembros del censo que no posean este documento (estropeado, caducado, extranjeros). La forma que tiene la Universidad de acreditar que un alumno forma parte de ella es con un carnet universitario que se entrega tanto a alumnos como a profesionales. Podría ser este documento, el oficial en la Escuela, el que se use como identificador de votante, con lo que estamos hablando de utilizar una smartcard especial, emitida por la propia Autoridad Electoral de forma previa. \notasInfo{Lo que pasa es que me temo que estas tarjetas no tienen certificados, con lo que tampoco van a valer para la votación}.
 
 			\subsubsection{Votación}\label{fase_electoral_electoral_votacion}
 				\par
@@ -401,7 +314,7 @@ En el caso de las Elecciones a la Junta de Escuela de la EPS, podemos pensar en 
 
 
 		\subsection{Fase postelectoral}\label{fase_electoral_postelectoral}
-		
+		\todo[inline]{Tras el escrutinio, la difusión de resultados y proclamación oficial.}
 			
 		
 % *************************************************************************************************************** %
@@ -440,7 +353,8 @@ En el caso de las Elecciones a la Junta de Escuela de la EPS, podemos pensar en 
 % *************************************************************************************************************** %
 % 			GGGGGGGGGGGGGGGGGGGGGGGGGGGGG
 % *************************************************************************************************************** %
-	\section{ggggggggggggggggggggg}
+	\section{Descripción}
+	\todo[inline]{Este apartado hay que moverlo al Análisis y estructurarlo correctamente.}
 		Tras el estudio de cómo debe ser un sistema de voto por Internet, aparecen cuestiones importantes como puede ser el esquema criptográfico a utilizar, el flujo de procesos, actores intervinientes, fases, problemas asociados al voto electrónico, seguridad, confiabilidad, etc.
 		
 		Teniendo en cuenta estos problemas, se ha valorado el uso de un sistema desarrollado desde cero, adecuado a las necesidades de la Elección de la Junta de Escuela que se quiere realizar. Frente a este escenario, otra opción es la de basarse en alguna herramienta existente y, si es necesario, realizar una adaptación de la misma para cuadrar con los requisitos de este proceso electoral.
@@ -453,7 +367,7 @@ En el caso de las Elecciones a la Junta de Escuela de la EPS, podemos pensar en 
 		
 		Aunque el peso de la criptografía la estamos delegando en el sistema elegido, en este se observan una serie de elementos que no se ajustan a la primera idea sobre el sistema desde cero.
 		
-		El esquema criptográfico utilizado por Helios es homomórfico. En una primera versión apostábamos por un esquema basado en mixnets, análogo al utilizado en el desarrollo del sistema estonio. El uso de una mixnet resultaba bastante interesante al pensar en la identificación del votante con un soporte que posee certificados digitales, como el DNIe, que permitiría identificar al votante y que este pudiese firmar su voto. Así, utilizando un protocolo de firma ciega, podría asegurarse la identificación unívoca del votante, su elegibilidad para votar y si ya ha ejercido su voto con anterioridad. A partir del momento en el que se cierra la votación y comienza el escrutinio, sería muy importante desacoplar el dato del votante del voto emitido, momento en el que entra en juego el esquema de mixnets, ideal para llevar a cabo este proceso de desacoplamiento votante-voto.
+		El esquema criptográfico utilizado por Helios es homomórfico. En una primera versión apostaban por un esquema basado en mixnets, análogo al utilizado en el desarrollo del sistema estonio. El uso de una mixnet resultaba bastante interesante al pensar en la identificación del votante con un soporte que posee certificados digitales, como el DNIe, que permitiría identificar al votante y que este pudiese firmar su voto. Así, utilizando un protocolo de firma ciega, podría asegurarse la identificación unívoca del votante, su elegibilidad para votar y si ya ha ejercido su voto con anterioridad. A partir del momento en el que se cierra la votación y comienza el escrutinio, sería muy importante desacoplar el dato del votante del voto emitido, momento en el que entra en juego el esquema de mixnets, ideal para llevar a cabo este proceso de desacoplamiento votante-voto.
 		
 		Aunque en la primera versión de Helios el esquema utilizado fue el de mixnets, a partir de la siguiente versión se cambió al homomorfismo. El futuro a partir de la versión 3 era implementar ambas soluciones en el sistema, pero al final se decidió no continuar con la integración de la mixnet.
 		

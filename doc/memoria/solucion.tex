@@ -14,26 +14,26 @@
 %*
 
 	%%%%%%%%\subsection{Identificación de riesgos}\label{identificacionRiesgos}
-	
-	\begin{figure}[htbp]
-		\centering
-			\includegraphics[width=1\textwidth]{imgs/sistema.png}
-		\caption{Diagrama de flujo del Sistema}
-		\label{fig:sistema}
-	\end{figure}
-	
-	\begin{figure}[htbp]
-		\centering
-			\includegraphics[width=0.60\textwidth]{imgs/flujoUsuario.jpg}
-		\caption{Esquema del flujo que sigue el votante}
-		\label{fig:flujoUsuario}
-	\end{figure}
-	\begin{figure}[htbp]
-		\centering
-			\includegraphics[width=0.60\textwidth]{imgs/flujoSistema.jpg}
-		\caption{Esquema del flujo del Sistema}
-		\label{fig:flujoSistema}
-	\end{figure}
+	\todo[inline]{He eliminado los diagramas que tenía porque ya no se corresponden con el nuevo sistema.}
+	%\begin{figure}[htbp]
+		%\centering
+			%\includegraphics[width=1\textwidth]{imgs/sistema.png}
+		%\caption{Diagrama de flujo del Sistema}
+		%\label{fig:sistema}
+	%\end{figure}
+	%
+	%\begin{figure}[htbp]
+		%\centering
+			%\includegraphics[width=0.60\textwidth]{imgs/flujoUsuario.jpg}
+		%\caption{Esquema del flujo que sigue el votante}
+		%\label{fig:flujoUsuario}
+	%\end{figure}
+	%\begin{figure}[htbp]
+		%\centering
+			%\includegraphics[width=0.60\textwidth]{imgs/flujoSistema.jpg}
+		%\caption{Esquema del flujo del Sistema}
+		%\label{fig:flujoSistema}
+	%\end{figure}
 	
 		
 		\section{Diseño}\label{diseño}
@@ -96,7 +96,7 @@
 				
 				
 				
-				
+				\todo[inline]{Desde aquí hasta el comienzo de \ref{solucion_protocolo} hay que moverlo a Análisis.}
 				En varios de los sistemas estudiados que se han desarrollado para intentar implantar el voto electrónico a un nivel medio, como pueden ser los mexicanos SELES \ref{seles} y SEVI \ref{sevi} o los españoles de Víctor Moreno \cite{moreno07} \notasDuda{???????}o Votescript \ref{ivotingVotescript}\notasDuda{???????} se observa que se realiza una división del proceso electoral en cuatro fases (Registro, Votación, Consolidación de resultados y Auditoría). En el desarrollo de este sistema vamos a identificar las mismas fases, pero con matices.
 				
 				Así, en una primera visión global del sistema, en este se definen cuatro fases:
@@ -120,18 +120,20 @@
 			\todo[inline]{Antes de este punto hay que hacer un resumen de los diferentes esquemas de votación, teniendo estos como Firma ciega, mixnets, etc...}
 
 			\subsection{Protocolo}\label{solucion_protocolo}
+			\textst{
 				Como se ha comentado en capítulos anteriores, hay una multitud de soluciones propuestas para el voto telemático.
 				
 				Teniendo en cuenta el objetivo de este Proyecto Fin de Carrera, de los sistemas implementados a gran escala, a nivel nacional o regional, podemos destacar Estonia, Noruega y los cantones suizos como las tres experiencias más exitosas y aquellas de las que se pueden estudiar las soluciones, esquemas y protocolos utilizados. No obstante, el alcance de las mismas supera sobremanera el de este proyecto. Igualmente, muchas decisiones las toman en base a satisfacer requisitos que resultan muy importantes en su análisis, pero que en este trabajo no se ha considerado que tengan igual trascendencia, y viceversa, por lo que se han de tomar diferentes consideraciones frente a los mismos problemas dependiendo del impacto que suponen en cada proyecto.
-				
+				}
 				También se han presentado casos de proyectos de voto telemático pensados a menor escala. Entre ellos, hay muchas soluciones que, en parte, podrían satisfacer los requisitos de este proyecto. No obstante en ninguno de ellos encontramos un protocolo que se adapte completamente a los requerimientos planteados, ya que, en algún momento, se analiza un elemento que los hace diferir. Por ejemplo, un proyecto ya maduro como Votescript (\ref{ivotingVotescript}) realiza un estudio académico y técnico muy profundo acerca del voto telemático pero, por su propia definición, el modelo de identificación y emisión del voto lo sitúan físicamente en centros de votación. Este elemento es diferencial para este proyecto, pensado en el voto telemático remoto, aunque puede integrarse cuando se estudian alternativas para que aquellos votantes que, por algún motivo, no pueden o quieren votar por Internet de forma remota tengan la oportunidad de ejercer su derecho de sufragio desde un lugar habilitado para ello por la propia Escuela.
-				
+				\textst{
 				A partir de los esquemas criptográficos estudiados y con ayuda de algunos protocolos ya publicados en otros proyectos, el siguiente paso es diseñar el protocolo de votación que se adapte a las necesidades del Proyecto, cumpliendo con los requisitos y asegurando los niveles de seguridad planteados.
 				
 				En muchas de las soluciones estudiadas se observa que no recibe la importancia necesaria la fase de identificación del votante. Los mecanismos de identificación y autenticación del mismo resultan laxos desde el punto de vista de la seguridad ante el fraude electoral. Por ello han sido descartadas las soluciones basadas en identificación por medio de bases de datos con el típico protocolo de usuario/contraseña o incluso con elementos de seguridad de una generación algo posterior, como pin, patrones, captchas, operaciones aritméticas o métodos similares con mayor o menor complejidad. Igualmente, se han descartado aquellos métodos de identificación que requieran la presencia física del votante frente a los responsables de la mesa de votación, ya que se busca el diseño de un sistema remoto. Así descartamos protocolos de identificación como los publicados por Votescript, en el que el votante acude a un centro o local de votación, se identifica ante la mesa electoral y recibe un token criptográfico personalizado con el que se le permite ejercer el sufragio.
 				
 				La mayoría de las soluciones estudiadas previamente a la realización de esta memoria centran sus esfuerzos en la fase de votación. Buscan la elaboración de un protocolo robusto, basado en esquemas criptográficos, que permita la mayor seguridad posible al cumplimiento de los requisitos fundamentales del voto electrónico, dotando al sistema de privacidad del votante, 
-				\todo[inline]{Continuar protocolos}
+			}
+				\todo[inline]{Hay que modificarlo. Es anterior a la decisión de utilizar Helios}
 				
 				
 				
@@ -146,16 +148,17 @@
 				
 				
 				
-				\subsubsection{Descripción del sistema}\label{solucion_descripcion}
-				El sistema contará de cinco fases, determinadas por el flujo temporal de la votación.
-				Preelectoral, Identificación, Votación, Escrutinio y publicación de resultados.
-				Adicionalmente, se tendrá en cuenta un sistema de auditoría, de carácter transversal a este flujo, ya que debe estar disponible durante todo el proceso de votación.
-				
-				\todo[inline]{No he podido conseguir reglamentación oficial de la elección, así que, básicamente, propongo yo las fases y la problemática ... esto, con palabras aquí escrito y bien puesto }
-				
+				%\subsubsection{Descripción del sistema}\label{solucion_descripcion}
+				%El sistema contará de cinco fases, determinadas por el flujo temporal de la votación.
+				%Preelectoral, Identificación, Votación, Escrutinio y publicación de resultados.
+				%Adicionalmente, se tendrá en cuenta un sistema de auditoría, de carácter transversal a este flujo, ya que debe estar disponible durante todo el proceso de votación.
+				%
+				%\todo[inline]{No he podido conseguir reglamentación oficial de la elección, así que, básicamente, propongo yo las fases y la problemática ... esto, con palabras aquí escrito y bien puesto }
+				%
 				
 				
 				\section{ESTO ES EL PFC}
+				\todo[inline]{ESTO NO VA EN EL PFC, ES UNA EXPLICACIÓN PARA TENER PRESENTE QUÉ ES EL PFC YU PODER DESARROLLAR LA MEMORIA EN TORNO A LA IDEA QUE TENEMOS.}
 				El sistema que se propone en este PFC es un sistema integral. Busca sostener el proceso electoral desde el comienzo hasta el final del mismo. Por ello empieza en el momento mismo de definición del censo y no termina hasta que la publicación de resultados y su auditoría son oficializadas por el órgano rector de la Elección.
 				
 				La primera fase, preelectoral, es aquella previa al día electoral, en la cual se definen las bases en las que se rige el proceso electoral.
@@ -212,7 +215,7 @@
 				
 				Una vez constituido el voto (papeleta), hay que proceder a la votación digital. Para ello nos basamos en cifrado y firma ciega. Así, el primer paso es que la app utiliza la clave pública de la Entidad Electoral para cifrar el voto. Con el voto cifrado, el votante ha de firmarlo. La firma se realiza con el certificado de Firma que posee el DNIe. Así, el votante firma un conjunto de [voto cifrado + votante], que es el paquete que se pasará al subsistema de gestión del voto.
 				
-				Una vez el votante ha emitido el voto, el sistema le devuelve un resguardo (código QR como en Estonia, un código alfanumérico, no sé todavía) con el cual puede verificar que el voto ha sido correctamente incluído en el sistema. Además, podrá verificar que el voto ha sido correctamente incluído en el escrutinio. \notasCambio[inline]{(No sé si con este resguardo debe poder llegar a la opción de voto elegida, todo depende de cómo tomemos el requisito de coerción y qué es lo que menos le afecta)}
+				Una vez el votante ha emitido el voto, el sistema le devuelve un resguardo (código QR como en Estonia, un código alfanumérico, no sé todavía) con el cual puede verificar que el voto ha sido correctamente incluido en el sistema. Además, podrá verificar que el voto ha sido correctamente incluido en el escrutinio. \notasCambio[inline]{(No sé si con este resguardo debe poder llegar a la opción de voto elegida, todo depende de cómo tomemos el requisito de coerción y qué es lo que menos le afecta)}
 				
 				El votante puede votar tantas veces como desee cambiar su voto \notasInfo{Así disminuimos el riesgo de coerción}. Para ello, hay un protocolo por el cual cuando un votante emite su voto, todos los anteriores son anulados. \todo[inline]{Hay que definir el protocolo para la anulación de votos por 'revoto'}
 				
