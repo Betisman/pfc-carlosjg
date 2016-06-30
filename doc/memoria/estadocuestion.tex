@@ -519,7 +519,7 @@ los diálogos del sistema.
 			
 			Para que estas elecciones a través de Internet pudiesen llevarse a cabo la Universidad San Pablo-CEU tuvo que adaptar su normativa de régimen interno, pues la que tenía originalmente establecía únicamente la posibilidad de un sistema de voto presencial.
 			
-			
+			\subsection{Universidad de Lovaina}\label{ivotingUniversidadLovaina}
 				
 			\subsection{Votescript}\label{ivotingVotescript}
 			\todo[inline]{Votescript es voto electrónico remoto por medio de locales de votación. Está bien que expliquemos cómo se implementa la parte telemática, que es lo que afecta al PFC.}
@@ -605,7 +605,7 @@ los diálogos del sistema.
 			
 			
 				\subsection{ADDER}\label{estadocuestion_adder}
-					\textsc{Adder} \cite{conf/acsac/KiayiasKW06} se define como un sistema de voto electrónico basado en Internet, libre y de código abierto. Desarrollado por la Universidad de Connecticut (EEUU) en 2006, supone una plataforma de eVoting completamente funcional con una serie de características de seguridad como robustez, privacidad del voto, auditabilidad y verificabilidad.
+					\textsc{Adder} \cite{conf_acsac_KiayiasKW06} se define como un sistema de voto electrónico basado en Internet, libre y de código abierto. Desarrollado por la Universidad de Connecticut (EEUU) en 2006, supone una plataforma de eVoting completamente funcional con una serie de características de seguridad como robustez, privacidad del voto, auditabilidad y verificabilidad.
 					
 					Los desarrolladores de \textsc{ADDER} dividen el voto por Internet en 3 escenarios:
 					\begin{description}
@@ -619,7 +619,7 @@ los diálogos del sistema.
 					\begin{figure}[h]
 						\centering
 							\includegraphics[width=\textwidth]{imgs/ADDER_diagrama_secuencia.png}
-						\caption{Diagrama de secuencia del procedimiento para una elección con ADDER \cite{conf/acsac/KiayiasKW06}.}
+						\caption{Diagrama de secuencia del procedimiento para una elección con ADDER \cite{conf_acsac_KiayiasKW06}.}
 						\label{fig:ADDER_diagrama_secuencia}
 					\end{figure}
 					
@@ -770,7 +770,66 @@ los diálogos del sistema.
 			
 		
 			
-			
+			\subsection{Comparación Ágora - Helios}\label{comparativaAgoraVoting}
+				En la tesis de Codina Lligoña \cite{Codina:tesis}, el autor realiza un estudio de diversos sistemas de votación, entre ellos Ágoa Voting (en su versión agora-ciudadana 2.0) y Helios 4.
+				
+				Entre las múltiples características que valora, recoge información acerca de la interfaz, licencia, requisitos de voto electrónico, antecedentes y comunidad de soporte del proyecto.
+				
+				Los resultados de la comparativa los resume en la siguiente tabla:
+				
+				\begin{table}[htbp]
+				\centering
+					%\begin{tabular}{0.75\textwidth}@{\extracolsep{\fill}}|l|l|m{3cm}| m{3cm}|}
+					%\begin{tabular*}{0.95\textwidth}{@{\extracolsep{\fill}}|l|l|rm{2cm}|rm{1cm}|}
+					\begin{tabular*}{0.95\textwidth}{@{\extracolsep{\fill}}|l|r|r|}
+						\hline
+%							\textbf{Elección} & \textbf{Tipo} & \textbf{Votantes por internet} & \textbf{\% sobre total votantes} \\
+							\textbf{Criterio} & \textbf{agora-ciudadana 2.0} & \textbf{Helios 4} \\
+						\hline
+							Especificaciones IMI 			& 2			& 2 	\\
+						\hline		
+							Interfaces 								& 2			& 2 	\\
+						\hline		
+							Licencia 									& 2			& 2 	\\
+						\hline		
+							Redes Sociales 						& 2			& 2 	\\
+						\hline
+							e-Voting (Seguridad) 			& 1,04	& 1,46 		\\
+						\hline
+							Elegibility 							& 1,75	& 1,5 	 \\
+						\hline
+							Democracy 								& 0,33 	& 0,33  \\
+						\hline	
+							Privacy 									& 0,85 	& 1,92  \\
+						\hline	
+							Verifiability 						& 0,54 	& 1,54  \\
+						\hline
+							Fairness 									& 1,33	& 1,4		\\
+						\hline
+							Robustness 								& 0,67 	& 1,67		\\
+						\hline
+							Coercion-Resistance 			& 1 		& 1		\\
+						\hline		
+							Receipt-Freeness 					& 2 		& 2		\\
+						\hline
+							Correctness 							& 0,88 	& 1,75		\\
+						\hline
+							Métdos de votación 				& 2 		& 2		\\
+						\hline
+							Desarrollo 								& 1,75 	& 1,38		\\
+						\hline	
+							Antecedentes del proyecto & 1,75 	& 1,75		\\
+						\hline
+							Actividad del proyecto 		& 2 		& 1,75		\\
+						\hline
+							Gobierno del proyecto 		& 1,5 	& 1,25		\\
+						\hline
+							Nivel de industrialización del proyecto & 1,75 & 0,75		\\
+						\hline
+					\end{tabular*}
+				\caption{Comparativa Ágora - Helios, por Codina Lligoña \cite{Codina:tesis}}
+				\label{tab:tablaComparativaAgoraHelios}
+			\end{table}
 			
 			
 			% *************************************************************************************************************** %
