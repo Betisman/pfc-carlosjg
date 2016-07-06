@@ -476,3 +476,104 @@ pantallas a las que tienen acceso los diferentes roles de usuario y la conexión 
 			
 
 	
+	
+	Una vez visto el sistema sobre el que basar los procesos electorales que hemos de llevar a cabo en la EPS, es el momento de implementar modificaciones en el mismo.
+	En primer lugar, el cambio más importante es el que se refiere a la identificación de votantes.
+	En Helios, de forma nativa, los sistemas que permiten la entrada de votantes al sistema son usuario/password y una serie de servicios oAuth de terceros, incluyendo Facebook, Twitter, Google y Yahoo!. Existe una modificación especial para las elecciones de la Universidad de Lovaina en la que se implementó un sistema CAS contra la base de datos de alumnos de la Universidad. Con este sistema, los usuarios se podían logar en el sistema con la identificación de la Universidad y contra un servicio que ésta brindaba, es decir, que el control de entrada de usuarios se delegaba en la Universidad y se 
+	
+	
+	
+	
+	
+	
+	
+	
+	La primera idea para integrar el DNIe en el sistema Helios consistía en realizar un acceso seguro, por SSL, que requiriese autenticación por el DNIe, del mismo modo que la mayoría de las webs de la Administración pública.
+	Para llegar a esta implementación, era necesario modificar el sistema de login de Helios, así como el servidor sobre el que corre.
+	Hubo que configurar el servidor para que éste requiriese el establecimiento de un canal seguro SSL a través de los certificados del DNIe. Para ello, hay que modificar la configuración del servidor Apache sobre el que corremos el proyecto Django sobre el que se implementa Helios Voting.
+	Una vez configurado el canal HTTPS, había que implementar un módulo de login que pidiese al usuario el DNIe. Para esto existe un applet de java que proporciona la Dirección General de la Policía que cumple con el cometido. 
+	Con estas implementaciones somos capaces de que un usuario intente acceder al sistema de votación, este le pedirá las credenciales del DNIe para validarlas y establecer un canal SSL seguro con el servidor. A través del canal seguro establecido, el applet presenta las credenciales del usuario por medio del certificado privado del DNIe, previa consulta al usuario del PIN correspondiente. Con las credenciales que recibe el sistema de login, se le puede conceder o denegar acceso al usuario identificado
+	
+	
+	
+	
+	
+	
+	El Ministerio del Interior de España \footnote{\url{http://www.interior.gob.es/}}, a través de la Dirección General de la Policía, es el órgano encargado de la gestión y desarrollo del DNI electrónico\footnote{\url{http://www.dnielectronico.es/PortalDNIe/}}. Por tanto, además de ser los responsables del control y la emisión de estas credenciales, son los responsables de desarrollar las APIs y documentación para que los desarrolladores puedan utilizar los certificados digitales que llevan en aplicaciones o servicios prestados por terceros.
+	En el caso del DNIe 3.0, en el área de descargas\footnote{\url{http://www.dnielectronico.es/PortalDNIe/PRF1_Cons02.action?pag=REF_1120}} de la web de la DGP han publicado el código fuente de tres aplicaciones Android y su respectiva documentación para dar una muestra de cómo implementar apps que hagan uso del certificado NFC que trae como novedad este documento.
+	Estas tres aplicaciones compartidas se centran en las tres funcionalidades que aporta este chip:
+		\begin{description}
+			\item[Aplicación Android de Lectura:] Código fuente de una aplicación que permite a un dispositivo Android con un sensor NFC el leer los datos públicos del chip NFC del DNI electrónico.
+			\item[Aplicación Android Autenticación:] Código fuente de una aplicación que permite a través de un dispositivo Android el poder autenticarse contra un servidor con las credenciales digitales que integra el chip NFC en el DNI electrónico.
+			\item[Aplicación Adroid Firma:] Código fuente de una aplicación que permite la firma de documentos u otro tipo de objetos digitales con el certificado digital personal privado que ofrece el DNIe a través de software en dispositivos Android gracias a la tecnología sin contacto NFC.
+		\end{description}
+		
+		El sistema Helios Voting permite votar en unas elecciones desde un navegador web. El objetivo es que también podamos hacerlo desde un smartphone a través de una app que nos permita votar desde cualquier punto con conexión a Internet, por lo que hay que valorar la mejor opción para ello.
+		La primera opción es utilizar, como desde un PC, un navegador web.
+		Una primera prueba que se realizó fue tratar de autenticarse en una web a través del DNIe.
+		Al entrar en la Sede Electrónica de la Agencia Tributaria, para consultar los expedientes es necesario facilitar certificados digitales para poder ser identificado y autenticado contra el sistema. Al intentar abrir la página, Google Chrome nos muestra un aviso \todo[inline]{Captura de pantalla del móvil donde pide los certificados} en el que nos indica que no se han encontrado los certificados. Incluso nos ofrece la posibilidad de instalarlos. Podríamos dirigirnos a la web de la FNMT\footnote{\url{https://www.sede.fnmt.gob.es/certificados/persona-fisica/obtener-certificado-software}} y gestionar la emisión de un certificado digital, que podríamos descargar y utilizar como identificación digital de la misma forma que lo podemos hacer con el DNIe. De todos modos, la obtención de este certificado por parte de la FNMT requiere de un paso en el que el usuario ha de personarse físicamente en una Oficina de Registro para acreditar su identidad. Con este certificado instalado en el almacén de certificados de Chrome se podría gestionar la identificación contra la web a la que tratamos de acceder, pero hemos decidido no continuar por este camino porque es necesario realizar trámites extras que no consideramos necesarios frente a la facilidad de obtener el DNIe.
+		
+		Implementando algún tipo de soporte de autenticación por DNIe en Helios y tratando de acceder desde el móvil a través del navegador, nos encontraríamos este problema. Chrome, o el navegador que utilicemos, no tiene los certificados digitales cargados en su almacén de certificados.
+		
+		
+		----
+		Otro camino de investigación se basa en la app de Autenticación publicada por el Ministerio del Interior a través de la Policía.
+		En esta, implementan un ejemplo a través del cual se pueden realizar varios trámites de consultas contra la web del Ayuntamiento de Madrid. Concretamente, permite las consultas:
+		\begin{itemize}
+			\item Tributos
+			\item Gestión de multas
+			\item Datos censales
+			\item Expedientes
+		\end{itemize}
+		
+		El funcionamiento es sencillo. Una vez se abre la app, aparece un menú con las gestiones que se pueden realizar. 
+		Por ejemplo, pulsamos sobre Consulta de los datos censales. 
+		La siguiente pantalla que nos aparece es una en la que se nos requiere que introduzcamos el CAN (Card Access Number) que podemos ver en el anverso del DNIe físico en la zona inferior derecha. Este identificador es un número de 6 dígitos que se utiliza para establecer un canal cifrado PACE entre el DNIe y el dispositivo. Como indica la documentación proporcionada por los desarrolladores el canal PACE (Password Authenticated Connection Establishment) es obligatorio para establecer esta conexión cifrada, pero en ningún caso reemplaza al código PIN de acceso a los certificados ni da permisos de uso de las claves de firma y/o autenticación del ciudadano. Se trata de una medida de seguridad extra para evitar que un tercero pueda realizar lecturas de datos públicos sin conocimiento del dueño del DNI.
+		En caso de haber introducido previamente el código CAN en la app, éste se puede visualizar en un listado seleccionable para que no haga falta que el usuario tenga que introducirlo cada vez que quiera utilizar los certificados.
+		Una vez introducido el CAN, la siguiente pantalla nos pide que acerquemos el DNIe 3.0 al dispositivo.
+		Es en este momento cuando se produce la comunicación entre dispositivo y el chip de radiofrecuencia, permitiendo el paso de respuestas y comandos entre ambos.
+		Una vez se realizan las operaciones básicas de lectura de certificados, la app solicita el PIN del DNIe al usuario. Con este PIN, se autentica al usuario contra el DNIe y concede permisos de acceso a las claves. A partir de este momento, todas las comunicaciones entre DNIe y dispositivo van cifradas. \todo[inline]{Falta el tipo de cifrado, que en la documentación no aparece}
+		El usuario puede a partir de aquí realizar las operaciones que requieren sus claves, como puede ser la firma de documentos o, la que buscamos para el sistema Helios, establecer una conexión segura con el servidor prestador de servicios, entre otras.
+		
+		Siguiendo con la app de ejemplo, a continuación nos conecta con el servicio de datos censales del Ayuntamiento de Madrid y nos muestra nuestros datos censales en caso de una conexión correcta.
+		
+		En principio es una muy buena opción para implementar para el sistema de votación. Permite establecer un canal seguro con una autenticación fiable a través de los certificados del DNIe. 
+		Al final lo que obtenemos es la web empotrada dentro de un WebView creado por la aplicación.
+		Después multitud de pruebas y de bucear en foros sobre seguridad digital, certificados digitales, DNIe y Adroid, resultó que haber un problema bastante importante con esta aproximación.
+		Partamos de la base de la correcta configuración del servidor y login a través de certificados del DNIe. La prueba de la correcta configuración residía en que era posible acceder al servicio, e incluso llegar a emitir un voto, utilizando el DNIe (tanto 2.0 como 3.0) en un PC, utilizando el chip de contacto y utilizando un navegador como el Mozilla Firefox.
+		Demostrado que era factible esta arquitectura, se intentó desde una versión modificada de la app original de la Policía. En ella, se ajustó el certificado que espera el servidor, así como el link al que tiene que dirigirse tras el login.
+		Al realizar las pruebas, se observaba que era posible logarse en el sistema, la app incluso lo mostraba por pantalla en el WebView anteriormente citado. Pero el problema es que realmente la lógica de la app de la Policía no funciona como la de un navegador al uso.
+		El funcionamiento es el de peticiones simples estilo REST. Es decir, establece la conexión con el servidor autenticándose con los certificados del DNIe y realizando una llamada a una URL concreta. Esta le devuelve la información requerida y la app construye un WebView y \textit{pinta} el HTML recibido en el WebView.
+		Esto, para las fuciones de la aplicación de ejemplo cumple con su cometido, pero en nuestro caso no es así, pues si la página que devuelve el servidor contiene links (que tendrá que ser así para poder interactuar con la web) la gestión de los certificados no se mantienen. En este caso, no podemos navegar con la conexión HTTPS establecida. 
+		El elemento WebView de Android todavía no es capaz de soportar este tipo de funcionamiento. No es posible, en la primera conexión con el DNIe almacenar las claves en el almacén del navegador para poder reutilizarlas en siguientes peticiones.
+		
+		
+		Ante este problema, no es posible continuar con la forma de trabajar de la app de la Policía.
+		
+		La opción que se plantea es más radical. Plantear la web del sistema como un servicio REST. Helios funciona casi en su mayoría tratando mensajes JSON como paso de información entre sus distintas fases, por lo que se podría modificar el frontend para responder a peticiones REST. Con este nuevo enfoque, se podría implementar una app Android nativa que tuviese todas las opciones que aparecen en la web y que para su funcionamiento realizara peticiones a la web. La información que recuperaría, en lugar de ser HTML que muestra en un WebView embebido, como ocurre en la app de la Policía, serían objetos JSON con la información requerida. Obviamente, para cada llamada habría que reutilizar la técnica que se ha descrito en el paso anterior, por la cual se puede realizar una llamada HTTP acoplando las claves del certificado para autenticarse contra el servidor. 
+		El problema de esta solución es que pasamos de un sistema web ya existente a una implementación del sistema para Android, junto con la reimplementación de la web para que soporte tanto votación navegando por ella como por llamadas REST.
+		Además, Helios realiza el cifrado de los votos con un módulo de Javascript, delegando en el cliente la carga de las operaciones criptográficas. Esta propuesta requiere también reescribir los módulos criptográficos en Java, con el aumento del riesgo y ala necesidad de pruebas intensivas para asegurar el correcto funcionamiento de un módulo que ya está implementado y probado.
+		Quizá es el futuro a seguir por el sistema, pero requiere tiempo y recursos no planificados. 
+		
+		
+		En la búsqueda de una solución que no comprometiese la viabilidad del proyecto, se pensó en una intermedia a las anteriores.
+		Las llamadas a Helios, por lo comprobado, teniendo que mantener el canal HTTPS cifrado con el DNIe, deben ser contra un servicio que tenemos que \textit{repintar} en un WebView y que, en caso de querer navegar una vez establecida la conexión, hay que volver a realizar la llamada con los certificados y volver a crear el WebView. Es decir, que no es la navegación natural que se busca. Tampoco es viable implementar una app de voto, ya que teniendo la web se podría reutilizar esta desde el móvil.
+		
+		Entonces, aparece el concepto de autenticación delegada. Los desarrolladores de Helios han implementado módulos de oAuth para ingresar al sistema autenticándose con sus cuentas de Facebook, Google o Yahoo!, o un módulo CAS para hacer lo propio con las credenciales de la Universidad de Lovaina. Del mismo modo, se podría implementar un sistema de autenticación delegada basado en el DNIe.
+		La idea sería la de tener dos servidores diferenciados. Por un lado el del sistema de votación y por otro el servidor de autenticación.
+		El usuario, al intentar entrar en el sistema de votación es redirigido al de autenticación. Contra este ha de identificarse el usuario con el DNIe. Si la autenticación es correcta, el servicio de autenticación otorgará permisos de acceso al usuario en el servicio de votación y será redirigido de nuevo a este. A partir de este momento, el usuario, con permisos de accesos, podrá operar en el sistema de votación autenticado de forma segura.
+		Con este planteamiento, para votar desde el móvil o desde el PC no tiene mucha diferencia. En ambos casos se accede desde el navegador a la página principal de la Elección. Aquí se pulsa el enlace de autenticación por DNIe. La diferencia principal se observa en este momento:
+		\begin{description}
+			\item[PC:] Desde el PC, el usuario será redirigido al servicio de autenticación y, si el PC tiene correctamente configurados los drivers del DNIe, aparecerá un applet a través del cual se le solicita que introduzca el documento en el lector y, posteriormente, la clave.
+			\item[Smartphone:] Por su parte, desde Android, el enlace de login en vez de redirigir a otra web, lanzará un \textit{intent} de Android en con el que se abre una aplicación Android (si no está instalada, se redirige a la web o \textit{market} desde la cual puede instalarse). Con esta aplicación se realizan las llamadas necesarias al servicio de autenticación y se accede a los certificados del DNIe a través del protocolo NFC. Una vez que el servicio de autenticación gestiona entre el dispositivo y el servidor de votación la validez del usuario, la aplicación se cierra y devuelve al usuario al navegador pero ya logado en el sistema y con una conexión HTTPS segura.
+		\end{description}
+	
+		A partir de este momento, tanto en PC como en Smartphone, el usuario estaría ya logado con seguridad en el sistema y podría comenzar a operar 
+	con el sistema de votación.
+		
+		
+		
+		
+		
+		
+		
