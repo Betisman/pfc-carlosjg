@@ -406,7 +406,9 @@ pantallas a las que tienen acceso los diferentes roles de usuario y la conexión 
 				
 				
 				\begin{description}
-					\item[Crear elección]	El primer paso del protocolo de Helios es la creación de la Elección. Corresponde al administrador logarse en el sistema y crear la elección. Para ello, puede poner el nombre y descripción del Proceso, seleccionar si es una elección al uso o un referéndum, si se usan los nombres de los votantes o pseudónimos, si se presentan los nombres de los candidatos a cada votante en orden aleatorio y si la elección es privada para los votantes registrados o abierta a cualquier votante.
+					\item[Identificación usuario / login] El primer paso del protocolo es la identificación del usuario para ingresar al sistema. Helios propone varios tipos de servicios de login. Desde el basado en usuario/contraseña contra base de datos, hasta los que utilizan servicios oAuth contra servidores de autenticación de terceros, como Facebook, Google o Yahoo!.
+					
+					\item[Crear elección]	El primer paso funcional es la creación de la Elección. Corresponde al administrador crear la elección. Para ello, puede poner el nombre y descripción del Proceso, seleccionar si es una elección al uso o un referéndum, si se usan los nombres de los votantes o pseudónimos, si se presentan los nombres de los candidatos a cada votante en orden aleatorio y si la elección es privada para los votantes registrados o abierta a cualquier votante.
 					
 					\item[Preparar la elección] Antes de abrir el proceso de votación hay que preparar la elección. Para ello hay tres elementos que requieren ser inicializados.
 					
@@ -419,7 +421,7 @@ pantallas a las que tienen acceso los diferentes roles de usuario y la conexión 
 							
 								\begin{description}
 									\item [Setup key - generate key]
-									\item [Save secret key]
+									\item [Save secret key] 
 									\item [Upload public key] (verify private key)
 								\end{description}					
 							
@@ -476,7 +478,7 @@ pantallas a las que tienen acceso los diferentes roles de usuario y la conexión 
 			
 
 	
-	
+	\subsection{Identificación}\label{analisis_idetificacion}
 	Una vez visto el sistema sobre el que basar los procesos electorales que hemos de llevar a cabo en la EPS, es el momento de implementar modificaciones en el mismo.
 	En primer lugar, el cambio más importante es el que se refiere a la identificación de votantes.
 	En Helios, de forma nativa, los sistemas que permiten la entrada de votantes al sistema son usuario/password y una serie de servicios oAuth de terceros, incluyendo Facebook, Twitter, Google y Yahoo!. Existe una modificación especial para las elecciones de la Universidad de Lovaina en la que se implementó un sistema CAS contra la base de datos de alumnos de la Universidad. Con este sistema, los usuarios se podían logar en el sistema con la identificación de la Universidad y contra un servicio que ésta brindaba, es decir, que el control de entrada de usuarios se delegaba en la Universidad y se 
@@ -539,7 +541,7 @@ pantallas a las que tienen acceso los diferentes roles de usuario y la conexión 
 		
 		En principio es una muy buena opción para implementar para el sistema de votación. Permite establecer un canal seguro con una autenticación fiable a través de los certificados del DNIe. 
 		Al final lo que obtenemos es la web empotrada dentro de un WebView creado por la aplicación.
-		Después multitud de pruebas y de bucear en foros sobre seguridad digital, certificados digitales, DNIe y Adroid, resultó que haber un problema bastante importante con esta aproximación.
+		Después multitud de pruebas y de bucear en foros sobre seguridad digital, certificados digitales, DNIe y Adroid, resultó haber un problema bastante importante con esta aproximación.
 		Partamos de la base de la correcta configuración del servidor y login a través de certificados del DNIe. La prueba de la correcta configuración residía en que era posible acceder al servicio, e incluso llegar a emitir un voto, utilizando el DNIe (tanto 2.0 como 3.0) en un PC, utilizando el chip de contacto y utilizando un navegador como el Mozilla Firefox.
 		Demostrado que era factible esta arquitectura, se intentó desde una versión modificada de la app original de la Policía. En ella, se ajustó el certificado que espera el servidor, así como el link al que tiene que dirigirse tras el login.
 		Al realizar las pruebas, se observaba que era posible logarse en el sistema, la app incluso lo mostraba por pantalla en el WebView anteriormente citado. Pero el problema es que realmente la lógica de la app de la Policía no funciona como la de un navegador al uso.
@@ -570,10 +572,36 @@ pantallas a las que tienen acceso los diferentes roles de usuario y la conexión 
 	
 		A partir de este momento, tanto en PC como en Smartphone, el usuario estaría ya logado con seguridad en el sistema y podría comenzar a operar 
 	con el sistema de votación.
+	
+	
+	
 		
 		
-		
-		
-		
-		
-		
+		\subsection{Adaptación a dispositivos}\label{analisis_adaptacion_dispositivos}
+		Helios es un sistema que se comenzó a desarrollar alrededor de 2008. En aquel momento, el boom de los dispositivos móviles no estaba en un punto tan álgido como en los últimos años. El desarrollo se dirigió, por tanto, al mundo de la web del momento, centrada en los dispositivos con pantallas de cierto tamaño.
+			
+			Un vistazo a la web estándar de Helios Voting\url{http://www.heliosvoting.com} muestra que es responsive en cierta medida. Da la sensación de serlo, aunque realmente no erstá diseñada para serlo.
+			
+			Los textos se observan muy apelmazados y ajustados a los bordes de la pantalla de un dispositivo del tamaño de un smartphone.
+			Más aún, si accedemos a la urna virtual, ya sea para votar o para auditar un voto, se puede ver cómo la web pierde su resolución y deja de ser responsive, con la consecuente dificultad de navegación.
+			
+			Con el objetivo del voto por internet en el horizonte, esta incapacidad de adaptar la web a dispositivos portátiles pasa a ser un detalle a tener muy en cuenta. Lo ideal es que la web del sistema al completo sea responsive, además sería muy valorable que cumpliese los estándares que marca el consorcio W3C, así como el mayor número posible de reglas de accesibilidad sin comprometer la funcionalidad ni la simplicidad de interacción con el usuario.
+			
+			Para ello, se puede introducir una serie de librerías que faciliten la transformación de la web para ser adaptada a la visualización desde pantallas de dispositivos móviles:
+			Entre ellas se destacan Bootstrap, Normalizer ... \todo{Continuar con la migración a responsive web}
+			
+			
+			
+			
+			
+			
+			\subsection{Votación}\label{analisis_votacion}
+			La fase de votación, en la que en un sistema tradicional un votante introduce su voto en la urna junto a los votos del resto de votantes es uno de los derechos fundamentales que un ciudadano tiene en un estado de derecho. Es, además, el derecho que más iguala a los ciudadanos, pues (interpretaciones de la Ley D'Hont o del peso de cada circunscripción en la Ley Electoral vigente aparte) cualquier persona, independientemente de su condición sexual, social, económica, religiosa, etc. se corresponde con un voto. Una vez hemos votado, todos los votos tienen el mismo valor.
+			Es la parte central de cualquier sistema de votación.
+			Teniendo en cuenta los criterios sobre los que se basa el voto electrónico, esta fase debería cumplir una serie de propiedades inherente al mismo.
+			\todo{Introducir aquí las características del voto por Internet que aplican a la fase de votación, ya sea por Fujioka, la UNEXX u otro autor.}
+			
+			A la hora de diseñar el protocolo de un sistema de votación, uno de los puntos más importantes es el de decidir si el voto debe ser único. Hay que valorar qué es lo más adecuado para el protocolo, si un votante puede emitir tantos votos como quiera, validando tan sólo uno de ellos y rechazando el resto. O si, por el contrario, el votante debería ejercer su derecho al voto tan sólo una vez y deberíamos asegurar que no hay posibilidad de que pueda volver a hacerlo.
+			
+			La posibilidad de permitir al votante emitir su voto más de una vez proviene, en parte, de la necesidad de proteger al votante frente a la coerción por parte de un tercero. En caso de ser coaccionado a votar por un candidato, siempre tendrá la posibilidad de volver a emitir un nuevo voto que invalide el anterior mientras esté abierto el período electoral. Este mecanismo, unido con la carencia de un recibo que demuestre el contenido del voto válido emitido, hace muy complicado que un coaccionador\notasDuda{Aquel que coacciona es un ... ¿?} pueda llevar a cabo su fraude electoral, pues es muy complicado que pueda conseguir que el voto que coacciona sea el último emitido por todos y cada uno de los votantes que necesita para cambiar el resultado electoral.
+			Por otro lado, sin embargo, otras corrientes entienden que para que un votante pueda votar varias veces, invalidando por el camino los votos intermedios es necesario que, durante un periodo del proceso electoral, estén almacenados en el sistema un par voto-votante. Esto es así porque si un votante emite un voto, cuando quiera volver a votar, el primero ha de ser descartado, por lo que debe ser posible encontrar el voto previo asociado al votante. Es una violación clara del principio \todo{Aquí hay que poner la característica que viola del voto electrónico}. Es por ello que estas corrientes defienden que, de la misma forma que el voto tradicional, es más seguro para el votante el que vote solamente una vez, siende éste el único voto que debe ser introducido en la urna. Además, de este modo, no hace falta guardar la dupla voto-votante en el sistema, basta con almacenar el voto en la urna digital y marcar en el censo que el votante ya ha votado.
