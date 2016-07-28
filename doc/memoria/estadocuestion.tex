@@ -111,7 +111,7 @@
 			\end{itemize}
 			La integridad del sistema es fácil de obtener por medio de un muestreo público de los votos emitidos. Pero esto destruiría automáticamente la confidencialidad del voto.
 			La confidencialidad se puede obtener a través del voto secreto, pero con ello es muy difícil asegurar la integridad del sistema.
-			Debido a la naturaleza de unas elecciones, la violación de cualquiera de estos requisitos del voto electrónico puede derivar en consecuencias dramáticas. +
+			Debido a la naturaleza de unas elecciones, la violación de cualquiera de estos requisitos del voto electrónico puede derivar en consecuencias dramáticas.
 			Por tanto, el reto del diseño de un sistema electoral digital resulta en encontrar el punto medio en el que se la integridad del sistema no comprometa el derecho del votante al secreto de su voto.
 			
 				%************************************************************************************************************** %
@@ -278,8 +278,41 @@ y compatibilidad entre las características personales de los
 usuarios (memoria, percepción, hábitos, habilidades, edad) y
 los diálogos del sistema.
 				\end{description}
-			
+				
+				
+				\label{articuloEvaluacionVotoElectronicoHolandes}
+				Otra visión acerca de los requisitos inherentes al voto electrónico los podemos encontrar en \cite{DBLP:journals/corr/BokslagV16}, un artículo holandés acerca del voto electrónico y por Internet en este país. Este artículo enumera una serie de principios fundamentales para cualquier solución de e-voting basándose en los acordados por el Consejo de Europa\cite{ministers2005legal}.Según estos principios, se debe asegurar que el \textbf{sufragio} sea:
+				\todo{indicar que al igual que la UNEX, a partir de estos principios, se infieren los requisitos}
+				\begin{description}
+					\item [Universal:] Cualquier persona tiene derecho a votar y a postularse para la Elección (entendiendo la existencia de límites basados en condiciones como la edad o la nacionalidad).
+					\item [Igualitario:] Cada votante puede emitir el mismo número de votos.
+					\item [Libre:] Todo votante tiene el derecho de formarse y expresar su propia opinión libremente, sin ser coaccionado por ninguna influencia exterior.
+					\item [Secreto:] Todo votante tiene el derecho de poder votar de forma individual y secreta.
+					\item [Directo:] Los votos emitidos por los votantes deben ser los que directamente determinen la/s persona/s elegida/s en la votación.
+				\end{description}
+				
+				Según el mismo artículo, estos principios fundamentales se traducen en los siguientes requisitos:
+				\begin{description}
+					\item [Transparencia/Integridad:] Asegurar que el público general y los asociados al proceso electoral tienen confianza en la solución implementada. 
+					\item [Voto secreto/privacidad:] Proteger el secreto del voto en todas las etapas del proceso de votación.
+					\item [Unicidad:] Asegurar que cada voto emitido es contado y que cada uno es contado tan sólo una vez.
+					\item [Derecho al voto:] Asegurar que sólo aquellos votantes con derecho de voto pueden votar en el proceso.
+					\item [Verificabilidad/auditoría:] El votante debería poder comprobar que su voto ha sido correctamente contado en el escrutinio. Si no lo puede comprobar, al menos auditores independientes deberían poder comprobar la integridad de los resultados de la elección.
+					\item [Accesibilidad:] Garantizar la accesibilidad al proceso del mayor número de personas, especialmente aquellas con algún tipo de discapacidad.
+					\item [Libertad del votante/resistencia a la coerción:] Mantener el derecho del votante a expresar su opinión mediante el voto sin coacción o una influencia externa.
+					\item [Disponibilidad:] Asegurar la disponibilidad del sistema durante el tiempo que tiene lugar la votación.
+				\end{description}			
+															
+				He añadido esta recopilación de requisitos porque en el artículo se realiza una valoración muy interesante de varios sistemas de votación electrónica y por Internet con resultados basados en esta clasificación.
+				
+				Cuando se comenten estas soluciones en apartados posteriores podremos utilizar estas valoraciones como comparativa más, según los autores del artículo, de diferentes sistemas de votos estudiados en este PFC.
+														
+														
+																												
+																												
 			\todo[inline]{Cerrar elegantemente el capítulo}
+			
+			Pese a que, dependiendo del autor, se pueden enumerar diferentes clasificaciones con los requisitos del voto electrónico, al final se observa que la mayoría de ellos son comunes a casi todas. Así entre los requisitos básicos vemos que los autores aquí recogidos siempre hablan de \textit{integridad}, \textit{privacidad}, \textit{verificabilidad}, \textit{unicidad}, \textit{fiabilidad}, \textit{disponibilidad}, \textit{derecho de voto} ... Aspectos que debe cumplir todo sistema de votación electrónica para que el proceso pueda ser llevado a cabo con un nivel aceptable de seguridad y confianza por parte de los intervinientes y observadores de la Elección.
 				
 		% *************************************************************************************************************** %
 		% 			EXPERIENCIAS DE VOTO ELECTRÓNICO
@@ -312,41 +345,84 @@ los diálogos del sistema.
 			
 			************ Adjuntar TABLA de participación histórica *****************		
 			
-			\begin{table}[htbp]
-				\centering
-					%\begin{tabular}{0.75\textwidth}@{\extracolsep{\fill}}|l|l|m{3cm}| m{3cm}|}
-					%\begin{tabular*}{0.95\textwidth}{@{\extracolsep{\fill}}|l|l|rm{2cm}|rm{1cm}|}
-					\begin{tabular*}{0.95\textwidth}{@{\extracolsep{\fill}}|l|l|r|r|}
-						\hline
-%							\textbf{Elección} & \textbf{Tipo} & \textbf{Votantes por internet} & \textbf{\% sobre total votantes} \\
-							\textbf{Elección} & \textbf{Tipo} & \textbf{IV} & \textbf{\% IV-TV} \\
-						\hline
-							2005 & Elecciones Locales 						& 9.317 	& 1,90\% 	\\
-						\hline
-							2007 & Elecciones Parlamentarias 			& 30.275 	& 5,50\% 	\\
-						\hline
-							2009 & Elecciones Parlamento Europeo	& 58.669 	& 14,70\% \\
-						\hline
-							2009 & Elecciones Locales 						& 104.413 & 15,80\% \\
-						\hline
-							2011 & Elecciones Parlamentarias 			& 140.846 & 24,30\% \\
-						\hline
-							2013 & Elecciones Locales 						& 133.808 & 21,20\% \\
-						\hline
-							2014 & Elecciones Parlamento Europeo 	& 103.151	& 31,30\%	\\
-						\hline
-							2015 & Elecciones Parlamentarias	 		& 176.491	& 30,05\%	\\
-						\hline
-					\end{tabular*}
-				\caption{Evolución del voto por Internet en Estonia}
-				\begin{flushleft}
-					\caption*{\textbf{IV}: Votantes que votaron a través de Internet.}
-					\caption*{\textbf{\%IV-TV}: \% de votantes que votaron a través de Internet sobre el total de votantes.}			
-				\end{flushleft}
-				\label{tab:EvolucionIVotingEstonia}
-			\end{table}
+			%\begin{table}[htbp]
+				%\centering
+					%%\begin{tabular}{0.75\textwidth}@{\extracolsep{\fill}}|l|l|m{3cm}| m{3cm}|}
+					%%\begin{tabular*}{0.95\textwidth}{@{\extracolsep{\fill}}|l|l|rm{2cm}|rm{1cm}|}
+					%\begin{tabular*}{0.95\textwidth}{@{\extracolsep{\fill}}|l|l|r|r|}
+						%\hline
+%%							\textbf{Elección} & \textbf{Tipo} & \textbf{Votantes por internet} & \textbf{\% sobre total votantes} \\
+							%\textbf{Elección} & \textbf{Tipo} & \textbf{IV} & \textbf{\% IV-TV} \\
+						%\hline
+							%2005 & Elecciones Locales 						& 9.317 	& 1,90\% 	\\
+						%\hline
+							%2007 & Elecciones Parlamentarias 			& 30.275 	& 5,50\% 	\\
+						%\hline
+							%2009 & Elecciones Parlamento Europeo	& 58.669 	& 14,70\% \\
+						%\hline
+							%2009 & Elecciones Locales 						& 104.413 & 15,80\% \\
+						%\hline
+							%2011 & Elecciones Parlamentarias 			& 140.846 & 24,30\% \\
+						%\hline
+							%2013 & Elecciones Locales 						& 133.808 & 21,20\% \\
+						%\hline
+							%2014 & Elecciones Parlamento Europeo 	& 103.151	& 31,30\%	\\
+						%\hline
+							%2015 & Elecciones Parlamentarias	 		& 176.491	& 30,05\%	\\
+						%\hline
+					%\end{tabular*}
+				%\caption{Evolución del voto por Internet en Estonia}
+				%\begin{flushleft}
+					%\caption*{\textbf{IV}: Votantes que votaron a través de Internet.}
+					%\caption*{\textbf{\%IV-TV}: \% de votantes que votaron a través de Internet sobre el total de votantes.}
+					%\caption*{Fuente: Comisión Nacional Electoral de Estonia / Vabariigi Valimiskomisjon \footnote{\url{http://www.vvk.ee/voting-methods-in-estonia/engindex/statistics}}}
+				%\end{flushleft}
+				%\begin{tablenotes}
+					%\small
+					%\item Fuente: Comisión Nacional Electoral de Estonia / Vabariigi Valimiskomisjon \footnote{fff \url{http://www.vvk.ee/voting-methods-in-estonia/engindex/statistics}}
+				%\end{tablenotes}
+				%\label{tab:EvolucionIVotingEstonia}
+			%\end{table}
 			
-			\todo[inline]{Hay que marcar que la fuente de estos datos provienen del Tribunal Electoral de Estonia (o como se diga), concretamente de la web http://www.vvk.ee/voting-methods-in-estonia/engindex/statistics}
+			
+			\begin{table}[htbp]
+				\begin{threeparttable}
+					\centering
+						%\begin{tabular}{0.75\textwidth}@{\extracolsep{\fill}}|l|l|m{3cm}| m{3cm}|}
+						%\begin{tabular*}{0.95\textwidth}{@{\extracolsep{\fill}}|l|l|rm{2cm}|rm{1cm}|}
+						\begin{tabular*}{0.95\textwidth}{@{\extracolsep{\fill}}|l|l|r|r|}
+							\hline
+	%							\textbf{Elección} & \textbf{Tipo} & \textbf{Votantes por internet} & \textbf{\% sobre total votantes} \\
+								\textbf{Elección} & \textbf{Tipo} & \textbf{IV}\tnote{a} & \textbf{\% IV-TV}\tnote{b} \\
+							\hline
+								2005 & Elecciones Locales 						& 9.317 	& 1,90\% 	\\
+							\hline
+								2007 & Elecciones Parlamentarias 			& 30.275 	& 5,50\% 	\\
+							\hline
+								2009 & Elecciones Parlamento Europeo	& 58.669 	& 14,70\% \\
+							\hline
+								2009 & Elecciones Locales 						& 104.413 & 15,80\% \\
+							\hline
+								2011 & Elecciones Parlamentarias 			& 140.846 & 24,30\% \\
+							\hline
+								2013 & Elecciones Locales 						& 133.808 & 21,20\% \\
+							\hline
+								2014 & Elecciones Parlamento Europeo 	& 103.151	& 31,30\%	\\
+							\hline
+								2015 & Elecciones Parlamentarias	 		& 176.491	& 30,05\%	\\
+							\hline
+						\end{tabular*}
+						\begin{tablenotes}
+							\scriptsize
+							\item[a] \textbf{IV}: Votantes que votaron a través de Internet.
+							\item[b] \textbf{\%IV-TV}: \% de votantes que votaron a través de Internet sobre el total de votantes.
+							\item[c] Fuente: Comisión Nacional Electoral de Estonia / Vabariigi Valimiskomisjon\tnote{d}
+							\item[d] \url{http://www.vvk.ee/voting-methods-in-estonia/engindex/statistics}
+						\end{tablenotes}
+						\label{tab:EvolucionIVotingEstonia}
+						\caption{Evolución del voto por Internet en Estonia\tnote{c}}
+					\end{threeparttable}
+			\end{table}
 			
 			
 			Estonia es el primer estado que utiliza, oficialmente, el voto electrónico remoto por Internet de forma vinculante. Este sistema puesto en práctica en el año 2005 es una parte de un plan de modernización del país báltico. De hecho, previamente a la puesta en producción del sistema electoral, se comenzó a desarrollar en el año 2000 un despliegue técnico importante para la implantación del documento de identidad electrónico, junto con mecanismos de comunicación con la Administración para facilitar los trámites con la misma por parte de los ciudadanos de forma electrónica y remota.
@@ -423,63 +499,140 @@ los diálogos del sistema.
 			\subsection{Noruega}\label{ivotingNoruega}
 			\todo[inline]{¿Hay que hablar de Noruega?}
 			
+			%\begin{table}[htbp]
+				%\centering
+					%\begin{tabularx}{\textwidth}{|m{.6\textwidth}|Y|Y|}
+						%\cline{2-3}
+							%\multicolumn{1}{l|}{} & \multicolumn{2}{c|}{\textbf{SISTEMA DE VOTACIÓN}} \\
+						%\cline{2-3}
+							%\multicolumn{1}{l|}{} & \textbf{ESTONIA} & \textbf{NORUEGA} \\
+						%\hline
+							%Identificación digital de votantes	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
+						%\hline
+							%Protección frente a la suplantación de votantes	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
+						%\hline
+							%Usabilidad de la interfaz de votante	& $\bullet$ 	& $\bullet$	\\
+						%\hline
+							%Seguridad criptográfica de la información intercambiada	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$$\bullet$	\\
+						%\hline
+							%Protección frente a ruptura del secreto del voto por una sola entidad	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
+						%\hline
+							%Protección frente a ruptura del secreto del voto por colusión entre entidades	& $\bullet$ 	& $\bullet$	\\
+						%\hline
+							%Protección frente a contabilización indebida de votos	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
+						%\hline
+							%Protección frente a denegación arbitraria de derecho a voto	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$$\bullet$	\\
+						%\hline
+					%\end{tabularx}
+				%\caption{Comparativa de la evaluación de los sistemas de Votos por Internet de Estonia y Noruega conforme al criterio de Seguridad de la Información}
+				%\label{tab:ResultadoDeLaEvaluaciónConformeAlCriterioDeSeguridadDeLaInformación}
+			%\end{table}
+			
+			
 			\begin{table}[htbp]
-				\centering
-					\begin{tabularx}{\textwidth}{|m{.6\textwidth}|Y|Y|}
-						\cline{2-3}
-							\multicolumn{1}{l|}{} & \multicolumn{2}{c|}{\textbf{SISTEMA DE VOTACIÓN}} \\
-						\cline{2-3}
-							\multicolumn{1}{l|}{} & \textbf{ESTONIA} & \textbf{NORUEGA} \\
-						\hline
-							Identificación digital de votantes	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
-						\hline
-							Protección frente a la suplantación de votantes	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
-						\hline
-							Usabilidad de la interfaz de votante	& $\bullet$ 	& $\bullet$	\\
-						\hline
-							Seguridad criptográfica de la información intercambiada	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$$\bullet$	\\
-						\hline
-							Protección frente a ruptura del secreto del voto por una sola entidad	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
-						\hline
-							Protección frente a ruptura del secreto del voto por colusión entre entidades	& $\bullet$ 	& $\bullet$	\\
-						\hline
-							Protección frente a contabilización indebida de votos	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
-						\hline
-							Protección frente a denegación arbitraria de derecho a voto	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$$\bullet$	\\
-						\hline
-					\end{tabularx}
-				\caption{Comparativa de la evaluación de los sistemas de Votos por Internet de Estonia y Noruega conforme al criterio de Seguridad de la Información}
-				\label{tab:ResultadoDeLaEvaluaciónConformeAlCriterioDeSeguridadDeLaInformación}
+				\begin{threeparttable}
+					\centering
+						%\begin{tabular}{0.75\textwidth}@{\extracolsep{\fill}}|l|l|m{3cm}| m{3cm}|}
+						%\begin{tabular*}{0.95\textwidth}{@{\extracolsep{\fill}}|l|l|rm{2cm}|rm{1cm}|}
+						\begin{tabularx}{\textwidth}{|m{.6\textwidth}|Y|Y|}
+							\cline{2-3}
+								\multicolumn{1}{l|}{} & \multicolumn{2}{c|}{\textbf{SISTEMA DE VOTACIÓN}} \\
+							\cline{2-3}
+								\multicolumn{1}{l|}{} & \textbf{ESTONIA} & \textbf{NORUEGA} \\
+							\hline
+								Identificación digital de votantes	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
+							\hline
+								Protección frente a la suplantación de votantes	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
+							\hline
+								Usabilidad de la interfaz de votante	& $\bullet$ 	& $\bullet$	\\
+							\hline
+								Seguridad criptográfica de la información intercambiada	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$$\bullet$	\\
+							\hline
+								Protección frente a ruptura del secreto del voto por una sola entidad	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
+							\hline
+								Protección frente a ruptura del secreto del voto por colusión entre entidades	& $\bullet$ 	& $\bullet$	\\
+							\hline
+								Protección frente a contabilización indebida de votos	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
+							\hline
+								Protección frente a denegación arbitraria de derecho a voto	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$$\bullet$	\\
+							\hline
+						\end{tabularx}
+						\begin{tablenotes}
+							\scriptsize
+							\item[a] Fuente: Ponencia \textit{Posibilidades del voto telemático en la democracia digital}, por Justo Carracedo\tnote{b}
+							\item[b] \url{http://www.criptored.upm.es/descarga/ConferenciaJustoCarracedoTASSI2014.pdf}
+						\end{tablenotes}
+						\label{tab:ResultadoDeLaEvaluaciónConformeAlCriterioDeSeguridadDeLaInformación}
+						\caption{Comparativa de la evaluación de los sistemas de Votos por Internet de Estonia y Noruega conforme al criterio de Seguridad de la Información\tnote{a}}
+					\end{threeparttable}
 			\end{table}
 			
-			
+			%
+			%\begin{table}[htbp]
+				%\centering
+					%\begin{tabularx}{\textwidth}{|m{.6\textwidth}|Y|Y|}
+						%\cline{2-3}
+							%\multicolumn{1}{l|}{} & \multicolumn{2}{c|}{\textbf{SISTEMA DE VOTACIÓN}} \\
+						%\cline{2-3}
+							%\multicolumn{1}{l|}{} & \textbf{ESTONIA} & \textbf{NORUEGA} \\
+						%\hline
+							%Identificación robusta de gestores del sistema	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$$\bullet$	\\
+						%\hline
+							%Verificación individual de voto	& $\bullet$ 	& $\bullet$	\\
+						%\hline
+							%Verificabilidad de resultados	& $\bullet$ 	& $\bullet$$\bullet$	\\
+						%\hline
+							%Protección frente a la coacción	& $\bullet$ 	& $\bullet$	\\
+						%\hline
+							%Protección del sistema frente a falsas acusaciones	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
+						%\hline
+							%Capacidad de supervisión de los interventores	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
+						%\hline
+							%Uso de software público	& $\bullet$ 	& $\bullet$$\bullet$$\bullet$	\\
+						%\hline
+							%Auditabilidad del sistema	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
+						%\hline
+					%\end{tabularx}
+				%\caption{Comparativa de la evaluación de los sistemas de Votos por Internet de Estonia y Noruega conforme a los criterios de verificación, auditoría y procedimiento}
+				%\label{tab:ResultadoDeLaEvaluaciónConformeALosCriteriosDeVerificacionAuditoríaYProcedimiento}
+			%\end{table}
+			%
 			\begin{table}[htbp]
-				\centering
-					\begin{tabularx}{\textwidth}{|m{.6\textwidth}|Y|Y|}
-						\cline{2-3}
-							\multicolumn{1}{l|}{} & \multicolumn{2}{c|}{\textbf{SISTEMA DE VOTACIÓN}} \\
-						\cline{2-3}
-							\multicolumn{1}{l|}{} & \textbf{ESTONIA} & \textbf{NORUEGA} \\
-						\hline
-							Identificación robusta de gestores del sistema	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$$\bullet$	\\
-						\hline
-							Verificación individual de voto	& $\bullet$ 	& $\bullet$	\\
-						\hline
-							Verificabilidad de resultados	& $\bullet$ 	& $\bullet$$\bullet$	\\
-						\hline
-							Protección frente a la coacción	& $\bullet$ 	& $\bullet$	\\
-						\hline
-							Protección del sistema frente a falsas acusaciones	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
-						\hline
-							Capacidad de supervisión de los interventores	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
-						\hline
-							Uso de software público	& $\bullet$ 	& $\bullet$$\bullet$$\bullet$	\\
-						\hline
-							Auditabilidad del sistema	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
-						\hline
-					\end{tabularx}
-				\caption{Comparativa de la evaluación de los sistemas de Votos por Internet de Estonia y Noruega conforme a los criterios de verificación, auditoría y procedimiento}
+				\begin{threeparttable}
+					\centering
+						%\begin{tabular}{0.75\textwidth}@{\extracolsep{\fill}}|l|l|m{3cm}| m{3cm}|}
+						%\begin{tabular*}{0.95\textwidth}{@{\extracolsep{\fill}}|l|l|rm{2cm}|rm{1cm}|}
+						\begin{tabularx}{\textwidth}{|m{.6\textwidth}|Y|Y|}
+							\cline{2-3}
+								\multicolumn{1}{l|}{} & \multicolumn{2}{c|}{\textbf{SISTEMA DE VOTACIÓN}} \\
+							\cline{2-3}
+								\multicolumn{1}{l|}{} & \textbf{ESTONIA} & \textbf{NORUEGA} \\
+							\hline
+								Identificación robusta de gestores del sistema	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$$\bullet$	\\
+							\hline
+								Verificación individual de voto	& $\bullet$ 	& $\bullet$	\\
+							\hline
+								Verificabilidad de resultados	& $\bullet$ 	& $\bullet$$\bullet$	\\
+							\hline
+								Protección frente a la coacción	& $\bullet$ 	& $\bullet$	\\
+							\hline
+								Protección del sistema frente a falsas acusaciones	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
+							\hline
+								Capacidad de supervisión de los interventores	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
+							\hline
+								Uso de software público	& $\bullet$ 	& $\bullet$$\bullet$$\bullet$	\\
+							\hline
+								Auditabilidad del sistema	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
+							\hline
+						\end{tabularx}
+						\begin{tablenotes}
+							\scriptsize
+							\item[a] Fuente: Ponencia \textit{Posibilidades del voto telemático en la democracia digital}, por Justo Carracedo\tnote{b}
+							\item[b] \url{http://www.criptored.upm.es/descarga/ConferenciaJustoCarracedoTASSI2014.pdf}
+						\end{tablenotes}
+						\caption{Comparativa de la evaluación de los sistemas de Votos por Internet de Estonia y Noruega conforme a los criterios de verificación, auditoría y procedimiento\tnote{a}}
 				\label{tab:ResultadoDeLaEvaluaciónConformeALosCriteriosDeVerificacionAuditoríaYProcedimiento}
+					\end{threeparttable}
 			\end{table}
 			
 			

@@ -380,14 +380,16 @@ pantallas a las que tienen acceso los diferentes roles de usuario y la conexión 
 			
 			\item Helios es un sistema de voto por Internet basado en desarrollo de código abierto. Está escrito en Python, utilizando Django como framework de desarrollo. Esta filosofía de software libre permite que el código pueda ser reutilizado y modificado para adaptarlo a las necesidades de la Escuela. Además, el lenguaje utilizado es bastante potente y la facilidad de integración con los recursos que provee la Escuela es un punto importante que se ha tenido en cuenta.
 			
-			\item El proyecto Helios Voting está activo. Aunque la frecuencia de actualizaciones en el código o las conversaciones en el grupo de Google del proyecto ha decaído este último año 2015, el proyecto está activo y los desarrolladores implicados. Además, se observa que hay mucha gente interesada en el mismo que realizan forks del código para realizar sus propias modificaciones y/o aportaciones al mismo. Asimismo, proyectos como Ágora Voting nacieron a partir de un fork de Helios Voting, aunque actualmente hayan virado a otros protocolos criptográficos.
+			\item El proyecto Helios Voting está activo, con desarrolladores implicados, incluso con forks en Github proponiendo alternativas o soluciones. Por ejemplo, proyectos como Ágora Voting (\ref{estadocuestion_agoravoting}) nacieron a partir de un fork de Helios Voting, aunque actualmente han virado hacia otros protocolos criptográficos como base de su solución.
 			
 			\item Según algunos informes\cite{carter2013} desarrollados estudiando una experiencia real del sistema, Helios Voting es un ejemplo de sistema electoral por Internet E2E-verificable y lo reconocen como un ``\textit{estándar en verificabilidad de voto por Internet}''. Proporciona al proceso electoral todas las garantías que aporta la verificabilidad E2E, como la capacidad de observar pruebas de conocimiento cero no interactivas que verifican que cada voto fue incluido correctamente y que el escrutinio completo fue computado con precisión. 
 			
 			\item Una de las debilidades de Helios Voting es que el protocolo en el que se basa no es efectivo ante la coerción. Por ello, su propio desarrollador indica que es un sistema pensado para elecciones con bajo riesgo de coerción. Las elecciones a llevar a cabo en la Escuela Politécnica Superior cumplen con esta propiedad, pues el riesgo de que se intente coartar a algún votante es mínimo.
 			
-			\item ffff \todo{Cifrado homomórfico aditivo, para no tener que descifrar los votos en el escrutinio}
-			\item ffff \todo{Ya implementa login oAuth para diferentes proveedores. Aunque hay que implementar el flujo de forma especial para el DNIe, ya tiene definido el framework donde encajarlo.}
+			\item Los votos cifrados no se desencriptan. Gracias a que su protocolo criptográfico se basa en el \textbf{cifrado homomórfico aditivo}, no es necesario que sean desencriptados para realizar el escrutinio, por lo que protegen la privacidad de cada votante.
+			
+			\item Buscando alguna solución para implementar identificación de usuarios de la EPS, ya provee de mecanismos como oAuth, que puede ser modificado para utilizar el DNIe como herramienta de acceso seguro a la web, o sistemas como el CAS utilizado en las elecciones de la Universidad Católica de Lovaina, que podría servir de base a un sistema de acceso basado en las cuentas de usuario de los estudiantes de la EPS. Son frameworks que no valen tal cual están implementados, pero que permiten una posibilidad de modificación muy interesante para implementar nuevos sistemas de acceso basados en las necesidades de la EPS.
+						
 		\end{itemize}	
 		
 		\notasCambio[inline]{No me gusta nada cómo está redactado esto ni me parece que esté en el sitio correcto. Cambiar.}
@@ -478,7 +480,7 @@ pantallas a las que tienen acceso los diferentes roles de usuario y la conexión 
 			
 
 	
-	\subsection{Identificación}\label{analisis_idetificacion}
+	\subsection{Identificación}\label{analisis_identificacion}
 	Una vez visto el sistema sobre el que basar los procesos electorales que hemos de llevar a cabo en la EPS, es el momento de implementar modificaciones en el mismo.
 	En primer lugar, el cambio más importante es el que se refiere a la identificación de votantes.
 	En Helios, de forma nativa, los sistemas que permiten la entrada de votantes al sistema son usuario/password y una serie de servicios oAuth de terceros, incluyendo Facebook, Twitter, Google y Yahoo!. Existe una modificación especial para las elecciones de la Universidad de Lovaina en la que se implementó un sistema CAS contra la base de datos de alumnos de la Universidad. Con este sistema, los usuarios se podían logar en el sistema con la identificación de la Universidad y contra un servicio que ésta brindaba, es decir, que el control de entrada de usuarios se delegaba en la Universidad y se 
@@ -588,7 +590,7 @@ pantallas a las que tienen acceso los diferentes roles de usuario y la conexión 
 			Con el objetivo del voto por internet en el horizonte, esta incapacidad de adaptar la web a dispositivos portátiles pasa a ser un detalle a tener muy en cuenta. Lo ideal es que la web del sistema al completo sea responsive, además sería muy valorable que cumpliese los estándares que marca el consorcio W3C, así como el mayor número posible de reglas de accesibilidad sin comprometer la funcionalidad ni la simplicidad de interacción con el usuario.
 			
 			Para ello, se puede introducir una serie de librerías que faciliten la transformación de la web para ser adaptada a la visualización desde pantallas de dispositivos móviles:
-			Entre ellas se destacan Bootstrap, Normalizer ... \todo{Continuar con la migración a responsive web}
+			Entre ellas se destacan Bootstrap, Modernizr ... \todo{Continuar con la migración a responsive web}
 			
 			
 			
