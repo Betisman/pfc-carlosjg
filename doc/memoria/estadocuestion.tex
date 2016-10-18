@@ -812,7 +812,7 @@ los diálogos del sistema.
 				\subsection{Ágora Ciudadana - Ágora Voting}\label{estadocuestion_agoravoting}
 				\todo[inline]{Editar lo que está escrito en temp.tex sobre Ágora Voting. Ya no son Software Libre...}
 				
-				\subsection{Helios}\label{helios}
+				\subsection{Helios}\label{estadocuestion_helios}
 				Helios es un sistema de voto por Internet cuyos desarrolladores consideran que es el primer sistema de voto con auditoría abierta (open-audit) basado en web. Actualmente es un proyecto en desarrollo, funcional y públicamente accesible. Cualquier organismo interesado puede descargar el código fuente, configurar un proceso electoral y llevar a término la elección, junto con que cualquier observador puede auditar todo el proceso.
 				
 				Este proyecto es apropiado para realizar procesos electorales para organismos que necesiten que estos sean confiables y con voto secreto, eso sí, siempre que los comicios se celebren en un ambiente en el que la coerción del voto no sea una amenaza. Este detalle es importante, ya que muestra una de las \textit{debilidades} de esta implementación con respecto a un proceso electoral de gran escala.
@@ -963,7 +963,7 @@ los diálogos del sistema.
 						\hline
 							Correctness 							& 0,88 	& 1,75		\\
 						\hline
-							Métdos de votación 				& 2 		& 2		\\
+							Métodos de votación 				& 2 		& 2		\\
 						\hline
 							Desarrollo 								& 1,75 	& 1,38		\\
 						\hline	
@@ -1016,12 +1016,13 @@ los diálogos del sistema.
 						El objetivo de este tipo de protocolos es proporcionar una serie de datos firmados cuyo contenido solamente sea conocido por el actor que envía, siendo completamente desconocidos para el actor que los firma.\\
 						Los protocolos de firma ciega se basan en dos componentes \cite{firmaCiega2007}:
 						\todo[inline]{En principio es una explicación matemática del protocolo... ¿Merece la pena?}
-										% \begin{enumerate}
-							% \item Un protocolo de firma digital desarrollad por el actor F, prestador del servicio de firma, de forma que $S(m)$ sea la notación de la firma digital del mensaje $m$.
-							% \item Dos funciones $f$ y $g$, conocidas únicamente por el usuario U, de forma que
-							% $$g(S(f(m))) = S(m)$$
-							
-							% La función f se denomina función de ocultación o de opacidad. La función g es la función de recuperación.
+								 \begin{enumerate}
+										\item Un protocolo de firma digital. Desarrollado por el actor F, quien es el prestador del servicio de firma.  De tal forma, $S(m)$ es la notación de la firma digital del mensaje $m$.
+										\item Dos funciones $f$ y $g$, conocidas únicamente por el usuario U, de forma que
+							 $$g(S(f(m))) = S(m)$$
+											
+							 La función $f$ se denomina \textit{función de ocultación o de opacidad}. La función $g$ es la \textit{función de recuperación}.
+								\end{enumerate}
 							
 							% Una opción, propuesta en el trabajo \cite{firmaCiega2007}, es utilizar el protocolo de firma ciega desarrollado por Chaum \cite{chaumFirmaCiega} basado en el criptosistema RSA. Dicho protolo se podría definir así.
 							% Sea $n = p * q$ el producto de dos primos aleatorios suficientemente grandes. El firmante F usaría el esquema de firma digital RSA con clave pública $(n, e)$ y clave privada $d$. Sea k un entero aleatorio tal que $mcd(n, k) = 1$. Las funciones que utiliza el usuario U son:

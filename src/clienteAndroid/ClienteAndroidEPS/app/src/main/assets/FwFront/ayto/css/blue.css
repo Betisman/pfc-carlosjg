@@ -1,6 +1,0 @@
-/*	2 -Cabecera -*/	
-	#header{background:#2A4B8A url(../img/backHeadBlue.jpg) no-repeat scroll right top}
-	#titIdioma { border: 1px solid #ADBAD2; }
-	#lenguaje{background:url(../img/sep_Idioma_Blue.gif) top left no-repeat; }
-	#listaIdioma li {background:#2A4B8A  url(../../core/img/fnd_UL_SelLanguage.gif) no-repeat 4px 7px;color:#31558E; border-bottom:1px solid #ADBAD2;}
-	
