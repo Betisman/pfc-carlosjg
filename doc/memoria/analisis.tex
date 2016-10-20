@@ -30,9 +30,13 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			
 			\subsection{Ámbito del sistema}\label{requisitosAmbitoSistema}
 			El sistema que se va a desarrollar tiene como finalidad que los alumnos, profesores y empleados de la Escuela Politécnica Superior de la Universidad San Pablo CEU puedan votar remotamente en las Elecciones a la Junta de Escuela.
+			
 			Para ello, el sistema debe ser distribuido y dirigido hacia un entorno web, permitiendo que los votantes puedan emitir su voto desde cualquier lugar donde tengan conexión a Internet. Con el auge de los teléfonos móviles inteligentes y de las redes móviles (GPRS, 3G, 4G, HSDP...), se puede permitir la votación desde cualquier lugar en la que el proveedor de telefonía móvil provea de cobertura al votante.
+			
 			Este enfoque ubicuo del voto debe asegurar, no obstante, las mismas garantías que proporciona un sistema de voto tradicional o uno de voto electrónico presencial.
+			
 			El sistema dispone, por un lado, del servidor web que permite la interacción tanto con el votante como la difusión de los resultados electorales. Este servidor web tendrá comunicación con Internet y debe tener una seguridad acorde con el nivel de peligro ante ataques que se espere para este tipo de elección.
+			
 			Por otro lado, la parte de la lógica de negocio del sistema se basa en subsistemas independientes, aunque modulares, dependiendo del servicio que tengan que ofrecer. La independencia de estos subsistemas responde a cuestiones de seguridad y para proporcionar mayor transparencia del proceso en cuanto al \textit{flujo del voto} a través del software.
 			
 			
@@ -116,7 +120,16 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 				
 			\subsection{Requisitos del proceso electoral}\label{requisitosProceso}
 				\begin{description}[font=$\bullet$\ \ ]
-					\item[Ejemplo]: Aquí va un requisito.
+					\item[Fechas límite]: El proceso electoral marca un requisito crucial en el funcionamiento del proyecto, las fechas límite operacionales. Desde la autoridad electoral, se deben definir en el protocolo o las Normativa Electoral de la Universidad una serie de fechas en las que se deben cumplir hitos del proceso electoral.
+						\begin{description}[font=$\ast$\ \ ]
+							\item[Fechas de inicio y fin de la carga del censo]
+							\item[Fecha de apertura de mesas]: Una vez convocada la elección, habrá un día definido para llevar a cabo la misma. La autoridad electoral debe fijar un día y una hora en la que el sistema ha de estar abierto y disponible para que la totalidad del censo pueda votar.
+							\item[Fecha de cierre de mesas]: Igualmente, el sistema debe cerrar las mesas en la fecha y hora estipuladas. A partir de este momento, se ha de asegurar que ningún votante puede votar o modificar ningún voto ya emitido.
+							\item[Fecha de inicio de escrutinio]: Normalmente, el escrutinio comenzará a continuación del cierre de mesas. El sistema debe estar preparado para que los miembros de la Autoridad Electoral den comienzo al escrutinio a través de la interfaz del sistema.
+							\item[Fecha de publicación de resultados]: El sistema debe permitir que los resultados sean publicados y difundidos en el momento en el que la Autoridad Electoral lo requiera, ya sea al término del escrutinio o con posterioridad.
+						\end{description}
+						
+						\item[Acreditación]: Con el carácter de prototipo de este proyecto, el sistema permitirá el voto solamente con la acreditación a través del DNI español, ya sea 2.0 ó 3.0, no estando permitido el voto remoto a través de este sistema con ningún otro tipo de acreditación, ya sea digital o no.
 				\end{description}
 				
 			\subsection{Requisitos no funcionales}\label{requisitosNoFuncionales}
