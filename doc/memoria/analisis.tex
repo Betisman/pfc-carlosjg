@@ -166,7 +166,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 				
 				\item[Papeleta/boleta digital]: El sistema debe mostrar al votante la papeleta o boleta (dependiendo del tipo de elección) correspondiente a la elección y el censo que le corresponda. Debe contener las opciones o candidatos entre las que puede seleccionar o elegir y mantener correctamente la/s opción/es seleccionada/s.
 				
-				\item[Voto múltiple:] \textst{ El sistema debe permitir a los votantes votar más de una vez, invalidando cada vez que emite un voto, los votos anteriores que hubiese introducido en el sistema.}\notasCambio[inline]{¿QUEREMOS ESTO? TOTAL, EL RIESGO DE COERCIÓN ES MUY BAJO EN ESTAS ELECCIONES... PERO SI QUEREMOS ACERCARNOS A UNAS GENERALES, QUIZÁS SEA IMPEPINABLE, SIGUIENDO EL MODELO ESTONIO *********************)}
+				\item[Voto múltiple:] El sistema debe permitir a los votantes votar más de una vez, invalidando cada vez que emite un voto, los votos anteriores que hubiese introducido en el sistema.
 				
 			\end{description}
 			
@@ -175,51 +175,51 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			\todo[inline]{ESTO ES TEMPORAL. VOY A IR HACIENDO UNA LISTA DE REQUISITOS SEGÚN LOS VOY CONOCIENDO. ESTA LISTA ES EL BATIBURRILLO, CUANDO ESTÉN CLAROS, LOS VOY COLOCANDO EN SUS TIPOS CORRESPONDIENTES Y LOS DEFINIMOS FORMALMENTE SEGÚN LA PLANTILLA}
 			
 			
-			\todo[inline]{OTRA FORMA EN LA QUE PODEMOS ORDENAR LA ESPECIFICACIÓN DE REQUISITOS  HABRíA QUE RE-REDACTARLOS}
-			
-			Para la especificación de los requisitos que ha de satisfacer el sistema, se van a seguir algunas de las recomendaciones del IEEE en el estándar IEEE 830-1998 \cite{Ieee1998}, ya que éste establece las normas para la realización de un documento formal y completo de especificación de requisitos (SRS en inglés).
-			
-			
-			Algunas de las modificaciones vienen inspiradas en este proyecto \cite{moreno07} y en este post al respecto \cite{postERSIEEE830}, determinando una serie de tipos de requisitos más específica que los que define el estándar original.\\
-			Con esto, vamos a describir los requisitos necesarios para la consecución del proyecto según la siguiente tipología:
-			\begin{description}[font=$\bullet$\ \ ]
-				\item[Restricciones de diseño]: requisitos que limitan el desarrollo al crear el producto. Se etiquetan como RD.x, siendo x el número del requisito.
-				\item[Requisitos funcionales]: Conjunto de requisitos que reflejan la funcionalidad que debe prestar el sistema. Se etiquetan como RF.x, siendo x el número del requisito.
-				\item[Requisitos de la interfaz]: Conjunto de requisitos que definen las necesidades de la interacción del software con otros sistemas y usuarios. Se etiquetan como IN.x, siendo x el número del requisito.
-				\item[Requisitos de calidad]: Exigencias en la calidad que se piden explícitamente para el producto. En esta categoría se engloban los requisitos de rendimiento, escalabilidad, accesibilidad, usabilidad, etc. Se etiquetan como CA.x, siendo x el número del requisito.
-				\item[Requisitos de evolución]: Requisitos para el diseño del producto con el objetivo de facilitar la adaptación a exigencias o condiciones que puedan surgir en el futuro. Se etiquetan como EV.x, siendo x el número del requisito.
-				\item[Requisitos del proyecto]: Requisitos que afectan y condicionan el proceso de desarrollo del proyecto. Se etiquetan como PR.x, siendo x el número del requisito.
-				\item[Requisitos de soporte]: Requisitos que deben ser cumplidos por el cliente. Se etiquetan como SO.x, siendo x el número del requisito.
-			\end{description}
-			
-			\par
-			Dentro de la clasificación anterior, cada requisito debe especificarse formalmente, empleando para ello la siguiente plantilla:
-			\begin{description}[font=$\bullet$\ \ ]
-				\item[Descripción]: Descripción corta del requisito.
-				\item[Importancia]: La importancia del requisito, con tres valores:
-					\begin{description}[font=$\cdot$\ \ ]
-						\item[Esencial] El incumplimiento de este requisito provocaría el fracaso del proyecto.
-						\item[Condicional] El requisito mejoraría el resultado final del desarrollo.
-						\item[Opcional] El requisito no tiene que ser implementado, pero se puede tener en cuenta al realizar el diseño del producto).
-					\end{description}
-				\item[Validez]: Este apartado demuestra la validez del requisito. tiene cuatro secciones, que estarían presentes sólo en el caso de ser relevantes para ese requisito concreto.
-					\begin{description}[font=$\bullet$\ \ ]
-						\item[Medible]: Describe cómo comprobar el grado de cumplimiento del requisito.
-						\item[Alcanzable]: Propone, de un modo general, un camino para lograr su consecución.
-						\item[Relevante]: Justifica la presencia del requisito en el documento, indicando cómo ayuda a definir la entidad global del producto.
-						\item[Específico]: Extiende la descripción del requisito, con referencia a los casos de uso, si fuesen relevantes.
-					\end{description}
-			\end{description}
-			
-				\todo[inline]{Todas las restricciones}
-			
-			\subsection{Restricciones de diseño}\label{xxxxxx1}
-			\subsection{Requisitos funcionales}\label{xxxxxx2}
-			\subsection{Requisitos de la interfaz}\label{xxxxxx3}
-			\subsection{Requisitos de calidad}\label{xxxxxx4}
-			\subsection{Requisitos de evolución}\label{xxxxxx5}
-			\subsection{Requisitos del proyecto}\label{xxxxxx6}
-			\subsection{Requisitos de soporte}\label{xxxxxx7}
+			%\todo[inline]{OTRA FORMA EN LA QUE PODEMOS ORDENAR LA ESPECIFICACIÓN DE REQUISITOS  HABRíA QUE RE-REDACTARLOS}
+			%
+			%Para la especificación de los requisitos que ha de satisfacer el sistema, se van a seguir algunas de las recomendaciones del IEEE en el estándar IEEE 830-1998 \cite{Ieee1998}, ya que éste establece las normas para la realización de un documento formal y completo de especificación de requisitos (SRS en inglés).
+			%
+			%
+			%Algunas de las modificaciones vienen inspiradas en este proyecto \cite{moreno07} y en este post al respecto \cite{postERSIEEE830}, determinando una serie de tipos de requisitos más específica que los que define el estándar original.\\
+			%Con esto, vamos a describir los requisitos necesarios para la consecución del proyecto según la siguiente tipología:
+			%\begin{description}[font=$\bullet$\ \ ]
+				%\item[Restricciones de diseño]: requisitos que limitan el desarrollo al crear el producto. Se etiquetan como RD.x, siendo x el número del requisito.
+				%\item[Requisitos funcionales]: Conjunto de requisitos que reflejan la funcionalidad que debe prestar el sistema. Se etiquetan como RF.x, siendo x el número del requisito.
+				%\item[Requisitos de la interfaz]: Conjunto de requisitos que definen las necesidades de la interacción del software con otros sistemas y usuarios. Se etiquetan como IN.x, siendo x el número del requisito.
+				%\item[Requisitos de calidad]: Exigencias en la calidad que se piden explícitamente para el producto. En esta categoría se engloban los requisitos de rendimiento, escalabilidad, accesibilidad, usabilidad, etc. Se etiquetan como CA.x, siendo x el número del requisito.
+				%\item[Requisitos de evolución]: Requisitos para el diseño del producto con el objetivo de facilitar la adaptación a exigencias o condiciones que puedan surgir en el futuro. Se etiquetan como EV.x, siendo x el número del requisito.
+				%\item[Requisitos del proyecto]: Requisitos que afectan y condicionan el proceso de desarrollo del proyecto. Se etiquetan como PR.x, siendo x el número del requisito.
+				%\item[Requisitos de soporte]: Requisitos que deben ser cumplidos por el cliente. Se etiquetan como SO.x, siendo x el número del requisito.
+			%\end{description}
+			%
+			%\par
+			%Dentro de la clasificación anterior, cada requisito debe especificarse formalmente, empleando para ello la siguiente plantilla:
+			%\begin{description}[font=$\bullet$\ \ ]
+				%\item[Descripción]: Descripción corta del requisito.
+				%\item[Importancia]: La importancia del requisito, con tres valores:
+					%\begin{description}[font=$\cdot$\ \ ]
+						%\item[Esencial] El incumplimiento de este requisito provocaría el fracaso del proyecto.
+						%\item[Condicional] El requisito mejoraría el resultado final del desarrollo.
+						%\item[Opcional] El requisito no tiene que ser implementado, pero se puede tener en cuenta al realizar el diseño del producto).
+					%\end{description}
+				%\item[Validez]: Este apartado demuestra la validez del requisito. tiene cuatro secciones, que estarían presentes sólo en el caso de ser relevantes para ese requisito concreto.
+					%\begin{description}[font=$\bullet$\ \ ]
+						%\item[Medible]: Describe cómo comprobar el grado de cumplimiento del requisito.
+						%\item[Alcanzable]: Propone, de un modo general, un camino para lograr su consecución.
+						%\item[Relevante]: Justifica la presencia del requisito en el documento, indicando cómo ayuda a definir la entidad global del producto.
+						%\item[Específico]: Extiende la descripción del requisito, con referencia a los casos de uso, si fuesen relevantes.
+					%\end{description}
+			%\end{description}
+			%
+				%\todo[inline]{Todas las restricciones}
+			%
+			%\subsection{Restricciones de diseño}\label{xxxxxx1}
+			%\subsection{Requisitos funcionales}\label{xxxxxx2}
+			%\subsection{Requisitos de la interfaz}\label{xxxxxx3}
+			%\subsection{Requisitos de calidad}\label{xxxxxx4}
+			%\subsection{Requisitos de evolución}\label{xxxxxx5}
+			%\subsection{Requisitos del proyecto}\label{xxxxxx6}
+			%\subsection{Requisitos de soporte}\label{xxxxxx7}
 			
 %\color{orange}
 %**** LO QUE HAY QUE DESARROLLAR ****
@@ -288,7 +288,8 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 						Junto con los cuatro roles expuestos, encontramos un quinto actor en la figura de la Autoridad Certificadora. Esta entidad es la encargada de generar, administrar, validar y verificar las credenciales que han de usar cada uno de los votantes para emitir el voto, así como los de cada uno de los actores del proceso (administradores, miembros de la Junta Electoral, auditores o incluso los sistemas y sus comunicaciones).
 						Al hacer uso del DNIe para la identificación y firma del votante, en estas fases, es la Dirección General de la Policía, dependiente del Ministerio del Interior, la que actúa como Autoridad de Certificación, combinando dos pares de claves con un ciudadano concreto a través de la emisión de sendos Certificados de conformidad con los términos de la Declaración de Prácticas y Políticas de Certificación (DPC) \cite{politicasDeCertificacion:2006}\cite{politicasDeCertificacion:2014} que rige el funcionamiento y operaciones de la Infraestructura de Clave Pública de los Certificados de identidad pública y firma electrónica del Documento Nacional de Identidad (DNIe).
 				
-					\todo[inline]{Al utilizar Heliso, falta la figura del Trustee}
+					\item[Trustee]: Es necesario una serie de actores en el proceso, los llamados Trustees por Helios Voting. Estos actores, que también pueden formar parte de los anteriores grupos de actores, en especial los miembros de la Junta Electoral, son los encargados de custodiar un trozo de la clave secreta que el sistema necesita para la fase de escrutinio. Helios necesita una clave
+					\todo[inline]{Al utilizar Helios, falta la figura del Trustee}
 				\end{description}
 				
 				Los usuarios cuyo rol sea Votante son los únicos que tienen capacidad para poder votar en la elección.
