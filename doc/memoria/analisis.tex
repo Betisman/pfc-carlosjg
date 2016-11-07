@@ -434,11 +434,19 @@ pantallas a las que tienen acceso los diferentes roles de usuario y la conexión 
 					
 					\item[Crear elección]	El primer paso funcional es la creación de la Elección. Corresponde al administrador crear la elección. Para ello, puede poner el nombre y descripción del Proceso, seleccionar si es una elección al uso o un referéndum, si se usan los nombres de los votantes o pseudónimos, si se presentan los nombres de los candidatos a cada votante en orden aleatorio y si la elección es privada para los votantes registrados o abierta a cualquier votante.
 					
+					\begin{figure}[!h]
+						\centering
+							\includegraphics[width=1\textwidth]{imgs/capturas2/Imagen003.png}
+						\caption{Fase de creación de una elección en Helios Voting}
+						\label{fig:Helios.Fases.CrearEleccion}
+					\end{figure}
+					
 					\item[Preparar la elección] Antes de abrir el proceso de votación hay que preparar la elección. Para ello hay tres elementos que requieren ser inicializados.
 					
 						\begin{description}
 						
 							\item[Preguntas] Helios funciona a base de preguntas al electorado. Con una elección creada, el primer paso debería ser formular dichas preguntas y sus posibles respuestas, así como si es multiselección o de elección simple.
+							
 							\item[Censo de votantes] Es necesario incluir un censo de votantes o permitir una votación abierta. En el caso del censo, Helios permite hacer cargas de ficheros csv con la información del votante (id, email y nombre). También permite que cualquiera pueda emitir un voto.
 							
 							\item [Trustees] En voto electrónico, es necesario tener entidades de las que poder fiarse para el correcto funcionamiento de la elección. Como es complicado que exista una entidad externa que cumpla con los requisitos, esto se emula utilizando varios trustees. Básicamente, los trustees son entidades fiables que es difícil que se puedan poner de acuerdo entre sí para falsear la elección. Estas entidades combinan sus claves públicas y privadas para formar la clave pública y privada de la elección a utilizar en la encriptación de los votos y la desencriptación del resultado del escrutinio. En Helios, el propio sistema es un trustee, suficiente para llevar a cabo los procesos criptográficos en caso de que no se defina ninguna entidad o usuario confiable adicional.
@@ -505,13 +513,18 @@ pantallas a las que tienen acceso los diferentes roles de usuario y la conexión 
 	
 	\subsection{Identificación}\label{analisis_identificacion}
 	Una vez visto el sistema sobre el que basar los procesos electorales que hemos de llevar a cabo en la EPS, es el momento de implementar modificaciones en el mismo.
+	
 	En primer lugar, el cambio más importante es el que se refiere a la identificación de votantes.
-	En Helios, de forma nativa, los sistemas que permiten la entrada de votantes al sistema son usuario/password y una serie de servicios oAuth de terceros, incluyendo Facebook, Twitter, Google y Yahoo!. Existe una modificación especial para las elecciones de la Universidad de Lovaina en la que se implementó un sistema CAS contra la base de datos de alumnos de la Universidad. Con este sistema, los usuarios se podían logar en el sistema con la identificación de la Universidad y contra un servicio que ésta brindaba, es decir, que el control de entrada de usuarios se delegaba en la Universidad y se 
+	
+	En Helios, de forma nativa, los sistemas que permiten la entrada de votantes al sistema son usuario/password y una serie de servicios oAuth de terceros, incluyendo Facebook, Twitter, Google y Yahoo!. 
+	
+	Existe una modificación especial para las elecciones de la Universidad de Lovaina en la que se implementó un sistema CAS contra la base de datos de alumnos de la Universidad. Con este sistema, los usuarios se podían logar en el sistema con la identificación de la Universidad y contra un servicio que ésta brindaba, es decir, que el control de entrada de usuarios se delegaba en la Universidad y se confiaba en su sistema a la hora de proporcionar roles y permisos a los usuarios del sistema.
+	
+	Para las Elecciones en la EPS, podría llegar a valorarse este sistema CAS, modificándolo para adecuarlo a la infraestructura digital de la Universidad. Pero no es uno de los objetivos de este PFC, teniendo en cuenta la idea de utilización del DNIe 3.0 y la necesidad de limitar la interacción con la Universidad por el acceso a sus sistemas.
 	
 	
 	
-	
-	
+	o-----------
 	
 	
 	
