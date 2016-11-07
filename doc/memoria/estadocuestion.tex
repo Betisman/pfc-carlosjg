@@ -103,6 +103,7 @@
 							Blanca tiene intención de votar por los Carnívoros, mientras que Begoña desea votar a los Herbívoros. Por su parte, Rafael tiene un gran interés en que Blanca vote por los Herbívoros.
 							
 							Como hemos avanzado, en cualquier proceso electoral hay un conflicto entre la verificabilidad y el secreto. Cualquier votante querría verificar que el proceso de su voto ocurre correctamente, desde su inclusión en la urna hasta el preciso conteo en el escrutinio. De forma particular, Blanca quiere verificar que su voto es apropiadamente escrutado como Carnívoros. No obstante, si Blanca consigue suficiente información como para poder demostrar a Rafael de que votó por los Carnívoros, aparece la amenaza de la compraventa de votos. Sabiendo que el voto emitido es demostrable a un tercero, antes de que Blanca vote, Rafael podría ofrecerle dinero u otros recursos a cambio de que su voto sea para los Herbívoros en vez de para los Carnívoros. 
+							
 							Naturalmente, junto con la amenaza de la compraventa de votos, aparece también la de la coerción. Como Blanca puede mostrar el contenido de su voto a Rafael, puede ser coaccionada por éste para que vote por Herbívoros como él quiere, en lugar de los Carnívoros, como ella pretendía, por miedo a represalias.
 							
 							Lo que se debe buscar con el voto electrónico es que Blanca consiga la información suficiente para verificar personalmente que su voto a Carnívoros ha sido efectivamente emitido y escrutado como Carnívoros, pero que no consiga la información necesaria como para probar a Juan el contenido de su voto.
@@ -127,17 +128,21 @@
 				%************************************************************************************************************* %
 				\subsection{Requisitos del voto electrónico}\label{introduccionRequisitosVotoElectronico}
 				Un dogma que deben cumplir los sistemas de voto electrónico es la consigna de aportar al proceso al menos las mismas garantías de seguridad que el sistema tradicional al que está sustituyendo / complementando.
+				
 				El voto presencial tradicional permite un recuento de la votación una vez acabado el proceso y abierta la urna que contiene los votos físicos. 
+				
 				En el siguiente nivel, lo mismo le ocurre a la ciertos sistemas de voto electrónico que hace uso de urnas digitales pero generan un recibo o papeleta física, que almacenan también como una urna física.
+				
 				En cuanto al último nivel, el correspondiente al voto electrónico remoto, esto no está tan claro, pues la mayoría de estos sistemas no generan un resguardo físico de los votos electrónicos emitidos, por lo que es complicado pensar en un recuento en caso de fallo o de duda de la autoridad electoral o del propio electorado.
 
+					\subsubsection{Fujioka, Okamoto y Ohta}\label{introduccion.requisitosvotoelectronico.fujioka}
 				\par
 				Según publican \textit{Fujioka, Okamoto y Ohta} \cite{Fujioka93}, un sistema de voto secreto es \textit{seguro} si cumple con los siguientes requisitos:
 				\begin{description}[font=$\bullet$\ \ ]
 					\item[Completitud (Completeness):] Todos los votos válidos son contados correctamente.
 					\item[Solidez (Soundness):] Un votante deshonesto no puede interrumpir la votación.
 					\item[Privacidad (Privacy):] Todos los votos deben ser secretos.
-					\item[(Unreusability):] Ningún votante puede votar dos veces.
+					\item[Unicidad (Unreusability):] Ningún votante puede votar dos veces.
 					\item[Elegibilidad (Elegibility):] Nadie que no tenga permitido el voto puede votar.
 					\item[Fiabilidad (Fairness):] Nada debe afectar la votación.
 					\item[Verificabilidad (Verifiability):] Nadie puede falsificar el resultado de la votación.
@@ -153,7 +158,7 @@
 					\item[Corrección Privada de Errores (Private Error Correction):] El votante tiene la capacidad de probar que su voto no fue contado correctamente sin tener que revelar qué opción votó.
 				\end{description}
 				
-				\par
+				\subsubsection{Universidad de Extremadura}\label{introduccion.requisitosvotoelectronico.unex}
 				A partir de esta primera definición de los requisitos del voto electrónico, muchos equipos de desarrolladores o teóricos de infraestructuras para el voto electrónico han redactado sus propias interpretaciones, aunque suelen ser análogas a las ofrecidas por Fujioka.
 				Por ejemplo, estas son las propiedades que debe tener un sistema de voto electrónico a través de Internet, según publican desde la Universidad de Extremadura \cite{estudioInfraestructutaVotoElectronicoUNEX} son las siguientes:
 				\begin{description}[font=$\bullet$\ \ ]
@@ -288,9 +293,8 @@ los diálogos del sistema.
 				\end{description}
 				
 				
-				\label{articuloEvaluacionVotoElectronicoHolandes}
+				\subsubsection{Estudio holandés}\label{articuloEvaluacionVotoElectronicoHolandes}
 				Otra visión acerca de los requisitos inherentes al voto electrónico los podemos encontrar en \cite{DBLP:journals/corr/BokslagV16}, un artículo holandés acerca del voto electrónico y por Internet en este país. Este artículo enumera una serie de principios fundamentales para cualquier solución de e-voting basándose en los acordados por el Consejo de Europa\cite{ministers2005legal}.Según estos principios, se debe asegurar que el \textbf{sufragio} sea:
-				\todo{indicar que al igual que la UNEX, a partir de estos principios, se infieren los requisitos}
 				\begin{description}
 					\item [Universal:] Cualquier persona tiene derecho a votar y a postularse para la Elección (entendiendo la existencia de límites basados en condiciones como la edad o la nacionalidad).
 					\item [Igualitario:] Cada votante puede emitir el mismo número de votos.
@@ -311,16 +315,17 @@ los diálogos del sistema.
 					\item [Disponibilidad:] Asegurar la disponibilidad del sistema durante el tiempo que tiene lugar la votación.
 				\end{description}			
 															
-				He añadido esta recopilación de requisitos porque en el artículo se realiza una valoración muy interesante de varios sistemas de votación electrónica y por Internet con resultados basados en esta clasificación.
+				En el artículo mencionado se realiza una valoración muy interesante de varios sistemas de votación electrónica y por Internet con resultados basados en esta clasificación.
 				
-				Cuando se comenten estas soluciones en apartados posteriores podremos utilizar estas valoraciones como comparativa más, según los autores del artículo, de diferentes sistemas de votos estudiados en este PFC.
 														
 														
 																												
 																												
 			\todo[inline]{Cerrar elegantemente el capítulo}
 			
-			Pese a que, dependiendo del autor, se pueden enumerar diferentes clasificaciones con los requisitos del voto electrónico, al final se observa que la mayoría de ellos son comunes a casi todas. Así entre los requisitos básicos vemos que los autores aquí recogidos siempre hablan de \textit{integridad}, \textit{privacidad}, \textit{verificabilidad}, \textit{unicidad}, \textit{fiabilidad}, \textit{disponibilidad}, \textit{derecho de voto} ... Aspectos que debe cumplir todo sistema de votación electrónica para que el proceso pueda ser llevado a cabo con un nivel aceptable de seguridad y confianza por parte de los intervinientes y observadores de la Elección.
+			Pese a que, dependiendo del autor, se pueden enumerar diferentes clasificaciones con los requisitos del voto electrónico, al final se observa que la mayoría de ellos son comunes a casi todas.
+			
+			Así entre los requisitos básicos vemos que los autores aquí recogidos siempre hablan de \textit{integridad}, \textit{privacidad}, \textit{verificabilidad}, \textit{unicidad}, \textit{fiabilidad}, \textit{disponibilidad}, \textit{derecho de voto} ... Aspectos que debe cumplir todo sistema de votación electrónica para que el proceso pueda ser llevado a cabo con un nivel aceptable de seguridad y confianza por parte de los intervinientes y observadores de la Elección.
 				
 		% *************************************************************************************************************** %
 		% 			EXPERIENCIAS DE VOTO ELECTRÓNICO
@@ -1284,14 +1289,16 @@ los diálogos del sistema.
 		% 			CERTIFICADOS DIGITALES
 		% *************************************************************************************************************** %
 		\subsection{Certificados Digitales}\label{estadoCertificadosDigitales}
-		La propia web de la Fábrica Nacional de Moneda y Timbre \cite{webCertFNMT} indica que \textit{un certificado digital es un documento electrónico que asocia una clave pública con la identidad de su propietario}. Complementa la definición añadiendo que \textit{adicionalmente, además de la clave pública y la identidad de su propietario, un certificado digital puede contener otros atributos para, por ejemplo, concretar el ámbito de utilización de la clave pública, las fechas de inicio y fin de la validez del certificado, etc. El usuario que haga uso del certificado podrá, gracias a los distintos atributos que posee, conocer más detalles sobre las características del mismo.}.
-		\\
+		La web de la Fábrica Nacional de Moneda y Timbre \cite{webCertFNMT} indica que \textit{un certificado digital es un documento electrónico que asocia una clave pública con la identidad de su propietario}.
+		
+		Complementa la definición añadiendo que \textit{adicionalmente, además de la clave pública y la identidad de su propietario, un certificado digital puede contener otros atributos para, por ejemplo, concretar el ámbito de utilización de la clave pública, las fechas de inicio y fin de la validez del certificado, etc. El usuario que haga uso del certificado podrá, gracias a los distintos atributos que posee, conocer más detalles sobre las características del mismo.}.
+		
 		La utilidad de los certificados digitales, simplificando el contexto, se resume en \textit{asegurar que una determinada clave pública pertenece a un usuario en concreto}.
-		\\
-		Con las tecnologías actuales, la economía ha vuelto su desarrollo al comercio electrónico y las relaciones remotas. Muchas transacciones que antes se realizaban en persona han evolucionado al mundo digital, por lo que, para la mayoría de ellas es indispensable poseer mecanismos que puedan demostrar que los sujetos intervinientes en la comunicación están unívocamente identificados y con la seguridad de que no se produce suplantación.
-		\\
+		
+		Con las tecnologías actuales, la economía ha virado su desarrollo hacia el comercio electrónico y las relaciones remotas. Muchas transacciones que antes se realizaban en persona han evolucionado al mundo digital, por lo que, para la mayoría de ellas es indispensable poseer mecanismos que puedan demostrar que los sujetos intervinientes en la comunicación están unívocamente identificados y con la seguridad de que no se produce suplantación.
+		
 		Una herramienta fundamental para cumplir con este propósito ha sido el desarrollo de las certificaciones digitales.
-		\\
+		
 		\todo[inline]{COMPLETAR}
 		
 		
