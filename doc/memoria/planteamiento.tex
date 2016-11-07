@@ -222,13 +222,19 @@
 						
 			\subsubsection{Presentación de las candidaturas}\label{fase_electoral_preelectoral_candidaturas}
 				\par
-					Una vez definido tanto el censo como las divisiones electorales, tienen que presentarse las candidaturas. 
-					(...)
-					\todo[inline]{...}
+					Una vez definido tanto el censo como las divisiones electorales, tiene que afrontarse el problema de la presentación de las candidaturas que van a competir en la elección.
+					
+					Para esta fase se pueden plantear diferentes soluciones en cuanto a la necesidad del proceso electoral. Desde un punto de vista simple, la propia Autoridad Electoral define y carga las diferentes candidaturas al sistema. Desde una visión más compleja, puede ser necesario la implementación de un sistema de gestión de candidaturas, como ya existe en elecciones de voto tanto electrónico como presencial, para que sean las propias candidaturas o partidos los que inscriban las listas o candidatos que les representen.
+					
+					Para una elección como las que se quieren afrontar de la EPS, la primera visión, más simple, tiene muchas posibilidades de ser una solución adecuada. Sin embargo, pensando en un sistema para implantar en cualquier tipo de proceso electoral o, por ejemplo, pensando en elecciones a nivel municipal gestionadas por una autoridad a nivel estatal, donde concurren multitud de candidaturas, se hace imperioso desarrollar un sistema externo que realice la gestión de la inscripción de todas estas listas, estableciendo un plazo y mecanismos para que sean los propios partidos quienes lo hagan.
+					
+					Esto último es lo que se realiza en las elecciones que se celebran en España, donde la Junta Electoral provee a los partidos de un sistema donde inscribir sus candidaturas, que la Junta puede gestionar, en caso necesario, dan posibilidades a los partidos a reclamar y generan el listado de candidaturas participantes en los formatos necesarios tanto para publicar en el Bioletín Oficial del Estado o la Comunidad Autónoma como para los diferentes sistemas de escrutinio o postelectoral que se vayan a utilizar con respecto a la Jornada Electoral.
+
 					
 			\subsubsection{Generación de claves de encriptado}\label{fase_electoral_preelectoral_genreacionClaves}
 				\par
 				Es necesario que en esta fase se generen las claves que se utilizarán tanto para encriptar el voto que deposita el votante en la urna digital como las necesarias para que los miembros de mesa puedan descifrarlo para poder realizar el escrutinio.
+				\todo{Con Helios, esto no está tan claro que sea así. La parte de descifrar el voto no sería cierta}
 				
 					
 					
@@ -236,9 +242,11 @@
 			\subsubsection{Identificación del votante}\label{fase_electoral_electoral_identificacion}
 				\par
 				El primer paso de un votante a la hora de emitir su voto, en el sistema de voto tradicional es identificarse ante los miembros de la mesa electoral. Para ello, en elecciones como las que organizan el Ministerio de Interior en España o las diferentes Comunidades Autónomas, el votante hace uso de un documento que verifique su identidad. En España, este documento es el DNI, aunque también se puede hacer uso del Pasaporte. En otros países en los que se carece de un documento oficial de identidad expedido por las autoridades del Estado, se realiza un registro biométrico de los votantes con, por ejemplo, las huellas dactilares de los mismos.\\
-				En el caso de las Elecciones a la Junta de Escuela de la EPS CEU, la identificación de los votantes...
-				\par
+				En el caso de las Elecciones a la Junta de Escuela de la EPS CEU, la identificación de los votantes...\todo{falta}
+				
+				
 				Una vez identificado al votante, se le tiene que cotejar con el censo de la elección o de la mesa en la que ha sido identificado. En países como España, la elaboración del censo corre a cargo del INE (Instituto Nacional de Estadística) y reparte a los votantes en diferentes mesas repartidas en locales electorales. En otros estados, este censo no existe y se requiere que sea la ciudadanía la que se registre en un Registro de Votantes, con lo que si no se ha acudido a tiempo de realizar este trámite, la persona pierde su derecho al voto.\\
+				
 				En el caso de estudio de las elecciones de la EPS, este censo debe ser proporcionado por la propia Escuela. Los datos son suyos y la cesión debe ser temporal y, simplemente, para ser cotejado, nunca para publicación de ningún tipo de resultado o listado con la información proporcionada.
 				
 				\todo[inline]{ LOPD ?? ? ?  ? }
@@ -285,7 +293,7 @@ Cierto es que podríamos hacer uso de la banda MRZ del documento escaneándola per
 				
 				\todo[inline]{Se puede adelantar que sería interesante poder votar en la web desde el móvil en vez de desde la app.}
 				
-				\todo[inline]{Explicar un poco más el nuevo DNIe, ventajas e inconvenientes para el voto por Internet, así como un poco su funcionamiento con los cambios respecto al DNIe 1.0 ------- aunque todo esto va en Estado de la cuestión}
+				\todo[inline]{Explicar un poco más el nuevo DNIe, ventajas e inconvenientes para el voto por Internet, así como un poco su funcionamiento con los cambios respecto al DNIe 2.0 ------- aunque todo esto va en Estado de la cuestión}
 
 					\item MobID
 						\par
@@ -304,17 +312,22 @@ En el caso de las Elecciones a la Junta de Escuela de la EPS, podemos pensar en 
 
 			\subsubsection{Votación}\label{fase_electoral_electoral_votacion}
 				\par
-				En el sistema tradicional, el momento de la votación es aquel en el que el votante  deposita su voto en la urna tras haber escogido la papeleta o marcado la boleta de candidatos y haber sido identificado correctamente por los miembros de la mesa electoral.\\
-				Este proceso es al que estamos habituados en los territorios con una cierta historia democrática. En principio, parece bastante transparente, en cuanto a que el votante puede confirmar sin ninguna duda que su voto, efectivamente, se encuentra dentro de la urna sellada, junto con el resto de votos de la mesa.\\
-				Aquí encontramos el primer detalle controvertido con respecto al voto por Internet. El votante no tiene constancia física de que su voto se ha depositado en la urna correcta, ni siquiera de si está en alguna urna. No ''se ve''.\\
-				Es más, sabe que ha introducido en la urna la papeleta que tenía en su mano, que sabe cuál es porque él mismo la ha elegido. Pero en el sistema informático, no sabe si ocurre lo mismo. Puede pensar que aunque haya seleccionado un candidato y el sistema le diga que ha contabilizado su voto por éste, realmente, por detrás esté cambiando el voto y registrando a otro candidato diferente.\\
-				Es misión del sistema informático proveer al votante de mecanismos que le permitan verificar todas estas cuestiones. Hay que diseñar el sistema para que haya confianza en él. Quizá esta sea la mayor de las barreras existentes en la actualidad para la implantación del voto por Internet, la falta de confianza.\\
+				En el sistema tradicional, el momento de la votación es aquel en el que el votante  deposita su voto en la urna tras haber escogido la papeleta o marcado la boleta de candidatos y haber sido identificado correctamente por los miembros de la mesa electoral.
+				
+				Este proceso es al que estamos habituados en los territorios con una cierta historia democrática. En principio, parece bastante transparente, en cuanto a que el votante puede confirmar sin ninguna duda que su voto, efectivamente, se encuentra dentro de la urna sellada, junto con el resto de votos de la mesa.
+				
+				Aquí encontramos el primer detalle controvertido con respecto al voto por Internet. El votante no tiene constancia física de que su voto se ha depositado en la urna correcta, ni siquiera de si está en alguna urna. No ''se ve''.
+				
+				Es más, sabe que ha introducido en la urna la papeleta que tenía en su mano, que sabe cuál es porque él mismo la ha elegido. Pero en el sistema informático, no sabe si ocurre lo mismo. Puede pensar que aunque haya seleccionado un candidato y el sistema le diga que ha contabilizado su voto por éste, realmente, por detrás esté cambiando el voto y registrando a otro candidato diferente.
+				
+				Es misión del sistema informático proveer al votante de mecanismos que le permitan verificar todas estas cuestiones. Hay que diseñar el sistema para que haya confianza en él. Quizá esta sea la mayor de las barreras existentes en la actualidad para la implantación del voto por Internet, la falta de confianza.
+				
 				No es por falta de métodos seguros o carencia de medios criptográficos. El problema es que no es fácil que el elector, opinión pública u organismos de control o auditoría confíen en el proceso, ya que, a priori, parece una gran caja negra, ante la cual es complicado asegurar una verificación de datos de forma transparente.
 
 
 
 		\subsection{Fase postelectoral}\label{fase_electoral_postelectoral}
-		\todo[inline]{Tras el escrutinio, la difusión de resultados y proclamación oficial.}
+		\todo[inline]{Tras el escrutinio, la difusión de resultados y proclamación oficial. Además, facilitar que el votante asegure el escrutinio de su voto.}
 			
 		
 % *************************************************************************************************************** %
