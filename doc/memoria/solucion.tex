@@ -37,6 +37,13 @@
 	
 		
 		\section{Diseño}\label{diseño}
+		
+			Tal como se estudia en el análisis (\ref{analisis}), la solución que se propone para este Proyecto consiste en adaptar el sistema Helios Voting a las necesidades de la EPS.
+			
+			Para ello, habrá que tener en cuenta quiénes son los actores que han de interactuar, así como los cambios que hay que realizar para llegar a implementar el sistema en este nuevo escenario.
+			
+			
+		
 			\subsection{Diseño del esquema de votación}\label{disenhoEsquemaVoto}
 				\subsubsection{Registro}
 					La fase de registro de votantes en el sistema no será interactivo en cuanto a que no es el propio votante el que debe inscribirse para poder votar en las elecciones, sino que es la Autoridad Electoral la que lo registra en el censo. En esta fase, pues, se trata de establecer el censo de votantes que tienen autoridad para votar en el proceso electoral.
@@ -63,7 +70,7 @@
 					
 					\notasDuda{Falta definir el proceso de carga de votantes para el servicio de autenticación.}
 					
-				\subsubsection{Identificación/Autenticación}
+				\subsubsection{Identificación / Autenticación}
 					El servicio de identificación es un subsistema clave en el proceso electoral. En él recae parte de la responsabilidad de la robustez del sistema, en cuanto a que debe asegurar varios de los requisitos básicos que definen el voto electrónico en concreto:
 					
 		\notasInfo{Esto es así según los requisitos de Fujioka, si se utilizan los de la UNEX, se puede modificar.}
@@ -77,7 +84,8 @@
 		\end{description}
 
 					
-			 El sistema de identificación del votante se apoya en el protocolo oAuth2.				
+			 El sistema de identificación del votante se apoya en el protocolo oAuth2.
+			\notasInfo[inline]{Aquí desarrollamos la implementación oAuth que hemos desarrollado para este sistema}
 					
 					
 					
@@ -106,19 +114,49 @@
 			\subsection{Diseño de la app de identificación}
 							
 			\subsection{Diseño de la interfaz de usuario}\label{diseño_interfaz_usuario}
+				Para la interfaz de usuario hay varias necesidades que se han debido de satisfacer.
+				
+				Por un lado, la imagen corporativa. Al tratarse de un proceso electoral diseñado para una entidad, la plataforma en la que se basa debería mostrar inequívocamente la imagen de la entidad que lo organiza.
+				
+				Otro aspecto a tener en cuenta será la adaptación a dispositivos móviles, pues lo que se busca es el voto seguro desde este tipo de dispositivos, algo que no cubre con suficiencia la versión actual de Helios Voting.
+				
 				\subsubsection{Estructura de la página web}
 					\todo{Cambios en la interfaz original de Helios. Responsive....}
 					
 				\subsubsection{Estructura de la aplicación móvil}
 					\todo{Interfaz de usuario de la app.}
 					
-				\subsubsection{Colores}
+				\subsubsection{Accesibilidad}
 					\todo{Destacar accesibilidad}
 					
-				\subsubsection{Logo de la elección}
-					\todo{Como imagen de marca, bla bla bla, al no haber un logo del proceso, bla bla bla, se puede intorducir uno o utilizar el de la Universidad, bla bla}
-			
-				\subsubsection{Ergonomía}
+				\subsubsection{Imagen corporativa}
+					\todo{Como imagen de marca, bla bla bla, al no haber un logo del proceso, bla bla bla, se puede introducir uno o utilizar el de la Universidad, bla bla}
+					La interfaz de Helios Voting se corresponde con un sistema neutro para realizar elecciones en la plataforma web de ejemplo que tienen publicada junto con el código fuente del proyecto.
+					
+					Esta interfaz está bien para el propósito que tienen de, por un lado, mostrar un ejemplo de funcionamiento del proyecto y, por otro, dar una herramienta funcional para la realización de pequeños procesos electorales seguros por Internet para pequeños grupos que no necesiten una implementación propia.
+					
+					A la hora de utilizar esta herramienta para montar un sistema electoral propio, en infraestructuras de un cliente, esta interfaz no se corresponde con la que debería tener un proyecto serio.
+					Cualquier proceso electoral suele y debe tener una imagen corporativa propia que pueda identificarse claramente con el propio proceso y con las autoridades que lo organizan, con la finalidad de que el votante identifique claramente el origen del proceso y no dé lugar a equívocos, además de que, en cierto modo, aumentan la seguridad del mismo en el proceso.
+					
+					La Universidad, al no haber estar habituada a procesos electorales por Internet, no suele llevar a cabo el desarrollo de una imagen corporativa para este tipo de eventos. No obstante, sí que lo hace con otros que suele organizar, ya sean académicos o sociales, además de que, como la mayoría de entidades, tiene construida una imagen de marca propia.
+					
+					Basándonos en esta imagen de marca propia de la Universidad San Pablo CEU, se ha diseñado una gama de colores y una serie de logos e imágenes para dar una imagen corporativa al proceso electoral. Aunque se ha utilizado la interfaz base del proyecto Helios, ha habido que modificarla para hacer que se relacione la web con la Autoridad que organiza la Elección.
+					
+					\notasInfo[inline]{Dar una muestra de colores y de logos de la elección}
+					
+					\begin{figure}[!h]
+						\centering
+							\includegraphics[width=.5\textwidth]{imgs/logo_usp_ceu.jpg}
+						\caption{Logo de la Universidad San Pablo CEU en su web}
+						\label{fig:logo.universidad_san_pablo_ceu}
+					\end{figure}
+				
+				
+					\notasInfo[inline]{Colores...accesibilidad!}				
+				
+				
+				
+				
 				
 				
 				

@@ -82,25 +82,33 @@
 				La introducción de este paradigma en el mundo de los procesos electorales plantea para los expertos, por tanto, un conjunto de retos muy importante, tanto desde el punto de vista tecnológico - sobre todo a nivel de seguridad del sistema y privacidad del votante - como a nivel social, ya que estos sistemas electrónicos deben garantizar al votante al menos la misma confianza que la que le proporciona el sistema de voto tradicional, para que se pueda plantear aceptar el cambio.
 				
 				
-				\subsection{*****SSSSSSSSSSSSSSSSSS*****}
-				\todo[inline]{¿Dónde se coloca este apartado?}
+				\subsection{Verificabilidad vs. Secreto}\label{estadocuestion.votoelectronico.verifvssecreto}
 				El voto electrónico es uno de los retos más importantes y complejos del mundo tecnológico hoy en día. Aunque pueda parecer que en otras áreas más modernas hay desarrollos mucho más complejos, el problema del voto electrónico sigue teniendo factores de difícil resolución.
-				Uno de los retos más complicado de resolver para los desarrolladores de estos protocolos y sistemas es el de la dualidad Verificabilidad-Secreto. Aquí se enfrentan dos requisitos básicos de un sistema de voto electrónico: la posibilidad de un elector de \textbf{verificar} que el voto que ha emitido ha sido correctamente incluido en el escrutinio y el derecho fundamental del \textbf{secreto} de voto del propio elector.
-				Para ejemplificar y visualizar el problema, introduciremos una serie de actores:
-				\begin{description}
-					\item[Blanca y Begoña:] dos votantes.
-					\item[Juan:] quiere influenciar el voto de Blanca.
-					\item[Carnívoros y Herbívoros:] las dos opciones entre las que los votantes han de elegir en la Elección.
-				\end{description}
 				
-				Blanca tiene intención de votar por los Carnívoros, mientras que Begoña desea votar a los Herbívoros. Por su parte, Juan tiene un gran interés en que Blanca vote por los Herbívoros.
+				Uno de los retos más complicado de resolver para los desarrolladores de estos protocolos y sistemas es el de la \textit{dualidad Verificabilidad-Secreto}.
 				
-				Como hemos avanzado, en cualquier proceso electoral hay un conflicto entre la verificabilidad y el secreto. Cualquier votante querría verificar que el proceso de su voto ocurre correctamente, desde su inclusión en la urna hasta el preciso conteo en el escrutinio. De forma particular, Blanca quiere verificar que su voto es apropiadamente escrutado como Carnívoros. No obstante, si Blanca consigue suficiente información como para poder demostrar a Juan de que votó por los Carnívoros, aparece la amenaza de la compraventa de votos. Sabiendo que el voto emitido es demostrable a un tercero, antes de que Blanca vote, Juan podría ofrecerle dinero u otros recursos a cambio de que su voto sea para los Herbívoros en vez de para los Carnívoros. 
-				Naturalmente, junto con la amenaza de la compraventa de votos, aparece también la de la coerción. Como Blanca puede mostrar el contenido de su voto a Juan, puede ser coartada por éste para que vote por Herbívoros como él quiere, en lugar de los Carnívoros, como ella pretendía, por miedo a represalias.
+				Aquí se enfrentan dos requisitos básicos de un sistema de voto electrónico: la posibilidad de un elector de \textbf{verificar} que el voto que ha emitido ha sido correctamente incluido en el escrutinio y el derecho fundamental del \textbf{secreto} de voto del propio elector.
 				
-				Lo que se debe buscar con el voto electrónico es que Blanca consiga la información suficiente para verificar personalmente que su voto a Carnívoros ha sido efectivamente emitido y escrutado como Carnívoros, pero que no consiga la información necesaria como para probar a Juan el contenido de su voto.
+				Con el fin de visualizar el problema, planteo un ejemplo típico.
 				
-				Si Blanca vota a Carnívoros y Begoña a Herbívoros, ambas deberían tener la seguridad de que sus votos han sido correctamente incluidos en el escrutinio según sus opciones elegidas. Las dos pueden decirle a Juan que han votado a Herbívoros, con lo que Blanca estará mintiendo y Begoña dirá la verdad, pero Juan no notará la diferencia. Quizá al ver Juan que no tiene seguridad para incentivar o coartar a Blanca, desista de tratar de comprar su voto (o de coartarlo) y se acabe así con la amenaza.
+						
+						\begin{quotation}
+							Para comenzar con el ejemplo, introducimos una serie de actores:
+													\begin{description}
+								\item[Blanca y Begoña:] dos votantes.
+								\item[Rafael:] quiere influenciar el voto de Blanca.
+								\item[Carnívoros y Herbívoros:] las dos opciones entre las que los votantes han de elegir en la Elección.
+							\end{description}
+							
+							Blanca tiene intención de votar por los Carnívoros, mientras que Begoña desea votar a los Herbívoros. Por su parte, Rafael tiene un gran interés en que Blanca vote por los Herbívoros.
+							
+							Como hemos avanzado, en cualquier proceso electoral hay un conflicto entre la verificabilidad y el secreto. Cualquier votante querría verificar que el proceso de su voto ocurre correctamente, desde su inclusión en la urna hasta el preciso conteo en el escrutinio. De forma particular, Blanca quiere verificar que su voto es apropiadamente escrutado como Carnívoros. No obstante, si Blanca consigue suficiente información como para poder demostrar a Rafael de que votó por los Carnívoros, aparece la amenaza de la compraventa de votos. Sabiendo que el voto emitido es demostrable a un tercero, antes de que Blanca vote, Rafael podría ofrecerle dinero u otros recursos a cambio de que su voto sea para los Herbívoros en vez de para los Carnívoros. 
+							Naturalmente, junto con la amenaza de la compraventa de votos, aparece también la de la coerción. Como Blanca puede mostrar el contenido de su voto a Rafael, puede ser coaccionada por éste para que vote por Herbívoros como él quiere, en lugar de los Carnívoros, como ella pretendía, por miedo a represalias.
+							
+							Lo que se debe buscar con el voto electrónico es que Blanca consiga la información suficiente para verificar personalmente que su voto a Carnívoros ha sido efectivamente emitido y escrutado como Carnívoros, pero que no consiga la información necesaria como para probar a Juan el contenido de su voto.
+							
+							Si Blanca vota a Carnívoros y Begoña a Herbívoros, ambas deberían tener la seguridad de que sus votos han sido correctamente incluidos en el escrutinio según sus opciones elegidas. Las dos pueden decirle a Rafael que han votado a Herbívoros, con lo que Blanca estará mintiendo y Begoña dirá la verdad, pero Rafael no notará la diferencia. Quizá, al ver Rafael que no tiene seguridad para incentivar o coartar a Blanca, desista de tratar de comprar su voto (o de coartarlo) y se acabe así con la amenaza.
+				\end{quotation}
 				
 				\notasCambio[inline]{Hay que arreglar este párrafo.}
 
