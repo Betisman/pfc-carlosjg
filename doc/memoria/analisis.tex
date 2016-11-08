@@ -39,7 +39,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			
 			Por otro lado, la parte de la lógica de negocio del sistema se basa en subsistemas independientes, aunque modulares, dependiendo del servicio que tengan que ofrecer. La independencia de estos subsistemas responde a cuestiones de seguridad y para proporcionar mayor transparencia del proceso en cuanto al \textit{flujo del voto} a través del software.
 			
-			
+\iffalse			
 			\begin{description}[font=$\bullet$\ \ ]
 				\item[Título:] AQUÍ VA EL TÍTULO ******************** 
 				\item[Descripción:] \textst{El sistema consiste en una plataforma de voto electrónico remoto por Internet, seguro, anónimo y tratando de implementar el máximo de requisitos exigibles al voto electrónico que cumplan con el objetivo. El desarrollo es ad-hoc según las normas de las elecciones que van a tomar parte. (************)Pese a ser un diseño dirigido a unos tipos de elecciones concretas, se puede modularizar el sistema para que, implementando unas nuevas reglas, el sistema sirva de base a otros procesos.(************). Los votantes dispondrán de unas credenciales digitales que servirán para que se puedan identificar unívocamente en el sistema, sin suplantaciones. (**************** DNIe? TUI? user/password? *****************). Estas credenciales se implementan basándose en certificados digitales que aseguran la autenticidad del votante. Una vez el votante se autentica contra el sistema y el censo (proporcionado por la Universidad y cargado previamente en el sistema), se le presenta el surtido de papeletas entre las que puede elegir a sus representantes. Este conjunto de papeletas ha de ser calculado por el sistema teniendo en cuenta el tipo de votante con el que interacciona (estudiante/profesor/empleado, carrera, grupo/clase...).Una vez seleccionada la papeleta, emite el voto. El voto consiste en que el votante firma digitalmente un sobre lógico en el que va la papeleta cifrada. Este sobre se envía al sistema, donde un módulo urna digital se encarga de almacenarlo hasta la finalización del periodo de votación. Una vez llega el fin de este periodo, los administradores de la elección abren la urna. Para ello, requieren de una clave criptográfica que estará troceada y repartida entre varios miembros. La apertura de la urna implica la anonimización de los votos, rompiendo la relación entre un votante y el voto que ha emitido. Una vez cumplido con el requisito del voto anónimo y eliminada la trazabilidad del voto, estos tienen que ser descifrados para, a continuación, ser contados. Al finalizar el escrutinio, se publican los resultados. Junto a la publicación de los resultados, se deben publicar unas listas para que los votantes puedan verificar que el voto digital que emitieron no ha sido alterado y, además, ha formado parte del escrutinio.}
@@ -54,9 +54,13 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			Del mismo modo, el sistema ha de asegurar que los votos, ya desligados de la identidad del votante, son correctamente almacenados en la urna electrónica y correctamente contados en la fase de recuento o consolidación de votos. Teniendo en cuenta las reglas de la elección, debe asegurar que todos los votos son correctamente contados y que sólo lo son una vez.
 			Una vez finalizado el recuento, y difundidos los resultados, el sistema debe proporcionar un mecanismo para que un votante pueda confirmar que su voto ha sido incluido correctamente en los resultados ofrecidos por el sistema sin que se viole la privacidad de su voto.}
 			\todo[inline]{Lo tachado es porque ya no es correcto al utilizar Helios}
+\fi
+
 			
 			Adicionalmente, el sistema debe proporcionar funcionalidades externas al proceso de voto.
+			
 			Debe tener un sistema de carga y gestión de los datos electorales (reglas de la elección, urnas, circunscripciones, candidatos, censo).
+			
 			Debe proporcionar herramientas que permitan la monitorización del proceso para comprobar el estado del mismo, además de herramientas de transparencia para que pueda ser auditado en tiempo real por las autoridades competentes.
 			
 			%\subsection{Restricciones generales}\label{requisitosRestriccionesGenerales}
@@ -506,7 +510,14 @@ pantallas a las que tienen acceso los diferentes roles de usuario y la conexión 
 				
 				Helios Voting basa su seguridad criptográfica en un protocolo de cifrado homomórfico (\ref{primitivaCifradoHomomorfico}).
 				
-				El voto se encripta en el navegador del cliente utilizando una implementación del algoritmo de ElGamal Exponencial realizada en Javascript. Como se ha explicado en \ref{primitivaCifradoHomomorfico_elgamal}
+				El voto se encripta en el navegador del cliente utilizando una implementación del algoritmo de ElGamal Exponencial realizada en Javascript.
+				
+				Como se ha explicado en \ref{primitivaCifradoHomomorfico_elgamal} las propiedades de un cifrado homomórfico implican que el cifrado del producto de dos mensajes (números) se corresponda con el producto de ambos mensajes cifrados.
+				
+				El algoritmo de ElGamal es un algoritmo de cifrado homomórfico. Pese a ser bastante interesante, existe otra aproximación al problema, con el cifrado homomórfico exponencial. De este tipo el algoritmo de ElGamal Exponencial. Con este algoritmo se puede obtener una relación entre la suma de dos mensajes cifrados y el cifrado de la suma de dos mensajes. Se basa en la elección de un número grande usado como generador, el cual usa el mensaje como exponente. El producto de dos generadores elevados exponencialmente cada uno a un mensaje y cifrados es igual que el cifrado del generador elevado a la suma de los dos mensajes.
+				
+				Aplicando estas propiedades al voto electrónico podemos inferir que cifrando los votos de cada votante, se puede obtener el cifrado de la suma de todos ellos. Una vez se obtiene, si se descifra, se obtiene el resultado totalizado de los votos. Es decir, que se pueden cifrar los votos y conseguir obtener la suma de ellos sin violar el secreto de cada voto individual.
+				
 				\todo[inline]{Esto se quedó a la mitad... :S}
 			
 

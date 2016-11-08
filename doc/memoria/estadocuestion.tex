@@ -858,6 +858,8 @@ los diálogos del sistema.
 				\subsection{Ágora Ciudadana - Ágora Voting}\label{estadocuestion_agoravoting}
 				\todo[inline]{Editar lo que está escrito en temp.tex sobre Ágora Voting. Ya no son Software Libre...}
 				
+				Comentar que Ágora Voting dejó de ser un proyecto activo y pasó de software libre a ser una plataforma comercial de voto por Internet llamada nVote. Está implementada en Python y tiene bastantes funcionalidades comunes con Helios Voting.
+				
 				\subsection{Helios}\label{estadocuestion_helios}
 				Helios es un sistema de voto por Internet cuyos desarrolladores consideran que es el primer sistema de voto con auditoría abierta (open-audit) basado en web. Actualmente es un proyecto en desarrollo, funcional y públicamente accesible. Cualquier organismo interesado puede descargar el código fuente, configurar un proceso electoral y llevar a término la elección, junto con que cualquier observador puede auditar todo el proceso.
 				
@@ -970,9 +972,10 @@ los diálogos del sistema.
 				
 				Entre las múltiples características que valora, recoge información acerca de la interfaz, licencia, requisitos de voto electrónico, antecedentes y comunidad de soporte del proyecto.
 				
-				Los resultados de la comparativa los resume en la siguiente tabla:
+				Los resultados de la comparativa los resume en la tabla \ref{tab:tablaComparativaAgoraHelios}, en la cual los valores van desde el 0 (valoración negativa) al 2 (valoración positiva).
+			
 				
-				\begin{table}[htbp]
+				\begin{table}[ht]
 				\centering
 					%\begin{tabular}{0.75\textwidth}@{\extracolsep{\fill}}|l|l|m{3cm}| m{3cm}|}
 					%\begin{tabular*}{0.95\textwidth}{@{\extracolsep{\fill}}|l|l|rm{2cm}|rm{1cm}|}
@@ -1026,6 +1029,13 @@ los diálogos del sistema.
 				\label{tab:tablaComparativaAgoraHelios}
 			\end{table}
 			
+			En el estudio, el autor divide las valoraciones en dos, las correspondientes al nivel de desarrollo de los proyectos y a las características de seguridad.
+			
+			En las primeras, da una mejor valoración al proyecto Ágora Voting. Sin embargo, en el segundo grupo, el que se correspondería con la mayoría de los requisitos inherentes al voto electrónico enunciadas por diferentes autores, la mejor nota se la lleva el proyecto Helios Voting, más correcto desde el punto de vista académico y de la seguridad en el voto remoto.
+			
+			Según observa, Helios supera a Ágora Voting en estas características porque fue directamente diseñado teniéndolas en cuenta, por lo que desde el origen toda la información se almacena cifrada y existen procedimientos de auditoría, cumpliendo con los requisitos de Privacidad y Verificabilidad del voto.
+			
+			Destaca que en ambos sistemas es posible emitir más de un voto por votante, aunque sólo uno de ellos será contado.
 			
 			% *************************************************************************************************************** %
 			% 			PRIMITIVAS DE CRIPTOGRAFÍA
@@ -1163,10 +1173,14 @@ los diálogos del sistema.
 			% *************************************************************************************************************** %
 			\section{Esquemas de Voto Electrónico}\label{esquemasVotoElectronico}
 			\todo[inline]{El problema es que parece que repetimos en los esquemas lo que se pon en las primitivas. Hay que ver cómo debo escribirlo.}
-				Los sistemas de voto electrónico están formados por un diseño conceptual y el llamado esquema o paradigma de voto electrónico (E-Voting Schemes - EVS). El esquema es el núcleo del sistema, lo que asegura que los requisitos se cumplan.\\
-				La práctica totalidad de estos esquemas usan mecanismos y principios criptográficos.\\
+				Los sistemas de voto electrónico están formados por un diseño conceptual y el llamado esquema o paradigma de voto electrónico (E-Voting Schemes - EVS). El esquema es el núcleo del sistema, lo que asegura que los requisitos se cumplan.
+				
+				La práctica totalidad de estos esquemas usan mecanismos y principios criptográficos.
+				
 				Los esquemas de voto electrónico se basan en una primitiva criptográfica o en un conjunto de ellas. Por eso, hay una serie de esquemas publicados apoyados sobre alguna de las primitivas introducidas en el apartado anterior.
+				
 				Podemos clasificar varios tipos de esquemas de voto electrónico entre los más usados según las publicaciones de una serie de expertos en el campo del voto electrónico criptográfico:
+				
 				\begin{itemize}
 					\item Esquema de Voto Electrónico basado en Cifrado Homomórfico \hfill \\
 						El votante emite su voto codificado y el recuento se realiza sin descodificar los votos. De esta forma se consigue que no se vulnere el secreto del voto. Para poder realizar esta descodificación, el elector debe instalar algún software desarrollado por la autoridad electoral para realizar las operaciones criptográficas.
@@ -1175,7 +1189,8 @@ los diálogos del sistema.
 						Se trata de un esquema bastante seguro, aunque complejo al mismo tiempo. Se trata el anonimato del votante ocultando el origen de los votos que recibe el sistema.
 					
 					\item Esquema de Voto Electrónico basado en Mixnets \hfill \\
-						El esquema basado en mixnets (redes mixtas) define la existencia de una serie de servidores enlazados. Cada uno de estos servidores recibe un grupo de mensajes encriptados, los reordena, los vuelve a encriptar de forma aleatoria y los envía al siguiente servidor. Con este proceso se consigue que no sea posible asociar la información de los mensajes de entrada con los de salida, rompiendo la relación votante-voto del sistema.\\
+						El esquema basado en mixnets (redes mixtas) define la existencia de una serie de servidores enlazados. Cada uno de estos servidores recibe un grupo de mensajes encriptados, los reordena, los vuelve a encriptar de forma aleatoria y los envía al siguiente servidor. Con este proceso se consigue que no sea posible asociar la información de los mensajes de entrada con los de salida, rompiendo la relación votante-voto del sistema.
+						
 						La desencriptación de los votos se puede realizar tanto en cada servidor (por medio de su propia clave) como al finalizar el proceso utilizando una clave distribuida entre varios de los servidores.\\
 						%******************* LITERAL ******** La principal crítica a este esquema es que las pruebas de correctitud son costosas. Existen algunas implementaciones comerciales de sistemas de elección electrónica basadas en este esquema. \notasCambio{LITERAL}
 						
@@ -1200,7 +1215,7 @@ los diálogos del sistema.
 						Este esquema de voto electrónico aparece en la tesis \cite{tesisSeguridadVMMorales}
 				
 				\end{itemize}
-				\notasInfo{****** Según \cite{tesisSeguridadVMMorales} *****}
+
 				Según la tesis de Morales Rocha \cite{tesisSeguridadVMMorales}, podemos definir cuatro grupos de esquemas de voto electrónico remoto. Estos se diferencian en la forma en la que usan los elementos criptográficos para tratar de resolver los requisitos de seguridad de un sistema electoral:
 				\begin{itemize}
 					\item Esquemas basados en firma ciega
