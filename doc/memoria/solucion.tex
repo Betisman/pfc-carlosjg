@@ -88,7 +88,12 @@
 			\notasInfo[inline]{Aquí desarrollamos la implementación oAuth que hemos desarrollado para este sistema}
 					
 					
-					
+					\begin{figure}[!h]
+						\centering
+							\includegraphics[width=.5\textwidth]{imgs/flujoOAuth01.jpg}
+						\caption{Flujo oAuth para servicio de autenticación}
+						\label{fig:flujo.oauth}
+					\end{figure}
 					
 					
 					
@@ -185,6 +190,8 @@
 				
 			\todo[inline]{Antes de este punto hay que hacer un resumen de los diferentes esquemas de votación, teniendo estos como Firma ciega, mixnets, etc...}
 
+
+\iffalse
 			\subsection{Protocolo}\label{solucion_protocolo}
 			\textst{
 				Como se ha comentado en capítulos anteriores, hay una multitud de soluciones propuestas para el voto telemático.
@@ -200,7 +207,7 @@
 				La mayoría de las soluciones estudiadas previamente a la realización de esta memoria centran sus esfuerzos en la fase de votación. Buscan la elaboración de un protocolo robusto, basado en esquemas criptográficos, que permita la mayor seguridad posible al cumplimiento de los requisitos fundamentales del voto electrónico, dotando al sistema de privacidad del votante, 
 			}
 				\todo[inline]{Hay que modificarlo. Es anterior a la decisión de utilizar Helios}
-				
+\fi				
 				
 				
 				
@@ -222,7 +229,7 @@
 				%\todo[inline]{No he podido conseguir reglamentación oficial de la elección, así que, básicamente, propongo yo las fases y la problemática ... esto, con palabras aquí escrito y bien puesto }
 				%
 				
-				
+\iffalse
 				\section{ESTO ES EL PFC}
 				\todo[inline]{ESTO NO VA EN EL PFC, ES UNA EXPLICACIÓN PARA TENER PRESENTE QUÉ ES EL PFC YU PODER DESARROLLAR LA MEMORIA EN TORNO A LA IDEA QUE TENEMOS.}
 				El sistema que se propone en este PFC es un sistema integral. Busca sostener el proceso electoral desde el comienzo hasta el final del mismo. Por ello empieza en el momento mismo de definición del censo y no termina hasta que la publicación de resultados y su auditoría son oficializadas por el órgano rector de la Elección.
@@ -296,5 +303,5 @@
 				Sería muy interesante que, como en Estonia, los votantes tuvieran una herramienta para poder verificar que su voto ha sido correctamente incluido y escrutado en el Proceso.
 				
 				Paralelamente a todo el proceso, cada subsistema ha de generar una serie de registros, ficheros logs, que puedan ser visualizados por un conjunto de auditores, observadores u otro grupo de profesionales que tengan que dar cuenta del correcto funcionamiento del Proceso y de la transparencia del mismo, así como del éxito técnico del Sistema.
-				
+\fi		
 				
