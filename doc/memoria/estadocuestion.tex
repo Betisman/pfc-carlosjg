@@ -1424,17 +1424,83 @@ los diálogos del sistema.
 		\subsection{DNIe}\label{estadoDNIe}
 		
 			\todo[inline] {DNIe - Añadir DNIe 3.0}
+			
+			
+			El proceso a seguir cuando se está en posesión todos los certificados necesarios para operar con el DNIe es (para cada uno de los certificados):
+			\begin{itemize}
+				\item Verificar que el certificado fue firmado usando la clave privada que
+corresponde a la clave pública de su emisor. Este paso no es necesario
+para el certificado de la CA raíz.
+				\item Verificar la validez del certificado, es decir, no ha caducado.
+				\item Realizar la validación OCSP contra el servidor de la FNMT.
+			\end{itemize}
 		
 		
 		% *************************************************************************************************************** %
 		% 			TARJETA UNIVERSITARIA INTELIGENTE
 		% *************************************************************************************************************** %
-		\subsection{Tarjeta Universitaria Inteligente - TUI}\label{estadoTUI}
+		%\subsection{Tarjeta Universitaria Inteligente - TUI}\label{estadoTUI}
 	
 	
 		
 		\subsection{Python}\label{estado_python}
 		\subsection{Django}\label{estado_django}
+\iffalse
+\url{http://upcommons.upc.edu/bitstream/handle/2099.1/24909/memoria.pdf}
+Django és l’eina principal amb la que està programada l’aplicació ISMe. És
+un framework de desenvolupament web de codi obert, desenvolupat en python,
+que respecta el paradigma conegut com Model Template View (MTV), que té
+l’objectiu de facilitar la creació de webs complexes. Django posa èmfasis en el
+re-ús, la connectivitat i extensibilitat de components, el desenvolupament ràpid i
+el principi de no-repetició (DRY, de l’anglès Don't Repeat Yourself). Python és 
+18 Desenvolupament de nous serveis de signatura electrònica sobre ISMe
+utilitzat en totes les parts del framework, inclús en configuracions, arxius, i en els
+models de dades.
+Podríem classificar a Django com part de la tercera generació del
+desenvolupament web, tal com es pot apreciar en la figura 3.4:
+Fig. 3.4 Visió general Django
+Django és un framework poderós, que ens permet disminuir el temps de
+desenvolupament, utilitzant una metodologia que es coneix amb el nom de Model
+Template View. Per començar a entendre l’arquitectura MTV hem de fixar-nos
+en l’analogia amb MVC (Model-Vista-Controlador). El model en Django segueix
+sent Model, la vista en Django s’anomena Plantilla (template), el controlador en
+Django es diu Vista.
+Bàsicament els 3 components principals del framework tenen com a funció crear
+una comunicació entre ells per extraure informació vital de base de dades i
+presentar-les al navegador. La figura 3.5 ajuda a entendre millor aquesta relació:
+Fig. 3.5 Funcionament Django
+1- El navegador envia una sol·licitud.
+2- El UrlConf interpreta la sol·licitud i ubica la vista apropiada.
+3- La vista interactua amb el model per obtenir les dades.
+4- La vista crida la plantilla corresponent.
+5- La plantilla renderitza la resposta de la sol·licitud del navegador.
+El model
+El model defineix les dades guardades i es troba en forma de classes. Cada tipus
+de dada que ha de ser emmagatzemada es troba en una variable amb certs 
+Entorn de treball i desenvolupament 19
+paràmetres i mètodes. Tot això permet indicar i controlar el comportament
+d’aquestes dades.
+La vista
+La vista es presenta en forma de funcions. El seu propòsit és determinar quines
+dades seran visualitzades i fer determinades operacions amb aquestes. El ORM
+(Mapejador Objecte-relacional) de Django permet escriure codi python en
+comptes de sentències SQL per fer les consultes que necessita la vista.
+La plantilla
+La plantilla és bàsicament una pàgina HTML amb algunes etiquetes extres
+pròpies de Django que en si no només crea contingut en HTML (també XML,
+CSS, Javascript, CSV, etc). Parlant de les funcions bàsiques amb HTML, la
+plantilla rep les dades de la vista i després les organitza per la presentació al
+navegador web. Les etiquetes que Django utilitza per les plantilles permeten que
+sigui flexible per als dissenyadors del front-end.
+La configuració de les rutes
+Django posseeix un mapeig de URL’s que permet controlar el desplegament de
+les vistes. Aquesta configuració és coneguda com UrlConf. El treball del UrlConf
+és llegir la URL que l’usuari sol·licita, trobar la vista apropiada per la sol·licitud i
+passar qualsevol variable que la vista necessiti per completar el seu treball.
+Permet que les rutes que manegui Django siguin agradables i entenedores per
+l’usuari.
+\fi		
+		
 		\subsection{Android}\label{estado_android}
 		\subsection{Web}\label{estado_web}
 			\notasInfo{La web no está preparada para certificados digitales personales, etc, etc...}

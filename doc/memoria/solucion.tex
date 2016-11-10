@@ -73,7 +73,7 @@
 				\subsubsection{Identificación / Autenticación}
 					El servicio de identificación es un subsistema clave en el proceso electoral. En él recae parte de la responsabilidad de la robustez del sistema, en cuanto a que debe asegurar varios de los requisitos básicos que definen el voto electrónico en concreto:
 					
-		\notasInfo{Esto es así según los requisitos de Fujioka, si se utilizan los de la UNEX, se puede modificar.}
+		\notasInfo[inline]{Esto es así según los requisitos de Fujioka, si se utilizan los de la UNEX, se puede modificar.}
 		\begin{description}
 			\item[Solidez:] Debe asegurar que un votante deshonesto no tenga capacidad de acceder al sistema e interrumpir la votación. Es decir, que sólo debe dar acceso a los votantes que realmente deben ingresar al sistema de votación.
 			
@@ -108,13 +108,28 @@
 				\subsubsection{Difusión de resultados}
 				
 			\subsection{Diseño de la arquitectura}
-				\todo{Aquí metemos la explicación de los dos servidores, el de auth y el de Helios, con sus conexiones por Internet. Podemos adelantar la implementación pensando en dos raspberrys? Aquí se habla de los dos Apaches en uno de los servidores (el de DNIe y el otro)??}
+				\todo[inline]{Aquí metemos la explicación de los dos servidores, el de auth y el de Helios, con sus conexiones por Internet. Podemos adelantar la implementación pensando en dos raspberrys? Aquí se habla de los dos Apaches en uno de los servidores (el de DNIe y el otro)??}
+				
+				\begin{figure}[!ht]
+						\centering
+							\includegraphics[width=.5\textwidth]{imgs/arquitectura01.jpg}
+						\caption{Arquitectura}
+						\label{fig:arquitecura01}
+					\end{figure}
+					
+					\begin{figure}[!ht]
+						\centering
+							\includegraphics[width=.5\textwidth]{imgs/arquitectura02.jpg}
+						\caption{Arquitectura nivel 2}
+						\label{fig:arquitectura02}
+					\end{figure}
+				
 				
 			\subsection{Diseño de la capa de datos}
-				\todo{Al hablar de Helios ya se puso un diagrama de datos. Repetir destacando los cambios. Añadir el diagrama E-R del servidor de oAuth}
+				\todo[inline]{Al hablar de Helios ya se puso un diagrama de datos. Repetir destacando los cambios. Añadir el diagrama E-R del servidor de oAuth}
 			
 			\subsection{Diseño de la red}
-				\todo{Para esto sí que necesito ayuda, por el tema de Firewalls y esas cosas.}
+				\todo[inline]{Para esto sí que necesito ayuda, por el tema de Firewalls y esas cosas.}
 				
 			\subsection{Diseño de la app de identificación}
 							
@@ -126,16 +141,16 @@
 				Otro aspecto a tener en cuenta será la adaptación a dispositivos móviles, pues lo que se busca es el voto seguro desde este tipo de dispositivos, algo que no cubre con suficiencia la versión actual de Helios Voting.
 				
 				\subsubsection{Estructura de la página web}
-					\todo{Cambios en la interfaz original de Helios. Responsive....}
+					\todo[inline]{Cambios en la interfaz original de Helios. Responsive....}
 					
 				\subsubsection{Estructura de la aplicación móvil}
-					\todo{Interfaz de usuario de la app.}
+					\todo[inline]{Interfaz de usuario de la app.}
 					
 				\subsubsection{Accesibilidad}
-					\todo{Destacar accesibilidad}
+					\todo[inline]{Destacar accesibilidad}
 					
 				\subsubsection{Imagen corporativa}
-					\todo{Como imagen de marca, bla bla bla, al no haber un logo del proceso, bla bla bla, se puede introducir uno o utilizar el de la Universidad, bla bla}
+					\todo[inline]{Como imagen de marca, bla bla bla, al no haber un logo del proceso, bla bla bla, se puede introducir uno o utilizar el de la Universidad, bla bla}
 					La interfaz de Helios Voting se corresponde con un sistema neutro para realizar elecciones en la plataforma web de ejemplo que tienen publicada junto con el código fuente del proyecto.
 					
 					Esta interfaz está bien para el propósito que tienen de, por un lado, mostrar un ejemplo de funcionamiento del proyecto y, por otro, dar una herramienta funcional para la realización de pequeños procesos electorales seguros por Internet para pequeños grupos que no necesiten una implementación propia.
