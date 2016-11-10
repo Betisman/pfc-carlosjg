@@ -246,7 +246,8 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			
 				Considerando el flujo del votante en el sistema, identificamos cuatro roles en el sistema que deben ser tenidos en cuenta de cara a las funcionalidades, privilegios y responsabilidades que tienen que encontrar en el uso del mismo.
 				\begin{description}[font=$\bullet$\ \ ]
-					\item[Votante] \hfill \\
+					\item[Votante] \hfill \
+					
 						El votante es el actor principal del sistema, pues es al que va dirigido el proceso de votación. Es el único rol que tiene la capacidad de votar. Las acciones que puede realizar son:
 						\begin{itemize}
 							\item Consultar su presencia en el censo.
@@ -259,7 +260,8 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 							\item Auditar el correcto escrutinio de la elección.
 						\end{itemize}
 						
-					\item[Administrador] \hfill \\
+					\item[Administrador] \hfill \
+					
 						El administrador es el rol encargado de gestión de las fases electorales.\\
 						Tiene responsabilidad y potestad de:
 							\begin{itemize}
@@ -275,7 +277,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 							
 						Los usuarios con este rol no puede votar. El administrador de la elección no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.
 					
-					\item[Miembro de la Junta Electoral]  \hfill \\
+					\item[Miembro de la Junta Electoral] \hfill \
 					
 					\notasCambio{CAMBIAR EL NOMBRE de miembro de la Junta Electoral}
 						Una vez el administrador de la elección dé por finalizado el proceso electoral, se requerirá que varios miembros de la Junta Electoral proporcionen unas claves personales que, juntando varias de ellas, servirán como llave lógica para la apertura de la urna que contiene los votos.\\
@@ -283,16 +285,22 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 						
 						\notasCambio[inline]{Teniendo en cuenta la organización de Helios, los miembros de la Junta Electoral que tenemos aquí son los trustees del sistema original de Adida.}
 						
-					\item[Auditor] \hfill \\
-						El auditor debe tener acceso a una serie de funcionalidades del sistema. Su función es velar porque el desarrollo del proceso electoral se realiza sin ningún tipo de fallo o de interferencia por parte de algún atacante.\\
+					\item[Auditor] \hfill \
+					
+						El auditor debe tener acceso a una serie de funcionalidades del sistema. Su función es velar porque el desarrollo del proceso electoral se realiza sin ningún tipo de fallo o de interferencia por parte de algún atacante.
+						
 						Los usuarios con este rol no pueden votar. El auditor no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.\\
 						Su misión es de control, por lo que ninguna acción que realice en el sistema puede afectar al desarrollo de la elección.
 						
-					\item[Autoridad Certificadora] \hfill \\
+					\item[Autoridad Certificadora] \hfill \
+					
 						Junto con los cuatro roles expuestos, encontramos un quinto actor en la figura de la Autoridad Certificadora. Esta entidad es la encargada de generar, administrar, validar y verificar las credenciales que han de usar cada uno de los votantes para emitir el voto, así como los de cada uno de los actores del proceso (administradores, miembros de la Junta Electoral, auditores o incluso los sistemas y sus comunicaciones).
+						
 						Al hacer uso del DNIe para la identificación y firma del votante, en estas fases, es la Dirección General de la Policía, dependiente del Ministerio del Interior, la que actúa como Autoridad de Certificación, combinando dos pares de claves con un ciudadano concreto a través de la emisión de sendos Certificados de conformidad con los términos de la Declaración de Prácticas y Políticas de Certificación (DPC) \cite{politicasDeCertificacion:2006}\cite{politicasDeCertificacion:2014} que rige el funcionamiento y operaciones de la Infraestructura de Clave Pública de los Certificados de identidad pública y firma electrónica del Documento Nacional de Identidad (DNIe).
 				
-					\item[Trustee]: Es necesario una serie de actores en el proceso, los llamados Trustees por Helios Voting. Estos actores, que también pueden formar parte de los anteriores grupos de actores, en especial los miembros de la Junta Electoral, son los encargados de custodiar un trozo de la clave secreta que el sistema necesita para la fase de escrutinio. Helios necesita una clave
+					\item[Trustee] \hfill \
+					
+					Es necesario una serie de actores en el proceso, los llamados Trustees por Helios Voting. Estos actores, que también pueden formar parte de los anteriores grupos de actores, en especial los miembros de la Junta Electoral, son los encargados de custodiar un trozo de la clave secreta que el sistema necesita para la fase de escrutinio. Helios necesita una clave
 					\todo[inline]{Al utilizar Helios, falta la figura del Trustee}
 				\end{description}
 				
@@ -489,7 +497,9 @@ pantallas a las que tienen acceso los diferentes roles de usuario y la conexión 
 				\begin{description}
 					\item [Verificación de la papeleta (antes de votar)]
 					El sistema permite verificar una papeleta cifrada previamente a su sufragio. La papeleta verificada no será la que se utilice para votar y no será, por tanto, contada sino que, por medidas para combatir la coerción, habrá que volver a encriptarla de nuevo cuando se quiera emitir el voto.
+					
 					Una vez el votante está en la cabina de voto virtual y ha encriptado sus opciones de voto, el sistema permite realizar una verificación para asegurarse de que la encriptación de estas ha sido correcta. Para ello, el sistema presenta al votante la información para auditar su papeleta (ballot audit info) \notasInfo{Poner aquí qué significa esta información}. Este texto es el que debe copiar el votante para utilizar en la herramienta de verificación de papeletas. En ésta, se incluye dicho texto y la URL de la elección datos suficientes para realizar la verificación.
+					
 					\todo[inline]{Explicar en qué consiste la verificación. IMPORTANTE y delicado. Valorar.}
 					Una vez hemos auditado nuestro voto, tenemos la posibilidad de publicar la papeleta auditada en el \textit{Helios tracking center}, permitiendo a otras entidades realizar una doble comprobación de la verificación de la papeleta.
 					
@@ -570,6 +580,7 @@ pantallas a las que tienen acceso los diferentes roles de usuario y la conexión 
 		La primera opción es utilizar, como se suele hacer desde un computador de escritorio, un navegador web.
 		
 		Una primera prueba que se realizó fue tratar de autenticarse en una web a través del DNIe.
+		
 		Al entrar en la Sede Electrónica de la Agencia Tributaria, para consultar los expedientes es necesario facilitar certificados digitales para poder ser identificado y autenticado contra el sistema. Al intentar abrir la página, Google Chrome nos muestra un aviso \todo[inline]{Captura de pantalla del móvil donde pide los certificados} en el que nos indica que no se han encontrado los certificados. Incluso nos ofrece la posibilidad de instalarlos. Podríamos dirigirnos a la web de la FNMT\footnote{\url{https://www.sede.fnmt.gob.es/certificados/persona-fisica/obtener-certificado-software}} y gestionar la emisión de un certificado digital, que podríamos descargar y utilizar como identificación digital de la misma forma que lo podemos hacer con el DNIe. De todos modos, la obtención de este certificado por parte de la FNMT requiere de un paso en el que el usuario ha de personarse físicamente en una Oficina de Registro para acreditar su identidad. Con este certificado instalado en el almacén de certificados de Google Chrome se podría gestionar la identificación contra la web a la que tratamos de acceder, pero hemos decidido no continuar por este camino porque es necesario realizar trámites extras que no consideramos necesarios frente a la facilidad de obtener el DNIe.
 		
 		Implementando algún tipo de soporte de autenticación por DNIe en Helios y tratando de acceder desde el móvil a través del navegador, nos encontraríamos este problema. Chrome, o el navegador que utilicemos, no tiene los certificados digitales cargados en su almacén de certificados.
