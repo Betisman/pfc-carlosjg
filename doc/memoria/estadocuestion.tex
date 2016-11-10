@@ -708,7 +708,13 @@ los diálogos del sistema.
 			Para que estas elecciones a través de Internet pudiesen llevarse a cabo la Universidad San Pablo-CEU tuvo que adaptar su normativa de régimen interno, pues la que tenía originalmente establecía únicamente la posibilidad de un sistema de voto presencial.
 			
 			\subsection{Universidad de Lovaina}\label{ivotingUniversidadLovaina}
-				
+		
+		\section{Proyectos varios de voto por Internet }\label{estado_desarrollos}
+		
+			 En esta sección introducimos algunos proyectos de voto por Internet que se han estudiado para la elaboración de este PFC y que han resultado ser interesantes y con propuestas a tener en cuenta para llevar a cabo proyectos de índole electoral.
+			
+			No obstante, una vez que se decidió que el sistema debe cumplir con la característica de ser un sistema de votación auditable punto a punto (E2E Auditable Voting System), estos proyectos fueron descartados como códigos base de la adaptación al sistema a implementar para la EPS.
+			
 			\subsection{Votescript}\label{ivotingVotescript}
 			\todo[inline]{Votescript es voto electrónico remoto por medio de locales de votación. Está bien que expliquemos cómo se implementa la parte telemática, que es lo que afecta al PFC.}
 			
@@ -775,7 +781,7 @@ los diálogos del sistema.
 % *************************************************************************************************************** %
 % 			E2E AUDITABLE VOTING SYSTEMS
 % *************************************************************************************************************** %				
-		\section{E2E Auditable Voting Systems}
+		\section{Proyectos de Sistemas de Votación Auditables Punto a Punto - E2E Auditable Voting Systems}
 			
 			\todo[inline]{La sección para E2E está bien si tenemos a Helios y Ágora, pero si hablamos de Civitas, SELES, SEVI y la del americano, quizá tenga que ser una subsección de desarrollos existentes de Voto por Internet. Requiere valoración.}
 			
@@ -794,6 +800,7 @@ los diálogos del sistema.
 			
 			Los problemas para satisfacer los requisitos de Benaloh aparecen cuando se estudian las herramientas para cumplir con la verificabilidad universal.
 			El método tradicional para garantizar este requisito es utilizar las pruebas de conocimiento zero (\ref{primitivaPruebasConocimientoNulo},\ref{zeroKnowledgeProof}). Con estas pruebas se trata de convencer a un verificador de que el proceso se ha llevado a cabo correctamente con una alta probabilidad, sin necesidad de que el verificador tenga conocimiento del contenido de los votos incluidos en la elección. En los sistemas implementados en Estonia y Noruega, aunque parecen tener herramientas que incluyen estas pruebas de conocimiento nulo en todas las etapas del proceso, según algunos informes postelectorales\cite{carter2013}, esto no ocurría en la totalidad del proceso.
+			
 			Según estos mismos informes\cite{carter2013}, un ejemplo de sistema electoral por Internet E2E-verificable es Helios Voting (\ref{estadocuestion_helios}), del que dicen que es un reconocido ``\textit{estándar en verificabilidad de voto por Internet}''. Las bonanzas de este sistema es que proporciona al proceso todas las garantías que aporta la verificabilidad E2E, como la capacidad de observar pruebas de conocimiento cero no interactivas que verifican que cada voto fue incluido correctamente y que el escrutinio completo fue computado con precisión. No obstante, hay que remarcar que, como su propio desarrollador indica, Helios es un sistema pensado en elecciones con bajo riesgo de coerción, lo cual no es válido para elecciones nacionales como el modelo estonio o noruego.
 			
 			Las garantías que ofrecen los esquemas de verificabilidad E2E eliminan la necesidad de los votantes de confiar tanto en los propios clientes (dispositivos, navegadores, sistemas operativos) que utilizan para votar, como los servidores y los trabajadores oficiales que administran los sistemas asociados a la recepción, descifrado y conteo de votos, que son los pilares críticos en los que se basa un sistema de voto por Internet.\notasCambio{Falta decir el porqué!! Por qué se olvidan los votantes de la amenaza? pues porque el E2E consigue que se demuestre la invariabilidad del voto emitido frente al contado...E2E}. Con esta perspectiva de relajada confianza en los dispositivos clientes, se torna como un buen protocolo para el voto por Internet sin locales habilitados. Se debe a que en este marco altamente distribuido, la votación se realiza desde entornos no controlados por el sistema, con lo que hay un alto riesgo de amenazas, pero la verificiabilidad E2E se encarga de demostrar la invariabiliadd del voto emitido frente al escrutado, por lo que minimiza varios de los triesgos inherentes a los clientes no controlados. (Obvia comentar que sigue habiendo bastantes amenazas que este medio no va a tratar y tendrán que ser enfrentadas con otras herramientas.)
@@ -827,12 +834,12 @@ los diálogos del sistema.
 					\notasInfo[inline]{Aquí va la imagen de la arquitectura de \textsc{ADDER}.}
 					
 					Los objetivos que persigue el sistema \textsc{ADDER} son:
-					\begin{enumerate}
-						\item \textit{Transparencia}. Toda la información del tablón de anuncios es pública y puede ser consultada por cualquier observador. Aquí se incluyen votos cifrados, claves públicas y escrutinios.
-						\item \textit{Verificabilidad} universal- Cualquier resultado electoral obtenido por el sistema debería ser verificado por cualquier observador. A través de los logs y trazas del sistema se puede realizar una auditoría de cualquiera de los procesos.
-						\item \textit{Privacidad}. Todos los votantes pueden confiar en que sus votos se mantienen secretos. Sólo el recuento es accesible al público.
-						\item \textit{Confianza distribuida}. Cada procedimiento del proceso electoral está supervisado por varias autoridades. El recuento no puede llevarse a cabo sin la cooperación de un determinado número de autoridades.
-					\end{enumerate}
+					\begin{description}
+						\item[Transparencia] Toda la información del tablón de anuncios es pública y puede ser consultada por cualquier observador. Aquí se incluyen votos cifrados, claves públicas y escrutinios.
+						\item[Verificabilidad universal] Cualquier resultado electoral obtenido por el sistema debería ser verificado por cualquier observador. A través de los logs y trazas del sistema se puede realizar una auditoría de cualquiera de los procesos.
+						\item[Privacidad] Todos los votantes pueden confiar en que sus votos se mantienen secretos. Sólo el recuento es accesible al público.
+						\item[Confianza distribuida] Cada procedimiento del proceso electoral está supervisado por varias autoridades. El recuento no puede llevarse a cabo sin la cooperación de un determinado número de autoridades.
+					\end{description}
 					
 					
 					
@@ -1433,6 +1440,7 @@ los diálogos del sistema.
 			\todo[inline] {DNIe - Añadir DNIe 3.0}
 			
 			
+			\todo[inline]{Del documento \url{https://www.incibe.es/extfrontinteco/img/File/intecocert/dnie/pdf/guiades.pdf}}
 			El proceso a seguir cuando se está en posesión todos los certificados necesarios para operar con el DNIe es (para cada uno de los certificados):
 			\begin{itemize}
 				\item Verificar que el certificado fue firmado usando la clave privada que
@@ -1452,6 +1460,7 @@ para el certificado de la CA raíz.
 		
 		\subsection{Python}\label{estado_python}
 		\subsection{Django}\label{estado_django}
+		Django es un framework para aplicaciones web escrito en Python. Además, tiene la caracterísitica de ser un framework gratuito y un proyecto open source.
 \iffalse
 \url{http://upcommons.upc.edu/bitstream/handle/2099.1/24909/memoria.pdf}
 Django és l’eina principal amb la que està programada l’aplicació ISMe. És
