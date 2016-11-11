@@ -1,0 +1,34 @@
+http://brianhoffmann.de/journal/thesis/2011-08-01/latex-glossaries-with-texniccenter/
+
+
+Latex Glossaries with TeXnicCenter
+1. August 2011Thesislatex
+Well, sometimes Latex can be annoying. How to create a glossary?
+
+The package glossaries seems to be state of the art. I set it up as the following on my Windows machine with TeXnicCenter:
+
+% in the preamble
+\usepackage{glossaries}
+\makeglossaries
+
+Define a new output profile: Copy one of the existing profiles (e.g. "LaTeX > PDF") and add the following entries to the postprocessing tab:
+
+makeglossaries #1
+Application: {full path to}/makeindex.exe
+Arguments: -s "%bm".ist -t "%bm".glg -o "%bm".gls "%bm".glo
+makeacronyms #1
+Application: {full path to}/makeindex.exe
+Arguments: -s "%bm".ist -t "%bm".alg -o "%bm".acr "%bm".acn
+pdflatex #2
+copy from (La)Tex tab
+makeglossaries #2
+Application: {full path to}/makeindex.exe
+Arguments: -s "%bm".ist -t "%bm".glg -o "%bm".gls "%bm".glo
+makeacronyms #1
+Application: {full path to}/makeindex.exe
+Arguments: -s "%bm".ist -t "%bm".alg -o "%bm".acr "%bm".acn
+pdflatex #3
+copy from (La)Tex tab
+This procedure avoids to use of makeglossaries.exe which requires that you have Perl installed. The iterative calls are described in the Latex Wikibook and it seems to work well this way. You can import my output profile: latex-pdf-glossary+acronym.tco
+
+Mind, that if you use the hyperref package, to load this before the glossaries package. This way glossary entries will be automatically linked in the PDF output.
