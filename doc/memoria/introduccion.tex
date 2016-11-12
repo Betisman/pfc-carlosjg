@@ -1,20 +1,26 @@
 \chapter{Introducción}
 	\rhead{Introducción}
 	\par
-	Un sistema de voto por Internet puede tener diferentes formas de ser afrontado. Se puede diseñar un sistema basado en sufragio desde cabinas electorales gestionadas electrónicamente que envían el conteo a través de la red. En el marco opuesto, también se puede diseñar un sistema completamente distribuido en el cual el votante puede ejercer su derecho al voto desde cualquier dispositivo electrónico y cualquier lugar del planeta, enviando el contenido de su voto a través de Internet a la autoridad de recuento electoral.
+	Un sistema de voto por Internet puede tener diferentes formas de ser desarrollado. Se puede diseñar un sistema basado en sufragio desde cabinas electorales gestionadas electrónicamente que envían el conteo a través de la red. En otro marco, se puede diseñar un sistema completamente distribuido en el cual el votante puede ejercer su derecho al voto desde cualquier dispositivo electrónico y cualquier lugar del planeta, enviando el contenido de su voto a través de Internet a la autoridad de recuento electoral.
 	\par
-	Ambas soluciones son extremos opuestos de lo que entendemos como voto por Internet (i-voting) y que, en muchos documentos y ámbitos, se conoce también como voto electrónico (e-voting). Este término no es que sea erróneo, sino incorrecto, ya que carece de exactitud llamando a un subconjunto con el nombre del conjunto que lo contiene. El voto por Internet, obviamente, se considera voto electrónico, pero no todos los sistemas de voto electrónico se realizan a través de Internet. 
+	Ambas soluciones son dos ejemplos diferentes de lo que se puede entender como voto por Internet (i-voting) y que, en muchos ámbitos, se conoce también como voto electrónico (e-voting). Este término no es que sea erróneo, sino incorrecto, ya que carece de exactitud al llamar a un subconjunto con el nombre del conjunto que lo contiene:
+	
+	El voto por Internet, es un tipo de voto electrónico, pero no todos los sistemas de voto electrónico se realizan a través de Internet. 
 	
 	\todo[inline]{IMAGEN DOS CONJUNTOS, UNO (E-VOTING) CONTIENE AL OTRO (I-VOTING)}
 	
 	\par
 	Este proyecto trata de entrar en la problemática del voto electrónico remoto frente al presencial, de las reticencias sociales y tecnológicas que influyen en su reducida implantación en procesos electorales de gran importancia y alto número de electores. Para ello, vamos a reproducir la situación a escala reducida. Plantearemos una posible solución al proceso necesario para llevar a cabo las Elecciones a la Junta de Escuela de la Escuela Politécnica Superior de la Universidad San Pablo - CEU.
 	\par
-	Con este planteamiento es obvio que no vamos a solucionar las trabas técnicas y sociales del voto por Internet a nivel de unas elecciones legislativas en, por ejemplo, España. Es un tema que se escapa del objetivo de este PFC, pero sí que vamos a tratar de identificar algunos de los agentes influyentes y buscar una posible solución aplicable a la elección a la Junta de Escuela.
+	Con este planteamiento es obvio que no vamos a solucionar las trabas técnicas y sociales del voto por Internet a nivel de unas elecciones legislativas en, por ejemplo, España. Es un tema que se escapa del objetivo de este PFC, pero sí que vamos a tratar de identificar algunos de los agentes influyentes y buscar una posible solución aplicable a la elección a la Junta de Escuela. \notasInfo{o la de Delegados?}
 	\par
-	Así, conseguiremos dos objetivos. Por un lado, estudiar la dificultad existente para la implantación del voto por Internet en las elecciones nacionales. Por otro, un soporte electrónico al proceso completo de las Elecciones a la Junta de Escuela, con el cual obtendremos una mejora significativa en el mismo respecto a procesos anteriores.
+	Así, perseguiremos dos objetivos. Por un lado, estudiar la dificultad existente para la implantación del voto por Internet en las elecciones nacionales. Por otro, un soporte electrónico al proceso completo de las Elecciones a la Junta de Escuela, con el cual obtendremos una mejora significativa en el mismo respecto a procesos anteriores.
 	\par
-	Antes de entrar en detalle en el proceso, habrá que definir el tipo de votación que queremos implementar. No se habla en este PFC de voto electrónico como tal, ni siquiera de voto electrónico remoto. Lo que se quiere implementar es una solución de voto por Internet, en el que no haga falta la presencia física del votante en el centro de votación, que tenga la oportunidad de ejercer su derecho al voto desde cualquier punto del planeta con conexión a Internet. Este detalle, que puede parecer trivial al querer separarlo del concepto de voto electrónico, en realidad es fundamental. En un próximo capítulo se ahondará en ello, pero podemos avanzar que una de las grandes diferencias a tener en cuenta es que con voto electrónico remoto, podemos utilizar máquinas de votación (que también emitirían el voto por Internet), las cuales pueden generar un recibo con el voto emitido por el votante, al estilo de las papeletas que llenan la urna electoral, mientras que con el voto por Internet puro, esto no es tan obvio. Con este mecanismo, la auditoría es más simple para el voto electrónico con máquinas en el centro de votación, pues se podrían contar las papeletas generadas. ¿Qué ocurre con el voto por Internet, en el que no se generan estos recibos ni hay una urna física donde se depositan? ¿Qué ocurre si el sistema tiene fallas y no se contabilizan (o lo hacen de forma incorrecta) los sufragios, teniendo en cuenta que puede ser imposible un conteo físico de papeletas al no existir estas? Como estas, hay muchas cuestiones a las que el voto por Internet debe dar solución de forma fiable antes de poder acometer su implantación en procesos electorales de envergadura e importancia.
+	Para poder acometer el proyecto, previamente habrá que definir el tipo de votación que se quiere implementar.
+	De nuevo, hay que tener en cuenta que, aunque se hable de voto electrónico, la intención de este Proyecto de Fin de Carrera es el de desarrollar una solución de voto por Internet. No hablamos de voto electrónico remoto, sino de voto por Internet dando a los votantes la libertad de poder ejercer el voto desde cualquier lugar y dispositivo con conexión a Internet, sin necesitar la presencia física del mismo en un local de votación.
+	Este detalle, al tratar de separar el concepto del voto por Internet del concepto de voto electrónico, aunque puede parecer trivial, en realidad es fundamental. En el capítulo XXXXXXXX \todo{linkar al capítulo correspondiente} se ahondará en ello, pero como avance se puede destacar que una de las grandes diferencias a tener en cuenta es que con el voto electrónico remoto se pueden utilizar máquinas de votación (que también podrían emitir el voto por Internet), las cuales pueden generar un recibo con el voto emitido por el votante, al estilo de las papeletas que llenan la urna electoral, mientras que con el voto por Internet puro, esto no es tan obvio. Con este mecanismo, la auditoría es más simple para el voto electrónico con máquinas en el centro de votación, pues se podrían contar las papeletas generadas. 
+	
+	Si no se generan estos recibos ni hay una urna física donde se depositan, ¿cómo podemos estar seguros de que hemos votado? ¿Qué ocurre si el sistema tiene fallas y no se contabilizan (o lo hacen de forma incorrecta) los votos, teniendo en cuenta que puede ser imposible un conteo físico de papeletas al no existir estas? Como estas, hay muchas cuestiones a las que el voto por Internet debe dar solución de forma fiable antes de poder acometer su implantación en procesos electorales tradicionales.
 	\par
 	La forma de llegar a la solución buscada debe comenzar identificando los factores que afectan a un proceso electoral general y, a continuación, personalizar los que se encuentran en el que vamos a estudiar.
 	Una vez identificados estos agentes, definiremos las fases que comportan unas elecciones y estudiaremos cómo podrían ser apoyadas tecnológicamente, evaluando cómo llegar al punto óptimo de integración con el sistema tradicional para mejorar el proceso.
@@ -23,6 +29,7 @@
 	%%OJO: ¿hay que hablar de la lógica de la elección? De cómo se vota y quién para elegir el qué y cómo??
 	\par
 	La segunda fase, la electoral, la identificamos con los procesos que se requieren durante el periodo que dura la elección (ya sea un día o varios). Esta consistirá en desarrollar los sistemas de identificación y validación de votantes, el sistema de votación, ss
+	\todo[inline]{Acabar la introducción}
 
 
 % *************************************************************************************************************** %
@@ -115,10 +122,11 @@
 		%
 		%************************************************** Hablar de la evolución en los procesos de desarrollo de software, llegando a TDD. Escribir sobre la diferencia (evolución) de TDD hacia BDD y ATDD (Acceptance Test driven Development). A partir de aquí, comentar un poco sobre BDD. Los motivos por los que se adaptaría bien a este tipo de proyecto (un proyecto en el que debe probarse todo lo posible, por ejemplo) y la forma de introducirlo.
 		%***************************************************
+		\todo[inline]{Desarrollamos este apartado o lo obviamos?}
 		
-		Fases de la ingeniería de software \\\hspace*{\fill}
+		Fases de la ingeniería de software
 		
-		En el desarrollo de proyectos de software existen múltiples de metodologías. Una de ellas basa el desarrollo en 5+2 etapas:\\\hspace*{\fill}
+		En el desarrollo de proyectos de software existen múltiples de metodologías. Una de ellas basa el desarrollo en 5+2 etapas:
 		
 		\begin{enumerate}
 			\item Análisis

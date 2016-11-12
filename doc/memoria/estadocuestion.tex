@@ -19,7 +19,7 @@
 		
 		\begin{figure}[htbp]
 			\centering
-				\includegraphics[width=0.95\textwidth]{imgs/categorizacionEVotingTesisCodina.jpg}
+				\includegraphics[width=0.95\textwidth]{imgs/categorizacionEVotingTesisCodina.png}
 			\caption{Tipos de e-Voting \cite{Codina:tesis,USEAC:2011}}
 			\label{fig:categorizacionEVotingTesisCodina}
 		\end{figure}
@@ -35,6 +35,16 @@
 			\end{figure}
 	
 			Podemos estudiar el voto electrónico separándolo en varios niveles, dependiendo de su implantación en el proceso.
+			
+			\begin{itemize}
+				\item Nivel 0
+				\item Voto electrónico sustitutivo
+				\item Voto electrónico remoto
+				\begin{itemize}
+					\item Voto telemático en local de votación
+					\item Voto por Internet
+				\end{itemize}
+			\end{itemize}
 			
 			\begin{itemize}
 				\item Nivel 0
@@ -64,71 +74,93 @@
 					\end{itemize}
 				\end{itemize}
 				
-				El término de voto electrónico, por tanto, se utiliza también para referirse a los novedosos sistemas electorales que tratan de automatizar algunas fases del proceso, como autenticación de votantes, sufragio y escrutinio de los votos y difusión de los resultados. Todos estos sistemas que, además de hacer uso de tecnologías de la información para la automatización de estos procesos, se basen en una comunicación de redes telemáticas para interconectar votantes con mesas electorales - urnas digitales - y estas con los centros de procesamiento de resultados se pueden encuadrar en el nivel 3 de la clasificación anterior.
+				El término voto electrónico se utiliza también para referirse a los sistemas electorales que tratan de automatizar algunas fases del proceso, como son la autenticación de votantes, la votación y  el escrutinio de los votos y/o difusión de los resultados. En el nivel 3 de la clasificación anterior se pueden encuadrar todos estos sistemas que, además de hacer uso de tecnologías de la información para la automatización de estos procesos, se basen en una comunicación de redes telemáticas para interconectar votantes con mesas electorales - urnas digitales - y estas con los centros de procesamiento de resultados.
 				
-				Son estos sistemas los que están en auge para los investigadores de protocolos electorales. Con el aumento de la participación ciudadana en Internet, en la sociedad digital, la gente realiza todo tipo de procesos cotidianos a través de la red de forma remota, ya sea interactuar con las entidades estatales o municipales con trámites burocráticos, multas o pagando impuestos, gestionando los recursos familiares o de la empresa con el banco desde casa o el despacho, o incluso compras por Internet o consumición de ocio digital. Con este panorama es cuestión de tiempo que cierto sector demande una actualización de los procesos de votación. He aquí donde el voto electrónico remoto tiene que estudiarse si es el candidato ideal para cubrir este nicho o, sin embargo, los riesgos de seguridad y procedimiento que sus detractores le achacan realmente imposibilitarán este cambio en un corto período de tiempo.
+				Son estos sistemas los que están en auge para los investigadores de protocolos electrónicos electorales. Con el aumento de la participación ciudadana en Internet, en la sociedad digital, los usuarios realizan todo tipo de procesos cotidianos a través de la red de forma remota, ya sea interactuar con las entidades estatales o municipales con trámites burocráticos, multas o pagando impuestos, gestionando los recursos familiares o de la empresa con el banco desde casa o el despacho, o incluso compras por Internet o consumición de ocio digital. Con este panorama es cuestión de tiempo que cierto sector de la población demande una actualización de los procesos de votación, igualándolos a las posibilidades de ubicuidad de los que disfrutan el resto de servicios comentados.
+				He aquí donde el voto electrónico remoto tiene que estudiarse si es el candidato ideal para cubrir este nicho o si, por el contrario, los riesgos de seguridad y procedimiento que sus detractores le achacan realmente imposibilitarán este cambio en un corto período de tiempo.
 				
-				Plantean para los expertos un conjunto de retos, tanto desde el punto de vista tecnológico, sobre todo a nivel de seguridad del sistema y privacidad del votante, como a nivel social, ya que estos sistemas electrónicos deben garantizar la misma confianza al votante que la que le proporciona el sistema de voto tradicional.
+				La introducción de este paradigma en el mundo de los procesos electorales plantea para los expertos, por tanto, un conjunto de retos muy importante, tanto desde el punto de vista tecnológico - sobre todo a nivel de seguridad del sistema y privacidad del votante - como a nivel social, ya que estos sistemas electrónicos deben garantizar al votante al menos la misma confianza que la que le proporciona el sistema de voto tradicional, para que se pueda plantear aceptar el cambio.
 				
 				
-				\subsection{*****Dificultad del voto electrónico*****}
-				El voto electrónico es uno de los retos más importantes y complejos del mundo tecnológico hoy en día. Aunque pueda parecer que en otras áreas más modernas hay desarrollos mucho más complejos, el problema del voto electrónico sigue teniendo factores de difícil resolución. Quizá el concepto más complicado para resolver para los desarrolladores de estos protocolos y sistemas es el de la dualidad Verificabilidad-Secreto. Aquí se enfrentan dos requisitos básicos de un sistema de voto electrónico, por un lado, la posibilidad de un elector de verificar que el voto que ha emitido ha sido correctamente incluido en el escrutinio y el derecho fundamental del secreto de voto del propio elector.
-				Para ejemplificar y visualizar el problema, introduciremos una serie de actores:
-				\begin{description}
-					\item[Blanca y Begoña]: dos votantes.
-					\item[Juan]: quiere influenciar el voto de Blanca.
-					\item[Carnívoros y Herbívoros]: las dos opciones entre las que los votantes han de elegir en la Elección.
-				\end{description}
+				\subsection{Verificabilidad vs. Secreto}\label{estadocuestion.votoelectronico.verifvssecreto}
+				El voto electrónico es uno de los retos más importantes y complejos del mundo tecnológico hoy en día. Aunque pueda parecer que en otras áreas más modernas hay desarrollos mucho más complejos, el problema del voto electrónico sigue teniendo factores de difícil resolución.
 				
-				Blanca tiene intención de votar por los Carnívoros, mientras que Begoña desea votar a los Herbívoros. Por su parte, Juan tiene un gran interés en que Blanca vote por los Herbívoros.
+				Uno de los retos más complicado de resolver para los desarrolladores de estos protocolos y sistemas es el de la \textit{dualidad Verificabilidad-Secreto}.
 				
-				Como hemos avanzado, en cualquier proceso electoral hay un conflicto entre la verificabilidad y el secreto. Cualquier votante querría verificar que el proceso de su voto ocurre correctamente, desde su inclusión en la urna hasta el preciso conteo en el escrutinio. De forma particular, Blanca quiere verificar que su voto es apropiadamente escrutado como Carnívoros. No obstante, si Blanca consigue suficiente información del proceso de voto como para poder convencer a Juan de la opción a la que votó, nace la amenaza de la compraventa de votos. En este caso en el que Blanca puede demostrar a Juan su voto, éste podría ofrecer dinero u otros recursos a Blanca a cambio de que su voto sea para los Herbívoros en vez de para los Carnívoros.
+				Aquí se enfrentan dos requisitos básicos de un sistema de voto electrónico: la posibilidad de un elector de \textbf{verificar} que el voto que ha emitido ha sido correctamente incluido en el escrutinio y el derecho fundamental del \textbf{secreto} de voto del propio elector.
 				
-				De todos modos, de alguna forma, el voto electrónico lo que quiere es que Blanca consiga la información suficiente para verificar personalmente que su voto a Carnívoros ha sido efectivamente emitido y escrutado como Carnívoros, pero que no consiga la información necesaria como para probar a Juan el sentido de su voto.
+				Con el fin de visualizar el problema, planteo un ejemplo típico.
 				
-				Si Blanca vota a Carnívoros y Begoña a Herbívoros, ambas deberían tener la seguridad de que sus votos han sido correctamente incluidos en el escrutinio según sus opciones elegidas. Las dos pueden decirle a Juan que han votado a Herbívoros, con lo que Blanca estará mintiendo y Begoña dirá la verdad, pero Juan no notará la diferencia. Quizá al ver Juan que no tiene seguridad para incentivar a Blanca, desista de tratar de comprar su voto y se acabe así con la amenaza.
+						
+						\begin{quotation}
+							Para comenzar con el ejemplo, introducimos una serie de actores:
+													\begin{description}
+								\item[Blanca y Begoña:] dos votantes.
+								\item[Rafael:] quiere influenciar el voto de Blanca.
+								\item[Carnívoros y Herbívoros:] las dos opciones entre las que los votantes han de elegir en la Elección.
+							\end{description}
+							
+							Blanca tiene intención de votar por los Carnívoros, mientras que Begoña desea votar a los Herbívoros. Por su parte, Rafael tiene un gran interés en que Blanca vote por los Herbívoros.
+							
+							Como hemos avanzado, en cualquier proceso electoral hay un conflicto entre la verificabilidad y el secreto. Cualquier votante querría verificar que el proceso de su voto ocurre correctamente, desde su inclusión en la urna hasta el preciso conteo en el escrutinio. De forma particular, Blanca quiere verificar que su voto es apropiadamente escrutado como Carnívoros. No obstante, si Blanca consigue suficiente información como para poder demostrar a Rafael de que votó por los Carnívoros, aparece la amenaza de la compraventa de votos. Sabiendo que el voto emitido es demostrable a un tercero, antes de que Blanca vote, Rafael podría ofrecerle dinero u otros recursos a cambio de que su voto sea para los Herbívoros en vez de para los Carnívoros. 
+							
+							Naturalmente, junto con la amenaza de la compraventa de votos, aparece también la de la coerción. Como Blanca puede mostrar el contenido de su voto a Rafael, puede ser coaccionada por éste para que vote por Herbívoros como él quiere, en lugar de los Carnívoros, como ella pretendía, por miedo a represalias.
+							
+							Lo que se debe buscar con el voto electrónico es que Blanca consiga la información suficiente para verificar personalmente que su voto a Carnívoros ha sido efectivamente emitido y escrutado como Carnívoros, pero que no consiga la información necesaria como para probar a Juan el contenido de su voto.
+							
+							Si Blanca vota a Carnívoros y Begoña a Herbívoros, ambas deberían tener la seguridad de que sus votos han sido correctamente incluidos en el escrutinio según sus opciones elegidas. Las dos pueden decirle a Rafael que han votado a Herbívoros, con lo que Blanca estará mintiendo y Begoña dirá la verdad, pero Rafael no notará la diferencia. Quizá, al ver Rafael que no tiene seguridad para incentivar o coartar a Blanca, desista de tratar de comprar su voto (o de coartarlo) y se acabe así con la amenaza.
+				\end{quotation}
+				
 				\notasCambio[inline]{Hay que arreglar este párrafo.}
 
-\notasCambio[inline]{ 
-Voting systems are hard to make trustworthy because they have strong, conflicting security requirements:
-	- Integrity of election results must be assured so that all voters are convinced that votes are
-	counted correctly. Any attempt to corrupt the integrity of an election must be detected and
-	correctly attributed.
-	- Confidentiality of votes must be assured to protect voters' privacy, to prevent selling of votes, and to defend voters from coercion.
-	Integrity is easy to obtain through a public show of hands, but this destroys confidentiality. Confidentiality can be obtained by secret ballots, but this fails to assure integrity. Because of the civic importance of elections, violations of these requirements can have dramatic consequences.
-	\url{https://www.cs.cornell.edu/projects/civitas/papers/clarkson_civitas_tr.pdf}
-}
-				% *************************************************************************************************************** %
+			Resumiendo, es muy complicado conseguir que los Sistemas de Voto sean confiables ya que presentan requisitos de seguridad que chocan entre ellos:
+			\begin{itemize}
+				\item El sistema debe asegurar la integridad de la elección para que todos los votantes estén convencidos de que los votos se cuentan correctamente.
+				\item El sistema debe asegurar la confidencialidad de los votos para proteger la privacidad del votante, prevenir la venta de votos y para defender a los votantes de ser coartados.
+			\end{itemize}
+			La integridad del sistema es fácil de obtener por medio de un muestreo público de los votos emitidos. Pero esto destruiría automáticamente la confidencialidad del voto.
+			La confidencialidad se puede obtener a través del voto secreto, pero con ello es muy difícil asegurar la integridad del sistema.
+			Debido a la naturaleza de unas elecciones, la violación de cualquiera de estos requisitos del voto electrónico puede derivar en consecuencias dramáticas.
+			Por tanto, el reto del diseño de un sistema electoral digital resulta en encontrar el punto medio en el que se la integridad del sistema no comprometa el derecho del votante al secreto de su voto.
+			
+				%************************************************************************************************************** %
 				% 			Requisitos de voto electrónico
-				% *************************************************************************************************************** %
+				%************************************************************************************************************* %
 				\subsection{Requisitos del voto electrónico}\label{introduccionRequisitosVotoElectronico}
-				Los sistemas de voto electrónico deberían tener como base antes de la implementación la consigna de aportar al proceso al menos las mismas garantías de seguridad que el sistema tradicional al que está sustituyendo / complementando. El voto presencial tradicional permite un recuento de la votación, lo mismo que la mayoría de los sistemas del primer nivel que hace uso de urnas electrónicas, pues generan un recibo o papeleta física. En cuanto al último nivel, esto no está tan claro, pues la mayoría de estos sistemas no generan un resguardo físico de los votos electrónicos emitidos, por lo que es complicado pensar en un recuento en caso de fallo o de duda de la autoridad electoral o del propio electorado.
+				Un dogma que deben cumplir los sistemas de voto electrónico es la consigna de aportar al proceso al menos las mismas garantías de seguridad que el sistema tradicional al que está sustituyendo / complementando.
+				
+				El voto presencial tradicional permite un recuento de la votación una vez acabado el proceso y abierta la urna que contiene los votos físicos. 
+				
+				En el siguiente nivel, lo mismo le ocurre a la ciertos sistemas de voto electrónico que hace uso de urnas digitales pero generan un recibo o papeleta física, que almacenan también como una urna física.
+				
+				En cuanto al último nivel, el correspondiente al voto electrónico remoto, esto no está tan claro, pues la mayoría de estos sistemas no generan un resguardo físico de los votos electrónicos emitidos, por lo que es complicado pensar en un recuento en caso de fallo o de duda de la autoridad electoral o del propio electorado.
 
+					\subsubsection{Fujioka, Okamoto y Ohta}\label{introduccion.requisitosvotoelectronico.fujioka}
 				\par
 				Según publican \textit{Fujioka, Okamoto y Ohta} \cite{Fujioka93}, un sistema de voto secreto es \textit{seguro} si cumple con los siguientes requisitos:
 				\begin{description}[font=$\bullet$\ \ ]
-					\item[Completitud (Completeness)]: Todos los votos válidos son contados correctamente.
-					\item[Solidez (Soundness)]: Un votante deshonesto no puede interrumpir la votación.
-					\item[Privacidad (Privacy)]: Todos los votos deben ser secretos.
-					\item[(Unreusability)]: Ningún votante puede votar dos veces.
-					\item[Elegibilidad (Elegibility)]: Nadie que no tenga permitido el voto puede votar.
-					\item[Fiabilidad (Fairness)]: Nada debe afectar la votación.
-					\item[Verificabilidad (Verifiability)]: Nadie puede falsificar el resultado de la votación.
+					\item[Completitud (Completeness):] Todos los votos válidos son contados correctamente.
+					\item[Solidez (Soundness):] Un votante deshonesto no puede interrumpir la votación.
+					\item[Privacidad (Privacy):] Todos los votos deben ser secretos.
+					\item[Unicidad (Unreusability):] Ningún votante puede votar dos veces.
+					\item[Elegibilidad (Elegibility):] Nadie que no tenga permitido el voto puede votar.
+					\item[Fiabilidad (Fairness):] Nada debe afectar la votación.
+					\item[Verificabilidad (Verifiability):] Nadie puede falsificar el resultado de la votación.
 				\end{description}
-				A estos requisitos básicos, el equipo de Fujioka añade otros cuatro que considera importantes para la correcta implementación de un sistema de voto electrónico:
+				A estos requisitos básicos, el equipo de Fujioka añade otros seis que considera importantes para la correcta implementación de un sistema de voto electrónico:
 				\begin{description}[font=$\bullet$\ \ ]
-					\item[--- (Robustness)]: faulty behavior of any reasonably sized coalition of participants can be tolerated. In other words, the system must be able to tolerate to certain faulty conditions and must be able to manage these situations
-					\item[--- (Universarl Verifiability)]: Any part can verify the result of the voting.
-					\item[--- (Receipt Freeness)]: Voters are unable to prove the content of his/her vote
-					\item[Sin recibo (Receipt Freeness)]: El votante no necesita una prueba del voto realizado.
-					\item[--- (Incoercibility)]: Voter cannot be coerced into casting a particular vot by a coercer.
-					\item[Sin duplicados (Non-Duplication)]: Nadie puede duplicar el voto de otra persona.
-					\item[Participación Pública (Public Participation)]: La lista de quiénes votaron o quiénes no lo hicieron ha de ser pública.
-					\item[Corrección Privada de Errores (Private Error Correction)]: El votante tiene la capacidad de probar que su voto no fue contado correctamente sin tener que revelar qué opción votó.
+					\item[Robustez (Robustness):] El sistema debe ser capaz de tolerar una cierta cantidad de condiciones de fallas, a la vez que debe ser capaz de manejar y responder a estas situaciones.
+					\item[Verificabilidad Universal (Universal Verifiability):] Cualquier actor debe poder verificar el resultado de las votaciones.
+					\item[Sin recibo (Receipt Freeness):] El votante no necesita una prueba del voto realizado, debe ser incapaz de probar a un tercero el contenido de su voto
+					\item[Incoercebilidad (Incoercibility):] El votante no puede ser coartado por un tercero para que vote por una opción en concreto. Se debe asegurar la libertad del voto. 
+					\item[Sin duplicados (Non-Duplication):] Nadie puede duplicar el voto de otra persona.
+					\item[Participación Pública (Public Participation):] La lista de quiénes votaron o quiénes no lo hicieron ha de ser pública.
+					\item[Corrección Privada de Errores (Private Error Correction):] El votante tiene la capacidad de probar que su voto no fue contado correctamente sin tener que revelar qué opción votó.
 				\end{description}
 				
-				\par
-				A partir de esta primera definición de los requisitos del voto electrónico, muchos equipos de desarrolladores o teóricos de infraestructuras para el voto electrónico han redactado sus propias interpretaciones, aunque suelen ser análogas a las ofrecidas por Fujioka. Por ejemplo, las propiedades que debe tener un sistema de voto electrónico a través de Internet, según publican desde la Universidad de Extremadura \cite{estudioInfraestructutaVotoElectronicoUNEX} son las siguientes:
+				\subsubsection{Universidad de Extremadura}\label{introduccion.requisitosvotoelectronico.unex}
+				A partir de esta primera definición de los requisitos del voto electrónico, muchos equipos de desarrolladores o teóricos de infraestructuras para el voto electrónico han redactado sus propias interpretaciones, aunque suelen ser análogas a las ofrecidas por Fujioka.
+				Por ejemplo, estas son las propiedades que debe tener un sistema de voto electrónico a través de Internet, según publican desde la Universidad de Extremadura \cite{estudioInfraestructutaVotoElectronicoUNEX} son las siguientes:
 				\begin{description}[font=$\bullet$\ \ ]
 					\item[Universal]
 					Todos los implicados en la toma de una decisión tienen voz y
@@ -261,68 +293,170 @@ los diálogos del sistema.
 				\end{description}
 				
 				
+				\subsubsection{Estudio holandés}\label{articuloEvaluacionVotoElectronicoHolandes}
+				Otra visión acerca de los requisitos inherentes al voto electrónico los podemos encontrar en \cite{DBLP:journals/corr/BokslagV16}, un artículo holandés acerca del voto electrónico y por Internet en este país. Este artículo enumera una serie de principios fundamentales para cualquier solución de e-voting basándose en los acordados por el Consejo de Europa\cite{ministers2005legal}.Según estos principios, se debe asegurar que el \textbf{sufragio} sea:
+				\begin{description}
+					\item [Universal:] Cualquier persona tiene derecho a votar y a postularse para la Elección (entendiendo la existencia de límites basados en condiciones como la edad o la nacionalidad).
+					\item [Igualitario:] Cada votante puede emitir el mismo número de votos.
+					\item [Libre:] Todo votante tiene el derecho de formarse y expresar su propia opinión libremente, sin ser coaccionado por ninguna influencia exterior.
+					\item [Secreto:] Todo votante tiene el derecho de poder votar de forma individual y secreta.
+					\item [Directo:] Los votos emitidos por los votantes deben ser los que directamente determinen la/s persona/s elegida/s en la votación.
+				\end{description}
+				
+				Según el mismo artículo, estos principios fundamentales se traducen en los siguientes requisitos:
+				\begin{description}
+					\item [Transparencia/Integridad:] Asegurar que el público general y los asociados al proceso electoral tienen confianza en la solución implementada. 
+					\item [Voto secreto/privacidad:] Proteger el secreto del voto en todas las etapas del proceso de votación.
+					\item [Unicidad:] Asegurar que cada voto emitido es contado y que cada uno es contado tan sólo una vez.
+					\item [Derecho al voto:] Asegurar que sólo aquellos votantes con derecho de voto pueden votar en el proceso.
+					\item [Verificabilidad/auditoría:] El votante debería poder comprobar que su voto ha sido correctamente contado en el escrutinio. Si no lo puede comprobar, al menos auditores independientes deberían poder comprobar la integridad de los resultados de la elección.
+					\item [Accesibilidad:] Garantizar la accesibilidad al proceso del mayor número de personas, especialmente aquellas con algún tipo de discapacidad.
+					\item [Libertad del votante/resistencia a la coerción:] Mantener el derecho del votante a expresar su opinión mediante el voto sin coacción o una influencia externa.
+					\item [Disponibilidad:] Asegurar la disponibilidad del sistema durante el tiempo que tiene lugar la votación.
+				\end{description}			
+															
+				En el artículo mencionado se realiza una valoración muy interesante de varios sistemas de votación electrónica y por Internet con resultados basados en esta clasificación.
+				
+														
+														
+																												
+																												
+			\todo[inline]{Cerrar elegantemente el capítulo}
+			
+			Pese a que, dependiendo del autor, se pueden enumerar diferentes clasificaciones con los requisitos del voto electrónico, al final se observa que la mayoría de ellos son comunes a casi todas.
+			
+			Así entre los requisitos básicos vemos que los autores aquí recogidos siempre hablan de \textit{integridad}, \textit{privacidad}, \textit{verificabilidad}, \textit{unicidad}, \textit{fiabilidad}, \textit{disponibilidad}, \textit{derecho de voto} ... Aspectos que debe cumplir todo sistema de votación electrónica para que el proceso pueda ser llevado a cabo con un nivel aceptable de seguridad y confianza por parte de los intervinientes y observadores de la Elección.
+				
 		% *************************************************************************************************************** %
 		% 			EXPERIENCIAS DE VOTO ELECTRÓNICO
 		% *************************************************************************************************************** %
-		\section{Experiencias de Voto Electrónico}\label{estadoExperienciasVotoElectronico}
-		En lo referente al voto electrónico...
-		\par
-		En cuanto al estado de la cuestión del voto por internet, como hemos destacado, la experiencia más ambiciosa es, sin duda, las elecciones que se llevan a cabo en Estonia (\ref{ivotingEstonia}), que, desde el año 2005, proveen de un sistema de voto por internet a un cierto sector de la población.
+		\section{Experiencias de Voto por Internet}\label{estadoExperienciasVotoPorInternet}
+		En lo referente al voto electrónico hay muchos proyectos llevados a cabo, tanto desde el mundo empresarial como estatal o universitario.
 		
-		Es destacable el desempeño de empresas como la española Scytl, que ha implementado sistemas de voto por Internet para voto desde el extranjero para algunos condados de Estados Unidos, ciertos cantones de Suiza y varias provincias de India, la mayor democracia del mundo (en número de votantes). Otra empresa española, Indra, también tiene soluciones de voto por Internet utilizados para elegir las cúpulas directivas de organismos como la Guardia Civil, universidades como la UAH (Universidad de Alcalá de Henares) o la UNED (Universidad Nacional de Educación a Distancia) e incluso de partidos políticos, como es el caso de UPyD (Unión Progreso y Democracia).
+		Muchas de ellas se utilizan hoy en día. Se pueden destacar a niveles estatales todas las elecciones en la que se usan urnas electrónicas o máquinas cuentavotos, como ocurre en países como Venezuela, Estados Unidos, India y muchos más. Incluso hay otros que tienen como prioridad el estudio de la implantación de este tipo de herramientas para sus procesos electorales, como es el caso actual de Argentina. Lo mismo ocurre con muchos proyectos surgidos desde ámbitos académicos o empresariales, donde se desarrollan sistemas que permiten el uso de tecnología para la fase de votación. Incluso algunos permiten el volcado de información de los votos de la urna en el sistema de recuento de voto, pero una vez la urna ha sido cerrada, no de forma interactiva con el momento en el que el votante introduce su voto en el Sistema.
+		
+		No obstante, la naturaleza de este proyecto implica que nos centremos en aquellos procesos que utilizan la variante del voto electrónico consistente en el voto por Internet, siendo éste de transmisión al sistema de recuento en el momento en el que se introduce el voto.
+		
+		\par
+		En este sentido, en cuanto al estado de la cuestión del voto por Internet, como hemos destacado, la experiencia más ambiciosa es, sin duda, las elecciones que se llevan a cabo en Estonia (\ref{ivotingEstonia}) que, desde el año 2005, proveen de un sistema de voto por Internet a la totalidad del censo que desee hacer uso del sistema.
+		
+		Es destacable el desempeño de empresas como la española Scytl, que ha implementado sistemas de voto por Internet para voto desde el extranjero para algunos condados de Estados Unidos, ciertos cantones de Suiza y varias provincias de India, la mayor democracia del mundo (en número de votantes). Otra empresa española, Indra, también tiene soluciones de voto por Internet utilizados para elegir las cúpulas directivas de organismos como la Guardia Civil, universidades como la UAH (Universidad de Alcalá de Henares) o la UNED (Universidad Nacional de Educación a Distancia) e incluso de partidos políticos, como es el caso de la dirección de UPyD (Unión Progreso y Democracia).
 		
 		
 % *************************************************************************************************************** %
 % 			VOTO POR INTERNET
 % *************************************************************************************************************** %
-		\section{Voto por Internet (i-voting)}\label{Voto por Internet (i-voting)}
-			Dentro de las soluciones de voto electrónico telemático, es importante el desarrollo que se ha hecho en cuanto al voto por Internet. 
+		%\section{Voto por Internet (i-voting)}\label{Voto por Internet (i-voting)}
+			Dentro de las soluciones de voto electrónico telemático, es importante el desarrollo que se ha hecho en el voto por Internet. 
 			
-			Según un estudio de un ente holandés, recogido en \cite{}\notasInfo[inline]{Hay que citar el documento que hay en \url{https://www.jbisa.nl/download/?id=17700076&download=1}}, once países han desarrollado pruebas piloto para elecciones a través de voto electrónico por Internet a nivel nacional, aunque cuatro de ellas ya habían abandonado sus proyectos. Los países que quedaban probando de distinta forma soluciones de voto por Internet y que recoge dicho estudio serían Australia, Canadá, Estonia, Francia, India, Noruega y Suiza. Las motivaciones de los países en desarrollar herramientas de votación remota difieren en cada uno de ellos, dependiendo del tipo de votantes al que va dirigido este tipo de votación. Indica como ejemplo el de Francia, motivado por la necesidad de incrementar la participación electoral de los expatriados o el de Estonia, país que ha apostado por un desarrollo tecnológico en la mayoría de entornos gubernamentales, motivado por incrementar la participación tanto de los votantes ocasionales como de acercar a los que se suelen abstener. 
+			Según un estudio\footnote{\url{https://www.jbisa.nl/download/?id=17700076&download=1}} de un ente holandés, once países han desarrollado pruebas piloto para elecciones a través de voto electrónico por Internet a nivel nacional, aunque cuatro de ellos ya habían abandonado sus proyectos. Los países que quedaban probando de distinta forma soluciones de voto por Internet y que recoge dicho estudio serían Australia, Canadá, Estonia, Francia, India, Noruega y Suiza. Las motivaciones de los países en desarrollar herramientas de votación remota difieren en cada uno de ellos, dependiendo del tipo de votantes al que va dirigido este tipo de votación. Indica como ejemplo el de Francia, motivado por la necesidad de incrementar la participación electoral de los expatriados o el de Estonia, país que ha apostado por un desarrollo tecnológico en la mayoría de entornos gubernamentales, buscando incrementar la participación tanto de los votantes ocasionales como de acercar a los que se suelen abstener. 
 			
 			\subsection{Estonia}\label{ivotingEstonia}
 			Estonia es quizá el ejemplo más destacado en cuanto a la utilización del voto por Internet en elecciones a nivel estatal. Desde el año 2005 lleva usando una solución de voto electrónico remoto no presencial complementando al voto tradicional.
 			
 			El impacto del voto electrónico sobre el electorado estonio ha ido evolucionando en cada comicio. En el 2005, el primer año en que se comenzó a utilizar, no llegó al 2\% de los votantes los que se decantaron por votar por Internet, mientras que en el 2014 y 2015, este porcentaje superó el 30\% de los sufragistas.
 			
-			************ Adjuntar TABLA de participación histórica *****************		
+			
+			%\begin{table}[htbp]
+				%\centering
+					%%\begin{tabular}{0.75\textwidth}@{\extracolsep{\fill}}|l|l|m{3cm}| m{3cm}|}
+					%%\begin{tabular*}{0.95\textwidth}{@{\extracolsep{\fill}}|l|l|rm{2cm}|rm{1cm}|}
+					%\begin{tabular*}{0.95\textwidth}{@{\extracolsep{\fill}}|l|l|r|r|}
+						%\hline
+%%							\textbf{Elección} & \textbf{Tipo} & \textbf{Votantes por internet} & \textbf{\% sobre total votantes} \\
+							%\textbf{Elección} & \textbf{Tipo} & \textbf{IV} & \textbf{\% IV-TV} \\
+						%\hline
+							%2005 & Elecciones Locales 						& 9.317 	& 1,90\% 	\\
+						%\hline
+							%2007 & Elecciones Parlamentarias 			& 30.275 	& 5,50\% 	\\
+						%\hline
+							%2009 & Elecciones Parlamento Europeo	& 58.669 	& 14,70\% \\
+						%\hline
+							%2009 & Elecciones Locales 						& 104.413 & 15,80\% \\
+						%\hline
+							%2011 & Elecciones Parlamentarias 			& 140.846 & 24,30\% \\
+						%\hline
+							%2013 & Elecciones Locales 						& 133.808 & 21,20\% \\
+						%\hline
+							%2014 & Elecciones Parlamento Europeo 	& 103.151	& 31,30\%	\\
+						%\hline
+							%2015 & Elecciones Parlamentarias	 		& 176.491	& 30,05\%	\\
+						%\hline
+					%\end{tabular*}
+				%\caption{Evolución del voto por Internet en Estonia}
+				%\begin{flushleft}
+					%\caption*{\textbf{IV}: Votantes que votaron a través de Internet.}
+					%\caption*{\textbf{\%IV-TV}: \% de votantes que votaron a través de Internet sobre el total de votantes.}
+					%\caption*{Fuente: Comisión Nacional Electoral de Estonia / Vabariigi Valimiskomisjon \footnote{\url{http://www.vvk.ee/voting-methods-in-estonia/engindex/statistics}}}
+				%\end{flushleft}
+				%\begin{tablenotes}
+					%\small
+					%\item Fuente: Comisión Nacional Electoral de Estonia / Vabariigi Valimiskomisjon \footnote{fff \url{http://www.vvk.ee/voting-methods-in-estonia/engindex/statistics}}
+				%\end{tablenotes}
+				%\label{tab:EvolucionIVotingEstonia}
+			%\end{table}
+			
 			
 			\begin{table}[htbp]
-				\centering
-					%\begin{tabular}{0.75\textwidth}@{\extracolsep{\fill}}|l|l|m{3cm}| m{3cm}|}
-					%\begin{tabular*}{0.95\textwidth}{@{\extracolsep{\fill}}|l|l|rm{2cm}|rm{1cm}|}
-					\begin{tabular*}{0.95\textwidth}{@{\extracolsep{\fill}}|l|l|r|r|}
-						\hline
-%							\textbf{Elección} & \textbf{Tipo} & \textbf{Votantes por internet} & \textbf{\% sobre total votantes} \\
-							\textbf{Elección} & \textbf{Tipo} & \textbf{IV} & \textbf{\% IV-TV} \\
-						\hline
-							2005 & Elecciones Locales 						& 9.317 	& 1,90\% 	\\
-						\hline
-							2007 & Elecciones Parlamentarias 			& 30.275 	& 5,50\% 	\\
-						\hline
-							2009 & Elecciones Parlamento Europeo	& 58.669 	& 14,70\% \\
-						\hline
-							2009 & Elecciones Locales 						& 104.413 & 15,80\% \\
-						\hline
-							2011 & Elecciones Parlamentarias 			& 140.846 & 24,30\% \\
-						\hline
-							2013 & Elecciones Locales 						& 133.808 & 21,20\% \\
-						\hline
-							2014 & Elecciones Parlamento Europeo 	& 103.151	& 31,30\%	\\
-						\hline
-							2015 & Elecciones Parlamentarias	 		& 176.491	& 30,05\%	\\
-						\hline
-					\end{tabular*}
-				\caption{Evolución del voto por Internet en Estonia}
-				\begin{flushleft}
-					\caption*{\textbf{IV}: Votantes que votaron a través de Internet.}
-					\caption*{\textbf{\%tv}: \% de votantes que votaron a través de Internet sobre el total de votantes.}			
-				\end{flushleft}
-				\label{tab:EvolucionIVotingEstonia}
+				\begin{threeparttable}
+					\centering
+						%\begin{tabular}{0.75\textwidth}@{\extracolsep{\fill}}|l|l|m{3cm}| m{3cm}|}
+						%\begin{tabular*}{0.95\textwidth}{@{\extracolsep{\fill}}|l|l|rm{2cm}|rm{1cm}|}
+						\begin{tabular*}{0.95\textwidth}{@{\extracolsep{\fill}}|l|l|r|r|}
+							\hline
+	%							\textbf{Elección} & \textbf{Tipo} & \textbf{Votantes por internet} & \textbf{\% sobre total votantes} \\
+								\textbf{Elección} & \textbf{Tipo} & \textbf{IV}\tnote{a} & \textbf{\% IV-TV}\tnote{b} \\
+							\hline
+								2005 & Elecciones Locales 						& 9.317 	& 1,90\% 	\\
+							\hline
+								2007 & Elecciones Parlamentarias 			& 30.275 	& 5,50\% 	\\
+							\hline
+								2009 & Elecciones Parlamento Europeo	& 58.669 	& 14,70\% \\
+							\hline
+								2009 & Elecciones Locales 						& 104.413 & 15,80\% \\
+							\hline
+								2011 & Elecciones Parlamentarias 			& 140.846 & 24,30\% \\
+							\hline
+								2013 & Elecciones Locales 						& 133.808 & 21,20\% \\
+							\hline
+								2014 & Elecciones Parlamento Europeo 	& 103.151	& 31,30\%	\\
+							\hline
+								2015 & Elecciones Parlamentarias	 		& 176.491	& 30,05\%	\\
+							\hline
+						\end{tabular*}
+						\begin{tablenotes}
+							\scriptsize
+							\item[a] \textbf{IV}: Votantes que votaron a través de Internet.
+							\item[b] \textbf{\%IV-TV}: \% de votantes que votaron a través de Internet sobre el total de votantes.
+							\item[c] Fuente: Comisión Nacional Electoral de Estonia / Vabariigi Valimiskomisjon\tnote{d}
+							\item[d] \url{http://www.vvk.ee/voting-methods-in-estonia/engindex/statistics}
+						\end{tablenotes}
+						\label{tab:EvolucionIVotingEstonia}
+						\caption{Evolución del voto por Internet en Estonia\tnote{c}}
+					\end{threeparttable}
 			\end{table}
 			
-			\todo[inline]{Hay que marcar que la fuente de estos datos provienen del Tribunal Electoral de Estonia (o como se diga), concretamente de la web http://www.vvk.ee/voting-methods-in-estonia/engindex/statistics}
 			
+			\begin{figure}[htbp]
+				\centering
+					\includegraphics[width=0.95\textwidth]{recursos/GraficoParticipacionEstonia.png}
+				\caption{Participación histórica de elecciones con i-voting en Estonia.}
+				\label{fig:GraficoParticipacionEstonia}
+			\end{figure}
+			
+			\begin{figure}[htbp]
+				\centering
+					\includegraphics[width=0.95\textwidth]{recursos/GraficoPorcentajeParticipacionEstonia.png}
+				\caption{Histórico: Porcentaje de voto presencial comparado con el i-Voting en Estonia.}
+				\label{fig:GraficoPorcentajeParticipacionEstonia}
+			\end{figure}
+			
+			\begin{figure}[htbp]
+				\centering
+					\includegraphics[width=0.95\textwidth]{recursos/GraficoPorcentajeInternetEstonia.png}
+				\caption{Histórico: Porcentaje de voto por Internet frente al total de votos en Estonia.}
+				\label{fig:GraficoPorcentajeInternetEstonia}
+			\end{figure}
 			
 			Estonia es el primer estado que utiliza, oficialmente, el voto electrónico remoto por Internet de forma vinculante. Este sistema puesto en práctica en el año 2005 es una parte de un plan de modernización del país báltico. De hecho, previamente a la puesta en producción del sistema electoral, se comenzó a desarrollar en el año 2000 un despliegue técnico importante para la implantación del documento de identidad electrónico, junto con mecanismos de comunicación con la Administración para facilitar los trámites con la misma por parte de los ciudadanos de forma electrónica y remota.
 			
@@ -332,9 +466,10 @@ los diálogos del sistema.
 				\item Voto postal. Los votantes estonios tienen la posibilidad de acudir en unas fechas determinadas anteriores al día electoral a unas Estaciones de Votación, que funcionan de forma análoga a Correos en España, donde pueden entregar el voto en papel y una acreditación que le identifique. Esta Estación se encarga de hacer llegar el voto y la identificación a la mesa o Distrito Electoral donde el votante esté censado.
 				\item Voto por Internet. Durante un período de tiempo anterior al día electoral, los votantes tienen la posibilidad de entregar el voto por medio de Internet.
 			\end{enumerate}
+			
 			Aunque el votante haya emitido su voto de forma electrónica, la Ley Electoral estonia permite al mismo ejercer su voto de cualquiera de las otras dos formas invalidando su voto electrónico. Es decir, que si una vez votado por Internet, el votante decide votar por correo, éste voto anulará el emitido por Internet. Lo mismo pasaría si decidiese votar presencialmente el día electoral, que su voto emitido por Internet quedaría anulado y fuera del escrutinio. Este hecho es una medida de la Autoridad Electoral para proteger a los votantes frente a la coerción, proveyendo de un mecanismo por el cual un votante que haya elegido una formación determinada por presiones de terceros podría libremente cambiar la dirección de su voto una vez emitido el primero.\\\hspace*{\fill}
 			
-			Son requisitos fundamentales de este sistema de voto electrónico remoto la seguridad, confiabilidad y la precisión, así como proveer de mecanismos eficaces contra la coerción. Otra necesidad importante del sistema es su acceso, que debe ser prácticamente universal, lo cual implica que ha de ser accesible y sencillo de entender para los usuarios, además de que debe funcionar en la mayoría de las plataformas tecnológicas.\\
+			Son requisitos fundamentales de este sistema de voto electrónico remoto la seguridad, confiabilidad y la precisión, así como proveer de mecanismos eficaces contra la coerción. Otra necesidad importante del sistema es su acceso, que debe ser prácticamente universal, lo cual implica que ha de ser accesible y sencillo de entender para los usuarios, además de que debe funcionar en la mayoría de las plataformas tecnológicas.
 			
 			Hay una serie de puntos, recogidos en \cite{Morshed2010}, que consiguen que el sistema satisfaga tales requisitos:
 			\begin{enumerate}[1.]
@@ -359,7 +494,7 @@ los diálogos del sistema.
 }
 
 			
-			La importancia que tiene el sistema de voto utilizado en Estonia radica en el hecho de que provee un mecanismo de voto por Internet a un potencial de votantes consistente en el 100\% de la población de un estado democrático. Hasta el momento de su implantación, esto no ocurría. Se daban casos en los que se proporcionaba un sistema electrónico remoto a diversos espectros de la población, como podían ser los residentes en el extranjero, los militares en misiones activas o los focos de posibles proyectos pilotos.
+			La importancia que tiene el sistema de voto utilizado en Estonia radica en el hecho de que provee un mecanismo de voto por Internet a un potencial de votantes consistente en el 100\% de la población con derecho de voto de un estado democrático. Hasta el momento de su implantación, esto no ocurría. Se daban casos en los que se proporcionaba un sistema electrónico remoto a diversos espectros de la población, como podían ser los residentes en el extranjero, los militares en misiones activas o los focos de posibles proyectos pilotos.
 			
 			Es destacable que, con el objetivo de alcanzar a la totalidad de la población, incluso, el propio estado estonio aumentara el desarrollo de infraestructura tecnológica en el país para intentar reducir la brecha digital de sus habitantes, tratando de proveer el acceso a Internet a la mayor parte del país. Igualmente importante fueron los esfuerzos por la certificación digital, teniendo como punto esencial la implantación del documento nacional de identidad electrónico para la totalidad de la población.
 			
@@ -398,78 +533,156 @@ los diálogos del sistema.
 			\subsection{Noruega}\label{ivotingNoruega}
 			\todo[inline]{¿Hay que hablar de Noruega?}
 			
+			%\begin{table}[htbp]
+				%\centering
+					%\begin{tabularx}{\textwidth}{|m{.6\textwidth}|Y|Y|}
+						%\cline{2-3}
+							%\multicolumn{1}{l|}{} & \multicolumn{2}{c|}{\textbf{SISTEMA DE VOTACIÓN}} \\
+						%\cline{2-3}
+							%\multicolumn{1}{l|}{} & \textbf{ESTONIA} & \textbf{NORUEGA} \\
+						%\hline
+							%Identificación digital de votantes	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
+						%\hline
+							%Protección frente a la suplantación de votantes	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
+						%\hline
+							%Usabilidad de la interfaz de votante	& $\bullet$ 	& $\bullet$	\\
+						%\hline
+							%Seguridad criptográfica de la información intercambiada	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$$\bullet$	\\
+						%\hline
+							%Protección frente a ruptura del secreto del voto por una sola entidad	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
+						%\hline
+							%Protección frente a ruptura del secreto del voto por colusión entre entidades	& $\bullet$ 	& $\bullet$	\\
+						%\hline
+							%Protección frente a contabilización indebida de votos	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
+						%\hline
+							%Protección frente a denegación arbitraria de derecho a voto	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$$\bullet$	\\
+						%\hline
+					%\end{tabularx}
+				%\caption{Comparativa de la evaluación de los sistemas de Votos por Internet de Estonia y Noruega conforme al criterio de Seguridad de la Información}
+				%\label{tab:ResultadoDeLaEvaluaciónConformeAlCriterioDeSeguridadDeLaInformación}
+			%\end{table}
+			
+			
 			\begin{table}[htbp]
-				\centering
-					\begin{tabularx}{\textwidth}{|m{.6\textwidth}|Y|Y|}
-						\cline{2-3}
-							\multicolumn{1}{l|}{} & \multicolumn{2}{c|}{\textbf{SISTEMA DE VOTACIÓN}} \\
-						\cline{2-3}
-							\multicolumn{1}{l|}{} & \textbf{ESTONIA} & \textbf{NORUEGA} \\
-						\hline
-							Identificación digital de votantes	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
-						\hline
-							Protección frente a la suplantación de votantes	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
-						\hline
-							Usabilidad de la interfaz de votante	& $\bullet$ 	& $\bullet$	\\
-						\hline
-							Seguridad criptográfica de la información intercambiada	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$$\bullet$	\\
-						\hline
-							Protección frente a ruptura del secreto del voto por una sola entidad	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
-						\hline
-							Protección frente a ruptura del secreto del voto por colusión entre entidades	& $\bullet$ 	& $\bullet$	\\
-						\hline
-							Protección frente a contabilización indebida de votos	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
-						\hline
-							Protección frente a denegación arbitraria de derecho a voto	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$$\bullet$	\\
-						\hline
-					\end{tabularx}
-				\caption{Comparativa de la evaluación de los sistemas de Votos por Internet de Estonia y Noruega conforme al criterio de Seguridad de la Información}
-				\label{tab:ResultadoDeLaEvaluaciónConformeAlCriterioDeSeguridadDeLaInformación}
+				\begin{threeparttable}
+					\centering
+						%\begin{tabular}{0.75\textwidth}@{\extracolsep{\fill}}|l|l|m{3cm}| m{3cm}|}
+						%\begin{tabular*}{0.95\textwidth}{@{\extracolsep{\fill}}|l|l|rm{2cm}|rm{1cm}|}
+						\begin{tabularx}{\textwidth}{|m{.6\textwidth}|Y|Y|}
+							\cline{2-3}
+								\multicolumn{1}{l|}{} & \multicolumn{2}{c|}{\textbf{SISTEMA DE VOTACIÓN}} \\
+							\cline{2-3}
+								\multicolumn{1}{l|}{} & \textbf{ESTONIA} & \textbf{NORUEGA} \\
+							\hline
+								Identificación digital de votantes	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
+							\hline
+								Protección frente a la suplantación de votantes	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
+							\hline
+								Usabilidad de la interfaz de votante	& $\bullet$ 	& $\bullet$	\\
+							\hline
+								Seguridad criptográfica de la información intercambiada	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$$\bullet$	\\
+							\hline
+								Protección frente a ruptura del secreto del voto por una sola entidad	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
+							\hline
+								Protección frente a ruptura del secreto del voto por colusión entre entidades	& $\bullet$ 	& $\bullet$	\\
+							\hline
+								Protección frente a contabilización indebida de votos	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
+							\hline
+								Protección frente a denegación arbitraria de derecho a voto	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$$\bullet$	\\
+							\hline
+						\end{tabularx}
+						\begin{tablenotes}
+							\scriptsize
+							\item[a] Fuente: Ponencia \textit{Posibilidades del voto telemático en la democracia digital}, por Justo Carracedo\tnote{b}
+							\item[b] \url{http://www.criptored.upm.es/descarga/ConferenciaJustoCarracedoTASSI2014.pdf}
+						\end{tablenotes}
+						\label{tab:ResultadoDeLaEvaluaciónConformeAlCriterioDeSeguridadDeLaInformación}
+						\caption{Comparativa de la evaluación de los sistemas de Votos por Internet de Estonia y Noruega conforme al criterio de Seguridad de la Información\tnote{a}}
+					\end{threeparttable}
 			\end{table}
 			
-			
+			%
+			%\begin{table}[htbp]
+				%\centering
+					%\begin{tabularx}{\textwidth}{|m{.6\textwidth}|Y|Y|}
+						%\cline{2-3}
+							%\multicolumn{1}{l|}{} & \multicolumn{2}{c|}{\textbf{SISTEMA DE VOTACIÓN}} \\
+						%\cline{2-3}
+							%\multicolumn{1}{l|}{} & \textbf{ESTONIA} & \textbf{NORUEGA} \\
+						%\hline
+							%Identificación robusta de gestores del sistema	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$$\bullet$	\\
+						%\hline
+							%Verificación individual de voto	& $\bullet$ 	& $\bullet$	\\
+						%\hline
+							%Verificabilidad de resultados	& $\bullet$ 	& $\bullet$$\bullet$	\\
+						%\hline
+							%Protección frente a la coacción	& $\bullet$ 	& $\bullet$	\\
+						%\hline
+							%Protección del sistema frente a falsas acusaciones	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
+						%\hline
+							%Capacidad de supervisión de los interventores	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
+						%\hline
+							%Uso de software público	& $\bullet$ 	& $\bullet$$\bullet$$\bullet$	\\
+						%\hline
+							%Auditabilidad del sistema	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
+						%\hline
+					%\end{tabularx}
+				%\caption{Comparativa de la evaluación de los sistemas de Votos por Internet de Estonia y Noruega conforme a los criterios de verificación, auditoría y procedimiento}
+				%\label{tab:ResultadoDeLaEvaluaciónConformeALosCriteriosDeVerificacionAuditoríaYProcedimiento}
+			%\end{table}
+			%
 			\begin{table}[htbp]
-				\centering
-					\begin{tabularx}{\textwidth}{|m{.6\textwidth}|Y|Y|}
-						\cline{2-3}
-							\multicolumn{1}{l|}{} & \multicolumn{2}{c|}{\textbf{SISTEMA DE VOTACIÓN}} \\
-						\cline{2-3}
-							\multicolumn{1}{l|}{} & \textbf{ESTONIA} & \textbf{NORUEGA} \\
-						\hline
-							Identificación robusta de gestores del sistema	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$$\bullet$	\\
-						\hline
-							Verificación individual de voto	& $\bullet$ 	& $\bullet$	\\
-						\hline
-							Verificabilidad de resultados	& $\bullet$ 	& $\bullet$$\bullet$	\\
-						\hline
-							Protección frente a la coacción	& $\bullet$ 	& $\bullet$	\\
-						\hline
-							Protección del sistema frente a falsas acusaciones	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
-						\hline
-							Capacidad de supervisión de los interventores	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
-						\hline
-							Uso de software público	& $\bullet$ 	& $\bullet$$\bullet$$\bullet$	\\
-						\hline
-							Auditabilidad del sistema	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
-						\hline
-					\end{tabularx}
-				\caption{Comparativa de la evaluación de los sistemas de Votos por Internet de Estonia y Noruega conforme a los criterios de verificación, auditoría y procedimiento}
+				\begin{threeparttable}
+					\centering
+						%\begin{tabular}{0.75\textwidth}@{\extracolsep{\fill}}|l|l|m{3cm}| m{3cm}|}
+						%\begin{tabular*}{0.95\textwidth}{@{\extracolsep{\fill}}|l|l|rm{2cm}|rm{1cm}|}
+						\begin{tabularx}{\textwidth}{|m{.6\textwidth}|Y|Y|}
+							\cline{2-3}
+								\multicolumn{1}{l|}{} & \multicolumn{2}{c|}{\textbf{SISTEMA DE VOTACIÓN}} \\
+							\cline{2-3}
+								\multicolumn{1}{l|}{} & \textbf{ESTONIA} & \textbf{NORUEGA} \\
+							\hline
+								Identificación robusta de gestores del sistema	& $\bullet$$\bullet$$\bullet$ 	& $\bullet$$\bullet$$\bullet$	\\
+							\hline
+								Verificación individual de voto	& $\bullet$ 	& $\bullet$	\\
+							\hline
+								Verificabilidad de resultados	& $\bullet$ 	& $\bullet$$\bullet$	\\
+							\hline
+								Protección frente a la coacción	& $\bullet$ 	& $\bullet$	\\
+							\hline
+								Protección del sistema frente a falsas acusaciones	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
+							\hline
+								Capacidad de supervisión de los interventores	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
+							\hline
+								Uso de software público	& $\bullet$ 	& $\bullet$$\bullet$$\bullet$	\\
+							\hline
+								Auditabilidad del sistema	& $\bullet$$\bullet$ 	& $\bullet$$\bullet$	\\
+							\hline
+						\end{tabularx}
+						\begin{tablenotes}
+							\scriptsize
+							\item[a] Fuente: Ponencia \textit{Posibilidades del voto telemático en la democracia digital}, por Justo Carracedo\tnote{b}
+							\item[b] \url{http://www.criptored.upm.es/descarga/ConferenciaJustoCarracedoTASSI2014.pdf}
+						\end{tablenotes}
+						\caption{Comparativa de la evaluación de los sistemas de Votos por Internet de Estonia y Noruega conforme a los criterios de verificación, auditoría y procedimiento\tnote{a}}
 				\label{tab:ResultadoDeLaEvaluaciónConformeALosCriteriosDeVerificacionAuditoríaYProcedimiento}
+					\end{threeparttable}
 			\end{table}
-			
-			
-		\notasCambio[inline]{Destacar que estas tablas vienen de una ponencia de Justo Carracedo, presentación en Posibilidades del voto telemático en la democracia digital \url{http://www.criptored.upm.es/descarga/ConferenciaJustoCarracedoTASSI2014.pdf}}
-			
 			
 			
 			\subsection{Suiza}\label{ivotingSuiza}
 			El estado suizo se divide administrativamente en cantones. Estos cantones son los responsables de la celebración de procesos electorales en sus territorios. Con esto, varios de ellos, impulsados por el Estado, han dedicado mucho esfuerzo al estudio y desarrollo del voto por Internet para poder implementarlo de forma general.
-			\par
+			
 			Con el objetivo de la implantación del voto electrónico, el estado suizo marcó tres fases de actuación como línea a seguir para la resolución de estudios y pruebas pilotos previas a una futura utilización de este sistema con garantías de viabilidad y seguridad.\cite{suiza1}
+			
 			En una primera fase, de 2000 a 2002, se realizaron una serie de estudios e investigaciones que derivaron en la creación de programas piloto de voto electrónico.
+			
 			De 2002 a 2006, tres cantones - Neuchatel, Ginebra y Zurich, comenzaron a realizar pruebas piloto que mostraron que era posible implantar el voto electrónico remoto en Suiza, lo cual acentuó el apoyo del Gobierno en el proyecto.
-			A partir de 2006,  las pruebas piloto se expandieron a otros cantones, utilizando estos los sistemas desarrollados por el cantón de Zurich o el de ginebra.
+			
+			A partir de 2006,  las pruebas piloto se expandieron a otros cantones, utilizando estos los sistemas desarrollados por el cantón de Zurich o el de Ginebra.
+			
 			En 2010 ya eran 12 los cantones que realizaron pruebas pilotos en los comicios del 28 de noviembre. El número de votantes que podían votar de forma electrónica ascendía a 193.236 personas aunque, sin embargo, tan sólo 28.192, no llegó al 15\%, lo hicieron de esta forma.
+			
 			Sin embargo, en 2011, el Gobierno Federal \todo[inline]{seguir?...}
 			
 			
@@ -481,12 +694,41 @@ los diálogos del sistema.
 			\subsection{Universidad del País Vasco}\label{ivotingEHU}
 				\todo[inline]{(Scytel)}
 				
+							
+		% *************************************************************************************************************** %
+		% 			VOTO POR INTERNET EN LA EPS
+		% *************************************************************************************************************** %
+		\subsection{Escuela Politécnica Superior - Universidad San Pablo CEU}\label{ivoting_epsceu}
+			En la Escuela Politécnica Superior de la Universidad San Pablo-CEU ya se realizó una elección por medio de voto electrónico. Sucedió en 2005, cuando en una colaboración entre la Universidad y la multinacional española Indra se celebró la primera elección de delegados de clase a través de voto electrónico con motivo del Día de Internet, celebrado el 25 de octubre del mismo año.\\\hspace*{\fill}
+			
+			En esta experiencia, más de 600 alumnos de los últimos cursos de la Escuela Politécnica eligieron a sus delegados de clase a través de este sistema.\\\hspace*{\fill}
+			
+			En la fecha de la elección, cada alumno emitió su voto a través de un nombre de usuario y una clave personal. Por motivos divulgativos, los organizadores de la elección determinaron que una parte del alumnado censado realizara la votación desde un aula de votación concreta, perteneciente al centro y adecuada para ello; mientras que el resto del alumnado debía elegir sus representantes desde algún equipo personal fuera del dominio de la Universidad.\\\hspace*{\fill}
+			
+			Para que estas elecciones a través de Internet pudiesen llevarse a cabo la Universidad San Pablo-CEU tuvo que adaptar su normativa de régimen interno, pues la que tenía originalmente establecía únicamente la posibilidad de un sistema de voto presencial.
+			
+			\subsection{Universidad de Lovaina}\label{ivotingUniversidadLovaina}
+		
+		\section{Proyectos varios de voto por Internet }\label{estado_desarrollos}
+		
+			 En esta sección introducimos algunos proyectos de voto por Internet que se han estudiado para la elaboración de este PFC y que han resultado ser interesantes y con propuestas a tener en cuenta para llevar a cabo proyectos de índole electoral.
+			
+			No obstante, una vez que se decidió que el sistema debe cumplir con la característica de ser un sistema de votación auditable punto a punto (E2E Auditable Voting System), estos proyectos fueron descartados como códigos base de la adaptación al sistema a implementar para la EPS.
+			
 			\subsection{Votescript}\label{ivotingVotescript}
-			El esquema de votación telemática Votescript tiene su origen en el proyecto de investigación \textit{Votación Electrónica Segura basada en criptografía avanzada} \cite{votescript1}, denominación de la cual adquiere el nombre, Votescript. Este proyecto es una colaboración entre el grupo de la Universidad Politécnica y la Fábrica Nacional de Moneda y Timbre - Real Casa de la Moneda (una de las principales entidades emisoras de certificados digitales de España).\\
-			A partir de este proyecto de investigación, los autores publican diversos artículos sobre el funcionamiento y alcance de los resultados obtenidos. En este apartado, nos basamos en la versión más actual del proyecto, desarrollado en su tesis doctoral \cite{tesisEPerezBelleboni} por una de las autoras del original, la Dra. Emilia Pérez Belleboni.\\
-			En esta tesis, además de analizar el estado del voto telemático, teniendo en consideración, esquemas, problemas y riesgos, realiza un estudio de varias implementaciones reales a nivel nacional, como por ejemplo un extenso análisis del procedimiento electoral electrónico de Estonia (\ref{ivotingEstonia}). No obstante, a partir de estos análisis, desarrolla el esquema que proponen, con base en el Votescript original, evolucionándolo para solucionar las debilidades del resto de sistemas y para su aplicación en la elección de representantes para el Parlamento Europeo.\\
-			En contraposición a los sistemas que estudia en la tesis, el sistema Votescript centra sus esfuerzos en la superación de debilidades identificadas en los anteriores, en especial en la fase de identificación del votante. En elecciones como las del Parlamento Europeo, una entidad supranacional, es muy importante que la identificación de los votantes se pueda realizar electrónicamente de una forma altamente confiable, pues deben ser válidas no sólo en el país del propio votante, sino en el resto de países europeos.\\
-			El esquema que propone Votescript define la necesidad de unos puntos específicos de votación, centros donde han de acudir los votantes a votar telemáticamente. En estos centros se implantarían los medios y equipamientos tecnológicos para que el votante emita su voto en un entorno controlado.\\ Según su documentación, las bases del sistema se pueden adecuar sin problemas a un \textit{sistema abierto} (voto por Internet), pero el precio que implica la comodidad de los votantes de poder votar sin necesidad de trasladarse a locales oficiales incurre en un incremento de los riesgos de coerción. 
+			\todo[inline]{Votescript es voto electrónico remoto por medio de locales de votación. Está bien que expliquemos cómo se implementa la parte telemática, que es lo que afecta al PFC.}
+			
+			El esquema de votación telemática Votescript tiene su origen en el proyecto de investigación \textit{Votación Electrónica Segura basada en criptografía avanzada} \cite{votescript1}, denominación de la cual adquiere el nombre, Votescript. Este proyecto es una colaboración entre el grupo de la Universidad Politécnica y la Fábrica Nacional de Moneda y Timbre - Real Casa de la Moneda (una de las principales entidades emisoras de certificados digitales de España).
+			
+			A partir de este proyecto de investigación, los autores publican diversos artículos sobre el funcionamiento y alcance de los resultados obtenidos. En este apartado, nos basamos en la versión más actual del proyecto, desarrollado en su tesis doctoral \cite{tesisEPerezBelleboni} por una de las autoras del original, la Dra. Emilia Pérez Belleboni.
+			
+			En esta tesis, además de analizar el estado del voto telemático, teniendo en consideración, esquemas, problemas y riesgos, realiza un estudio de varias implementaciones reales a nivel nacional, como por ejemplo un extenso análisis del procedimiento electoral electrónico de Estonia (\ref{ivotingEstonia}). No obstante, a partir de estos análisis, desarrolla el esquema que proponen, con base en el Votescript original, evolucionándolo para solucionar las debilidades del resto de sistemas y para su aplicación en la elección de representantes para el Parlamento Europeo.
+			
+			En contraposición a los sistemas que estudia en la tesis, el sistema Votescript centra sus esfuerzos en la superación de debilidades identificadas en los anteriores, en especial en la fase de identificación del votante. En elecciones como las del Parlamento Europeo, una entidad supranacional, es muy importante que la identificación de los votantes se pueda realizar electrónicamente de una forma altamente confiable, pues deben ser válidas no sólo en el país del propio votante, sino en el resto de países europeos.
+			
+			El esquema que propone Votescript define la necesidad de unos puntos específicos de votación, centros donde han de acudir los votantes a votar telemáticamente. En estos centros se implantarían los medios y equipamientos tecnológicos para que el votante emita su voto en un entorno controlado.
+			
+			Según su documentación, las bases del sistema se pueden adecuar sin problemas a un \textit{sistema abierto} (voto por Internet), pero el precio que implica la comodidad de los votantes de poder votar sin necesidad de trasladarse a locales oficiales incurre en un incremento de los riesgos de coerción. 
 			
 			\subsection{Online E-Voting Prototype with PTC Web Services}\label{PTCWSOnlineEVoting}
 			Este proyecto, realizado por Brett Wilson y continuado por Hakan Evecek para la Universidad ***************************.\notasDuda{Nombre de la Universidad!!}
@@ -496,6 +738,8 @@ los diálogos del sistema.
 			
 			Las razones por las que eligen este precepto en el diseño del sistema es para poder reducir el problema derivado de la coerción del votante. Tal y como apuntan en su documentación, la justificación a esta decisión de diseño del esquema se debe a que para
 			
+			\todo[inline]{SELES, SEVI y el americano hay que moverlos. NO son experiencias de voto. Son proyectos que se han diseñado pero no se han llevado a cabo en una elección real. No deberían ir aquí. Habría que ponerlos con tecnologías existentes entre las que decidir, junto a Helios Voting y Ágora Voting.}
+			\todo[inline]{Lo que quizá sí que habría que hablar, o no, hay que decidirlo es de las elecciones que se han hecho utilizando Helios (Universidad de Louven, Harvard) y Ágora (Podemos), pues son experiencias reales con sistemas que me planteo utilizar como base.}
 			
 			\subsection{SELES}\label{seles}
 				\todo[inline]{SELES}
@@ -526,20 +770,20 @@ los diálogos del sistema.
 			
 			
 			\subsection{Civitas}\label{civitas}
-				\todo[inline]{http://www.cs.cornell.edu/projects/civitas/}
+				\todo[inline]{\url{http://www.cs.cornell.edu/projects/civitas/} Alternativa a Helios y Ágora, hay que moverlo a otro capítulo.}
 				\notasInfo[inline]{Civitas is a new, secure voting system. Civitas is the first voting system implementation that allows voters to vote securely from the remote client of their choice, while provably providing universal verifiability, voter verifiability, anonymity, and coercion resistance. Civitas scales up to a large number of voters, with a low marginal computational cost per voter.}
-				aaaaaa
+				\
 				
-			\subsection{Online Voting NON IEEE Projects}\label{ddddddddd}
-				%\todo[inline]{''https://www.youtube.com/watch?v=AZSbi5_pYa4''}
-				\notasInfo[inline]{On-line Voting System is a web based system that facilitates the running of elections and surveys online. This system has been developed to simplify the process of organizing elections and make it convenient for voters to vote remotely from their home computers while taking into consideration security, anonymity and providing auditioning capabilities. Users are individuals who interact with the system. All user interaction is performed remotely through the user's web browser. Users are categorized into three classes: Administrator, returning Officers and Voters. A running version of the system will have only one Administrator but it typically has multiple returning officers and voters. The administrator is responsible for managing user accounts, polls, system resources and logs and for the health and safekeeping of the system. Returning officers have the responsibility of managing a poll as assigned by the administrator, whereas voters only have the ability to submit ballots on polls in which they are admitted.}
-				\todo[inline]{quitar esto, que no va a ir aquí}
 				
+
+
 
 % *************************************************************************************************************** %
 % 			E2E AUDITABLE VOTING SYSTEMS
 % *************************************************************************************************************** %				
-		\section{E2E Auditable Voting Systems}
+		\section{Proyectos de Sistemas de Votación Auditables Punto a Punto - E2E Auditable Voting Systems}
+			
+			\todo[inline]{La sección para E2E está bien si tenemos a Helios y Ágora, pero si hablamos de Civitas, SELES, SEVI y la del americano, quizá tenga que ser una subsección de desarrollos existentes de Voto por Internet. Requiere valoración.}
 			
 				Una propiedad bastante útil para el desarrollo de esquemas para votación por Internet es la llamada \textbf{\textit{verificabilidad punto a punto}} (o punta a cabo según otros autores hispanohablantes) (en la literatura inglesa: end-to-end verifiability; E2E-verifiability). Con ella se puede solucionar el problema de la necesidad de confiar en el proceso que recoge, almacena y cuenta los votos.
 				
@@ -552,15 +796,18 @@ los diálogos del sistema.
 				\item \textbf{Verificabilidad universal}: Cualquiera puede comprobar que todos los votos han sido escrutados con precisión.
 			\end{enumerate}
 			
-			Para cumplir el requisito de la verificabilidad individual, el sistema estonio se apoya en una app para smartphones que gestiona la verificación del voto, mientras que en la solución noruega apuestan por una sistema de retorno de código por SMS. A través de ambos protocolos, se permite al votante una herramienta a través de la cual puede asegurarse de que su voto ha sido correctamente incluído en la votación.
-			Los problemas para cumplir con los requisitos de Benaloh aparecen cuando se estudian las herramientas para cumplir con la verificabilidad universal. El método tradicional para garantizar este requisito es utilizar las pruebas de conocimiento zero (\ref{primitivaPruebasConocimientoNulo},\ref{zeroKnowledgeProof}). Con estas pruebas se trata de convencer a un verificador de que el proceso se ha llevado a cabo correctamente con una alta probabilidad, sin necesidad de que el verificador tenga conocimiento del contenido de los votos incluídos en la elección. En los sistemas implementados en Estonia y Noruega, aunque parecen tener herramientas que incluyen estas pruebas de conocimiento nulo en todas las etapas del proceso, según algunos informes postelectorales\cite{carter2013}, esto no ocurría en la totalidad del proceso.
-			Según estos mismos informes\cite{carter2013}, un ejemplo de sistema electoral por Internet E2E-verificable es Helios\ref{helios}, del que dicen que es un reconocido ``\textit{estándar en verificabilidad de voto por Internet}''. La visión de este sistema es que proporciona al proceso todas las garantías que aporta la verificabilidad E2E, como la capacidad de observar pruebas de conocimiento cero no interactivas que verifican que cada voto fue incluido correctamente y que el escrutinio completo fue computado con precisión. No obstante, hay que remarcar que, como su propio desarrollador indica, Helios es un sistema pensado en elecciones con bajo riesgo de coerción, lo cual no es válido para elecciones nacionales como el modelo estonio o noruego.
+			Para cumplir el requisito de la verificabilidad individual, el sistema estonio (\ref{ivotingEstonia}) se apoya en una app para smartphones que gestiona la verificación del voto, mientras que en la solución noruega (\ref{ivotingNoruega})apuestan por un sistema de retorno de código por SMS. A través de ambos protocolos, se facilita al votante una herramienta con la cual asegurarse de que su voto ha sido correctamente incluido en la votación.
 			
-			Las garantías que ofrecen los esquemas de verificabilidad E2E eliminan la necesidad de los votantes de confiar tanto en los propios clientes (dispositivos, navegadores, sistemas operativos) que utilizan para votar, como los servidores y los trabajadores oficiales que administran los sistemas asociados a la recepción, descifrado y conteo de votos, que son los pilares críticos en los que se basa un sistema de voto por Internet.\notasCambio{Falta decir el porqué!! Porqué se olvidan los votantes de la amenaza? pues porque el E2E consigue que se demuestre la invariabilidad del voto emitido frente al contado...E2E}
+			Los problemas para satisfacer los requisitos de Benaloh aparecen cuando se estudian las herramientas para cumplir con la verificabilidad universal.
+			El método tradicional para garantizar este requisito es utilizar las pruebas de conocimiento zero (\ref{primitivaPruebasConocimientoNulo},\ref{zeroKnowledgeProof}). Con estas pruebas se trata de convencer a un verificador de que el proceso se ha llevado a cabo correctamente con una alta probabilidad, sin necesidad de que el verificador tenga conocimiento del contenido de los votos incluidos en la elección. En los sistemas implementados en Estonia y Noruega, aunque parecen tener herramientas que incluyen estas pruebas de conocimiento nulo en todas las etapas del proceso, según algunos informes postelectorales\cite{carter2013}, esto no ocurría en la totalidad del proceso.
+			
+			Según estos mismos informes\cite{carter2013}, un ejemplo de sistema electoral por Internet E2E-verificable es Helios Voting (\ref{estadocuestion_helios}), del que dicen que es un reconocido ``\textit{estándar en verificabilidad de voto por Internet}''. Las bonanzas de este sistema es que proporciona al proceso todas las garantías que aporta la verificabilidad E2E, como la capacidad de observar pruebas de conocimiento cero no interactivas que verifican que cada voto fue incluido correctamente y que el escrutinio completo fue computado con precisión. No obstante, hay que remarcar que, como su propio desarrollador indica, Helios es un sistema pensado en elecciones con bajo riesgo de coerción, lo cual no es válido para elecciones nacionales como el modelo estonio o noruego.
+			
+			Las garantías que ofrecen los esquemas de verificabilidad E2E eliminan la necesidad de los votantes de confiar tanto en los propios clientes (dispositivos, navegadores, sistemas operativos) que utilizan para votar, como los servidores y los trabajadores oficiales que administran los sistemas asociados a la recepción, descifrado y conteo de votos, que son los pilares críticos en los que se basa un sistema de voto por Internet.\notasCambio{Falta decir el porqué!! Por qué se olvidan los votantes de la amenaza? pues porque el E2E consigue que se demuestre la invariabilidad del voto emitido frente al contado...E2E}. Con esta perspectiva de relajada confianza en los dispositivos clientes, se torna como un buen protocolo para el voto por Internet sin locales habilitados. Se debe a que en este marco altamente distribuido, la votación se realiza desde entornos no controlados por el sistema, con lo que hay un alto riesgo de amenazas, pero la verificiabilidad E2E se encarga de demostrar la invariabiliadd del voto emitido frente al escrutado, por lo que minimiza varios de los triesgos inherentes a los clientes no controlados. (Obvia comentar que sigue habiendo bastantes amenazas que este medio no va a tratar y tendrán que ser enfrentadas con otras herramientas.)
 			
 			
 				\subsection{ADDER}\label{estadocuestion_adder}
-					\textsc{Adder} \cite{conf/acsac/KiayiasKW06} se define como un sistema de voto electrónico basado en Internet, libre y de código abierto. Desarrollado por la Universidad de Connecticut (EEUU) en 2006, supone una plataforma de eVoting completamente funcional con una serie de características de seguridad como robustez, privacidad del voto, auditabilidad y verificabilidad.
+					\textsc{Adder} \cite{conf_acsac_KiayiasKW06} se define como un sistema de voto electrónico basado en Internet, libre y de código abierto. Desarrollado por la Universidad de Connecticut (EEUU) en 2006, supone una plataforma de eVoting completamente funcional con una serie de características de seguridad como robustez, privacidad del voto, auditabilidad y verificabilidad.
 					
 					Los desarrolladores de \textsc{ADDER} dividen el voto por Internet en 3 escenarios:
 					\begin{description}
@@ -574,7 +821,7 @@ los diálogos del sistema.
 					\begin{figure}[h]
 						\centering
 							\includegraphics[width=\textwidth]{imgs/ADDER_diagrama_secuencia.png}
-						\caption{Diagrama de secuencia del procedimiento para una elección con ADDER \cite{conf/acsac/KiayiasKW06}.}
+						\caption{Diagrama de secuencia del procedimiento para una elección con ADDER \cite{conf_acsac_KiayiasKW06}.}
 						\label{fig:ADDER_diagrama_secuencia}
 					\end{figure}
 					
@@ -587,18 +834,18 @@ los diálogos del sistema.
 					\notasInfo[inline]{Aquí va la imagen de la arquitectura de \textsc{ADDER}.}
 					
 					Los objetivos que persigue el sistema \textsc{ADDER} son:
-					\begin{enumerate}
-						\item \textit{Transparencia}. Toda la información del tablón de anuncios es pública y puede ser consultada por cualquier observador. Aquí se incluyen votos cifrados, claves públicas y escrutinios.
-						\item \textit{Verificabilidad} universal- Cualquier resultado electoral obtenido por el sistema debería ser verificado por cualquier observador. A través de los logs y trazas del sistema se puede realizar una auditoría de cualquiera de los procesos.
-						\item \textit{Privacidad}. Todos los votantes pueden confiar en que sus votos se mantienen secretos. Sólo el recuento es accesible al público.
-						\item \textit{Confianza distribuida}. Cada procedimiento del proceso electoral está supervisado por varias autoridades. El recuento no puede llevarse a cabo sin la cooperación de un determinado número de autoridades.
-					\end{enumerate}
+					\begin{description}
+						\item[Transparencia] Toda la información del tablón de anuncios es pública y puede ser consultada por cualquier observador. Aquí se incluyen votos cifrados, claves públicas y escrutinios.
+						\item[Verificabilidad universal] Cualquier resultado electoral obtenido por el sistema debería ser verificado por cualquier observador. A través de los logs y trazas del sistema se puede realizar una auditoría de cualquiera de los procesos.
+						\item[Privacidad] Todos los votantes pueden confiar en que sus votos se mantienen secretos. Sólo el recuento es accesible al público.
+						\item[Confianza distribuida] Cada procedimiento del proceso electoral está supervisado por varias autoridades. El recuento no puede llevarse a cabo sin la cooperación de un determinado número de autoridades.
+					\end{description}
 					
 					
 					
 					Soluciones propuestas por \textsc{ADDER}:
 					\begin{enumerate}
-						\item \textit{Autenticación de usuarios}. Para la autenticación de usuarios, \textsc{ADDER} emplea un sistema análogo a Kerberos que denominan \textit{gatekeeper} (guardián de la puerta). (...)
+						\item \textit{Autenticación de usuarios}. Para la autenticación de usuarios, \textsc{ADDER} emplea un sistema análogo a Kerberos que denominan \textit{gatekeeper} (guardián de la puerta). \todo[inline]{(...)}
 						\item \textit{Privacidad del voto}. Para contrarrestar el conflicto entre privacidad del voto y verificabilidad universal y la necesidad de acceso al contenido del voto para asegurar el correcto conteo, el sistema utiliza técnicas de cifrado homomórfico.
 						\item \textit{Verificabilidad universal}. Para cumplir con este requisito, el sistema se apoya en un tablón de anuncios, en el que se publica información relevante al proceso. Junto al sistema, se han implementado una serie de herramientas libres y de código abierto que permiten hacer uso de los datos publicados en el tablón y realizar una serie de tareas:
 						\begin{enumerate}
@@ -616,8 +863,11 @@ los diálogos del sistema.
 					
 				
 				\subsection{Ágora Ciudadana - Ágora Voting}\label{estadocuestion_agoravoting}
+				\todo[inline]{Editar lo que está escrito en temp.tex sobre Ágora Voting. Ya no son Software Libre...}
 				
-				\subsection{Helios}\label{helios}
+				Comentar que Ágora Voting dejó de ser un proyecto activo y pasó de software libre a ser una plataforma comercial de voto por Internet llamada nVote. Está implementada en Python y tiene bastantes funcionalidades comunes con Helios Voting.
+				
+				\subsection{Helios}\label{estadocuestion_helios}
 				Helios es un sistema de voto por Internet cuyos desarrolladores consideran que es el primer sistema de voto con auditoría abierta (open-audit) basado en web. Actualmente es un proyecto en desarrollo, funcional y públicamente accesible. Cualquier organismo interesado puede descargar el código fuente, configurar un proceso electoral y llevar a término la elección, junto con que cualquier observador puede auditar todo el proceso.
 				
 				Este proyecto es apropiado para realizar procesos electorales para organismos que necesiten que estos sean confiables y con voto secreto, eso sí, siempre que los comicios se celebren en un ambiente en el que la coerción del voto no sea una amenaza. Este detalle es importante, ya que muestra una de las \textit{debilidades} de esta implementación con respecto a un proceso electoral de gran escala.
@@ -631,119 +881,180 @@ los diálogos del sistema.
 				
 				
 				
-				
-				Primitivas criptográficas en Helios: \url{https://securewww.esat.kuleuven.be/cosic/publications/thesis-249.pdf}
-				ElGamal
-				Homomorphic encryption
-				Threshold Encryption (+Secret Sharing)
+				\todo[inline]{Recuperar lo de Helios de temp.tex.}
+					Primitivas criptográficas en Helios: \url{https://securewww.esat.kuleuven.be/cosic/publications/thesis-249.pdf}
+					\begin{itemize}
+						\item ElGamal
+						\item Homomorphic encryption
+						\item Threshold Encryption (+Secret Sharing)
+					\end{itemize}
 				
 				
 				
 				
 				
 \notasInfo[inline]{la siguiente info para analizar está sacada de \url{https://eprint.iacr.org/2015/942.pdf}}
-TEMPORAL ------------------------------------------------------------------------
-				6 Case Study: Helios
-Helios is an open-source, web-based electronic voting system,18 which has been
-deployed in the real-world: the International Association of Cryptologic Research
-(IACR) has used Helios annually since 2010 to elect board members
-[BVQ10,HBH10],19 the Catholic University of Louvain used Helios to elect their
-university president in 2009 [AMPQ09], and Princeton University has used Helios
-since 2009 to elect student governments [Adi09].20
-Informally, Helios can be modelled as an election scheme (Setup, Vote,Tally)
-such that:
-Setup generates a key pair for an asymmetric homomorphic encryption scheme,
-proves correct key generation in zero-knowledge, and outputs the public
-key coupled with the proof.
-Vote enciphers the vote to a ciphertext, proves correct ciphertext construction
-in zero-knowledge, and outputs the ciphertext coupled with the proof.
-Tally proceeds as follows. First, any ballots on the bulletin board for which
-proofs do not hold are discarded. Secondly, the ciphertexts in the remaining
-ballots are homomorphically combined,21 the homomorphic combination
-is decrypted to reveal the election outcome, and correctness of
-decryption is proved in zero-knowledge. Finally, the election outcome and
-proof of correct decryption are output.
-The original Helios scheme [AMPQ09] is vulnerable to attacks against ballot secrecy
-[CS13, CS11, SC11]. The current version of Helios is intended to mitigate
-against these attacks.22 In particular, it incorporates Smyth's recommendation
-to reject ballots containing zero-knowledge proofs that have been previously
-observed [Smy12, §4]. For clarity, we write Helios 3.1.4 for the current version
-of Helios. Bernhard [Ber14, §6.11] and Bernhard et al. [BCG+15a, §D.3]
-show that variants of Helios 3.1.4 using the strong Fiat-Shamir heuristic satisfy
-notions of ballot secrecy.23 These notions assume ballots are recorded-as-cast,
-i.e., cast ballots are preserved with integrity through the ballot collection process
-[AN06, §2]. Unfortunately, ballot secrecy is not satisfied without this assumption,
-because Helios 3.1.4 uses malleable ballots (as do the variants studied
-by Bernhard [Ber14] and Bernhard et al. [BCG+15a]), which are incompatible
-with ballot secrecy (§5).
-Theorem 9. Helios 3.1.4 does not satisfy ballot secrecy.
-Proof sketch. Suppose an adversary calls the left-right oracle to derive a ballot,
-exploits malleability to derive a related ballot, and outputs a bulletin board
-containing the related ballot.24 The board is balanced, because it does not
-contain the ballot output by the left-right oracle. And the election outcome will
-allow the adversary to win the game.
-We omit a formal proof of Theorem 9.
-The proof sketch of Theorem 9 does not immediately give way to a real-world
-attack against Helios. Nevertheless, we can derive an attack (as the following
-example demonstrates) by extrapolating from the proof sketch and Cortier \&
-Smyth's permutation attack, which asserts: given a ballot b for vote v, we can
-exploit malleability to derive a ballot b'
-for vote v'
-[CS13, §3.2.2]. Suppose
-Alice, Bob and Charlie are voters, and Mallory is an adversary that wants to
-convince herself that Alice did not vote for a candidate v. Further suppose
-Alice casts a ballot b1 for vote v1, Bob casts a ballot b2, and Charlie casts a
-ballot b3. Moreover, suppose that either Bob or Charlie voted for v. (Thus,
-we exclude election outcomes without any votes for candidate v, which would
-permit Mallory to trivially convince herself that Alice did not vote for candidate
-v.) Let us assume that votes for v
-0 are not expected. Mallory proceeds as follows:
-she intercepts ballot b1, exploits malleability to derive a ballot b such that v = v1
-implies b is a vote for v
-0
-, and casts ballot b. It follows that the tallier will compute
-the election outcome from bulletin board {b, b2, b3}. If the outcome does not
-contain any votes for v
-0
-, then Mallory is convinced that Alice did not vote for v.
-This attack also works against the variants of Helios 3.1.4 studied by Bernhard
-and Bernhard et al., however, neither Bernhard [Ber14, §6.11] nor Bernhard et
-al. [BCG+15a, §D.3] were able to detect the attack,25 because interception is
-not possible when ballots are recorded-as-cast.26
-Recommendation: adopt non-malleable ballots. We have seen that nonmalleable
-ballots are necessary for ballot secrecy (§5), hence, future Helios releases
-should adopt non-malleable ballots. The specification for the next Helios
-release [Adi14] makes some progress in this direction. Moreover, a liberal
-interpretation of that specification by Smyth, Frink \& Clarkson [SFC15]
-leads to a variant of Helios, named Helios 4.0, which defines non-malleable ballots
-[SHM15]. Proving whether Helios 4.0 satisfies ballot secrecy is a direction
-for future work. And a successful proof would provide strong motivation for
-future Helios releases being based upon Helios 4.0.
+%TEMPORAL ------------------------------------------------------------------------
+				%6 Case Study: Helios
+%Helios is an open-source, web-based electronic voting system,18 which has been
+%deployed in the real-world: the International Association of Cryptologic Research
+%(IACR) has used Helios annually since 2010 to elect board members
+%[BVQ10,HBH10],19 the Catholic University of Louvain used Helios to elect their
+%university president in 2009 [AMPQ09], and Princeton University has used Helios
+%since 2009 to elect student governments [Adi09].20
+%Informally, Helios can be modelled as an election scheme (Setup, Vote,Tally)
+%such that:
+%Setup generates a key pair for an asymmetric homomorphic encryption scheme,
+%proves correct key generation in zero-knowledge, and outputs the public
+%key coupled with the proof.
+%Vote enciphers the vote to a ciphertext, proves correct ciphertext construction
+%in zero-knowledge, and outputs the ciphertext coupled with the proof.
+%Tally proceeds as follows. First, any ballots on the bulletin board for which
+%proofs do not hold are discarded. Secondly, the ciphertexts in the remaining
+%ballots are homomorphically combined,21 the homomorphic combination
+%is decrypted to reveal the election outcome, and correctness of
+%decryption is proved in zero-knowledge. Finally, the election outcome and
+%proof of correct decryption are output.
+%The original Helios scheme [AMPQ09] is vulnerable to attacks against ballot secrecy
+%[CS13, CS11, SC11]. The current version of Helios is intended to mitigate
+%against these attacks.22 In particular, it incorporates Smyth's recommendation
+%to reject ballots containing zero-knowledge proofs that have been previously
+%observed [Smy12, §4]. For clarity, we write Helios 3.1.4 for the current version
+%of Helios. Bernhard [Ber14, §6.11] and Bernhard et al. [BCG+15a, §D.3]
+%show that variants of Helios 3.1.4 using the strong Fiat-Shamir heuristic satisfy
+%notions of ballot secrecy.23 These notions assume ballots are recorded-as-cast,
+%i.e., cast ballots are preserved with integrity through the ballot collection process
+%[AN06, §2]. Unfortunately, ballot secrecy is not satisfied without this assumption,
+%because Helios 3.1.4 uses malleable ballots (as do the variants studied
+%by Bernhard [Ber14] and Bernhard et al. [BCG+15a]), which are incompatible
+%with ballot secrecy (§5).
+%Theorem 9. Helios 3.1.4 does not satisfy ballot secrecy.
+%Proof sketch. Suppose an adversary calls the left-right oracle to derive a ballot,
+%exploits malleability to derive a related ballot, and outputs a bulletin board
+%containing the related ballot.24 The board is balanced, because it does not
+%contain the ballot output by the left-right oracle. And the election outcome will
+%allow the adversary to win the game.
+%We omit a formal proof of Theorem 9.
+%The proof sketch of Theorem 9 does not immediately give way to a real-world
+%attack against Helios. Nevertheless, we can derive an attack (as the following
+%example demonstrates) by extrapolating from the proof sketch and Cortier \&
+%Smyth's permutation attack, which asserts: given a ballot b for vote v, we can
+%exploit malleability to derive a ballot b'
+%for vote v'
+%[CS13, §3.2.2]. Suppose
+%Alice, Bob and Charlie are voters, and Mallory is an adversary that wants to
+%convince herself that Alice did not vote for a candidate v. Further suppose
+%Alice casts a ballot b1 for vote v1, Bob casts a ballot b2, and Charlie casts a
+%ballot b3. Moreover, suppose that either Bob or Charlie voted for v. (Thus,
+%we exclude election outcomes without any votes for candidate v, which would
+%permit Mallory to trivially convince herself that Alice did not vote for candidate
+%v.) Let us assume that votes for v
+%0 are not expected. Mallory proceeds as follows:
+%she intercepts ballot b1, exploits malleability to derive a ballot b such that v = v1
+%implies b is a vote for v
+%0
+%, and casts ballot b. It follows that the tallier will compute
+%the election outcome from bulletin board {b, b2, b3}. If the outcome does not
+%contain any votes for v
+%0
+%, then Mallory is convinced that Alice did not vote for v.
+%This attack also works against the variants of Helios 3.1.4 studied by Bernhard
+%and Bernhard et al., however, neither Bernhard [Ber14, §6.11] nor Bernhard et
+%al. [BCG+15a, §D.3] were able to detect the attack,25 because interception is
+%not possible when ballots are recorded-as-cast.26
+%Recommendation: adopt non-malleable ballots. We have seen that nonmalleable
+%ballots are necessary for ballot secrecy (§5), hence, future Helios releases
+%should adopt non-malleable ballots. The specification for the next Helios
+%release [Adi14] makes some progress in this direction. Moreover, a liberal
+%interpretation of that specification by Smyth, Frink \& Clarkson [SFC15]
+%leads to a variant of Helios, named Helios 4.0, which defines non-malleable ballots
+%[SHM15]. Proving whether Helios 4.0 satisfies ballot secrecy is a direction
+%for future work. And a successful proof would provide strong motivation for
+%future Helios releases being based upon Helios 4.0.
 			
-		% *************************************************************************************************************** %
-		% 			VOTO POR INTERNET EN LA EPS
-		% *************************************************************************************************************** %
-		\section{Voto por Internet en la EPS}
-			En la Escuela Politécnica Superior de la Universidad San Pablo-CEU ya se realizó una elección por medio de voto electrónico. Sucedió en 2005, cuando en una colaboración entre la Universidad y la multinacional española Indra se celebró la primera elección de delegados de clase a través de voto electrónico con motivo del Día de Internet, celebrado el 25 de octubre del mismo año.\\\hspace*{\fill}
+		
 			
-			En esta experiencia, más de 600 alumnos de los últimos cursos de la Escuela Politécnica eligieron a sus delegados de clase a través de este sistema.\\\hspace*{\fill}
+			\subsection{Comparación Ágora - Helios}\label{comparativaAgoraVoting}
+				En la tesis de Codina Lligoña \cite{Codina:tesis}, el autor realiza un estudio de diversos sistemas de votación, entre ellos Ágora Voting (en su versión agora-ciudadana 2.0) y Helios 4.
+				
+				Entre las múltiples características que valora, recoge información acerca de la interfaz, licencia, requisitos de voto electrónico, antecedentes y comunidad de soporte del proyecto.
+				
+				Los resultados de la comparativa los resume en la tabla \ref{tab:tablaComparativaAgoraHelios}, en la cual los valores van desde el 0 (valoración negativa) al 2 (valoración positiva).
 			
-			En la fecha de la elección, cada alumno emitió su voto a través de un nombre de usuario y una clave personal. Por motivos divulgativos, los organizadores de la elección determinaron que una parte del alumnado censado realizara la votación desde un aula de votación concreta, perteneciente al centro y adecuada para ello; mientras que el resto del alumnado debía elegir sus representantes desde algún equipo personal fuera del dominio de la Universidad.\\\hspace*{\fill}
+				
+				\begin{table}[ht]
+				\centering
+					%\begin{tabular}{0.75\textwidth}@{\extracolsep{\fill}}|l|l|m{3cm}| m{3cm}|}
+					%\begin{tabular*}{0.95\textwidth}{@{\extracolsep{\fill}}|l|l|rm{2cm}|rm{1cm}|}
+					\begin{tabular*}{0.95\textwidth}{@{\extracolsep{\fill}}|l|r|r|}
+						\hline
+%							\textbf{Elección} & \textbf{Tipo} & \textbf{Votantes por internet} & \textbf{\% sobre total votantes} \\
+							\textbf{Criterio} & \textbf{agora-ciudadana 2.0} & \textbf{Helios 4} \\
+						\hline
+							Especificaciones IMI 			& 2			& 2 	\\
+						\hline		
+							Interfaces 								& 2			& 2 	\\
+						\hline		
+							Licencia 									& 2			& 2 	\\
+						\hline		
+							Redes Sociales 						& 2			& 2 	\\
+						\hline
+							e-Voting (Seguridad) 			& 1,04	& 1,46 		\\
+						\hline
+							Elegibility 							& 1,75	& 1,5 	 \\
+						\hline
+							Democracy 								& 0,33 	& 0,33  \\
+						\hline	
+							Privacy 									& 0,85 	& 1,92  \\
+						\hline	
+							Verifiability 						& 0,54 	& 1,54  \\
+						\hline
+							Fairness 									& 1,33	& 1,4		\\
+						\hline
+							Robustness 								& 0,67 	& 1,67		\\
+						\hline
+							Coercion-Resistance 			& 1 		& 1		\\
+						\hline		
+							Receipt-Freeness 					& 2 		& 2		\\
+						\hline
+							Correctness 							& 0,88 	& 1,75		\\
+						\hline
+							Métodos de votación 				& 2 		& 2		\\
+						\hline
+							Desarrollo 								& 1,75 	& 1,38		\\
+						\hline	
+							Antecedentes del proyecto & 1,75 	& 1,75		\\
+						\hline
+							Actividad del proyecto 		& 2 		& 1,75		\\
+						\hline
+							Gobierno del proyecto 		& 1,5 	& 1,25		\\
+						\hline
+							Nivel de industrialización del proyecto & 1,75 & 0,75		\\
+						\hline
+					\end{tabular*}
+				\caption{Comparativa Ágora - Helios, por Codina Lligoña \cite{Codina:tesis}}
+				\label{tab:tablaComparativaAgoraHelios}
+			\end{table}
 			
-			Para que estas elecciones a través de Internet pudiesen llevarse a cabo la Universidad San Pablo-CEU tuvo que adaptar su normativa de régimen interno, pues la que tenía originalmente establecía únicamente la posibilidad de un sistema de voto presencial.
+			En el estudio, el autor divide las valoraciones en dos, las correspondientes al nivel de desarrollo de los proyectos y a las características de seguridad.
 			
+			En las primeras, da una mejor valoración al proyecto Ágora Voting. Sin embargo, en el segundo grupo, el que se correspondería con la mayoría de los requisitos inherentes al voto electrónico enunciadas por diferentes autores, la mejor nota se la lleva el proyecto Helios Voting, más correcto desde el punto de vista académico y de la seguridad en el voto remoto.
+			
+			Según observa, Helios supera a Ágora Voting en estas características porque fue directamente diseñado teniéndolas en cuenta, por lo que desde el origen toda la información se almacena cifrada y existen procedimientos de auditoría, cumpliendo con los requisitos de Privacidad y Verificabilidad del voto.
+			
+			Destaca que en ambos sistemas es posible emitir más de un voto por votante, aunque sólo uno de ellos será contado.
 			
 			% *************************************************************************************************************** %
 			% 			PRIMITIVAS DE CRIPTOGRAFÍA
 			% *************************************************************************************************************** %
 			
-			\section{Primitivas de criptografía}\label{primitivasCriptografia}
+			\section{Primitivas criptográficas}\label{primitivasCriptografia}
 				Dentro de los retos tecnológicos que propone el voto electrónico, uno de los más importantes es la seguridad. Para poder implementar un sistema seguro que pueda soportar toda la infraestructura necesaria para poder poner en marcha un sistema de voto electrónico confiable hay que hacer uso de herramientas que sean capaces de asegurar las comunicaciones y el secreto de estas. Es en este escenario donde la criptografía es el núcleo de la solución.\\
 				Los requerimientos que se tratan de satisfacer con el uso de la criptografía son \cite{tesisSeguridadVMMorales}:
 				\begin{itemize}
 					\item Privacidad del voto
 					\item Autenticación del votante
-					\item Integridad de los elementos de la elección
+					\item Integridad de la elección
 				\end{itemize}
 				
 				\todo[inline]{PRIMITIVAS CRIPTOGRÁFICAS O ESQUEMAS DE VOTO ELECTRÓNICO ???}
@@ -767,12 +1078,14 @@ future Helios releases being based upon Helios 4.0.
 						Los protocolos criptográficos de firma ciega se dan lugar entre dos agentes, un usuario U y un firmante F de forma que F firma digitalmente una serie de datos comunicados por U sin conocer el contenido de estos. \\
 						El objetivo de este tipo de protocolos es proporcionar una serie de datos firmados cuyo contenido solamente sea conocido por el actor que envía, siendo completamente desconocidos para el actor que los firma.\\
 						Los protocolos de firma ciega se basan en dos componentes \cite{firmaCiega2007}:
-										% \begin{enumerate}
-							% \item Un protocolo de firma digital desarrollad por el actor F, prestador del servicio de firma, de forma que $S(m)$ sea la notación de la firma digital del mensaje $m$.
-							% \item Dos funciones $f$ y $g$, conocidas únicamente por el usuario U, de forma que
-							% $$g(S(f(m))) = S(m)$$
-							
-							% La función f se denomina función de ocultación o de opacidad. La función g es la función de recuperación.
+						\todo[inline]{En principio es una explicación matemática del protocolo... ¿Merece la pena?}
+								 \begin{enumerate}
+										\item Un protocolo de firma digital. Desarrollado por el actor F, quien es el prestador del servicio de firma.  De tal forma, $S(m)$ es la notación de la firma digital del mensaje $m$.
+										\item Dos funciones $f$ y $g$, conocidas únicamente por el usuario U, de forma que
+							 $$g(S(f(m))) = S(m)$$
+											
+							 La función $f$ se denomina \textit{función de ocultación o de opacidad}. La función $g$ es la \textit{función de recuperación}.
+								\end{enumerate}
 							
 							% Una opción, propuesta en el trabajo \cite{firmaCiega2007}, es utilizar el protocolo de firma ciega desarrollado por Chaum \cite{chaumFirmaCiega} basado en el criptosistema RSA. Dicho protolo se podría definir así.
 							% Sea $n = p * q$ el producto de dos primos aleatorios suficientemente grandes. El firmante F usaría el esquema de firma digital RSA con clave pública $(n, e)$ y clave privada $d$. Sea k un entero aleatorio tal que $mcd(n, k) = 1$. Las funciones que utiliza el usuario U son:
@@ -815,14 +1128,17 @@ future Helios releases being based upon Helios 4.0.
 					\subsection{Pruebas de conocimiento nulo}\label{primitivaPruebasConocimientoNulo}
 						Los protocolos basados en pruebas de conocimiento cero o nulo son protocolos criptográficos que se basan en la necesidad de una de las partes en poder demostrar a otra que un enunciado es cierto sin revelar nada más que la veracidad del mismo.
 						Un sencillo ejemplo para entender el concepto de este tipo de protocolos lo encontramos en una publicación de Pablo Della Paolera, astrónomo de la Universidad Nacional de La Plata (Argentina), en su blog personal \cite{dellaPaolera2014}. En ella explica que se puede demostrar que se enuncia algo correctamente sin necesidad de demostrar por qué.
-						Basándonos en el ejemplo publicado, supongamos dos actores A y B, en el que B quiere demostrar que A tiene la misma cantidad (o no) de monedas en su bolsillo izquierdo que en el derecho. Para ello, la forma más simple es que B le pida a A las monedas de cada bolsillo y las cuente. Para demostrar la afirmación de que A realmente tiene (o no) las mismas monedas en cada bolsillo basta con que las enseñe. En este caso, el problema es que B está violando la privacidad de A, pues no debería ser necesario que B conozca cuántas monedas tiene A y, mucho menos, tener que enseñarlas a la audiencia para demostrar la veracidad de sus investigaciones.
+						Basándonos en el ejemplo publicado, supongamos dos actores A y B. En él B quiere demostrar que A tiene la misma cantidad (o no) de monedas en su bolsillo izquierdo que en el derecho. Para ello, la forma más simple es que B le pida a A las monedas de cada bolsillo y las cuente. Para demostrar la afirmación de que A realmente tiene (o no) las mismas monedas en cada bolsillo basta con que las enseñe.
+						En este caso, el problema es que B está violando la privacidad de A, pues no debería ser necesario que B conozca cuántas monedas tiene A y, mucho menos, tener que enseñarlas a la audiencia para demostrar la veracidad de sus investigaciones.
 						Esta violación de la privacidad se puede superar aplicando de forma simple una solución basada en prueba de conocimiento cero.
-						Supongamos que A tiene X monedas en el bolsillo derecho e Y monedas en el derecho. Para no conocer el número de monedas que posee A, B le pide que piense en un número Z, entero y mayor que X e Y. A continuación le pide que le diga la diferencia entre Z y X y entre Z e Y. Si ambas diferencias son iguales, A tiene el mismo número de monedas en ambos bolsillos, del mismo modo que si las diferencias no coinciden, se puede afirmar lo contrario, incluso sabiendo en qué bolsillo hay un mayor número de monedas. Y todo esto sin que B llegue a conocer en ningún momento cuántas monedas posee A. Matemáticamente, se trataría de un sistema de 2 ecuaciones con 3 incógnitas, por lo que no se puede resolver y no se pueden obtener los valores de X e Y:
+						Supongamos que A tiene X monedas en el bolsillo derecho e Y monedas en el izquierdo. Para no conocer el número de monedas que posee A, B le pide que piense en un número Z, entero y mayor que X e Y. A continuación le pide que le diga la diferencia entre Z y X y entre Z e Y. Si ambas diferencias son iguales, A tiene el mismo número de monedas en ambos bolsillos, del mismo modo que si las diferencias no coinciden, se puede afirmar lo contrario, incluso sabiendo en qué bolsillo hay un mayor número de monedas. Y todo esto sin que B llegue a conocer en ningún momento cuántas monedas posee A. Matemáticamente, se trataría de un sistema de 2 ecuaciones con 3 incógnitas, por lo que no se puede resolver y no se pueden obtener los valores de X e Y:
 						$$Z - X = C$$
 						$$Z - Y = D$$
 						Pese a que no es resoluble, sabiendo los valores de C y D se puede demostrar en qué bosillo tiene más monedas ($C > D$ ó $D > C$) o si se tienen las mismas ($C = D$), sin necesidad de conocer los valores reales.
 						
 					La importancia de este esquema criptográfico es tal que se ha implementado de forma satisfactoria en campos tan esenciales como la verificación de armas nucleares, permitiendo a los observadores internacionales medir la veracidad de una nación al cuantificar su fuerza nuclear sin necesidad de conocer la tecnología o cabezas u otros detalles clasificados que no quieren que sean sacados a la luz.
+					
+					\todo[inline]{Aparte del ejemplo, hay que terminar este apartado de ZK}
 					
 					%% En wikipedia hay más información sobre los PCC http://es.wikipedia.org/wiki/Prueba_de_conocimiento_cero
 					
@@ -831,25 +1147,25 @@ future Helios releases being based upon Helios 4.0.
 					% 			REDES MIXTAS - MIXNETS
 					% *************************************************************************************************************** %
 					\subsection{Mixnets}\label{primitivaMixnets}
-					
+						\todo[inline]{Adaptar el texto de temp.tex}
 					
 					% *************************************************************************************************************** %
 					% 			CIFRADO HOMOMÓRFICO
 					% *************************************************************************************************************** %
 					\subsection{Cifrado homomórfico}\label{primitivaCifradoHomomorfico}
 					
-						\notasInfo[inline]{Hablamos del cifrado homomórfico}
+						\notasInfo[inline]{Aquí hay que añadir el texto sobre el cifrado homomórfico}
 					
 						\subsubsection{ElGamal / ElGamal Exponencial}\label{primitivaCifradoHomomorfico_elgamal}
 							
-							Uno de los algortimos más utilizados para realizar un cifrado homomórfico es el de ElGamal.
+							Uno de los algoritmos más utilizados para realizar un cifrado homomórfico es el de ElGamal.
 							Este algoritmo es un sistema de cifrado homomórfico respecto de la operación multiplicación. Con esto, se obtiene un proceso en el que el producto de de dos mensajes cifrados equivale al cifrado del producto de ambos mensajes.
 							
 							\[\varepsilon (x_{1}) \cdot \varepsilon (x_{2}) = \varepsilon (x_{1} \cdot x_{2})\]
 							
 						
 							
-							La propiedad de ElGamal en cuanto a homomorfismo es muy interesante, pero de cara al voto por Internet, presenta ciertos problemas. El principal es que a operación en la que se basa es el producto. Sería mucho más útil que el homomorfismo fuera sobre la suma, ya que el escrutinio no es otra cosa que la suma (totalización) de votos.
+							La propiedad de ElGamal en cuanto a homomorfismo es muy interesante, pero de cara al voto por Internet, presenta ciertos problemas. El principal es que la operación en la que se basa es el producto. Sería mucho más útil que el homomorfismo fuera sobre la suma, ya que el escrutinio no es otra cosa que la suma (totalización) de votos.
 							
 							Así, existe una variante de ElGamal que se denomina ElGamal Exponencial. En esta variante, en lugar de encriptar el mensaje \[m\] como en ElGamal tradicional, se cifra {\[g^{m}\]} - donde \textit{g} es un generador, normalmente se suele reutilizar el mismo que se utiliza para generar la clave pública -, transformando el sistema en un homomorfismo aditivo, es decir, sobre la operación suma.
 							
@@ -863,29 +1179,41 @@ future Helios releases being based upon Helios 4.0.
 			% 			ESQUEMAS DE VOTO ELECTRÓNICO
 			% *************************************************************************************************************** %
 			\section{Esquemas de Voto Electrónico}\label{esquemasVotoElectronico}
-				Los sistemas de voto electrónico están formados por un diseño conceptual y el llamado esquema o paradigma de voto electrónico (E-Voting Schemes - EVS). El esquema es el núcleo del sistema, lo que asegura que los requisitos se cumplan.\\
-				La práctica totalidad de estos esquemas usan mecanismos y principios criptográficos.\\
+			\todo[inline]{El problema es que parece que repetimos en los esquemas lo que se pon en las primitivas. Hay que ver cómo debo escribirlo.}
+				Los sistemas de voto electrónico están formados por un diseño conceptual y el llamado esquema o paradigma de voto electrónico (E-Voting Schemes - EVS). El esquema es el núcleo del sistema, lo que asegura que los requisitos se cumplan.
+				
+				La práctica totalidad de estos esquemas usan mecanismos y principios criptográficos.
+				
 				Los esquemas de voto electrónico se basan en una primitiva criptográfica o en un conjunto de ellas. Por eso, hay una serie de esquemas publicados apoyados sobre alguna de las primitivas introducidas en el apartado anterior.
+				
 				Podemos clasificar varios tipos de esquemas de voto electrónico entre los más usados según las publicaciones de una serie de expertos en el campo del voto electrónico criptográfico:
+				
 				\begin{itemize}
-					\item Esquema de Voto Electrónico basado en Cifrado Homomórfico \hfill \\
+					\item Esquema de Voto Electrónico basado en Cifrado Homomórfico
+					
 						El votante emite su voto codificado y el recuento se realiza sin descodificar los votos. De esta forma se consigue que no se vulnere el secreto del voto. Para poder realizar esta descodificación, el elector debe instalar algún software desarrollado por la autoridad electoral para realizar las operaciones criptográficas.
 					
-					\item Esquema de Voto Electrónico basado en Canales Anónimos \hfill \\
+					\item Esquema de Voto Electrónico basado en Canales Anónimos
+					
 						Se trata de un esquema bastante seguro, aunque complejo al mismo tiempo. Se trata el anonimato del votante ocultando el origen de los votos que recibe el sistema.
 					
-					\item Esquema de Voto Electrónico basado en Mixnets \hfill \\
-						El esquema basado en mixnets (redes mixtas) define la existencia de una serie de servidores enlazados. Cada uno de estos servidores recibe un grupo de mensajes encriptados, los reordena, los vuelve a encriptar de forma aleatoria y los envía al siguiente servidor. Con este proceso se consigue que no sea posible asociar la información de los mensajes de entrada con los de salida, rompiendo la relación votante-voto del sistema.\\
-						La desencriptación de los votos se puede realizar tanto en cada servidor (por medio de su propia clave) como al finalizar el proceso utilizando una clave distribuida entre varios de los servidores.\\
-						******************* LITERAL ******** La principal crítica a este esquema es que las pruebas de correctitud son voluminosas. Existen algunas implementaciones comerciales de sistemas de elección electrónica basadas en este esquema. \notasCambio{LITERAL}
+					\item Esquema de Voto Electrónico basado en Mixnets
+						El esquema basado en mixnets (redes mixtas) define la existencia de una serie de servidores enlazados. Cada uno de estos servidores recibe un grupo de mensajes encriptados, los reordena, los vuelve a encriptar de forma aleatoria y los envía al siguiente servidor. Con este proceso se consigue que no sea posible asociar la información de los mensajes de entrada con los de salida, rompiendo la relación votante-voto del sistema.
 						
-					\item Esquema de Voto Electrónico basado en Secreto Compartido \hfill \\
-						En el esquema de voto electrónico basado en secreto compartido, también llamado Paradigma de Benaloh [***** CITA *****], el votante comparte su voto entre varias autoridades electorales. Una vez finalizado el proceso de votación, cada autoridad computa los votos que ha recibido y los pone en común con el resto de autoridades electorales que toman parte en la elección. Así se obtiene el resultado total del proceso.\\
-						***************** LITERAL *********** La implementación de este esquema posee altos costos en términos de comunicación, ya que cada voto debe enviarse por varios canales diferentes (tantos como autoridades electorales haya). \notasCambio{LITERAL}
+						La desencriptación de los votos se puede realizar tanto en cada servidor (por medio de su propia clave) como al finalizar el proceso utilizando una clave distribuida entre varios de los servidores.
+						
+						%******************* LITERAL ******** La principal crítica a este esquema es que las pruebas de correctitud son costosas. Existen algunas implementaciones comerciales de sistemas de elección electrónica basadas en este esquema. \notasCambio{LITERAL}
+						
+					\item Esquema de Voto Electrónico basado en Secreto Compartido
 					
-					\item Esquema de Voto Electrónico basado en Pruebas de Conocimiento Nulo \hfill \\
+						En el esquema de voto electrónico basado en secreto compartido, también llamado Paradigma de Benaloh [***** CITA *****], el votante comparte su voto entre varias autoridades electorales. Una vez finalizado el proceso de votación, cada autoridad computa los votos que ha recibido y los pone en común con el resto de autoridades electorales que toman parte en la elección. Así se obtiene el resultado total del proceso.
+						
+						%***************** LITERAL *********** La implementación de este esquema posee altos costos en términos de comunicación, ya que cada voto debe enviarse por varios canales diferentes (tantos como autoridades electorales haya). \notasCambio{LITERAL}
 					
-					\item Esquema de Voto Electrónico basado en Firma Ciega \hfill \\
+					\item Esquema de Voto Electrónico basado en Pruebas de Conocimiento Nulo
+					
+					\item Esquema de Voto Electrónico basado en Firma Ciega
+					
 						En un Esquema de Firma Ciega, el firmante no conoce el contenido del mensaje que firma, ya que el emisor del mismo realiza un proceso previo para ocultar su contenido, lo que se conoce por \textit{cegar} el mensaje.\\
 						Se caracteriza porque la entidad firmante no adquiere ningún conocimiento sobre el contenido del mensaje que está firmando, aunque, con posterioridad, la firma obtenida puede ser verificada como válida tanto por esta entidad firmante como cualquier otra entidad que disponga de la información necesaria.\\
 						Se caracteriza porque la entidad firmante no adquiere ningún conocimiento sobre el contenido del mensaje que está firmando, aunque, con posterioridad, la firma obtenida puede ser verificada como válida tanto por esta entidad firmante como cualquier otra entidad que disponga de la información necesaria.\\
@@ -896,11 +1224,12 @@ future Helios releases being based upon Helios 4.0.
 						\todo[inline]{********* VER BELLEBONI ************}
 				
 				
-					\item Esquema de Voto Electrónico basado en papeletas precifradas \hfill \\
+					\item Esquema de Voto Electrónico basado en papeletas precifradas
+					
 						Este esquema de voto electrónico aparece en la tesis \cite{tesisSeguridadVMMorales}
 				
 				\end{itemize}
-				\notasInfo{****** Según \cite{tesisSeguridadVMMorales} *****}
+
 				Según la tesis de Morales Rocha \cite{tesisSeguridadVMMorales}, podemos definir cuatro grupos de esquemas de voto electrónico remoto. Estos se diferencian en la forma en la que usan los elementos criptográficos para tratar de resolver los requisitos de seguridad de un sistema electoral:
 				\begin{itemize}
 					\item Esquemas basados en firma ciega
@@ -1017,20 +1346,22 @@ future Helios releases being based upon Helios 4.0.
 	% 			ESTADO ACTUAL DE LAS TECNOLOGÍAS
 	% *************************************************************************************************************** %
 	\section{Estado actual de las tecnologías}
-	
+		\todo[inline]{Falta literatura en este apartado. Para el final.}
 		% *************************************************************************************************************** %
 		% 			CERTIFICADOS DIGITALES
 		% *************************************************************************************************************** %
 		\subsection{Certificados Digitales}\label{estadoCertificadosDigitales}
-		La propia web de la Fábrica Nacional de Moneda y Timbre \cite{webCertFNMT} indica que \textit{un certificado digital es un documento electrónico que asocia una clave pública con la identidad de su propietario}. Complementa la definición añadiendo que \textit{adicionalmente, además de la clave pública y la identidad de su propietario, un certificado digital puede contener otros atributos para, por ejemplo, concretar el ámbito de utilización de la clave pública, las fechas de inicio y fin de la validez del certificado, etc. El usuario que haga uso del certificado podrá, gracias a los distintos atributos que posee, conocer más detalles sobre las características del mismo.}.
-		\\
+		La web de la Fábrica Nacional de Moneda y Timbre \cite{webCertFNMT} indica que \textit{un certificado digital es un documento electrónico que asocia una clave pública con la identidad de su propietario}.
+		
+		Complementa la definición añadiendo que \textit{adicionalmente, además de la clave pública y la identidad de su propietario, un certificado digital puede contener otros atributos para, por ejemplo, concretar el ámbito de utilización de la clave pública, las fechas de inicio y fin de la validez del certificado, etc. El usuario que haga uso del certificado podrá, gracias a los distintos atributos que posee, conocer más detalles sobre las características del mismo.}.
+		
 		La utilidad de los certificados digitales, simplificando el contexto, se resume en \textit{asegurar que una determinada clave pública pertenece a un usuario en concreto}.
-		\\
-		Con las tecnologías actuales, la economía ha vuelto su desarrollo al comercio electrónico y las relaciones remotas. Muchas transacciones que antes se realizaban en persona han evolucionado al mundo digital, por lo que, para la mayoría de ellas es indispensable poseer mecanismos que puedan demostrar que los sujetos intervinientes en la comunicación están unívocamente identificados y con la seguridad de que no se produce suplantación.
-		\\
+		
+		Con las tecnologías actuales, la economía ha virado su desarrollo hacia el comercio electrónico y las relaciones remotas. Muchas transacciones que antes se realizaban en persona han evolucionado al mundo digital, por lo que, para la mayoría de ellas es indispensable poseer mecanismos que puedan demostrar que los sujetos intervinientes en la comunicación están unívocamente identificados y con la seguridad de que no se produce suplantación.
+		
 		Una herramienta fundamental para cumplir con este propósito ha sido el desarrollo de las certificaciones digitales.
-		\\
-		\todo[inline]{MÁS MÁS MÁS MÁSSSSSSSS}
+		
+		\todo[inline]{COMPLETAR}
 		
 		
 		% *************************************************************************************************************** %
@@ -1038,12 +1369,67 @@ future Helios releases being based upon Helios 4.0.
 		% *************************************************************************************************************** %
 		\subsection{NFC}\label{estadoNFC}
 			\notasInfo[inline]{Buena fuente de información en \url{https://www.agpd.es/portalwebAGPD/canaldocumentacion/publicaciones/common/Guias/Guia_RFID.pdf}}
+			%\notasInfo[inline]{hjhjhjh \url{http://www.feedspot.com/?dadi=1#feed/fof_fo_353622__f_38903/article/3511839278?dd=43115052604544} }
+			%\notasInfo[inline]{fgfg \url{https://mundonfc.wordpress.com/2012/02/09/como-funciona-el-nfc/}}
+			NFC (\textbf{N}ear \textbf{F}ield \textbf{C}ommunication - Comunicación de Campo Cercano) se trata de una tecnología de comunicación inalámbrica de corto alcance.
+			
+			El origen de esta tecnología está en el RFID, tecnología ya bastante utilizada en múltiples campos de nuestra vida cotidiana. Un buen ejemplo son las etiquetas en prendas en tiendas de ropa o en productos de supermercado. Si tratas de llevarte algo sin pagar, al pasar por unos arcos a la salida preparados con cierto campo magnético, las etiquetas RFID activan una alarma, la cual se desactiva una vez se ha abonado el producto.
+			
+			\begin{figure}[htbp]
+				\centering
+					\includegraphics[width=0.30\textwidth]{imgs/rfid.jpg}
+				\caption{Logo de RFID}
+				\label{fig:logoRFID}
+			\end{figure}
+			
+			RFID (\textbf{R}adio \textbf{F}requency IDentification, en español identificación por radiofrecuencia) es una tecnología de comunicación inalámbrica centrada en la transmisión de un identificador mediante ondas de radio. Así, a cualquier producto se le puede asociar un identificador unívoco a través de una etiqueta RFID y así poder ser detectado y leído por un lector apropiado de forma inalámbrica.
+			
+			En el caso de NFC, se trata de un concepto similar, pero buscando la transmisión de datos más complejos que un simple identificador.
+			
+			NFC, se basa en la norma ISO 14443 (RFID), un estándar internacional relacionado con tarjetas de identificación electrónica, especialmente tarjetas de proximidad. Como establece esta norma estándar, NFC se comunica mediante inducción en un campo magnético. Por tanto cada tarjeta NFC cuenta con una antena en espiral, con lo que cuando se ambas (origen-destino) se colocan dentro de un campo electromagnético cercano, se puede realizar la transmisión de datos. Cumpliendo igualmente con la norma, esta tecnología trabaja en una banda de frecuencia de 13,56 MHz.
+			
+			\begin{figure}[htbp]
+				\centering
+					\includegraphics[width=0.80\textwidth]{imgs/nfc_usim_img.png}
+				\caption{Arquitectura de un chip NFC}
+				\label{fig:arquitecturaNFC}
+			\end{figure}
+			
+			
+			Este campo electromagnético debe ser producido por uno de los dispositivos o por ambos al mismo tiempo. Esto provoca que los dispositivos que implementan el estándar NFCIP-1 tienen la capacidad de funcionar de dos modos:
+			
+			\begin{description}
+				\item[Modo Activo:] En el modo activo, ambos dispositivos generan su propio campo electromagnético.
+				\item[Modo Pasivo:] En el modo pasivo, uno de los dispositivos genera el campo electromagnético y el otro se aprovecha de la modulación de la carga para poder transferir de datos. Es el dispositivo que inicia la comunicación el que genera el campo.
+			\end{description}
+			
+			Este protocolo de comunicaciones puede trabajar a diferentes velocidades: 106, 212, 424 ó 848 Kbits/s.
+			La velocidad de la transmisión se negocia al comienzo de la comunicación entre los dispositivos, aunque puede regularse según sea necesario variando ciertos parámetros.
+			
+			Según NFC Forum, organización fundada en 2004 por Philips, Nokia y Sony y que hoy reúne alrededor de 170 miembros, la conexión entre dos dispositivos se realiza de forma automática cuando estos se encuentran cerca el uno del otro, digamos, a unos 5cm de distancia. De todos modos, esta distancia es variable en cuanto a que se puede ver afectada por ciertos factores como pueden ser el tipo de emisor/receptor, temperatura, aislantes, etc. Este foro fija la máxima distancia para operar con este canal de transmisión en 20cm, con el propósito de cubrir la seguridad de la información, que esta no pueda ser accedida de forma remota por un atacante a distancia.
+			
+			Dentro de los modos de comunicación activo y pasivo también se definen 3 modos de comunicación:
+			
+			\begin{description}
+				\item[Modo Lectura / Escritura] Con este modo, las aplicaciones pueden transferir datos en un formato definido por el NFC Forum, aunque es un modo no considerado seguro.
+				\item[Modo emulación NFC Card] Este modo permite al dispositivo actuar como una Smartcard estándar, es decir, la transmisión de datos se encuentra securizada.
+				\item[Modo Peer to Peer] Este modo permite la comunicación directa entre dos dispositivos a nivel de enlace.
+			\end{description}
+			
+			
+			Hoy en día, el uso del NFC está bastante extendido en cuanto a que muchos dispositivos entre smartphone y tablets lo implementa de serie. Además, está desarrollándose el pago con tarjetas de débito/crédito contactless, por lo que muchos comercios ya poseen TPVs para tarjetas sin contacto, o incluso con pago a través del móvil por NFC.
+			
+			Igualmente, desde hace un tiempo, existen tarjetas NFC con las que se pueden realizar tareas al poner en contacto con el dispositivo móvil. Un ejemplo de funcionamiento sería colocar una etiqueta NFC junto a la puerta y que al pasar el móvil por ella se encienda la luz de la habitación por medio de una bombilla inteligente. O colocar una tarjeta junto a la puerta de casa que indique al móvil que desconecte el WiFi al salir de casa para disminuir el consumo de batería.
+			
+			También se utiliza el NFC en marketing. Hay anuncios que incorporan etiquetas NFC en ellos. Concretamente, en junio de 2010, una empresa de Motril diseñó el primer anuncio en España que incorporaba una etiqueta NFC situada bajo pegatinas colocadas en motos que realizaban una ruta deportiva.
+			
+			Ya en 2015, con la salida del DNIe 3.0, la tecnología NFC llegó a la identificación de los ciudadanos españoles. Esta nueva versión del carnet de identidad complementa el chip con contacto que incluía la primera versión del DNIe con un chip sin contacto que realiza las mismas funciones sin necesidad de un lector de chips del primer tipo.
 
 		% *************************************************************************************************************** %
 		% 			SMART CARDS
 		% *************************************************************************************************************** %
 		\subsection{Smart Cards}\label{estadoSmartcards}
-		Una SmartCard
+		%Una SmartCard
 		
 		
 		% *************************************************************************************************************** %
@@ -1052,19 +1438,88 @@ future Helios releases being based upon Helios 4.0.
 		\subsection{DNIe}\label{estadoDNIe}
 		
 			\todo[inline] {DNIe - Añadir DNIe 3.0}
+			
+			
+			\todo[inline]{Del documento \url{https://www.incibe.es/extfrontinteco/img/File/intecocert/dnie/pdf/guiades.pdf}}
+			El proceso a seguir cuando se está en posesión todos los certificados necesarios para operar con el DNIe es (para cada uno de los certificados):
+			\begin{itemize}
+				\item Verificar que el certificado fue firmado usando la clave privada que
+corresponde a la clave pública de su emisor. Este paso no es necesario
+para el certificado de la CA raíz.
+				\item Verificar la validez del certificado, es decir, no ha caducado.
+				\item Realizar la validación OCSP contra el servidor de la FNMT.
+			\end{itemize}
 		
 		
 		% *************************************************************************************************************** %
 		% 			TARJETA UNIVERSITARIA INTELIGENTE
 		% *************************************************************************************************************** %
-		\subsection{Tarjeta Universitaria Inteligente - TUI}\label{estadoTUI}
+		%\subsection{Tarjeta Universitaria Inteligente - TUI}\label{estadoTUI}
 	
 	
 		
 		\subsection{Python}\label{estado_python}
 		\subsection{Django}\label{estado_django}
+		Django es un framework para aplicaciones web escrito en Python. Además, tiene la caracterísitica de ser un framework gratuito y un proyecto open source.
+\iffalse
+\url{http://upcommons.upc.edu/bitstream/handle/2099.1/24909/memoria.pdf}
+Django és l’eina principal amb la que està programada l’aplicació ISMe. És
+un framework de desenvolupament web de codi obert, desenvolupat en python,
+que respecta el paradigma conegut com Model Template View (MTV), que té
+l’objectiu de facilitar la creació de webs complexes. Django posa èmfasis en el
+re-ús, la connectivitat i extensibilitat de components, el desenvolupament ràpid i
+el principi de no-repetició (DRY, de l’anglès Don't Repeat Yourself). Python és 
+18 Desenvolupament de nous serveis de signatura electrònica sobre ISMe
+utilitzat en totes les parts del framework, inclús en configuracions, arxius, i en els
+models de dades.
+Podríem classificar a Django com part de la tercera generació del
+desenvolupament web, tal com es pot apreciar en la figura 3.4:
+Fig. 3.4 Visió general Django
+Django és un framework poderós, que ens permet disminuir el temps de
+desenvolupament, utilitzant una metodologia que es coneix amb el nom de Model
+Template View. Per començar a entendre l’arquitectura MTV hem de fixar-nos
+en l’analogia amb MVC (Model-Vista-Controlador). El model en Django segueix
+sent Model, la vista en Django s’anomena Plantilla (template), el controlador en
+Django es diu Vista.
+Bàsicament els 3 components principals del framework tenen com a funció crear
+una comunicació entre ells per extraure informació vital de base de dades i
+presentar-les al navegador. La figura 3.5 ajuda a entendre millor aquesta relació:
+Fig. 3.5 Funcionament Django
+1- El navegador envia una sol·licitud.
+2- El UrlConf interpreta la sol·licitud i ubica la vista apropiada.
+3- La vista interactua amb el model per obtenir les dades.
+4- La vista crida la plantilla corresponent.
+5- La plantilla renderitza la resposta de la sol·licitud del navegador.
+El model
+El model defineix les dades guardades i es troba en forma de classes. Cada tipus
+de dada que ha de ser emmagatzemada es troba en una variable amb certs 
+Entorn de treball i desenvolupament 19
+paràmetres i mètodes. Tot això permet indicar i controlar el comportament
+d’aquestes dades.
+La vista
+La vista es presenta en forma de funcions. El seu propòsit és determinar quines
+dades seran visualitzades i fer determinades operacions amb aquestes. El ORM
+(Mapejador Objecte-relacional) de Django permet escriure codi python en
+comptes de sentències SQL per fer les consultes que necessita la vista.
+La plantilla
+La plantilla és bàsicament una pàgina HTML amb algunes etiquetes extres
+pròpies de Django que en si no només crea contingut en HTML (també XML,
+CSS, Javascript, CSV, etc). Parlant de les funcions bàsiques amb HTML, la
+plantilla rep les dades de la vista i després les organitza per la presentació al
+navegador web. Les etiquetes que Django utilitza per les plantilles permeten que
+sigui flexible per als dissenyadors del front-end.
+La configuració de les rutes
+Django posseeix un mapeig de URL’s que permet controlar el desplegament de
+les vistes. Aquesta configuració és coneguda com UrlConf. El treball del UrlConf
+és llegir la URL que l’usuari sol·licita, trobar la vista apropiada per la sol·licitud i
+passar qualsevol variable que la vista necessiti per completar el seu treball.
+Permet que les rutes que manegui Django siguin agradables i entenedores per
+l’usuari.
+\fi		
+		
 		\subsection{Android}\label{estado_android}
-	
+		\subsection{Web}\label{estado_web}
+			\notasInfo{La web no está preparada para certificados digitales personales, etc, etc...}
 	
 	
 		

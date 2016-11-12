@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<txcop:outputProfiles version="2" xmlns:txcop="http://schemas.ToolsCenter.org/TeXnicCenter/OutputProfiles.xsd">
+	<outputProfileList>
+		<outputProfile name="LaTeX &#8680; PDF + gls" stopOnLatexError="false">
+			<texCommand execute="true" path="pdflatex.exe" arguments="-interaction=nonstopmode &quot;%wm&quot;"/>
+			<bibTexCommand execute="true" path="bibtex.exe" arguments="&quot;%tm&quot;"/>
+			<makeIndexCommand execute="true" path="makeindex.exe" arguments="&quot;%tm.idx&quot; -t &quot;%tm.ilg&quot; -o &quot;%tm.ind&quot;"/>
+			<preProcessors/>
+			<postProcessors>
+				<processor name="makeglossaries #1" path="makeindex.exe" arguments="-s &quot;%tm&quot;.ist -t &quot;%tm&quot;.glg -o &quot;%tm&quot;.gls &quot;%tm&quot;.glo" inputFile="" outputFile=""/>
+				<processor name="makeacronyms #1" path="makeindex.exe" arguments="-s &quot;%tm&quot;.ist -t &quot;%tm&quot;.alg -o &quot;%tm&quot;.acr &quot;%tm&quot;.acn" inputFile="" outputFile=""/>
+				<processor name="pdflatex #2" path="pdflatex.exe" arguments="-interaction=nonstopmode &quot;%wm&quot;" inputFile="" outputFile=""/>
+				<processor name="makeglossaries #2" path="makeindex.exe" arguments="-s &quot;%tm&quot;.ist -t &quot;%tm&quot;.glg -o &quot;%tm&quot;.gls &quot;%tm&quot;.glo" inputFile="" outputFile=""/>
+				<processor name="makeacronyms #2" path="makeindex.exe" arguments="-s &quot;%tm&quot;.ist -t &quot;%tm&quot;.alg -o &quot;%tm&quot;.acr &quot;%tm&quot;.acn" inputFile="" outputFile=""/>
+				<processor name="pdflatex #3" path="pdflatex.exe" arguments="-interaction=nonstopmode &quot;%wm&quot;" inputFile="" outputFile=""/>
+			</postProcessors>
+			<viewer path="AcroRd32.exe" closeBeforeCompilation="true">
+				<viewProjectCommand type="dde">
+					<commandLineCommand path="" arguments=""/>
+					<ddeCommand path="AcroRd32.exe" server="acroviewR11" topic="control" command="[DocOpen(&quot;%bm.pdf&quot;)][FileOpen(&quot;%bm.pdf&quot;)]"/>
+				</viewProjectCommand>
+				<viewCurrentFileCommand type="dde">
+					<commandLineCommand path="" arguments=""/>
+					<ddeCommand path="AcroRd32.exe" server="acroviewR11" topic="control" command="[DocOpen(&quot;%bm.pdf&quot;)][FileOpen(&quot;%bm.pdf&quot;)]"/>
+				</viewCurrentFileCommand>
+				<viewCloseCommand type="dde">
+					<commandLineCommand path="" arguments=""/>
+					<ddeCommand path="" server="acroviewR11" topic="control" command="[DocClose(&quot;%bm.pdf&quot;)]"/>
+				</viewCloseCommand>
+			</viewer>
+		</outputProfile>
+		<outputProfile name="LaTeX &#8680; PDF" stopOnLatexError="false">
+			<texCommand execute="true" path="pdflatex.exe" arguments="-interaction=nonstopmode &quot;%wm&quot;"/>
+			<bibTexCommand execute="true" path="bibtex.exe" arguments="&quot;%tm&quot;"/>
+			<makeIndexCommand execute="true" path="makeindex.exe" arguments="&quot;%tm.idx&quot; -t &quot;%tm.ilg&quot; -o &quot;%tm.ind&quot;"/>
+			<preProcessors/>
+			<postProcessors/>
+			<viewer path="AcroRd32.exe" closeBeforeCompilation="true">
+				<viewProjectCommand type="dde">
+					<commandLineCommand path="" arguments=""/>
+					<ddeCommand path="AcroRd32.exe" server="acroviewR11" topic="control" command="[DocOpen(&quot;%bm.pdf&quot;)][FileOpen(&quot;%bm.pdf&quot;)]"/>
+				</viewProjectCommand>
+				<viewCurrentFileCommand type="dde">
+					<commandLineCommand path="" arguments=""/>
+					<ddeCommand path="AcroRd32.exe" server="acroviewR11" topic="control" command="[DocOpen(&quot;%bm.pdf&quot;)][FileOpen(&quot;%bm.pdf&quot;)]"/>
+				</viewCurrentFileCommand>
+				<viewCloseCommand type="dde">
+					<commandLineCommand path="" arguments=""/>
+					<ddeCommand path="" server="acroviewR11" topic="control" command="[DocClose(&quot;%bm.pdf&quot;)]"/>
+				</viewCloseCommand>
+			</viewer>
+		</outputProfile>
+	</outputProfileList>
+</txcop:outputProfiles>

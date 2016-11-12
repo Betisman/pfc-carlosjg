@@ -1,0 +1,60 @@
+\section{Instalación de Helios} \label{App:Instalación de Helios}
+
+Estos son los pasos llevados a cabo para instalar el proyecto Helios en un servidor Linux. Son los que yo ejecuté para montar el prototipo del Sistema, por lo que puede ser que para alguien que intente realizar esta instalación, haya pasos que no le funcionen y/o no le permitan finalizar la instalación.
+
+\begin{verbatim}
+> sudo apt-get update	
+\end{verbatim}
+
+Si hace falta conectarse a Internet a través de un proxy:
+\begin{verbatim}
+> export http_proxy=http://usuario:password@url:puerto
+> export https_proxy=http://usuario:password@url:puerto
+\end{verbatim}
+
+\begin{verbatim}
+> sudo apt-get update
+> sudo -E apt-get update
+> sudo apt-get install postgresql
+> sudo -E apt-get install postgresql
+> cd Descargas/
+> ll
+> git clone https://github.com/benadida/helios-server.git
+> cd helios-server/
+> ll
+> virtualenv venv
+> sudo -E apt-get install python-virtualenv
+> virtualenv venv
+> source venv/bin/activate
+> sudo -E apt-get install libpq-dev
+> sudo -E apt-get install python-dev
+> pip install -r requirements.txt
+\end{verbatim}
+
+Hay que modificar el fichero \textit{rest.sh}. Hay que sustituir la línea
+\begin{verbatim}
+	echo "from helios_auth.models import User; User.objects.create(user_type='google',user_id='ben@adida.net', info={'name':'Ben Adida'})" | python manage.py shell
+\end{verbatim}
+por la línea
+\begin{verbatim}
+	echo "from helios_auth.models import User; User.objects.create(user_type='password',user_id='tuemail@servidor.com', info={'name':'Tu nombre'})" | python manage.py shell
+\end{verbatim}
+
+\todo[inline]{Hay que arreglar que no se corten las líneas al ser tan largas. En un documento he visto algo de usar el paquete spverbatim}
+
+\begin{verbatim}
+> ./reset.sh
+> sudo su -c "createuser --superuser carlos" postgres
+> sudo service postgresql restart
+> ./reset.sh
+> pip install amqp
+> ./reset.sh
+> pip install billiard
+> ./reset.sh
+> pip install pytz
+> ./reset.sh
+> psql --dbname helios
+ >>> alter role carlos with password 'unapassword';
+ ### El password que hay que poner es el que tenemos en settings.py
+> ./reset.sh
+\end{verbatim}

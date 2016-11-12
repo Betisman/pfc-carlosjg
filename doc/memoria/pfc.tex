@@ -186,8 +186,8 @@
 
 
 % Para el glosario
-\usepackage[acronym]{glossaries}
-
+\usepackage[toc,acronym]{glossaries}
+\makeglossaries
 
 
 %% Para poner notas
@@ -207,6 +207,11 @@
 \usepackage{tabularx}
 \newcolumntype{Y}{>{\centering\arraybackslash}X}
 \newcolumntype{Z}{>{\raggedright\arraybackslash}X}
+
+\usepackage[flushleft]{threeparttable}
+%\usepackage{tablefootnote}
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% DOCUMENT
@@ -312,13 +317,18 @@
 \renewcommand{\thepage}{\arabic{page}}
 %\setcounter{page}{1}
 
+%% Separación entre párrafos:
+%% si quiero que la distancia extra entre párrafos sea la misma que el interlineado
+%\setlength{\parskip}{\baselineskip}
+\setlength{\parskip}{\baselineskip/2}
+
 \input{introduccion.tex}
 \input{estadocuestion.tex}
 \input{planteamiento.tex}
 \input{riesgos.tex}
 \input{analisis.tex}
 \input{solucion.tex}
-\input{pruebas.tex}
+%\input{pruebas.tex}
 %%\input{manuales.tex}
 \input{lineasFuturas.tex}
 \input{conclusiones.tex}
@@ -327,7 +337,21 @@
 %%\input{temp.tex}
 %%\input{tempEleccionJuntaEscuela.tex}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% GLOSARIO
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% A small distance to the other stuff in the table of contents (toc)
+\addtocontents{toc}{\protect\vspace*{\baselineskip}}
+
+%\makeglossaries %% Va en el preámbulo
+\lhead{}
+\rhead{Glosario}
+\input{glosario.tex}
+\printglossaries
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -345,11 +369,12 @@
 \cleardoublepage
 \phantomsection
 \addcontentsline{toc}{chapter}{Bibliografía} %'Bibliography' into toc
+\lhead{}
+\rhead{Bibliografía}
 \nocite* %Even non-cited BibTeX-Entries will be shown.
 \bibliographystyle{acm} %Style of Bibliography: plain / apalike / amsalpha / ...
 %\bibliographystyle{ieeetr} %Style of Bibliography: plain / apalike / amsalpha / ...
 \bibliography{biblio} %You need a file 'literature.bib' for this.
-\rhead{Bibliografía}
 
 
 
@@ -358,11 +383,22 @@
 %% APPENDICES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\newpage
 \appendix
-%% ==> Write your text here or include other files.
-%%\input{anexo1.tex}
-%%\input{anexo2.tex}
-%%\input{anexo3.tex}
+\chapter*{Anexos}
+\addcontentsline{toc}{chapter}{Anexos}
+\renewcommand{\thesection}{\Alph{section}}
+\lhead{}
+\rhead{Anexos}
+
+\input{anexoInstalacionHelios.tex}
+
+\newpage
+\input{anexoConfiguracionServidorWebHelios.tex}
+
+\newpage
+\input{anexoExportarCertificadosAppAndroid.tex}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -370,8 +406,8 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \addtocontents{toc}{\protect\vspace*{\baselineskip}}
 \addcontentsline{toc}{chapter}{Notas (para borrador)} %'Bibliography' into toc
-\listoftodos[Notas (para borrador)]
 \rhead{Notas}
+\listoftodos[Notas (para borrador)]
 
 \end{document}
 
