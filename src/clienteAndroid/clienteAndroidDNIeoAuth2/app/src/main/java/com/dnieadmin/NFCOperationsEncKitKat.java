@@ -495,6 +495,9 @@ public class MyTaskDNIe extends AsyncTask<Void, Integer, Void>
 			textoProcessDlg=m_SSLresultado;
 			myHandler.post(updateStatus);
 
+			final String sIP_VOTING_SERVER = "192.168.1.145";
+			final String sIP_OAUTH_SERVER = "192.168.1.144";
+
 			/*******************************************/
 			if (false) {
 				AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -505,7 +508,8 @@ public class MyTaskDNIe extends AsyncTask<Void, Integer, Void>
 				builder.setMessage(message);
 				builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int id) {
-						String url2 = "https://192.168.1.153:8443/web/authorize/?response_type=code&client_id=testclient&redirect_uri=h&state=somestate&client_type=androidnfcapp&step=2";
+						//String url2 = "https://192.168.1.153:8443/web/authorize/?response_type=code&client_id=testclient&redirect_uri=h&state=somestate&client_type=androidnfcapp&step=2";
+						String url2 = "https://" + sIP_OAUTH_SERVER + "/web/authorize/?response_type=code&client_id=testclient&redirect_uri=h&state=somestate&client_type=androidnfcapp&step=2";
 						HttpEntity webContent = null;
 						try {
 							webContent = DroidHttpClient.executeRequest(url2, myContext, m_ksUserDNIe);
@@ -518,7 +522,7 @@ public class MyTaskDNIe extends AsyncTask<Void, Integer, Void>
 							String state = jsonObj.getString("state");
 							String code = jsonObj.getString("code");
 							String dni = jsonObj.getString("dnie");
-							String url3 = "https://192.168.1.153:8443/api/v1/tokens?code=" + code + "&client_secret=testpassword&grant_type=authorization_code&client_id=testclient";
+							String url3 = "https://" + sIP_OAUTH_SERVER + "/api/v1/tokens?code=" + code + "&client_secret=testpassword&grant_type=authorization_code&client_id=testclient";
 
 							webContent = DroidHttpClient.executeRequest(url3, myContext, m_ksUserDNIe);
 							m_SSLresultado = new String(EntityUtils.toByteArray(webContent), Charset.forName(codificacion));
@@ -530,7 +534,7 @@ public class MyTaskDNIe extends AsyncTask<Void, Integer, Void>
 							String scope = jsonObj.getString("scope");
 							String refreshToken = jsonObj.getString("refresh_token");
 
-							String url4 = "https://192.168.1.153:8443/web/me?access_token=" + accessToken + "&client_secret=testpassword&grant_type=authorization_code&client_id=testclient";
+							String url4 = "https://" + sIP_OAUTH_SERVER + "/web/me?access_token=" + accessToken + "&client_secret=testpassword&grant_type=authorization_code&client_id=testclient";
 							webContent = DroidHttpClient.executeRequest(url4, myContext, m_ksUserDNIe);
 							m_SSLresultado = new String(EntityUtils.toByteArray(webContent), Charset.forName(codificacion));
 							jsonObj = new JSONObject(m_SSLresultado);
@@ -542,7 +546,7 @@ public class MyTaskDNIe extends AsyncTask<Void, Integer, Void>
 							byte[] post = EncodingUtils.getBytes("info=" + m_SSLresultado + "&auth_system_name=dnie&access_token=" + accessToken, "BASE64");
 							//webview.postUrl("https://www.192.168.1.153/auth/after/", post);
 
-							Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://192.168.1.153:8442/auth/after/?client_type=androidnfcapp&auth_system_name=dnie&access_token=" + accessToken + "&info=" + URLEncoder.encode(m_SSLresultado, "utf-8")));
+							Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://" + sIP_VOTING_SERVER + "/auth/after/?client_type=androidnfcapp&auth_system_name=dnie&access_token=" + accessToken + "&info=" + URLEncoder.encode(m_SSLresultado, "utf-8")));
 							startActivity(browserIntent);
 							System.exit(0);
 						} catch (IOException e) {
@@ -562,7 +566,7 @@ public class MyTaskDNIe extends AsyncTask<Void, Integer, Void>
 				/*******************************************/
 
 
-				String url2 = "https://192.168.1.153:8443/web/authorize/?response_type=code&client_id=testclient&redirect_uri=h&state=somestate&client_type=androidnfcapp&step=2";
+				String url2 = "https://" + sIP_OAUTH_SERVER + "/web/authorize/?response_type=code&client_id=testclient&redirect_uri=h&state=somestate&client_type=androidnfcapp&step=2";
 				webContent = DroidHttpClient.executeRequest(url2, myContext, m_ksUserDNIe);
 				m_SSLresultado = new String(EntityUtils.toByteArray(webContent), Charset.forName(codificacion));
 				//Toast.makeText(myContext, m_SSLresultado.substring(0, 50), Toast.LENGTH_LONG);
@@ -574,7 +578,7 @@ public class MyTaskDNIe extends AsyncTask<Void, Integer, Void>
 				String state = jsonObj.getString("state");
 				String code = jsonObj.getString("code");
 				String dni = jsonObj.getString("dnie");
-				String url3 = "https://192.168.1.153:8443/api/v1/tokens?code=" + code + "&client_secret=testpassword&grant_type=authorization_code&client_id=testclient";
+				String url3 = "https://" + sIP_OAUTH_SERVER + "/api/v1/tokens?code=" + code + "&client_secret=testpassword&grant_type=authorization_code&client_id=testclient";
 
 				webContent = DroidHttpClient.executeRequest(url3, myContext, m_ksUserDNIe);
 				m_SSLresultado = new String(EntityUtils.toByteArray(webContent), Charset.forName(codificacion));
@@ -590,7 +594,7 @@ public class MyTaskDNIe extends AsyncTask<Void, Integer, Void>
 				String scope = jsonObj.getString("scope");
 				String refreshToken = jsonObj.getString("refresh_token");
 
-				String url4 = "https://192.168.1.153:8443/web/me?access_token=" + accessToken + "&client_secret=testpassword&grant_type=authorization_code&client_id=testclient";
+				String url4 = "https://" + sIP_OAUTH_SERVER + "/web/me?access_token=" + accessToken + "&client_secret=testpassword&grant_type=authorization_code&client_id=testclient";
 				webContent = DroidHttpClient.executeRequest(url4, myContext, m_ksUserDNIe);
 				m_SSLresultado = new String(EntityUtils.toByteArray(webContent), Charset.forName(codificacion));
 				jsonObj = new JSONObject(m_SSLresultado);
@@ -605,7 +609,7 @@ public class MyTaskDNIe extends AsyncTask<Void, Integer, Void>
 				byte[] post = EncodingUtils.getBytes("info=" + m_SSLresultado + "&auth_system_name=dnie&access_token=" + accessToken, "BASE64");
 				//webview.postUrl("https://www.192.168.1.153/auth/after/", post);
 
-				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://192.168.1.153:8442/auth/after/?client_type=androidnfcapp&auth_system_name=dnie&access_token=" + accessToken + "&info=" + URLEncoder.encode(m_SSLresultado, "utf-8")));
+				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://" + sIP_VOTING_SERVER + "/auth/after/?client_type=androidnfcapp&auth_system_name=dnie&access_token=" + accessToken + "&info=" + URLEncoder.encode(m_SSLresultado, "utf-8")));
 				startActivity(browserIntent);
 				System.exit(0);
 			}

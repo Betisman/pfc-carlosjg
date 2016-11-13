@@ -1,4 +1,4 @@
-    1  sudo apt-get update
+﻿    1  sudo apt-get update
     2  export http_proxy=http://jcjgomez:Odonkor000@proxy.indra.es:8080
     3  export https_proxy=http://jcjgomez:Odonkor000@proxy.indra.es:8080
     4  sudo apt-get update
@@ -16,6 +16,7 @@
    16  source venv/bin/activate
    18  sudo -E apt-get install libpq-dev
    20  sudo -E apt-get install python-dev
+sudo apt-get install libffi-dev
    21  pip install -r requirements.txt
 Modoficar rest.sh. Sustituir la línea
 echo "from helios_auth.models import User; User.objects.create(user_type='google',user_id='ben@adida.net', info={'name':'Ben Adida'})" | python manage.py shell

@@ -1,4 +1,4 @@
-sudo apt-get install apache2
+﻿sudo apt-get install apache2
 sudo apt-get install openSSL
 cd /etc/apache2/mods-available
 sudo a2enmod ssl
@@ -23,8 +23,8 @@ openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
 
 #Bajamos el certificado de la AC Raíz del DNIE desde:
 #http://www.dnielectronico.es/PortalDNIe/PRF1_Cons02.action?pag=REF_077
-wget http://www.dnielectronico.es/ZIP/ACRAIZ-SHA2.CAB
-
+wget https://www.dnielectronico.es/ZIP/ACRAIZ-SHA2.CAB
+sudo apt-get install cabextract
 cabextract ACRAIZ-SHA2.CAB
 
 openssl x509 -in ACRAIZ-SHA2.crt -inform DER -out ACRAIZ-SHA2.crt -outform PEM
