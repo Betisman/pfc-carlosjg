@@ -31,7 +31,7 @@ Si hace falta conectarse a Internet a través de un proxy:
 > pip install -r requirements.txt
 \end{verbatim}
 
-Hay que modificar el fichero \textit{rest.sh}. Hay que sustituir la línea
+Hay que modificar el fichero \textit{reset.sh}. Hay que sustituir la línea
 \begin{verbatim}
 	echo "from helios_auth.models import User; User.objects.create(user_type='google',user_id='ben@adida.net', info={'name':'Ben Adida'})" | python manage.py shell
 \end{verbatim}
