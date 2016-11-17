@@ -481,7 +481,8 @@ public class MyTaskDNIe extends AsyncTask<Void, Integer, Void>
 			MyCaCertificate myCert = new MyCaCertificate(NFCOperationsEncKitKat.this);
 			DNIeCaCertsManager.setCaCertHandler(myCert);
 
-			HttpEntity webContent = DroidHttpClient.executeRequest(m_SSLtargetURL, myContext, m_ksUserDNIe);
+			//HttpEntity webContent = DroidHttpClient.executeRequest(m_SSLtargetURL, myContext, m_ksUserDNIe);
+			HttpEntity webContent = DroidHttpClient.executeRequest("https://192.168.1.144:8443", myContext, m_ksUserDNIe);
 
 			String codificacion = EntityUtils.getContentCharSet(webContent);
   			codificacion = (codificacion==null) ? "utf-8" : codificacion;
@@ -496,7 +497,7 @@ public class MyTaskDNIe extends AsyncTask<Void, Integer, Void>
 			myHandler.post(updateStatus);
 
 			final String sIP_VOTING_SERVER = "192.168.1.145";
-			final String sIP_OAUTH_SERVER = "192.168.1.144";
+			final String sIP_OAUTH_SERVER = "192.168.1.144:8443";
 
 			/*******************************************/
 			if (false) {

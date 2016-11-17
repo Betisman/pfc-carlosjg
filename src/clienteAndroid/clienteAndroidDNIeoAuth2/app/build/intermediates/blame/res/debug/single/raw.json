@@ -1,30 +1,70 @@
 [
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\raw\\sedemadrid2017",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\raw\\sedemadrid2017"
+        "merged": "D:\\PFC\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\raw\\keystorecopia.bks",
+        "source": "D:\\PFC\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\raw\\keystorecopia.bks"
     },
     {
         "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\raw\\htmlfile",
         "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\raw\\htmlfile"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\raw\\uspceupfccert",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\raw\\uspceupfccert"
+        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\raw\\uspceupfccert",
+        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\raw\\uspceupfccert"
     },
     {
-        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\raw\\keystorebks",
-        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\raw\\keystorebks"
+        "merged": "D:\\PFC\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\raw\\keystorebks_old",
+        "source": "D:\\PFC\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\raw\\keystorebks_old"
+    },
+    {
+        "merged": "D:\\PFC\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\raw\\uspceupfccert_old",
+        "source": "D:\\PFC\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\raw\\uspceupfccert_old"
+    },
+    {
+        "merged": "D:\\PFC\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\raw\\sedemadrid2017",
+        "source": "D:\\PFC\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\raw\\sedemadrid2017"
+    },
+    {
+        "merged": "D:\\PFC\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\raw\\uspceupfccert",
+        "source": "D:\\PFC\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\raw\\uspceupfccert"
+    },
+    {
+        "merged": "D:\\PFC\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\raw\\keystorebks_new",
+        "source": "D:\\PFC\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\raw\\keystorebks_new"
+    },
+    {
+        "merged": "D:\\PFC\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\raw\\keystore_new2.bks",
+        "source": "D:\\PFC\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\raw\\keystore_new2.bks"
+    },
+    {
+        "merged": "D:\\PFC\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\raw\\htmlfile",
+        "source": "D:\\PFC\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\raw\\htmlfile"
+    },
+    {
+        "merged": "D:\\PFC\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\raw\\keystorebks",
+        "source": "D:\\PFC\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\raw\\keystorebks"
+    },
+    {
+        "merged": "D:\\PFC\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\raw\\uspceupfccert_new",
+        "source": "D:\\PFC\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\raw\\uspceupfccert_new"
     },
     {
         "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\raw\\sedemadrid2017",
         "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\raw\\sedemadrid2017"
     },
     {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\raw\\keystorebks",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\raw\\keystorebks"
+    },
+    {
         "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\raw\\keystorebks",
         "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\raw\\keystorebks"
     },
     {
-        "merged": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\raw\\uspceupfccert",
-        "source": "E:\\PFC\\pfcgit\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\raw\\uspceupfccert"
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\raw\\uspceupfccert",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\raw\\uspceupfccert"
+    },
+    {
+        "merged": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\build\\intermediates\\res\\merged\\debug\\raw\\sedemadrid2017",
+        "source": "E:\\PFC\\dni\\Android_DNIeApp_AUTENTICACION_original\\Android_DNIeApp_AUTENTICACION\\app\\src\\main\\res\\raw\\sedemadrid2017"
     }
 ]

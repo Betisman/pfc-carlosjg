@@ -1,3 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<items version="2" />
+<items version="2" >
 
+    <item
+        jar="D:\PFC\pfc-carlosjg\src\clienteAndroid\clienteAndroidDNIeoAuth2\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="8413c27b45b7fe61dca4a98159f65e2cee215f5a">
+        <dex dex="D:\PFC\pfc-carlosjg\src\clienteAndroid\clienteAndroidDNIeoAuth2\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-23.0.0_fb700d84ac147e78ce3723ab7eb2412eaccfd0fa.jar" />
+    </item>
+    <item
+        jar="D:\PFC\pfc-carlosjg\src\clienteAndroid\clienteAndroidDNIeoAuth2\app\libs\jsoup-1.7.2.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="872693211fd68d1c4e116cf90021603207725e19">
+        <dex dex="D:\PFC\pfc-carlosjg\src\clienteAndroid\clienteAndroidDNIeoAuth2\app\build\intermediates\pre-dexed\debug\jsoup-1.7.2_3c66a4d9862b7ac7618708a77cc0c8a8fd862d71.jar" />
+    </item>
+    <item
+        jar="D:\PFC\pfc-carlosjg\src\clienteAndroid\clienteAndroidDNIeoAuth2\app\build\intermediates\exploded-aar\com.android.support\support-v4\23.0.0\jars\libs\internal_impl-23.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="8bd336eeae661e8311330284897ee07f8ebaa297">
+        <dex dex="D:\PFC\pfc-carlosjg\src\clienteAndroid\clienteAndroidDNIeoAuth2\app\build\intermediates\pre-dexed\debug\internal_impl-23.0.0_683bbc949b0f33ac0869d0fcb4e17f5740c9392f.jar" />
+    </item>
+    <item
+        jar="D:\PFC\pfc-carlosjg\src\clienteAndroid\clienteAndroidDNIeoAuth2\app\libs\bcprov-jdk15on-148.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="960dea7c9181ba0b17e8bab0c06a43f0a5f04e65">
+        <dex dex="D:\PFC\pfc-carlosjg\src\clienteAndroid\clienteAndroidDNIeoAuth2\app\build\intermediates\pre-dexed\debug\bcprov-jdk15on-148_6f67361a8434fa6535a689f762604be0db845675.jar" />
+    </item>
+    <item
+        jar="D:\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\23.0.0\support-annotations-23.0.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="990e7f98a7bad86a40b1f0bcfeb039023afd0839">
+        <dex dex="D:\PFC\pfc-carlosjg\src\clienteAndroid\clienteAndroidDNIeoAuth2\app\build\intermediates\pre-dexed\debug\support-annotations-23.0.0_08b16856724fa3fb4e27eb337c3e2a21cf114629.jar" />
+    </item>
+    <item
+        jar="D:\PFC\pfc-carlosjg\src\clienteAndroid\clienteAndroidDNIeoAuth2\app\build\intermediates\exploded-aar\clienteAndroidDNIeoAuth2\dniedroid\unspecified\jars\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="eae68091919c8d6d3c42bc2e33847b358d741189">
+        <dex dex="D:\PFC\pfc-carlosjg\src\clienteAndroid\clienteAndroidDNIeoAuth2\app\build\intermediates\pre-dexed\debug\clienteAndroidDNIeoAuth2-dniedroid-unspecified_3fad657f35f1494cbf323b930fe2f343c51de514.jar" />
+    </item>
+    <item
+        jar="D:\PFC\pfc-carlosjg\src\clienteAndroid\clienteAndroidDNIeoAuth2\app\build\intermediates\exploded-aar\clienteAndroidDNIeoAuth2\dniedroid\unspecified\jars\libs\scprov-jdk15-1.46.99.3-UNOFFICIAL-ROBERTO-RELEASE.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="aa9ee7d1ac2856bf227eda6e54aae55b234ecca2">
+        <dex dex="D:\PFC\pfc-carlosjg\src\clienteAndroid\clienteAndroidDNIeoAuth2\app\build\intermediates\pre-dexed\debug\scprov-jdk15-1.46.99.3-UNOFFICIAL-ROBERTO-RELEASE_642f9c3c0972b4a1799eeff2ad2ea442aa3b4599.jar" />
+    </item>
+    <item
+        jar="D:\PFC\pfc-carlosjg\src\clienteAndroid\clienteAndroidDNIeoAuth2\app\libs\radial-menu-v4.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="5d8365e03c7b428815d3d8584332b1df298cbb9c">
+        <dex dex="D:\PFC\pfc-carlosjg\src\clienteAndroid\clienteAndroidDNIeoAuth2\app\build\intermediates\pre-dexed\debug\radial-menu-v4_082b4b7fb921e8fe46685cb90e8c25eda33d16c4.jar" />
+    </item>
+
+</items>

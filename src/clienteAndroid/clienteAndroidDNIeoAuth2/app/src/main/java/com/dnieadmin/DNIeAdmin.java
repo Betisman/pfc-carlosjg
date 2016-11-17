@@ -29,7 +29,9 @@ public class DNIeAdmin extends FragmentActivity {
     private ViewGroup container = null;
 
 
-   	private static final String URL_OAUTH_SERVER		= "https://192.168.1.153:8443/web/authorize/?response_type=code&client_id=testclient&redirect_uri=h&state=somestate&client_type=androidnfcapp&step=1";
+   	//private static final String URL_OAUTH_SERVER		= "https://192.168.1.153:8443/web/authorize/?response_type=code&client_id=testclient&redirect_uri=h&state=somestate&client_type=androidnfcapp&step=1";
+	private static final String URL_OAUTH_SERVER		= "https://192.168.1.144:8443/web/authorize/?response_type=code&client_id=testclient&redirect_uri=h&state=somestate&client_type=androidnfcapp&step=1";
+	//private static final String URL_OAUTH_SERVER		= "https://192.168.1.154:8443/web/authorize/?response_type=code&client_id=testclient&redirect_uri=h&state=somestate&client_type=androidnfcapp&step=1";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
