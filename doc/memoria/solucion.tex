@@ -132,6 +132,22 @@
 				\todo[inline]{Para esto sí que necesito ayuda, por el tema de Firewalls y esas cosas.}
 				
 			\subsection{Diseño de la app de identificación}
+			Para la identificación utilizando un dispositivo móvil se va a implementar una herramienta que hace uso de la tecnología NFC para leer el chip de autenticación del DNIe del votante y comunicar a este usuario con el sistema de votación utilizándolo como mecanismo de identificación y autenticación.
+			
+			La base de este desarrollo es la app de Autenticación implementada por la Policía como ejemplo de desarrollo que se puede realizar con Android para hacer uso del chip NFC del DNIe 3.0.
+			
+			Hay varios elementos que han debido modificarse con respecto a la app original.
+			
+			\subsubsection{Código fuente}\label{solucion_app_codigofuente}
+			Obviamente, el código fuente de la app ha debido ser modificado ya que la funcionalidad que se busca que tenga la aplicación no es la misma que la que ofrece la original.
+			
+			En la app original, al entrar se nos ofrece un menú radial con diferentes opciones. Esto no ocurre en la versión de este proyecto. La app en nuestro caso está pensada para realizar tan sólo un trabajo, realizar la identificación y autenticación de usuario contra un servidor oAuth y transmitir al sistema de votación la aceptación o revocación de acceso del mismo contra el sistema.
+			
+			Por ello, la app va a carecer de un menú inicial, ya que no es necesario.
+			
+			Una vez se abra la app, ya sea desde el menú del dispositivo o desde el botón de login de la página inicial de la web del sistema de votación, aparecerá el menú de selección del CAN del DNIe que queremos utilizar, o, si es la primera vez que cierto usuario utiliza la app, la posibilidad de añadir un nuevo DNIe con su CAN correspondiente.
+			
+			
 							
 			\subsection{Diseño de la interfaz de usuario}\label{diseño_interfaz_usuario}
 				Para la interfaz de usuario hay varias necesidades que se han debido de satisfacer.
@@ -153,14 +169,24 @@
 					\todo[inline]{Como imagen de marca, bla bla bla, al no haber un logo del proceso, bla bla bla, se puede introducir uno o utilizar el de la Universidad, bla bla}
 					La interfaz de Helios Voting se corresponde con un sistema neutro para realizar elecciones en la plataforma web de ejemplo que tienen publicada junto con el código fuente del proyecto.
 					
-					Esta interfaz está bien para el propósito que tienen de, por un lado, mostrar un ejemplo de funcionamiento del proyecto y, por otro, dar una herramienta funcional para la realización de pequeños procesos electorales seguros por Internet para pequeños grupos que no necesiten una implementación propia.
+					Esta interfaz está bien para el propósito que tienen de, por un lado, mostrar un ejemplo de funcionamiento del proyecto y, por otro, dar una herramienta funcional para la realización de pequeños procesos electorales seguros por Internet para grupos reducidos que no necesiten una implementación propia.
 					
 					A la hora de utilizar esta herramienta para montar un sistema electoral propio, en infraestructuras de un cliente, esta interfaz no se corresponde con la que debería tener un proyecto serio.
+					
 					Cualquier proceso electoral suele y debe tener una imagen corporativa propia que pueda identificarse claramente con el propio proceso y con las autoridades que lo organizan, con la finalidad de que el votante identifique claramente el origen del proceso y no dé lugar a equívocos, además de que, en cierto modo, aumentan la seguridad del mismo en el proceso.
 					
-					La Universidad, al no haber estar habituada a procesos electorales por Internet, no suele llevar a cabo el desarrollo de una imagen corporativa para este tipo de eventos. No obstante, sí que lo hace con otros que suele organizar, ya sean académicos o sociales, además de que, como la mayoría de entidades, tiene construida una imagen de marca propia.
+					La Universidad no parece tener publicada una imagen de marca, con reglas y recomendaciones que definan el estilo que deben tener aquellas webs y documentos que se desarrollen o publiquen en su nombre. No obstante, se observa en su web que sí la tiene. Ya sea en los colores utilizados, en el diseño del logo y en la definición de los documentos publicados en su web.
 					
-					Basándonos en esta imagen de marca propia de la Universidad San Pablo CEU, se ha diseñado una gama de colores y una serie de logos e imágenes para dar una imagen corporativa al proceso electoral. Aunque se ha utilizado la interfaz base del proyecto Helios, ha habido que modificarla para hacer que se relacione la web con la Autoridad que organiza la Elección.
+					Por ello, se observa necesario implementar una imagen en el sistema que se corresponda con la Universidad. Al no publicar esta unas guías de imagen de marca, lo correcto será proponer un diseño de los sistemas inspirado en los que utiliza actualmente la Universidad en su web oficial o en los documentos que publica. El fin de este diseño integral adecuado será ayudar al usuario a identificar el organizador del proceso electoral, al mismo tiempo que simplifique el proceso de votación, o al menos, no lo complique.
+					
+					Utilizando como base la interfaz actual del proyecto Helios se le realizará una serie de modificaciones para realizar este cambio de marca.
+					
+					Por un lado, junto al logo de la Universidad, es conveniente diseñar un logo que represente la Elección. Esto dota al proceso de una imagen propia, aunque asociada a la entidad organizadora, con la que se trata de transmitir la importancia y seriedad del Proceso al usuario.
+					
+					La elección del juego de colores de los sistemas, tanto de las webs de los sistemas de Identificación y Voto como de la app de Android se basará en los colores de la web actual de la Universidad San Pablo CEU. La estructura de las páginas webs del sistema, no obstante, no será similar a la de la Universidad, ya que tratan información diferente y ésta no es adecuada para el flujo del usuario en el sistema de votación.
+					
+					
+					
 					
 					\notasInfo[inline]{Dar una muestra de colores y de logos de la elección}
 					
@@ -174,7 +200,15 @@
 				
 					\notasInfo[inline]{Colores...accesibilidad!}				
 				
+				Uno de los requisitos que debe cumplir un sistema de votación es que sea accesible para el mayor número de personas posible. Desde el punto de vista de la interfaz esto implica que:
+				\begin{itemize}
+					\item Debe funcionar correctamente en la mayoría de los navegadores web.
+					\item Debe cumplir con los estándares de accesibilidad (WCAG, AA+)
+					\item La web debe cumplir con el estándar del consorcio W3C.
+					\item La información presentada debe cumplir con la internacionalización (i18n) necesaria para llegar al mayor número posible del censo y de los observadores.
+				\end{itemize}
 				
+
 				
 				
 				
