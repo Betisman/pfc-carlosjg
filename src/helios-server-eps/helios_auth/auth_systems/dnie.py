@@ -16,26 +16,41 @@ def dnie_url(url, params):
   ipport = 'localhost:9011'
   ipport = '192.168.1.153:8001'
   ipport = '192.168.1.153:8443'
+  ipport = '192.168.1.144'
+  logger.info('IPPORT: %s' %(ipport))
+  logger.info('De settings: %s' %(settings.SECURE_URL_HOST))
+  protocolipport = settings.DNIE_OAUTH_SECURE_HOST
+  protocolipport = protocolipport if protocolipport.find('http') == 0 else 'https://'+protocolipport
   if params:
-    logger.info("http://%s%s?%s" % (ipport, url, urllib.urlencode(params)))
-    #return "http://%s%s?%s" % (ipport, url, urllib.urlencode(params))
-    return "https://%s%s?%s" % (ipport, url, urllib.urlencode(params))
+    # logger.info("http://%s%s?%s" % (ipport, url, urllib.urlencode(params)))
+    # #return "http://%s%s?%s" % (ipport, url, urllib.urlencode(params))
+    # return "https://%s%s?%s" % (ipport, url, urllib.urlencode(params))    
+    logger.info("%s%s?%s" % (protocolipport, url, urllib.urlencode(params)))
+    return "%s%s?%s" % (protocolipport, url, urllib.urlencode(params))
   else:
-    logger.info("http://%s%s" % (ipport, url))
-    #return "http://%s%s" % (ipport, url)
-    return "https://%s%s" % (ipport, url)
+    # logger.info("http://%s%s" % (ipport, url))
+    # #return "http://%s%s" % (ipport, url)
+    # return "https://%s%s" % (ipport, url)
+    logger.info("%s%s" % (protocolipport, url))
+    return "%s%s" % (protocolipport, url)
 
 def dnie_url_step2(url, params):
   logger = logging.getLogger('dnie')
   ipport = '192.168.1.153:8553'
+  protocolipport = settings.OAUTH_SECURE_HOST
+  protocolipport = protocolipport if protocolipport.find('http') == 0 else 'https://'+protocolipport
   if params:
-    logger.info("http://%s%s?%s" % (ipport, url, urllib.urlencode(params)))
-    #return "http://%s%s?%s" % (ipport, url, urllib.urlencode(params))
-    return "https://%s%s?%s" % (ipport, url, urllib.urlencode(params))
+    # logger.info("http://%s%s?%s" % (ipport, url, urllib.urlencode(params)))
+    # #return "http://%s%s?%s" % (ipport, url, urllib.urlencode(params))
+    # return "https://%s%s?%s" % (ipport, url, urllib.urlencode(params))    
+    logger.info("%s%s?%s" % (protocolipport, url, urllib.urlencode(params)))
+    return "%s%s?%s" % (protocolipport, url, urllib.urlencode(params))
   else:
-    logger.info("http://%s%s" % (ipport, url))
-    #return "http://%s%s" % (ipport, url)
-    return "https://%s%s" % (ipport, url)
+    # logger.info("http://%s%s" % (ipport, url))
+    # #return "http://%s%s" % (ipport, url)
+    # return "https://%s%s" % (ipport, url)
+    logger.info("%s%s" % (protocolipport, url))
+    return "%s%s" % (protocolipport, url)
 
 def dnie_get(url, params):
   full_url = dnie_url(url,params)
@@ -55,7 +70,13 @@ def dnie_post_step2(url, params):
   full_url = dnie_url_step2(url, None)
   logger = logging.getLogger('dnie')
   logger.info("full_url(%s), params(%s)" % (full_url, urllib.urlencode(params)))
-  return urllib2.urlopen(full_url, urllib.urlencode(params)).read()
+  # -------------------------------------------------------------------------
+  import ssl
+  gcontext = ssl.SSLContext(ssl.PROTOCOL_TLSv1)  # Only for gangstars
+  # info = urllib2.urlopen(req, context=gcontext).read()
+  return urllib2.urlopen(full_url, urllib.urlencode(params), context=gcontext).read()
+  # -------------------------------------------------------------------------
+  # return urllib2.urlopen(full_url, urllib.urlencode(params)).read()
 
 def can_create_election(user_id, user_info):
   return True
@@ -70,6 +91,7 @@ def get_auth_url(request, redirect_url = None):
   request.session['dnie_redirect_uri'] = redirect_url
   request.session['dnie_redirect_uri'] = 'http://localhost:8005/auth/after/'
   request.session['dnie_redirect_uri'] = 'https://192.168.1.153:8442/auth/after/'
+  request.session['dnie_redirect_uri'] = settings.SECURE_URL_HOST + '/auth/after/'
   """return facebook_url('/oauth/authorize', {
       'client_id': APP_ID,
       'redirect_uri': redirect_url,
