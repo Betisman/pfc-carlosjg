@@ -49,15 +49,71 @@ class AuthorizeView(View):
     def get(self, request, *args, **kwargs):
         form = self.form_class(initial=self.initial)
         try:
-
             logger.debug('en get')
             prueba = request.META['SSL_CLIENT_S_DN']
             logger.debug('prueba: *' + prueba + '*')
+            claves = [
+                    #'HTTPS'
+                    'SSL_PROTOCOL'
+                    # ,'SSL_SESSION_ID'
+                    ,'SSL_SESSION_RESUMED'
+                    ,'SSL_SECURE_RENEG'
+                    ,'SSL_CIPHER'
+                    ,'SSL_CIPHER_EXPORT'
+                    ,'SSL_CIPHER_USEKEYSIZE'
+                    ,'SSL_CIPHER_ALGKEYSIZE'
+                    ,'SSL_COMPRESS_METHOD'
+                    ,'SSL_VERSION_INTERFACE'
+                    ,'SSL_VERSION_LIBRARY'
+                    ,'SSL_CLIENT_M_VERSION'
+                    ,'SSL_CLIENT_M_SERIAL'
+                    ,'SSL_CLIENT_S_DN'
+                    # ,'SSL_CLIENT_S_DN_x509'
+                    # ,'SSL_CLIENT_SAN_Email_n'
+                    # ,'SSL_CLIENT_SAN_DNS_n'
+                    # ,'SSL_CLIENT_SAN_OTHER_msUPN_n'
+                    ,'SSL_CLIENT_I_DN'
+                    # ,'SSL_CLIENT_I_DN_x509'
+                    ,'SSL_CLIENT_V_START'
+                    ,'SSL_CLIENT_V_END'
+                    ,'SSL_CLIENT_V_REMAIN'
+                    ,'SSL_CLIENT_A_SIG'
+                    ,'SSL_CLIENT_A_KEY'
+                    ,'SSL_CLIENT_CERT'
+                    # ,'SSL_CLIENT_CERT_CHAIN_n'
+                    # ,'SSL_CLIENT_CERT_RFC4523_CEA'
+                    ,'SSL_CLIENT_VERIFY'
+                    ,'SSL_SERVER_M_VERSION'
+                    ,'SSL_SERVER_M_SERIAL'
+                    ,'SSL_SERVER_S_DN'
+                    # ,'SSL_SERVER_SAN_Email_n'
+                    # ,'SSL_SERVER_SAN_DNS_n'
+                    # ,'SSL_SERVER_SAN_OTHER_dnsSRV_n'
+                    # ,'SSL_SERVER_S_DN_x509'
+                    ,'SSL_SERVER_I_DN'
+                    # ,'SSL_SERVER_I_DN_x509'
+                    ,'SSL_SERVER_V_START'
+                    ,'SSL_SERVER_V_END'
+                    ,'SSL_SERVER_A_SIG'
+                    ,'SSL_SERVER_A_KEY'
+                    ,'SSL_SERVER_CERT'
+                    # ,'SSL_SRP_USER'
+                    # ,'SSL_SRP_USERINFO'
+                    # ,'SSL_TLS_SNI']
+                    ]
+            for k in claves:
+                try:
+                    logger.warn(k+': '+str(request.META[k]))
+                except Exception as ex:
+                    logger.warn(k+': no funciona esto de recorrer el meta')
+                    logger.warn(ex)
+
+
             dnie = get_dni_info_from_ssl(request)
         except Exception as e:
             logger.warn('No vienen las credenciales del DNIe')
 
-        return self._render(request=request, form=form)
+        return self._render(request=request, form=form, dnie=dnie)
 
     def post(self, request, *args, **kwargs):
         form = self.form_class(request.POST)
@@ -159,15 +215,15 @@ class AuthorizeView(View):
             logger.error(e.message)
             logger.error(e)
 
-    def _render(self, request, form, dnie, cadena, prueba):
+    def _render(self, request, form, dnie=None, cadena=None, prueba=None):
         return HttpResponse(render(request, self.template_name, {
             'title': 'Authorize', 'client': request.client,
             'form': form, 'scopes': OAuthScope.objects.all(), 'prueba': prueba, 'dnie': dnie, 'prueba': prueba}))
 
-    def _render(self, request, form):
-        return HttpResponse(render(request, self.template_name, {
-            'title': 'Authorize', 'client': request.client,
-            'form': form, 'scopes': OAuthScope.objects.all()}))
+    # def _render(self, request, form):
+        # return HttpResponse(render(request, self.template_name, {
+            # 'title': 'Authorize', 'client': request.client,
+            # 'form': form, 'scopes': OAuthScope.objects.all()}))
 
 
 from apps.tokens.decorators import authentication_required

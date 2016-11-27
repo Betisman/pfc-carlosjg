@@ -7,7 +7,7 @@
         {% csrf_token %}
         <input type="hidden" name="client_type" value="browser" />
 
-        <p class="lead">Client <b>{{ client.client_id }}</b> would like to perform actions on your behalf</p>
+        <p class="lead">La aplicación <b>{{ client.client_id }}</b> quiere su permiso para realizar acciones en su nombre.</p>
         <p>Cadena: {{ prueba }}</p>
         {% if dnie %}
             <p>{{ dnie.givenName }}</p>
