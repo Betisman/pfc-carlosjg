@@ -1,0 +1,16 @@
+.textlogo{
+	float: right;
+}
+
+.container {
+	max-width: none;
+}
+
+.tblInfoCert {
+	margin: 0 auto;
+	margin-bottom: 1em;
+}
+
+.btn-success {
+	margin-bottom: 1em;
+}
