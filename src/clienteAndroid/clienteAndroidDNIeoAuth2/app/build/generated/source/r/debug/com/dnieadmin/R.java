@@ -9,8 +9,6 @@ package com.dnieadmin;
 
 public final class R {
     public static final class array {
-        /**  AYTO: *.MADRID.es 
-         */
         public static final int trusted_hosts=0x7f070000;
     }
     public static final class attr {
@@ -297,13 +295,14 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int htmlfile=0x7f050000;
         public static final int keystore_new2=0x7f050001;
         public static final int keystorebks=0x7f050002;
-        public static final int keystorebks_new=0x7f050003;
-        public static final int keystorebks_old=0x7f050004;
-        public static final int keystorecopia=0x7f050005;
-        public static final int sedemadrid2017=0x7f050006;
-        public static final int uspceupfccert=0x7f050007;
-        public static final int uspceupfccert_new=0x7f050008;
-        public static final int uspceupfccert_old=0x7f050009;
+        public static final int keystorebks_lighttpd=0x7f050003;
+        public static final int keystorebks_new=0x7f050004;
+        public static final int keystorebks_old=0x7f050005;
+        public static final int keystorecopia=0x7f050006;
+        public static final int sedemadrid2017=0x7f050007;
+        public static final int uspceupfccert=0x7f050008;
+        public static final int uspceupfccert_new=0x7f050009;
+        public static final int uspceupfccert_old=0x7f05000a;
     }
     public static final class string {
         public static final int app_bienvenida=0x7f0b0000;

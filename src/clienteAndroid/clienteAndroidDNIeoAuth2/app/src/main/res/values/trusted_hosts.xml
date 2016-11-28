@@ -1,9 +1,11 @@
 <resources xmlns:android="http://schemas.android.com/apk/res/android">
     <array name="trusted_hosts">
-        <!--<item>D5E6E3759023DE9B881399DC034E8FE1AE7D9D87</item>--> <!-- En el servidor: openssl x509 -fingerprint -noout -in server.crt -->
-        <item>079774EF6C753DC85DB08C6DE55A33500C5A6C0D</item> <!-- En el servidor: openssl x509 -fingerprint -noout -in server.crt -->
+        <item>D5E6E3759023DE9B881399DC034E8FE1AE7D9D87</item> <!-- En el servidor: openssl x509 -fingerprint -noout -in server.crt -->
+        <item>030B8917249D4151AE4ACD82EAE814B479398B16</item> <!-- En el servidor: openssl x509 -fingerprint -noout -in server.crt -->
+        <item>60CA7549ADB6E70FAF4DF89E5568D80EC624D3D5</item>
         <item>B865130BEDCA38D27F69929420770BED86EFBC10</item> <!-- AYTO: AC Componentes Informaticos. Raiz FNMT -->
         <item>2D3E48B5671DB00B6EFA4AFEEACC034E8122ACAC</item> <!-- AYTO: AC Componentes Informaticos. componentes informaticos-->
         <item>5A2825904ED1B1CC7DCA4F11658DED9A01902BD9</item> <!-- AYTO: *.MADRID.es -->
+        <item>2229F056D34D1CB63E986F26B2D08AB94FF08E4D</item>
     </array>
 </resources>

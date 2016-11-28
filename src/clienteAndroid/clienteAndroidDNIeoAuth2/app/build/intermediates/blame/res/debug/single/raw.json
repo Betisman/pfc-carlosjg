@@ -40,6 +40,10 @@
         "source": "D:\\PFC\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\raw\\htmlfile"
     },
     {
+        "merged": "D:\\PFC\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\raw\\keystorebks_lighttpd",
+        "source": "D:\\PFC\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\raw\\keystorebks_lighttpd"
+    },
+    {
         "merged": "D:\\PFC\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\build\\intermediates\\res\\merged\\debug\\raw\\keystorebks",
         "source": "D:\\PFC\\pfc-carlosjg\\src\\clienteAndroid\\clienteAndroidDNIeoAuth2\\app\\src\\main\\res\\raw\\keystorebks"
     },

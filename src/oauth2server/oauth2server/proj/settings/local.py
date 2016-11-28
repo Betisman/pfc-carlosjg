@@ -35,3 +35,6 @@ logging.basicConfig(
     level = logging.DEBUG,
     format = '%(asctime)s %(levelname)s %(message)s'
 )
+
+
+ROOT_PATH = os.path.dirname(__file__) + '/../../'

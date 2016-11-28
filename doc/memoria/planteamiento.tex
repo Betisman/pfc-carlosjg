@@ -232,9 +232,13 @@
 
 					
 			\subsubsection{Generación de claves de encriptado}\label{fase_electoral_preelectoral_genreacionClaves}
-				\par
-				Es necesario que en esta fase se generen las claves que se utilizarán tanto para encriptar el voto que deposita el votante en la urna digital como las necesarias para que los miembros de mesa puedan descifrarlo para poder realizar el escrutinio.
-				\todo[inline]{Con Helios, esto no está tan claro que sea así. La parte de descifrar el voto no sería cierta}
+			
+			Uno de los requisitos principales del voto electrónico se centra en la privacidad del mismo. El voto es secreto. Para satisfacer este requisito es encesario contar con herramientas que protejan el secreto de voto. Hay muchas esquemas de voto electrónico diferentes que pueden utilizarse para desarrollar un sistema de voto telemático, pero en la práctica totalidad de ellas será necesario generar al menos una clave criptográfica de cifrado.
+			
+			En algunos esquemas, además de clave de cifrado hará falta clave de descifrado (en Helios (\ref{estadocuestion_helios}), por ejemplo, no se necesita, pues el voto una vez cifrado, no se descifra). Se puede considerar la generación de claves públicas y claves privadas si el esquema criptográfico del protocolo así lo requiere. En esquemas que se basan en el secreto compartido, se han de generar claves para los actores encargados de juntar la clave privada de la elección. Etc.
+			
+			Aparte, habrá que generar claves para los certificados de servidor y cliente como herramientas seguras en las que basar la infraestructura del sistema.
+			
 				
 					
 					

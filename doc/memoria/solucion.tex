@@ -132,6 +132,22 @@
 				\todo[inline]{Para esto sí que necesito ayuda, por el tema de Firewalls y esas cosas.}
 				
 			\subsection{Diseño de la app de identificación}
+			Para la identificación utilizando un dispositivo móvil se va a implementar una herramienta que hace uso de la tecnología NFC para leer el chip de autenticación del DNIe del votante y comunicar a este usuario con el sistema de votación utilizándolo como mecanismo de identificación y autenticación.
+			
+			La base de este desarrollo es la app de Autenticación implementada por la Policía como ejemplo de desarrollo que se puede realizar con Android para hacer uso del chip NFC del DNIe 3.0.
+			
+			Hay varios elementos que han debido modificarse con respecto a la app original.
+			
+			\subsubsection{Código fuente}\label{solucion_app_codigofuente}
+			Obviamente, el código fuente de la app ha debido ser modificado ya que la funcionalidad que se busca que tenga la aplicación no es la misma que la que ofrece la original.
+			
+			En la app original, al entrar se nos ofrece un menú radial con diferentes opciones. Esto no ocurre en la versión de este proyecto. La app en nuestro caso está pensada para realizar tan sólo un trabajo, realizar la identificación y autenticación de usuario contra un servidor oAuth y transmitir al sistema de votación la aceptación o revocación de acceso del mismo contra el sistema.
+			
+			Por ello, la app va a carecer de un menú inicial, ya que no es necesario.
+			
+			Una vez se abra la app, ya sea desde el menú del dispositivo o desde el botón de login de la página inicial de la web del sistema de votación, aparecerá el menú de selección del CAN del DNIe que queremos utilizar, o, si es la primera vez que cierto usuario utiliza la app, la posibilidad de añadir un nuevo DNIe con su CAN correspondiente.
+			
+			
 							
 			\subsection{Diseño de la interfaz de usuario}\label{diseño_interfaz_usuario}
 				Para la interfaz de usuario hay varias necesidades que se han debido de satisfacer.
@@ -153,14 +169,24 @@
 					\todo[inline]{Como imagen de marca, bla bla bla, al no haber un logo del proceso, bla bla bla, se puede introducir uno o utilizar el de la Universidad, bla bla}
 					La interfaz de Helios Voting se corresponde con un sistema neutro para realizar elecciones en la plataforma web de ejemplo que tienen publicada junto con el código fuente del proyecto.
 					
-					Esta interfaz está bien para el propósito que tienen de, por un lado, mostrar un ejemplo de funcionamiento del proyecto y, por otro, dar una herramienta funcional para la realización de pequeños procesos electorales seguros por Internet para pequeños grupos que no necesiten una implementación propia.
+					Esta interfaz está bien para el propósito que tienen de, por un lado, mostrar un ejemplo de funcionamiento del proyecto y, por otro, dar una herramienta funcional para la realización de pequeños procesos electorales seguros por Internet para grupos reducidos que no necesiten una implementación propia.
 					
 					A la hora de utilizar esta herramienta para montar un sistema electoral propio, en infraestructuras de un cliente, esta interfaz no se corresponde con la que debería tener un proyecto serio.
+					
 					Cualquier proceso electoral suele y debe tener una imagen corporativa propia que pueda identificarse claramente con el propio proceso y con las autoridades que lo organizan, con la finalidad de que el votante identifique claramente el origen del proceso y no dé lugar a equívocos, además de que, en cierto modo, aumentan la seguridad del mismo en el proceso.
 					
-					La Universidad, al no haber estar habituada a procesos electorales por Internet, no suele llevar a cabo el desarrollo de una imagen corporativa para este tipo de eventos. No obstante, sí que lo hace con otros que suele organizar, ya sean académicos o sociales, además de que, como la mayoría de entidades, tiene construida una imagen de marca propia.
+					La Universidad no parece tener publicada una imagen de marca, con reglas y recomendaciones que definan el estilo que deben tener aquellas webs y documentos que se desarrollen o publiquen en su nombre. No obstante, se observa en su web que sí la tiene. Ya sea en los colores utilizados, en el diseño del logo y en la definición de los documentos publicados en su web.
 					
-					Basándonos en esta imagen de marca propia de la Universidad San Pablo CEU, se ha diseñado una gama de colores y una serie de logos e imágenes para dar una imagen corporativa al proceso electoral. Aunque se ha utilizado la interfaz base del proyecto Helios, ha habido que modificarla para hacer que se relacione la web con la Autoridad que organiza la Elección.
+					Por ello, se observa necesario implementar una imagen en el sistema que se corresponda con la Universidad. Al no publicar esta unas guías de imagen de marca, lo correcto será proponer un diseño de los sistemas inspirado en los que utiliza actualmente la Universidad en su web oficial o en los documentos que publica. El fin de este diseño integral adecuado será ayudar al usuario a identificar el organizador del proceso electoral, al mismo tiempo que simplifique el proceso de votación, o al menos, no lo complique.
+					
+					Utilizando como base la interfaz actual del proyecto Helios se le realizará una serie de modificaciones para realizar este cambio de marca.
+					
+					Por un lado, junto al logo de la Universidad, es conveniente diseñar un logo que represente la Elección. Esto dota al proceso de una imagen propia, aunque asociada a la entidad organizadora, con la que se trata de transmitir la importancia y seriedad del Proceso al usuario.
+					
+					La elección del juego de colores de los sistemas, tanto de las webs de los sistemas de Identificación y Voto como de la app de Android se basará en los colores de la web actual de la Universidad San Pablo CEU. La estructura de las páginas webs del sistema, no obstante, no será similar a la de la Universidad, ya que tratan información diferente y ésta no es adecuada para el flujo del usuario en el sistema de votación.
+					
+					
+					
 					
 					\notasInfo[inline]{Dar una muestra de colores y de logos de la elección}
 					
@@ -174,7 +200,15 @@
 				
 					\notasInfo[inline]{Colores...accesibilidad!}				
 				
+				Uno de los requisitos que debe cumplir un sistema de votación es que sea accesible para el mayor número de personas posible. Desde el punto de vista de la interfaz esto implica que:
+				\begin{itemize}
+					\item Debe funcionar correctamente en la mayoría de los navegadores web.
+					\item Debe cumplir con los estándares de accesibilidad (WCAG, AA+)
+					\item La web debe cumplir con el estándar del consorcio W3C.
+					\item La información presentada debe cumplir con la internacionalización (i18n) necesaria para llegar al mayor número posible del censo y de los observadores.
+				\end{itemize}
 				
+
 				
 				
 				
@@ -319,4 +353,99 @@
 				
 				Paralelamente a todo el proceso, cada subsistema ha de generar una serie de registros, ficheros logs, que puedan ser visualizados por un conjunto de auditores, observadores u otro grupo de profesionales que tengan que dar cuenta del correcto funcionamiento del Proceso y de la transparencia del mismo, así como del éxito técnico del Sistema.
 \fi		
-				
+	
+	
+	\section{Prototipo}\label{solucion_prototipo}
+	Para implementar el software desarrollado en este Proyecto, se decidió montar un prototipo que cumpliera con los requisitos funcionales y diera una muestra de las capacidades del mismo a una escala reducida.
+	
+	Para ello, había que desarrollar los 3 módulos de software:
+		\begin{itemize}
+			\item Servidor de votación
+			\item Servidor de identificación y autenticación
+			\item App Android de identificación conm DNIe
+		\end{itemize}
+	
+	Para montar los dos servidores, se decidió pasar de las máquina virtuales en las que se desarrollaron al uso de dos Raspberry Pi como base hardware.
+	
+	Raspberry Pi es un computador de placa reducida, única o simple de bajo coste desarrollado por la Fundación Raspberry Pi, con base en Reino Unido, con el objetivo de estimular la enseñanza de la informática en las escuelas.
+	
+	El lanzamiento del primero de los modelos fue a finales de febrero de 2012. Hasta el momento, Raspberry Pi ha comercializado 5 modelos de placas, desde la Raspberry Pi 1 Modelo A en 2012 hasta la Raspberry Pi 3 Modelo B, lanzada en 2016.
+	
+	Los modelos con los que se ha montado el prototipo son:
+	
+		\begin{description}
+			\item[Servidor de votación]	Raspberry Pi Model 3 B
+			\item[Servidor de identificación y autenticación] Raspberry Pi Model B (Rev. 2.0, 512Mb)
+		\end{description}
+		
+		En la tabla \ref{tab:DetallesTecnicosRaspberryPi} se detallan y comparan las características de ambos modelos de hardware.
+		
+		\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+		\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+		\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+		\begin{table}[ht]
+			%\fontsize{5}{4}\selectfont
+			\small
+			\def\arraystretch{1.25}%  1 is the default, change whatever you need
+			\setstretch{1}
+				\begin{threeparttable}
+					\centering
+						%\begin{tabular*}{0.95\textwidth}{@{\extracolsep{\fill}}|L{0.2\textwidth}|L{0.35\textwidth}|L{0.35\textwidth}|}
+						\begin{tabular*}{\textwidth}{| L{0.2\textwidth} | L{0.356\textwidth} | L{0.356\textwidth} |}
+							\hline
+								
+								\begin{center}
+								\textbf{Característica}
+								\end{center}
+								 & 
+								 \begin{center}
+								 \textbf{Raspberry Pi Model B \\(Rev. 2.0, 512Mb)}
+								 \end{center}
+									& 
+									\begin{center}
+									\textbf{Raspberry Pi Model 3 B}
+									\end{center}
+									 \\
+							\hline
+								Fecha de lanzamiento & Q4 2012 						& Q1 2016 	\\
+							\hline
+								Precio\tnote{a} & US\$35 						& US\$35 	\\
+							\hline
+								SoC (System-on-a-chip) & Broadcom BCM2835 			& Broadcom BCM2837 	\\
+							\hline
+								CPU & 700 MHz ARM11 ARM1176JZF-S core	& 1.2GHz 64-bit quad-core ARMv8 Cortex-A53 \\
+							\hline
+								GPU & Broadcom VideoCore IV, OpenGL ES 2.0,OpenVG 1080p30 H.264 high-profile encode/decode, 250 MHz	& Broadcom VideoCore IV, OpenGL ES 2.0,OpenVG 1080p60 H.264 high-profile encode/decode, 400 MHz \\
+							\hline
+								Memoria SDRAM & 512 MB 			& 1024 MB \\
+							\hline
+								USB & 2 x USB 2.0 						& 4 x USB 2.0 \\
+							\hline
+								Salida de vídeo & Composite video, Composite RCA, HDMI 	& HDMI	\\
+							\hline
+								Salida de audio & Conector de 3.5mm, HDMI	 		& Conector de 3.5mm, HDMI	\\
+							\hline
+								Almacenamiento & Ranura MicroSD	& Ranura MicroSD \\
+							\hline
+								Redes & 10/100 Ethernet (RJ-45), WiFi vía USB dongle	& 10/100 Ethernet (RJ-45), WiFi 802.11n integrada, Bluetooth 4.1 \\
+								\hline
+								Periféricos de bajo nivel & 26 x GPIO pins, Serial Peripheral Interface Bus (SPI), $I^{2}C$, $I^{2}S$, UART	& 40 x GPIO pins, Serial Peripheral Interface Bus (SPI), $I^{2}C$, $I^{2}S$, UART, I2C IDC Pins  \\
+							\hline
+								Consumo energético & 700 mA, (3.5 W) 			& 800 m(4.0 W) \\
+							\hline
+								Fuente de alimentación & 5 V (DC) vía Micro USB o pines GPIO	& 5 V (DC) vía Micro USB o pines GPIO \\
+							\hline
+								Tamaño & 85.0 mm x 56.0 mm x 17 mm	& 85.6 mm x 56.5 mm x 17 mm \\
+							\hline
+								Peso & 40g	& 45g \\
+							\hline
+						\end{tabular*}
+						\begin{tablenotes}
+							\scriptsize
+							\item[a] \textbf{Precio}: Precio en el momento de su lanzamiento.
+						\end{tablenotes}
+						\caption{Detalles técnicos de las Raspberry Pi utilizadas en el prototipo.\label{tab:DetallesTecnicosRaspberryPi}}
+					\end{threeparttable}
+			\end{table}
+		
+		El Sistema Operativo elegido para ambos servidores es Raspbian \footnote{\url{https://www.raspberrypi.org/downloads/raspbian/}}, una distribución de GNU/Linux basada en su origen en Debian Wheezy. Al ser un sistema basado en GNU/Linux, se infiere que es software libre y de código abierto. No obstante, para el prototipo, se ha instalado la versión estable de Raspbian a fecha de Noviembre de 2016, en la cual, el Sistema Operativo se basa en la versión de GNU/Linux Debian Jessie \footnote{\url{https://www.raspberrypi.org/blog/raspbian-jessie-is-here/}}, posterior a Wheezy.

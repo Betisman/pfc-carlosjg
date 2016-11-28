@@ -192,6 +192,14 @@ SECURE_URL_HOST = "https://192.168.1.153:8442"
 #URL_HOST = 'http://localhost:8005'
 #SECURE_URL_HOST = 'https://localhost:443'
 
+URL_HOST = "http://192.168.1.145"
+SECURE_URL_HOST = "https://192.168.1.145"
+
+DNIE_OAUTH_HOST = "http://192.168.1.144"
+DNIE_OAUTH_SECURE_HOST = "https://192.168.1.144"
+OAUTH_SECURE_HOST = "https://192.168.1.144:442"
+
+
 # this additional host is used to iframe-isolate the social buttons,
 # which usually involve hooking in remote JavaScript, which could be
 # a security issue. Plus, if there's a loading issue, it blocks the whole
