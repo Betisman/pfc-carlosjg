@@ -14,6 +14,7 @@ INSTALLED_APPS = (
     'apps.credentials',
     'apps.tokens',
     'apps.web',
+    'django_extensions',
 )
 
 MIDDLEWARE_CLASSES = (
