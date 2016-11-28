@@ -11,16 +11,25 @@ logger = logging.getLogger('views')
 
 
 class DNIe:
-    def __init__(self, commonName, givenName, surname, serialNumber, c):
+    def __init__(self, commonName, givenName, surname, serialNumber, c, certStart=None, certEnd=None):
         self.commonName = commonName
         self.givenName = givenName
         self.surname = surname
         self.serialNumber = serialNumber
         self.c = c
+        self.certStart = certStart
+        self.certEnd = certEnd
 
     def __str__(self):
-        return '|-- CN: %s --- GN: %s --- SN: %s --- serialNumber: %s --- C: %s --|' % (
-        self.commonName, self.givenName, self.surname, self.serialNumber, self.c)
+        # logger.debug('CN: %s' %(self.commonName))
+        # logger.debug('GN: %s' %(self.givenName))
+        # logger.debug('SN: %s' %(self.surname))
+        # logger.debug('serial: %s' %(self.serialNumber)) 
+        # logger.debug('C: %s' %(self.c))
+        # logger.debug('certStart: %s' %(self.certStart))
+        # logger.debug('certEnd: %s' %(self.certEnd))
+        logger.debug('|-- CN: %s --- GN: %s --- SN: %s --- serialNumber: %s --- C: %s -- certStart: %s -- certEnd: %s --|' % (self.commonName, self.givenName, self.surname, self.serialNumber, self.c, self.certStart, self.certEnd))
+        return '|-- CN: %s --- GN: %s --- SN: %s --- serialNumber: %s --- C: %s -- certStart: %s -- certEnd: %s --|' % (self.commonName, self.givenName, self.surname, self.serialNumber, self.c, self.certStart, self.certEnd)
 
 
 def get_dni_info_from_ssl(request):
@@ -29,7 +38,11 @@ def get_dni_info_from_ssl(request):
     params = dict(u.split("=") for u in ssl_client_s_dn.split(","))
     for param in params:
         params[param] = params[param].replace('XXXCOMAXXX', ',')
-    return DNIe(params['CN'], params['GN'], params['SN'], params['serialNumber'], params['C'])
+    certStart = request.META['SSL_CLIENT_V_START']
+    certEnd = request.META['SSL_CLIENT_V_END']
+    strlogger = '*%s, %s*' %(certStart, certEnd)
+    logger.warn(strlogger)
+    return DNIe(params['CN'], params['GN'], params['SN'], params['serialNumber'], params['C'], certStart, certEnd)
 
 
 class AuthorizeView(View):
@@ -111,7 +124,7 @@ class AuthorizeView(View):
 
             dnie = get_dni_info_from_ssl(request)
         except Exception as e:
-            logger.warn('No vienen las credenciales del DNIe')
+            logger.warn('get_No vienen las credenciales del DNIe')
 
         return self._render(request=request, form=form, dnie=dnie)
 
@@ -135,6 +148,61 @@ class AuthorizeView(View):
         except Exception as e:
             logger.warn('Excepcion: ' + e.message)
 
+        claves = [
+            #'HTTPS'
+                'SSL_PROTOCOL'
+                # ,'SSL_SESSION_ID'
+                ,'SSL_SESSION_RESUMED'
+                ,'SSL_SECURE_RENEG'
+                ,'SSL_CIPHER'
+                ,'SSL_CIPHER_EXPORT'
+                ,'SSL_CIPHER_USEKEYSIZE'
+                ,'SSL_CIPHER_ALGKEYSIZE'
+                ,'SSL_COMPRESS_METHOD'
+                ,'SSL_VERSION_INTERFACE'
+                ,'SSL_VERSION_LIBRARY'
+                ,'SSL_CLIENT_M_VERSION'
+                ,'SSL_CLIENT_M_SERIAL'
+                ,'SSL_CLIENT_S_DN'
+                # ,'SSL_CLIENT_S_DN_x509'
+                # ,'SSL_CLIENT_SAN_Email_n'
+                # ,'SSL_CLIENT_SAN_DNS_n'
+                # ,'SSL_CLIENT_SAN_OTHER_msUPN_n'
+                ,'SSL_CLIENT_I_DN'
+                # ,'SSL_CLIENT_I_DN_x509'
+                ,'SSL_CLIENT_V_START'
+                ,'SSL_CLIENT_V_END'
+                ,'SSL_CLIENT_V_REMAIN'
+                ,'SSL_CLIENT_A_SIG'
+                ,'SSL_CLIENT_A_KEY'
+                ,'SSL_CLIENT_CERT'
+                # ,'SSL_CLIENT_CERT_CHAIN_n'
+                # ,'SSL_CLIENT_CERT_RFC4523_CEA'
+                ,'SSL_CLIENT_VERIFY'
+                ,'SSL_SERVER_M_VERSION'
+                ,'SSL_SERVER_M_SERIAL'
+                ,'SSL_SERVER_S_DN'
+                # ,'SSL_SERVER_SAN_Email_n'
+                # ,'SSL_SERVER_SAN_DNS_n'
+                # ,'SSL_SERVER_SAN_OTHER_dnsSRV_n'
+                # ,'SSL_SERVER_S_DN_x509'
+                ,'SSL_SERVER_I_DN'
+                # ,'SSL_SERVER_I_DN_x509'
+                ,'SSL_SERVER_V_START'
+                ,'SSL_SERVER_V_END'
+                ,'SSL_SERVER_A_SIG'
+                ,'SSL_SERVER_A_KEY'
+                ,'SSL_SERVER_CERT'
+                # ,'SSL_SRP_USER'
+                # ,'SSL_SRP_USERINFO'
+                # ,'SSL_TLS_SNI']
+                ]
+        for k in claves:
+            try:
+                logger.warn(k+': '+str(request.META[k]))
+            except Exception as ex:
+                logger.warn(k+': no funciona esto de recorrer el meta')
+                logger.warn(ex)
         try:
             logger.debug('enn post')
             prueba = request.META['SSL_CLIENT_S_DN']
@@ -142,7 +210,8 @@ class AuthorizeView(View):
             dnie = get_dni_info_from_ssl(request)
             logger.debug('dnie: *' + str(dnie) + '*')
         except Exception as e:
-            logger.warn('No vienen las credenciales del DNIe')
+            logger.warn('post_No vienen las credenciales del DNIe')
+            logger.warn(e)
             dnie = None
 
         logger.debug('form.is_valid' + str(form.is_valid()))

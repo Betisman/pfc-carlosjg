@@ -13,6 +13,8 @@
 
     <!-- Custom styles for this template -->
     <link href="{% static 'css/jumbotron-narrow.css' %}" rel="stylesheet">
+	
+	<link href="{% static 'css/estilos.css' %}" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -25,7 +27,12 @@
 
 <div class="container">
     <div class="header clearfix">
-        <h3 class="text-muted">Django OAuth2 Server</h3>
+		<!-- <div class="navbar-brand"> -->
+			<!-- <span> -->
+			<img src="{% static 'imgs/logo_uspceu.png' %}" alt="Universidad San Pablo CEU">
+			<!-- </span> -->
+		<!-- </div> -->
+		<h3 class="text-muted textlogo">Autenticación OAuth2</h3>
     </div>
 
     {% block content %}{% endblock %}

@@ -8,11 +8,20 @@
         <input type="hidden" name="client_type" value="browser" />
 
         <p class="lead">La aplicación <b>{{ client.client_id }}</b> quiere su permiso para realizar acciones en su nombre.</p>
-        <p>Cadena: {{ prueba }}</p>
+        <!-- <p>Cadena: {{ prueba }}</p> -->
         {% if dnie %}
-            <p>{{ dnie.givenName }}</p>
+            <h5>La información proporcionada por el certificado digital de autenticación del DNIe es:</h5>
+			<table class="table tblInfoCert">
+				<tr><th>Sujeto</th><td>{{ dnie.commonName }}</td></tr>
+				<tr><th>Nombre</th><td>{{ dnie.givenName }}</td></tr>
+				<tr><th>Apellidos</th><td>{{ dnie.surname }}</td></tr>
+				<tr><th>Nº DNI</th><td>{{ dnie.serialNumber }}</td></tr>
+				<tr><th>País</th><td>{{ dnie.c }}</td></tr>
+				<tr><th>Fecha expedición</th><td>{{ dnie.certStart }}</td></tr>
+				<tr><th>Fecha de caducidad</th><td>{{ dnie.certEnd }}</td></tr>
+			</table>
         {% else %}
-            <p>cagao</p>
+            <p class="text-alert">No se ha recibido información del certificado digital</p>
         {% endif %}
 
         {% for chunk in scopes|chunk_evenly:1 %}
@@ -32,12 +41,12 @@
             <div class="col-md-6">
                 <button class="btn btn-lg btn-block btn-success"
                         name="{{ form.authorize.name }}"
-                        value="1" onclick="showAndroidToast('Hola, pepsicola');">Authorize!!</button>
+                        value="1" onclick="showAndroidToast('Hola, pepsicola');">Autorizar!!</button>
             </div>
             <div class="col-md-6">
                 <button class="btn btn-lg btn-block btn-danger"
                         name="{{ form.authorize.name }}"
-                        value="0">Decline</button>
+                        value="0">Declinar</button>
             </div>
         </div>
     </form>
