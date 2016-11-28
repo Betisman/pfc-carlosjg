@@ -100,8 +100,8 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 					\item[Verificabilidad]: El votante puede asegurarse de que su voto se ha contado adecuadamente.
 					El sistema tiene que proporcionar una herramienta que permita a un votante poder verificar que la opción por la que ha votado ha sido correctamente añadida a los resultados consolidados del proceso electoral, sin que por ello pueda violarse el requisito de Anonimato, asegurando que ningún actor del sistema pueda tener acceso al contenido de dicho voto.
 					
-					\item[Imposibilidad de coerción]: El voto emitido no puede ser mostrado.
-					El sistema debe evitar que el voto emitido pueda ser mostrado a un tercer actor con el fin de evitar la coerción al votante por medio de éste.
+					\item[Imposibilidad de coacción]: El voto emitido no puede ser mostrado.
+					El sistema debe evitar que el voto emitido pueda ser mostrado a un tercer actor con el fin de evitar la coacción al votante por medio de éste.
 					\todo[inline]{NO ESTOY DE ACUERDO CON ESTO. ALGUNOS AUTORES INDICAN LO CONTRARIO, QUE ES PRIMORDIAL QUE EL VOTANTE SE QUEDE CON UNA PRUEBA DE SU VOTO. DE TODOS MODOS CONSIDERO QUE SI SE CUMPLE EL REQUISITO DE VERIFICABILIDAD, ES MEJOR CUMPLIR ESTE, PERO NO POR HACERLO VAMOS A CONSEGUIR REBAJAR EL RIESGO DE COERCIÓN, ¿O SÍ?}
 					
 					\item[Posibilidad de emitir un voto nulo].
@@ -622,7 +622,7 @@ pantallas a las que tienen acceso los diferentes roles de usuario y la conexión 
 		
 		Al final lo que obtenemos es la web empotrada dentro de un WebView\footnote{\url{https://developer.android.com/reference/android/webkit/WebView.html}} creado por la aplicación.
 		
-		Después multitud de pruebas y de bucear en foros sobre seguridad digital, certificados digitales, DNIe y Adroid, resultó haber un problema bastante importante con esta aproximación.
+		Después multitud de pruebas y de bucear en foros sobre seguridad digital, certificados digitales, DNIe y Android, resultó haber un problema bastante importante con esta aproximación.
 		
 		Partamos de la base de la correcta configuración del servidor y login a través de certificados del DNIe. La prueba de la correcta configuración residía en que era posible acceder al servicio, e incluso llegar a emitir un voto, utilizando el DNIe (tanto 2.0 como 3.0) en un PC, utilizando el chip de contacto y utilizando un navegador como el Mozilla Firefox.
 		
@@ -652,9 +652,9 @@ pantallas a las que tienen acceso los diferentes roles de usuario y la conexión 
 		
 		Las llamadas a Helios, por lo comprobado, teniendo que mantener el canal HTTPS cifrado con el DNIe, deben ser contra un servicio que tenemos que \textit{repintar} en un WebView y que, en caso de querer navegar una vez establecida la conexión, hay que volver a realizar la llamada con los certificados y volver a crear el WebView. Es decir, que no es la navegación natural que se busca. Tampoco es viable implementar una app de voto, ya que teniendo la web se podría reutilizar esta desde el móvil.
 		
-		Entonces, aparece el concepto de autenticación delegada. Los desarrolladores de Helios han implementado módulos de oAuth para ingresar al sistema autenticándose con sus cuentas de Facebook, Google o Yahoo!, o un módulo CAS para hacer lo propio con las credenciales de la Universidad de Lovaina. Del mismo modo, se podría implementar un sistema de autenticación delegada basado en el DNIe.
+		Es en este momento en el que aparece el concepto de autenticación delegada. Los desarrolladores de Helios han implementado módulos de oAuth para ingresar al sistema autenticándose con sus cuentas de Facebook, Google o Yahoo!, o un módulo CAS para hacer lo propio con las credenciales de la Universidad de Lovaina. Del mismo modo, se podría implementar un sistema de autenticación delegada basado en el DNIe.
 		
-		La idea sería la de tener dos servidores diferenciados. Por un lado el del sistema de votación y por otro el servidor de autenticación.
+		La idea es la de tener dos servidores diferenciados. Por un lado el del sistema de votación y por otro el servidor de autenticación.
 		
 		El usuario, al intentar entrar en el sistema de votación es redirigido al de autenticación. Contra este ha de identificarse el usuario con el DNIe. Si la autenticación es correcta, el servicio de autenticación otorgará permisos de acceso al usuario en el servicio de votación y será redirigido de nuevo a este. A partir de este momento, el usuario, con permisos de accesos, podrá operar en el sistema de votación autenticado de forma segura.
 		
