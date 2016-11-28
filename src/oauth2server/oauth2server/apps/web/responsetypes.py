@@ -34,7 +34,7 @@ class CodeResponseType(AbstractResponseType):
     def process(self, client, authorized, scopes, redirect_uri, state, dnie, client_type=None):
         import logging
         logger = logging.getLogger('process')
-        logger.debug("client(%s), authorized(%s), scopes(%s), redirect_uri(%s), state(%s), die(%s), client_type(%s)" %(str(client), str(authorized), str(scopes), str(redirect_uri), str(state), str(dnie), str(client_type)))
+        logger.debug("client(%s), authorized(%s), scopes(%s), redirect_uri(%s), state(%s), dnie(%s), client_type(%s)" %(str(client), str(authorized), str(scopes), str(redirect_uri), str(state), str(dnie), str(client_type)))
 
         if not authorized:
             return self.denied_redirect(
