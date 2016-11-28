@@ -172,7 +172,7 @@ def trustee_keygenerator(request, election, trustee):
 @login_required
 def elections_administered(request):
   if not can_create_election(request):
-    return HttpResponseForbidden('only an administrator has elections to administer')
+    return HttpResponseForbidden('Sólo los administradores tienen elecciones que administrar.')
   
   user = get_user(request)
   elections = Election.get_by_user_as_admin(user)
@@ -190,7 +190,7 @@ def elections_voted(request):
 @login_required
 def election_new(request):
   if not can_create_election(request):
-    return HttpResponseForbidden('only an administrator can create an election')
+    return HttpResponseForbidden('Sólo los administradores pueden crear una elección.')
     
   error = None
   
@@ -225,9 +225,9 @@ def election_new(request):
           
           return HttpResponseRedirect(settings.SECURE_URL_HOST + reverse(one_election_view, args=[election.uuid]))
         else:
-          error = "An election with short name %s already exists" % election_params['short_name']
+          error = "Ya existe una elección con el nombre abreviado *%s*." % election_params['short_name']
       else:
-        error = "No special characters allowed in the short name."
+        error = "No se permiten caracteres especiales en el nombre abreviado."
     
   return render_template(request, "election_new", {'election_form': election_form, 'error': error})
   

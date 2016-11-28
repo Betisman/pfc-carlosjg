@@ -10,15 +10,15 @@ from django.conf import settings
 
 
 class ElectionForm(forms.Form):
-  short_name = forms.SlugField(max_length=25, help_text='no spaces, will be part of the URL for your election, e.g. my-club-2010')
-  name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'size':60}), help_text='the pretty name for your election, e.g. My Club 2010 Election')
+  short_name = forms.SlugField(max_length=25, help_text='Sin espacios. Es parte de la URL de la elección. Ej: mi-club-2017.')
+  name = forms.CharField(max_length=100, widget=forms.TextInput(attrs={'size':60}), help_text='El nombre de la elcción. Ej: Eleccions Mi Club 2017.')
   description = forms.CharField(max_length=4000, widget=forms.Textarea(attrs={'cols': 70, 'wrap': 'soft'}), required=False)
   election_type = forms.ChoiceField(label="type", choices = Election.ELECTION_TYPES)
-  use_voter_aliases = forms.BooleanField(required=False, initial=False, help_text='If selected, voter identities will be replaced with aliases, e.g. "V12", in the ballot tracking center')
+  use_voter_aliases = forms.BooleanField(required=False, initial=False, help_text='Si está seleccionado, las identidades de los votantes se reemplazarán por alias (ej: "V12") en el centro de seguimiento de votos.')
   #use_advanced_audit_features = forms.BooleanField(required=False, initial=True, help_text='disable this only if you want a simple election with reduced security but a simpler user interface')
-  randomize_answer_order = forms.BooleanField(required=False, initial=False, help_text='enable this if you want the answers to questions to appear in random order for each voter')
-  private_p = forms.BooleanField(required=False, initial=False, label="Private?", help_text='A private election is only visible to registered voters.')
-  help_email = forms.CharField(required=False, initial="", label="Help Email Address", help_text='An email address voters should contact if they need help.')
+  randomize_answer_order = forms.BooleanField(required=False, initial=False, help_text='Si está seleccionado, las opciones de cada votación aparecerán en orden aleatorio para cad votante.')
+  private_p = forms.BooleanField(required=False, initial=False, label="¿Privada?", help_text='Una elección privada sólo es visible para votantes registrados.')
+  help_email = forms.CharField(required=False, initial="", label="Email de ayuda", help_text='Un email donde los votantes pueden consultar en caso de necesitar ayuda.')
   
   if settings.ALLOW_ELECTION_INFO_URL:
     election_info_url = forms.CharField(required=False, initial="", label="Election Info Download URL", help_text="the URL of a PDF document that contains extra election information, e.g. candidate bios and statements")
@@ -26,9 +26,9 @@ class ElectionForm(forms.Form):
 
 class ElectionTimesForm(forms.Form):
   # times
-  voting_starts_at = SplitDateTimeField(help_text = 'UTC date and time when voting begins',
+  voting_starts_at = SplitDateTimeField(help_text = 'Fecha y hora UTC de comienzo de la votación.',
                                    widget=SplitSelectDateTimeWidget)
-  voting_ends_at = SplitDateTimeField(help_text = 'UTC date and time when voting ends',
+  voting_ends_at = SplitDateTimeField(help_text = 'Fecha y hora UTC de finalización de la votación.',
                                    widget=SplitSelectDateTimeWidget)
 
   
