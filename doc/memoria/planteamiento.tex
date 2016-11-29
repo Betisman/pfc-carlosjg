@@ -269,9 +269,18 @@
 						
 						Otro motivo que desaconseja el envío de credenciales por correo es que éstas podrían ser interceptadas por otra persona distinta a quien identifican de forma no muy complicada, lo cual supone una brecha de seguridad bastante importante.
 						
-					\item MobID
+					\item Mobile ID
 					
-						El Gobierno de Estonia, para sus comicios por Internet está desarrollando una tecnología en la que el propio smartphone es la herramienta que sirve para identificarnos. Parece una buena opción, pues hoy por hoy, es bastante común que llevemos el smartphone con nosotros de la misma forma que llevamos el DNI. Además, es un dispositivo muy personal, que no se suele compartir, por lo que podría realizarse una identificación unívoca entre el usuario-votante y su registro en el censo electoral.
+						El Gobierno de Estonia, para sus comicios por Internet está desarrollando una tecnología en la que el propio smartphone es la herramienta que sirve para identificarnos.
+						
+						Mobiil-ID\footnote{\url{http://www.id.ee/index.php?id=36881}} es, según la web de la policía estonia\footnote{\url{https://www.politsei.ee/en/teenused/isikut-toendavad-dokumendid/mobiil-id/}}, una solución de identificación y firma digital para teléfonos móviles.
+						
+						El principio de esta tecnología es asociar la identificación digital del ciudadano con una tarjeta SIM, utilizada para tener línea de teléfono o datos en teléfonos y dispositivos móviles. Esta SIM contiene los certificados digitales de autenticación y firma apropiados para asegurar la identidad digital del ciudadano de la misma forma que lo haría su carnet de identidad digital.
+						
+						Parece una buena opción, pues hoy por hoy, es bastante común que llevemos el smartphone con nosotros de la misma forma que llevamos el DNI. De cara a un proceso electoral, es un dispositivo muy personal, bastante asociado al día a día de su dueño, por lo que es una herramienta con un gran potencial para proporcionar un servicio de identificación unívoca entre el usuario-votante y su registro en el censo electoral o contra los administradores del proceso.
+						
+						Otra ventaja es que, al estar los certificados en la SIM, nos ahorramos el hardware necesario para la lectura de certificados externos, como son el DNIe 2.0 español o las SmartCards tradicionales. Incluso no haría falta hardware de lectura por radiofrecuencia como necesitan algunas SmartCards modernas o el propio DNIe 3.0, con lo que se puede ahorrar en hardware interno del dispositivo.
+						
 \todo[inline]{ hay que mirar bien esto del MobID, pues no sé si habrá algo desarrollado, de todos modos, en España esto ni se contempla}
 
 					\item Smartcard
@@ -285,7 +294,9 @@
 					\item DNIe
 					
 						Lo ideal para una elección por el sistema de voto por Internet es implementar un proceso que resulte sencillo al votante, ya que si resulta ser más complicado que el voto tradicional, el votante no le verá sentido y no hará uso de él.
-Con este planteamiento, parece que el uso del DNIe es una buena idea. Por un lado, es un documento oficial que llevamos normalmente con nosotros en todo momento. Además es el mismo documento que nos identifica en las elecciones tradicionales, con lo que para el votante no debería suponer ninguna suspicacia ni trauma, al estar completamente insertado en la sociedad su uso para este cometido (asumimos en este supuesto que la implantación del DNIe en España es casi completo, que el votante ya no necesita acudir a una comisaría a solicitarlo y que los certificados no están caducados).\\
+						
+Con este planteamiento, parece que el uso del DNIe es una buena idea. Por un lado, es un documento oficial que llevamos normalmente con nosotros en todo momento. Además es el mismo documento que nos identifica en las elecciones tradicionales, con lo que para el votante no debería suponer ninguna suspicacia ni trauma, al estar completamente insertado en la sociedad su uso para este cometido (asumimos en este supuesto que la implantación del DNIe en España es casi completo, que el votante ya no necesita acudir a una comisaría a solicitarlo y que los certificados no están caducados).
+
 						Ventajas del uso del DNIe como identificador del votante:
 							\begin{itemize}
 								\item Documento expedido por las propias Autoridades del Estado, quienes lo avalan.
@@ -304,7 +315,7 @@ Con este planteamiento, parece que el uso del DNIe es una buena idea. Por un lad
 Cierto es que podríamos hacer uso de la banda MRZ del documento escaneándola pero solamente con este dato no se puede mantener un nivel aceptable de seguridad. Por ejemplo, se podría identificar un usuario con una fotocopia de un DNI, lo cual en unas elecciones oficiales en España no está permitido.
 							\end{itemize}
 							
-				A partir de enero de 2015, el Ministerio del Interior de España, a través de la Dirección General de la Policía, ya está proporcionando a los ciudadanos una nueva versión del DNIe, la cual, entre varios avances, posee, junto al chip electrónico, otro chip de radiofrecuencia basado en tecnología NFC.
+				A partir de enero de 2015, el Ministerio del Interior de España, a través de la Dirección General de la Policía, empezó a emitir una nueva versión del DNIe, denominada 3.0, la cual, entre varios avances, posee, junto al chip electrónico, otro chip de radiofrecuencia basado en tecnología NFC.
 				
 				Sin entrar en los posibles problemas de seguridad que implica el uso de chips de radiofrecuencia, se observa interesante este avance en cuanto a una aplicación de voto por Internet. Hoy en día son muchos los dispositivos móviles (smartphones y tablets) que disponen de un lector de chips por NFC, con lo que el inconveniente de necesitar lectores externos para identificación del votante y firma digital del voto ya no existiría. El votante podría votar desde una app instalada en su smartphone sin necesidad de elementos externos, ya que este chip NFC contiene los mismos certificados que el chip por contacto que existía hasta ahora en la primera versión del DNIe.
 				

@@ -9,25 +9,26 @@
 	
 	\todo[inline]{IMAGEN DOS CONJUNTOS, UNO (E-VOTING) CONTIENE AL OTRO (I-VOTING)}
 	
-	\par
 	Este proyecto trata de entrar en la problemática del voto electrónico remoto frente al presencial, de las reticencias sociales y tecnológicas que influyen en su reducida implantación en procesos electorales de gran importancia y alto número de electores. Para ello, vamos a reproducir la situación a escala reducida. Plantearemos una posible solución al proceso necesario para llevar a cabo las Elecciones a la Junta de Escuela de la Escuela Politécnica Superior de la Universidad San Pablo - CEU.
-	\par
-	Con este planteamiento es obvio que no vamos a solucionar las trabas técnicas y sociales del voto por Internet a nivel de unas elecciones legislativas en, por ejemplo, España. Es un tema que se escapa del objetivo de este PFC, pero sí que vamos a tratar de identificar algunos de los agentes influyentes y buscar una posible solución aplicable a la elección a la Junta de Escuela. \notasInfo{o la de Delegados?}
-	\par
+
+	Con este planteamiento es obvio que no vamos a solucionar las trabas técnicas y sociales del voto por Internet a nivel de unas elecciones legislativas en, por ejemplo, España. Es un tema que se escapa del objetivo de este PFC, pero sí que vamos a tratar de identificar algunos de los agentes influyentes y buscar una posible solución aplicable a la elección a la Junta de Escuela y/o de Delegados de curso. \notasInfo{o la de Delegados?}
+
 	Así, perseguiremos dos objetivos. Por un lado, estudiar la dificultad existente para la implantación del voto por Internet en las elecciones nacionales. Por otro, un soporte electrónico al proceso completo de las Elecciones a la Junta de Escuela, con el cual obtendremos una mejora significativa en el mismo respecto a procesos anteriores.
-	\par
+	
 	Para poder acometer el proyecto, previamente habrá que definir el tipo de votación que se quiere implementar.
+	
 	De nuevo, hay que tener en cuenta que, aunque se hable de voto electrónico, la intención de este Proyecto de Fin de Carrera es el de desarrollar una solución de voto por Internet. No hablamos de voto electrónico remoto, sino de voto por Internet dando a los votantes la libertad de poder ejercer el voto desde cualquier lugar y dispositivo con conexión a Internet, sin necesitar la presencia física del mismo en un local de votación.
-	Este detalle, al tratar de separar el concepto del voto por Internet del concepto de voto electrónico, aunque puede parecer trivial, en realidad es fundamental. En el capítulo XXXXXXXX \todo{linkar al capítulo correspondiente} se ahondará en ello, pero como avance se puede destacar que una de las grandes diferencias a tener en cuenta es que con el voto electrónico remoto se pueden utilizar máquinas de votación (que también podrían emitir el voto por Internet), las cuales pueden generar un recibo con el voto emitido por el votante, al estilo de las papeletas que llenan la urna electoral, mientras que con el voto por Internet puro, esto no es tan obvio. Con este mecanismo, la auditoría es más simple para el voto electrónico con máquinas en el centro de votación, pues se podrían contar las papeletas generadas. 
+	
+	Este detalle, al tratar de separar el concepto del voto por Internet del concepto de voto electrónico, aunque puede parecer trivial, en realidad es fundamental. En el capítulo \ref{votoElectronico} se ahondará en ello, pero como avance se puede destacar que una de las grandes diferencias a tener en cuenta es que con el voto electrónico remoto se pueden utilizar máquinas de votación (que también podrían emitir el voto por Internet), las cuales pueden generar un recibo con el voto emitido por el votante, al estilo de las papeletas que llenan la urna electoral, mientras que con el voto por Internet puro, esto no es tan obvio. Con este mecanismo, la auditoría es más simple para el voto electrónico con máquinas en el centro de votación, pues se podrían contar las papeletas generadas. 
 	
 	Si no se generan estos recibos ni hay una urna física donde se depositan, ¿cómo podemos estar seguros de que hemos votado? ¿Qué ocurre si el sistema tiene fallas y no se contabilizan (o lo hacen de forma incorrecta) los votos, teniendo en cuenta que puede ser imposible un conteo físico de papeletas al no existir estas? Como estas, hay muchas cuestiones a las que el voto por Internet debe dar solución de forma fiable antes de poder acometer su implantación en procesos electorales tradicionales.
-	\par
+
 	La forma de llegar a la solución buscada debe comenzar identificando los factores que afectan a un proceso electoral general y, a continuación, personalizar los que se encuentran en el que vamos a estudiar.
 	Una vez identificados estos agentes, definiremos las fases que comportan unas elecciones y estudiaremos cómo podrían ser apoyadas tecnológicamente, evaluando cómo llegar al punto óptimo de integración con el sistema tradicional para mejorar el proceso.
-	\par
+
 	La primera fase se concentrará en desarrollar los sistemas asociados a la fase preelectoral. En ella, se recoge el censo electoral y se identifican tanto los candidatos como los diferentes cargos que se votan.
 	%%OJO: ¿hay que hablar de la lógica de la elección? De cómo se vota y quién para elegir el qué y cómo??
-	\par
+
 	La segunda fase, la electoral, la identificamos con los procesos que se requieren durante el periodo que dura la elección (ya sea un día o varios). Esta consistirá en desarrollar los sistemas de identificación y validación de votantes, el sistema de votación, ss
 	\todo[inline]{Acabar la introducción}
 
@@ -57,7 +58,7 @@
 		\notasInfo[inline]{If there is any invention on Earth that we don't want down here, that is it.}
 	 
 	 \begin{verse}
-		 \textit{Si hay en la tierra algún invento que no queremos aquí, es exactamente el suyo. Uno de nuestros principales intereses es evitar fraudes en las votaciones, y su aparato no haría otra cosa que favorecerlos.}
+		 \textit{''Si hay en la tierra algún invento que no queremos aquí, es exactamente el suyo. Uno de nuestros principales intereses es evitar fraudes en las votaciones, y su aparato no haría otra cosa que favorecerlos''.}
 	 \end{verse}
 	
 	\begin{figure}[htbp]
@@ -76,7 +77,7 @@
 
 	A partir de este intento, el voto electrónico ha avanzado tecnológica y socialmente, logrando herramientas más sofisticadas y seguras en conjunción con un entendimiento, comprensión y, en algunos casos, aceptación de su uso. Estos factores han hecho posible que se hayan podido implementar soluciones e integrarlas en procesos electorales reales, ya sea a nivel nacional o de entidades o estamentos.
 	
-	Se considera que el inicio del desarrollo del voto electrónico moderno está datado en 1964, año en el que site condados de EEUU utilizaron un sistema de voto electrónico para las Elecciones Presidenciales.
+	Se considera que el inicio del desarrollo del voto electrónico moderno está datado en 1964, año en el que siete condados de EEUU utilizaron un sistema de voto electrónico para las Elecciones Presidenciales.
 	
 	\todo[inline]{UN POQUITO MÁS DE HISTORIA ******* HABLAR DE DRE Y TARJETAS PERFORADAS}
 	
@@ -84,7 +85,7 @@
 	
 	En la época actual, prácticamente la totalidad de los procesos electorales implementan soluciones tecnológicas para algunos pasos de la fase de recuento de votos, con el fin de un recuento más rápido de votos y una difusión de resultados sólo varias horas después del cierre de los colegios electorales. Es el caso de, por ejemplo, España, donde tanto el Ministerio del Interior como las Comunidades Autónomas requieren que el conteo provisional de los votos se realice en un tiempo corto durante la misma noche electoral.
 	
-	En este caso, las empresas adjudicatarias implementan soluciones tecnológicas para llevar a cabo el proceso. Así, se puede destacar la tecnología electoral de empresas como Indra \cite{indraPPEE} - pionera en uso de tablets para enviar información de recuento o la Mesa Administrada Electrónicamente que agiliza y da soporte a la labor de los miembros de mesa, desde gestión del censo a generación de actas de escrutinio - o Scytel \cite{scytel1}, referente a nivel mundial en proyectos de voto electrónico, tanto presencial como remoto.
+	En este caso, las empresas adjudicatarias implementan soluciones tecnológicas para llevar a cabo el proceso. Así, se puede destacar la tecnología electoral de empresas como Indra \footnote{\url{http://www.indracompany.com/es/procesos-electorales}} - pionera en uso de tablets para enviar información de recuento o la Mesa Administrada Electrónicamente que agiliza y da soporte a la labor de los miembros de mesa, desde gestión del censo a generación de actas de escrutinio - o Scytel \footnote{\url{http://www.scytl.com/}}, referente a nivel mundial en proyectos de voto electrónico, tanto presencial como remoto.
 	
 	
 	
