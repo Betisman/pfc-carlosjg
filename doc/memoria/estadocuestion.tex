@@ -342,6 +342,53 @@ los diálogos del sistema.
 		
 		Es destacable el desempeño de empresas como la española Scytl, que ha implementado sistemas de voto por Internet para voto desde el extranjero para algunos condados de Estados Unidos, ciertos cantones de Suiza y varias provincias de India, la mayor democracia del mundo (en número de votantes). Otra empresa española, Indra, también tiene soluciones de voto por Internet utilizados para elegir las cúpulas directivas de organismos como la Guardia Civil, universidades como la UAH (Universidad de Alcalá de Henares) o la UNED (Universidad Nacional de Educación a Distancia) e incluso de partidos políticos, como es el caso de la dirección de UPyD (Unión Progreso y Democracia).
 		
+		% Para forzar nueva línea dentro de una celda
+		\newcommand{\specialcell}[2][c]{%
+			\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
+		%Foo bar & \specialcell{Foo\\bar} & Foo bar \\    % vertically centered
+		%Foo bar & \specialcell[t]{Foo\\bar} & Foo bar \\ % aligned with top rule
+		%Foo bar & \specialcell[b]{Foo\\bar} & Foo bar \\ % aligned with bottom rule
+	
+		\begin{table}[htbp]
+				\begin{threeparttable}
+					\footnotesize
+					\centering
+						%\begin{tabular}{0.75\textwidth}@{\extracolsep{\fill}}|l|l|m{3cm}| m{3cm}|}
+						%\begin{tabular*}{0.95\textwidth}{@{\extracolsep{\fill}}|l|l|rm{2cm}|rm{1cm}|}
+						\begin{tabularx}{\textwidth}{|m{.15\textwidth}|Y|Y|Y|Y|Y|Y|Y|}
+							\hline
+								\multirow{2}{*}{\textbf{Jurisdicción}} & \multicolumn{7}{c|}{\textbf{Razones para adopción del Voto por Internet}} \\
+							\cline{2-8}
+								 & \tiny\textbf{Participación electoral} & \tiny\textbf{Liderazgo en Gobierno Electrónico} & \tiny\textbf{Accesibilidad} & \tiny\textbf{Conveniencia} & \tiny\textbf{Foco en servicio centrado en el ciudadano} & \tiny\textbf{Incrementar la participación de los jóvenes} & \tiny\textbf{Eficiencia en el escrutinio} \\
+							\hline
+								Estonia	& $\bullet$ 	& $\bullet$ & $\bullet$ & & & & 	\\
+							\hline
+								Suiza	& $\bullet$ 	& $\bullet$ & $\bullet$ & $\bullet$ &  &  &  	\\
+							\hline
+								Noruega	& & & $\bullet$ & & & $\bullet$ & $\bullet$ 	\\
+							\hline
+								Edmonton	& & $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & & \\
+							\hline
+								Markham	& $\bullet$ 	& $\bullet$ & $\bullet$ & $\bullet$ & $\bullet$ & & 	\\
+							\hline
+								Halifax	& $\bullet$ 	& & $\bullet$ & & & & \\
+							\hline
+								Cape Breton	& $\bullet$ 	& $\bullet$ & $\bullet$ & & & & \\
+							\hline
+								Truro	& $\bullet$ 	& $\bullet$ & $\bullet$ & $\bullet$ & & $\bullet$ &  	\\
+							\hline
+								Grado de importancia & \scriptsize\specialcell{6/8\\75\%} & \scriptsize\specialcell{6/8\\75\%} & \scriptsize\specialcell{8/8\\100\%} & \scriptsize\specialcell{4/8\\50\%} & \scriptsize\specialcell{2/8\\25\%} & \scriptsize\specialcell{2/8\\25\%} & \scriptsize\specialcell{1/8\\12,5\%} \\
+							\hline
+						\end{tabularx}
+						\begin{tablenotes}
+							\scriptsize
+							\item[a] Fuente: Presentación del Voto Online para las Elecciones Municipales de Guelph (Ontario, Canadá) en 2014\tnote{b}
+							\item[b] \url{https://www.youtube.com/watch?v=FJ2rHI8NNBk}
+						\end{tablenotes}
+						\label{tab:principalesRazonesVotoInternet}
+						\caption{Principales razones para considerar la adopción del Voto por Internet}
+					\end{threeparttable}
+			\end{table}
 		
 % *************************************************************************************************************** %
 % 			VOTO POR INTERNET
