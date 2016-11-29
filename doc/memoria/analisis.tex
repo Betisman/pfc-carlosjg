@@ -148,7 +148,10 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			
 			
 			\todo[inline]{Como lo hice en dos documentos diferentes, al unificarlo, tengo partes repetidas. Hay que borrar los repetidos.}
-		
+
+
+\todo[inline]{He quitado la sección de Necesidades del esquema de voto electrónico...}
+\iffalse		
 			\subsection{Necesidades del esquema de voto electrónico}
 			\begin{description}[font=$\bullet$\ \ ]
 				\item[Votación por Internet]: \textst{El sistema de votación debe funcionar de forma remota en sus fases de registro, identificación, votación y consulta de resultados. Cualquier votante puede acceder a las funcionalidades del sistema a las que tiene autorización desde cualquier punto conectado a Internet.}
@@ -178,7 +181,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			
 			\todo[inline]{ESTO ES TEMPORAL. VOY A IR HACIENDO UNA LISTA DE REQUISITOS SEGÚN LOS VOY CONOCIENDO. ESTA LISTA ES EL BATIBURRILLO, CUANDO ESTÉN CLAROS, LOS VOY COLOCANDO EN SUS TIPOS CORRESPONDIENTES Y LOS DEFINIMOS FORMALMENTE SEGÚN LA PLANTILLA}
 			
-			
+\fi			
 			%\todo[inline]{OTRA FORMA EN LA QUE PODEMOS ORDENAR LA ESPECIFICACIÓN DE REQUISITOS  HABRíA QUE RE-REDACTARLOS}
 			%
 			%Para la especificación de los requisitos que ha de satisfacer el sistema, se van a seguir algunas de las recomendaciones del IEEE en el estándar IEEE 830-1998 \cite{Ieee1998}, ya que éste establece las normas para la realización de un documento formal y completo de especificación de requisitos (SRS en inglés).
@@ -297,7 +300,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 					
 						Junto con los cuatro roles expuestos, encontramos un quinto actor en la figura de la Autoridad Certificadora. Esta entidad es la encargada de generar, administrar, validar y verificar las credenciales que han de usar cada uno de los votantes para emitir el voto, así como los de cada uno de los actores del proceso (administradores, miembros de la Junta Electoral, auditores o incluso los sistemas y sus comunicaciones).
 						
-						Al hacer uso del \gls{DNIe} para la identificación y firma del votante, en estas fases, es la Dirección General de la Policía, dependiente del Ministerio del Interior, la que actúa como Autoridad de Certificación, combinando dos pares de claves con un ciudadano concreto a través de la emisión de sendos Certificados de conformidad con los términos de la Declaración de Prácticas y Políticas de Certificación (DPC) \cite{politicasDeCertificacion:2006}\cite{politicasDeCertificacion:2014} que rige el funcionamiento y operaciones de la Infraestructura de Clave Pública de los Certificados de identidad pública y firma electrónica del Documento Nacional de Identidad (DNIe).
+						Al hacer uso del DNIe para la identificación y firma del votante, en estas fases, es la Dirección General de la Policía, dependiente del Ministerio del Interior, la que actúa como Autoridad de Certificación, combinando dos pares de claves con un ciudadano concreto a través de la emisión de sendos Certificados de conformidad con los términos de la Declaración de Prácticas y Políticas de Certificación (DPC) \cite{politicasDeCertificacion:2006}\cite{politicasDeCertificacion:2014} que rige el funcionamiento y operaciones de la Infraestructura de Clave Pública de los Certificados de identidad pública y firma electrónica del Documento Nacional de Identidad (DNIe).
 				
 					\item[Trustee] \hfill \
 					
@@ -463,27 +466,43 @@ pantallas a las que tienen acceso los diferentes roles de usuario y la conexión 
 							\item[Censo de votantes] Es necesario incluir un censo de votantes o permitir una votación abierta. En el caso del censo, Helios permite hacer cargas de ficheros csv con la información del votante (id, email y nombre). También permite que cualquiera pueda emitir un voto.
 							
 							\item [Trustees] En voto electrónico, es necesario tener entidades de las que poder fiarse para el correcto funcionamiento de la elección. Como es complicado que exista una entidad externa que cumpla con los requisitos, esto se emula utilizando varios trustees. Básicamente, los trustees son entidades fiables que es difícil que se puedan poner de acuerdo entre sí para falsear la elección. Estas entidades combinan sus claves públicas y privadas para formar la clave pública y privada de la elección a utilizar en la encriptación de los votos y la desencriptación del resultado del escrutinio. En Helios, el propio sistema es un trustee, suficiente para llevar a cabo los procesos criptográficos en caso de que no se defina ninguna entidad o usuario confiable adicional.
+							\todo[inline]{Es interesante lo que dice la propia web de Helios cuando se deinen los trustees}
 							
 								\begin{description}
-									\item [Setup key - generate key]
-									\item [Save secret key] 
-									\item [Upload public key] (verify private key)
+									%\item [Setup key - generate key]
+									\item [Configuración y generación de la clave]
+									\item [Guardar la clave secreta] 
+									\item [Subir la clave pública] (verificar la clave privada)
 								\end{description}					
 							
 						\end{description}
 					
-					\item [Congelar papeleta y abrir la elección]
+					\item [Congelar papeleta y abrir la elección] 
+					Una vez se ha definido la papeleta (diferentes preguntas y opciones a elegir), es tarea de los administradores proceder a su congelamiento, con lo cual se asegura que la misma no va a ser modificada durante el periodo de votación. Una vez congelada, se procede a la apertura de urnas, con lo que el sistema permite a los votantes emitir sus votos.
 					
 					\item [Votar]
+					Durante el tiempo fijado al definir las características de la elección, los votantes pueden logarse en el sistema y emitir sus votos.
 					
-					\item [Compute encrypted tally] (close election and compute)
+					\item [Calcular recuento cifrado] (cerrar votación y computar)
+					Una vez superada la fecha fijada como cierre de urnas, los administradores proceden a iniciar el escrutinio. Para ello, lo primero que se produce es un cierre virtual de las urnas, con lo que los votantes no podrán emitir ningún voto a partir de este momento. A su vez, se inicia el procedimiento de cálculo de votos, el cual, debido al esquema homomórfico de la elección, realizará el recuento sumando los votos encriptados. El resultado, cifrado, de esta suma de votos cifrados, necesitará ser descifrado para poder publicar el resultado.
 					
-					\item [Trustees for decryption]
+					\item [Combinar trustees de descrifrado y totalizar los resultados]
+					Para poder realizar este descifrado de la totalización de los votos, se requiere que todos los trustees de la elección combinen su secreto compartido de la clave privada de descifrado de la elección.
 					
-					\item [Combine trustee decryption and compute results]
+					
+					\item [Computar resultados]
+					Una vez se han combinado las claves necesarias de los trustees, el sistema procede al descifrado de la suma de los votos. Una vez realizado este proceso es cuando se tienen los resultados en claro.
 					
 					\item [Difusión de resultados]
+					La difusión de los resultados en el sistema Helios Voting es simplemente una página donde se recogen cada una de las preguntas de la papeleta, junto con sus opciones propuestas y el resultado de los votos que cada una ha obtenido.
+					Esta difusión se realiza en dos pasos.
+					Primero, el sistema muestra los resultados al administrador. El segundo paso requiere que el administrador de su aprobación para liberar los resultados, momento en el cual cualquier usuario del sistema, votante, auditor o un tercero externo tendrá la posibilidad de ver los resultados y verificar la integridad de los mismos.
 					
+				\item[Auditorías]
+				El sistema Helios Voting implementa dos mecanismos de auditoría activa (que puede realizar el votante y/o auditores o visitantes).
+				Por un lado, el votante tiene la posibilidad de auditar un voto de forma individual. Puede realizar el paso de votar una opción y auditar este voto. El voto será descifrado y presentado en claro, para que compruebe la correctitud del proceso. Este voto, no obstante, será desechado y el votante deberá volver a realizar el proceso de emisión de voto.
+				Por otra parte, Helios Voting implementa un mecanismo de auditoría por el que, tanto los votantes como cualquier persona interesada en el proceso, tiene la posibilida de auditar el escrutinio una vez ha sido publicado para probar la integridad del mismo.
+				Ambos procedimientos se explican en \ref{planteamiento_HeliosVoting_auditoria}.
 				\end{description}
 			
 			\subsection{Auditorías}\label{planteamiento_HeliosVoting_auditoria}
