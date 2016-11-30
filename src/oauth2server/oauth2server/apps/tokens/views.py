@@ -7,11 +7,14 @@ from apps.tokens.serializers import OAuthAccessTokenSerializer
 from apps.tokens.decorators import validate_request
 from apps.tokens.granttypes import factory
 
+import logging
+logger = logging.getLogger('TokensView')
 
 class TokensView(APIView):
 
     @method_decorator(validate_request)
     def post(self, request, *args, **kwargs):
+        logger.debug('en post_TokenViews')
         access_token = factory(request=request).grant()
         return Response(
             OAuthAccessTokenSerializer(access_token).data,

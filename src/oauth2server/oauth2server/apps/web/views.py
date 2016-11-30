@@ -60,6 +60,7 @@ class AuthorizeView(View):
         return super(AuthorizeView, self).dispatch(*args, **kwargs)
 
     def get(self, request, *args, **kwargs):
+        logger.debug('en get_AuthorizeView')
         form = self.form_class(initial=self.initial)
         try:
             logger.debug('en get')
@@ -129,6 +130,7 @@ class AuthorizeView(View):
         return self._render(request=request, form=form, dnie=dnie)
 
     def post(self, request, *args, **kwargs):
+        logger.debug('en post_AuthorizeView')
         form = self.form_class(request.POST)
 
         mstring = []
@@ -300,6 +302,7 @@ import json
 
 
 def me_view(request, *args, **kwargs):
+    logger.debug('me_view <--------------------------')
     from rest_framework.response import Response
     data = {
         'id': '53159931P',
