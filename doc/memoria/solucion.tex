@@ -38,10 +38,11 @@
 		
 		\section{Diseño}\label{diseño}
 		
-			Tal como se estudia en el análisis (\ref{analisis}), la solución que se propone para este Proyecto consiste en adaptar el sistema Helios Voting a las necesidades de la EPS.
+			Tal como se determina en el análisis (\ref{analisis}), la solución que se propone para este Proyecto consiste en la adpatación del sistema Helios Voting a las necesidades de la EPS.
 			
-			Para ello, habrá que tener en cuenta quiénes son los actores que han de interactuar, así como los cambios que hay que realizar para llegar a implementar el sistema en este nuevo escenario.
+			Es preciso modificar el sistema de autenticación de Helios Voting para dar soporte al DNIe 2.0 y al 3.0. Para ello se integrará un sistema de autenticación federada por oAuth. Este sistema, no obstante, tendrá que ser modificado para que soporte la información digital de estos documentos. 
 			
+			Desde un navegador web en un PC o portátil con el hardware necesario es posible el uso de los certificados contenidos en el chip con contacto del DNIe. Sin embargo, al utilizar el chip sin contacto del DNIe 3.0, será necesaria la implementación de una aplicación de Android que gestione los certificados del documento por NFC y establezca el canal seguro por el que comunicarse con el servicio de autenticación.
 			
 		
 			\subsection{Diseño del esquema de votación}\label{disenhoEsquemaVoto}
