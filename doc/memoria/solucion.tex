@@ -38,9 +38,9 @@
 		
 		\section{Diseño}\label{diseño}
 		
-			Tal como se determina en el análisis (\ref{analisis}), la solución que se propone para este Proyecto consiste en la adpatación del sistema Helios Voting a las necesidades de la EPS.
+			Tal como se determina en el análisis (\ref{analisis}), la solución que se propone para este Proyecto consiste en la adaptación del sistema Helios Voting a las necesidades de la EPS.
 			
-			Es preciso modificar el sistema de autenticación de Helios Voting para dar soporte al DNIe 2.0 y al 3.0. Para ello se integrará un sistema de autenticación federada por oAuth. Este sistema, no obstante, tendrá que ser modificado para que soporte la información digital de estos documentos. 
+			Es preciso modificar el sistema de autenticación de Helios Voting para dar soporte al DNIe 2.0 y al 3.0. Para ello se integrará un sistema de autenticación federada por oAuth, habiéndose elegido el proyecto django-oauth2-server\footnote{\url{https://github.com/RichardKnop/django-oauth2-server}} desarrollado por Richard Knop. Este servidor de oAuth, no obstante, tendrá que ser alterado para que soporte la información digital de los documentos permitidos para la votación. 
 			
 			Desde un navegador web en un PC o portátil con el hardware necesario es posible el uso de los certificados contenidos en el chip con contacto del DNIe. Sin embargo, al utilizar el chip sin contacto del DNIe 3.0, será necesaria la implementación de una aplicación de Android que gestione los certificados del documento por NFC y establezca el canal seguro por el que comunicarse con el servicio de autenticación.
 			
@@ -87,6 +87,19 @@
 					
 			 El sistema de identificación del votante se apoya en el protocolo oAuth2.
 			\notasInfo[inline]{Aquí desarrollamos la implementación oAuth que hemos desarrollado para este sistema}
+			Como ya se ha comentado, el sistema de identificación/autenticación federada que se va a utilizar se basa en un proyecto publicado como software libre por el desarrollador Richard Knop con nombre django-oauth2-server.
+			
+			Este servidor está escrito en Python y se ha desarrollado sobre el framework Django, el mismo sobre el que está desarrollado el propio sistema de votación, Helios Voting.
+			
+			El servidor, tal como está desarrollado no sirve para las necesidades del proyecto, pues no soporta certificados digitales.
+			
+			El primer paso para la implementación del servidor consiste en configurar el framework django para que se apoye en un servidor web externo. Para este proyecto se ha utilizado el servidor web Apache.
+			
+			Es necesario instalar dos módulos específicos:
+			\begin[\begin{description}
+				\item[mod_wsgi]: Módulo que permite que una aplicación basada en Django corra sobre un servidor web externo, como Apache.
+				\item[mod_ssl]: Mósulo que permite a ciertos servidores web utilizar certificados digitales como forma de autenticación. En el caso de nuestro proyecto, servirán tanto para establecer los canales SSL/TLS como para incluir el certificado digital de autenticación del DNIe en el canal seguro, recuperar la información de usuario del certificado y pasarla al código del servidor.
+			\end{description}
 					
 					
 					\begin{figure}[!ht]
