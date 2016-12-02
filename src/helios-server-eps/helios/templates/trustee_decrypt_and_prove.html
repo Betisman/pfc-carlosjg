@@ -131,77 +131,90 @@ function reset() {
 }
 
 </script>
-  <h2 class="title">Trustee {{trustee.name}} &mdash; Decrypt Result for {{election.name}}</h2>
+  <h2 class="title">Trustee {{trustee.name}} &mdash; Descifrar resultados para {{election.name}}</h2>
 
 <p>
     <b>Trustee:</b> <tt>{{trustee.email}}</tt><br />
-    <b>Public Key Fingerprint:</b> <tt>{{trustee.public_key_hash}}</tt><br />
-    <b>Encrypted Tally Fingerprint:</b> <tt>{{election.encrypted_tally_hash}}</tt>
+    <b>Huella de clave pública:</b> <tt>{{trustee.public_key_hash}}</tt><br />
+    <b>Huella de escrutinio encriptado:</b> <tt>{{election.encrypted_tally_hash}}</tt>
 </p>
 
     <p>
-      The encrypted tally for your election has been computed.<br />
-      Now it's time to compute and submit your partial decryption.
+		El escrutinio encriptado de su elección ha sido computado.<br />
+      <!--The encrypted tally for your election has been computed.<br />-->
+	  Ahora es el momento de computar y enviar su descifrado parcial.
+      <!--Now it's time to compute and submit your partial decryption.-->
     </p>
 
     <p>
-      This process is performed in two steps.<br /><br />
-      <u>First</u>, your secret key is used to decrypt the tally <em>inside</em> your browser, without connecting to the network.<br />
-      You can choose to take your browser "offline" for this step, if you'd like.<br /><br />
-      <u>Second</u>, once your decryption factors have been computed, your browser will need to be "online" to submit them to the server.<br />
-      If you'd like, you can compute your decryption factors, copy them to your clipboard, restart your browser, and<br />
-      skip to the second step so that your browser is never online when you enter your secret key.
+		Este proceso se realiza en dos pasos.
+      <!--This process is performed in two steps.--><br /><br />
+	  <u>Primero</u>, su clave privada se usa para desencriptar el escrutinio <em>dentro</em> de su navegador, sin conexión a la red.<br />
+      <!--<u>First</u>, your secret key is used to decrypt the tally <em>inside</em> your browser, without connecting to the network.<br />-->
+	  Puede poner su navegador "offline" para este paso, si quiere.
+      <!--You can choose to take your browser "offline" for this step, if you'd like.<br /><br />-->
+	  <u>Segundo</u>, una vez que sus factores de descifrado se computen, su navegador deberá estar "online" para enviarlos al servidor.<br />
+      <!--<u>Second</u>, once your decryption factors have been computed, your browser will need to be "online" to submit them to the server.<br />-->
+	  Si quiere, puede calcular sus factores de descifrado, copiarlos al portapapeles, reiniciar su navegador y saltar hasta el segundo paso, con lo que su navegador nunca está online cuando introduce su clave secreta.
+      <!--If you'd like, you can compute your decryption factors, copy them to your clipboard, restart your browser, and<br />
+      skip to the second step so that your browser is never online when you enter your secret key.-->
     </p>
     
   <div id="sk_section" style="display:none;">
 
       <form onsubmit="return false;">
-          <h3>FIRST STEP: enter your secret key</h3>
+          <h3>PRIMER PASO: introduzca su clave secreta</h3>
           <textarea id="sk_textarea" cols="60" rows="5"></textarea>
       </form>
       <p id="tally_section">
-          <button onclick="do_tally();">Generate partial decryption</button>
+          <button onclick="do_tally();">Generar descifrado parcial</button>
       </p>
 
       <p id="skip_to_second_step_instructions">
-        <a href="javascript:skip_to_second_step();">skip to the second step</a><br />
-        (you need to have already computed your decryption factors.)
+        <a href="javascript:skip_to_second_step();">Saltar al segundo paso</a><br />
+        (necesita haber computado previamente sus factores de descifrado)
       </p>
   </div>
   
   <div id="waiting_div">
-      Generating partial decryption factors and proofs...<br />
+		Generando factores de descifrado parcial y pruebas...<br />
+      <!--Generating partial decryption factors and proofs...<br />-->
       <img src="/static/helios/loading.gif" />
   </div>
 
   <div id="waiting_submit_div">
-      Submitting and checking your decryption factors and proofs...<br />
+		Enviando y comprobando sus factores de descifrado y pruebas...<br />
+      <!--Submitting and checking your decryption factors and proofs...<br />-->
       <img src="/static/helios/loading.gif" />
   </div>
   
   <div id="result_div">
-      <h3>SECOND STEP: upload your partial decryption</h3>
+      <h3>SEGUNDO PASO: cargar su descifrado parcial</h3>
       <p id="first-step-success" style="display: none;">
-          Your partial decryption factors and proofs have been generated below.<br />
-          Your secret key has been cleared from memory.<br />
-          When you're ready, you can submit this result to the server.
+			Sus factores de descifrado parcial y pruebas se han generado debajo<br />
+          <!--Your partial decryption factors and proofs have been generated below.<br />-->
+		  Su clave secreta se ha borrado de la memoria<br />
+          <!--Your secret key has been cleared from memory.<br />-->
+		  Cuando esté listo, puede enviar estos resultados al servidor.
+          <!--When you're ready, you can submit this result to the server.-->
       </p>
       Your partial decryption:<br />
       <form action="javascript:submit_result();">
           <textarea id="result_textarea" cols="60" rows="5" wrap="soft"></textarea><br /><br />
-          <input type="submit" value="Upload decryption factors to server" />
+          <input type="submit" value="Cargar fectoresd de descifrado al servidor" />
       </form>
       <br />
-      <a href="javascript:reset()">reset and restart decryption process</a>
+      <a href="javascript:reset()">resetear y reiniciar el proceso de descifrado</a>
       <br />
   </div>
   
   <div id="done_div">
-      Done! <a href="{% url "helios.views.one_election_view" election.uuid %}">Back to election</a>
+      ¡Hecho! <a href="{% url "helios.views.one_election_view" election.uuid %}">Back to election</a>
   </div>
   
   <div id="error_div">
-      Error: your secret key was likely incorrect.
+	Error: su clave secreta es incorrecta.
+      <!--Error: your secret key was likely incorrect.-->
   </div>
 
   <div id="applet_div">

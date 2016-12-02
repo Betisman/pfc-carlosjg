@@ -5,29 +5,29 @@
   <h3 class="title">{{ election.name }}
 {% if admin_p %}
 {% if not election.frozen_at %}
-<small><a class="btn btn-primary" href="{% url "helios.views.one_election_edit" election.uuid %}">edit</a></small>
+<small><a class="btn btn-primary" href="{% url "helios.views.one_election_edit" election.uuid %}">editar</a></small>
 {% endif %}
 {% endif %}</h3>
 <p style="padding-top:0px; margin-top:0px">
-<em>{% if election.private_p %}private{%else%}public{% endif %}</em> {{ election.election_type }}{% if settings.SHOW_USER_INFO %} created by <u><b>{{election.admin.display_html_small|safe}}</b></u>{% endif %}
+<em>{% if election.private_p %}private{%else%}public{% endif %}</em> {{ election.election_type }}{% if settings.SHOW_USER_INFO %} creada por <u><b>{{election.admin.display_html_small|safe}}</b></u>{% endif %}
 {% if election.is_archived %}
-[archived]
+[archivada]
 {% endif %}
 {% if admin_p %}
-&nbsp;{% if election.is_archived %}<a class="btn btn-primary" href="{% url "helios.views.one_election_archive" election_uuid=election.uuid %}?archive_p=0">unarchive it</a>{% else %}<a class="btn btn-primary" href="{% url "helios.views.one_election_archive" election_uuid=election.uuid %}?archive_p=1">archive it</a>{% endif %}
+&nbsp;{% if election.is_archived %}<a class="btn btn-primary" href="{% url "helios.views.one_election_archive" election_uuid=election.uuid %}?archive_p=0">desárchivela</a>{% else %}<a class="btn btn-primary" href="{% url "helios.views.one_election_archive" election_uuid=election.uuid %}?archive_p=1">archive it</a>{% endif %}
 {% endif %}
 <br />
 {% if admin_p %}
 {% if not election.private_p %}
 {% if election.featured_p %}
-this {{election.election_type}} is featured on the front page.
+esta {{election.election_type}} aparece en la página inicial.
 {% if can_feature_p %}
-[<a href="{% url "helios.views.one_election_set_featured" election.uuid %}?featured_p=0">unfeature it</a>]
+[<a href="{% url "helios.views.one_election_set_featured" election.uuid %}?featured_p=0">que no aparezca en la página inicial</a>]
 {% endif %}
 {% else %}
-this {{election.election_type}} is <u>not</u> featured on the front page.
+esta {{election.election_type}} <u>no</u> aparece en la página inicial.
 {% if can_feature_p %}
-[<a href="{% url "helios.views.one_election_set_featured" election.uuid %}?featured_p=1">feature it</a>]
+[<a href="{% url "helios.views.one_election_set_featured" election.uuid %}?featured_p=1">que aparezca en la página inicial</a>]
 {% endif %}
 {% endif %}
 {% endif %}
@@ -50,13 +50,13 @@ this {{election.election_type}} is <u>not</u> featured on the front page.
 </div>
 
 {% if election.election_info_url %}
-<p style="font-size:1.5em;">[<a target="_blank" href="{{election.election_info_url}}">download candidate bios &amp; statements</a>]</p>
+<p style="font-size:1.5em;">[<a target="_blank" href="{{election.election_info_url}}">descargar la información de los candidatos</a>]</p>
 {% endif %}
 
 <p align="center" style="font-size: 1.5em;">
-<a href="{% url "helios.views.one_election_questions" election.uuid %}">questions ({% if election.questions %}{{election.questions|length}}{% else %}0{% endif %})</a>
+<a href="{% url "helios.views.one_election_questions" election.uuid %}">preguntas ({% if election.questions %}{{election.questions|length}}{% else %}0{% endif %})</a>
 &nbsp;&nbsp;|&nbsp;&nbsp;
-<a href="{% url "helios.views.voters_list_pretty" election.uuid %}">voters &amp; ballots</a>
+<a href="{% url "helios.views.voters_list_pretty" election.uuid %}">votantes y papeletas</a>
 &nbsp;&nbsp;|&nbsp;&nbsp;
 <a href="{% url "helios.views.list_trustees_view" election.uuid %}">trustees ({{trustees|length}})</a>
 </p>
