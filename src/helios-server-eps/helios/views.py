@@ -304,7 +304,7 @@ def one_election_view(request, election):
   test_cookie_url = "%s?%s" % (reverse(test_cookie), urllib.urlencode({'continue_url' : vote_url}))
 
   import logging
-  logging.debug('aqui estoy: ' + str(user))  
+  logging.debug('aqui estoy: ' + str(user) + ' (' + str(user.user_type) + ')')  
   if user:
     voter = Voter.get_by_election_and_user(election, user)
     
