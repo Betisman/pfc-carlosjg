@@ -302,10 +302,13 @@ def one_election_view(request, election):
   vote_url = "%s/booth/vote.html?%s" % (settings.SECURE_URL_HOST, urllib.urlencode({'election_url' : reverse(one_election, args=[election.uuid])}))
 
   test_cookie_url = "%s?%s" % (reverse(test_cookie), urllib.urlencode({'continue_url' : vote_url}))
-  
+
+  import logging
+  logging.debug('aqui estoy: ' + str(user))  
   if user:
     voter = Voter.get_by_election_and_user(election, user)
     
+    logging.debug('hay user, entonces voter: ' + str(voter))
     if not voter:
       try:
         eligible_p = _check_eligibility(election, user)

@@ -20,7 +20,6 @@ import helios.views
 
 from helios import datatypes
 
-
 # useful stuff in helios_auth
 from helios_auth.models import User, AUTH_SYSTEMS
 from helios_auth.jsonfield import JSONField
@@ -28,6 +27,8 @@ from helios.datatypes.djangofield import LDObjectField
 
 import csv, copy
 import unicodecsv
+
+import logging
 
 class HeliosModel(models.Model, datatypes.LDObjectContainer):
   class Meta:
@@ -263,6 +264,7 @@ class Election(HeliosModel):
     """
     Checks if a user is eligible for this election.
     """
+    logging.debug(self.eligibility)
     # registration closed, then eligibility doesn't come into play
     if not self.openreg:
       return False
@@ -272,6 +274,7 @@ class Election(HeliosModel):
       
     # is the user eligible for one of these cases?
     for eligibility_case in self.eligibility:
+      logging.debug('elegibility_case: ' + eligibility_case)
       if user.is_eligible_for(eligibility_case):
         return True
         
