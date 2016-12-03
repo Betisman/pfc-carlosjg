@@ -1,1 +1,1 @@
-Tally Released - {{custom_subject|safe}}
+Escrutinio publicado - {{custom_subject|safe}}

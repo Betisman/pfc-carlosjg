@@ -1,30 +1,33 @@
 {% extends TEMPLATE_BASE %}
 
-{% block title %}Compute Encryted Tally for {{election.name}}{% endblock %}
+{% block title %}Calcular el escrutinio cifrado de {{election.name}}{% endblock %}
 
 {% block content %}
-  <h2 class="title">Compute Tally for Election: {{election.name}}</h2>
+  <h2 class="title">Calcular escrutinio de la elección: {{election.name}}</h2>
 
 <div id="instructions">
 {% if election.num_cast_votes %}
 <p>
-    You are about to compute the encrypted tally for election <b>{{election.name}}</b>.
+    <!-- You are about to compute the encrypted tally for election <b>{{election.name}}</b>. -->
+    Está a punto de calcular el escrutinio cifrado de la elección <b>{{election.name}}</b>.
 </p>
 
 <p>
-    Once you do this, voters will no longer be able to cast a ballot.
+    <!-- Once you do this, voters will no longer be able to cast a ballot. -->
+	Una vez lo haga, los votantes no podrán votar más.
 </p>
 
 <form method="post" action="" onsubmit="alert('ok, tally has begun')" class="pretty">
 <input type="hidden" name="csrf_token" value="{{csrf_token}}" />
     
-<input class="pretty" type="submit" value="compute encrypted tally!" />
-<button onclick="document.location='./view'; return false;">never mind</button>
+<input class="pretty" type="submit" value="Calcular el escrutinio encrpitado" />
+<button onclick="document.location='./view'; return false;">No importa</button>
 </form>
 {% else %}
 <p>
-No votes have been cast in this election. At least one vote must be cast before you compute the tally.<br /><br />
-<a href="./view">back to election</a>
+<!-- No votes have been cast in this election. At least one vote must be cast before you compute the tally.<br /><br /> -->
+No se ha emitido ningún voto en esta elección. Al menos debe haber un voto para poder calcular el escrutinio.<br /><br />
+<a href="./view">Volver a la elección</a>
 </p>
 {% endif %}
 </div>

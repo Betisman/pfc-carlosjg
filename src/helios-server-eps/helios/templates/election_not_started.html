@@ -2,13 +2,14 @@
 
 {% block content %}
 
-  <h2 class="title">Election {{election.name}} Not Yet Open</h2>
+  <h2 class="title">La elección {{election.name}} toadavía no está abierta.</h2>
 
   <p>
-      This election is not yet open. You probably got here from the Ballot Preview.
+      <!-- This election is not yet open. You probably got here from the Ballot Preview. -->
+	  Esta elección todavía no está abierta.
   </p>
   
   <p>
-      <a href="{% url "helios.views.one_election_view" election.uuid %}">back to the election</a>
+      <a href="{% url "helios.views.one_election_view" election.uuid %}">Volver a la elección</a>
   </p>
 {% endblock %}

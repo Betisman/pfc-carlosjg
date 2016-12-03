@@ -87,29 +87,33 @@ function show_pk() {
 
 </script>
 
-<h2 class="title">{{election.name}} &mdash; Trustee {{trustee.name}} &mdash; Key Setup</h2>
+<h2 class="title">{{election.name}} &mdash; Trustee {{trustee.name}} &mdash; Configuración de la clave</h2>
 
 <p>
-  As a trustee, it's time to set up your key for this election.
+  <!-- As a trustee, it's time to set up your key for this election. -->
+  Como trustee, es el momento de configurar su clave para esta elección.
 </p>
 
 <p id="waiting_message">
-  Please wait for the generator to load...
+  <!-- Please wait for the generator to load... -->
+  Por favor, espere que cargue el generador...
 </p>
 
 <p id="generator">
 
-<span id="buttons"><button onclick="generate_keypair(); return false;" id="generate_button">Generate Election Keys</button></span>
+<span id="buttons"><button onclick="generate_keypair(); return false;" id="generate_button">Generar las claves de la elección</button></span>
 
 <br /><br />
-If you've already generated a keypair, you can <a href="javascript:show_key_reuse()">reuse it</a>.
+<!-- If you've already generated a keypair, you can <a href="javascript:show_key_reuse()">reuse it</a>. -->
+Si ya ha generado un par de claves, puede <a href="javascript:show_key_reuse()">reutilizarlo</a>.
 </p>
 
 <div id="reuse">
-<h3>Reusing a Key</h3>
+<h3>Reutilizando una clave</h3>
 
 <p>
-Enter your complete secret key below:
+<!-- Enter your complete secret key below: -->
+Introduzca su clave secreta completa:
 </p>
 <form onsubmit="reuse_key(this.secret_key.value); return false;">
 <textarea cols="80" rows="5" wrap="soft" name="secret_key">
@@ -120,29 +124,34 @@ Enter your complete secret key below:
 </div>
 
 <div id="sk_download">
-<h3>Your Secret Key</h3>
+<h3>Su clave secreta</h3>
 <span id="clear_button">
-Your key has been generated, but you may choose to<br /><a href="javascript:clear_keys();">clear it from memory and start from scratch</a> if you prefer.<br />
+<!-- Your key has been generated, but you may choose to<br /><a href="javascript:clear_keys();">clear it from memory and start from scratch</a> if you prefer.<br /> -->
+Su clave ha sido generada, pero puede elegir <br /><a href="javascript:clear_keys();">borrarla de la memoria y empezar de cero</a> si lo prefiere.<br />
 </span>
 
 <p>
-    <button style="font-size:16pt;" onclick="download_sk(); $('#pk_link').show();">Save your secret key</button>
+    <button style="font-size:16pt;" onclick="download_sk(); $('#pk_link').show();">Guardar su clave secreta</button>
 </p>
 
 <p style="display: none;" id="pk_link">
-  <a href="javascript:show_pk();">ok, I've saved the key, let's move on</a>.
+  <a href="javascript:show_pk();">Ok, he guardado la clave, sigamos adelante</a>.
 </p>
 </div>
 
 <form method="post" id="pk_form" action="{% url "helios.views.trustee_upload_pk" election.uuid trustee.uuid %}">
-<h3>Your Public Key</h3>
+<h3>Su clave pública</h3>
 <p>
-    It's time to upload the public key to the server.
+    <!-- It's time to upload the public key to the server. -->
+	Es el momento de cargar la clave pública al servidor.
 </p>
 <p>
-    The fingerprint of your public key is: <tt id="pk_hash" style="font-size: 1.5em; font-weight: bold;"></tt>.<br />
-    You may want to save this to confirm that your public key was properly stored by the server.<br />
-    (Your public key is not currently being displayed because you do not need to save it, the fingerprint is sufficient.)
+    <!-- The fingerprint of your public key is: <tt id="pk_hash" style="font-size: 1.5em; font-weight: bold;"></tt>.<br /> -->
+	La huella digital de su clave pública es <tt id="pk_hash" style="font-size: 1.5em; font-weight: bold;"></tt>.<br />
+    <!-- You may want to save this to confirm that your public key was properly stored by the server.<br />
+    (Your public key is not currently being displayed because you do not need to save it, the fingerprint is sufficient.) -->
+	Puede querer guardar este valor para confirmar que su clave pública ha sido almacenada corectamente en el servidor.<br />
+	(Su clave pública no se muestra porque no necesita guardarla, con la huella digiral es suficiente)
 </p>
 <textarea id="pk_textarea" name="public_key_json" cols="80" rows="10" style="display:none;">
 </textarea>

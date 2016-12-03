@@ -1,10 +1,10 @@
 {% extends TEMPLATE_BASE %}
 
-{% block title %}Ballot Tracking Center for {{election.name}}{% endblock %}
+{% block title %}Ballot Tracking Center para {{election.name}}{% endblock %}
 {% block title %}Centro de Seguimiento de Papeletas para {{election.name}}{% endblock %}
 
 {% block content %}
-  <h2 class="title">{{election.name}} &mdash; Ballot Tracking Center <span style="font-size:0.7em;">[<a href="{% url "helios.views.one_election_view" election_uuid=election.uuid %}">back to election</a>]</span></h2>
+  <h2 class="title">{{election.name}} &mdash; Ballot Tracking Center <span style="font-size:0.7em;">[<a href="{% url "helios.views.one_election_view" election_uuid=election.uuid %}">Volver a la elección</a>]</span></h2>
 
 <p>
   This is the ballot tracking center, which displays the tracking numbers of all cast ballots in this election.

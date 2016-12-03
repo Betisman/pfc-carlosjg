@@ -7,7 +7,8 @@ var SECRET_KEY;
 
 function before_create() {
 {% ifequal election_type "one" %}
-    return confirm('Have you made sure to copy the private key to a safe place?\n\nOnce you click OK, Helios will not be able to recover the secret key without your help!');
+    //return confirm('Have you made sure to copy the private key to a safe place?\n\nOnce you click OK, Helios will not be able to recover the secret key without your help!');
+    return confirm('Se ha asegurado de copiar la clave privada en un lugar sguro?\n\nUna vez haga click en OK, Helios no podrá recuperar la clave secreta sin su ayuda!');
 {% else %}
     return true;
 {% endifequal %}
@@ -46,14 +47,14 @@ $(document).ready(function() {
 });
 </script>
 
-  <h2 class="title">Create a New Election: {{name}}</h2>
+  <h2 class="title">Crear una nueva elección: {{name}}</h2>
 {% ifequal election_type "helios" %}
-  <b>An election managed by Helios</b>.
+  <b>Una elección gestionada por Helios</b>.
 {% else %}
 {% ifequal election_type "one" %}
-  <b>An election managed by you, the single administrator</b>.
+  <b>Una elección gestionada por usted como único administrador</b>.
 {% else %}
-<b>An election managed by multiple trustees</b>.
+<b>Una elección gestionada por varios trustees</b>.
 {% endifequal %}
 {% endifequal %}
   <form class="prettyform" action="{% url "helios.views.election_new_3" %}" method="POST" id="create_election_form" onsubmit="return before_create();">
@@ -63,10 +64,10 @@ $(document).ready(function() {
       <input type="hidden" name="private_key" id="sk" value="" /><br />
 
 {% ifnotequal election_type "multiple" %}
-  <label for="generate_key">&nbsp;</label><button onclick="generate_keypair(); return false;" id="generate_button">Generate Election Keys</button>
+  <label for="generate_key">&nbsp;</label><button onclick="generate_keypair(); return false;" id="generate_button">Generar las claves de la elección</button>
 {% else %}
 <div id="trustees">
-<h3>Trustees (up to 5)</h3>
+<h3>Trustees (hasta 5)</h3>
 <label for="">&nbsp;</label> <input type="text" name="trustee" /><br />
 <label for="">&nbsp;</label> <input type="text" name="trustee" /><br />
 <label for="">&nbsp;</label> <input type="text" name="trustee" /><br />
@@ -75,18 +76,19 @@ $(document).ready(function() {
 </div>
 {% endifnotequal %}
 <br /><br />
-<label for="">&nbsp;</label>  <input type="submit" value="create" id="submit" />
+<label for="">&nbsp;</label>  <input type="submit" value="Crear" id="submit" />
   </form>
   <br /><br />
 {% ifequal election_type "one" %}
   <form style="padding-left: 200px;" id="sk_form" onsubmit="return false;">
       <input type="hidden" name="csrf_token" value="{{csrf_token}}" />
-      Your Election's Secret Key:<br />
+      La Clave Secreta de su elección:<br />
       <label for="">&nbsp;</label>
       <textarea id="sk_textarea" cols="60" rows="5">
       </textarea><br />
-      (You need to copy and paste this key and keep it safe,<br />
-      otherwise you won't be able to tally your election.)
+      <!-- (You need to copy and paste this key and keep it safe,<br />
+      otherwise you won't be able to tally your election.) -->
+	  (Necesita copiar y pegar esta clave guárdandola y manteniéndolas en un lugar seguro, de otro modo no podrá realizar el recuento de la elección)
   </form>
 {% endifequal %}
 {% endblock %}

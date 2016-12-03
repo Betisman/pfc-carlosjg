@@ -1,42 +1,49 @@
 {% extends TEMPLATE_BASE %}
 
 {% block content %}
-  <h2 class="title">{{election.name}} &mdash; Freeze Ballot</h2>
+  <h2 class="title">{{election.name}} &mdash; Congelear papeleta</h2>
 <p>
-Once the ballot is frozen, the questions and options can no longer be modified.<br />
-The list of trustees and their public keys will also be frozen.
+<!-- Once the ballot is frozen, the questions and options can no longer be modified.<br />
+The list of trustees and their public keys will also be frozen. -->
+
+Una vez que la papeleta se ha congelado, las preguntas y opciones no podrán ser modificadas.<br/>
+La lista de trustees y sus claves públicas también serán congelados.
 </p>
 
 <p>
 {% if election.openreg %}
-Registration for your election is currently <b>open</b>, which means anyone can vote, even after you freeze the ballot.
+<!-- Registration for your election is currently <b>open</b>, which means anyone can vote, even after you freeze the ballot. -->
+El registro para su elección está actualmente <b>abierto</b>, loq ue significa que cualquiera puede votar, incluso aunque la papeleta esté congelada.
 {% else %}
-Registration for your election is currently <b>closed</b>, which means only the voters you designate will be able to cast a ballot. As the administrator, you will still be able to modify that voter list as the election progresses.
+<!-- Registration for your election is currently <b>closed</b>, which means only the voters you designate will be able to cast a ballot. As the administrator, you will still be able to modify that voter list as the election progresses. -->
+El regitro de votantes para esta elección está actualmente <b>cerrado</b>, lo que significa que los votantes inscritos podrán votar. Como administrador, todavía podrá modificar la lista de votantes mientras la elección se esté llevando a cabo.
 {% endif %}
 </p>    
 
 {% if helios.VOTERS_EMAIL %}
 <p>
-You must freeze the ballot before you can contact voters.
+<!-- You must freeze the ballot before you can contact voters. -->
+Debe congelar la papeleta antes de que pueda contactar con los votantes.
 </p>
 {% endif %}
 
 {% if issues_p %}
 <p>
-    Before you can freeze the election, you will need to:
+    <!-- Before you can freeze the election, you will need to: -->
+	Antes de que pueda congelar la papeleta, necesitará:
     <ul>
         {% for issue in issues %}
         <li>{{issue.action}}</li>
         {% endfor %}
     </ul>
-    <a href="{% url "helios.views.one_election_view" election.uuid %}">go back to the election</a>
+    <a href="{% url "helios.views.one_election_view" election.uuid %}">Volver a la elección</a>
 </p>
 {% else %}
 <form method="post" action="">
 <input type="hidden" name="csrf_token" value="{{csrf_token}}" />
     
-<input class="button" type="submit" value="Freeze the ballot" />
-<button onclick="document.location='./view'; return false;">never mind</button>
+<input class="button" type="submit" value="Congelar la papeleta" />
+<button onclick="document.location='./view'; return false;">No importa</button>
 </form>
 {% endif %}
 

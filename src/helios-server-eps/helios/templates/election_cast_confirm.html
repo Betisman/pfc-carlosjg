@@ -1,5 +1,5 @@
 {% extends TEMPLATE_BASE %}
-{% block title %}Confirm Vote{% endblock %}
+{% block title %}Confirmar el voto{% endblock %}
 
 {% block content %}
 <script language="javascript">
@@ -24,7 +24,8 @@ window.onbeforeunload = function(evt) {
     evt = window.event;
   }
   
-  var message = "You have not yet cast your ballot! Make sure to complete the voting process if you want your vote to count.";
+  //var message = "You have not yet cast your ballot! Make sure to complete the voting process if you want your vote to count.";
+  var message = "¡Todavía no ha votado! Asegúrese de completar el proceso de voto si quiere que su voto sea contado.";
 
   if (evt) {
     evt.returnValue = message;
@@ -34,10 +35,11 @@ window.onbeforeunload = function(evt) {
 };
 
 </script>
-<p style="margin-top: 10px">Submitting your vote for <b>{{election.name}}</b>...</p>
+<p style="margin-top: 10px">Emitiendo su voto para <b>{{election.name}}</b>...</p>
 
 <div id="waiting_div">
-    Verifying and Casting your ballot<br />
+    <!-- Verifying and Casting your ballot<br /> -->
+    Verificando y votando con su papeleta<br />
     <img src="/static/helios/loading.gif" />
 </div>
 
@@ -80,7 +82,7 @@ window.onbeforeunload = function(evt) {
               {% endif %}
               </b><br /></p>
             <p>
-                [<a href="{% url "helios.views.one_election_view" election.uuid %}">Volver a la página principal de la elección</a>]
+                [<a href="{% url "helios.views.one_election_view" election.uuid %}">Volver a la elección</a>]
             </p>
         {% else %}
             <p>
@@ -107,7 +109,7 @@ window.onbeforeunload = function(evt) {
 
     {% endif %}
     <br />
-    Your smart ballot tracker is:<br /><br />
+    Su smart ballot tracker es:<br /><br />
         <tt style="font-size:1.3em; font-weight: bold; padding-left: 20px;">  {{vote_fingerprint}}</tt>
     </p>
     {# this closes the IF ELSE of this being password_only #}

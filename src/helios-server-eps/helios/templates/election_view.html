@@ -82,7 +82,7 @@ esta {{election.election_type}} <u>no</u> aparece en la página inicial.
 <!-- election complete, no next step -->
 
 {% else %}
-<b>Next Step:</b>
+<b>Siguiente paso:</b>
 <span style="font-size: 1.3em;">
 {% if not election.frozen_at %}
 {% if election.issues_before_freeze %}
@@ -90,13 +90,15 @@ esta {{election.election_type}} <u>no</u> aparece en la página inicial.
 {{issue.action}}{% if forloop.last %}{% else %}, and{% endif %}<br />
 {% endfor %}
 {% else %}
-<a href="{% url "helios.views.one_election_freeze" election.uuid %}">freeze ballot and open election.</a>
+<a href="{% url "helios.views.one_election_freeze" election.uuid %}">Congelear papeleta y abrir la elección.</a>
 <br />
 {% if election.voting_starts_at %}
-once you do this, the election will be ready for voting and will open automatically<br />
-at {{election.voting_starts_at}}, as per your settings.
+<!--once you do this, the election will be ready for voting and will open automatically<br />-->
+Una vez que lo haga, la elección estará lista para la votación y se abrirá automáticamente<br/>
+en la fecha {{election.voting_starts_at}}, según la configuración.
 {% else %}
-once you do this, the election will be immediately open for voting.
+Una vez que lo haga, la elección se abrirá inmediatamente para comenzar la votación.
+<!--once you do this, the election will be immediately open for voting.-->
 {% endif %}
 {% endif %}
 
@@ -104,37 +106,46 @@ once you do this, the election will be immediately open for voting.
 
 {% if not election.encrypted_tally %}
 {% if election.tallying_started_at %}
-Tally computation is under way.<br />
-Reload this page in a couple of minutes.
+El recuento está en marcha<br/>
+<!--Tally computation is under way.<br />-->
+<!--Reload this page in a couple of minutes.-->
+Recargue esta página en un par de minutos.
 {% else %}
-<a href="{% url "helios.views.one_election_compute_tally" election.uuid %}">compute encrypted tally</a><br />
-The encrypted votes will be combined into an encrypted tally. Once this is done,<br />
-trustees will be asked to provide their share of the decryption.
+<a href="{% url "helios.views.one_election_compute_tally" election.uuid %}">Computar el recuento cifrado</a><br />
+Los votos encriptados se combinarán en un recuento encriptado. Una vez que esté hecho, se les pedirá a los trustees que proporcionen su parte compartida del descifrado.
+<!--The encrypted votes will be combined into an encrypted tally. Once this is done,<br />
+trustees will be asked to provide their share of the decryption.-->
 {% endif %}
 {% else %}
 
 {% if election.result %}
-<a href="{% url "helios.views.release_result" election.uuid %}">release result</a><br />
-The result displayed below is visible only to you.<br />
-Once you release the result, it will be visible to everyone.
+<a href="{% url "helios.views.release_result" election.uuid %}">Publicar el resultado</a><br />
+<!--The result displayed below is visible only to you.<br />
+Once you release the result, it will be visible to everyone.-->
+El resultado mostrado abajo sólo es visible para usted.<br />
+Una vez que lo publique, será visible para cualquier usuario.
 {% else %}
 
 {% if election.ready_for_decryption_combination %}
 <a href="{% url "helios.views.combine_decryptions" election.uuid %}">
 {% if election.num_trustees == 1 %}
-compute results
+Calcular resultados
 {% else %}
-combine trustee decryptions and compute results
+<!--combine trustee decryptions and compute results-->
+Combinar descifrados de los trustees y calcular resultados
 {% endif %}
 </a><br />
 {% if election.num_trustees == 1 %}
-The result will be computed and shown to you, the administrator, only.
+<!--The result will be computed and shown to you, the administrator, only.-->
+El resultado se calculará y se le mostrará sólo a usted, por ser administrador.
 {% else %}
-The decryption shares from the trustees will be combined and the tally computed.<br />
-Once you do this, the tally will visible to you, the administrator, only.
+<!--The decryption shares from the trustees will be combined and the tally computed.<br />
+Once you do this, the tally will visible to you, the administrator, only.-->
+Las partes compartidas del descifrado de los trustees se combinarán y se totalizará el escrutinio<br />
+Una vez lo haga, el resultado del escrutinio será visible sólo para usted, como administrador.
 {% endif %}
 {% else %}
-<a href="{% url "helios.views.list_trustees_view" election.uuid %}">trustees (for decryption)</a>
+<a href="{% url "helios.views.list_trustees_view" election.uuid %}">trustees (para descifrado)</a>
 {% endif %}
 
 {% endif %}
@@ -155,13 +166,14 @@ Once you do this, the tally will visible to you, the administrator, only.
 {% if show_result %}
 {% if election.result_released_at %}
 <span class="highlight-box round">
-    This election is complete.
+    <!--This election is complete.-->
+	La elección se ha completado.
 </span><br /><br /><br />
 {% endif %}
 
-<h3 class="highlight-box">Tally</h3>
+<h3 class="highlight-box">Escrutinio</h3>
 {% for question in election.pretty_result %}
-<b><span style="font-size:0.8em;">Question #{{forloop.counter}}</span><br />{{question.question}}</b><br />
+<b><span style="font-size:0.8em;">Pregunta #{{forloop.counter}}</span><br />{{question.question}}</b><br />
 <table class="pretty" style="width: auto;">
 {% for answer in question.answers %}
 <tr><td style="padding-right:80px;{% if answer.winner %}font-weight:bold;{% endif %}">{{answer.answer}}</td><td align="right" style="{% if answer.winner %}font-weight:bold;{% endif %}">{{answer.count}}</td></tr>
@@ -173,49 +185,56 @@ Once you do this, the tally will visible to you, the administrator, only.
 
 {% if election.voting_has_stopped %}
 <span class="highlight-box round">
-    Election closed. Results will be released soon.
+	Elección cerrada. Los resultados se publicarán pronto.
 </span><br /><br />
 {% else %}
 
 {% if election.voting_has_started %}
-<a class="btn btn-primary" href="{{test_cookie_url}}">Vote in this {{election.election_type}} </a>
+<a class="btn btn-primary" href="{{test_cookie_url}}">Vote en {{election.election_type}} </a>
 <br />
 <br />
 {% if election.voting_extended_until %}
-This {{election.election_type}} was initially scheduled to end at {{election.voting_ends_at}} (UTC),<br />
-but has been extended until {{ election.voting_extended_until }} (UTC).
+<!--This {{election.election_type}} was initially scheduled to end at {{election.voting_ends_at}} (UTC),<br />
+but has been extended until {{ election.voting_extended_until }} (UTC).-->
+Esta {{election.election_type}} se programó inicialmente para que acabara el {{election.voting_ends_at}} (UTC), pero el período ha sido extendido hasta {{ election.voting_extended_until }} (UTC).
 {% else %}
 {% if election.voting_ends_at %}
 <br />
-This {{election.election_type}} is scheduled to end at {{election.voting_ends_at}} (UTC).
+<!--This {{election.election_type}} is scheduled to end at {{election.voting_ends_at}} (UTC).-->
+Esta {{election.election_type}} está programada para que acabe el {{election.voting_ends_at}} (UTC).
 {% else %}
-This {{election.election_type}} ends at the administrator's discretion.
+<!-- This {{election.election_type}} ends at the administrator's discretion. -->
+Esta {{election.election_type}} acaba a discreción de los administradores.
 {% endif %}
 <br />
 {% endif %}
 
 {% if election.private_p and voter %}
 <br />
-This election is <em>private</em>. You are signed in as eligible voter <em>{{voter.name}}</em>.
+<!-- This election is <em>private</em>. You are signed in as eligible voter <em>{{voter.name}}</em>. -->
+Esta elección es <em>privada</em>. Usted es un votante apto, identificado como <em>{{voter.name}}</em>.
 {% endif %}
 
 <div class="highlight-box round" style="font-size: 1.2em; margin-right: 400px; display:none;" id="nojava_message">
   You do not have Java installed in your browser.<br />At this time, Helios requires Java.<br />
-  Visit <a target="_new" href="http://java.sun.com">java.sun.com</a> to install it.
+  Visit <a target="_new" href="http://java.sun.com">java.sun.com</a> to install it.  
 </div>
 <br />
 {% else %}
 <span class="highlight-box round">
-  voting is not yet open
+  <!-- voting is not yet open -->
+  La votación todavía no está abierta.
 </span> <br /><br />
 {% endif %}
 
 {% if user %}
 {% if voter %}
 <p style="padding-top:1px;">
-  You are registered to vote in this {{election.election_type}}.
+  <!-- You are registered to vote in this {{election.election_type}}. -->
+  Usted está registrado para votar en esta {{election.election_type}}.
 {% if election.use_voter_aliases %}
-Your voter alias is {{voter.alias}}.
+<!-- Your voter alias is {{voter.alias}}. -->
+Su alias como votante es {{voter.alias}}.
 {% endif %}
 </p>
 
@@ -224,12 +243,15 @@ Your voter alias is {{voter.alias}}.
 {% else %}
 {% if election.openreg %}
 {% if eligible_p %}
-You are eligible to vote in this election.
+<!-- You are eligible to vote in this election. -->
+Usted es apto para votar en esta elección.
 {% else %}
-You are <em>not eligible</em> to vote in this {{election.election_type}}.
+<!-- You are <em>not eligible</em> to vote in this {{election.election_type}}. -->
+Usted <em>no es apto</em> para votar en esta {{election.election_type}}.
 {% endif %}
 {% else %}
-You are <em>not eligible</em> to vote in this {{election.election_type}}.
+<!-- You are <em>not eligible</em> to vote in this {{election.election_type}}. -->
+Usted <em>no es apto</em> para votar en esta {{election.election_type}}.
 <br />
 {% endif %}
 {% endif %}
@@ -238,10 +260,11 @@ You are <em>not eligible</em> to vote in this {{election.election_type}}.
 
 {% if election.openreg %}
 {% if election.eligibility %}
-This election is open to: {{election.pretty_eligibility|safe}}
-<a href="{{settings.SECURE_URL_HOST}}{% url "helios_auth.views.index" %}?return_url={{CURRENT_URL}}">Log in</a> to check your eligibility.
+<!-- This election is open to: {{election.pretty_eligibility|safe}} -->
+Esta elección está abierta a: {{election.pretty_eligibility|safe}}
+<a href="{{settings.SECURE_URL_HOST}}{% url "helios_auth.views.index" %}?return_url={{CURRENT_URL}}">Log in</a> para comprobar si tiene permisos como votante.
 {% else %}
-Anyone can vote in this election.
+Cualquiera puede votar en esta elección.
 {% endif %}
 {% endif %}
 
@@ -253,19 +276,19 @@ Anyone can vote in this election.
 
 
 <div style="background: lightyellow; padding:5px; padding-left: 10px; margin-top: 15px; border: 1px solid #aaa; width: 720px;" class="round">
-<a href="#" onclick="$('#auditbody').slideToggle(250);">Audit Info</a>
+<a href="#" onclick="$('#auditbody').slideToggle(250);">Información auditoría</a>
 <div id="auditbody" style="display:none;">
-<br />Election URL:<br />
+<br />URL de la elección:<br />
 <tt style="font-size: 1.2em;"><a href="{{election.url}}">{{election.url}}</a></tt>
 
 {% if election.frozen_at %}
 <br />
-<br />Election Fingerprint:<br />
+<br />Huella digital de la elección:<br />
 <tt style="font-size: 1.3em; font-weight: bold;">{{election.hash}}</tt>
 
 
 {% if votes %}
-<p>Your smart ballot tracker:<br />
+<p>Su smart ballot tracker:<br />
 <tt style="font-size:14pt; font-weight: bold;">{{votes.0.vote_hash}}</tt>
 </p>
 {% endif %}
@@ -279,17 +302,17 @@ Anyone can vote in this election.
 
 {% if not election.voting_has_started %}
 <p style="font-size: 1.2em;">
-  <a href="{{SECURE_URL_HOST}}/booth/vote.html?election_url={% url "helios.views.one_election" election.uuid %}">preview booth</a>
+  <a href="{{SECURE_URL_HOST}}/booth/vote.html?election_url={% url "helios.views.one_election" election.uuid %}">Cabina de voto</a>
 </p>
 {% endif %}  
 
 {% if election.voting_has_stopped %}
 <p style="font-size: 1.2em;">
 {% if election.result %}
-verify <a target="_blank" href="/verifier/verify.html?election_url={% url "helios.views.one_election" election.uuid %}">election tally</a>.
+Verificar <a target="_blank" href="/verifier/verify.html?election_url={% url "helios.views.one_election" election.uuid %}">el escrutinio de la elección</a>.
 {% endif %}
 
-review the <a href="{{vote_url}}">voting booth</a>.
+Volver a ver <a href="{{vote_url}}">la cabina de votación</a>.
 </p>
 
 {% endif %}

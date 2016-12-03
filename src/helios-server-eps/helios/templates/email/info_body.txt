@@ -1,8 +1,8 @@
-Dear {{voter.name}},
+Estimado {{voter.name}},
 
 {{custom_message|safe}}
 
-Election Link: {{election_vote_url}}
+Link de la elección: {{election_vote_url}}
 
 --
-Helios
+Helios - USP CEU - EPS

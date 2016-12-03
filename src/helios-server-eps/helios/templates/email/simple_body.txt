@@ -1,14 +1,14 @@
-Dear {{voter.name}},
+Estimado {{voter.name}},
 
 {{custom_message|safe}}
 
 ========
-How to Vote
+Cómo votar:
 
-Election URL:  {{election_vote_url}}
+URL de la elección:  {{election_vote_url}}
 {% ifequal voter.voter_type "password" %}
-Your voter ID: {{voter.voter_login_id}}
-Your password: {{voter.voter_password}}
+Su ID: {{voter.voter_login_id}}
+Su password: {{voter.voter_password}}
 {% else %}
-Log in with your {{voter.voter_type}} account.
+Log in con su cuenta de {{voter.voter_type}}.
 {% endifequal %}

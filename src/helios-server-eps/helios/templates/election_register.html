@@ -1,19 +1,22 @@
 {% extends TEMPLATE_BASE %}
 
 {% block content %}
-  <h2 class="title">{{ election.name }} – Register</h2>
+  <h2 class="title">{{ election.name }} – Registro</h2>
 
 {% if user %}
 <p>
-    You are currently logged in as {{user.user_id}} [{{user.user_type}}]
+    <!-- You are currently logged in as {{user.user_id}} [{{user.user_type}}] -->
+    Ahora mismo está logado como {{user.user_id}} [{{user.user_type}}]
 </p>
 {% if voter %}
 <p>
-    You are currently registered for this election.
+    <!-- You are currently registered for this election. -->
+    Está ahora mismo registrado para esta elección.
 </p>
 {% else %}
 <p>
-    You are <em>not</em> registered for this election.
+    <!-- You are <em>not</em> registered for this election. -->
+    <em>No</em> está registrado para esta elección.
 </p>
 
 <form method="post" action="{% url "helios.views.one_election_register" election.uuid %}">

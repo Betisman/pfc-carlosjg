@@ -1,29 +1,29 @@
-Dear {{voter.name}},
+Estimado {{voter.name}},
 
 {{custom_message|safe}}
 
-Election URL:  {{election_vote_url}}
-Election Fingerprint:  {{voter.election.hash}}
+URL de la elección:  {{election_vote_url}}
+Huella digital de la elección:  {{voter.election.hash}}
 {% ifequal voter.voter_type "password" %}
-Your voter ID: {{voter.voter_login_id}}
-Your password: {{voter.voter_password}}
+Su ID: {{voter.voter_login_id}}
+Su contraseña: {{voter.voter_password}}
 {% else %}
-Log in with your {{voter.voter_type}} account.
+Log in con su cuenta de {{voter.voter_type}}.
 {% endifequal %}{% if voter.vote_hash %}
-We have recorded your vote with smart tracker:
+Hemos registrado su voto con el siguiente código de seguimiento:
 
   {{voter.vote_hash}}
 
-You may re-vote if you wish: only your last vote counts.
+Puede volver a votar si lo desea: sólo cuenta su último voto.
 {% endif %}{% if election.use_voter_aliases %}
-In order to protect your privacy, this election is configured
-to never display your voter login ID, name, or email address to the public.
-Instead, the ballot tracking center will only display your alias.
+Para proteger su privacidad, esta elección está configurada
+para que nunca se muestre su ID, nombre o email al públco.
+Por el contrario, el centro de seguimiento mostrará sólo su alias.
 
-Your voter alias is {{voter.alias}}.
+Su alias de votantes es {{voter.alias}}.
 
-IMPORTANTLY, when you are prompted to log in to vote,
-please use your *voter ID*, not your alias.
+IMPORTANTE: cuando se le pida logarse para votar, 
+por favor use su ID, no su alias.
 {% endif %}
 --
-Helios
+Helios - USP CEU - EPS
