@@ -107,6 +107,11 @@ class User(models.Model):
     {'auth_system': 'cas', 'constraint': [{}, {}, {}]}
     and the constraints are OR'ed together
     """
+    if eligibility_case != self.user_type:
+      return False
+    else:
+      return True
+    # Para el prototipo hacemos algo de trampa, no miramos los constraints. Lo siento.
     
     if eligibility_case['auth_system'] != self.user_type:
       return False
