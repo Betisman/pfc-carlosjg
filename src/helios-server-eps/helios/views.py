@@ -680,7 +680,9 @@ def one_election_cast_confirm(request, election):
 
     # do we need to constrain the auth_systems?
     if election.eligibility:
-      auth_systems = [e['auth_system'] for e in election.eligibility]
+      # auth_systems = [e['auth_system'] for e in election.eligibility]
+      # No usamos constraints, por lo que estamos usando un array de strings, no un dict
+      auth_systems = [e for e in election.eligibility]
     else:
       auth_systems = None
 
