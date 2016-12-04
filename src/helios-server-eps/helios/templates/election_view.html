@@ -90,7 +90,7 @@ esta {{election.election_type}} <u>no</u> aparece en la página inicial.
 {{issue.action}}{% if forloop.last %}{% else %}, and{% endif %}<br />
 {% endfor %}
 {% else %}
-<a href="{% url "helios.views.one_election_freeze" election.uuid %}">Congelear papeleta y abrir la elección.</a>
+<a href="{% url "helios.views.one_election_freeze" election.uuid %}">Congelar papeleta y abrir la elección.</a>
 <br />
 {% if election.voting_starts_at %}
 <!--once you do this, the election will be ready for voting and will open automatically<br />-->
