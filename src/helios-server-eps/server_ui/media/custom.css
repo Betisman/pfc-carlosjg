@@ -1,0 +1,40 @@
+.logoupleft img {
+	height: 43px;
+}
+
+#contentbody {
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
+	max-width: none;
+}
+
+.panel {
+	padding: 0;
+}
+
+.panel-primary h5 {
+	color: white;
+}
+
+.panel-warning h5 {
+	color: #8a6d3b;
+}
+
+.centrar {
+	text-align: center;
+}
+
+.panel-admin {
+	margin-top: 1em;
+}
+
+.div-crear-eleccion {
+	width: 100%;
+}
+
+.link-crear-eleccion {
+	width: 80%;
+	margin: 0 auto;
+	display: block;
+}

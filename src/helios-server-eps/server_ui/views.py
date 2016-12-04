@@ -67,11 +67,17 @@ def home(request):
 
   try:
     ssl_client_s_dn = request.META['SSL_CLIENT_S_DN']
+    logger.debug('1: ' + str(ssl_client_s_dn))
     ssl_client_s_dn = ssl_client_s_dn.replace('\,', 'XXXCOMAXXX')
+    logger.debug('2: ' + str(ssl_client_s_dn))
     sd = dict(u.split("=") for u in ssl_client_s_dn.split(","))
+    logger.debug('3: ' + str(sd))
     for fff in sd:
+      # logger.debug('4: ' + str(fff))
       sd[fff] = sd[fff].replace('XXXCOMAXXX', ',')
+      # logger.debug('5: ' + str(sd[fff])
     dni = sd['serialNumber']
+    # logger.debug('6: ' + str(dni))
   except KeyError:
     dni = None
   """

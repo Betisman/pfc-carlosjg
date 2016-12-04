@@ -59,67 +59,77 @@
     <p>No se ha establecido ningún canal SSL.</p>
   {% endif %}
   
-  {% if dnie %}
-    <p>Por el certificado con el que se ha conectado, su DNI es: {{dnie}}</p>
-  {% else %}
-    <p>No se ha establecido ningún canal SSL.</p>
-  {% endif %}
-
+  
+  
+{% if false %}
   {% if create_p %}
     <a class="btn btn-primary" href="{% url "helios.views.election_new" %}">Crear elección</a>
   {% else %}
     <p>No es usuario admin</p>
   {% endif %}
+{% endif %}
+
 </div>
 
 <div class="large-3 columns" id="mystuff">
-<div class="row">&nbsp;</div>
-<div class="panel row">
-  <p>{{user.id}}</p>
-{% if user %}
-<!--<div class="row right">{{user.display_html_big|safe}}</div>-->
-{% if create_p %}
-<a class="btn btn-primary" href="{% url "helios.views.election_new" %}">Crear elección</a>
-<h5 class="subheader">Administración</h5>
-{% if elections_administered %}
-<ul>
-{% for election in elections_administered %}
-<li> <a href="{% url "helios.views.one_election_view" election.uuid %}">{{election.name}}</a></li>
-{% endfor %}
-</ul>
-{% else %}
-<em>Ninguna todavía</em>
-{% endif %}
-<div class="row right">
-<a class="btn btn-primary" href="{% url "helios.views.elections_administered" %}">Ver todas</a>
-</div>
-<div class="row"></div>
-{% endif %}
+  <!-- <p>{{user.id}}</p> -->
+	{% if user %}
+	<!--<div class="row right">{{user.display_html_big|safe}}</div>-->
+		{% if create_p %}
+			<div class="div-crear-eleccion">
+				<a class="btn btn-primary link-crear-eleccion" href="{% url "helios.views.election_new" %}">Crear elección</a>
+			</div>
 
-<h5 class="subheader">Recent Votes</h5>
-{% if elections_voted %}
-<ul>
-{% for election in elections_voted %}
-<li><a href="{% url "helios.views.one_election_view" election.uuid %}">{{election.name}}</a></li>
-{% endfor %}
-</ul>
-{% else %}
-<em>Ninguna todavía</em>
-{% endif %}
-<div class="row right"><a class="btn btn-primary" href="{% url "helios.views.elections_voted" %}">Ver todas</a></div>
-<div class="row"></div>
-{% else %}
-{% if settings.SHOW_LOGIN_OPTIONS %}
-<h5>Acceda para empezar a votar</h5>
-{{login_box|safe}}
-{% else %}
-<p>
-  Selecciona una elección para comenzar a votar. Se le preguntará por sus credenciales después de que complete una boleta.
-{#Select an election to start voting. You will be asked for your voting credentials after you complete a ballot.#}
-</p>
-{% endif %}
-{% endif %}
-</div>
+			<div class="panel panel-warning panel-admin">
+				<div class="panel-heading">
+					<h5 class="panel-title centrar">Administración</h5>
+				</div>
+				<div class="panel-body">
+					{% if elections_administered %}
+						<ul>
+							{% for election in elections_administered %}
+							<li><a href="{% url "helios.views.one_election_view" election.uuid %}">{{election.name}}</a></li>
+							{% endfor %}
+						</ul>
+					{% else %}
+						<em>Ninguna todavía</em>
+					{% endif %}
+					<div class="row right">
+						<a class="btn btn-warning" href="{% url "helios.views.elections_administered" %}">Ver todas</a>
+					</div>
+					{% endif %}
+				</div>
+			</div>
+
+			<div class="panel panel-primary panel-votos">
+				<div class="panel-heading">
+					<h5 class="panel-title centrar">Votos Recientes</h5>
+				</div>
+				<div class="panel-body">
+					{% if elections_voted %}
+					<ul>
+					{% for election in elections_voted %}
+					<li><a href="{% url "helios.views.one_election_view" election.uuid %}">{{election.name}}</a></li>
+					{% endfor %}
+					</ul>
+					{% else %}
+					<em>Ninguna todavía</em>
+					{% endif %}
+					<div class="row right"><a class="btn btn-primary" href="{% url "helios.views.elections_voted" %}">Ver todas</a></div>
+					<div class="row"></div>
+					{% else %}
+					{% if settings.SHOW_LOGIN_OPTIONS %}
+					<h5>Acceda para empezar a votar</h5>
+					{{login_box|safe}}
+					{% else %}
+					<p>
+					  Selecciona una elección para comenzar a votar. Se le preguntará por sus credenciales después de que complete una boleta.
+					{#Select an election to start voting. You will be asked for your voting credentials after you complete a ballot.#}
+					</p>
+					{% endif %}
+					{% endif %}
+				</div>
+			</div>
 </div>
 
 
