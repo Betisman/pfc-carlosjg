@@ -70,7 +70,6 @@ class Election(HeliosModel):
   # [{'auth_system': 'cas', 'constraint': [{'year': 'u12'}, {'year':'u13'}]}, {'auth_system' : 'password'}, {'auth_system' : 'openid', 'constraint': [{'host':'http://myopenid.com'}]}]
   eligibility = LDObjectField(type_hint = 'legacy/Eligibility',
                               null=True)
-
   # open registration?
   # this is now used to indicate the state of registration,
   # whether or not the election is frozen
@@ -264,18 +263,16 @@ class Election(HeliosModel):
     """
     Checks if a user is eligible for this election.
     """
-    logging.debug(self.eligibility)
     # registration closed, then eligibility doesn't come into play
     if not self.openreg:
       return False
     
     if self.eligibility == None:
       return True
-      
+    
     # is the user eligible for one of these cases?
     for eligibility_case in self.eligibility:
-      logging.debug('elegibility_case: ' + eligibility_case)
-      if user.is_eligible_for(eligibility_case):
+      if user.is_eligible_for(self.eligibility[eligibility_case]):
         return True
         
     return False
