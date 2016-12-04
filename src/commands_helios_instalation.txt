@@ -38,3 +38,31 @@ echo "from helios_auth.models import User; User.objects.create(user_type='passwo
    ./reset.sh
    40  history
    41  history > ../../commands_helios_instalation.txt
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sudo pip install django-celery
+sudo pip install celery
+cd /home/carlos/pfc/pfc-carlosjg/src/helios-server-eps
+source venv/bin/activate
+python manage.py celeryd
+-------------
+update helios_election set eligibility = '{"auth_system": "dnie", "constraint": [{}, {}, {}]}', openreg = true where id = 2
+-------------

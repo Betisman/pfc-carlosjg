@@ -952,6 +952,7 @@ def one_election_questions(request, election):
   return render_template(request, 'election_questions', {'election': election, 'questions_json' : questions_json, 'admin_p': admin_p})
 
 def _check_eligibility(election, user):
+  logging.debug('_check_eligibility user.user_type: ' + str(user.user_type))
   # prevent password-users from signing up willy-nilly for other elections, doesn't make sense
   if user.user_type == 'password':
     return False

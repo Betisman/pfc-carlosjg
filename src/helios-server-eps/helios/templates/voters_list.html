@@ -21,7 +21,7 @@ Puede cambiar esta configuración:
 <form method="post" action="{% url "helios.views.voters_eligibility" election.uuid %}">
 <input type="hidden" name="csrf_token" value="{{csrf_token}}" />
 <input type="radio" name="eligibility" value="openreg" {% if election.openreg and not election.eligibility %}CHECKED{% endif %} /> Cualquier usuario puede votar<br />
-<input type="radio" name="eligibility" value="closedreg" {% if not election.openreg %}CHECKED{% endif %} /> Aólo los votantes listados explícitamente abajo pueden votar<br />
+<input type="radio" name="eligibility" value="closedreg" {% if not election.openreg %}CHECKED{% endif %} /> Sólo los votantes listados explícitamente abajo pueden votar<br />
 {% if categories %}
 <input type="radio" name="eligibility" value="limitedreg" {% if election.eligibility %}CHECKED{% endif %} /> sólo votantes que son miembros de 
 <select name="category_id">
