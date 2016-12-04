@@ -25,7 +25,7 @@
 	text-align: center;
 }
 
-.panel-admin {
+.panel-admin, .panel-votos {
 	margin-top: 1em;
 }
 
@@ -37,4 +37,27 @@
 	width: 80%;
 	margin: 0 auto;
 	display: block;
+}
+
+.link-global {
+	font-size: 150%;
+}
+
+.panel-admin li, .panel-votos li {
+	display: block;
+}
+
+.panel-admin li:before, .panel-votos li:before {
+	content: "\2709";
+	font-family: 'Glyphicons Halflings';
+	float: left;
+	margin-left: -17px;
+}
+
+.panel-admin li:before {
+	color: #ec971f;
+}
+
+.panel-votos li:before {
+	color: #286090;
 }

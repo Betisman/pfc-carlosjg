@@ -9,7 +9,7 @@
 
 <div class="row"><div class="large-5 columns large-centered"><a href="/"><img border="0" src="{{ settings.MAIN_LOGO_URL }}" /></a></div></div>
 <div class="row">&nbsp;</div>
-<div class="large-9 columns">
+<div class="col-lg-7 col-md-6 col-sm-12 col-xs-12 jumbotron">
   {% if settings.MASTER_HELIOS %}
     <p>Helios offers <b>verifiable online elections</b>.</p>
 
@@ -53,83 +53,89 @@
     {% endif %}
   {% endif %}
 
+{% if false %}
   {% if dni %}
     <p>Por el certificado con el que se ha conectado, su DNI es: {{dni}}</p>
   {% else %}
     <p>No se ha establecido ningún canal SSL.</p>
   {% endif %}
+{% endif %}
   
   
   
-{% if false %}
+
   {% if create_p %}
-    <a class="btn btn-primary" href="{% url "helios.views.election_new" %}">Crear elección</a>
+    <a class="btn btn-primary link-crear-eleccion link-global" href="{% url "helios.views.election_new" %}"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Crear una nueva elección</a>
   {% else %}
     <p>No es usuario admin</p>
   {% endif %}
-{% endif %}
+
 
 </div>
 
-<div class="large-3 columns" id="mystuff">
+<div class="col-lg-5 col-md-6 col-sm-12 col-xs-12" id="mystuff">
   <!-- <p>{{user.id}}</p> -->
 	{% if user %}
 	<!--<div class="row right">{{user.display_html_big|safe}}</div>-->
+	
+	{% if false %}
 		{% if create_p %}
 			<div class="div-crear-eleccion">
 				<a class="btn btn-primary link-crear-eleccion" href="{% url "helios.views.election_new" %}">Crear elección</a>
 			</div>
-
-			<div class="panel panel-warning panel-admin">
+		{% endif %}
+	{% endif %}
+		
+		<div class="panel panel-primary panel-votos">
 				<div class="panel-heading">
-					<h5 class="panel-title centrar">Administración</h5>
+					<h5 class="panel-title centrar"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> Elecciones Recientes</h5>
+				</div>
+				<div class="panel-body">
+					{% if elections_voted %}
+						<ul>
+						{% for election in elections_voted %}
+							<li><a href="{% url "helios.views.one_election_view" election.uuid %}">{{election.name}}</a></li>
+						{% endfor %}
+						</ul>
+					{% else %}
+						<em>Ninguna todavía</em>
+					{% endif %}
+					<div class="row right"><a class="btn btn-primary" href="{% url "helios.views.elections_voted" %}">Ver todas</a></div>
+				</div>
+			</div>
+		{% if create_p %}
+			<div class="panel panel-success panel-admin">
+				<div class="panel-heading">
+					<h5 class="panel-title centrar"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Elecciones Administradas</h5>
 				</div>
 				<div class="panel-body">
 					{% if elections_administered %}
 						<ul>
 							{% for election in elections_administered %}
-							<li><a href="{% url "helios.views.one_election_view" election.uuid %}">{{election.name}}</a></li>
+								<li><a href="{% url "helios.views.one_election_view" election.uuid %}">{{election.name}}</a></li>
 							{% endfor %}
 						</ul>
-					{% else %}
+					{% else %} {# if elections_administered #}
 						<em>Ninguna todavía</em>
-					{% endif %}
+					{% endif %} {# elections_administered #}
 					<div class="row right">
-						<a class="btn btn-warning" href="{% url "helios.views.elections_administered" %}">Ver todas</a>
+						<a class="btn btn-success" href="{% url "helios.views.elections_administered" %}">Ver todas</a>
 					</div>
-					{% endif %}
 				</div>
 			</div>
-
-			<div class="panel panel-primary panel-votos">
-				<div class="panel-heading">
-					<h5 class="panel-title centrar">Votos Recientes</h5>
-				</div>
-				<div class="panel-body">
-					{% if elections_voted %}
-					<ul>
-					{% for election in elections_voted %}
-					<li><a href="{% url "helios.views.one_election_view" election.uuid %}">{{election.name}}</a></li>
-					{% endfor %}
-					</ul>
-					{% else %}
-					<em>Ninguna todavía</em>
-					{% endif %}
-					<div class="row right"><a class="btn btn-primary" href="{% url "helios.views.elections_voted" %}">Ver todas</a></div>
-					<div class="row"></div>
-					{% else %}
-					{% if settings.SHOW_LOGIN_OPTIONS %}
-					<h5>Acceda para empezar a votar</h5>
-					{{login_box|safe}}
-					{% else %}
-					<p>
-					  Selecciona una elección para comenzar a votar. Se le preguntará por sus credenciales después de que complete una boleta.
-					{#Select an election to start voting. You will be asked for your voting credentials after you complete a ballot.#}
-					</p>
-					{% endif %}
-					{% endif %}
-				</div>
-			</div>
+		{% endif %}
+		
+	{% else %}
+		{% if settings.SHOW_LOGIN_OPTIONS %}
+			<h5>Acceda para empezar a votar</h5>
+			{{login_box|safe}}
+		{% else %}
+			<p>
+			  Selecciona una elección para comenzar a votar. Se le preguntará por sus credenciales después de que complete una boleta.
+			{#Select an election to start voting. You will be asked for your voting credentials after you complete a ballot.#}
+			</p>
+		{% endif %}
+	{% endif %}
 </div>
 
 
