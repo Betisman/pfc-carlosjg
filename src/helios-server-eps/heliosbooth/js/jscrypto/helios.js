@@ -127,7 +127,9 @@ HELIOS.Election.fromJSONString = function(raw_json) {
   //var json_object = JSON.parse(raw_json);
   // Al actualizar jquery, no es necesario parsear el JSON
   //var json_object = raw_json;
-  var json_object = JSON.parse(raw_json);
+  var json_object = raw_json;
+  if (typeof raw_json === 'string')
+	json_object = JSON.parse(raw_json);
   
   // let's hash the raw_json
   var election = HELIOS.Election.fromJSONObject(json_object);
