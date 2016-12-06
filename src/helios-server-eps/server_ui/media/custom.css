@@ -1,0 +1,63 @@
+.logoupleft img {
+	height: 43px;
+}
+
+#contentbody {
+	margin-left: auto;
+	margin-right: auto;
+	width: 90%;
+	max-width: none;
+}
+
+.panel {
+	padding: 0;
+}
+
+.panel-primary h5 {
+	color: white;
+}
+
+.panel-warning h5 {
+	color: #8a6d3b;
+}
+
+.centrar {
+	text-align: center;
+}
+
+.panel-admin, .panel-votos {
+	margin-top: 1em;
+}
+
+.div-crear-eleccion {
+	width: 100%;
+}
+
+.link-crear-eleccion {
+	width: 80%;
+	margin: 0 auto;
+	display: block;
+}
+
+.link-global {
+	font-size: 150%;
+}
+
+.panel-admin li, .panel-votos li {
+	display: block;
+}
+
+.panel-admin li:before, .panel-votos li:before {
+	content: "\2709";
+	font-family: 'Glyphicons Halflings';
+	float: left;
+	margin-left: -17px;
+}
+
+.panel-admin li:before {
+	color: #ec971f;
+}
+
+.panel-votos li:before {
+	color: #286090;
+}
