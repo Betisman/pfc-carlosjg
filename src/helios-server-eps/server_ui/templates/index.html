@@ -28,7 +28,7 @@
     </p>
 
     {% if create_p %}
-      <a class="btn btn-primary" href="{% url "helios.views.election_new" %}">Crear elección</a>
+      <a class="btn btn-primary" href="{% url "helios.views.election_new" %}">create an election</a>
     {% else %}
       <p>No es usuario admin</p>
     {% endif %}
@@ -58,15 +58,9 @@
   {% else %}
     <p>No se ha establecido ningún canal SSL.</p>
   {% endif %}
-  
-  {% if dnie %}
-    <p>Por el certificado con el que se ha conectado, su DNI es: {{dnie}}</p>
-  {% else %}
-    <p>No se ha establecido ningún canal SSL.</p>
-  {% endif %}
 
   {% if create_p %}
-    <a class="btn btn-primary" href="{% url "helios.views.election_new" %}">Crear elección</a>
+    <a class="btn btn-primary" href="{% url "helios.views.election_new" %}">create an election</a>
   {% else %}
     <p>No es usuario admin</p>
   {% endif %}
