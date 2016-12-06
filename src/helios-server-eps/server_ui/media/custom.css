@@ -25,7 +25,7 @@
 	text-align: center;
 }
 
-.panel-admin, .panel-votos {
+.panel-admin {
 	margin-top: 1em;
 }
 
@@ -47,7 +47,11 @@
 	display: block;
 }
 
-.panel-admin li:before, .panel-votos li:before {
+.elecs-admin, .elecs-votos {
+	list-style: none;
+}
+
+.panel-admin li:before, .panel-votos li:before, .elecs-admin li:before, .elecs-votos li:before {
 	content: "\2709";
 	font-family: 'Glyphicons Halflings';
 	float: left;
@@ -60,4 +64,24 @@
 
 .panel-votos li:before {
 	color: #286090;
+}
+
+.elemselecc {
+	margin-top: 2em;
+}
+.elemselecc .btn {
+	font-size: 130%;
+}
+
+h3 .btn-group {
+	display: inline-block;
+}
+
+.infoelec {
+	padding-top: 5px;
+}
+
+.infoelec .well {
+	padding-top: 0;
+	padding-bottom: 0;
 }
