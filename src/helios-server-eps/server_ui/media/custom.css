@@ -85,3 +85,68 @@ h3 .btn-group {
 	padding-top: 0;
 	padding-bottom: 0;
 }
+
+
+
+/* -------------------- Para el escrutinio ----------------*/
+.escrutinio {
+	font-size: 150%;
+}
+
+.escrutinio .panel h1 {
+	font-size: 150%;
+	margin-bottom: 0;
+}
+
+.escrutinio .panel h3 {
+	font-size: 125%;
+	margin-bottom: 0;
+}
+
+.fin-eleccion-ok {
+	color: #00CA00;
+}
+
+
+#auditinfocollapse table td {
+	font-size: 1.2em;
+}
+
+@media screen and (max-width: 800px) {
+	#auditinfocollapse table {
+		width: 100%;
+	}
+	
+	#auditinfocollapse table th {
+		display: none;
+	}
+	
+	#auditinfocollapse table td {
+		display: block;
+		text-align: center;
+	}
+	
+	#auditinfocollapse table td:before {
+		content: attr(data-th);
+		display: block;
+		text-align: center;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	#auditinfocollapse table td {
+		text-align: left;
+	}
+	
+	#auditinfocollapse table td:before {
+		text-align: left;
+	}
+	
+	#auditinfocollapse .btn:not([class~=btn-lg]) {
+		font-size: 0.8em;
+	}
+	
+}
+
+
+/* -------------------- Para el escrutinio ----------------*/

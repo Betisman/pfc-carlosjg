@@ -20,8 +20,8 @@
 <form method="post" action="" onsubmit="alert('ok, tally has begun')" class="pretty">
 <input type="hidden" name="csrf_token" value="{{csrf_token}}" />
     
-<input class="pretty" type="submit" value="Calcular el escrutinio encrpitado" />
-<button onclick="document.location='./view'; return false;">No importa</button>
+<input class="btn btn-primary" type="submit" value="Calcular el escrutinio encrpitado" />
+<button class="btn btn-warning" onclick="document.location='./view'; return false;">No importa</button>
 </form>
 {% else %}
 <p>

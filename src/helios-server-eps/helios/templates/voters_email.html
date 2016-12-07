@@ -18,16 +18,15 @@ voter_id = '{{voter.voter_id}}';
 {% endif %}
 
 <p>
-<b>Plantilals</b>:
+<b>Plantillas</b>:
 
-{% for template_option in templates %}
-{% if template_option.0 == template %}
-<b>{{template_option.1}}</b>
-{% else %}
-<a href="?template={{template_option.0}}&voter_id={{voter.voter_login_id}}">{{template_option.1}}</a>
+{% if templates.count > 0 %}
+	<ul class="nav nav-tabs">
+		{% for template_option in templates %}
+			<li role="presentation" {% if template_option.0 == template %} class="active" {% endif %}><a href="?template={{template_option.0}}&voter_id={{voter.voter_login_id}}">{{template_option.1}}</a></li>
+		{% endfor %}
+	</ul>
 {% endif %}
-&nbsp;&nbsp;&nbsp;
-{% endfor %}
 
 <pre style="margin:10px; border: 1px solid #888; padding:20px">
 Asunto: {{default_subject}}
@@ -47,7 +46,8 @@ Puede modificar el asunto y añadir un mensaje personalizado usando el siguiente
      {{email_form.as_table}}
      </table>
   <div>
-  <label for="">&nbsp;</label><input type="submit" value="Enviar" id="send_button" />
+	  <input class="btn btn-primary" type="submit" value="Enviar" id="send_button" />
+	  <a class="btn btn-warning" href="{% url "helios.views.one_election_view" election.uuid %}">Cancelar</a>
   </div>
   </form>
   
