@@ -62,7 +62,7 @@
           $('#seal_div').setTemplateURL("templates/seal.html" + cache_bust);
           $('#audit_div').setTemplateURL("templates/audit.html" + cache_bust);
           $('#footer').setTemplateURL("templates/footer.html" + cache_bust);
-
+console.log('hola')
           BOOTH.templates_setup_p = true;
       };
 
@@ -166,7 +166,7 @@
         return $('<div/>').text(content).html();
       }
 
-      BOOTH.setup_election = function(raw_json, election_metadata) {
+      BOOTH.setup_election = function(raw_json, election_metadata, election_hash_from_python) {
         // IMPORTANT: we use the raw JSON for safer hash computation
         // so that we are using the JSON serialization of the SERVER
         // to compute the hash, not the JSON serialization in JavaScript.
@@ -178,7 +178,13 @@
         // because different code uses each one. Bah. Need fixing.
         BOOTH.election.hash = b64_sha256(raw_json);
         BOOTH.election.election_hash = BOOTH.election.hash
-
+console.log('1.' + BOOTH.election.hash)
+		BOOTH.election.hash = b64_sha256(JSON.stringify(raw_json));
+        BOOTH.election.election_hash = BOOTH.election.hash
+console.log('2.' + BOOTH.election.hash)
+		BOOTH.election.hash = election_hash_from_python;
+		BOOTH.election.election_hash = BOOTH.election.hash
+console.log('3.' + BOOTH.election.hash)
         // async?
         BOOTH.setup_workers(raw_json);
 
@@ -383,13 +389,18 @@
       BOOTH.load_and_setup_election = function(election_url) {
           // the hash will be computed within the setup function call now
           $.get(election_url, function(raw_json) {
-              // let's also get the metadata
-              $.getJSON(election_url + "/meta", {}, function(election_metadata) {
-                BOOTH.election_metadata = election_metadata;
-                BOOTH.setup_election(raw_json, election_metadata);
-                BOOTH.show_election();
-                BOOTH.election_url = election_url;
-              });
+			$.post(election_url + '/hash', {'s': JSON.stringify(raw_json)})
+			.done(function (election_hash_from_python) {
+				  // let's also get the metadata
+				  $.getJSON(election_url + "/meta", {}, function(election_metadata) {
+					BOOTH.election_metadata = election_metadata;
+					BOOTH.setup_election(raw_json, election_metadata, election_hash_from_python);
+					BOOTH.show_election();
+					BOOTH.election_url = election_url;
+				  });
+			}).fail(function(err){
+			alert(err);
+			});
           });
 
 
