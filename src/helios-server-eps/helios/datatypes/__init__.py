@@ -89,6 +89,8 @@ class LDObjectContainer(object):
 
     @property
     def hash(self):
+        import logging; logging.debug('-------------------------%s' %(self.ld_object))
+        logging.debug('-------------------------%s' %(self.ld_object.hash))
         return self.ld_object.hash
 
 class LDObject(object):
@@ -242,6 +244,8 @@ class LDObject(object):
     @property
     def hash(self):
         s = self.serialize()
+        import logging; logging.debug('--------serialize-------------%s' %(s))
+        logging.debug('--------serialize-------------%s' %(cryptoutils.hash_b64(s)))
         return cryptoutils.hash_b64(s)
     
     def process_value_in(self, field_name, field_value):

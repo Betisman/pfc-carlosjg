@@ -19,9 +19,12 @@ from django.conf import settings
 def cast_vote_verify_and_store(cast_vote_id, status_update_message=None, **kwargs):
     cast_vote = CastVote.objects.get(id = cast_vote_id)
     result = cast_vote.verify_and_store()
+    import logging
+    logging.error(result)
 
     voter = cast_vote.voter
     election = voter.election
+    logging.error('%s' %(voter.election.hash))
     user = voter.user
 
     if result:
@@ -33,8 +36,9 @@ def cast_vote_verify_and_store(cast_vote_id, status_update_message=None, **kwarg
 
             user.update_status(status_update_message)
     else:
-        logger = cast_vote_verify_and_store.get_logger(**kwargs)
-        logger.error("Failed to verify and store %d" % cast_vote_id)
+        # logger = cast_vote_verify_and_store.get_logger(**kwargs)
+        import logging
+        logging.error("Failed to verify and store %d" % cast_vote_id)
     
 @task()
 def voters_email(election_id, subject_template, body_template, extra_vars={},

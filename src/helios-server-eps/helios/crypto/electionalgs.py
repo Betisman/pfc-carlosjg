@@ -308,11 +308,14 @@ class EncryptedVote(HeliosObject):
   FIELDS = ['encrypted_answers', 'election_hash', 'election_uuid']
   
   def verify(self, election):
+    logging.error('------------------------------------------------------------verify: ' + str(election))
     # right number of answers
+    logging.error(str(len(self.encrypted_answers) != len(election.questions)))
     if len(self.encrypted_answers) != len(election.questions):
       return False
     
     # check hash
+    logging.error(str(self.election_hash) + ' - ' + str(election.hash)) 
     if self.election_hash != election.hash:
       # print "%s / %s " % (self.election_hash, election.hash)
       return False

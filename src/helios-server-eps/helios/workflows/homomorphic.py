@@ -180,19 +180,24 @@ class EncryptedVote(WorkflowObject):
   answers = property(_answers_get, _answers_set)
 
   def verify(self, election):
+    logging.error('verify ' + election.short_name)
     # right number of answers
     if len(self.encrypted_answers) != len(election.questions):
       return False
     
+    logging.error('llego a 1')
     # check hash
+    logging.error("%s / %s " % (self.election_hash, election.hash))
     if self.election_hash != election.hash:
       # print "%s / %s " % (self.election_hash, election.hash)
       return False
-      
+    
+    logging.error('llego a 2')    
     # check ID
     if self.election_uuid != election.uuid:
       return False
       
+    logging.error('llego a 3')
     # check proofs on all of answers
     for question_num in range(len(election.questions)):
       ea = self.encrypted_answers[question_num]
@@ -204,7 +209,7 @@ class EncryptedVote(WorkflowObject):
         
       if not ea.verify(election.public_key, min=min_answers, max=question['max']):
         return False
-        
+      logging.error('llego a 4.' + str(question_num))
     return True
     
   @classmethod

@@ -857,7 +857,7 @@ def one_election_audited_ballots(request, election):
   if request.GET.has_key('vote_hash'):
     b = AuditedBallot.get(election, request.GET['vote_hash'])
     import logging
-    logging.debug('raw_vote: %s' %(str(b.raw_vote)))
+    logging.debug('raw_vote: %s' %(str(b.raw_vote))) 
     return HttpResponse(b.raw_vote, content_type="text/plain")
     
   after = request.GET.get('after', None)
@@ -1440,6 +1440,15 @@ def ballot_list(request, election):
   # we explicitly cast this to a short cast vote
   return [v.last_cast_vote().ld_object.short.toDict(complete=True) for v in voters]
 
-
+  
+@election_view()
+@return_json
+def hash(request, s):
+  # from helios.crypto import utils as cryptoutils
+  logging.debug('--------------s.hash---------------------%s' %(s.hash))
+  # out = cryptoutils.hash_b64(s)
+  # logging.debug('----------------out----------------------%s' %(out))
+  # return out
+  return s.hash
 
 

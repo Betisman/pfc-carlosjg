@@ -272,8 +272,12 @@ class Election(HeliosModel):
     
     # is the user eligible for one of these cases?
     for eligibility_case in self.eligibility:
-      if user.is_eligible_for(self.eligibility[eligibility_case]):
-        return True
+      if (type(eligibility_case) == type({})):
+        if user.is_eligible_for(eligibility_case['auth_system']):
+          return True
+      else:
+        if user.is_eligible_for(self.eligibility[eligibility_case]):
+          return True
         
     return False
 
@@ -1032,11 +1036,13 @@ class CastVote(HeliosModel):
     if self.is_quarantined:
       raise Exception("cast vote is quarantined, verification and storage is delayed.")
 
+    logging.error('vamos a verificar ' + str(self.voter.election.short_name) + ' ' + str(type(self.vote)) + ' ... ' + str(self.voter.election.hash))
     result = self.vote.verify(self.voter.election)
 
     if result:
       self.verified_at = datetime.datetime.utcnow()
     else:
+      logging.error('invalidando voto ------------------------------------------------------')
       self.invalidated_at = datetime.datetime.utcnow()
       
     # save and store the vote as the voter's last cast vote

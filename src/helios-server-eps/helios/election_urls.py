@@ -15,6 +15,8 @@ urlpatterns = patterns('',
     # metadata that need not be verified
     (r'^/meta$', one_election_meta),
     
+    (r'^/hash$', hash),
+    
     # edit election params
     (r'^/edit$', one_election_edit),
     (r'^/schedule$', one_election_schedule),

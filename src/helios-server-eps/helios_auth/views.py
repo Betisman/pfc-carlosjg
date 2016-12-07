@@ -68,7 +68,14 @@ def login_box_raw(request, return_url='/', auth_systems = None):
 
   # make sure that auth_systems includes only available and enabled auth systems
   if auth_systems != None:
+    logging.debug('tipo ' + str(type(auth_systems)))
+    if (type(auth_systems) == type([]) and type(auth_systems[0]) == type({})):
+      import itertools; l = list(itertools.chain.from_iterable([d.keys() for d in auth_systems])); auth_systems = [item for pos, item in enumerate(l) if l.index(item) == pos]
+    logging.debug('auth_systems '+str(auth_systems))
+    logging.debug('helios_auth.ENABLED_AUTH_SYSTEMS ' + str(helios_auth.ENABLED_AUTH_SYSTEMS))
+    logging.debug('AUTH_SYSTEMS.keys() ' + str(AUTH_SYSTEMS.keys()))
     enabled_auth_systems = set(auth_systems).intersection(set(helios_auth.ENABLED_AUTH_SYSTEMS)).intersection(set(AUTH_SYSTEMS.keys()))
+    logging.debug('enabled_auth_systems ' + str(enabled_auth_systems))
   else:
     enabled_auth_systems = set(helios_auth.ENABLED_AUTH_SYSTEMS).intersection(set(AUTH_SYSTEMS.keys()))
 
