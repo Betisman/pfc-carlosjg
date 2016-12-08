@@ -1,5 +1,6 @@
 .logoupleft img {
 	height: 43px;
+	max-width: none;
 }
 
 #contentbody {
@@ -59,11 +60,11 @@
 }
 
 .panel-admin li:before {
-	color: #ec971f;
+	color: #5cb85c;
 }
 
 .panel-votos li:before {
-	color: #286090;
+	color: #337ab7;
 }
 
 .elemselecc {
@@ -86,7 +87,25 @@ h3 .btn-group {
 	padding-bottom: 0;
 }
 
+@media (max-width: 500px) {
+	.link-crear-eleccion {
+		font-size: 110%;
+		line-height: 1.2em;
+	}
+}
 
+/* debugging
+body {background-color: pink;}
+*/
+
+@media (max-width: 400px) {
+	.link-crear-eleccion {
+		width: 100%;
+		padding: 5px 4px;
+		font-size: 100%;
+		line-height: 1.2em;
+	}
+}
 
 /* -------------------- Para el escrutinio ----------------*/
 .escrutinio {
@@ -150,3 +169,12 @@ h3 .btn-group {
 
 
 /* -------------------- Para el escrutinio ----------------*/
+
+#detalles .panel-heading h4 {
+	color: #ffffff;
+}
+
+#detalles textarea {
+	font-size: 75%;
+	height: 25em;
+}	

@@ -2,24 +2,40 @@
 
 {% block title %}{{cast_vote.vote_tinyhash}} &mdash; {{election.name}}{% endblock %}
 {% block content %}
-<h2 class="title">Emitir el voto {{cast_vote.vote_tinyhash}}</h2>
-Votar en <a href="{% url "helios.views.one_election_view" election.uuid %}">{{election.name}}</a><br />
-Fingerprint: <tt>{{cast_vote.vote_hash}}</tt><br />
-by <b><u>
-{% if the_voter.alias %}
-{{the_voter.alias}}
-{% else %}
-{{the_voter.name}}
-{% endif %}
-</u></b>
-<br /><br />
-<a href="#" onclick="$('#castvote_content').slideToggle(250); return false;">detalles</a><br /><br />
-<div style="display:none;" id="castvote_content">
-<textarea cols="100" rows="10">
-{{vote_content}}
-</textarea>
+<h2 class="title">Voto {{cast_vote.vote_tinyhash}}(...) emitido</h2>
+<div class="well">
+	Voto emitido en <a href="{% url "helios.views.one_election_view" election.uuid %}">{{election.name}}</a><br />
+	Huella digital del voto: <tt class="badge">{{cast_vote.vote_hash}}</tt><br />
+	por <span class="accordion-toggle"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+	<b>
+		<u>
+		{% if the_voter.alias %}
+			{{the_voter.alias}}
+		{% else %}
+			{{the_voter.name}}
+		{% endif %}
+		</u>
+	</b>
 </div>
-<br /><br />
+
+<div class="panel-group" id="detalles">
+	<div class="panel panel-primary">
+		<div class="panel-heading" data-toggle="collapse" data-parent="#detalles" data-target="#detalles-collapse">
+			<h4 class="panel-title">
+				<a class="accordion-toggle"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Detalles</a>
+			</h4>
+		</div>
+		<div id="detalles-collapse" class="panel-collapse collapse">
+			<div class="panel-body">
+				<div id="castvote_content">
+					<textarea>
+						{{vote_content}}
+					</textarea>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 
 
