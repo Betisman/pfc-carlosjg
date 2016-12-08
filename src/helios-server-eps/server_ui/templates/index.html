@@ -127,8 +127,14 @@
 		
 	{% else %}
 		{% if settings.SHOW_LOGIN_OPTIONS %}
-			<h5>Acceda para empezar a votar</h5>
-			{{login_box|safe}}
+			<div class="panel panel-success panel-login">
+				<div class="panel-heading">
+					<h5 class="panel-title "><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Acceda para empezar a votar</h5>
+				</div>
+				<div class="panel-body">
+					{{login_box|safe}}
+				</div>
+			</div>
 		{% else %}
 			<p>
 			  Selecciona una elección para comenzar a votar. Se le preguntará por sus credenciales después de que complete una boleta.
