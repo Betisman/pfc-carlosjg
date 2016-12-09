@@ -2,17 +2,17 @@
 
 Estos son los pasos llevados a cabo para instalar el proyecto Helios en un servidor Linux. Son los que yo ejecuté para montar el prototipo del Sistema, por lo que puede ser que para alguien que intente realizar esta instalación, haya pasos que no le funcionen y/o no le permitan finalizar la instalación.
 
-\begin{verbatim}
+\small\begin{verbatim}
 > sudo apt-get update	
 \end{verbatim}
 
 Si hace falta conectarse a Internet a través de un proxy:
-\begin{verbatim}
+\small\begin{verbatim}
 > export http_proxy=http://usuario:password@url:puerto
 > export https_proxy=http://usuario:password@url:puerto
 \end{verbatim}
 
-\begin{verbatim}
+\small\begin{verbatim}
 > sudo apt-get update
 > sudo -E apt-get update
 > sudo apt-get install postgresql
@@ -32,17 +32,17 @@ Si hace falta conectarse a Internet a través de un proxy:
 \end{verbatim}
 
 Hay que modificar el fichero \textit{reset.sh}. Hay que sustituir la línea
-\begin{verbatim}
+\small\begin{verbatim}
 	echo "from helios_auth.models import User; User.objects.create(user_type='google',user_id='ben@adida.net', info={'name':'Ben Adida'})" | python manage.py shell
 \end{verbatim}
 por la línea
-\begin{verbatim}
+\small\begin{verbatim}
 	echo "from helios_auth.models import User; User.objects.create(user_type='password',user_id='tuemail@servidor.com', info={'name':'Tu nombre'})" | python manage.py shell
 \end{verbatim}
 
 \todo[inline]{Hay que arreglar que no se corten las líneas al ser tan largas. En un documento he visto algo de usar el paquete spverbatim}
 
-\begin{verbatim}
+\small\begin{verbatim}
 > ./reset.sh
 > sudo su -c "createuser --superuser carlos" postgres
 > sudo service postgresql restart

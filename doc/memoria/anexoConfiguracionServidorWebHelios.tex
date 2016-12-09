@@ -2,7 +2,7 @@
 
 El framework web Django provee su propio Servidor Web, pero para poder utilizar un canal seguro HTTPS y configurar el acceso con el DNIe es preciso utilizar un Servidor Web como Apache en el que apoyar el framework. Aquí una lista de pasos que se han llevado a cabo para su configuración. 
 
-\begin{verbatim}
+\small\begin{verbatim}
 # Instalamos Apache2 y OpenSSL
 > sudo apt-get install apache2
 > sudo apt-get install openSSL
@@ -57,7 +57,7 @@ El framework web Django provee su propio Servidor Web, pero para poder utilizar 
 Puede ser con el comando anterior para usar el editor gedit o con cualquier otro editor de nuestra preferencia, pero se deben modificar los siguientes parámetros del fichero:
 
 En <VirtualHost *:80>:
-\begin{verbatim}
+\small\begin{verbatim}
 DocumentRoot /home/carlos/Descargas/helios-server
 	<Directory /home/carlos/Descargas/helios-server>
 		<Files wsgi.py>
@@ -72,7 +72,7 @@ DocumentRoot /home/carlos/Descargas/helios-server
 
 
 En <VirtualHost \_default\_:443>:
-\begin{verbatim}
+\small\begin{verbatim}
 DocumentRoot /home/carlos/Descargas/helios-server
 ### Antes de cerrar </VirtualHost>:
 
@@ -107,7 +107,7 @@ DocumentRoot /home/carlos/Descargas/helios-server
 
 
 A continuación hay que editar el fichero ports.conf si es necesario:
-\begin{verbatim}
+\small\begin{verbatim}
 > sudo gedit /etc/apache2/ports.conf
 
 ### Modificar si es necesario:
@@ -118,7 +118,7 @@ A continuación hay que editar el fichero ports.conf si es necesario:
 \end{verbatim}
 
 Cargamos la configuración modificada en Apache y reseteamos el servicio:
-\begin{verbatim}
+\small\begin{verbatim}
 > sudo a2ensite sitednie.conf
 > sudo service apache2 restart
 \end{verbatim}
