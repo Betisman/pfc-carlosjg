@@ -398,6 +398,19 @@ pantallas a las que tienen acceso los diferentes roles de usuario y la conexión 
 	
 	\section{Esquema de Voto Electrónico}\label{analisisEsquemaVotoElectronico}
 	
+		El esquema de voto electrónico que se va a implementar en el sistema de voto de este PFC se corresponde con el que ya implementa el sistema Helios Voting.
+		
+		El esquema se basa en cifrado homomórfico (utilizando el algoritmo de ElGamal) y verificación con pruebas de conocimiento cero de Chaum-Pedersen.
+		
+		Algo en lo que se desenvuelve muy bien el homomorfismo es en la totalización, por lo que es una gran herramienta para un sistema de voto. Un protocolo que es capaz de totalizar votos cifrado sin necesidad de descifrarlos es una gran opción para mantener el secreto del voto. Por otro lado, no es la mejor solución para la confianza en el sistema. Para paliar este problema de confianza es donde aparecen las pruebas de conocimiento cero. Gracias a pruebas criptográficas se puede asegurar que tanto votos como la suma de ellos no han sido manipulados y fueron correctamente cifrados.
+		
+		El proceso empieza con el votante cifrando su voto. Este voto se publica cifrado en un tablón público en el que se acumulan todas las relaciones (votante)-(voto cifrado) y donde cualquier votante puede comprobar que su voto ha sido correctamente tenido en cuenta o que ningún votante ha votado dos veces (que el sistema tenga en cuenta dos votos de un mismo votante, ya que cada votante sí que puede votar más de una vez, pero sólo el último voto es el que el sistema debería contar).
+		
+		Cuando se acaba el período de votación y se tienen todos los votos almacenados, se aplica el homomorfismo para obtener el cifrado de la suma de los votos. Esta suma es descifrada a continuación. Para realizar el cifrado de la totalización, se utiliza una clave privada generada antes de comenzar la votación, que ha sido dividida y repartida entre un número determinado de autoridades confiables y honestas que la han custodiado. Estas partes forman parte del protocolo de secreto compartido que se aplica en el sistema. Si una autoridad no es honesta, no se pone en riesgo la integridad de la elección, pues no será posible que altere el resultado ni violará el principio de anonimato del voto, ya que no será capaz de descifrar ni votos individuales ni el resultado de la suma de estos.
+		
+		Las autoridades que poseen parte de la clave privada la ponen en común y con ella se descifra la suma de los votos, con lo que se obtiene el resultado final de la elección.
+		
+		La otra parte importante de este esquema es cómo podemos asegurar que un voto ha sido cifrado con la opción de voto que realmente ha seleccionado el votante. Puede ser que en pantalla elija la opción B, pero cómo puede asegurarse que en el sistema es esta elección, y no la opción A o C, por ejemplo, la que se ha almacenado cifrada. Es común que los protocolos de voto electrónico que se basan en el cifrado homomórfico se apoyen en pruebas no interactivas de conocimiento cero para ello. Consisten en proponer la suficiente base matemática como para que usando algún tipo de algoritmo de cifrado asimétrico y con la colaboración del votante, se puede probar que un valor cifrado es realmente el cifrado de la opción elegida y no otra diferente.
 	
 	% *************************************************************************************************************** %
 % 			HELIOS VOTING
@@ -468,8 +481,8 @@ pantallas a las que tienen acceso los diferentes roles de usuario y la conexión 
 							
 							\item[Censo de votantes] Es necesario incluir un censo de votantes o permitir una votación abierta. En el caso del censo, Helios permite hacer cargas de ficheros csv con la información del votante (id, email y nombre). También permite que cualquiera pueda emitir un voto.
 							
-							\item [Trustees] En voto electrónico, es necesario tener entidades de las que poder fiarse para el correcto funcionamiento de la elección. Como es complicado que exista una entidad externa que cumpla con los requisitos, esto se emula utilizando varios trustees. Básicamente, los trustees son entidades fiables que es difícil que se puedan poner de acuerdo entre sí para falsear la elección. Estas entidades combinan sus claves públicas y privadas para formar la clave pública y privada de la elección a utilizar en la encriptación de los votos y la desencriptación del resultado del escrutinio. En Helios, el propio sistema es un trustee, suficiente para llevar a cabo los procesos criptográficos en caso de que no se defina ninguna entidad o usuario confiable adicional.
-							\todo[inline]{Es interesante lo que dice la propia web de Helios cuando se deinen los trustees}
+							\item [Añadir Trustees] En voto electrónico, es necesario tener entidades de las que poder fiarse para el correcto funcionamiento de la elección. Como es complicado que exista una entidad externa que cumpla con los requisitos, esto se emula utilizando varios trustees. Básicamente, los trustees son entidades fiables que es difícil que se puedan poner de acuerdo entre sí para falsear la elección. Estas entidades combinan sus claves públicas y privadas para formar la clave pública y privada de la elección a utilizar en la encriptación de los votos y la desencriptación del resultado del escrutinio. En Helios, el propio sistema es un trustee, suficiente para llevar a cabo los procesos criptográficos en caso de que no se defina ninguna entidad o usuario confiable adicional.
+							\todo[inline]{Es interesante lo que dice la propia web de Helios cuando se definen los trustees}
 							
 								\begin{description}
 									%\item [Setup key - generate key]
@@ -487,10 +500,10 @@ pantallas a las que tienen acceso los diferentes roles de usuario y la conexión 
 					Durante el tiempo fijado al definir las características de la elección, los votantes pueden logarse en el sistema y emitir sus votos.
 					
 					\item [Calcular recuento cifrado] (cerrar votación y computar)
-					Una vez superada la fecha fijada como cierre de urnas, los administradores proceden a iniciar el escrutinio. Para ello, lo primero que se produce es un cierre virtual de las urnas, con lo que los votantes no podrán emitir ningún voto a partir de este momento. A su vez, se inicia el procedimiento de cálculo de votos, el cual, debido al esquema homomórfico de la elección, realizará el recuento sumando los votos encriptados. El resultado, cifrado, de esta suma de votos cifrados, necesitará ser descifrado para poder publicar el resultado.
+					Una vez superada la fecha fijada como cierre de urnas, los administradores proceden a iniciar el escrutinio. Para ello, lo primero que se produce es un cierre virtual de las urnas, con lo que los votantes no podrán emitir ningún voto a partir de este momento. A su vez, se inicia el procedimiento de cálculo de votos, el cual, debido al esquema homomórfico de la elección, realizará el recuento sumando los votos encriptados. El resultado de esta suma de votos cifrados, necesitará ser descifrado para poder publicar el resultado.
 					
-					\item [Combinar trustees de descrifrado y totalizar los resultados]
-					Para poder realizar este descifrado de la totalización de los votos, se requiere que todos los trustees de la elección combinen su secreto compartido de la clave privada de descifrado de la elección.
+					\item [Combinar trustees de descifrado y totalizar los resultados]
+					Para poder realizar el descifrado de la totalización de los votos, se requiere que todos los trustees de la elección combinen su secreto compartido de la clave privada de descifrado de la elección.
 					
 					
 					\item [Computar resultados]
@@ -504,7 +517,7 @@ pantallas a las que tienen acceso los diferentes roles de usuario y la conexión 
 				\item[Auditorías]
 				El sistema Helios Voting implementa dos mecanismos de auditoría activa (que puede realizar el votante y/o auditores o visitantes).
 				Por un lado, el votante tiene la posibilidad de auditar un voto de forma individual. Puede realizar el paso de votar una opción y auditar este voto. El voto será descifrado y presentado en claro, para que compruebe la correctitud del proceso. Este voto, no obstante, será desechado y el votante deberá volver a realizar el proceso de emisión de voto.
-				Por otra parte, Helios Voting implementa un mecanismo de auditoría por el que, tanto los votantes como cualquier persona interesada en el proceso, tiene la posibilida de auditar el escrutinio una vez ha sido publicado para probar la integridad del mismo.
+				Por otra parte, Helios Voting implementa un mecanismo de auditoría por el que, tanto los votantes como cualquier persona interesada en el proceso, tiene la posibilidad de auditar el escrutinio una vez ha sido publicado para probar la integridad del mismo.
 				Ambos procedimientos se explican en \ref{planteamiento_HeliosVoting_auditoria}.
 				\end{description}
 			
@@ -587,7 +600,7 @@ pantallas a las que tienen acceso los diferentes roles de usuario y la conexión 
 	
 	
 	
-	El Ministerio del Interior de España \footnote{\url{http://www.interior.gob.es/}}, a través de la Dirección General de la Policía, es el órgano encargado de la gestión y desarrollo del DNI electrónico\footnote{\url{http://www.dnielectronico.es/PortalDNIe/}}. Por tanto, además de ser los responsables del control y la emisión de estas credenciales, son los responsables de desarrollar las APIs y documentación para que los desarrolladores puedan utilizar los certificados digitales que llevan en aplicaciones o servicios prestados por terceros.
+	El Ministerio del Interior de España\footnote{\url{http://www.interior.gob.es/}}, a través de la Dirección General de la Policía, es el órgano encargado de la gestión y desarrollo del DNI electrónico\footnote{\url{http://www.dnielectronico.es/PortalDNIe/}}. Por tanto, además de ser los responsables del control y la emisión de estas credenciales, son los responsables de desarrollar las APIs y documentación para que los desarrolladores puedan utilizar los certificados digitales que llevan en aplicaciones o servicios prestados por terceros.
 	
 	En el caso del DNIe 3.0, en el área de descargas\footnote{\url{http://www.dnielectronico.es/PortalDNIe/PRF1_Cons02.action?pag=REF_1120}} de la web de la DGP han publicado el código fuente de tres aplicaciones Android y su respectiva documentación para dar una muestra de cómo implementar apps que hagan uso del certificado NFC que trae como novedad este documento.
 	

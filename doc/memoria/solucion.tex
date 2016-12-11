@@ -117,9 +117,15 @@
 					\subsubsection{App Android de Autenticación}
 					Ya se ha explicado que para realizar el acceso al sistema de voto desde dispositivos móviles, se ha optado por modificar una de las apps de ejemplo publicadas por la Policía española.
 					
-					De hecho, las modificaciones han consistido en eliminar funcionalidades y adaptar una de ellas. Básicamente, en lugar de hacer una llamada a una web, como realizaba la original, ha sido preciso modificar el flujo para que realice varias para cumplir con una autenticación con un protocolo oAuth.
-					
-					En cada una de estas llamadas, la aplicación incluye en la comunicación HTTPS (TLS) los certificados clientes del DNIe 3.0.
+					La app original mostraba un ejemplo de funcionamiento en el que se accedía a varias webs que necesitaban acceso con identificación por DNIe. Las modificaciones que se han realizado a esta app han consistido en:
+					\begin{itemize}
+						\item Eliminar el menú inicial con el que se podía elegir el servicio al que se pretendía acceder.
+						\item La app ahora sólo tiene una funcionalidad, conectarse contra el servidor de autenticación de nuestro sistema de votación.
+						\item Para ello, se ha modificado el software cambiando el flujo de llamadas. Originalmente sólo se hacía una llamada a una web para obtener información. Para cumplir con el protocolo oAuth, se ha incrementado el número de llamadas HTTPS de la app, con una mayor comunicación bidireccional entre el servicio y el dispositivo.
+						\item La app embebe keystore con los certificados de servidor y el raíz de la Policía para cada uno de los servicios que utiliza. Se han eliminado y se ha incorporado una keystore con los certificados del servidor de autenticación y el de la AC raíz de la Policía.
+						\item La app posee una lista de servidores en los que confía. En esta lista se incluyen los hashes de los certificados de servidor de los servicios que consulta. Se han eliminado los elementos de esta lista y se ha añadido el hash del certificado del servidor de autenticación, que es contra el que ahora se va a comunicar la app.
+						\item En la app original, se realiza una llamada HTTPS, se obtiene la información y se muestra en una página estática dentro de un WebView. Los WebViews en Android no soportan navegación manteniendo certificado de cliente, por lo que no es útil para la nueva funcionalidad de nuestra app. Por ello, se ha eliminado esta forma de mostrar información. Ahora se realizan las comunicaciones del flujo oAuth y cuando el usuario ha sido identificado y autenticado, se redirige a la web del sistema de voto por medio de un navegador externo a la app.
+					\end{itemize}
 					
 					La comunicación puede comenzar de dos formas:
 					\begin{enumerate}
@@ -151,9 +157,23 @@
 					\end{enumerate}
 					
 					
-					En este momento, cualquiera que sea el camino que se ha seguido, el usuario entra en la app. Con respecto a la app original, se ha eliminado el menú principal y todas las funcionalidades que aportaba. Directamente, se muestra la pantalla de introducción o selección del \gls{CAN}. El \gls{CAN} es un identificador de 6 dígitos que aparece en el anverso del documento físico del \gls{DNIe}. Se utiliza para establecer un canal cifrado \gls{PACE} entre el documento y el dispositivo.
+					En este momento, cualquiera que sea el camino que se ha seguido, el usuario entra en la app. Con respecto a la app original, se ha eliminado el menú principal y todas las funcionalidades que aportaba. Directamente, se muestra la pantalla de introducción o selección del \gls{CAN} (figura \ref{fig:login.android.seleccionCANvacio}). El \gls{CAN} es un identificador de 6 dígitos que aparece en el anverso del documento físico del \gls{DNIe}. Se utiliza para establecer un canal cifrado \gls{PACE} entre el documento y el dispositivo.
+					
+					\begin{figure}[!ht]
+						\centering
+							\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[height=6cm]{imgs/login_Android/android_030.png}}
+						\caption{App Autenticación Android: Selección del CAN cuando no hay ningún documento guardado previamente.}
+						\label{fig:login.android.seleccionCANvacio}
+					\end{figure}
 					
 					Este canal \gls{PACE} es obligatorio a la hora de establecer una conexión inalámbrica cifrada, pero no sustituye al \gls{PIN} en ningún caso, igual que no da permiso de uso de las claves de autenticación y/o firma del ciudadano. Es una herramienta más de seguridad para evitar que un tercero pueda leer información del DNIe sin conocimiento del ciudadano dueño del documento.
+					
+					\begin{figure}[!ht]
+						\centering
+							\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[height=6cm]{imgs/login_Android/android_035.png}}
+						\caption{App Autenticación Android: Pantalla para introducir el CAN.}
+						\label{fig:login.android.introducirCAN}
+					\end{figure}
 					
 					Una vez introducido el \gls{CAN} por primera vez, ya no será necesario volver a hacerlo, ya que se almacena en el sistema y puede seleccionarse el apropiado cada vez que el usuario hace uso de la aplicación. Al igual que se pueden guardar más documentos, es posible eliminar el \gls{CAN} de documentos ya introducidos. (figura \ref{fig:login.android.seleccionCAN})
 					
@@ -164,53 +184,16 @@
 						\label{fig:login.android.seleccionCAN}
 					\end{figure}
 					
-					En caso de intentar una lectura de la información de un \gls{DNIe} introduciendo un \gls{CAN} incorrecto se produciría un error al establecer el canal \gls{PACE} y no sería posible la comunicación entre documento y dispositivo.
+					En caso de intentar una lectura de la información de un \gls{DNIe} introduciendo un \gls{CAN} incorrecto se produciría un error al establecer el canal \gls{PACE} y no sería posible la comunicación entre documento y dispositivo (figura \ref{fig:login.android.seleccionCANvacio}).
 					
+					\begin{figure}[!ht]
+						\centering
+							\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[height=6cm]{imgs/login_Android/android_036.png}}
+						\caption{App Autenticación Android: Error al introducir un CAN incorrecto.}
+						\label{fig:login.android.seleccionCANvacio}
+					\end{figure}
 					
-					
-					Cuando se ha indicado el \gls{CAN} correcto del documento que se va a utilizar para logarse en el sistema, la aplicación solicita al usuario que acerque su documento físico al dispositivo para que este pueda acceder a los certificados.
-					
-					La comunicación entre documento y dispositivo se realiza mediante \gls{NFC} (\ref{estadoNFC}). Según el documento \cite{dnieAutenticacion:1.0}, los desarrolladores de la app de ejemplo indican que \textit{''por motivos de hardware y de seguridad, distancia máxima soportada por NFC es, dependiendo del dispositivo, de alrededor de un centímetro''}. De todos modos, es una comunicación ciertamente sensible, que se ve afectada por la distancia y el movimiento, necesitando para un correcto funcionamiento cercanía y una notable estabilidad.
-					
-					
-					Una vez estén cerca documento y dispositivo, se detectarán y establecerán la comunicación cifrada entre ambos, a través de la cual podrán intercambiarse tanto comandos como respuestas a estos, accediendo a la información alojada en los certificados y permitiendo a estos firmar información presentada por el dispositivo (aunque en nuestra app no hará falta utilizar el certificado de firma digital).
-					
-					
-					
-					Para poder llegar a utilizar los certificados, no obstante, primero se solicitará el \gls{PIN} al usuario, con el cual se autentica al mismo contra el DNIe y se le conceden permiso de acceso a las claves. A partir de este momento, la comunicación entre documento y dispositivo va cifrada y se pueden acceder a los certificados.
-					
-					Es en este momento cuando la app utiliza el certificado de autenticación del DNIe realizar una petición HTTPS/TLS contra el servidor de autenticación del sistema de voto. Cada una de las llamadas que le exige el protocolo de comunicación oAuth2 se realizará de forma segura, con los certificados del servidor y el de autenticación del documento. 
-					
-					Para poder establecer un canal seguro contra el servidor de autenticación, es necesario, según la implementación de la app original de ejemplo, que el certificado del servidor y la AC raíz vayan embebidos en el código de la app. Así mismo, es necesario que se incluya el hash del mismo para que el objeto DroidHTTPClient que establece la conexión al servidor sea capaz de establecer este camino seguro.
-					Esta keystore con los dos cetrtificados se debe incluir en el proyecto Android con un formato BKS, lo cual se consigue realizando los pasos expuestos en el anexo \ref{App:exportarCertsAppAndroid}. Una vez obtenido el fichero keystore que contiene los dos ceritficados, ha de colocarse en la carpeta del proyecto:
-					
-					\small\begin{verbatim}
-					clienteAndroidDNIeoAuth2/app/src/main/res/raw
-					\end{verbatim}
-					
-					Habrá que editar también el fichero
-					
-					\small\begin{verbatim}
-					clienteAndroidDNIeoAuth2/app/src/main/res/values/trusted_hosts.xml
-					\end{verbatim}
-					
-					para añadir el hash del certificado del servidor. Este hash se obtiene en el servidor con el comando que se indica igualmente en el anexo \ref{App:exportarCertsAppAndroid}. Así, el fichero que indica qué servidores son confiables y que utiliza la app para poder establecer una conexión segura con el servidor quedaría parecido a este:+
-					
-					
-					\small\begin{verbatim}
-<resources xmlns:android="http://schemas.android.com/apk/res/android">
-  <array name="trusted_hosts">
-    <item>D5E6E3759023DE9B881399DC034E8FE1AE7D9D87</item> 
-    <!-- En el servidor: openssl x509 -fingerprint -noout -in server.crt -->
-  </array>
-</resources>
-					\end{verbatim}
-					
-					El servidor de autenticación establece un canal seguro con su certificado (en el prototipo será autofirmado) pero valida el certificado de autenticación con el certificado AC Raíz de la Policía que posee y que se ha configurado para ser utilizado.
-					
-					
-					
-					
+					Cuando se ha indicado el \gls{CAN} correcto del documento que se va a utilizar para logarse en el sistema, la aplicación solicita al usuario que acerque su documento físico al dispositivo para que este pueda acceder a los certificados (figura \ref{fig:login.android.aproximeDNIe}).
 					
 					\begin{figure}[!ht]
 						\centering
@@ -219,27 +202,38 @@
 						\label{fig:login.android.aproximeDNIe}
 					\end{figure}
 					
+					La comunicación entre documento y dispositivo se realiza mediante \gls{NFC} (\ref{estadoNFC}). Según el documento \cite{dnieAutenticacion:1.0}, los desarrolladores de la app de ejemplo indican que \textit{''por motivos de hardware y de seguridad, distancia máxima soportada por NFC es, dependiendo del dispositivo, de alrededor de un centímetro''}. De todos modos, es una comunicación ciertamente sensible, que se ve afectada por la distancia y el movimiento, necesitando para un correcto funcionamiento cercanía y una notable estabilidad.
+					
+					
+					Una vez estén cerca documento y dispositivo, se detectarán y establecerán la comunicación cifrada entre ambos (figura \ref{fig:login.android.cargandoCertificados}), a través de la cual podrán intercambiarse tanto comandos como respuestas a estos, accediendo a la información alojada en los certificados y permitiendo a estos firmar información presentada por el dispositivo (aunque en nuestra app no hará falta utilizar el certificado de firma digital).
+					
+					
 					\begin{figure}[!ht]
 						\centering
 							\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[height=6cm]{imgs/login_Android/android_060.png}}
 						\caption{App Autenticación Android: Cargando certificados.}
 						\label{fig:login.android.cargandoCertificados}
 					\end{figure}
-
+					
+					
+					Para poder llegar a utilizar los certificados, no obstante, primero se solicitará el \gls{PIN} al usuario (figura \ref{fig:login.android.DNIe.PIN}), con el cual se autentica al mismo contra el DNIe y se le conceden permiso de acceso a las claves. A partir de este momento, la comunicación entre documento y dispositivo va cifrada y se pueden acceder a los certificados.
 					
 					\begin{figure}[!ht]
-						\centering
-							\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[height=6cm]{imgs/login_Android/android_070.png}}
-						\caption{App Autenticación Android: Introducir PIN del DNIe 3.0}
-						\label{fig:login.android.introducirPIN}
+						\begin{subfigure}{.5\textwidth}
+							\centering
+								\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[height=6cm]{imgs/login_Android/android_070.png}}
+							\label{fig:login.android.introducirPIN}
+						\end{subfigure}
+						\begin{subfigure}{.5\textwidth}
+							\centering
+								\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[height=6cm]{imgs/login_Android/android_080.png}}
+							\label{fig:login.android.PINintroducido}
+						\end{subfigure}
+						\caption{App Autenticación Android: Introducción del PIN del DNIe 3.0}
+						\label{fig:login.android.DNIe.PIN}
 					\end{figure}
 					
-					\begin{figure}[!ht]
-						\centering
-							\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[height=6cm]{imgs/login_Android/android_080.png}}
-						\caption{App Autenticación Android: PIN del DNIe 3.0 introducido}
-						\label{fig:login.android.PINintroducido}
-					\end{figure}
+					Es en este momento cuando la app utiliza el certificado de autenticación del DNIe realizar una petición HTTPS/TLS contra el servidor de autenticación del sistema de voto. Cada una de las llamadas que le exige el protocolo de comunicación oAuth2 se realizará de forma segura, con los certificados del servidor y el de autenticación del documento (figuras \ref{fig:login.android.lanzandoConexion} y \ref{fig:login.android.recepcionCodigooAuth}). 
 					
 					\begin{figure}[!ht]
 						\centering
@@ -255,6 +249,34 @@
 						\label{fig:login.android.recepcionCodigooAuth}
 					\end{figure}
 					
+					Para poder establecer un canal seguro contra el servidor de autenticación, es necesario, según la implementación de la app original de ejemplo, que el certificado del servidor y la AC raíz vayan embebidos en el código de la app. Así mismo, es necesario que se incluya el hash del mismo para que el objeto DroidHTTPClient que establece la conexión al servidor sea capaz de establecer este camino seguro.
+					Esta keystore con los dos cetrtificados se debe incluir en el proyecto Android con un formato BKS, lo cual se consigue realizando los pasos expuestos en el anexo \ref{App:exportarCertsAppAndroid}. Una vez obtenido el fichero keystore que contiene los dos ceritficados, ha de colocarse en la carpeta del proyecto:
+					
+					\small\begin{verbatim}
+					clienteAndroidDNIeoAuth2/app/src/main/res/raw
+					\end{verbatim}
+					
+					Habrá que editar también el fichero
+					
+					\small\begin{verbatim}
+					clienteAndroidDNIeoAuth2/app/src/main/res/values/trusted_hosts.xml
+					\end{verbatim}
+					
+					para añadir el hash del certificado del servidor. Este hash se obtiene en el servidor con el comando que se indica igualmente en el anexo \ref{App:exportarCertsAppAndroid}. Así, el fichero que indica qué servidores son confiables y que utiliza la app para poder establecer una conexión segura con el servidor quedaría parecido a este:
+					
+					
+					\small\begin{verbatim}
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+  <array name="trusted_hosts">
+    <item>D5E6E3759023DE9B881399DC034E8FE1AE7D9D87</item> 
+    <!-- En el servidor: openssl x509 -fingerprint -noout -in server.crt -->
+  </array>
+</resources>
+					\end{verbatim}
+					
+					El servidor de autenticación establece un canal seguro con su certificado (en el prototipo será autofirmado) pero valida el certificado de autenticación con el certificado AC Raíz de la Policía que posee y que se ha configurado para ser utilizado. Por esta razón aparece un error en el navegador cuando se entra por primera vez a la web (figura \ref{fig:login.android.certAutofirmado}). Avisa al usuario de que no encuentra en su almacén de certificados uno que sea confiable con el servidor. En nuestro caso, para el prototipo, bastará con hacer click en \textit{CANCELAR} ya que no vamos a instalar certificados adicionales. En caso de implementar el sistema en producción, será necesario obtener e instalar en el servidor un certificado confiable, emitido por una autoridad de confianza.
+					
+					
 					\begin{figure}[!ht]
 						\centering
 							\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[height=6cm]{imgs/login_Android/android_105.png}}
@@ -262,17 +284,17 @@
 						\label{fig:login.android.certAutofirmado}
 					\end{figure}
 					
+					Una vez asumimos el certificado autofirmado, por din accedemos a la web del sistema de voto logados con la información contenida en el {certificado de autenticación de nuestro DNIe 3.0 (figura \ref{fig:login.android.logado}).
+					
 					\begin{figure}[!ht]
 						\begin{subfigure}{.5\textwidth}
 							\centering
 								\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[height=6cm]{imgs/login_Android/android_110.png}}
-							\caption{I}
 							\label{fig:login.android.logado01}
 						\end{subfigure}
 						\begin{subfigure}{.5\textwidth}
 							\centering
 								\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[height=6cm]{imgs/login_Android/android_120.png}}
-							\caption{II}
 							\label{fig:login.android.logado02}
 						\end{subfigure}
 						\caption{App Autenticación Android: Acceso al sistema de voto con login con el DNIe.}
@@ -540,7 +562,7 @@
 		\begin{itemize}
 			\item Servidor de votación
 			\item Servidor de identificación y autenticación
-			\item App Android de identificación conm DNIe
+			\item App Android de identificación con DNIe
 		\end{itemize}
 	
 	Para montar los dos servidores, se decidió pasar de las máquina virtuales en las que se desarrollaron al uso de dos Raspberry Pi como base hardware.
