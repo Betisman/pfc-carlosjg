@@ -497,7 +497,8 @@ public class MyTaskDNIe extends AsyncTask<Void, Integer, Void>
 			textoProcessDlg=m_SSLresultado;
 			myHandler.post(updateStatus);
 
-			final String sIP_VOTING_SERVER = "192.168.1.145";
+			//final String sIP_VOTING_SERVER = "192.168.1.145";
+			final String sIP_VOTING_SERVER = "37.134.154.40:8445";
 			final String sIP_OAUTH_SERVER = "37.134.154.40:8444";
 
 			/*******************************************/
@@ -548,7 +549,7 @@ public class MyTaskDNIe extends AsyncTask<Void, Integer, Void>
 							byte[] post = EncodingUtils.getBytes("info=" + m_SSLresultado + "&auth_system_name=dnie&access_token=" + accessToken, "BASE64");
 							//webview.postUrl("https://www.192.168.1.153/auth/after/", post);
 
-							Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://" + sIP_VOTING_SERVER + "/auth/after/?client_type=androidnfcapp&auth_system_name=dnie&access_token=" + accessToken + "&info=" + URLEncoder.encode(m_SSLresultado, "utf-8")));
+							Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://" + sIP_VOTING_SERVER + "/auth/after/?client_type=androidnfcapp&auth_system_name=dnie&access_token=" + accessToken + "&dnie=" + dni + "&info=" + URLEncoder.encode(m_SSLresultado, "utf-8")));
 							startActivity(browserIntent);
 							System.exit(0);
 						} catch (IOException e) {
@@ -611,7 +612,7 @@ public class MyTaskDNIe extends AsyncTask<Void, Integer, Void>
 				byte[] post = EncodingUtils.getBytes("info=" + m_SSLresultado + "&auth_system_name=dnie&access_token=" + accessToken, "BASE64");
 				//webview.postUrl("https://www.192.168.1.153/auth/after/", post);
 
-				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://" + sIP_VOTING_SERVER + "/auth/after/?client_type=androidnfcapp&auth_system_name=dnie&access_token=" + accessToken + "&info=" + URLEncoder.encode(m_SSLresultado, "utf-8")));
+				Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://" + sIP_VOTING_SERVER + "/auth/after/?dnie=" + dni + "&client_type=androidnfcapp&auth_system_name=dnie&access_token=" + accessToken + "&info=" + URLEncoder.encode(m_SSLresultado, "utf-8")));
 				startActivity(browserIntent);
 				System.exit(0);
 			}
