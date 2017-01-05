@@ -137,6 +137,8 @@ TEMPLATE_DIRS = (
     os.path.join(ROOT_PATH, 'templates')
 )
 
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+
 INSTALLED_APPS = (
 #    'django.contrib.auth',
 #    'django.contrib.contenttypes',
@@ -194,6 +196,7 @@ SECURE_URL_HOST = "https://192.168.1.153:8442"
 
 URL_HOST = "http://192.168.1.145"
 SECURE_URL_HOST = "https://192.168.1.145"
+SECURE_URL_HOST_EXTERNAL = "https://37.134.154.40:8445"
 
 DNIE_OAUTH_HOST = "http://192.168.1.144"
 DNIE_OAUTH_SECURE_HOST = "https://192.168.1.144"

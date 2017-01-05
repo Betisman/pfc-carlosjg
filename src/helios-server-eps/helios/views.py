@@ -25,7 +25,8 @@ from helios import utils as helios_utils
 from view_utils import *
 
 from helios_auth.security import *
-from helios_auth.auth_systems import AUTH_SYSTEMS, can_list_categories
+# from helios_auth.auth_systems import AUTH_SYSTEMS, can_list_categories
+from helios_auth.auth_systems import AUTH_SYSTEMS
 from helios_auth.models import AuthenticationExpired
 
 from helios import security
@@ -1131,6 +1132,12 @@ def one_election_set_result_and_proof(request, election):
     return SUCCESS
   
   
+##### TEMPORAL, mientras no arregle lo de llamar a Voter desde helios_auth, me traigo aqui 
+# la definicion de la funcion can_list, que si no da problemas.
+def temp_can_list_categories(auth_system):
+  return hasattr(AUTH_SYSTEMS[auth_system], 'list_categories')
+# lllllllllllllllllllllllllllllllllllllllllllllllllll
+  
 @election_view()
 def voters_list_pretty(request, election):
   """
@@ -1156,7 +1163,8 @@ def voters_list_pretty(request, election):
   eligibility_category_id = None
 
   try:
-    if admin_p and can_list_categories(user.user_type):
+    # if admin_p and can_list_categories(user.user_type):
+    if admin_p and temp_can_list_categories(user.user_type):
       categories = AUTH_SYSTEMS[user.user_type].list_categories(user)
       eligibility_category_id = election.eligibility_category_id(user.user_type)
   except AuthenticationExpired:

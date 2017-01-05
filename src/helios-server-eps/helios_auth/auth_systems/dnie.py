@@ -1,9 +1,16 @@
 
 import logging
+logger = logging.getLogger('dnie')
 
 from django.conf import settings
 from django.core.mail import send_mail
 import urllib, urllib2, cgi
+
+# Para poder importar un modulo de otro paquete. No deberia ser asi.
+import sys, os
+sys.path.insert(0, os.path.join(settings.PROJECT_ROOT))
+from helios.models import Voter
+sys.path.remove(os.path.join(settings.PROJECT_ROOT))
 
 """
 Control de autenticacion basada en el DNIe espanol
@@ -12,7 +19,6 @@ STATUS_UPDATES = False
 
 def dnie_url(url, params):
     #http://localhost:9011/web/authorize/?response_type=code&client_id=testclient&redirect_uri=https://www.example.com&state=somestate
-  logger = logging.getLogger('dnie')
   ipport = 'localhost:9011'
   ipport = '192.168.1.153:8001'
   ipport = '192.168.1.153:8443'
@@ -21,6 +27,7 @@ def dnie_url(url, params):
   logger.info('De settings: %s' %(settings.SECURE_URL_HOST))
   protocolipport = settings.DNIE_OAUTH_SECURE_HOST
   protocolipport = protocolipport if protocolipport.find('http') == 0 else 'https://'+protocolipport
+  
   if params:
     # logger.info("http://%s%s?%s" % (ipport, url, urllib.urlencode(params)))
     # #return "http://%s%s?%s" % (ipport, url, urllib.urlencode(params))
@@ -35,7 +42,6 @@ def dnie_url(url, params):
     return "%s%s" % (protocolipport, url)
 
 def dnie_url_step2(url, params):
-  logger = logging.getLogger('dnie')
   ipport = '192.168.1.153:8553'
   protocolipport = settings.OAUTH_SECURE_HOST
   protocolipport = protocolipport if protocolipport.find('http') == 0 else 'https://'+protocolipport
@@ -62,7 +68,6 @@ def dnie_get(url, params):
 
 def dnie_post(url, params):
   full_url = dnie_url(url, None)
-  logger = logging.getLogger('dnie')
   logger.info("full_url(%s), params(%s)" % (full_url, urllib.urlencode(params)))
   return urllib2.urlopen(full_url, urllib.urlencode(params)).read()
 
@@ -92,6 +97,19 @@ def get_auth_url(request, redirect_url = None):
   request.session['dnie_redirect_uri'] = 'http://localhost:8005/auth/after/'
   request.session['dnie_redirect_uri'] = 'https://192.168.1.153:8442/auth/after/'
   request.session['dnie_redirect_uri'] = settings.SECURE_URL_HOST + '/auth/after/'
+  
+  URLHOST = settings.SECURE_URL_HOST
+  logger.debug('get_auth_url URLHOST: ' + URLHOST)
+  try:
+    referer = request.META['HTTP_HOST']
+    logger.debug('referer get_auth_url: ' + referer)
+    if (referer.find('192.168') < 0):
+      URLHOST = settings.SECURE_URL_HOST_EXTERNAL
+  except:
+    pass
+    
+  request.session['dnie_redirect_uri'] = URLHOST + '/auth/after/'
+
   """return facebook_url('/oauth/authorize', {
       'client_id': APP_ID,
       'redirect_uri': redirect_url,
@@ -114,7 +132,6 @@ def get_user_info_after_auth(request):
       'code' : request.GET['code']
       })
   """
-  logger = logging.getLogger('dnie')
   logger.debug('get_user_info_after_auth')
   mstring = []
   for key in request.GET.iterkeys():
@@ -129,7 +146,7 @@ def get_user_info_after_auth(request):
       return get_user_info_after_auth_androidClient(request)
   except Exception:
     pass
-  logger.info('ahora el dni_post')
+  logger.info('ahora el dni_post_step2')
   args = dnie_post_step2('/api/v1/tokens/', {
       'grant_type': 'authorization_code',
       'code': request.GET['code'],
@@ -153,18 +170,40 @@ def get_user_info_after_auth(request):
 
   info = utils.from_json(dnie_post_step2('/web/me', {'access_token':access_token}))
   #info = {'user_id': '53159931P'}
+  
+  # Lo ideal es sacar la info del web/me, pero temporalmente vamos a hacer un workaround
+  # Tenemos el DNIe, asi que miramos en la BD si existe algun Usuario con ese DNIe
+  reqdnie = request.GET['dnie']
+  voters = Voter.get_by_voter_id(reqdnie)
+  if (len(voters) > 0):
+    voter = voters[0]
+    info = {
+      'id': reqdnie,
+      'name': voter.voter_name,
+      'email': voter.voter_email
+    }
 
   #return {'type': 'facebook', 'user_id' : info['id'], 'name': info.get('name'), 'email': info.get('email'), 'info': info, 'token': {'access_token': access_token}}
   return {'type': 'dnie', 'user_id' : info['id'], 'name': info.get('name'), 'email': info.get('email'), 'info': info, 'token': {'access_token': access_token}}
 
 
 def get_user_info_after_auth_androidClient(request):
-    logger = logging.getLogger('dnie')
     logger.debug('get_user_info_after_auth_androidClient')
     logger.debug('info: ' + request.GET['info'])
     logger.debug('access_token: ' + request.GET['access_token'])
     import json
     info = json.loads(request.GET['info'])
+    # Lo ideal es sacar la info del web/me, pero temporalmente vamos a hacer un workaround
+    # Tenemos el DNIe, asi que miramos en la BD si existe algun Usuario con ese DNIe
+    reqdnie = request.GET['dnie']
+    voters = Voter.get_by_voter_id(reqdnie)
+    if (len(voters) > 0):
+      voter = voters[0]
+      info = {
+        'id': reqdnie,
+        'name': voter.voter_name,
+        'email': voter.voter_email
+      }
     access_token = request.GET['access_token']
     return {'type': 'dnie', 'user_id' : info['id'], 'name': info.get('name'), 'email': info.get('email'), 'info': info, 'token': {'access_token': access_token}}
 
@@ -190,8 +229,6 @@ def get_dni_info_from_ssl(request):
 
 
 def do_auth(request):
-    import logging
-    logger = logging.getLogger('dnie')
     logger.error(get_dni_info_from_ssl(request))
     return settings.SECURE_URL_HOST
 
