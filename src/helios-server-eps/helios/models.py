@@ -868,6 +868,13 @@ class Voter(HeliosModel):
       return None
     
   @classmethod
+  def get_by_voter_id(cls, voter_id):
+    try:
+      return cls.objects.filter(voter_login_id = voter_id)
+    except cls.DoesNotExist:
+      return None
+      
+  @classmethod
   def get_by_election_and_user(cls, election, user):
     try:
       return cls.objects.get(election = election, user = user)

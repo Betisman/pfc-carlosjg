@@ -156,6 +156,16 @@ def logout(request):
 
 def _do_auth(request):
   logger.debug('en _do_auth()')
+  
+  URLHOST = settings.SECURE_URL_HOST
+  try:
+    referer = request.META['HTTP_HOST']
+    logger.debug('referer: ' + referer)
+    if (referer.find('192.168') < 0):
+      URLHOST = settings.SECURE_URL_HOST_EXTERNAL
+  except:
+    pass
+
   # the session has the system name
   system_name = request.session['auth_system_name']
 
@@ -163,7 +173,9 @@ def _do_auth(request):
   system = AUTH_SYSTEMS[system_name]
   
   # where to send the user to?
-  redirect_url = "%s%s" % (settings.SECURE_URL_HOST,reverse(after))
+  redirect_url = "%s%s" % (URLHOST,reverse(after))
+  while redirect_url.find('https://https://') > -1:
+    redirect_url = redirect_url.replace('https://https://', 'https://')
   logger.debug('REDIRECT_URL ------------------------------> ' + redirect_url)
   auth_url = system.get_auth_url(request, redirect_url=redirect_url)
   
@@ -203,12 +215,17 @@ def not_user(request):
   return _do_auth(request)
 
 def after(request):
-  logger.debug('en after()')
+  logger.debug('en after() ' + request.META['HTTP_HOST'])
   # which auth system were we using?
   if not request.session.has_key('auth_system_name'):
     logger.debug('not request.session.has_key"auth_system_name")')
-    do_local_logout(request)
-    return HttpResponseRedirect("/")
+    if len(request.GET.get('auth_system_name')) > 0:
+      request.session['auth_system_name'] = request.GET.get('auth_system_name')
+      logger.debug('request.session["auth_system_name"] obtenido de querystring: ' + request.session['auth_system_name'])
+    else:
+      logger.debug('a hacer local logout')
+      do_local_logout(request)
+      return HttpResponseRedirect("/")
     
   system = AUTH_SYSTEMS[request.session['auth_system_name']]
   logger.debug(system)
@@ -250,5 +267,13 @@ def after_intervention(request):
   #   if request.session['auth_system_name'] == 'dnie':
   #     return HttpResponseRedirect("%s%s" % (settings.SECURE_URL_HOST, return_url))
 
-  return HttpResponseRedirect("%s%s" % (settings.URL_HOST, return_url))
+  URLHOST = settings.SECURE_URL_HOST
+  try:
+    referer = request.META['HTTP_HOST']
+    logger.debug('referer: ' + referer)
+    if (referer.find('192.168') < 0):
+      URLHOST = settings.SECURE_URL_HOST_EXTERNAL
+  except:
+    pass
+  return HttpResponseRedirect("%s%s" % (URLHOST, return_url))
 

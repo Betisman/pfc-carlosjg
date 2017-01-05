@@ -1,0 +1,85 @@
+    1  ll
+    2  alias ll='ls -la'
+    3  ll
+    4  mkdir Descargas
+    5  mkdir pfc
+    6  cd pfc/
+    7  git clone https://github.com/Betisman/pfc-carlosjg.git
+    8  sudo apt-get update
+    9  sudo apt-get upgrade
+   10  sudo reboot
+   11  ll
+   12  ls
+   13  ls -la
+   14  vi .bashrc 
+   15  . .bashrc 
+   16  ll
+   17  sudo apt-get install postgresql
+   18  ll
+   19  cd pfc/
+   20  ll
+   21  cd pfc-carlosjg/
+   22  kk
+   23  ll
+   24  cd src/
+   25  ll
+   26  cd helios-server-eps/
+   27  ll
+   28  cd ..
+   29  ll
+   30  cd helios-server-eps/
+   31  ll
+   32  virtualenv venv
+   33  sudo apt-get install python-virtualenv
+   34  virtualenv venv
+   35  source venv/bin/activate
+   36  sudo apt-get install libpq-dev
+   37  sudo apt-get install python-dev
+   38  pip install -r requirements.txt 
+   39  sudo vi reset.sh 
+   40  sudo su -c "createuser --superuser carlos" postgres
+   41  sudo service postgresql restart
+   42  pip install amqp
+   43  ./reset.sh
+   44  psql --dbname helios
+   45  ./reset.sh
+   46  pip install sanitizer
+   47  pip install --upgrade bleach
+   48  ./reset.sh
+   49  history > ../../comandos_helios.txt
+   50  sudo apt-get install apache2
+   51  sudo apt-get install open SSL
+   52  sudo apt-get install openSSL
+   53  sudo a2enmod ssl
+   54  sudo apt-get install libapache2-mod-wsgi
+   55  sudo a2enmod wsgi
+   56  cd /etc/cd /etc/apache2/sites-available/
+   57  cd /etc/apache2/sites-available/
+   58  ll
+   59  sudo cp 000-default.conf sitednie.conf
+   60  cd
+   61  ll
+   62  cd Descargas/
+   63  ll
+   64  mkdir certificados
+   65  cd certificados/
+   66  openssl genrsa -des3 -out server.key 2048
+   67  openssl req -new -key server.key -out server.csr
+   68  openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
+   69  wget https://www.dnielectronico.es/ZIP/ACRAIZ-SHA2.CAB
+   70  sudo apt-get install cabextract
+   71  cabextract ACRAIZ-SHA2.CAB
+   72  openssl x509 -in ACRAIZ-SHA2.crt -inform DER -out ACRAIZ-SHA2.crt -outform PEM
+   73  sudo cp ACRAIZ-SHA2.crt acraiz-dnie.cer
+   74  cd /etc/apache2/sites-available
+   75  sudo cat default-ssl.conf >> sitednie.conf
+   76  rm sitednie.conf 
+   77  sudo rm sitednie.conf 
+   78  touch sitednie.conf
+   79  sudo touch sitednie.conf
+   80  sudo vi sitednie.conf 
+   81  sudo vi /etc/apache2/ports.conf 
+   82  sudo a2ensite sitednie.conf 
+   83  sudo service apache2 restart
+   84  history > comandos_apache2.conf
+   85  history > ~/pfc/pfc-carlosjg/src/comandos_apache2.txt

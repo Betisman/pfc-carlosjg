@@ -17,28 +17,29 @@
 		<div style="margin-bottom: 25px; ">
 			{{election.description_bleached|safe}}
 		</div>
+		<div>
+			<em>{% if election.private_p %}private{%else%}public{% endif %}</em> {{ election.election_type }}{% if settings.SHOW_USER_INFO %} creada por <u><b>{{election.admin.display_html_small|safe}}</b></u>{% endif %}
+			{% if election.is_archived %}
+				[archivada]
+			{% endif %}
+			{% if admin_p %}
+				&nbsp;{% if election.is_archived %}<a class="btn btn-default btn-xs" href="{% url "helios.views.one_election_archive" election_uuid=election.uuid %}?archive_p=0"><span class="glyphicon glyphicon-export" aria-hidden="true"></span> Desarchivar</a>{% else %}<a class="btn btn-default btn-xs" href="{% url "helios.views.one_election_archive" election_uuid=election.uuid %}?archive_p=1"><span class="glyphicon glyphicon-import" aria-hidden="true"></span> Archivar</a>{% endif %}
+			{% endif %}
+		</div>
+		<br/>
 	</div>
 	<p style="padding-top:0px; margin-top:0px">
-		<em>{% if election.private_p %}private{%else%}public{% endif %}</em> {{ election.election_type }}{% if settings.SHOW_USER_INFO %} creada por <u><b>{{election.admin.display_html_small|safe}}</b></u>{% endif %}
-
-		{% if election.is_archived %}
-			[archivada]
-		{% endif %}
-		{% if admin_p %}
-			&nbsp;{% if election.is_archived %}<a class="btn btn-default btn-xs" href="{% url "helios.views.one_election_archive" election_uuid=election.uuid %}?archive_p=0"><span class="glyphicon glyphicon-export" aria-hidden="true"></span> Desarchivar</a>{% else %}<a class="btn btn-default btn-xs" href="{% url "helios.views.one_election_archive" election_uuid=election.uuid %}?archive_p=1"><span class="glyphicon glyphicon-import" aria-hidden="true"></span> Archivar</a>{% endif %}
-		{% endif %}
-		<br />
 		{% if admin_p %}
 			{% if not election.private_p %}
 				{% if election.featured_p %}
-					esta {{election.election_type}} aparece en la página inicial.
+					Esta {{election.election_type}} aparece en la página inicial.
 					{% if can_feature_p %}
-						[<a href="{% url "helios.views.one_election_set_featured" election.uuid %}?featured_p=0">que no aparezca en la página inicial</a>]
+						<a class="btn btn-default btn-xs"  href="{% url "helios.views.one_election_set_featured" election.uuid %}?featured_p=0"><span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span> No destacar en la página inicial</a>
 					{% endif %}
 				{% else %}
-					esta {{election.election_type}} <u>no</u> aparece en la página inicial.
+					Esta {{election.election_type}} <u>no</u> aparece en la página inicial.
 					{% if can_feature_p %}
-						[<a href="{% url "helios.views.one_election_set_featured" election.uuid %}?featured_p=1">que aparezca en la página inicial</a>]
+						<a class="btn btn-default btn-xs" href="{% url "helios.views.one_election_set_featured" election.uuid %}?featured_p=1"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> Destacar en la página inicial</a>
 					{% endif %}
 				{% endif %}
 			{% endif %}

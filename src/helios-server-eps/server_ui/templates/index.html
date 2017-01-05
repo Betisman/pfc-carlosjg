@@ -9,68 +9,77 @@
 
 <div class="row"><div class="large-5 columns large-centered"><a href="/"><img border="0" src="{{ settings.MAIN_LOGO_URL }}" /></a></div></div>
 <div class="row">&nbsp;</div>
-<div class="col-lg-7 col-md-6 col-sm-12 col-xs-12 jumbotron">
-  {% if settings.MASTER_HELIOS %}
-    <p>Helios offers <b>verifiable online elections</b>.</p>
+<div class="col-lg-7 col-md-6 col-sm-12 col-xs-12">
+	<div class="jumbotron col-12">
+	  {% if settings.MASTER_HELIOS %}
+		<p>Helios offers <b>verifiable online elections</b>.</p>
 
-    <p>We believe democracy is important, whether it’s your book club, parent-teacher association, student government, workers’ union, or state. So we’ve made truly verifiable elections as easy as everything else on the Web.</p>
+		<p>We believe democracy is important, whether it’s your book club, parent-teacher association, student government, workers’ union, or state. So we’ve made truly verifiable elections as easy as everything else on the Web.</p>
 
-    <p>
-    Helios elections are:
-    <ul class="disc">
-    <li><b>private</b>: no one knows how you voted.</li>
-    <li><b>verifiable</b>: each voter gets a tracking number.</li>
-    <li><b>proven</b>: Helios is open-source, vetted by top-tier experts, and in use by major organizations.</li>
-    </ul>
+		<p>
+		Helios elections are:
+		<ul class="disc">
+		<li><b>private</b>: no one knows how you voted.</li>
+		<li><b>verifiable</b>: each voter gets a tracking number.</li>
+		<li><b>proven</b>: Helios is open-source, vetted by top-tier experts, and in use by major organizations.</li>
+		</ul>
 
-    <p>
-    More than <b>100,000 votes</b> have been cast using Helios.
-    </p>
+		<p>
+		More than <b>100,000 votes</b> have been cast using Helios.
+		</p>
 
-    {% if create_p %}
-      <a class="btn btn-primary" href="{% url "helios.views.election_new" %}">Crear elección</a>
-    {% else %}
-      <p>No es usuario admin</p>
-    {% endif %}
+		{% if create_p %}
+		  <a class="btn btn-primary" href="{% url "helios.views.election_new" %}">Crear elección</a>
+		{% else %}
+		  <p>No es usuario admin</p>
+		{% endif %}
 
-  {% else %}
-    <p style="font-size: 1.4em;">
-      {{settings.WELCOME_MESSAGE|safe}}
-    </p>
-  
-    {% if elections|length %}
-      <p>
-        {% for election in elections %}
-        <div class="panel">
-          <a style="font-size: 1.4em;" href="{% url "helios.views.election_shortcut" election.short_name %}">{{election.name}}</a>{% if settings.SHOW_USER_INFO %}<br /> by {{election.admin.display_html_small|safe}}{% endif %}
-        </div>
-        <br />
-        {% endfor %}
-      </p>
-    {% else %}
-      <h4>No hay elecciones destacadas por el momento</h4>
+	  {% else %}
+		<p style="font-size: 1.4em;">
+		  {{settings.WELCOME_MESSAGE|safe}}
+		</p>
+	  {% endif %}
 
-    {% endif %}
-  {% endif %}
+	{% if false %}
+	  {% if dni %}
+		<p>Por el certificado con el que se ha conectado, su DNI es: {{dni}}</p>
+	  {% else %}
+		<p>No se ha establecido ningún canal SSL.</p>
+	  {% endif %}
+	{% endif %}
+	  
+	  
+	  
 
-{% if false %}
-  {% if dni %}
-    <p>Por el certificado con el que se ha conectado, su DNI es: {{dni}}</p>
-  {% else %}
-    <p>No se ha establecido ningún canal SSL.</p>
-  {% endif %}
-{% endif %}
-  
-  
-  
+	  {% if create_p %}
+		<a class="btn btn-primary link-crear-eleccion link-global" href="{% url "helios.views.election_new" %}"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Crear una nueva elección</a>
+	  {% else %}
+		<p>No es usuario admin</p>
+	  {% endif %}
 
-  {% if create_p %}
-    <a class="btn btn-primary link-crear-eleccion link-global" href="{% url "helios.views.election_new" %}"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Crear una nueva elección</a>
-  {% else %}
-    <p>No es usuario admin</p>
-  {% endif %}
+	</div>
+	{% if elections|length %}
+		<div class="col-12">
+			<div class="panel panel-warning panel-destacados">
+				<div class="panel-heading">
+					<h5 class="panel-title centrar"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> Elecciones Destacadas</h5>
+				</div>
+				<div class="panel-body">
+					{% for election in elections %}
+						<div class="panel">
+							<a style="font-size: 1.4em;" href="{% url "helios.views.election_shortcut" election.short_name %}">{{election.name}}</a>{% if settings.SHOW_USER_INFO %}<br /> by {{election.admin.display_html_small|safe}}{% endif %}
+						</div>
+					{% endfor %}
+				</div>
+			</div>
 
-
+		  <p>
+			
+		  </p>
+		</div>
+	{% else %}
+		<h4>No hay elecciones destacadas por el momento</h4>
+	{% endif %}
 </div>
 
 <div class="col-lg-5 col-md-6 col-sm-12 col-xs-12" id="mystuff">
