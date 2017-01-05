@@ -54,13 +54,14 @@ class CodeResponseType(AbstractResponseType):
                 'state': state,
                 'dnie': dnie.serialNumber
             })
-
+            logger.debug('returning {}?{}'.format(redirect_uri, query_string))
             return HttpResponseRedirect('{}?{}'.format(
                 redirect_uri, query_string))
         elif client_type == 'androidnfcapp':
             d = {'code': auth_code.code, 'state': state, 'dnie': dnie.serialNumber}
             import json
             from django.http import HttpResponse
+            logger.debug('returning ' + json.dumps(d))
             return HttpResponse(json.dumps(d), content_type='application/json')
         else:
             return self.denied_redirect(

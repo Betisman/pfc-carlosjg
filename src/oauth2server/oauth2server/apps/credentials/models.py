@@ -71,6 +71,11 @@ class OAuthUser(OAuthCredentials):
         unique=True,
         #validators=[DNIValidator()],
     )
+    
+    name = models.CharField(
+        max_length=254,
+        unique=False
+    )
 
     def __unicode__(self):
         return self.email

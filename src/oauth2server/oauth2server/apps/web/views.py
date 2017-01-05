@@ -6,6 +6,7 @@ from apps.web.decorators import validate_request
 from apps.web.responsetypes import factory
 from apps.web.forms import AuthorizeForm
 from apps.tokens.models import OAuthScope
+from apps.credentials.models import OAuthUser
 import logging
 logger = logging.getLogger('views')
 
@@ -220,7 +221,7 @@ class AuthorizeView(View):
         if not form.is_valid():
             return self._render(request=request, form=form)
 
-        logger.debug('hhhhhhhhhhhhhhhhhhhhhhh: ' + request.redirect_uri)
+        logger.debug('hhhhhhhhhhhhhhhhhhhhhhh: ' + request.redirect_uri + ', request.response_type = ' + request.response_type)
         return factory(response_type=request.response_type).process(
             client=request.client,
             authorized=form.cleaned_data['authorize'],
