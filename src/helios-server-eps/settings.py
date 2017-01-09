@@ -202,6 +202,15 @@ DNIE_OAUTH_HOST = "http://192.168.1.144"
 DNIE_OAUTH_SECURE_HOST = "https://192.168.1.144"
 OAUTH_SECURE_HOST = "https://192.168.1.144:442"
 
+def get_SECURE_URL_HOST(request):
+    try:
+        referer = request.META['HTTP_HOST']
+        logger.debug('settings referer: ' + referer)
+        if (referer.find('192.168') < 0):
+            return SECURE_URL_HOST_EXTERNAL
+    except:
+        pass
+    return SECURE_URL_HOST
 
 # this additional host is used to iframe-isolate the social buttons,
 # which usually involve hooking in remote JavaScript, which could be

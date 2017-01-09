@@ -24,7 +24,7 @@ def dnie_url(url, params):
   ipport = '192.168.1.153:8443'
   ipport = '192.168.1.144'
   logger.info('IPPORT: %s' %(ipport))
-  logger.info('De settings: %s' %(settings.SECURE_URL_HOST))
+  logger.info('De settings: %s' %(settings.get_SECURE_URL_HOST(request)))
   protocolipport = settings.DNIE_OAUTH_SECURE_HOST
   protocolipport = protocolipport if protocolipport.find('http') == 0 else 'https://'+protocolipport
   
@@ -96,18 +96,20 @@ def get_auth_url(request, redirect_url = None):
   request.session['dnie_redirect_uri'] = redirect_url
   request.session['dnie_redirect_uri'] = 'http://localhost:8005/auth/after/'
   request.session['dnie_redirect_uri'] = 'https://192.168.1.153:8442/auth/after/'
-  request.session['dnie_redirect_uri'] = settings.SECURE_URL_HOST + '/auth/after/'
+  request.session['dnie_redirect_uri'] = settings.get_SECURE_URL_HOST(request) + '/auth/after/'
   
-  URLHOST = settings.SECURE_URL_HOST
-  logger.debug('get_auth_url URLHOST: ' + URLHOST)
-  try:
-    referer = request.META['HTTP_HOST']
-    logger.debug('referer get_auth_url: ' + referer)
-    if (referer.find('192.168') < 0):
-      URLHOST = settings.SECURE_URL_HOST_EXTERNAL
-  except:
-    pass
-    
+  # URLHOST = settings.SECURE_URL_HOST
+  # logger.debug('get_auth_url URLHOST: ' + URLHOST)
+  # try:
+    # referer = request.META['HTTP_HOST']
+    # logger.debug('referer get_auth_url: ' + referer)
+    # if (referer.find('192.168') < 0):
+      # URLHOST = settings.SECURE_URL_HOST_EXTERNAL
+  # except:
+    # pass
+   
+  URLHOST = settings.get_SECURE_URL_HOST(request)
+  
   request.session['dnie_redirect_uri'] = URLHOST + '/auth/after/'
 
   """return facebook_url('/oauth/authorize', {
@@ -230,7 +232,7 @@ def get_dni_info_from_ssl(request):
 
 def do_auth(request):
     logger.error(get_dni_info_from_ssl(request))
-    return settings.SECURE_URL_HOST
+    return settings.get_SECURE_URL_HOST(request)
 
 def do_logout(request):
     # import logging

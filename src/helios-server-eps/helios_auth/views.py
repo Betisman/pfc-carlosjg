@@ -157,15 +157,17 @@ def logout(request):
 def _do_auth(request):
   logger.debug('en _do_auth()')
   
-  URLHOST = settings.SECURE_URL_HOST
-  try:
-    referer = request.META['HTTP_HOST']
-    logger.debug('referer: ' + referer)
-    if (referer.find('192.168') < 0):
-      URLHOST = settings.SECURE_URL_HOST_EXTERNAL
-  except:
-    pass
+  # URLHOST = settings.SECURE_URL_HOST
+  # try:
+    # referer = request.META['HTTP_HOST']
+    # logger.debug('referer: ' + referer)
+    # if (referer.find('192.168') < 0):
+      # URLHOST = settings.SECURE_URL_HOST_EXTERNAL
+  # except:
+    # pass
 
+  URLHOST = settings.get_SECURE_URL_HOST(request)
+  
   # the session has the system name
   system_name = request.session['auth_system_name']
 
@@ -267,13 +269,14 @@ def after_intervention(request):
   #   if request.session['auth_system_name'] == 'dnie':
   #     return HttpResponseRedirect("%s%s" % (settings.SECURE_URL_HOST, return_url))
 
-  URLHOST = settings.SECURE_URL_HOST
-  try:
-    referer = request.META['HTTP_HOST']
-    logger.debug('referer: ' + referer)
-    if (referer.find('192.168') < 0):
-      URLHOST = settings.SECURE_URL_HOST_EXTERNAL
-  except:
-    pass
+  # URLHOST = settings.SECURE_URL_HOST
+  URLHOST = settings.get_SECURE_URL_HOST(request)
+  # try:
+    # referer = request.META['HTTP_HOST']
+    # logger.debug('referer: ' + referer)
+    # if (referer.find('192.168') < 0):
+      # URLHOST = settings.SECURE_URL_HOST_EXTERNAL
+  # except:
+    # pass
   return HttpResponseRedirect("%s%s" % (URLHOST, return_url))
 

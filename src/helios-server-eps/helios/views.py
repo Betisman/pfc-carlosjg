@@ -88,7 +88,7 @@ def get_socialbuttons_url(url, text):
 def user_reauth(request, user):
   # FIXME: should we be wary of infinite redirects here, and
   # add a parameter to prevent it? Maybe.
-  login_url = "%s%s?%s" % (settings.SECURE_URL_HOST,
+  login_url = "%s%s?%s" % (settings.get_SECURE_URL_HOST(request),
                            reverse(auth_views.start, args=[user.user_type]),
                            urllib.urlencode({'return_url':
                                                request.get_full_path()}))
