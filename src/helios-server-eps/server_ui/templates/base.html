@@ -99,7 +99,7 @@
 		{% else %}
 			{% if settings.SHOW_LOGIN_OPTIONS %}
 				<!-- not logged in. <a class="tiny button" href="{{settings.SECURE_URL_HOST}}{% url "helios_auth.views.index" %}?return_url={{CURRENT_URL}}">log in</a> -->
-				not logged in. <a class="tiny button" href="{% url "helios_auth.views.get_SECURE_URL_HOST" %}{% url "helios_auth.views.index" %}?return_url={{CURRENT_URL}}">log in</a>
+				not logged in. <a class="tiny button" href="{% url "helios_auth.views.index" %}?return_url={{CURRENT_URL}}">log in</a>
 			{% else %}
 				powered by <a href="http://heliosvoting.org">Helios Voting</a>.
 			{% endif %}

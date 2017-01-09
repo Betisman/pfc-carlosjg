@@ -20,19 +20,27 @@ import urllib
 
 import helios
 
+import logging
+logger = logging.getLogger('security')
+
 # current voter
 def get_voter(request, user, election):
+  logger.debug('get_voter user('+str(user)+') election('+str(election)+')')
   """
   return the current voter
   """
   voter = None
   if request.session.has_key('CURRENT_VOTER_ID'):
+    logger.debug(request.session['CURRENT_VOTER_ID'])
     voter = Voter.objects.get(id=request.session['CURRENT_VOTER_ID'])
     if voter.election != election:
+      logger.debug('voter.election != election')
       voter = None
 
   if not voter:
+    logger.debug('not voter')
     if user:
+      logger.debug('user_' + str(user))
       voter = Voter.get_by_election_and_user(election, user)
   
   return voter

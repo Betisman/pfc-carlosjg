@@ -15,6 +15,9 @@ from helios import utils as helios_utils
 
 from helios.models import *
 
+import logging
+logger = logging.getLogger('load_voter_files')
+
 ##
 ## UTF8 craziness for CSV
 ##
@@ -52,16 +55,24 @@ def process_csv_file(election, f):
         name = voter[2]
     
       # create the user
-      user = User.update_or_create(user_type='password', user_id=voter_id, info = {'password': helios_utils.random_string(10), 'email': email, 'name': name})
+      user = User.update_or_create(user_type='dnie', user_id=voter_id, info = {'password': helios_utils.random_string(10), 'email': email, 'name': name})
       user.save()
     
+      print 1/0
+      print 'hola'
+      logger.debug(user)
+      logger.debug(user.name)
+      try:
+        logger.debug(user.id)
+      except:
+        logger.debug('excepcion con el user.id')
       # does voter for this user already exist
       voter = Voter.get_by_election_and_user(election, user)
     
       # create the voter
       if not voter:
         voter_uuid = str(uuid.uuid1())
-        voter = Voter(uuid= voter_uuid, voter_type = 'password', voter_id = voter_id, name = name, election = election)
+        voter = Voter(uuid= voter_uuid, voter_type = 'dnie', voter_id = voter_id, name = name, election = election)
         voter.save()
 
     return num_voters

@@ -173,6 +173,15 @@ console.log('hola')
         // the main reason for this is unicode representation: the Python approach
         // appears to be safer.
         BOOTH.election = HELIOS.Election.fromJSONString(raw_json);
+		
+		// En la BD se guarda la cast_url con un host, pero quiero controlar que podamos acceder desde intranet o internet
+//console.log(BOOTH.election.cast_url)
+		var url = BOOTH.election.cast_url;
+		var l = document.createElement('a'); l.href = url;
+//console.debug(l.hostname);
+//console.debug(l.pathname);
+//console.debug(window.location.host);
+		BOOTH.election.cast_url = BOOTH.election.cast_url.replace(l.hostname, window.location.host);
 
         // FIXME: we shouldn't need to set both, but right now we are doing so
         // because different code uses each one. Bah. Need fixing.

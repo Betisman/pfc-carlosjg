@@ -43,6 +43,9 @@ from models import *
 
 import forms, signals
 
+import logging
+logger = logging.getLogger('helios_views')
+  
 # Parameters for everything
 ELGAMAL_PARAMS = elgamal.Cryptosystem()
 
@@ -57,17 +60,17 @@ ELGAMAL_PARAMS_LD_OBJECT = datatypes.LDObject.instantiate(ELGAMAL_PARAMS, dataty
 # single election server? Load the single electionfrom models import Election
 from django.conf import settings
 
-def get_election_url(election):
-  return settings.URL_HOST + reverse(election_shortcut, args=[election.short_name])  
+def get_election_url(request, election):
+  return settings.GET_SECURE_URL_HOST(request) + reverse(election_shortcut, args=[election.short_name])  
 
-def get_election_badge_url(election):
-  return settings.URL_HOST + reverse(election_badge, args=[election.uuid])  
+def get_election_badge_url(request, election):
+  return settings.GET_SECURE_URL_HOST(request) + reverse(election_badge, args=[election.uuid])  
 
-def get_election_govote_url(election):
-  return settings.URL_HOST + reverse(election_vote_shortcut, args=[election.short_name])  
+def get_election_govote_url(request, election):
+  return settings.GET_SECURE_URL_HOST(request) + reverse(election_vote_shortcut, args=[election.short_name])  
 
-def get_castvote_url(cast_vote):
-  return settings.URL_HOST + reverse(castvote_shortcut, args=[cast_vote.vote_tinyhash])
+def get_castvote_url(request, cast_vote):
+  return settings.GET_SECURE_URL_HOST(request) + reverse(castvote_shortcut, args=[cast_vote.vote_tinyhash])
 
 # social buttons
 def get_socialbuttons_url(url, text):
@@ -98,7 +101,7 @@ def user_reauth(request, user):
 ## simple admin for development
 ##
 def admin_autologin(request):
-  if "localhost" not in settings.URL_HOST and "127.0.0.1" not in settings.URL_HOST:
+  if "localhost" not in settings.GET_SECURE_URL_HOST(request) and "127.0.0.1" not in settings.GET_SECURE_URL_HOST(request):
     raise Http404
   
   users = User.objects.filter(admin_p=True)
@@ -137,6 +140,7 @@ def election_shortcut(request, election_short_name):
 @election_view()
 def _election_vote_shortcut(request, election):
   vote_url = "%s/booth/vote.html?%s" % (settings.GET_SECURE_URL_HOST(request), urllib.urlencode({'election_url' : reverse(one_election, args=[election.uuid])}))
+  logger.debug('_election_vote_shortcut: ' + vote_url)
   
   test_cookie_url = "%s?%s" % (reverse(test_cookie), urllib.urlencode({'continue_url' : vote_url}))
 
@@ -281,7 +285,7 @@ def one_election_meta(request, election):
 
 @election_view()
 def election_badge(request, election):
-  election_url = get_election_url(election)
+  election_url = get_election_url(request, election)
   params = {'election': election, 'election_url': election_url}
   for option_name in ['show_title', 'show_vote_link']:
     params[option_name] = (request.GET.get(option_name, '1') == '1')
@@ -296,11 +300,12 @@ def one_election_view(request, election):
   notregistered = False
   eligible_p = True
   
-  election_url = get_election_url(election)
-  election_badge_url = get_election_badge_url(election)
+  election_url = get_election_url(request, election)
+  election_badge_url = get_election_badge_url(request, election)
   status_update_message = None
 
   vote_url = "%s/booth/vote.html?%s" % (settings.GET_SECURE_URL_HOST(request), urllib.urlencode({'election_url' : reverse(one_election, args=[election.uuid])}))
+  logger.debug('one_election_view: ' + vote_url)
 
   test_cookie_url = "%s?%s" % (reverse(test_cookie), urllib.urlencode({'continue_url' : vote_url}))
 
@@ -613,11 +618,13 @@ def password_voter_login(request, election):
 
 @election_view()
 def one_election_cast_confirm(request, election):
+  logging.debug('one_election_cast_confirm')
   user = get_user(request)    
+  logging.debug('user: ' + str(user))
 
   # if no encrypted vote, the user is reloading this page or otherwise getting here in a bad way
   if not request.session.has_key('encrypted_vote'):
-    return HttpResponseRedirect(settings.URL_HOST)
+    return HttpResponseRedirect(settings.GET_SECURE_URL_HOST(request))
 
   # election not frozen or started
   if not election.voting_has_started():
@@ -674,7 +681,7 @@ def one_election_cast_confirm(request, election):
     # status update this vote
     if voter and voter.user.can_update_status():
       status_update_label = voter.user.update_status_template() % "your smart ballot tracker"
-      status_update_message = "I voted in %s - my smart tracker is %s.. #heliosvoting" % (get_election_url(election),cast_vote.vote_hash[:10])
+      status_update_message = "I voted in %s - my smart tracker is %s.. #heliosvoting" % (get_election_url(request, election),cast_vote.vote_hash[:10])
     else:
       status_update_label = None
       status_update_message = None
@@ -715,7 +722,7 @@ def one_election_cast_confirm(request, election):
     
     # voting has not started or has ended
     if (not election.voting_has_started()) or election.voting_has_stopped():
-      return HttpResponseRedirect(settings.URL_HOST)
+      return HttpResponseRedirect(settings.GET_SECURE_URL_HOST(request))
             
     # if user is not logged in
     # bring back to the confirmation page to let him know
@@ -739,12 +746,11 @@ def one_election_cast_confirm(request, election):
     # remove the vote from the store
     del request.session['encrypted_vote']
     
-    return HttpResponseRedirect("%s%s" % (settings.URL_HOST, reverse(one_election_cast_done, args=[election.uuid])))
+    return HttpResponseRedirect("%s%s" % (settings.GET_SECURE_URL_HOST(request), reverse(one_election_cast_done, args=[election.uuid])))
   
 @election_view()
 def one_election_cast_done(request, election):
-  import logging
-  logger = logging.getLogger('helios_views')
+  
   logger.debug('one_election_view')
   """
   This view needs to be loaded because of the IFRAME, but then this causes 
@@ -760,7 +766,7 @@ def one_election_cast_done(request, election):
     logger.debug('if voter')
     votes = CastVote.get_by_voter(voter)
     vote_hash = votes[0].vote_hash
-    cv_url = get_castvote_url(votes[0])
+    cv_url = get_castvote_url(request, votes[0])
 
     # only log out if the setting says so *and* we're dealing
     # with a site-wide voter. Definitely remove current_voter
@@ -1083,7 +1089,7 @@ def release_result(request, election):
   """
   result is computed and now it's time to release the result
   """
-  election_url = get_election_url(election)
+  election_url = get_election_url(request, election)
 
   if request.method == "POST":
     check_csrf(request)
@@ -1102,7 +1108,7 @@ def combine_decryptions(request, election):
   combine trustee decryptions
   """
 
-  election_url = get_election_url(election)
+  election_url = get_election_url(request, election)
 
   if request.method == "POST":
     check_csrf(request)
@@ -1317,8 +1323,8 @@ def voters_email(request, election):
   else:
     voter = None
   
-  election_url = get_election_url(election)
-  election_vote_url = get_election_govote_url(election)
+  election_url = get_election_url(request, election)
+  election_vote_url = get_election_govote_url(request, election)
 
   default_subject = render_template_raw(None, 'email/%s_subject.txt' % template, {
       'custom_subject': "&lt;SUBJECT&gt;"

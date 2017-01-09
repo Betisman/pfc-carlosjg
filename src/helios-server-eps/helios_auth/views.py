@@ -166,7 +166,7 @@ def _do_auth(request):
   # except:
     # pass
 
-  URLHOST = settings.GET_SECURE_URL_HOST(request)
+  URLHOST = settings.GET_SECURE_URL_HOST(request, 'helios_auth.views._do_auth')
   
   # the session has the system name
   system_name = request.session['auth_system_name']
@@ -280,3 +280,6 @@ def after_intervention(request):
     # pass
   return HttpResponseRedirect("%s%s" % (URLHOST, return_url))
 
+def get_SECURE_URL_HOST(request):
+  # return settings.GET_SECURE_URL_HOST(request)
+  return HttpResponseRedirect(settings.GET_SECURE_URL_HOST(request))

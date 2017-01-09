@@ -29,6 +29,7 @@ import csv, copy
 import unicodecsv
 
 import logging
+logger = logging.getLogger('helios.model')
 
 class HeliosModel(models.Model, datatypes.LDObjectContainer):
   class Meta:
@@ -730,6 +731,7 @@ class VoterFile(models.Model):
       yield return_dict
     
   def process(self):
+    logger.error('--------------------- processing voterfile')
     self.processing_started_at = datetime.datetime.utcnow()
     self.save()
 
@@ -743,11 +745,14 @@ class VoterFile(models.Model):
     
       # does voter for this user already exist
       existing_voter = Voter.get_by_election_and_voter_id(election, voter['voter_id'])
-    
+      if existing_voter:
+        logger.error(existing_voter.voter_login_id)
+      
       # create the voter
       if not existing_voter:
         voter_uuid = str(uuid.uuid4())
-        existing_voter = Voter(uuid= voter_uuid, user = None, voter_login_id = voter['voter_id'],
+        user = User.get_by_type_and_id('dnie', voter['voter_id'])
+        existing_voter = Voter(uuid= voter_uuid, user = user, voter_login_id = voter['voter_id'],
                       voter_name = voter['name'], voter_email = voter['email'], election = election)
         existing_voter.generate_password()
         new_voters.append(existing_voter)

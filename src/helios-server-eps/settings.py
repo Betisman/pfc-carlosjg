@@ -205,15 +205,21 @@ DNIE_OAUTH_SECURE_HOST = "https://192.168.1.144"
 DNIE_OAUTH_SECURE_HOST_EXTERNAL = "https://" + EXTERNAL_SERVER_URL + ":8444"
 
 OAUTH_SECURE_HOST = "https://192.168.1.144:442"
+OAUTH_SECURE_HOST_EXTERNAL = "https://" + EXTERNAL_SERVER_URL + ":8662"
 
-def GET_SECURE_URL_HOST(request):
+import logging
+logger = logging.getLogger('settings')
+
+def GET_SECURE_URL_HOST(request, desde=None):
     try:
         referer = request.META['HTTP_HOST']
-        logger.debug('settings referer: ' + referer)
-        if (referer.find('192.168') < 0):
-            return SECURE_URL_HOST_EXTERNAL
-    except:
-        pass
+    except Exception as ex:
+        logger.error(ex.strerror)
+    if desde == None:
+        desde = ''
+    logger.debug('settings (' + desde + ') referer: ' + referer)
+    if (referer.find('192.168') < 0):
+        return SECURE_URL_HOST_EXTERNAL
     return SECURE_URL_HOST
     
 def GET_DNIE_OAUTH_SECURE_HOST(request):
@@ -226,6 +232,16 @@ def GET_DNIE_OAUTH_SECURE_HOST(request):
         pass
     return DNIE_OAUTH_SECURE_HOST
 
+def GET_OAUTH_SECURE_HOST(request):
+    try:
+        referer = request.META['HTTP_HOST']
+        logger.debug('settings referer: ' + referer)
+        if (referer.find('192.168') < 0):
+            return OAUTH_SECURE_HOST_EXTERNAL
+    except:
+        pass
+    return OAUTH_SECURE_HOST
+    
 # this additional host is used to iframe-isolate the social buttons,
 # which usually involve hooking in remote JavaScript, which could be
 # a security issue. Plus, if there's a loading issue, it blocks the whole
