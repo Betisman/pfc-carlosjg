@@ -194,12 +194,16 @@ SECURE_URL_HOST = "https://192.168.1.153:8442"
 #URL_HOST = 'http://localhost:8005'
 #SECURE_URL_HOST = 'https://localhost:443'
 
+EXTERNAL_SERVER_URL = "37.134.154.40"
+
 URL_HOST = "http://192.168.1.145"
 SECURE_URL_HOST = "https://192.168.1.145"
-SECURE_URL_HOST_EXTERNAL = "https://37.134.154.40:8445"
+SECURE_URL_HOST_EXTERNAL = "https://" + EXTERNAL_SERVER_URL + ":8445"
 
 DNIE_OAUTH_HOST = "http://192.168.1.144"
 DNIE_OAUTH_SECURE_HOST = "https://192.168.1.144"
+DNIE_OAUTH_SECURE_HOST_EXTERNAL = "https://" + EXTERNAL_SERVER_URL + ":8444"
+
 OAUTH_SECURE_HOST = "https://192.168.1.144:442"
 
 def GET_SECURE_URL_HOST(request):
@@ -211,6 +215,16 @@ def GET_SECURE_URL_HOST(request):
     except:
         pass
     return SECURE_URL_HOST
+    
+def GET_DNIE_OAUTH_SECURE_HOST(request):
+    try:
+        referer = request.META['HTTP_HOST']
+        logger.debug('settings referer: ' + referer)
+        if (referer.find('192.168') < 0):
+            return DNIE_OAUTH_SECURE_HOST_EXTERNAL
+    except:
+        pass
+    return DNIE_OAUTH_SECURE_HOST
 
 # this additional host is used to iframe-isolate the social buttons,
 # which usually involve hooking in remote JavaScript, which could be

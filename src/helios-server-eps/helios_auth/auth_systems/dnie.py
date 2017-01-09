@@ -24,7 +24,7 @@ def dnie_url(url, params):
   ipport = '192.168.1.153:8443'
   ipport = '192.168.1.144'
   logger.info('IPPORT: %s' %(ipport))
-  logger.info('De settings: %s' %(settings.GET_SECURE_URL_HOST(request)))
+  # logger.info('De settings: %s' %(settings.GET_SECURE_URL_HOST(request)))
   protocolipport = settings.DNIE_OAUTH_SECURE_HOST
   protocolipport = protocolipport if protocolipport.find('http') == 0 else 'https://'+protocolipport
   
