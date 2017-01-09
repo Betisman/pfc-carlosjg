@@ -637,7 +637,7 @@ class ElectionBlackboxTests(WebTest):
         # cast the ballot
         response = self.app.post("/helios/elections/%s/cast" % election_id, {
                 'encrypted_vote': encrypted_vote})
-        self.assertRedirects(response, "%s/helios/elections/%s/cast_confirm" % (settings.get_SECURE_URL_HOST(request), election_id))
+        self.assertRedirects(response, "%s/helios/elections/%s/cast_confirm" % (settings.GET_SECURE_URL_HOST(request), election_id))
 
         cast_confirm_page = response.follow()
 

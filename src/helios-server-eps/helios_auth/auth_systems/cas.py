@@ -35,7 +35,7 @@ def _get_service_url():
   from django.conf import settings
   from django.core.urlresolvers import reverse
   
-  return settings.get_SECURE_URL_HOST(request) + reverse(after)
+  return settings.GET_SECURE_URL_HOST(request) + reverse(after)
   
 def get_auth_url(request, redirect_url):
   request.session['cas_redirect_url'] = redirect_url

@@ -46,7 +46,7 @@ def prepare_vars(request, vars):
   vars_with_user['HELIOS_STATIC'] = '/static/helios/helios'
   vars_with_user['TEMPLATE_BASE'] = helios.TEMPLATE_BASE
   vars_with_user['CURRENT_URL'] = request.path
-  vars_with_user['SECURE_URL_HOST'] = settings.get_SECURE_URL_HOST(request)
+  vars_with_user['SECURE_URL_HOST'] = settings.GET_SECURE_URL_HOST(request)
 
   return vars_with_user
 

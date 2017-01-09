@@ -24,7 +24,7 @@ def dnie_url(url, params):
   ipport = '192.168.1.153:8443'
   ipport = '192.168.1.144'
   logger.info('IPPORT: %s' %(ipport))
-  logger.info('De settings: %s' %(settings.get_SECURE_URL_HOST(request)))
+  logger.info('De settings: %s' %(settings.GET_SECURE_URL_HOST(request)))
   protocolipport = settings.DNIE_OAUTH_SECURE_HOST
   protocolipport = protocolipport if protocolipport.find('http') == 0 else 'https://'+protocolipport
   
@@ -96,7 +96,7 @@ def get_auth_url(request, redirect_url = None):
   request.session['dnie_redirect_uri'] = redirect_url
   request.session['dnie_redirect_uri'] = 'http://localhost:8005/auth/after/'
   request.session['dnie_redirect_uri'] = 'https://192.168.1.153:8442/auth/after/'
-  request.session['dnie_redirect_uri'] = settings.get_SECURE_URL_HOST(request) + '/auth/after/'
+  request.session['dnie_redirect_uri'] = settings.GET_SECURE_URL_HOST(request) + '/auth/after/'
   
   # URLHOST = settings.SECURE_URL_HOST
   # logger.debug('get_auth_url URLHOST: ' + URLHOST)
@@ -108,7 +108,7 @@ def get_auth_url(request, redirect_url = None):
   # except:
     # pass
    
-  URLHOST = settings.get_SECURE_URL_HOST(request)
+  URLHOST = settings.GET_SECURE_URL_HOST(request)
   
   request.session['dnie_redirect_uri'] = URLHOST + '/auth/after/'
 
@@ -232,7 +232,7 @@ def get_dni_info_from_ssl(request):
 
 def do_auth(request):
     logger.error(get_dni_info_from_ssl(request))
-    return settings.get_SECURE_URL_HOST(request)
+    return settings.GET_SECURE_URL_HOST(request)
 
 def do_logout(request):
     # import logging

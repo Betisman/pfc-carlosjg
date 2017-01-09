@@ -166,7 +166,7 @@ def _do_auth(request):
   # except:
     # pass
 
-  URLHOST = settings.get_SECURE_URL_HOST(request)
+  URLHOST = settings.GET_SECURE_URL_HOST(request)
   
   # the session has the system name
   system_name = request.session['auth_system_name']
@@ -270,7 +270,7 @@ def after_intervention(request):
   #     return HttpResponseRedirect("%s%s" % (settings.SECURE_URL_HOST, return_url))
 
   # URLHOST = settings.SECURE_URL_HOST
-  URLHOST = settings.get_SECURE_URL_HOST(request)
+  URLHOST = settings.GET_SECURE_URL_HOST(request)
   # try:
     # referer = request.META['HTTP_HOST']
     # logger.debug('referer: ' + referer)
