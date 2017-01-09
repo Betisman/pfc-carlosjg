@@ -17,7 +17,7 @@ Control de autenticacion basada en el DNIe espanol
 """
 STATUS_UPDATES = False
 
-def dnie_url(url, params):
+def dnie_url(request, url, params):
     #http://localhost:9011/web/authorize/?response_type=code&client_id=testclient&redirect_uri=https://www.example.com&state=somestate
   ipport = 'localhost:9011'
   ipport = '192.168.1.153:8001'
@@ -25,7 +25,7 @@ def dnie_url(url, params):
   ipport = '192.168.1.144'
   logger.info('IPPORT: %s' %(ipport))
   logger.info('De settings: %s' %(settings.GET_SECURE_URL_HOST(request)))
-  protocolipport = settings.DNIE_OAUTH_SECURE_HOST
+  protocolipport = settings.GET_DNIE_OAUTH_SECURE_HOST(request)
   protocolipport = protocolipport if protocolipport.find('http') == 0 else 'https://'+protocolipport
   
   if params:
@@ -41,9 +41,10 @@ def dnie_url(url, params):
     logger.info("%s%s" % (protocolipport, url))
     return "%s%s" % (protocolipport, url)
 
-def dnie_url_step2(url, params):
+def dnie_url_step2(request, url, params):
   ipport = '192.168.1.153:8553'
-  protocolipport = settings.OAUTH_SECURE_HOST
+  # protocolipport = settings.OAUTH_SECURE_HOST
+  protocolipport = settings.GET_OAUTH_SECURE_HOST(request)
   protocolipport = protocolipport if protocolipport.find('http') == 0 else 'https://'+protocolipport
   if params:
     # logger.info("http://%s%s?%s" % (ipport, url, urllib.urlencode(params)))
@@ -58,21 +59,21 @@ def dnie_url_step2(url, params):
     logger.info("%s%s" % (protocolipport, url))
     return "%s%s" % (protocolipport, url)
 
-def dnie_get(url, params):
-  full_url = dnie_url(url,params)
+def dnie_get(request, url, params):
+  full_url = dnie_url(request, url, params)
   try:
     return urllib2.urlopen(full_url).read()
   except urllib2.HTTPError:
     from helios_auth.models import AuthenticationExpired
     raise AuthenticationExpired()
 
-def dnie_post(url, params):
-  full_url = dnie_url(url, None)
+def dnie_post(request, url, params):
+  full_url = dnie_url(request, url, None)
   logger.info("full_url(%s), params(%s)" % (full_url, urllib.urlencode(params)))
   return urllib2.urlopen(full_url, urllib.urlencode(params)).read()
 
-def dnie_post_step2(url, params):
-  full_url = dnie_url_step2(url, None)
+def dnie_post_step2(request, url, params):
+  full_url = dnie_url_step2(request, url, None)
   logger = logging.getLogger('dnie')
   logger.info("full_url(%s), params(%s)" % (full_url, urllib.urlencode(params)))
   # -------------------------------------------------------------------------
@@ -118,7 +119,7 @@ def get_auth_url(request, redirect_url = None):
       'scope': 'publish_stream,email,user_groups'})
   """
   #get_user_info_after_auth(request)
-  return dnie_url('/web/authorize', {
+  return dnie_url(request, '/web/authorize', {
       'response_type': 'code',
       'client_id': 'testclient',
       'redirect_uri': request.session['dnie_redirect_uri'],
@@ -149,7 +150,7 @@ def get_user_info_after_auth(request):
   except Exception:
     pass
   logger.info('ahora el dni_post_step2')
-  args = dnie_post_step2('/api/v1/tokens/', {
+  args = dnie_post_step2(request, '/api/v1/tokens/', {
       'grant_type': 'authorization_code',
       'code': request.GET['code'],
       'client_id': 'testclient',
@@ -170,7 +171,7 @@ def get_user_info_after_auth(request):
   access_token_req = utils.from_json(args)
   access_token = access_token_req['access_token']
 
-  info = utils.from_json(dnie_post_step2('/web/me', {'access_token':access_token}))
+  info = utils.from_json(dnie_post_step2(request, '/web/me', {'access_token':access_token}))
   #info = {'user_id': '53159931P'}
   
   # Lo ideal es sacar la info del web/me, pero temporalmente vamos a hacer un workaround
