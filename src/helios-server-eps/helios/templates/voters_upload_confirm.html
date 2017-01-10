@@ -1,40 +1,60 @@
 {% extends TEMPLATE_BASE %}
 
 {% block content %}
-  <h2 class="title">{{election.name}} &mdash; Cargar lista de votantes &mdash; Confirmar<span style="font-size:0.7em;">[<a href="{% url "helios.views.one_election_view" election.uuid %}">back to election</a>]</span></h2>
+<div class="infoelec">
+	<div class="well">
+		<h3 class="title">{{election.name}} &mdash; Cargar lista de votantes &mdash; Confirmar <a class="btn btn-xs btn-primary pull-right" href="{% url "helios.views.one_election_view" election.uuid %}"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> volver a la elección</a></h3>
+
+		<p>
+			Ha cargado uin fichero de votantes.
+		</p>
+	</div>
+</div>
 
 <p>
-	Ha cargado uin fichero de votantes. Los primeros registros de este fichero son:
+	Los primeros registros de este fichero son:
 </p>
 
-<table>
-<tr><th>Votante</th><th>Email</th><th>Nombre</th></tr>
-{% for v in voters %}
-<tr><td>{{v.voter_id}}</td><td>{{v.email}}</td><td>{{v.name}}</td></tr>
-{% endfor %}
+<table class="pretty">
+	<thead>
+		<tr><th>Votante</th><th>Email</th><th>Nombre</th></tr>
+	</thead>
+	<tbody>
+		{% for v in voters %}
+			<tr><td>{{v.voter_id}}</td><td>{{v.email}}</td><td>{{v.name}}</td></tr>
+		{% endfor %}
+	</tbody>
 </table>
 
 {% if problems %}
-<p style="font-size: 1.5em;">
-Espere un momento:<br />
-{% for problem in problems %}
-- {{problem}}<br />
-{% endfor %}
-</p>
-<br />
+	<p class="alert alert-danger">
+		Espere un momento:<br />
+		{% for problem in problems %}
+		- {{problem}}<br />
+		{% endfor %}
+	</p>
+	<br />
 
-<a href="{% url "helios.views.voters_upload_cancel" election.uuid %}">Cargar otro fichero</a>
-</p>
+	<a class="btn btn-warning" href="{% url "helios.views.voters_upload_cancel" election.uuid %}"><i class="glyphicon glyphicon-open-file" aria-hidden="true"></i> Cargar otro fichero</a>
 
 {% else %}
-<p></p>
-<form method="post" action="" id="upload_form">
-  ¿Le parece correcto?
-  <input type="hidden" name="confirm_p" value="1" />
-  <input type="submit" value="Sí, sigamos adelante" />
-</form>
+	<p></p>
+	<form method="post" action="" id="upload_form">
+	  ¿Le parece correcto?
+	  <input type="hidden" name="confirm_p" value="1" />
+	  <input type="submit" value="Sí, sigamos adelante" />
+	</form>
 
-<a href="{% url "helios.views.voters_upload_cancel" election.uuid %}">No, carguemos otro fichero</a>
+	<a class="btn btn-danger" href="{% url "helios.views.voters_upload_cancel" election.uuid %}"><i class="glyphicon glyphicon-remove-circle" aria-hidden="true"></i> No, carguemos otro fichero</a>
+	
+	<div style="margin-top: 2em;">
+		<form method="post" action="" id="upload_form">
+		  ¿Le parece correcto?
+		  <input type="hidden" name="confirm_p" value="1" />
+		  <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-ok-circle" aria-hidden="true"></i> Sí, sigamos adelante</button>
+		  <a class="btn btn-danger btn-sm" href="{% url "helios.views.voters_upload_cancel" election.uuid %}"><i class="glyphicon glyphicon-remove-circle" aria-hidden="true"></i> No, carguemos otro fichero</a>
+		</form>
+	</div>
 
 {% endif %}
 

@@ -2,20 +2,22 @@
 
 {% block title %}{{cast_vote.vote_tinyhash}} &mdash; {{election.name}}{% endblock %}
 {% block content %}
-<h2 class="title">Voto {{cast_vote.vote_tinyhash}}(...) emitido</h2>
-<div class="well">
-	Voto emitido en <a href="{% url "helios.views.one_election_view" election.uuid %}">{{election.name}}</a><br />
-	Huella digital del voto: <tt class="badge">{{cast_vote.vote_hash}}</tt><br />
-	por <span class="accordion-toggle"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-	<b>
-		<u>
-		{% if the_voter.alias %}
-			{{the_voter.alias}}
-		{% else %}
-			{{the_voter.name}}
-		{% endif %}
-		</u>
-	</b>
+<div class="infoelec">
+	<div class="well">
+		<h3 class="title">Voto {{cast_vote.vote_tinyhash}}(...) emitido en <a href="{% url "helios.views.one_election_view" election.uuid %}">{{election.name}}</a></h3>
+
+		Huella digital del voto: <tt class="badge">{{cast_vote.vote_hash}}</tt><br />
+		por <span class="accordion-toggle"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+		<b>
+			<u>
+			{% if the_voter.alias %}
+				{{the_voter.alias}}
+			{% else %}
+				{{the_voter.name}}
+			{% endif %}
+			</u>
+		</b>
+	</div>
 </div>
 
 <div class="panel-group" id="detalles">

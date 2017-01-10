@@ -2,14 +2,18 @@
 
 {% block content %}
 
-  <h2 class="title">La elección {{election.name}} ya ha sido escrutada</h2>
+<div class="infoelec">
+	<div class="well">
+		<h3 class="title">La elección {{election.name}} ya ha sido escrutada <a class="btn btn-xs btn-primary pull-right" href="{% url "helios.views.one_election_view" election.uuid %}"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> volver a la elección</a></h3>
 
-  <p>
-      <!-- This election has already been tallied, you can no longer cast a vote. -->
-	  Esta elección ya ha sido escrutada, no se puede votar.
-  </p>
+		<p>
+			<!-- This election has already been tallied, you can no longer cast a vote. -->
+			Esta elección ya ha sido escrutada, no se puede votar.
+		</p>
+	</div>
+</div>
   
   <p>
-      <a href="{% url "helios.views.one_election_view" election.uuid %}">Ver el escrutinio</a>
+      <a class="btn btn-primary" href="{% url "helios.views.one_election_view" election.uuid %}"><i class="glyphicon glyphicon-list-alt" aria-hidden="true"></i> Ver el escrutinio</a>
   </p>
 {% endblock %}

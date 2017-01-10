@@ -1,15 +1,24 @@
 
 {#foreach $T.questions as question}
 <div id="q_view_{$T.question$index}">
-<h4>
-{#if $T.admin_p}[
-{#if $T.question$index > 0}<a href="javascript:question_move_up({$T.question$index});">^</a>]&nbsp;[{#/if}
-<a href="javascript:question_remove({$T.question$index})">x</a>] [<a href="javascript:question_edit({$T.question$index})">edit</a>] {#/if}{$T.question$index + 1}. {$T.question.question} ({$T.question.choice_type}, elija entre {$T.question.min} y {#if $T.question.max != null}{$T.question.max}{#else}sin límite{#/if} respuestas, tipo de resultado {$T.question.result_type}.)</h4>
-<ul>
-{#foreach $T.question.answers as answer}
-<li> {$T.answer}</li>
-{#/for}
-</ul>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				{#if $T.admin_p}[
+					{#if $T.question$index > 0}<a href="javascript:question_move_up({$T.question$index});">^</a>]&nbsp;[{#/if}
+					<a href="javascript:question_remove({$T.question$index})">x</a>] [<a href="javascript:question_edit({$T.question$index})">edit</a>
+				] {#/if}
+				<strong><span class="badge">Pregunta {$T.question$index + 1}</span> {$T.question.question}</strong> ({$T.question.choice_type}, elija entre {$T.question.min} y {#if $T.question.max != null}{$T.question.max}{#else}sin límite{#/if} respuestas, tipo de resultado {$T.question.result_type}.)
+			</h4>
+		</div>
+		<div class="panel-body">
+			<ul class="well list-group">
+				{#foreach $T.question.answers as answer}
+					<li class="list-group-item"> {$T.answer}</li>
+				{#/for}
+			</ul>
+		</div>
+	</div>
 </div>
 <div id="q_edit_{$T.question$index}" style="display:none;">
 <form id="question_edit_{$T.question$index}_form" onsubmit="question_update({$T.question$index}, this); return false;" action="#">

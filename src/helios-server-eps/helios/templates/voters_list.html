@@ -2,145 +2,159 @@
 
 {% block title %}Voters &amp; Ballot Tracking Center for {{election.name}}{% endblock %}
 {% block content %}
-  <h3 class="title">{{election.name}} &mdash; Votantes y Ballot Tracking Center <span style="font-size:0.7em;">[<a href="{% url "helios.views.one_election_view" election.uuid %}">back to election</a>]</span></h3>
+<div class="infoelec">
+	<div class="well">
+		<h3 class="title">{{election.name}} &mdash; Votantes y Ballot Tracking Center <a class="btn btn-xs btn-primary pull-right" href="{% url "helios.views.one_election_view" election.uuid %}"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> volver a la elección</a></h3>
 
-<p>
-<b>¿Quién puede votar?</b>
-{% if election.openreg %}
-{{election.pretty_eligibility|safe}}
-{% else %}
-<em>Sólo los votantes listados aquí.</em>.
-{% endif %}
-</p>
+		<p>
+			<b>¿Quién puede votar?</b>
+			{% if election.openreg %}
+				{{election.pretty_eligibility|safe}}
+			{% else %}
+				<em>Sólo los votantes listados aquí.</em>
+			{% endif %}
+		</p>
+	</div>
+</div>
 
 {% if admin_p and not election.frozen_at %}
-{% if election.private_p %}
-<em>La elección es privada, lo que significa que no se puede abrir el registro a todo el mundo.</em>.<br />
-{% else %}
-Puede cambiar esta configuración:
-<form method="post" action="{% url "helios.views.voters_eligibility" election.uuid %}">
-<input type="hidden" name="csrf_token" value="{{csrf_token}}" />
-<input type="radio" name="eligibility" value="openreg" {% if election.openreg and not election.eligibility %}CHECKED{% endif %} /> Cualquier usuario puede votar<br />
-<input type="radio" name="eligibility" value="closedreg" {% if not election.openreg %}CHECKED{% endif %} /> Sólo los votantes listados explícitamente abajo pueden votar<br />
-{% if categories %}
-<input type="radio" name="eligibility" value="limitedreg" {% if election.eligibility %}CHECKED{% endif %} /> sólo votantes que son miembros de 
-<select name="category_id">
-{% for category in categories %}
-<option value="{{category.id}}" {% if eligibility_category_id == category.id %}SELECTED{% endif %}> {{category.name}}</option>
-{% endfor %}
-</select>
-<br />
-{% endif %}
-<input type="submit" value="update" />
-</form>
-{% endif %}
+	{% if election.private_p %}
+		<em>La elección es privada, lo que significa que no se puede abrir el registro a todo el mundo.</em>.<br />
+	{% else %}
+		Puede cambiar esta configuración:
+		<form method="post" action="{% url "helios.views.voters_eligibility" election.uuid %}">
+			<input type="hidden" name="csrf_token" value="{{csrf_token}}" />
+			<input type="radio" name="eligibility" value="openreg" {% if election.openreg and not election.eligibility %}CHECKED{% endif %} /> Cualquier usuario puede votar<br />
+			<input type="radio" name="eligibility" value="closedreg" {% if not election.openreg %}CHECKED{% endif %} /> Sólo los votantes listados explícitamente abajo pueden votar<br />
+			{% if categories %}
+				<input type="radio" name="eligibility" value="limitedreg" {% if election.eligibility %}CHECKED{% endif %} /> sólo votantes que son miembros de 
+				<select name="category_id">
+					{% for category in categories %}
+						<option value="{{category.id}}" {% if eligibility_category_id == category.id %}SELECTED{% endif %}> {{category.name}}</option>
+					{% endfor %}
+				</select>
+				<br />
+			{% endif %}
+			<input type="submit" value="update" />
+		</form>
+	{% endif %}
 {% endif %}
 
 {% if email_voters and election.frozen_at and admin_p %}
-<p><a class="button" href="{% url "helios.views.voters_email" election.uuid %}">Enviar email a los votantes</a></p>
+	<p><a class="btn btn-primary" href="{% url "helios.views.voters_email" election.uuid %}"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i> Enviar email a los votantes</a></p>
 {% endif %}
 
 {% if election.num_voters > 20 %}
-<p>
-{% if q %}
-<p><em>Buscando <u>{{q}}</u>.</em> [<a href="?">clear search</a>]</p>
-{% else %}
-<form method="get" action="{% url "helios.views.voters_list_pretty" election.uuid %}"><b>search</b>: <input type="text" name="q" /> <input type="submit" value="search" /></form>
-{% endif %}
-</p>
+	<p>
+		{% if q %}
+			<p><em>Buscando <u>{{q}}</u>.</em> [<a href="?">clear search</a>]</p>
+		{% else %}
+			<form method="get" action="{% url "helios.views.voters_list_pretty" election.uuid %}"><b>search</b>: <input type="text" name="q" /> <input type="submit" value="search" /></form>
+		{% endif %}
+	</p>
 {% endif %}
 
 {% if admin_p %}
-<!-- Add a Voter: WORK HERE-->
-{% if upload_p and not election.openreg %}
-<p>
-<a class="button" href="{% url "helios.views.voters_upload" election_uuid=election.uuid %}">Subir votantes desde fichero</a>
-</p>
+	<!-- Add a Voter: WORK HERE-->
+	{% if upload_p and not election.openreg %}
+		<p>
+			<a class="btn btn-primary" href="{% url "helios.views.voters_upload" election_uuid=election.uuid %}"><i class="glyphicon glyphicon-open-file" aria-hidden="true"></i> Subir votantes desde fichero</a>
+		</p>
 
-{% if voter_files %}
-Subidas anteriores:
-<ul>
-{% for vf in voter_files %}
-<li>
-{% if vf.voter_file %}
-{{vf.voter_file.size}}
-{% else %}
-{{vf.voter_file_content|length}}
-{% endif %}
- bytes, at {{vf.uploaded_at}}:
-{% if vf.processing_finished_at %}
-<em>done processing: {{vf.num_voters}} voters loaded</em>
-{% else %}
+		{% if voter_files %}
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">Subidas anteriores</h4>
+				</div>
+				<div class="panel-body">
+					<ul>
+						{% for vf in voter_files %}
+							<li>
+								{% if vf.voter_file %}
+									{{vf.voter_file.size}}
+								{% else %}
+									{{vf.voter_file_content|length}}
+								{% endif %}
+								bytes, fecha: {{vf.uploaded_at}}:
+								{% if vf.processing_finished_at %}
+									<em>procesado: {{vf.num_voters}} votantes cargados</em>
+								{% else %}
 
-{% if vf.processing_started_at %}
-<em>procensando ahora mismo:</em>
-{% else %}
-<em>todavía no procesados:</em>
-{% endif %}
+									{% if vf.processing_started_at %}
+										<em>procesando ahora mismo:</em>
+									{% else %}
+										<em>todavía no procesado:</em>
+									{% endif %}
 
-{% endif %}
-</li>
-{% endfor %}
-</ul>
-{% endif %}
-{% endif %}
+								{% endif %}
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		{% endif %}
+	{% endif %}
 {% endif %}
 
 {% if voters %}
+	<p class="alert alert-success">
+		<b>
+			{% if election.num_cast_votes %}
+				{{election.num_cast_votes}} {% ifequal election.num_cast_votes 1 %}voto emitido{% else %}votos emitidos{% endifequal %}
+			{% else %}
+				sin votos
+			{% endif %}
+		</b>
+	</p>
+	
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="panel-title">
+				{% if voters_page.has_previous %}
+					<a href="./list?page={{voters_page.previous_page_number}}&limit={{limit}}&q={{q|urlencode}}">anterior {{limit}}</a> &nbsp;&nbsp;
+				{% endif %}
 
-<p>
-<b>
-{% if election.num_cast_votes %}
-{{election.num_cast_votes}} cast vote{% ifequal election.num_cast_votes 1 %}{% else %}s{% endifequal %}
+				Votantes {{voters_page.start_index}} - {{voters_page.end_index}} (de {{total_voters}})&nbsp;&nbsp;
+
+				{% if voters_page.has_next %}
+					<a href="./list?page={{voters_page.next_page_number}}&limit={{limit}}&q={{q|urlencode}}">siguiente {{limit}}</a> &nbsp;&nbsp;
+				{% endif %}
+			</div>
+		</div>
+		<div class="panel-body">
+			<table class="pretty">
+				<tr>
+					{% if admin_p or not election.use_voter_aliases %}
+						<th>Nombre</th>
+					{% endif %}
+
+					{% if election.use_voter_aliases %}
+						<th>Alias</th>
+					{% endif %}
+					<th>Smart Ballot Tracker</th>
+				</tr>
+				{% for voter in voters %}
+					<tr>
+						{% if admin_p or not election.use_voter_aliases %}
+							<td>
+								{% if admin_p %}
+									<a alt="Enviar email al usuario" href="{% url "helios.views.voters_email" election.uuid %}?voter_id={{voter.voter_login_id}}"><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i></a>
+									<a alt="Borrar usuario" onclick="return confirm('¿Está seguro de que quiere eliminar {{voter.name}} ?');" href="{% url "helios.views.voter_delete" election.uuid voter.uuid %}"><i style="color: lightcoral;" class="glyphicon glyphicon-remove-circle" aria-hidden="true"></i></a>
+								{% endif %}
+								<img class="small-logo" src="/static/auth/login-icons/{{voter.voter_type}}.png" alt="{{voter.voter_type}}" /> {{voter.name}}
+							</td>
+						{% endif %}
+						{% if election.use_voter_aliases %}
+							<td>{{voter.alias}}</td>
+						{% endif %}
+						<td><tt style="font-size: 1.4em;;">{% if voter.vote_hash %}{{voter.vote_hash}} <a href="{% url "helios.views.castvote_shortcut" vote_tinyhash=voter.vote_tinyhash %}" alt="Ver"><i class="glyphicon glyphicon-eye-open" aria-hidden="true"></i></a></span>{% else %}&mdash;{% endif %}</tt></td>
+					</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
 {% else %}
-sin votos
-{% endif %}
-</b>
-</p>
-
-{% if voters_page.has_previous %}
-<a href="./list?page={{voters_page.previous_page_number}}&limit={{limit}}&q={{q|urlencode}}">anterior {{limit}}</a> &nbsp;&nbsp;
-{% endif %}
-
-
-Votantes {{voters_page.start_index}} - {{voters_page.end_index}} (of {{total_voters}})&nbsp;&nbsp;
-
-{% if voters_page.has_next %}
-<a href="./list?page={{voters_page.next_page_number}}&limit={{limit}}&q={{q|urlencode}}">siguiente {{limit}}</a> &nbsp;&nbsp;
-{% endif %}
-
-<table class="pretty">
-<tr>
-{% if admin_p or not election.use_voter_aliases %}
-<th>Nombre</th>
-{% endif %}
-
-{% if election.use_voter_aliases %}
-<th>Alias</th>
-{% endif %}
-<th>Smart Ballot Tracker</th>
-</tr>
-{% for voter in voters %}
-<tr>
-{% if admin_p or not election.use_voter_aliases %}
-<td>
-{% if admin_p %}
-[<a href="{% url "helios.views.voters_email" election.uuid %}?voter_id={{voter.voter_login_id}}">email</a>]
-[<a onclick="return confirm('¿Está seguro de que quiere eliminar {{voter.name}} ?');" href="{% url "helios.views.voter_delete" election.uuid voter.uuid %}">x</a>]
-{% endif %}
-<img class="small-logo" src="/static/auth/login-icons/{{voter.voter_type}}.png" alt="{{voter.voter_type}}" /> {{voter.name}}</td>
-{% endif %}
-{% if election.use_voter_aliases %}
-<td>{{voter.alias}}</td>
-{% endif %}
-<td><tt style="font-size: 1.4em;;">{% if voter.vote_hash %}{{voter.vote_hash}} <span style="font-size:0.8em;">[<a href="{% url "helios.views.castvote_shortcut" vote_tinyhash=voter.vote_tinyhash %}">view</a>]</span>{% else %}&mdash;{% endif %}</tt></td>
-</tr>
-{% endfor %}
-</table>
-
-{% else %}
-<br /><br />
-<em>No hay votantes</em>
+	<div class="well"><em>No hay votantes</em></div>
 {% endif %}
 
 {% endblock %}

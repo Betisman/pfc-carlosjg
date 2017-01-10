@@ -2,12 +2,19 @@
 
 {% block title %}Computar resutlados (Compute Tally) &mdash; {{election.name}}{% endblock %}
 {% block content %}
-  <h2 class="title">{{election.name}} &mdash; Compute Tally <span style="font-size:0.7em;">[<a href="{% url "helios.views.one_election_view" election.uuid %}">cancel</a>]</span></h2>
+<div class="infoelec">
+	<div class="well">
+		<h3 class="title">{{election.name}} &mdash; Computar escrutinio <a class="btn btn-xs btn-primary pull-right" href="{% url "helios.views.one_election_view" election.uuid %}"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> volver a la elección</a></h3>
 
-  <p>
-    You are about to compute the tally for this election. You only will then see the results.
-    Está a punto de computar los resultados de la elección. Una vez computado tan sólo usted podrá ver los resultados.
-  </p>
+		<p>Está a punto de computar el escrutinio de esta elección.</p>
+		<p>Una vez computados, sólo usted podrá ver los resultados por ahora.</p>
+	</div>
+</div>
+
+  <!-- <p> -->
+    <!-- You are about to compute the tally for this election. You only will then see the results. -->
+    <!-- Está a punto de computar los resultados de la elección. Una vez computado tan sólo usted podrá ver los resultados. -->
+  <!-- </p> -->
 
   <form method="POST" action="">
     <input type="hidden" name="csrf_token" value="{{csrf_token}}" />

@@ -2,7 +2,13 @@
 
 {% block title %}Preguntas para {{election.name}}{% endblock %}
 {% block content %}
-  <h3 class="title">{{election.name}} &mdash; Questions <span style="font-size:0.7em;">[<a href="{% url "helios.views.one_election_view" election.uuid %}">Volver a la elección</a>]</span></h3>
+<div class="infoelec">
+	<div class="well">
+		<h3 class="title">{{election.name}} &mdash; Preguntas <a class="btn btn-xs btn-primary pull-right" href="{% url "helios.views.one_election_view" election.uuid %}"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> volver a la elección</a></h3>
+		
+		Preguntas y sus diferentes opciones contenidas en la papeleta.
+	</div>
+</div>
 
   <script language="javascript">
 {% if election.questions %}

@@ -167,7 +167,7 @@
 				{% for question in election.pretty_result %}
 					<div class="panel panel-default">
 						<div class="panel-heading">
-							<h3 class="panel-title"><small>Pregunta #{{forloop.counter}}:</small> {{question.question}}</h3>
+							<h3 class="panel-title"><small><span class="badge">Pregunta #{{forloop.counter}}</span></small> {{question.question}}</h3>
 						</div>
 						<div class="panel-body">
 							<table class="pretty" style="width: auto;">
@@ -190,7 +190,7 @@
 		{% if election.voting_has_started %}
 			<a class="btn btn-primary" href="{{test_cookie_url}}">Vote en {{election.election_type}} </a>
 		{% endif %}
-		<div class="well">
+		<div class="well" style="margin-top: 1em;">
 			{% if election.voting_has_started %}
 				<span class="glyphicon glyphicon-time" aria-hidden="true"></span>
 				{% if election.voting_extended_until %}

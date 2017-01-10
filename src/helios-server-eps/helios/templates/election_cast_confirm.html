@@ -35,12 +35,15 @@ window.onbeforeunload = function(evt) {
 };
 
 </script>
-<p style="margin-top: 10px">Emitiendo su voto para <b>{{election.name}}</b>...</p>
 
+<div class="infoelec">
+	<div class="well">
+		<h3>{{election.name}} &mdash; Emitiendo su voto</h3>
+	</div>
+</div>
 <div id="waiting_div">
     <!-- Verifying and Casting your ballot<br /> -->
-    Verificando y votando con su papeleta<br />
-    <img src="/static/helios/loading.gif" />
+    Verificando y votando con su papeleta <img src="/static/helios/loading.gif" />
 </div>
 
 <div id="all_forms">
@@ -51,66 +54,50 @@ window.onbeforeunload = function(evt) {
 
 {% else %}
 
-        <p>Auths:</p>
-        {% for auth in auth_systems %}
-        <p>Auth: {{ auth }}</p>
-        {% endfor %}
+		<p>Auths:</p>
+		{% for auth in auth_systems %}
+		<p>Auth: {{ auth }}</p>
+		{% endfor %}
+		<div class="alert alert-danger" role="alert">
+		
+			{% if user %}
+				<b>Disculpe, usted <em>
+				  {% if election.openreg %}
+					<!--<u>not eligible</u></em> for this election.-->
+					<u>no está censado</u></em> para esta elección.
+				  {% else %}
+					<!--not registered</em> for this election, and registration is closed.-->
+					<u>no está censado</u></em> para esta elección. (debug: !openreg).
+				  {% endif %}
+				  </b>
+				
+				<div>
+					<a class="btn btn-primary" href="{% url "helios.views.one_election_view" election.uuid %}"><i class="glyphicon glyphicon-arrow-left"></i> Volver a la elección</a>
+				</div>
+			{% else %}
+				<h3>Wait!  You need to log in.</h3>
+				{% if election.openreg %}
 
-    {% if show_password %}
-        {% if user %}
-            <h1>Espere!</h1>
-            <p>
-                Está logado en el sistema como <u>{{user.display_html_small|safe}}</u>, pero esta elección<br />
-                requiere unas credenciales específicas.
-            </p>
-        {% endif %}
-        {% with cast_ballot="1" %}
-        {% include "_castconfirm_password.html" %}
-        {% endwith %}
+				  {% if election.eligibility %}
+				  {% else %}
+					Esta elección está abierta a <em>cualquier votante</em>. Por favor, lóguese con su cuenta preferida.
+				   <!--This election is open to <em>anyone</em>, so log in with your preferred account.-->
+				  {% endif %}
 
-    {% else %}
+				{% else %}
+				  This election is only open to <em>registered voters</em>, so log in with
+				  the same account you registered with.
+				{% endif %}
 
-        {% if user %}
-            <h1>¡Disculpe!<h1>
-            <b>Disculpe, usted <em>
-              {% if election.openreg %}
-                <!--<u>not eligible</u></em> for this election.-->
-                <u>no está censado</u></em> para esta elección.
-              {% else %}
-                <!--not registered</em> for this election, and registration is closed.-->
-                <u>no está censado</u></em> para esta elección. y el período de censo ya ha sido cerrado.
-              {% endif %}
-              </b><br /></p>
-            <p>
-                [<a href="{% url "helios.views.one_election_view" election.uuid %}">Volver a la elección</a>]
-            </p>
-        {% else %}
-            <p>
-            <h1>Wait!  You need to log in.</h1>
-            {% if election.openreg %}
+				{{login_box|safe}}
 
-              {% if election.eligibility %}
-              {% else %}
-                Esta elección está abierta a <em>cualquier votante</em>. Por favor, lóguese con su cuenta preferida.
-               <!--This election is open to <em>anyone</em>, so log in with your preferred account.-->
-              {% endif %}
-
-            {% else %}
-              This election is only open to <em>registered voters</em>, so log in with
-              the same account you registered with.
-            {% endif %}
-            </p>
-
-            {{login_box|safe}}
-
-            <br />
-            Don't worry, we'll remember your ballot while you log in.
-        {% endif %}
-
-    {% endif %}
-    <br />
-    Su smart ballot tracker es:<br /><br />
-        <tt style="font-size:1.3em; font-weight: bold; padding-left: 20px;">  {{vote_fingerprint}}</tt>
+				<br />
+				Don't worry, we'll remember your ballot while you log in.
+			{% endif %}
+		</div>
+		
+		<br />
+		Su smart ballot tracker es: <tt class="badge">  {{vote_fingerprint}}</tt>
     </p>
     {# this closes the IF ELSE of this being password_only #}
 {% endif %}

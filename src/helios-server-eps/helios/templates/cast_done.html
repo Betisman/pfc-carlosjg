@@ -2,20 +2,20 @@
 {% block title %}Confirmar el voto{% endblock %}
 
 {% block content %}
-<h1>{{election.name}} &mdash; ¡¡Voto sufragado satisfactoriamente!!</h1>
+<div class="infoelec">
+	<div class="well">
+		<h3>{{election.name}} &mdash; ¡¡Voto sufragado satisfactoriamente!!</h3>
 
-<p>
-    Enhorabuena, su voto ha sido <b><u>satisfactoriamente emitido</u></b>.
-</p>
+		<p>
+			Enhorabuena, su voto ha sido <b><u>satisfactoriamente emitido</u></b>.
+		</p>
+	</div>
+</div>
 
-<p>
-  Your smart ballot tracker is:<br /><br />
-    <tt style="font-size:1.8em; font-weight: bold; padding-left: 20px;">  {{vote_hash}}</tt>
-</p>
-
-<p>
-<iframe src="{{socialbuttons_url}}" frameborder="0" border="0" style="width: 300px; height:35px;" scrolling="no" align="middle"></iframe>
-</p>
+<h4>
+  Your smart ballot tracker is: <span class="badge">  {{vote_hash}}</span>
+</h4>
+<br/>
 
 {% if logout %}
 <p><b>Por su seguridad, ha sido desconectado del sistema.</b></p>
@@ -24,7 +24,7 @@
 {% endif %}
 
 <p style="font-size: 1.4em;">
-[ <a href="{% url "helios.views.one_election_view" election.uuid %}">Volver a la página de información de la elección.</a> ]
+ <a class="btn btn-primary" href="{% url "helios.views.one_election_view" election.uuid %}"><i class="glyphicon glyphicon-arrow-left"></i> Volver a la página de información de la elección.</a>
 </p>
 
 {% endblock %}

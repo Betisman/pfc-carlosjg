@@ -2,12 +2,18 @@
 
 {% block title %}Liberar resutlados &mdash; {{election.name}}{% endblock %}
 {% block content %}
-  <h2 class="title">{{election.name}} &mdash; Liberar resultados <span style="font-size:0.7em;">[<a href="{% url "helios.views.one_election_view" election.uuid %}">cancelar</a>]</span></h2>
+<div class="infoelec">
+	<div class="well">
+		<h3 class="title">{{election.name}} &mdash; Publicar resultados <a class="btn btn-xs btn-primary pull-right" href="{% url "helios.views.one_election_view" election.uuid %}"><span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> volver a la elección</a></h3>
 
-  <p>
-	Está a punto de liberar los resultados de esta elección.
-    <!--You are about to release the result for this election.-->
-  </p>
+		<p>
+			Está a punto de liberar los resultados de esta elección para que sea visible para todos el público.
+			<!--You are about to release the result for this election.-->
+		  </p>
+	</div>
+</div>
+
+  
 
   <form method="POST" action="">
     <input type="hidden" name="csrf_token" value="{{csrf_token}}" />
