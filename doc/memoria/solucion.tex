@@ -38,7 +38,7 @@
 		
 		\section{Diseño}\label{diseño}
 		
-			Tal como se determina en el análisis (\ref{analisis}), la solución que se propone para este Proyecto consiste en la adaptación del sistema Helios Voting a las necesidades de la EPS.
+			Tal como se determina en el análisis (\ref{analisis}), la solución que se propone para este Proyecto consiste en la integración de tres soluciones, adptándolas a las necesidades de una elección para la EPS.
 			
 			Es preciso modificar el sistema de autenticación de Helios Voting para dar soporte al DNIe 2.0 y al 3.0. Para ello se integrará un sistema de autenticación federada por oAuth, habiéndose elegido el proyecto django-oauth2-server\footnote{\url{https://github.com/RichardKnop/django-oauth2-server}} desarrollado por Richard Knop. Este servidor de oAuth, no obstante, tendrá que ser alterado para que soporte la información digital de los documentos permitidos para la votación. 
 			
@@ -47,7 +47,7 @@
 		
 			\subsection{Diseño del esquema de votación}\label{disenhoEsquemaVoto}
 				\subsubsection{Registro}
-					La fase de registro de votantes en el sistema no será interactivo en cuanto a que no es el propio votante el que debe inscribirse para poder votar en las elecciones, sino que es la Autoridad Electoral la que lo registra en el censo. En esta fase, pues, se trata de establecer el censo de votantes que tienen autoridad para votar en el proceso electoral.
+					La fase de registro de votantes en el sistema no será interactivo en cuanto a que no es el propio votante el que debe inscribirse para poder votar en las elecciones, sino que es la Autoridad Electoral quien lo registra en el censo. En esta fase, pues, se trata de establecer el censo de votantes que tienen autoridad para votar en el proceso electoral.
 					
 					Como se advierte en el análisis se ha tomado en consideración que sean los administradores del sistema quienes tengan responsabilidad sobre el tratamiento del censo, por lo que se ha de cargar en el sistema y éste es el que lo va a tratar.
 					
@@ -93,7 +93,7 @@
 			
 			El servidor, tal como está desarrollado no sirve para las necesidades del proyecto, pues no soporta certificados digitales.
 			
-			El primer paso para la implementación del servidor consiste en configurar el framework django para que se apoye en un servidor web externo. Para este proyecto se ha utilizado el servidor web Apache.
+			El primer paso para la implementación del servidor consiste en configurar el framework Django para que se apoye en un servidor web externo. Para este proyecto se ha utilizado el servidor web Apache.
 			
 			Es necesario instalar dos módulos específicos:
 			
@@ -114,7 +114,7 @@
 					
 					
 					
-					\subsubsection{App Android de Autenticación}
+					\subsubsection{App Android de Autenticación}\label{solucion_appAndroidAutenticacion}
 					Ya se ha explicado que para realizar el acceso al sistema de voto desde dispositivos móviles, se ha optado por modificar una de las apps de ejemplo publicadas por la Policía española.
 					
 					La app original mostraba un ejemplo de funcionamiento en el que se accedía a varias webs que necesitaban acceso con identificación por DNIe. Las modificaciones que se han realizado a esta app han consistido en:
@@ -202,7 +202,7 @@
 						\label{fig:login.android.aproximeDNIe}
 					\end{figure}
 					
-					La comunicación entre documento y dispositivo se realiza mediante \gls{NFC} (\ref{estadoNFC}). Según el documento \cite{dnieAutenticacion:1.0}, los desarrolladores de la app de ejemplo indican que \textit{''por motivos de hardware y de seguridad, distancia máxima soportada por NFC es, dependiendo del dispositivo, de alrededor de un centímetro''}. De todos modos, es una comunicación ciertamente sensible, que se ve afectada por la distancia y el movimiento, necesitando para un correcto funcionamiento cercanía y una notable estabilidad.
+					La comunicación entre documento y dispositivo se realiza mediante \gls{NFC} (\ref{estadoNFC}). Según el documento \cite{dnieAutenticacion:1.0}, los desarrolladores de la app de ejemplo indican que \textit{''por motivos de hardware y de seguridad, la distancia máxima soportada por NFC es, dependiendo del dispositivo, de alrededor de un centímetro''}. De todos modos, es una comunicación ciertamente sensible, que se ve afectada por la distancia y el movimiento, necesitando para un correcto funcionamiento cercanía y una notable estabilidad.
 					
 					
 					Una vez estén cerca documento y dispositivo, se detectarán y establecerán la comunicación cifrada entre ambos (figura \ref{fig:login.android.cargandoCertificados}), a través de la cual podrán intercambiarse tanto comandos como respuestas a estos, accediendo a la información alojada en los certificados y permitiendo a estos firmar información presentada por el dispositivo (aunque en nuestra app no hará falta utilizar el certificado de firma digital).
@@ -250,19 +250,24 @@
 					\end{figure}
 					
 					Para poder establecer un canal seguro contra el servidor de autenticación, es necesario, según la implementación de la app original de ejemplo, que el certificado del servidor y la AC raíz vayan embebidos en el código de la app. Así mismo, es necesario que se incluya el hash del mismo para que el objeto DroidHTTPClient que establece la conexión al servidor sea capaz de establecer este camino seguro.
-					Esta keystore con los dos cetrtificados se debe incluir en el proyecto Android con un formato BKS, lo cual se consigue realizando los pasos expuestos en el anexo \ref{App:exportarCertsAppAndroid}. Una vez obtenido el fichero keystore que contiene los dos ceritficados, ha de colocarse en la carpeta del proyecto:
+					
+					Esta keystore con los dos cerrtificados se debe incluir en el proyecto Android con un formato BKS, lo cual se consigue realizando los pasos expuestos en el anexo \ref{App:exportarCertsAppAndroid}.
+					
+					Una vez obtenido el fichero keystore que contiene los dos ceritficados, ha de colocarse en la carpeta del proyecto:
 					
 					\small\begin{verbatim}
 					clienteAndroidDNIeoAuth2/app/src/main/res/raw
 					\end{verbatim}
 					
-					Habrá que editar también el fichero
+					Para añadir el hash del certificado del servidor habrá que editar también el fichero:
 					
 					\small\begin{verbatim}
 					clienteAndroidDNIeoAuth2/app/src/main/res/values/trusted_hosts.xml
 					\end{verbatim}
 					
-					para añadir el hash del certificado del servidor. Este hash se obtiene en el servidor con el comando que se indica igualmente en el anexo \ref{App:exportarCertsAppAndroid}. Así, el fichero que indica qué servidores son confiables y que utiliza la app para poder establecer una conexión segura con el servidor quedaría parecido a este:
+					Este hash se obtiene en el servidor con el comando que se indica igualmente en el anexo \ref{App:exportarCertsAppAndroid}.
+					
+					Así, el fichero que indica qué servidores son confiables y que utiliza la app para poder establecer una conexión segura con el servidor quedaría parecido a este:
 					
 					
 					\small\begin{verbatim}
@@ -284,7 +289,7 @@
 						\label{fig:login.android.certAutofirmado}
 					\end{figure}
 					
-					Una vez asumimos el certificado autofirmado, por din accedemos a la web del sistema de voto logados con la información contenida en el {certificado de autenticación de nuestro DNIe 3.0 (figura \ref{fig:login.android.logado}).
+					Una vez asumimos el certificado autofirmado, por fin accedemos a la web del sistema de voto logados con la información contenida en el certificado de autenticación de nuestro DNIe 3.0 (figura \ref{fig:login.android.logado}).
 					
 					\begin{figure}[!ht]
 						\begin{subfigure}{.5\textwidth}
@@ -348,8 +353,24 @@
 			Una vez se abra la app, ya sea desde el menú del dispositivo o desde el botón de login de la página inicial de la web del sistema de votación, aparecerá el menú de selección del CAN del DNIe que queremos utilizar, o, si es la primera vez que cierto usuario utiliza la app, la posibilidad de añadir un nuevo DNIe con su CAN correspondiente.
 			
 			
+			¡¡ Comentado ya en el apartado \ref{solucion_appAndroidAutenticacion} !!
+			
 							
 			\subsection{Diseño de la interfaz de usuario}\label{diseño_interfaz_usuario}
+				Se ha realizado una renovación de la interfaz de usuario del sistema original Helios. La interfaz original, si bien no tenía grandes problemas de visualización, ha resultado no adaptarse correctamente a los dispositivos móviles, con pantallas de menor tamaño y una forma diferente de ser utilizadas, ya que los usuarios suelen interactuar con diferentes hábitos al visitar la misma página web desde un dispositivo de escritorio o uno móvil.
+				
+				Las modificaciones más importantes se han realizado sobre la estructura de construcción de las páginas y sobre el estilo que en ellas aplica.
+				
+				Se ha intentado que las páginas cumplan con el estándar W3C y con reglas básicas de accesibilidad.
+				
+				
+				
+				\iffalse
+				Con respecto a la accesibilidad, los mayores cambios realizados en la web han sido:
+				
+				- Cambio de colores para cumplir con el contraste suficiente propuesto.
+				\fi
+				
 				Para la interfaz de usuario hay varias necesidades que se han debido de satisfacer.
 				
 				Por un lado, la imagen corporativa. Al tratarse de un proceso electoral diseñado para una entidad, la plataforma en la que se basa debería mostrar inequívocamente la imagen de la entidad que lo organiza.
@@ -358,9 +379,15 @@
 				
 				\subsubsection{Estructura de la página web}
 					\todo[inline]{Cambios en la interfaz original de Helios. Responsive....}
+					El principal reto en cuanto a las modificaciones necesarias en la interfaz del sistema original Helios han correspondido a convertir las páginas en \textit{responsive}. Con ello, lo que se busca es adaptar la visualización de las diferentes páginas en distintos dispostivos, con diferentes recursos y distintos tamaños de pantalla, así como la capacidad de adaptarse, en un mismo dispositivo, a una situación en la que la pantalla se observa en vertical y se gira a horizontal o viceversa.
+					
+					Para llevar a cabo esta tarea, nos hemos centrado en las hojas de estilo existentes a las cuales se le han realizado modificaciones. Principalmente, se han incluido reglas que aplican dependiendo del ancho de la pantalla que 
 					
 				\subsubsection{Estructura de la aplicación móvil}
 					\todo[inline]{Interfaz de usuario de la app.}
+					La interfaz de usuario de la app Android necesaria para ingresar en el sistema con los certificados deigitales del DNIe 3.0 no ha sido modificada ostensiblemente.
+					
+					Aunque es una parte primordial del sistema y su adaptación ha requerido bastante estudio y desarrollo, realmente al final no se utiliza durante un tiempo suficiente. Por ello, para el prototipo se ha decidido no invertir demasiado tiempo en su modificación estética, por lo que se ha reutilizado la diseñada originariamente por los desarrolladores de la app original de la DGP.
 					
 				\subsubsection{Accesibilidad}
 					\todo[inline]{Destacar accesibilidad}
@@ -369,9 +396,9 @@
 					\todo[inline]{Como imagen de marca, bla bla bla, al no haber un logo del proceso, bla bla bla, se puede introducir uno o utilizar el de la Universidad, bla bla}
 					La interfaz de Helios Voting se corresponde con un sistema neutro para realizar elecciones en la plataforma web de ejemplo que tienen publicada junto con el código fuente del proyecto.
 					
-					Esta interfaz está bien para el propósito que tienen de, por un lado, mostrar un ejemplo de funcionamiento del proyecto y, por otro, dar una herramienta funcional para la realización de pequeños procesos electorales seguros por Internet para grupos reducidos que no necesiten una implementación propia.
+					Esta interfaz está bien para el propósito que tiene el sistema original, que es, por un lado, mostrar un ejemplo de funcionamiento del proyecto y, por otro, dar una herramienta funcional para la realización de pequeños procesos electorales seguros por Internet para grupos reducidos que no necesiten una implementación propia.
 					
-					A la hora de utilizar esta herramienta para montar un sistema electoral propio, en infraestructuras de un cliente, esta interfaz no se corresponde con la que debería tener un proyecto serio.
+					A la hora de utilizar esta herramienta para montar un sistema electoral propio, en infraestructuras de un cliente, esta interfaz no se corresponde con la que debería tener un proyecto diseñado para dicho clienta.
 					
 					Cualquier proceso electoral suele y debe tener una imagen corporativa propia que pueda identificarse claramente con el propio proceso y con las autoridades que lo organizan, con la finalidad de que el votante identifique claramente el origen del proceso y no dé lugar a equívocos, además de que, en cierto modo, aumentan la seguridad del mismo en el proceso.
 					
@@ -385,7 +412,7 @@
 					
 					La elección del juego de colores de los sistemas, tanto de las webs de los sistemas de Identificación y Voto como de la app de Android se basará en los colores de la web actual de la Universidad San Pablo CEU. La estructura de las páginas webs del sistema, no obstante, no será similar a la de la Universidad, ya que tratan información diferente y ésta no es adecuada para el flujo del usuario en el sistema de votación.
 					
-					
+					Para el prototipo a implemetar se ha decidio, no obstante, utilizar la gama de colores que ofrece la librería Bootstrap, sin tener en cuenta estas reglas de marca.
 					
 					
 					\notasInfo[inline]{Dar una muestra de colores y de logos de la elección}
@@ -413,7 +440,7 @@
 				
 				
 				
-				
+\iffalse				
 				\todo[inline]{Desde aquí hasta el comienzo de \ref{solucion_protocolo} hay que moverlo a Análisis.}
 				En varios de los sistemas estudiados que se han desarrollado para intentar implantar el voto electrónico a un nivel medio, como pueden ser los mexicanos SELES \ref{seles} y SEVI \ref{sevi} o los españoles de Víctor Moreno \cite{moreno07} \notasDuda{???????}o Votescript \ref{ivotingVotescript}\notasDuda{???????} se observa que se realiza una división del proceso electoral en cuatro fases (Registro, Votación, Consolidación de resultados y Auditoría). En el desarrollo de este sistema vamos a identificar las mismas fases, pero con matices.
 				
@@ -438,7 +465,7 @@
 				La fase Postelectoral, que denominan Auditoría, prefiero dejarla con este nombre, ya que considero que la auditoría del sistema es una operativa que se realiza durante toda la jornada electoral, no sólo al finalizar ésta. No obstante, es cierto que al final se llevarán a cabo auditorías de los resultados y el funcionamiento. Además de las auditorías llevadas a cabo por los auditores \textit{oficiales}, se va a implementar un mecanismo que permita a los propios votante auditar que su voto ha sido correctamente incluido y contado en el proceso. Esta fase postelectoral también tiene más pasos ... \todo[inline]{continuar con fase postelectoral}
 				
 			\todo[inline]{Antes de este punto hay que hacer un resumen de los diferentes esquemas de votación, teniendo estos como Firma ciega, mixnets, etc...}
-
+\fi
 
 \iffalse
 			\subsection{Protocolo}\label{solucion_protocolo}
@@ -565,6 +592,8 @@
 			\item App Android de identificación con DNIe
 		\end{itemize}
 	
+	
+	\subsection{Arquitectura física}\label{solucion_prototipo_arquitecturaFisica}
 	Para montar los dos servidores, se decidió pasar de las máquina virtuales en las que se desarrollaron al uso de dos Raspberry Pi como base hardware.
 	
 	Raspberry Pi es un computador de placa reducida, única o simple de bajo coste desarrollado por la Fundación Raspberry Pi, con base en Reino Unido, con el objetivo de estimular la enseñanza de la informática en las escuelas.
@@ -577,6 +606,8 @@
 			\item[Servidor de votación]	Raspberry Pi Model 3 B
 			\item[Servidor de identificación y autenticación] Raspberry Pi Model B (Rev. 2.0, 512Mb)
 		\end{description}
+		
+		\todo[inline]{Incluir fotos de las raspberrys					}
 		
 		En la tabla \ref{tab:DetallesTecnicosRaspberryPi} se detallan y comparan las características de ambos modelos de hardware.
 		
@@ -649,3 +680,37 @@
 			\end{table}
 		
 		El Sistema Operativo elegido para ambos servidores es Raspbian \footnote{\url{https://www.raspberrypi.org/downloads/raspbian/}}, una distribución de GNU/Linux basada en su origen en Debian Wheezy. Al ser un sistema basado en GNU/Linux, se infiere que es software libre y de código abierto. No obstante, para el prototipo, se ha instalado la versión estable de Raspbian a fecha de Noviembre de 2016, en la cual, el Sistema Operativo se basa en la versión de GNU/Linux Debian Jessie \footnote{\url{https://www.raspberrypi.org/blog/raspbian-jessie-is-here/}}, posterior a Wheezy.
+		
+		\subsection{Arquitectura de red}\label{solucion_prototipo_arquitecturaRed}
+		La arquitectura de red propuesta para el prototipo incluye varios elementos:
+		\begin{itemize}
+			\item Servidor de identificación
+			\item Servidor de votación
+			\item Dispositivos de votación
+			\item Router
+		\end{itemize}
+		
+		Los dos servidores están conectados a la misma red. Particularmente, por motivos de diferencia en los modelos de las dos Raspberry Pis en las que están montados, uno de ellos - el Servidor de Identificación - utilizará un dongle USB de conexión a la red, mientras que el Servidor de Votación hace uso de la placa de red interna de su Raspberry Pi.
+		
+		En la configuración del sistema se puede optar porque el sistema funcione por Internet o en una Intranet. La idea es que el servicio sea ofrecido por Internet y así se diseñó, pero por motivos de infraestructura a la hora de presentarlo, se decidió desarrollar la posibilidad de funcionar también en una intranet.
+		
+		Para ello, hay que configurar tanto el router como la app Android y los servidores. En el caso del router, para funcionar por Internet habría que abrir los puertos necesarios y realizar su pertinente redireccionamiento a los puertos de los servidores necesarios.
+		
+		Una configuración típica de esta forma de conexión a través de Internet incluye configurar estos redireccionamientos en los puertos del router:
+		
+		\todo[inline]{Transformar a tabla}
+		Puerto del Router - IP del servidor - Puerto del servidor - Necesidad
+		8662 - 192.168.1.144 (Servidor Identificación) - 442 - Puerto de acceso al servidor Apache por HTTPS/TLS
+		8888 - 192.168.1.144 (Servidor Identificación) - 80 - Acceso al Apache por HTTP sin seguridad
+		8443 - 192.168.1.144 (Servidor Identificación) - 443 - Puerto de acceso al servidor Apache por HTTPS/TLS
+		8022 - 192.168.1.144 (Servidor Identificación) - 22 - Acceso SSH
+		
+		8889 - 192.168.1.145 (Servidor Votación) - 80 - Acceso al Apache por HTTP sin seguridad
+		8445 - 192.168.1.145 (Servidor Votación) - 443 - Puerto de acceso al servidor Apache por HTTPS/TLS
+		8044 - 192.168.1.145 (Servidor Votación) - 22 - Acceso SSH
+		
+		En caso de la configuración del sistema para trabajar en intranet, por motivos de infraestructura, ya sea por una presentación como la de este propio proyecto o por querer realizar una votación cerrada, la propuesta implementada incluye un router simple funcionando sin conexión a Internet.
+		
+		El router utilizado ha sido XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX. \todo{incluir modelo del router para la presentación}
+		
+		
