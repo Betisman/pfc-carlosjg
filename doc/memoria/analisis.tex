@@ -318,83 +318,57 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 				
 				
 				
-				%%%%% PLANTILLA PARA PROYECTO DE FIN DE GRADO (Universidad de Cádiz) Propuesta de REDiris
-				\notasInfo[inline]{PLANTILLA PARA PROYECTO DE FIN DE GRADO (Universidad de Cádiz) Propuesta de REDiris}
-				
-
-% *************************************************************************************************************** %
-% 			MODELO CONCEPTUAL
-% *************************************************************************************************************** %
-
-				\section{Modelo Conceptual}\label{analisisModeloConceptual}
-				\notasInfo[inline]{A partir de los requisitos de información, se desarrollará un diagrama conceptual de clases UML,
-identificando las clases, atributos, relaciones, restricciones adicionales y reglas de derivación necesarias.}
-
-
-
-% *************************************************************************************************************** %
-% 			MODELO DE CASOS DE USO
-% *************************************************************************************************************** %
-				\section{Modelo de Casos de Uso}\label{analisisModeloCasosUso}
-				\notasInfo[inline]{A partir de los requisitos funcionales descritos anteriormente, se emplearan los casos de uso como
-mecanismo para representar las interacciones entre los actores y el sistema bajo estudio. Para
-cada caso de uso deberá indicarse los actores implicados, las precondiciones y postcondiciones,
-los pasos que conforman el escenario principal y el conjunto de posibles escenarios alternativos. }
-				
-					\subsection{Actores}
-					\notasInfo[inline]{ En este apartado se describirán los diferentes roles que juegan los usuarios que interactúan con el sistema. Los actores pueden ser roles de personas físicas, sistemas externos o incluso el tiempo
-(eventos temporales). }
-
-
-
-% *************************************************************************************************************** %
-% 			MODELO DE COMPORTAMIENTO
-% *************************************************************************************************************** %				
-				\section{Modelo de Comportamiento}\label{analisisModeloComportamiento}
-				\notasInfo[inline]{ A partir de los casos de uso anteriores, se crea el modelo de comportamiento. Para ello, se realizarán
-los diagramas de secuencia del sistema, donde se identificarán las operaciones o servicios
-del sistema. Luego, se detallará el contrato de las operaciones identificadas. }
-
-
-% *************************************************************************************************************** %
-% 			MODELO DE INTERFAZ DE USUARIO
-% *************************************************************************************************************** %				
-				\section{Modelo de Interfaz de Usuario}\label{analisisModeloInterfazUsuario}
-				\notasInfo[inline]{ En esta sección se deberá incluir un prototipo de baja fidelidad o mockup de la interfaz de usuario
-del sistema. Además, es preciso elaborar un diagrama de navegación, reflejando la secuencia de
-pantallas a las que tienen acceso los diferentes roles de usuario y la conexión entre éstas. }
 				
 				
-				\todo[inline]{He eliminado los diagramas que tenía porque ya no se corresponden con el nuevo sistema.}
-				%
-	%\begin{figure}[htbp]
-		%\centering
-			%\includegraphics[width=1\textwidth]{imgs/DFDContexto.png}
-		%\caption{DFD Contexto}
-		%\label{fig:dfdcontexto}
-	%\end{figure}
-	
-	
-	%\begin{figure}[htbp]
-		%\centering
-			%\includegraphics[width=1\textwidth]{imgs/DFD0.png}
-		%\caption{DFD 0}
-		%\label{fig:dfd0}
-	%\end{figure}
-	%
-	%\begin{figure}[htbp]
-		%\centering
-			%\includegraphics[width=.7\textwidth]{imgs/DFD1_GestionarVotante.png}
-		%\caption{DFD 1. Gestionar votante}
-		%\label{fig:dfd1}
-	%\end{figure}
-	%
-	%\begin{figure}[htbp]
-		%\centering
-			%\includegraphics[width=1\textwidth]{imgs/CASO_DE_USO_1_Votante.jpg}
-		%\caption{Caso de uso 1. Votante}
-		%\label{fig:casouso1}
-	%\end{figure}
+				
+				\section{Integración}\label{analisis_integracion}
+				
+				Una vez identificados tanto requisitos como actores intervinientes en el proceso electoral, es el momento de abordar la integración de sistemas para obtener la implementación necesaria para realizar la elección. 
+				
+				\begin{itemize}
+					\item El sistema ha de solucionar las necesidades de cada una de las fases de una elección (\ref{fases_proceso_electoral}).
+					
+					\item Del mismo modo, ha de cumplir con los requisitos definidos (\ref{requisitosIntroduccion}).
+					
+					\item Ha de satisfacer también las necesidades y facilitar el cumplimiento de responsabilidades de los actores identificados (\ref{actores}).
+				\end{itemize}
+				
+				Una vez definidos los objetivos del sistema a integrar es necesario identificar los subsistemas que se requieren.
+				
+				El sistema orquestador del protocolo de votación elegido será Helios Voting, de Ben Adida. Este proyecto cumple perfectamente con requisitos tales como el bajo coste, al ser software libre y correr sobre sistemas como Unix, que no requiere pago de licencias. También, gracias a la forma en la que está implementado, las acciones que requiere mayores recursos de cómputo se realizan o en el cliente (cifrado del voto) o tan sólo una vez al finalizar una elección (totalización y su descifrado), por lo que durante el resto del tiempo no necesita un sistema con gran capacidad de cálculo; en su caso, dependiendo del número de elecciones y de votantes, requiera una plataforma fácilmente escalable basándose en el número de usuarios concurrentes que puedan acceder al sistema.
+				
+				Tras un estudio de diferentes opciones para este módulo del sistema a implementar, estos son algunos motivos por los que se ha decidido adaptar el sistema Helios Voting como base:
+				
+		\begin{itemize}
+			\item Para mantener la fiabilidad de un sistema de voto por Internet es fundamental una buena base criptográfica y unos protocolos cimentados en sólidos procesos matemáticos. El mundo de la criptografía es muy complejo y en un sistema de votación en la que el votante debe tener su secreto y anonimato protegidos, se vuelve crucial. Viendo que los conocimientos criptográficos que poseo no están a la altura de las necesidades del sistema, prefiero delegar la responsabilidad en un tercero. En este caso, aparece Ben Adida\footnote{\url{http://ben.adida.net/}}, doctor en Ingeniería Informática en Criptografía y Seguridad de la Información por el MIT\footnote{\url{http://mit.edu/}} (Massachussetts Institute of Technology), siendo asesorado\footnote{\url{https://vote.heliosvoting.org/about}} en el doctoredo por otro Doctor como Ron Rivest\footnote{\url{http://people.csail.mit.edu/rivest/}}, experto en Criptografía y Voto Electrónico. Además, para el desarrollo de Helios, se apoyó en la asesoría de profesionales con muchísima experiencia acreditada en conceptos tales como el voto electrónico y criptografía como son Lessig o Benaloh\footnote{\url{http://research.microsoft.com/~benaloh/}}, entre otros. Con esta carta de presentación, se observa que el nivel de protocolos criptográficos tiene un amplio sustento académico detrás. Igualmente, existen multitud de artículos en los que se presentan, estudian y discuten los protocolos criptográficos del sistema Helios Voting en sus diferentes versiones. Incluso en muchos de estos artículos se ofrecen alternativas a distintos elementos para aumentar la seguridad del sistema o para introducir alternativas a sistemas de voto pero manteniendo la máxima seguridad para que el sistema siga siendo E2E-verifiable. En estas bibliografías se explican las bondades de Helios Voting respecto a los protocolos criptográficos de votación, siendo considerado por muchos expertos en la materia como el mejor sistema de votación por internet auditable E2E existente para elecciones con un bajo riesgo de coacción. Sin duda alguna, está más que justificada la decisión de delegar el tema de la seguridad criptográfica al propio sistema.
+			
+			\item Helios es un sistema de voto por Internet basado en desarrollo de código abierto. Está escrito en Python, utilizando Django como framework de desarrollo. Esta filosofía de software libre permite que el código pueda ser reutilizado y modificado para adaptarlo a las necesidades de la Escuela. Además, el lenguaje utilizado es bastante potente y la facilidad de integración con los recursos que provee la Escuela es un punto importante que se ha tenido en cuenta.
+			
+			\item El proyecto Helios Voting está activo, con desarrolladores implicados, incluso con forks en Github proponiendo alternativas o soluciones. Por ejemplo, proyectos como Ágora Voting (\ref{estadocuestion_agoravoting}) nacieron a partir de un fork de Helios Voting, aunque actualmente han virado hacia otros protocolos criptográficos como base de su solución. Existen también algunos forks de este proyecto en el que lo que se realiza es un cambio del protocolo criptográfico, por ejemplo, hay uno (helios-server-mixnet\footnote{\url{https://github.com/RunasSudo/helios-server-mixnet}}, del desarrollador RunasSudo) en el que se se da soporte a mixnets y a criptografía de umbral. Así, se puede observar que los desarrolladores hacen uso de Helios como base y lo adaptan a sus necesidades criptográficas o funcionales.
+			
+			\item Según algunos informes\cite{carter2013} desarrollados estudiando una experiencia real del sistema, Helios Voting es un ejemplo excepcional de sistema electoral por Internet E2E-verificable y lo reconocen como un ``\textit{estándar en verificabilidad de voto por Internet}''. Proporciona al proceso electoral todas las garantías que aporta la verificabilidad E2E, como la capacidad de observar pruebas de conocimiento cero no interactivas que verifican que cada voto fue incluido correctamente y que el escrutinio completo fue computado con precisión. 
+			
+			\item Una de las debilidades de Helios Voting es que el protocolo en el que se basa no es efectivo ante la coacción. Por ello, su propio desarrollador indica que es un sistema pensado para elecciones con bajo riesgo de coacción. Las elecciones a llevar a cabo en la Escuela Politécnica Superior cumplen con esta propiedad, pues el riesgo de que se intente coartar a algún votante es mínimo. Por ello mismo, una de las debilidades de Helios no incide en gran medida en el sistema a implementar.
+			
+			\item Los votos cifrados no se descifran. Gracias a que su protocolo criptográfico se basa en el \textbf{cifrado homomórfico aditivo}, no es necesario que sean desencriptados para realizar el escrutinio, por lo que protegen la privacidad, secreto y anonimicidad de cada votante, cumpliendo con varios de los requisitos fundamentales del voto electrónico/por Internet.
+			
+			\item Buscando alguna solución para implementar identificación de usuarios de la EPS, ya provee de mecanismos como oAuth, que puede ser modificado para utilizar el DNIe como herramienta de acceso seguro a la web, o sistemas como el CAS utilizado en las elecciones de la Universidad Católica de Lovaina, que podría servir de base a un sistema de acceso basado en las cuentas de usuario de los estudiantes de la EPS. Son frameworks que no valen tal cual están implementados, pero que permiten una posibilidad de modificación muy interesante para implementar nuevos sistemas de acceso basados en las necesidades de la EPS.
+						
+		\end{itemize}	
+				
+				
+
+				
+				
+				
+				Con la intención de utilizar el DNIe como herramienta de seguridad para el login, ha sido necesario adaptar el sistema de login propio de Helios Voting. El sistema ya de por sí ofrecía alternativas, tales como login con terceros como Google, facebook, Yahoo! o Twitter. También ofrece login por usuario/cotraseña. Y se desarrolló un CAS para el login en las elecciones de la Universidad de Lovaina. Cualquiera de estos sistemas de login está bien para el tipo de elección que queremos desarrollar - incluso el del CAS, asociándolo a la cuenta de alimnado y profesorado de la Universidad me resulta muy interesante - pero no cumplen con los objetivos iniciales del proyecto. Por ello ha sido necesaria la integración de un sistema que permita la utilización del documento oficial español.
+				Se ha utilizado un sistema basado en el protocolo oAuth de tres patas como base para el sistema de login. Este protocolo está implementado en el proyecto de xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx. De todos modos, ha sido necesario modificarlo para adaptarlo a las necesidades del DNIe. 
+				
+				
+				Dentro del objetivo de utilizar el DNIe como herramienta criptográfica para la identificación del usuario, estaba el de emplear el nuevo DNIe 3.0 para poder realizar esta identificación segura desde dispositivos móviles. El objetivo final del proyecto se basa en que un votante pueda votar remotamente, haciendo uso de su documento nacional de identidad (obligatorio, y por tanto completamente extendido) para ser identificado, desde cualquier lugar en el que tenga conexión a Internet. Con este documento se puede conseguir esta última premisa. Para ello, había que encontrar la forma de adaptar este protocolo al de Helios. La forma de realizarlo era a través del login contra el sistema que se ha presentado anteriormente. 
+				La mejor forma sería encontrar la forma de que desde los dispositivos móviles se pudiese acceder a los certificados digitales del documento y, con ellos, presentarlos al sistema de identificación para permitir el acceso al sistema. Para ello, se ha hecho uso de las aplicaciones de ejemplo que ha publicado la Dirección General de la Policía de España, entre las que encontramos una herramienta desarrollada para los dispositivos móviles Android que posean conectividad NFC, por la cual se tiene acceso al chip de identificación del documento. a partir de una adaptación de esta app, sería posible acceder al sistema Helios de forma que la identificación del usuario sea inequívoca.
+				
+				
 	
 	\section{Esquema de Voto Electrónico}\label{analisisEsquemaVotoElectronico}
 	
@@ -402,7 +376,9 @@ pantallas a las que tienen acceso los diferentes roles de usuario y la conexión 
 		
 		El esquema se basa en cifrado homomórfico (utilizando el algoritmo de ElGamal) y verificación con pruebas de conocimiento cero de Chaum-Pedersen.
 		
-		Algo en lo que se desenvuelve muy bien el homomorfismo es en la totalización, por lo que es una gran herramienta para un sistema de voto. Un protocolo que es capaz de totalizar votos cifrado sin necesidad de descifrarlos es una gran opción para mantener el secreto del voto. Por otro lado, no es la mejor solución para la confianza en el sistema. Para paliar este problema de confianza es donde aparecen las pruebas de conocimiento cero. Gracias a pruebas criptográficas se puede asegurar que tanto votos como la suma de ellos no han sido manipulados y fueron correctamente cifrados.
+		Algo en lo que se desenvuelve muy bien el homomorfismo es en la totalización, por lo que es una gran herramienta para un sistema de voto. Un protocolo que es capaz de totalizar votos cifrado sin necesidad de descifrarlos es una gran opción para mantener el secreto del voto.
+		
+		Por otro lado, no es la mejor solución para la confianza en el sistema, pues ningún votante u observador es capaz de asegurar que un voto haya sido almacenado en la urna digital o correctamente totalizado en el recuento, así como si ha sido manipulado previamente. Para paliar este problema de confianza es donde aparecen las pruebas de conocimiento cero. A partir de ellas, gracias a pruebas criptográficas se puede asegurar que tanto votos como la suma de ellos no han sido manipulados y fueron correctamente cifrados, así como asegurar su correcta inserción y descifrado en la totalización.
 		
 		El proceso empieza con el votante cifrando su voto. Este voto se publica cifrado en un tablón público en el que se acumulan todas las relaciones (votante)-(voto cifrado) y donde cualquier votante puede comprobar que su voto ha sido correctamente tenido en cuenta o que ningún votante ha votado dos veces (que el sistema tenga en cuenta dos votos de un mismo votante, ya que cada votante sí que puede votar más de una vez, pero sólo el último voto es el que el sistema debería contar).
 		
@@ -412,31 +388,15 @@ pantallas a las que tienen acceso los diferentes roles de usuario y la conexión 
 		
 		La otra parte importante de este esquema es cómo podemos asegurar que un voto ha sido cifrado con la opción de voto que realmente ha seleccionado el votante. Puede ser que en pantalla elija la opción B, pero cómo puede asegurarse que en el sistema es esta elección, y no la opción A o C, por ejemplo, la que se ha almacenado cifrada. Es común que los protocolos de voto electrónico que se basan en el cifrado homomórfico se apoyen en pruebas no interactivas de conocimiento cero para ello. Consisten en proponer la suficiente base matemática como para que usando algún tipo de algoritmo de cifrado asimétrico y con la colaboración del votante, se puede probar que un valor cifrado es realmente el cifrado de la opción elegida y no otra diferente.
 	
-	% *************************************************************************************************************** %
+% *************************************************************************************************************** %
 % 			HELIOS VOTING
 % *************************************************************************************************************** %
 		\section{Helios Voting}\label{planteamiento_HeliosVoting}
 		\todo[inline]{He movido esta sección desde Planteamiento a Análisis porque creo que es donde debo comentar qué sistema hemos elegido para adaptar y los motivos que nos han llevado a ello.}
 		
-		Tras el estudio de varias soluciones ya implementadas y de una solución diseñada desde cero, he decidido usar un sistema ya desarrollado como base para el diseño de la solución que lleve a cabo el proceso electoral en la Escuela.
+		Como ya se ha comentado, tras el estudio de varias soluciones ya implementadas y de una solución diseñada desde cero, he decidido usar un sistema ya desarrollado como base para el diseño de la solución que lleve a cabo el proceso electoral en la Escuela.
 		
-		Los motivos que se han tenido en cuenta para seleccionar un desarrollo de terceros frente a uno propio son los siguientes:
-		\begin{itemize}
-			\item Para mantener la fiabilidad de un sistema de voto por Internet es fundamental una buena base criptográfica y unos protocolos cimentados en sólidos procesos matemáticos. Este concepto tan crucial he preferido delegarlo en el sistema Helios Voting, diseñado Ben Adida\footnote{\url{http://ben.adida.net/}}, doctor en Ingeniería Informática en Criptografía y Seguridad de la Información por el MIT\footnote{\url{http://mit.edu/}} (Massachussetts Institute of Technology). Además, el creador del sistema fue asesorado\footnote{\url{https://vote.heliosvoting.org/about}} directamente por profesionales con muchísima experiencia acreditada en conceptos tales como el voto electrónico y criptografía como pueden ser Lessig, Benaloh\footnote{\url{http://research.microsoft.com/~benaloh/}} o Rivest\footnote{\url{http://people.csail.mit.edu/rivest/}}, entre otros. Con esta carta de presentación, se observa que el nivel de protocolos criptográficos tiene un amplio sustento académico detrás. Igualmente, existen multitud de artículos en los que se presentan, estudian y discuten los protocolos criptográficos del sistema Helios Voting en sus diferentes versiones. Incluso en muchos de estos artículos se ofrecen alternativas a distintos elementos para aumentar la seguridad del sistema o para introducir alternativas a sistemas de voto pero manteniendo la máxima seguridad para que el sistema siga siendo E2E-verifiable.
-			
-			\item Helios es un sistema de voto por Internet basado en desarrollo de código abierto. Está escrito en Python, utilizando Django como framework de desarrollo. Esta filosofía de software libre permite que el código pueda ser reutilizado y modificado para adaptarlo a las necesidades de la Escuela. Además, el lenguaje utilizado es bastante potente y la facilidad de integración con los recursos que provee la Escuela es un punto importante que se ha tenido en cuenta.
-			
-			\item El proyecto Helios Voting está activo, con desarrolladores implicados, incluso con forks en Github proponiendo alternativas o soluciones. Por ejemplo, proyectos como Ágora Voting (\ref{estadocuestion_agoravoting}) nacieron a partir de un fork de Helios Voting, aunque actualmente han virado hacia otros protocolos criptográficos como base de su solución.
-			
-			\item Según algunos informes\cite{carter2013} desarrollados estudiando una experiencia real del sistema, Helios Voting es un ejemplo de sistema electoral por Internet E2E-verificable y lo reconocen como un ``\textit{estándar en verificabilidad de voto por Internet}''. Proporciona al proceso electoral todas las garantías que aporta la verificabilidad E2E, como la capacidad de observar pruebas de conocimiento cero no interactivas que verifican que cada voto fue incluido correctamente y que el escrutinio completo fue computado con precisión. 
-			
-			\item Una de las debilidades de Helios Voting es que el protocolo en el que se basa no es efectivo ante la coerción. Por ello, su propio desarrollador indica que es un sistema pensado para elecciones con bajo riesgo de coerción. Las elecciones a llevar a cabo en la Escuela Politécnica Superior cumplen con esta propiedad, pues el riesgo de que se intente coartar a algún votante es mínimo.
-			
-			\item Los votos cifrados no se desencriptan. Gracias a que su protocolo criptográfico se basa en el \textbf{cifrado homomórfico aditivo}, no es necesario que sean desencriptados para realizar el escrutinio, por lo que protegen la privacidad de cada votante.
-			
-			\item Buscando alguna solución para implementar identificación de usuarios de la EPS, ya provee de mecanismos como oAuth, que puede ser modificado para utilizar el DNIe como herramienta de acceso seguro a la web, o sistemas como el CAS utilizado en las elecciones de la Universidad Católica de Lovaina, que podría servir de base a un sistema de acceso basado en las cuentas de usuario de los estudiantes de la EPS. Son frameworks que no valen tal cual están implementados, pero que permiten una posibilidad de modificación muy interesante para implementar nuevos sistemas de acceso basados en las necesidades de la EPS.
-						
-		\end{itemize}	
+		
 		
 		\notasCambio[inline]{No me gusta nada cómo está redactado esto ni me parece que esté en el sitio correcto. Cambiar.}
 
@@ -726,11 +686,11 @@ pantallas a las que tienen acceso los diferentes roles de usuario y la conexión 
 			
 			
 			\subsection{Votación}\label{analisis_votacion}
-			La fase de votación, en la que en un sistema tradicional un votante introduce su voto en la urna junto a los votos del resto de votantes es uno de los derechos fundamentales que un ciudadano tiene en un estado de derecho. Es, además, el derecho que más iguala a los ciudadanos, pues (interpretaciones de la Ley D'Hont o del peso de cada circunscripción en la Ley Electoral vigente aparte) cualquier persona, independientemente de su condición sexual, social, económica, religiosa, etc. se corresponde con un voto. Una vez hemos votado, todos los votos tienen el mismo valor.
+			La fase de votación, en la que en un sistema tradicional un votante introduce su voto en la urna junto a los votos del resto de votantes, es uno de los derechos fundamentales que un ciudadano tiene en un estado de derecho. Es, además, el derecho que más iguala a los ciudadanos, pues (interpretaciones de la Ley D'Hont\footnote{\url{https://es.wikipedia.org/wiki/Sistema_d'Hondt}} o del peso de cada circunscripción en la Ley Electoral vigente aparte) cualquier persona, independientemente de su condición sexual, social, económica, religiosa, etc. se corresponde con un voto. Una vez hemos votado, todos los votos tienen el mismo valor. El famoso lema de "una persona, un voto".
 			
-			Es la parte central de cualquier sistema de votación.
+			Obviamente, es el elemento central de cualquier sistema de votación.
 			
-			Teniendo en cuenta los criterios sobre los que se basa el voto electrónico, esta fase debería cumplir una serie de propiedades inherente al mismo.
+			Teniendo en cuenta los criterios sobre los que se basa el voto electrónico/por internet, esta fase debería cumplir una serie de propiedades inherente al mismo.
 			
 			\todo[inline]{Introducir aquí las características del voto por Internet que aplican a la fase de votación, ya sea por Fujioka, la UNEX u otro autor.}
 			

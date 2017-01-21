@@ -1286,23 +1286,28 @@ los diálogos del sistema.
 					
 					\item Esquema de Voto Electrónico basado en \textbf{Firma Ciega}
 					
-						En un Esquema de Firma Ciega, el firmante no conoce el contenido del mensaje que firma, ya que el emisor del mismo realiza un proceso previo para ocultar su contenido, lo que se conoce por \textit{cegar} el mensaje.\\
-						Se caracteriza porque la entidad firmante no adquiere ningún conocimiento sobre el contenido del mensaje que está firmando, aunque, con posterioridad, la firma obtenida puede ser verificada como válida tanto por esta entidad firmante como cualquier otra entidad que disponga de la información necesaria.\\
-						Se caracteriza porque la entidad firmante no adquiere ningún conocimiento sobre el contenido del mensaje que está firmando, aunque, con posterioridad, la firma obtenida puede ser verificada como válida tanto por esta entidad firmante como cualquier otra entidad que disponga de la información necesaria.\\
+						En un Esquema de Firma Ciega, el firmante no conoce el contenido del mensaje que firma, ya que el emisor del mismo realiza un proceso previo para ocultar su contenido, lo que se conoce por \textit{cegar} el mensaje.
+						
+						Se caracteriza porque la entidad firmante no adquiere ningún conocimiento sobre el contenido del mensaje que está firmando, aunque, con posterioridad, la firma obtenida puede ser verificada como válida tanto por esta entidad firmante como cualquier otra entidad que disponga de la información necesaria.
+						
+						Se caracteriza porque la entidad firmante no adquiere ningún conocimiento sobre el contenido del mensaje que está firmando, aunque, con posterioridad, la firma obtenida puede ser verificada como válida tanto por esta entidad firmante como cualquier otra entidad que disponga de la información necesaria.
+						
 						\todo[inline]{Explicación del proceso (Chaum??)}
-						Los esquemas que se basan en protocolos con firma ciega suelen usar canales anónimos para enviar tanto la firma como el voto cifrado a la autoridad electoral, con lo que protege el anonimato del votante.\\
-						Podemos encontrar este esquema en soluciones como la propuesta en 1992 por Fujioka en \cite{Fujioka93}, la cual sirvió de base a Cranor para la implementación de un prototipo (Sensus).\\
+						Los esquemas que se basan en protocolos con firma ciega suelen usar canales anónimos para enviar tanto la firma como el voto cifrado a la autoridad electoral, con lo que protege el anonimato del votante.
+						
+						Podemos encontrar este esquema en soluciones como la propuesta en 1992 por Fujioka en \cite{Fujioka93}, la cual sirvió de base a Cranor\footnote{\url{http://lorrie.cranor.org/}} para la implementación de un prototipo (Sensus\footnote{\url{http://lorrie.cranor.org/voting/sensus/}}\footnote{\url{http://lorrie.cranor.org/pubs/hicss/hicss.html}}).
+						
 						El esquema desarrollado en Sensus divide el proceso en cuatro etapas: \textit{inicialización}, \textit{registro}, \textit{votación} y \textit{recuento}. A su vez, registra dos autoridades: \textit{Administrador} y \textit{Contador}.
 						\todo[inline]{********* VER BELLEBONI ************}
 				
 				
 					\item Esquema de Voto Electrónico basado en \textbf{papeletas precifradas}
 					
-						Este esquema de voto electrónico aparece en la tesis \cite{tesisSeguridadVMMorales}
+						Este esquema de voto electrónico aparece en la tesis de Morales Rocha \cite{tesisSeguridadVMMorales}.
 				
 				\end{itemize}
 
-				Según la tesis de Morales Rocha \cite{tesisSeguridadVMMorales}, podemos definir cuatro grupos de esquemas de voto electrónico remoto. Estos se diferencian en la forma en la que usan los elementos criptográficos para tratar de resolver los requisitos de seguridad de un sistema electoral:
+				Aprovrchando que en el último esquema se cita la tesis de Morales Rocha \cite{tesisSeguridadVMMorales}, vamos a introducir una alternativa en cuanto al tipo de esquemas de voto electrónico existentes. En esta tesis, el autor define cuatro grupos de esquemas de voto electrónico remoto. Estos se diferencian en la forma en la que usan los elementos criptográficos para tratar de resolver los requisitos de seguridad de un sistema electoral:
 				\begin{itemize}
 					\item Esquemas basados en firma ciega
 					\item Esquemas basados en mixnets
@@ -1400,9 +1405,7 @@ los diálogos del sistema.
 				\label{tab:ResumenVentajasDesventajasEsquemasVotoElectronico}
 			\end{table}
 				
-				Junto con estos esquemas básicos en cuanto a solucionar problemas determinados de los procesos electorales electrónicos, nos centramos en resumir algunos de los esquemas desarrollados concretamente para elecciones mediante voto por Internet.
 				
-				\notasCambio[inline]{Estoy diciendo cosas contradictorias. Arreglar.}
 				
 				Está fuera del alcance de este proyecto el estudio de estos esquemas y sus evoluciones, pero nos basamos en esta información para el desarrollo del sistema que se implementa. Para ahondar en ellos, recomiendo la lectura de la citada tesis de Morales Rocha \cite{tesisSeguridadVMMorales}, así como el capítulo 4 de la tesis de la Dra. Emilia Pérez Belleboni \cite{tesisEPerezBelleboni}, en la cual se expone una recopilación de información muy concisa sobre multitud de esquemas y sistemas que los implementan, según las necesidades que se necesiten cubrir.
 			 
