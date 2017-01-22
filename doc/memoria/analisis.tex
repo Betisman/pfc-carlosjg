@@ -715,8 +715,13 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			\subsection{Difusión de resultados}\label{analisis_difusion}
 			La difusión de resultados por parte de Helios consiste en una web muy simple que indica las distintas opciones de voto y cuántos votos ha recibido cada una. Ni siquiera ordena los resultados por orden de votos contabilizados.
 			
-			Un problema que tiene la web con respecto a la información que queremos mostrar en estas Elecciones es que no se muestra la abstención, ya que es un dato para el que no está diseñado el sistema Helios, ya que en principio permite votaciones con censo cerrado y abierto. En este último caso no tiene sentido, por tanto, el concepto de abstención, pues no tenemos constancia del censo de potenciales votantes del proceso.
+			\textbf{Abstención}
 			
+			Un problema que tiene la web de Helios con respecto a la información que queremos mostrar en estas Elecciones es que no se muestra la abstención, ya que es un dato para el que no está diseñado el sistema original, ya que en principio permite votaciones con censo cerrado y abierto. En este último caso no tiene sentido, por tanto, el concepto de abstención, pues no tenemos constancia del censo de potenciales votantes del proceso.
+			
+			Sin embargo, para el tipo de elección que desarrollamos para la EPS, con censo cerrado, se ha creído oportuno implementar un mecanismo para que la abstención sea mostrada en la difusión de resultados. Para ello hay que retocar el módulo de presentación de resultados e incluir una consulta del censo para la elección y contrastar el número resultante con la suma de los votos (contando los blancos) que se han emitido.
+			
+			\textbf{Falta información electoral}
 			Junto con el problema de la abstención, podemos incluir que le falta información acerca de la propia elección. Muestra las votaciones por "preguntas", pero no aporta datos como el comentado de la abstención, censo, participación y diversos valores que deben estar presentes para dar legitimidad a un proceso electoral.
 			
 			Sería correcto incrementar el valor de la información en la medida de lo posible añadiendo este tipo de datos a la web de difusión de resultados. Incluso, resultaría muy interesante acompañar estos datos en crudo con algún tipo de elaboración de datos para dar mayor contexto al resultado del Proceso.
@@ -725,16 +730,76 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			
 			Un ejemplo podría ser en el caso de la elección de delegado. Aunque yo, como votante de una clase sólo esté interesado en quién ha resultado elegido en mi clase, debería tener la opción de poder conocer resultados en otras clases. Así mismo, resultaría interesante complementar la información del ámbito donde he votado comparándola con el resto de ámbitos, mostrando qué posición ocupa mi circunscripción en cuanto a participación, disgregación del voto, rangos horarios, etc. Las estadísticas, si son las adecuadas, son herramientas que aportan valor a este tipo de difusión de información. 
 			
-			\subsubsection{Comprobación del voto}
+		\subsection{Comprobación del voto}
 			Un problema que surge en un sistema de voto electrónico o por Internet es el de la veracidad de los resultados.
 			
 			La difusión del resultado de la votación debería incluir dos herramientas para poder limitar la duda en dos aspectos. 
 			
-			Por un lado, tratar de asegurar a la persona que consulta los resultados la veracidad de los mismos, que la consolidación de los votos emitidos ha sido correcta, sin equivocación por parte del sistema o fraude por parte de los organizadores del Proceso.
+			\begin{itemize}
+				\item Tratar de asegurar a la persona que consulta los resultados la veracidad de los mismos, que la consolidación de los votos emitidos ha sido correcta, sin equivocación por parte del sistema o fraude por parte de los organizadores del Proceso. (\textit{Verificabilidad Universal}) 
+				\item Asegurar al votante que ha participado en la elección una herramienta que le permita verificar que en el resultado que está viendo su voto ha sido contado y, además, correctamente. (\textit{Verificabilidad Individual})
+			\end{itemize}
 			
-			Por otro lado, debe asegurar al votante que ha participado en la elección una herramienta que le permita verificar que en el resultado que está viendo su voto ha sido contado y, además, correctamente.
+			Es la base de los sistemas de voto E2E-verificables.
 			
 			En procesos electorales tradicionales este punto no tiene tanta trascendencia porque, normalmente, confiamos en el protocolo de la elección. Nos aporta seguridad ver cómo nuestro voto lo introducimos nosotros mismos en la urna transparente y sabemos que el conteo de los votos, además de ser público, se realiza entre un grupo de vocales designados aleatoriamente y apoyados por interventores de diferentes fuerzas políticas que, difícilmente puedan llegar a un acuerdo para falsificar el conteo de la mesa electoral en cuestión. 
 			
 			Pero como ya se ha comentado ampliamente, esto no ocurre en procesos electorales por Internet, ya que, en principio carecemos de urna física y de ciudadanos anónimos que cuenten los votos. Hay que fiarse del software que realiza el proceso. Y esta confianza suele ponerse en duda en fases anteriores del proceso, pero sobre todo aquí, cuando se observa el resultado de la totalización de los votos.
+			
+			El sistema de voto de este proyecto, basándose en Helios, cumple con las premisas de verificabilidad universal e individual de los sistema de verificabilidad punto a punto. En este caso, se observa que en el momento del voto, el votante puede auditarlo y publicarlo en un tablón para que otros también lo auditen y demostrar así la no manipulación del contenido del mismo.
+		
+			Al finalizar el proceso electoral, el resultado de la totalización de los votos puede ser auditada por cualquier observador.
+			
+			Helios provee una herramienta, llamada \textit{Helios Election Verifier}, la cual, dada la URL de una elección que haya finalizado se encarga de ejecutar las pruebas criptográficas necesarias para, sin comprometer la integridad de la elección y el secreto de los votantes, verificar la correctitud de la misma. Así, la herramienta comprueba la huella digital de la elección, el número de votantes, cada una de las opciones de voto de cada votante, así como los Trustees y la totalización.
+			
+			El informe que emite el sistema tiene el contenido del siguiente ejemplo:
+		
+\begin{verbatim}
+-- Election --
+
+	loading election...
+	loaded election: Elección de prueba
+	election fingerprint: CpiW3hBXawR5kiZyq8p914wPExx01gsaUbOnuWrRzeY
+	loading list of voters...
+	loaded voter list, now loading ballots for each..
+	loading ballot for voter #1
+
+	=== FOUND a ballot for voter #1 ===
+
+-- Ballots --
+
+	Voter #1
+	-- UUID: bb872ace-94fd-4029-93c5-6fd61db6f635
+	-- Ballot Tracking Number: Go5SKpKeXNxvwoXhSeQrPXMIeNa0B8gLp6F/OMaDLwE
+	Question #1, Option #1 -- VERIFIED
+	Question #1, Option #2 -- VERIFIED
+	Question #1, Option #3 -- VERIFIED
+ 
+	=== Question #1 OVERALL -- VERIFIED ===
+
+-- Trustees --
+
+	Trustee #1: undefined
+	-- PK ICGGnxHLDJKoU1W5/aiPKVf2zBJLjM5FLQj9s3Y+xlE -- VERIFIED.
+
+	=== election public key CORRECTLY FORMED ===
+
+-- Tally --
+
+	Question #1: Pregunta de prueba
+	Answer #1: Respuesta 1 - COUNT = 0
+	-- Trustee undefined: decryption factor verifies
+	-VERIFIED
+	Answer #2: Respuesta 2 - COUNT = 1
+	-- Trustee undefined: decryption factor verifies
+	-VERIFIED
+	Answer #3: Respuesta 3 - COUNT = 0
+	-- Trustee undefined: decryption factor verifies
+	-VERIFIED
+
+--- FINAL RESULT ---
+
+=== ELECTION FULLY VERIFIED -- SUCCESS! ===
+\end{verbatim}
+			
 			\todo[inline]{MUY IMPORTANTE, hay que poner que al menos haya enlaces a los mecanismos de validación de votos.}
