@@ -250,29 +250,53 @@
 				\par
 				El primer paso de un votante a la hora de emitir su voto, en el sistema de voto tradicional es identificarse ante los miembros de la mesa electoral. Para ello, en elecciones como las que organizan el Ministerio de Interior en España o las diferentes Comunidades Autónomas, el votante hace uso de un documento que verifique su identidad. En España, este documento es el DNI, aunque también se puede hacer uso del Pasaporte. En otros países en los que se carece de un documento oficial de identidad expedido por las autoridades del Estado, se realiza un registro biométrico de los votantes con, por ejemplo, las huellas dactilares de los mismos.
 				
-				En el caso de las Elecciones a la Junta de Escuela de la EPS CEU, la identificación de los votantes...\todo{falta}
+				\textbf{Identificación}
 				
+				En el caso de las Elecciones a la Junta de Escuela de la EPS CEU, la identificación de los votantes se realiza de forma presencial, mostrando el documento acreditativo correspondiente a la mesa electoral.				
 				
-				Una vez identificado al votante, se le tiene que cotejar con el censo de la elección o de la mesa en la que ha sido identificado. En países como España, la elaboración del censo corre a cargo del INE (Instituto Nacional de Estadística) y reparte a los votantes en diferentes mesas repartidas en locales electorales. En otros estados, este censo no existe y se requiere que sea la ciudadanía la que se registre en un Registro de Votantes, con lo que si no se ha acudido a tiempo de realizar este trámite, la persona pierde su derecho al voto.
+				Una vez identificado al votante, se le tiene que cotejar con el censo de la elección o de la mesa en la que ha sido identificado.
 				
-				En el caso de estudio de las elecciones de la EPS, este censo debe ser proporcionado por la propia Escuela. Los datos son suyos y la cesión debe ser temporal y, simplemente, para ser cotejado, nunca para publicación de ningún tipo de resultado o listado con la información proporcionada.
+				\textbf{Censo}
 				
-				\todo[inline]{ LOPD ?? ? ?  ? }
+				En países como España, la elaboración del censo corre a cargo del INE (Instituto Nacional de Estadística) y reparte a los votantes en diferentes mesas repartidas en locales electorales. En otros estados, este censo no existe y se requiere que sea la ciudadanía la que se registre en un Registro de Votantes, con lo que si no se ha acudido a tiempo de realizar este trámite, la persona pierde su derecho al voto.
+				
+				En el caso de estudio de las elecciones de la EPS, este censo debe ser proporcionado por la propia Escuela.
 
-				Para dejar constancia de que un votante ya ha ejercido su derecho al voto, en países como España es tan simple como que los miembros de la mesa electoral lo reflejen en una lista con el censo de su mesa. En otros territorios, sin embargo, la costumbre es marcar de alguna forma a aquellas personas que han votado, como puede ser manchar algún dedo de la mano con tinta indeleble, para que, si volviese a intentar votar en otra mesa, se pueda comprobar que ya lo había hecho previamente.
+				\textbf{Votación}
+				
+				Para dejar constancia de que un votante ya ha ejercido su derecho al voto, en países como España es tan simple como que los miembros de la mesa electoral lo reflejen en una lista con el censo de su mesa. En otros territorios, sin embargo, la costumbre es marcar de alguna forma a aquellas personas que han votado, como puede ser manchar algún dedo de la mano con tinta indeleble, para que, si el votante intenta votar en otra mesa, se pueda comprobar que ya lo había hecho previamente y no pueda repetir.
 
-				En un sistema de voto por Internet no hay una interacción directa entre el votante y la autoridad electoral, que es quien debe permitirle votar. Por ello, es muy importante que los mecanismos para identificar al votante sean precisos y confiables. Por ello, hay que valorar qué método de identificación es el mejor para cumplir con los requisitos de la elección, incluidos ahí los inherentes al voto electrónico telemático y remoto.
+				En un sistema de voto por Internet no hay una interacción directa entre el votante y la autoridad electoral, que es quien debe permitirle votar. Por ello, es muy importante que los mecanismos para identificar al votante sean precisos y confiables. Con este objetivo, hay que valorar qué método de identificación es el mejor para cumplir con los requisitos de la elección y del voto electrónico telemático y remoto.
 
 				\begin{itemize}
-					\item Usuario / contraseña.
+					\item \textbf{Usuario / contraseña}
 					
 						Para las elecciones de la Junta de Escuela de la EPS, el método de usar un par usuario / contraseña sería una solución sencilla. El censo está bastante acotado y, al ser todos los potenciales votantes miembros de la Universidad, poseen una cuenta de correo electrónico corporativa proporcionada por ésta. El proceso sería tan fácil como, por ejemplo, usar la dirección de correo electrónico de cada alumno / profesor / trabajador de la Escuela como nombre de usuario y enviarles un email a cada uno con una clave aleatoria generada por la autoridad electoral.
 						
 						Esta solución, no obstante, sería inviable para elecciones más ambiciosas, como lo son las legislativas estatales o autonómicas, ya que carecemos de elementos como direcciones de correo electrónico de todo el censo. Se podría utilizar el correo ordinario como método para hacer llegar estas credenciales, de la misma forma en que los partidos políticos hacen llegar la propaganda electoral o la Junta Electoral hace llegar la información del censo electoral a cada votante. Considero que sería un gasto extra de recursos económicos, humanos y medioambientales que no se sostiene para la utilización de este servicio. Tampoco se asegura la recepción del correo si aprovechamos el envío de la información del censo electoral, pues el envío, al contrario que cuando hemos solicitado el voto por correo y nos hacen llegar las papeletas, no es certificado. Realizar este envío de credenciales con garantía de recibo, resultaría muy costoso y lenta.
 						
 						Otro motivo que desaconseja el envío de credenciales por correo es que éstas podrían ser interceptadas por otra persona distinta a quien identifican de forma no muy complicada, lo cual supone una brecha de seguridad bastante importante.
-						
-					\item Mobile ID
+					
+					\item \textbf{Social Login}
+					
+					Ahora está muy extendido el concepto de login por Social Sign-in, que es un tipo de single sign-on que hace uso de la información de un usuario registrado en una red social para acceder a una web o servicio de terceros en vez de que estos implementen un sistema de cuentas de usuarios propia.
+					
+					Este sistema delega el registro del usuario en la red social, simplificando el servicio de login de la web interesada, a la vez que puede obtener de la propia red social bastante información demográfica y personal, siempre que el usuario acceda a compartirla.
+					
+					Se trata de un servicio de autenticación y autorización. La red social autentica al usuario y 
+					
+					Redes sociales que permiten este servicio de login hay bastantes, destacando Google\footnote{Google Identity Plataform \url{https://developers.google.com/identity/}}, Facebook\footnote{\url{https://developers.facebook.com/docs/facebook-login}}, Twitter\footnote{\url{https://dev.twitter.com/web/sign-in}}, LinkedIn\footnote{\url{https://developer.linkedin.com/docs/oauth2}} o Yahoo!\footnote{\url{https://developer.yahoo.com/auth/}}, entre otros servicios.
+					
+					En los enlaces de cada uno de los proveedores de este servicio que adjunto viene una explicación detallada para desarrolladores donde se puede consultar cómo funcionan y cómo se pueden implementar en las aplicaciones web de terceros.
+					
+					\begin{figure}[htbp]
+						\centering
+							\includegraphics[height=.30\textwidth]{imgs/facebookLogin.png}
+						\caption{Facebook es uno de los proveedores de servicio de Single Sign-In}
+						\label{fig:Facebook_single_signin}
+					\end{figure}
+					
+					\item \textbf{Mobile ID}
 					
 						El Gobierno de Estonia, para sus comicios por Internet está desarrollando una tecnología en la que el propio smartphone es la herramienta que sirve para identificarnos.
 						
@@ -284,9 +308,11 @@
 						
 						Otra ventaja es que, al estar los certificados en la SIM, nos ahorramos el hardware necesario para la lectura de certificados externos, como son el DNIe 2.0 español o las SmartCards tradicionales. Incluso no haría falta hardware de lectura por radiofrecuencia como necesitan algunas SmartCards modernas o el propio DNIe 3.0, con lo que se puede ahorrar en hardware interno del dispositivo.
 						
+						Lamentablemente, es una tecnología que en estos momentos no se implementa a gran escala en España y no hay visos de que ocurra en un futuro próximo. Motivo suficiente para descartar esta opción.
+						
 %\todo[inline]{ hay que mirar bien esto del MobID, pues no sé si habrá algo desarrollado, de todos modos, en España esto ni se contempla}
 
-					\item Smartcard
+					\item \textbf{Smartcard}
 					
 						Otra opción posible es el uso de una smartcard que contenga certificados emitidos por la Autoridad Electoral para cada votante. Los inconvenientes de este método son varios:
 						\begin{itemize}
@@ -294,7 +320,7 @@
 							\item Un problema logístico ya que, una vez generados los certificados e introducidos en las tarjetas, éstas deben hacerse llegar a los votantes que las van a utilizar. Este paso, en unas elecciones a gran escala puede suponer un esfuerzo injustificado.
 						\end{itemize}
 
-					\item DNIe
+					\item \textbf{DNIe}
 					
 						Lo ideal para una elección por el sistema de voto por Internet es implementar un proceso que resulte sencillo al votante, ya que si resulta ser más complicado que el voto tradicional, el votante no le verá sentido y no hará uso de él.
 						
@@ -311,7 +337,7 @@ Con este planteamiento, parece que el uso del DNIe es una buena idea. Por un lad
 						Inconvenientes del DNIe:
 							\begin{itemize}
 								\item Extranjeros con derecho a voto pueden no tener DNIe, pero deberían poder votar con el pasaporte.
-								\item Certificados caducados. Que los certificados que lleva consigo el DNIe no tengan la misma fecha de caducidad que el propio documento es un punto en contra, ya que los usuarios no lo renuevan al ver que no tienen que hacerlo con el documento físico.
+								\item Certificados caducados.Los certificados que incluye el DNIe tienen una fecha de caducidad a partir de la cual son revocados y no tienen validez legal. Esta fecha no se corresponde con la caducidad del documento físico, que está impresa en el anverso del documento. Esta discordancia de fechas considero que es un punto débil del DNIe, pues es muy posible que el usuario no renueve los certificados simplemente porque no sepa que han caducado, dado que el propio documento físico no lo ha hecho.
 								\item Rotura del chip que contiene los certificados.
 								\item Limitaciones técnicas para las aplicaciones web. En el estado actual de la tecnología, es necesario hacer uso de un applet de Java para poder firmar con el DNIe. De cara a la identificación, ya hay software Javascript que se salta este paso, aunque no a la hora de firmar, para lo cual, hoy por hoy, no hay alternativa. Este detalle es una limitación importante, quizá no para el voto electrónico, pero sí para el voto ubicuo por Internet, ya que requiere de más tecnología que simplemente un dispositivo conectado a Internet y un lector. Además, el uso de applets está cada vez más limitado en Internet, en desuso, y se recomienda implementar alternativas basadas en el estándar W3C. Por desgracia, este organismo todavía no tiene definido de una manera versátil cómo afrontar el problema de la criptografía con certificados digitales personales en los nuevos estándares web.
 								\item Necesidad de HW externo, como son los lectores de Smartcard. Para poder utilizar el DNIe como identificador, el sistema tiene que poder leer los datos que le indica. Si hacemos uso de los certificados que contiene, necesitamos un lector externo, lo cual quizás no sea un problema si usamos un PC que tenemos en casa, pero sí que puede serlo cuando queremos votar desde otro ordenador o incluso desde un dispositivo móvil, donde ya no es tan simple que tengamos este lector y que sea compatible.
@@ -321,15 +347,15 @@ Cierto es que podríamos hacer uso de la banda MRZ del documento escaneándola per
 				A partir de enero de 2015, el Ministerio del Interior de España, a través de la Dirección General de la Policía, empezó a emitir una nueva versión del DNIe, denominada 3.0, la cual, entre varios avances, posee, junto al chip electrónico, otro chip de radiofrecuencia basado en tecnología NFC.
 				
 				Sin entrar en los posibles problemas de seguridad que implica el uso de chips de radiofrecuencia, se observa interesante este avance en cuanto a una aplicación de voto por Internet. Hoy en día son muchos los dispositivos móviles (smartphones y tablets) que disponen de un lector de chips por NFC, con lo que el inconveniente de necesitar lectores externos para identificación del votante y firma digital del voto ya no existiría. El votante podría votar desde una app instalada en su smartphone sin necesidad de elementos externos, ya que este chip NFC contiene los mismos certificados que el chip por contacto que existía hasta ahora en la primera versión del DNIe.
-				
-				\todo[inline]{Se puede adelantar que sería interesante poder votar en la web desde el móvil en vez de desde la app.}
-				
-				\todo[inline]{Explicar un poco más el nuevo DNIe, ventajas e inconvenientes para el voto por Internet, así como un poco su funcionamiento con los cambios respecto al DNIe 2.0 ------- aunque todo esto va en Estado de la cuestión}
 
 				\end{itemize}
+				
+	
 
-En el caso de las Elecciones a la Junta de Escuela de la EPS, podemos pensar en la primera opción. \textst{No obstante, como se explica en próximos capítulos, el hecho de necesitar certificados de firma para cifrar y firmar el voto por seguridad, nos hace que tengamos que plantearnos una solución para este problema.} \notasInfo{Con el nuevo protocolo, esto es MENTIRAA} Con una simple identificación de usuario / contraseña no lo vamos a poder resolver, así que se tiene que buscar una alternativa. Sería inteligente tratar de buscar una alternativa que sirva tanto para el paso de votación como para el de identificación, por seguridad, así que podríamos pensar en DNIe. Pero en la Universidad podemos tener miembros del censo que no posean este documento (estropeado, caducado, extranjeros). La forma que tiene la Universidad de acreditar que un alumno forma parte de ella es con un carnet universitario que se entrega tanto a alumnos como a profesionales. Podría ser este documento, el oficial en la Escuela, el que se use como identificador de votante, con lo que estamos hablando de utilizar una smartcard especial, emitida por la propia Autoridad Electoral de forma previa. \notasInfo[inline]{Lo que pasa es que me temo que estas tarjetas no tienen certificados, con lo que tampoco van a valer para la votación}.
-
+	Para este proyecto vamos a utilizar el login con DNIe pues creemos que es una buena prueba de concepto para demostrar la viabilidad de esta tecnología como futuro del voto por Internet en España. 
+	
+	Posee certificados de identificación y firma. El primero es esencial a la hora de identificar a un votante de forma unívoca. El certificado de firma es fundamental en procesos electorales que incluyan, por ejemplo, procesos basados en protocolos de firma ciega, pues pueden firmar con seguridad documentos digitales, manteniendo secreto e identidad.
+	
 			\subsubsection{Votación}\label{fase_electoral_electoral_votacion}
 
 				En el sistema tradicional, el momento de la votación es aquel en el que el votante  deposita su voto en la urna tras haber escogido la papeleta o marcado la boleta de candidatos y haber sido identificado correctamente por los miembros de la mesa electoral.
@@ -351,39 +377,6 @@ En el caso de las Elecciones a la Junta de Escuela de la EPS, podemos pensar en 
 		\subsection{Fase postelectoral}\label{fase_electoral_postelectoral}
 		\todo[inline]{Tras el escrutinio, la difusión de resultados y proclamación oficial. Además, facilitar que el votante asegure el escrutinio de su voto.}
 			
-\iffalse		
-% *************************************************************************************************************** %
-% 			LOGS (AUDITORÍA????)
-% *************************************************************************************************************** %
-	\section{Logs}\label{logs}
-			\todo[inline]{ Esto no va aquí, pero lo pongo para acordarme. Ya veremos si va en planteamiento, en solución o en... Probablemente tenga que ir en un capítulo dedicado a la AUDITORÍA, ahora que lo pienso }
-			
-			Con la trascendencia que tiene un sistema de votación electrónico, es básico procurar de sistemas precisos y confiables para una auditoría interna o externa. Se trata de desarrollar herramientas y procedimientos que permitan corroborar el perfecto funcionamiento del sistema sin interferir en el mismo ni violar los principios de privacidad del voto secreto.
-			
-			Una de las herramientas que se usan para este caso, son los logs del sistema.
-			
-			Con los logs, se va escribiendo uno o varios ficheros con trazas que indican los pasos que se han llevado a cabo en cada momento o elementos que han afectado al sistema de una u otra forma.
-			
-			En el caso de este sistema, es muy importante tener registrada la mayor parte de las acciones que ocurren en el mismo. Desde los accesos a web, intentos de autenticación, votaciones, hasta las acciones de los administradores del comicio, los miembros de la Junta Electoral encargados de proporcionar las claves para descifrar o los propios auditores.
-			
-			No obstante, un exhaustivo registro de información acerca del proceso podría suponer un peligro para el secreto de voto. Esto puede ocurrir porque cuanto más información se registre, si no se hace con cuidado, mayor probabilidad de incurrir en un problema de trazabilidad del voto.
-			
-			Pongamos un ejemplo, sencillo y burdo, de trazabilidad del voto por medio de registros de log independientes: Diseñamos el sistema con servidores de autenticación y votación independientes.
-			
-			\begin{enumerate}
-				\item El servidor web guarda los accesos al sistema a través del portal web, con IP incluida.
-				\item El sistema de autenticación, registra el momento en que un votante se autentica, guardando la identidad del mismo.
-				\item El sistema registra qué votante y en qué momento introduce su voto en la urna digital, anotando el identificador del voto.
-				\item Otro log de registro es el que relaciona el identificador del voto cifrado con el contenido del mismo una vez descifrado.
-			\end{enumerate}
-			
-			En este ejemplo podemos observar claros fallos de diseño que comprometen la privacidad del votante, como el de guardar la relación entre un voto descifrado y el identificador del voto cifrado (pero para desarrollo o una prueba de caja blanca no es descabellado este tipo de registros).
-			
-			Se observa que si un atacante tuviese acceso a los logs del sistema, podría, sin mucha dificultad llegar a relacionar al votante con el contenido de su voto, con lo que se pierde el anonimato del proceso. Todo ello incluso usando diferentes servidores y diferentes elementos de registro de log.
-			
-			El argumento es que, al igual que en prácticamente cualquier sistema, es muy importante tener un servicio de logs que nos informen del funcionamiento del sistema, ya que así se puede estudiar en producción o a posteriori cómo se ha comportado el mismo y poder actuar ante ataques al mismo o responder con datos ante fallos en el mismo. Pero en un sistema de voto electrónico, además de la importancia que ya como sistema electrónico tienen, es muy importante centrarse en su diseño, ya que no es simplemente un servicio en el que añadimos trazas, sino que tenemos que asegurar que estas trazas no van a interferir en la seguridad del sistema, comprometiendo, como hemos visto en el ejemplo, el principio de anonimato en el voto que se le exige al sistema.
-
-\fi
 
 % *************************************************************************************************************** %
 % 			GGGGGGGGGGGGGGGGGGGGGGGGGGGGG

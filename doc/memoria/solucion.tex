@@ -306,6 +306,13 @@
 						\label{fig:login.android.logado}
 					\end{figure}
 					
+				\subsubsection{Definición de la papeleta}\label{solucion_definicionPapeleta}
+					El principal cambio que se ha implementado en la tarea de definición de las opciones de la papeleta ha sido el de añadir automáticamente la opción del voto en blanco a la papeleta.
+					
+					Ahora, cada vez que un administrador cree una consulta en una papeleta, junto con las opciones que defina, automáticamente se adjuntará la opción del voto en blanco.
+					
+					Esta modificación trata de satisfacer el requisito \ref{reqEspecificos_blancos} definido entre los requisitos específicos (\ref{requisitosEspecificos}).
+					
 					
 				\subsubsection{Elección de candidatura}
 				\subsubsection{Votación}
@@ -333,8 +340,49 @@
 			\subsection{Diseño de la capa de datos}
 				\todo[inline]{Al hablar de Helios ya se puso un diagrama de datos. Repetir destacando los cambios. Añadir el diagrama E-R del servidor de oAuth}
 			
-			\subsection{Diseño de la red}
+			\subsection{Topología de la red}
 				\todo[inline]{Para esto sí que necesito ayuda, por el tema de Firewalls y esas cosas.}
+				
+				De cara a la topología de la red del sistema, se ha diseñado la integración para abordar tres configuraciones diferentes dependiendo de las necesidades de la elección:
+				
+				\begin{enumerate}
+					\item Servidor de autenticación y Servidor de votación en la misma red. Acceso de los votantes desde Internet. Figura \ref{fig:topologiaRed_servidoresMismaRed}
+						
+						Esta topología requiere port forwarding del router que comunica la red de los dos servidores con Internet para que, a través del mismo endpoint, los dispositivos se puedan conectar con los servicios de ambos servidores.
+						
+						Las consultas OCSP para validación del DNIe se realizan a través de Internet.
+						\begin{figure}[htbp]
+							\centering
+								\includegraphics[width=0.30\textwidth]{imgs/topologiaRed01.jpg}
+							\caption{Topología de la red con los servidores compartiendo red.}
+							\label{fig:topologiaRed_servidoresMismaRed}
+						\end{figure}
+						
+						\item Servidor de autenticación y Servidor de Votación en redes diferentes. Acceso de los votantes desde Internet. Figura \ref{fig:topologiaRed_servidoresDistintaRed}
+						
+						Esta topología no requiere port forwarding, pues cada servidor tiene su propio acceso a/por Internet. Los dispositivos accederían directamente a la IP/URL de cada servidor y utilizarían sus diferentes servicios utilizando el puerto correspondiente.
+						
+						Las consultas OCSP para validación del DNIe se realizan a través de Internet.
+						\begin{figure}[htbp]
+							\centering
+								\includegraphics[width=0.30\textwidth]{imgs/topologiaRed02.jpg}
+							\caption{Topología de la red con los servidores en redes diferentes.}
+							\label{fig:topologiaRed_servidoresDistintaRed}
+						\end{figure}
+						
+						\item Tanto el Servidor de autenticación, como el Servidor de Votación y los dispositivos se comunican por la misma red, sin necesitar acceder a través de Internet. Figura \ref{fig:topologiaRed_intranet}
+						
+						Haría falta un acceso a Internet para poder realizar consultas OCSP de validación del DNIe.
+						
+						Esta topología de red interna no cumple con los requisitos de voto e identificación remotos a través de Internet definidos en \ref{requisitosFuncionales}, pero es una buena solución para elecciones internas o para la presentación de un prototipo.
+						\begin{figure}[htbp]
+							\centering
+								\includegraphics[width=0.30\textwidth]{imgs/topologiaRed03.jpg}
+							\caption{Topología de la red con los servidores y los dispositivos en intranet.}
+							\label{fig:topologiaRed_intranet}
+						\end{figure}
+				\end{enumerate}
+				
 				
 			\subsection{Diseño de la app de identificación}
 			Para la identificación utilizando un dispositivo móvil se va a implementar una herramienta que hace uso de la tecnología NFC para leer el chip de autenticación del DNIe del votante y comunicar a este usuario con el sistema de votación utilizándolo como mecanismo de identificación y autenticación.
@@ -353,7 +401,7 @@
 			Una vez se abra la app, ya sea desde el menú del dispositivo o desde el botón de login de la página inicial de la web del sistema de votación, aparecerá el menú de selección del CAN del DNIe que queremos utilizar, o, si es la primera vez que cierto usuario utiliza la app, la posibilidad de añadir un nuevo DNIe con su CAN correspondiente.
 			
 			
-			¡¡ Comentado ya en el apartado \ref{solucion_appAndroidAutenticacion} !!
+			\todo[inline]{¡¡ Comentado ya en el apartado \ref{solucion_appAndroidAutenticacion} !!}
 			
 							
 			\subsection{Diseño de la interfaz de usuario}\label{diseño_interfaz_usuario}

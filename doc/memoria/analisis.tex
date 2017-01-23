@@ -107,8 +107,8 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 					El sistema debe evitar que el voto emitido pueda ser mostrado a un tercer actor con el fin de evitar la coacción al votante por medio de éste.
 					\todo[inline]{NO ESTOY DE ACUERDO CON ESTO. ALGUNOS AUTORES INDICAN LO CONTRARIO, QUE ES PRIMORDIAL QUE EL VOTANTE SE QUEDE CON UNA PRUEBA DE SU VOTO. DE TODOS MODOS CONSIDERO QUE SI SE CUMPLE EL REQUISITO DE VERIFICABILIDAD, ES MEJOR CUMPLIR ESTE, PERO NO POR HACERLO VAMOS A CONSEGUIR REBAJAR EL RIESGO DE COERCIÓN, ¿O SÍ?}
 					
-					\item[Posibilidad de emitir un voto nulo].
-					El sistema debe dar la opción al votante de que pueda realizar un voto nulo, al igual que puede realizarlo en un proceso electoral no electrónico.
+					\item[\textst{Posibilidad de emitir un voto nulo}].
+					\textst{El sistema debe dar la opción al votante de que pueda realizar un voto nulo, al igual que puede realizarlo en un proceso electoral no electrónico.}
 					
 					\item[Fiabilidad]: el sistema debe asegurar que no se producen alteraciones de los resultados.
 					Es esencial que el sistema asegure que, aunque existan riesgos inherentes a cualquier sistema informático, estos no van a afectar los resultados del proceso electoral.
@@ -152,6 +152,12 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 					
 				\end{description}
 			
+			\subsection{Requisitos específicos}\label{requisitosEspecificos}
+				\begin{enumerate}[label=\textbf{RE.\arabic*}]
+					\item \label{reqEspecificos_blancos} La votación debe permitir al votante el voto en blanco.
+					\item \label{reqEspecificos_mostrarAbstencion} La difusión de resultados debe añadir la información de votos en blanco, participación y censo. Los dos últimos datos de este requisito se pueden mostrar asumiendo que las elecciones sean de censo cerrado.
+				\end{enumerate}
+
 			
 			\todo[inline]{Como lo hice en dos documentos diferentes, al unificarlo, tengo partes repetidas. Hay que borrar los repetidos.}
 
@@ -752,7 +758,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			
 			Helios provee una herramienta, llamada \textit{Helios Election Verifier}, la cual, dada la URL de una elección que haya finalizado se encarga de ejecutar las pruebas criptográficas necesarias para, sin comprometer la integridad de la elección y el secreto de los votantes, verificar la correctitud de la misma. Así, la herramienta comprueba la huella digital de la elección, el número de votantes, cada una de las opciones de voto de cada votante, así como los Trustees y la totalización.
 			
-			El informe que emite el sistema tiene el contenido del siguiente ejemplo:
+			El informe que emite la herramienta tiene contenido análogo al siguiente ejemplo:
 		
 \begin{verbatim}
 -- Election --
