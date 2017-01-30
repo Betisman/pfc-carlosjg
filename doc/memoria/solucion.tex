@@ -348,7 +348,7 @@
 						\label{fig:login.android.logado}
 					\end{figure}
 					
-				\subsubsection{Definición de la papeleta}\label{solucion_definicionPapeleta}
+				\subsection{Definición de la papeleta}\label{solucion_definicionPapeleta}
 					El principal cambio que se ha implementado en la tarea de definición de las opciones de la papeleta ha sido el de añadir automáticamente la opción del voto en blanco a la papeleta.
 					
 					Ahora, cada vez que un administrador cree una consulta en una papeleta, junto con las opciones que defina, automáticamente se adjuntará la opción del voto en blanco.
@@ -356,16 +356,16 @@
 					Esta modificación trata de satisfacer el requisito \ref{reqEspecificos_blancos} definido entre los requisitos específicos (\ref{requisitosEspecificos}).
 					
 					
-				\subsubsection{Elección de candidatura}
-				\subsubsection{Votación}
-				\subsubsection{Escrutinio}
-				\subsubsection{Difusión de resultados}
+				\subsection{Elección de candidatura}
+				\subsection{Votación}
+				\subsection{Escrutinio}
+				\subsection{Difusión de resultados}
 				
 				
-			\subsection{Diseño de la capa de datos}
+			\section{Diseño de la capa de datos}
 				\todo[inline]{Al hablar de Helios ya se puso un diagrama de datos. Repetir destacando los cambios. Añadir el diagrama E-R del servidor de oAuth}
 			
-			\subsection{Topología de la red}
+			\section{Topología de la red}
 				\todo[inline]{Para esto sí que necesito ayuda, por el tema de Firewalls y esas cosas.}
 				
 				De cara a la topología de la red del sistema, se ha diseñado la integración para abordar tres configuraciones diferentes dependiendo de las necesidades de la elección:
@@ -409,14 +409,14 @@
 				\end{enumerate}
 				
 				
-			\subsection{Diseño de la app de identificación}
+			\section{Diseño de la app de identificación}
 			Para la identificación utilizando un dispositivo móvil se va a implementar una herramienta que hace uso de la tecnología NFC para leer el chip de autenticación del DNIe del votante y comunicar a este usuario con el sistema de votación utilizándolo como mecanismo de identificación y autenticación.
 			
 			La base de este desarrollo es la app de Autenticación implementada por la Policía como ejemplo de desarrollo que se puede realizar con Android para hacer uso del chip NFC del DNIe 3.0.
 			
 			Hay varios elementos que han debido modificarse con respecto a la app original.
 			
-			\subsubsection{Código fuente}\label{solucion_app_codigofuente}
+			\subsection{Código fuente}\label{solucion_app_codigofuente}
 			Obviamente, el código fuente de la app ha debido ser modificado ya que la funcionalidad que se busca que tenga la aplicación no es la misma que la que ofrece la original.
 			
 			En la app original, al entrar se nos ofrece un menú radial con diferentes opciones. Esto no ocurre en la versión de este proyecto. La app en nuestro caso está pensada para realizar tan sólo un trabajo, realizar la identificación y autenticación de usuario contra un servidor oAuth y transmitir al sistema de votación la aceptación o revocación de acceso del mismo contra el sistema.
@@ -429,7 +429,7 @@
 			\todo[inline]{¡¡ Comentado ya en el apartado \ref{solucion_appAndroidAutenticacion} !!}
 			
 							
-			\subsection{Diseño de la interfaz de usuario}\label{diseño_interfaz_usuario}
+			\section{Diseño de la interfaz de usuario}\label{diseño_interfaz_usuario}
 				Se ha realizado una renovación de la interfaz de usuario del sistema original Helios. La interfaz original, si bien no tenía grandes problemas de visualización, ha resultado no adaptarse correctamente a los dispositivos móviles, con pantallas de menor tamaño y una forma diferente de ser utilizadas, ya que los usuarios suelen interactuar con diferentes hábitos al visitar la misma página web desde un dispositivo de escritorio o uno móvil.
 				
 				Las modificaciones más importantes se han realizado sobre la estructura de construcción de las páginas y sobre el estilo que en ellas aplica.
@@ -442,22 +442,22 @@
 				
 				Otro aspecto a tener en cuenta será la adaptación a dispositivos móviles, pues lo que se busca es el voto seguro desde este tipo de dispositivos, algo que no cubre con suficiencia la versión actual de Helios Voting.
 				
-				\subsubsection{Estructura de la página web}
+				\subsection{Estructura de la página web}
 					\todo[inline]{Cambios en la interfaz original de Helios. Responsive....}
 					El principal reto en cuanto a las modificaciones necesarias en la interfaz del sistema original Helios han correspondido a convertir las páginas en \textit{responsive}. Con ello, lo que se busca es adaptar la visualización de las diferentes páginas en distintos dispostivos, con diferentes recursos y distintos tamaños de pantalla, así como la capacidad de adaptarse, en un mismo dispositivo, a una situación en la que la pantalla se observa en vertical y se gira a horizontal o viceversa.
 					
 					Para llevar a cabo esta tarea, nos hemos centrado en las hojas de estilo existentes a las cuales se le han realizado modificaciones. Principalmente, se han incluido reglas que aplican dependiendo del ancho de la pantalla que 
 					
-				\subsubsection{Estructura de la aplicación móvil}
+				\subsection{Estructura de la aplicación móvil}
 					\todo[inline]{Interfaz de usuario de la app.}
 					La interfaz de usuario de la app Android necesaria para ingresar en el sistema con los certificados deigitales del DNIe 3.0 no ha sido modificada ostensiblemente.
 					
 					Aunque es una parte primordial del sistema y su adaptación ha requerido bastante estudio y desarrollo, realmente al final no se utiliza durante un tiempo suficiente. Por ello, para el prototipo se ha decidido no invertir demasiado tiempo en su modificación estética, por lo que se ha reutilizado la diseñada originariamente por los desarrolladores de la app original de la DGP.
 					
-				\subsubsection{Accesibilidad}
+				\subsection{Accesibilidad}
 					\todo[inline]{Destacar accesibilidad}
 					
-				\subsubsection{Imagen corporativa}
+				\subsection{Imagen corporativa}
 					\todo[inline]{Como imagen de marca, bla bla bla, al no haber un logo del proceso, bla bla bla, se puede introducir uno o utilizar el de la Universidad, bla bla}
 					La interfaz de Helios Voting se corresponde con un sistema neutro para realizar elecciones en la plataforma web de ejemplo que tienen publicada junto con el código fuente del proyecto.
 					
