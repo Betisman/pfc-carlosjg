@@ -34,19 +34,61 @@
 		%\caption{Esquema del flujo del Sistema}
 		%\label{fig:flujoSistema}
 	%\end{figure}
-	
 		
-		\section{Diseño}\label{diseño}
+			
+		\section{Arquitectura del sistema}\label{solucion_arquitectura}
+			Tal como se determina en el análisis (\ref{analisis}), la solución que se propone para este Proyecto consiste en la integración de tres componentes, adptados a las necesidades de una elección para la EPS.
+			
+			\begin{description}
+				\item[Cliente:] En el lado cliente, de cara al usuario, se ha implementado una solución para poder acceder a las credenciales del chip sin contacto del DNIe 3.0. Esta implementación es una aplicación Android.
+			
+				\item[Servidor de autenticación:] Para permitir el acceso al sistema con las credenciales del DNIe, se utiliza un servidor de autenticación basado en el protocolo oAuth. La aplicación Android se conecta por HTTPS/TLS de forma segura al servidor utilizando las credenciales del propio servidor servidor y como cliente, las del DNIe. Este servidor es el que autoriza al usuario comprobando su identidad y consultando el censo de la elección.
+			
+			\item[Servidor de votación:] El servidor de votación es una versión adaptada del sistema Helios Voting. Se comunica con el cliente por HTTPS y el usuario, autorizado previamente, tiene la posibilidad de, dependiendo de su rol, crear y gestionar una elección, votar en ella y/o, simplemente, consultar los resultados.
+			\end{description}
+			
+			\begin{figure}[!ht]
+					\centering
+						\includegraphics[width=.95\textwidth]{imgs/arquitecturaSistema.jpg}
+					\caption{Arquitectura del sistema}
+					\label{fig:arquitectura.sistema}
+				\end{figure}
+			
+			\subsection{Cliente Android}\label{arquitectura_clienteAndroid}
+			La aplicación Android de cliente es necesaria para poder utilizar el certificado de autenticación sin contacto incluído en el DNIe 3.0. Desde un ordenador de escritorio, con los drivers del DNIe instalados, el propio Sistema Operativo se encarga de la comunicación con los certificados del carnet. Con ellos, se puede establecer una conexión HTTPS/TLS segura contra un servidor web configurado para interactuar con este tipo de certificados.
+			
+			Para poder utilizar el DNIe sin contacto, se ha adaptado la aplicación original de la DGP para acceder a los certificados sin contacto del DNIe 3.0. Esta aplicación, una vez que se comunica con el chip sin contacto y extrae el certificado de autenticación, utiliza éste para poder establecer la comunicación HTTPS con el servidor de autenticación.
+			
+			Una vez el servidor de autenticación autoriza al cliente el acceso al servidor de votación, la navegación por la web se realiza a través de un navegador web del dispositivo. La propia aplicación Android es quien realiza la llamada al navegador para que se abra la aplicación y acceda a la página de inicio con el código de acceso necesario, obtenido del swervidor de autenticación, para que se puedean obtener los tokens que permitan al usuario interactuar con el sistema con priviliegios.
+			
+			\subsection{Servidor de autenticación}\label{arquitectura_servidorAutenticacion}
+			El servidor de autenticación implementa el protocolo de autenticación oAuth 2.0 entre el usuario y el sistema. En concreto, se ha realizado un fork del proyecto \textit{django-oauth2-server}\footnote{\url{https://github.com/RichardKnop/django-oauth2-server}} desarrollado por Richard Knop. El objetivo era modificarlo para adaptarlo a diferentes necesidades teniendo en cuenta si el acceso es por la web o a través de la app Android. Además, era necesario que la autorización del usuario se realizara consultando el censo de usuarios y/o votantes de la Elección.
+			
+			\subsection{Servidor de votación}\label{arquitectura_servidorVotacion}
+			El servidor de votación es el \textit{core} del sistema. Es el que soporta toda la lógica de la elección.
+			
+			De cara a los administradores, permite gestionar una Elección desde su creación y definición hasta la publicación de resultados tras el escrutinio.
+			
+			De cara al votante, le permite acceder a la elección de las alternativas que se le presentan para votar y emitir su voto de forma segura, secreta y anónima, con la seguridad de que no es manipulado y que será correctamente escrutado.
+			
+			Junto al módulo central de votación, este servidor presenta otros cuatro módulos específicos.
+			
+			\begin{description}
+				\item[Cabina de votación:] Es el módulo que permite a los votantes elegir el voto y cifrarlo. Lo separamos del módulo principal porque se un módulo escrito principalmente en javascript y se ejecuta en el navegador del cliente. Se delega en la máquina del cliente la potencia necesaria para el cifrado de su voto.
+				
+				\item[Verificador de la elección:] Es un módulo de acceso externo que permite, pasándole la huella digital de una elección que ya haya termiando, la verificación de la integridad de la misma. Así, por medio de funciones criptográficas, asegura que la elección ha sido correctamente escrutada y que todos los votos fueron correctamente incluídos en el escrutinio.
+				
+				\item[Gestor de tareas:] Utilizando la librería celery y kombu, Helios implementa un gestor de tareas basado en una cola. Así, el sistema hay varias tareas que cuando toca llevarlas a cabo, en vez de encargarse de realizarlas, las incluye en una cola y sigue con sus responsabilidades. Celery se encarga de consultar esta cola y extraer las tareas que hay que realizar. 
+				
+				Así, se encarga de tareas como la carga de ficheros de votantes del censo, iniciar el escrutinio o el envío masivo de emails a usuarios del sistema, entre otras responsabilidades.
+				
+				\item[Sistema de emails:] Hay un subsistema encargado del envío de emails a usuarios. Lo utiliza tanto el módulo central como celery para enviar emails avisando de los estados de la elección, envío del trozo correspondiente de la clave privada de la elección a los trustees, etc.
+			\end{description}
+			
 		
-			Tal como se determina en el análisis (\ref{analisis}), la solución que se propone para este Proyecto consiste en la integración de tres soluciones, adptándolas a las necesidades de una elección para la EPS.
-			
-			Es preciso modificar el sistema de autenticación de Helios Voting para dar soporte al DNIe 2.0 y al 3.0. Para ello se integrará un sistema de autenticación federada por oAuth, habiéndose elegido el proyecto django-oauth2-server\footnote{\url{https://github.com/RichardKnop/django-oauth2-server}} desarrollado por Richard Knop. Este servidor de oAuth, no obstante, tendrá que ser alterado para que soporte la información digital de los documentos permitidos para la votación. 
-			
-			Desde un navegador web en un PC o portátil con el hardware necesario es posible el uso de los certificados contenidos en el chip con contacto del DNIe. Sin embargo, al utilizar el chip sin contacto del DNIe 3.0, será necesaria la implementación de una aplicación de Android que gestione los certificados del documento por NFC y establezca el canal seguro por el que comunicarse con el servicio de autenticación.
-			
 		
-			\subsection{Diseño del esquema de votación}\label{disenhoEsquemaVoto}
-				\subsubsection{Registro}
+			\section{Esquema de votación}\label{disenhoEsquemaVoto}
+				\subsection{Registro}
 					La fase de registro de votantes en el sistema no será interactivo en cuanto a que no es el propio votante el que debe inscribirse para poder votar en las elecciones, sino que es la Autoridad Electoral quien lo registra en el censo. En esta fase, pues, se trata de establecer el censo de votantes que tienen autoridad para votar en el proceso electoral.
 					
 					Como se advierte en el análisis se ha tomado en consideración que sean los administradores del sistema quienes tengan responsabilidad sobre el tratamiento del censo, por lo que se ha de cargar en el sistema y éste es el que lo va a tratar.
@@ -71,7 +113,7 @@
 					
 					\notasDuda{Falta definir el proceso de carga de votantes para el servicio de autenticación.}
 					
-				\subsubsection{Identificación / Autenticación}
+				\subsection{Identificación / Autenticación}
 					El servicio de identificación es un subsistema clave en el proceso electoral. En él recae parte de la responsabilidad de la robustez del sistema, en cuanto a que debe asegurar varios de los requisitos básicos que definen el voto electrónico en concreto:
 					
 		\notasInfo[inline]{Esto es así según los requisitos de Fujioka, si se utilizan los de la UNEX, se puede modificar.}
@@ -105,7 +147,7 @@
 					
 					\begin{figure}[!ht]
 						\centering
-							\includegraphics[width=.95\textwidth]{imgs/flujoOAuth01.jpg}
+							\includegraphics[width=.95\textwidth]{imgs/flujoOAuth.jpg}
 						\caption{Flujo oAuth para servicio de autenticación}
 						\label{fig:flujo.oauth}
 					\end{figure}
