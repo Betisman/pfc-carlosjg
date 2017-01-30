@@ -78,9 +78,9 @@
 				
 				\item[Verificador de la elección:] Es un módulo de acceso externo que permite, pasándole la huella digital de una elección que ya haya termiando, la verificación de la integridad de la misma. Así, por medio de funciones criptográficas, asegura que la elección ha sido correctamente escrutada y que todos los votos fueron correctamente incluídos en el escrutinio.
 				
-				\item[Gestor de tareas:] Utilizando la librería celery y kombu, Helios implementa un gestor de tareas basado en una cola. Así, el sistema hay varias tareas que cuando toca llevarlas a cabo, en vez de encargarse de realizarlas, las incluye en una cola y sigue con sus responsabilidades. Celery se encarga de consultar esta cola y extraer las tareas que hay que realizar. 
+				\item[Gestor de tareas:] Utilizando la librería celery y kombu, Helios implementa un gestor de tareas basado en una cola. En el sistema se definen varias tareas que, cuando toca llevarlas a cabo, en vez de encargarse de realizarlas de forma síncrona, las incluye en una cola y sigue con el flujo de funcionamiento normal. Celery se encarga de consultar esta cola y extraer las tareas que hay que realizar. 
 				
-				Así, se encarga de tareas como la carga de ficheros de votantes del censo, iniciar el escrutinio o el envío masivo de emails a usuarios del sistema, entre otras responsabilidades.
+				Es el responsable de realizar tareas como la carga de ficheros de votantes del censo, iniciar el escrutinio o el envío masivo de emails a usuarios del sistema, entre otras.
 				
 				\item[Sistema de emails:] Hay un subsistema encargado del envío de emails a usuarios. Lo utiliza tanto el módulo central como celery para enviar emails avisando de los estados de la elección, envío del trozo correspondiente de la clave privada de la elección a los trustees, etc.
 			\end{description}

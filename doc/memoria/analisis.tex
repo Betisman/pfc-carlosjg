@@ -510,6 +510,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 				
 				\begin{description}
 					\item [Verificación de la papeleta (antes de votar)]
+					
 					El sistema permite verificar una papeleta cifrada previamente a su sufragio. La papeleta verificada no será la que se utilice para votar y no será, por tanto, contada sino que, por medidas para combatir la coerción, habrá que volver a encriptarla de nuevo cuando se quiera emitir el voto.
 					
 					Una vez el votante está en la cabina de voto virtual y ha encriptado sus opciones de voto, el sistema permite realizar una verificación para asegurarse de que la encriptación de estas ha sido correcta. Para ello, el sistema presenta al votante la información para auditar su papeleta (ballot audit info) \notasInfo{Poner aquí qué significa esta información}. Este texto es el que debe copiar el votante para utilizar en la herramienta de verificación de papeletas. En ésta, se incluye dicho texto y la URL de la elección datos suficientes para realizar la verificación.
@@ -519,10 +520,12 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 					
 					
 					\item [Lista de papeletas auditadas]
+					
 						Como hemos avanzado en el punto anterior, en el momento de realizar la votación, el votante puede realizar una verificación del contenido encriptado de su papeleta. El sistema le permite, una vez realizada la comprobación, publicar esta \textit{papeleta abierta} en un tablón con una lista de papeletas auditadas. En cualquier momento de la elección, cualquier usuario, sea votante o no, puede acceder a esta lista y realizar la misma verificación sobre las papeletas ahí publicadas. Estas papeletas, no obstante, no son las que se han utilizado para emitir el voto, pues ya se ha comentado que una vez el votante la \textit{abre} para su verificación, ha de reencriptar su voto para \textit{meterlo en la urna} definitivamente.
 						
 						
-					\item [Auditoría del escrutinio]
+					\item [Auditoría de la elecctión ya escrutada]
+					
 						Una vez se ha realizado el escrutinio, el sistema permite a los observadores interesados, realizar una prueba para verificar la veracidad del resultado.
 						\notasInfo[inline]{Es necesario comentar en qué consiste la auditoría del escrutinio.}
 						
@@ -708,7 +711,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			
 			Obviamente, es el elemento central de cualquier sistema de votación.
 			
-			Teniendo en cuenta los criterios sobre los que se basa el voto electrónico/por internet, esta fase debería cumplir una serie de propiedades inherente al mismo.
+			Teniendo en cuenta los criterios sobre los que se basa el voto electrónico/por internet, esta fase debería cumplir una serie de propiedades inherentes al mismo.
 			
 			\todo[inline]{Introducir aquí las características del voto por Internet que aplican a la fase de votación, ya sea por Fujioka, la UNEX u otro autor.}
 			
