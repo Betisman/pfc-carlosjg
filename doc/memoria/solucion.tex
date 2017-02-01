@@ -63,7 +63,122 @@
 			
 			\subsection{Servidor de autenticación}\label{arquitectura_servidorAutenticacion}
 			El servidor de autenticación implementa el protocolo de autenticación oAuth 2.0 entre el usuario y el sistema. En concreto, se ha realizado un fork del proyecto \textit{django-oauth2-server}\footnote{\url{https://github.com/RichardKnop/django-oauth2-server}} desarrollado por Richard Knop. El objetivo era modificarlo para adaptarlo a diferentes necesidades teniendo en cuenta si el acceso es por la web o a través de la app Android. Además, era necesario que la autorización del usuario se realizara consultando el censo de usuarios y/o votantes de la Elección.
+			 
+			El servidor de autenticación se compone de un servidor web, el sistema de oAuth basado en Django que hemos comentado y una base de datos que contiene tanto permisos de aplicaciones y usuario como los propios usuarios con permiso de acceso al sistema de votación.
 			
+			El servidor web se configura para exponer un endpoint de entrada seguro, permitiendo el acceso por HTTPS. En dicha configuración es muy importante activar diversas características:
+				\begin{description}
+				
+					\item[Servidor web:]
+						El canal de comunicación entre el usuario y el sistema de autenticación es la web, el protocolo es HTTPS y la herramienta que gestiona estos accesos es el servidor web.
+						
+						Con el fin de establecer un canal HTTPS seguro entre usuario y servidor, es necesario que en su configuración se contemplen tres certificados, dos de ellos en posesión del servidor y el tercero de obligada presentación por parte del cliente.
+						
+						\begin{description}
+							\item[Certificado de servidor:] Es el certificado que permite al navegador negociar el establecimiento de la conexión segura. Si se ha obtenido de algún proveedor confiable, el navagador lo gestiona de forma casi transparente al usuario. Sin embargo, si la fuente no es confiable y no se encuentra en el almacén de certificados del sistema operativo o el navegador, se muestra una advertencia al usuario aconsejándole que no continúe la navegación, aunque le permite seguir adelante a riesgo del usuario. Es lo que ocurre también cuando se utiliza un certificado autofirmado.
+							
+							En nuestro caso, se ha decidido utilizar un certificado autofirmado para el prototipo implementado. Los pasos necesarios tanto para crear y firmar el certificado como para configurar el servidor web para que lo utilice se pueden consultar en el anexo \ref{App:ConfiguracionServidorWeb}.
+							
+							\item[Certificado Raíz de la DGP:]
+							
+							\item[Certificado de cliente:] Para utilizar el DNIe como fuente de identificación del usuario, es preciso configurar el servidor web para que requiera en la conexión la presencia del certificado de autenticación del DNIe del usuario. Para ello, el servidor debe poseer el certificado raíz que provee la Dirección General de la Policía. Este certificado se configura en el servidor
+							
+						\end{description}
+						
+						Además de configurar el servidor para que requiera el certificado de cliente SSL, es necesario aplicar la configuración necesaria para pasar la información a la aplicación que la necesita.
+						
+						Para ello, el servidor web ha de exportar los datos del certificado SSL a variables de entorno.
+						
+						Cuando se recibe una petición al servidor, éste inyecta estas variables en la request que hace llegar al código. Concretamente, en Python (Django) son accesibles desde el META de la request. 
+						
+						En el siguiente código podemos ver una función que atiende una petición GET a la vista de autorización para mostrar una lista de variables asociadas a la seguridad del servidor que recibe de éste:
+						
+\begin{verbatim}
+class AuthorizeView(View):
+  form_class = AuthorizeForm
+  initial = {}
+  template_name = 'web/authorize.html'
+
+  @method_decorator(validate_request)
+  def dispatch(self, *args, **kwargs):
+      return super(AuthorizeView, self).dispatch(*args, **kwargs)
+
+  def get(self, request, *args, **kwargs):
+      form = self.form_class(initial=self.initial)
+      try:
+        claves = [
+            'SSL_PROTOCOL'
+            ,'SSL_SESSION_RESUMED'
+            ,'SSL_SECURE_RENEG'
+            ,'SSL_CIPHER'
+            ,'SSL_CIPHER_EXPORT'
+            ,'SSL_CIPHER_USEKEYSIZE'
+            ,'SSL_CIPHER_ALGKEYSIZE'
+            ,'SSL_COMPRESS_METHOD'
+            ,'SSL_VERSION_INTERFACE'
+            ,'SSL_VERSION_LIBRARY'
+            ,'SSL_CLIENT_M_VERSION'
+            ,'SSL_CLIENT_M_SERIAL'
+            ,'SSL_CLIENT_S_DN'
+            ,'SSL_CLIENT_I_DN'
+            ,'SSL_CLIENT_V_START'
+            ,'SSL_CLIENT_V_END'
+            ,'SSL_CLIENT_V_REMAIN'
+            ,'SSL_CLIENT_A_SIG'
+            ,'SSL_CLIENT_A_KEY'
+            ,'SSL_CLIENT_CERT'
+            ,'SSL_CLIENT_VERIFY'
+            ,'SSL_SERVER_M_VERSION'
+            ,'SSL_SERVER_M_SERIAL'
+            ,'SSL_SERVER_S_DN'
+            ,'SSL_SERVER_I_DN'
+            ,'SSL_SERVER_V_START'
+            ,'SSL_SERVER_V_END'
+            ,'SSL_SERVER_A_SIG'
+            ,'SSL_SERVER_A_KEY'
+            ,'SSL_SERVER_CERT'
+            ]
+        for k in claves:
+          try:
+            logger.warn(k+': '+str(request.META[k]))
+          except Exception as ex:
+            logger.warn('El objeto no tiene la clave *' + k + '* --- ' + ex)
+
+        dnie = get_dni_info_from_ssl(request)
+      except Exception as e:
+        logger.warn('get_No vienen las credenciales del DNIe')
+
+      return self._render(request=request, form=form, dnie=dnie)
+\end{verbatim}
+
+					En la lista se observa una gran cantidad de variables de entorno relacionadas con la seguridad del servidor. 
+					
+					Aquellas que comienzan por SSL\_SERVER se refieren a la información del certificado del servidor.
+					
+					Por su parte, aquellas que comienzan por SSL\_CLIENT son las que contienen la información proporcionada por el certificado presentado por el cliente. En el caso de este proyecto, contendrán los datos proporcionados por el certificado de autenticación del DNIe.
+					
+					De estas variables, algunas son las que se utilizan para recoger la información del usuario, contrastarlo con el censo de usuarios y poder comprobar qué permisos posee, incluido el de acceso al sistema.
+					
+					\begin{description}
+						\item[SSL\_CLIENT\_S\_DN:] Proporciona 
+						\item[SSL\_CLIENT\_V\_START]
+						\item[SSL\_CLIENT\_V\_END]
+					\end{description}
+				
+					\item[Aplicación de autenticación]
+						
+						La aplicación recibe del servidor web la información del certificado del cliente a través de 
+				\end{description}
+				
+				
+				\todo{Formatear OCSP}
+				OCSP:
+				
+				El OCSP es un servicio de revocación que ofrece la autoridad que crea el certificado raíz, en nuestro caso la DGP y la FNMT. Estas organizaciones proveen de un servicio al cual conectarse y consultar la validez de los certificados que se estén tratando de autenticar.ñ
+				
+				Una alternativa al OCSP es la de generar una \gls{CRL}. Las ventajas de las listas de revocación consisten en que son más simples que el OCSP y pueden ser consultadas sin conexión a la red, lo cual es importante en caso de que el sistema esté configurado de modo que corra sobre una red privada, sin acceso a Internet (ver fifgura \ref{fig:topologiaRed_intranet} en \ref{solucion_topologiaRed}).
+				
+								
 			\subsection{Servidor de votación}\label{arquitectura_servidorVotacion}
 			El servidor de votación es el \textit{core} del sistema. Es el que soporta toda la lógica de la elección.
 			
@@ -365,7 +480,7 @@
 			\section{Diseño de la capa de datos}
 				\todo[inline]{Al hablar de Helios ya se puso un diagrama de datos. Repetir destacando los cambios. Añadir el diagrama E-R del servidor de oAuth}
 			
-			\section{Topología de la red}
+			\section{Topología de la red}\label{solucion_topologiaRed}
 				\todo[inline]{Para esto sí que necesito ayuda, por el tema de Firewalls y esas cosas.}
 				
 				De cara a la topología de la red del sistema, se ha diseñado la integración para abordar tres configuraciones diferentes dependiendo de las necesidades de la elección:
@@ -403,7 +518,7 @@
 						\begin{figure}[htbp]
 							\centering
 								\includegraphics[width=0.30\textwidth]{imgs/topologiaRed03.jpg}
-							\caption{Topología de la red con los servidores y los dispositivos en intranet.}
+							\caption{Topología de la red con los servidores y los dispositivos en red privada.}
 							\label{fig:topologiaRed_intranet}
 						\end{figure}
 				\end{enumerate}
