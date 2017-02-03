@@ -160,23 +160,45 @@ class AuthorizeView(View):
 					De estas variables, algunas son las que se utilizan para recoger la información del usuario, contrastarlo con el censo de usuarios y poder comprobar qué permisos posee, incluido el de acceso al sistema.
 					
 					\begin{description}
-						\item[SSL\_CLIENT\_S\_DN:] Proporciona 
-						\item[SSL\_CLIENT\_V\_START]
-						\item[SSL\_CLIENT\_V\_END]
+						\item[SSL\_CLIENT\_S\_DN:] Contiene la información personal del sujeto que identifica el certificado.
+						\item[SSL\_CLIENT\_V\_START:] Contiene la fecha de expedicón del certificado.
+						\item[SSL\_CLIENT\_V\_END:] Contiene la fecha de caducidad del certificado.
 					\end{description}
 				
 					\item[Aplicación de autenticación]
 						
-						La aplicación recibe del servidor web la información del certificado del cliente a través de 
+						La aplicación recibe del servidor web la información del certificado del cliente a través de los METAS inyectados en el header de la request por parte del servidor.
+						
+						La aplicación implementa el flujo oAuth2 en modo Authorization Code. Con la información del usuario que recibe del certificado de cliente, lo identifica y valida los permisos que tiene.
+						
+						En caso de que la validación sea correcta, genera un token que almacena en la base de datos para comunicar al sistema de votación que el votante tiene permisos de acceso. Además, genera un código de autorización que devuelve al cliente. Este código lo tendrá que presentar el cliente al sistema de votación para entrar al sistema. Una vez el sistema reciba el código, lo utilizará para pedir al sistema de autenticación el token de acceso que mapea la aplicación y los permisos que dispone el usuario. Una vez el sistema de autenticación devuelve el token al de votación, éste tendrá que presentárselo para que aquel le comunique aquellos datos personales que posee del usuario que intenta acceder.
+						
+						Sigue, por tanto un modelo del flujo de oAuth2, apoyado en una herramienta escrita por Richard Knop en Python sobre un framework Django. No obstante, este código ha servido de base, pues ha debido ser modificado para adaptarlo a las necesidades particulares de este sistema:
+						
+						\begin{itemize}
+						
+							\item Se ha modificado el proceso de obtención de datos del usuario, pues, además de obtenerlos de la base de datos, hay que extraer información del usuario de los certificados de cliente que presenta para su identificación.
+
+							\item Se ha modificado el sistema de validación del usuario para que contraste esta información del certificado de autenticación con el censo de la base de datos.
+
+							\item Hay que contrastar la validez del certificado, principalmente si no ha caducado. Además, aunque al final se haya configurado en el servidor, hay que realizar una comprobación contra un servidor \gls{OCSP} para ver si ha sido revocado por la autoridad certificadora.
+
+						\end{itemize}
+						
 				\end{description}
 				
 				
-				\todo{Formatear OCSP}
-				OCSP:
 				
-				El OCSP es un servicio de revocación que ofrece la autoridad que crea el certificado raíz, en nuestro caso la DGP y la FNMT. Estas organizaciones proveen de un servicio al cual conectarse y consultar la validez de los certificados que se estén tratando de autenticar.ñ
 				
-				Una alternativa al OCSP es la de generar una \gls{CRL}. Las ventajas de las listas de revocación consisten en que son más simples que el OCSP y pueden ser consultadas sin conexión a la red, lo cual es importante en caso de que el sistema esté configurado de modo que corra sobre una red privada, sin acceso a Internet (ver fifgura \ref{fig:topologiaRed_intranet} en \ref{solucion_topologiaRed}).
+				\textbf{OCSP}
+				
+				El \gls{OCSP} es un servicio de revocación que ofrece la autoridad que crea el certificado raíz, en nuestro caso la DGP y la FNMT. Estas organizaciones proveen de un servicio al cual conectarse y consultar la validez de los certificados que se estén tratando de autenticar.ñ
+				
+				Una alternativa al OCSP es la de generar una \gls{CRL}. Las ventajas de las listas de revocación consisten en que son más simples que el \gls{OCSP} y pueden ser consultadas sin conexión a la red, lo cual es importante en caso de que el sistema esté configurado de modo que corra sobre una red privada, sin acceso a Internet (ver fifgura \ref{fig:topologiaRed_intranet} en \ref{solucion_topologiaRed}).
+				
+				El sistema funciona validando contra la \gls{OCSP} de la DGP. La implementación de este sistema se realiza por medio de configuración del servidor web. Es el propio servidor quien realiza la comprobación OCSP del certificado cliente y recibe la validez o no del mismo por parte del sel servicio externo.
+				
+				Cuando el sistema esté configurado para operar sobre una red interna será necesario desactivar esta configuración del servidor webm, pues sin acceso a Internet no será posible realizar la comprobación contra el servico de la autoridad certificadora.
 				
 								
 			\subsection{Servidor de votación}\label{arquitectura_servidorVotacion}
@@ -201,6 +223,49 @@ class AuthorizeView(View):
 			\end{description}
 			
 		
+		\section{Topología de la red}\label{solucion_topologiaRed}
+				\todo[inline]{Para esto sí que necesito ayuda, por el tema de Firewalls y esas cosas.}
+				
+				De cara a la topología de la red del sistema, se ha diseñado la integración para abordar tres configuraciones diferentes dependiendo de las necesidades de la elección:
+				
+				\begin{enumerate}
+					\item Servidor de autenticación y Servidor de votación en la misma red. Acceso de los votantes desde Internet. Figura \ref{fig:topologiaRed_servidoresMismaRed}
+						
+						Esta topología requiere port forwarding del router que comunica la red de los dos servidores con Internet para que, a través del mismo endpoint, los dispositivos se puedan conectar con los servicios de ambos servidores.
+						
+						Las consultas OCSP para validación del DNIe se realizan a través de Internet.
+						\begin{figure}[htbp]
+							\centering
+								\includegraphics[width=0.30\textwidth]{imgs/topologiaRed01.jpg}
+							\caption{Topología de la red con los servidores compartiendo red.}
+							\label{fig:topologiaRed_servidoresMismaRed}
+						\end{figure}
+						
+						\item Servidor de autenticación y Servidor de Votación en redes diferentes. Acceso de los votantes desde Internet. Figura \ref{fig:topologiaRed_servidoresDistintaRed}
+						
+						Esta topología no requiere port forwarding, pues cada servidor tiene su propio acceso a/por Internet. Los dispositivos accederían directamente a la IP/URL de cada servidor y utilizarían sus diferentes servicios utilizando el puerto correspondiente.
+						
+						Las consultas OCSP para validación del DNIe se realizan a través de Internet.
+						\begin{figure}[htbp]
+							\centering
+								\includegraphics[width=0.30\textwidth]{imgs/topologiaRed02.jpg}
+							\caption{Topología de la red con los servidores en redes diferentes.}
+							\label{fig:topologiaRed_servidoresDistintaRed}
+						\end{figure}
+						
+						\item Tanto el Servidor de autenticación, como el Servidor de Votación y los dispositivos se comunican por la misma red, sin necesitar acceder a través de Internet. Figura \ref{fig:topologiaRed_intranet}
+						
+						Haría falta un acceso a Internet para poder realizar consultas OCSP de validación del DNIe.
+						
+						Esta topología de red interna no cumple con los requisitos de voto e identificación remotos a través de Internet definidos en \ref{requisitosFuncionales}, pero es una buena solución para elecciones internas o para la presentación de un prototipo.
+						\begin{figure}[htbp]
+							\centering
+								\includegraphics[width=0.30\textwidth]{imgs/topologiaRed03.jpg}
+							\caption{Topología de la red con los servidores y los dispositivos en red privada.}
+							\label{fig:topologiaRed_intranet}
+						\end{figure}
+				\end{enumerate}
+				
 		
 			\section{Esquema de votación}\label{disenhoEsquemaVoto}
 				\subsection{Registro}
@@ -480,49 +545,7 @@ class AuthorizeView(View):
 			\section{Diseño de la capa de datos}
 				\todo[inline]{Al hablar de Helios ya se puso un diagrama de datos. Repetir destacando los cambios. Añadir el diagrama E-R del servidor de oAuth}
 			
-			\section{Topología de la red}\label{solucion_topologiaRed}
-				\todo[inline]{Para esto sí que necesito ayuda, por el tema de Firewalls y esas cosas.}
-				
-				De cara a la topología de la red del sistema, se ha diseñado la integración para abordar tres configuraciones diferentes dependiendo de las necesidades de la elección:
-				
-				\begin{enumerate}
-					\item Servidor de autenticación y Servidor de votación en la misma red. Acceso de los votantes desde Internet. Figura \ref{fig:topologiaRed_servidoresMismaRed}
-						
-						Esta topología requiere port forwarding del router que comunica la red de los dos servidores con Internet para que, a través del mismo endpoint, los dispositivos se puedan conectar con los servicios de ambos servidores.
-						
-						Las consultas OCSP para validación del DNIe se realizan a través de Internet.
-						\begin{figure}[htbp]
-							\centering
-								\includegraphics[width=0.30\textwidth]{imgs/topologiaRed01.jpg}
-							\caption{Topología de la red con los servidores compartiendo red.}
-							\label{fig:topologiaRed_servidoresMismaRed}
-						\end{figure}
-						
-						\item Servidor de autenticación y Servidor de Votación en redes diferentes. Acceso de los votantes desde Internet. Figura \ref{fig:topologiaRed_servidoresDistintaRed}
-						
-						Esta topología no requiere port forwarding, pues cada servidor tiene su propio acceso a/por Internet. Los dispositivos accederían directamente a la IP/URL de cada servidor y utilizarían sus diferentes servicios utilizando el puerto correspondiente.
-						
-						Las consultas OCSP para validación del DNIe se realizan a través de Internet.
-						\begin{figure}[htbp]
-							\centering
-								\includegraphics[width=0.30\textwidth]{imgs/topologiaRed02.jpg}
-							\caption{Topología de la red con los servidores en redes diferentes.}
-							\label{fig:topologiaRed_servidoresDistintaRed}
-						\end{figure}
-						
-						\item Tanto el Servidor de autenticación, como el Servidor de Votación y los dispositivos se comunican por la misma red, sin necesitar acceder a través de Internet. Figura \ref{fig:topologiaRed_intranet}
-						
-						Haría falta un acceso a Internet para poder realizar consultas OCSP de validación del DNIe.
-						
-						Esta topología de red interna no cumple con los requisitos de voto e identificación remotos a través de Internet definidos en \ref{requisitosFuncionales}, pero es una buena solución para elecciones internas o para la presentación de un prototipo.
-						\begin{figure}[htbp]
-							\centering
-								\includegraphics[width=0.30\textwidth]{imgs/topologiaRed03.jpg}
-							\caption{Topología de la red con los servidores y los dispositivos en red privada.}
-							\label{fig:topologiaRed_intranet}
-						\end{figure}
-				\end{enumerate}
-				
+			
 				
 			\section{Diseño de la app de identificación}
 			Para la identificación utilizando un dispositivo móvil se va a implementar una herramienta que hace uso de la tecnología NFC para leer el chip de autenticación del DNIe del votante y comunicar a este usuario con el sistema de votación utilizándolo como mecanismo de identificación y autenticación.
@@ -571,7 +594,7 @@ class AuthorizeView(View):
 					
 				\subsection{Accesibilidad}
 					\todo[inline]{Destacar accesibilidad}
-					
+\iffalse					
 				\subsection{Imagen corporativa}
 					\todo[inline]{Como imagen de marca, bla bla bla, al no haber un logo del proceso, bla bla bla, se puede introducir uno o utilizar el de la Universidad, bla bla}
 					La interfaz de Helios Voting se corresponde con un sistema neutro para realizar elecciones en la plataforma web de ejemplo que tienen publicada junto con el código fuente del proyecto.
@@ -615,7 +638,7 @@ class AuthorizeView(View):
 					\item La información presentada debe cumplir con la internacionalización (i18n) necesaria para llegar al mayor número posible del censo y de los observadores.
 				\end{itemize}
 				
-
+\fi
 				
 				
 				
