@@ -215,6 +215,11 @@
 \usepackage{multicol}
 
 
+% Package para incluir pdfs.
+% lo utilizo para introducir la página de calificación del PFC.
+\usepackage{pdfpages}
+
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% DOCUMENT
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -276,6 +281,15 @@
 
 %% Página reservada para la calificación del proyecto
 \input{calificacion.tex}
+%\backmatter
+%\setcounter{secnumdepth}{-1}
+%\chapter*{Calificación}
+%\addcontentsline{toc}{chapter}{Calificación}
+%\let\l@chapternonum\l@chapter
+%\newcounter{chapternonum}
+%\renewcommand{\thechapternonum}{}
+%\includepdf[pages={1},addtotoc={1,chapternonum,1,Calificación,calificacion},pagecommand={\thispagestyle{plain}}]{calificacion.pdf}
+%\setcounter{secnumdepth}{0}
 
 
 %\renewcommand{\thepage}{\roman{page}}
