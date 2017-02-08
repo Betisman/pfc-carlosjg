@@ -42,7 +42,7 @@
 			\begin{description}
 				\item[Cliente:] En el lado cliente, de cara al usuario, se ha implementado una solución para poder acceder a las credenciales del chip sin contacto del DNIe 3.0. Esta implementación es una aplicación Android.
 			
-				\item[Servidor de autenticación:] Para permitir el acceso al sistema con las credenciales del DNIe, se utiliza un servidor de autenticación basado en el protocolo oAuth. La aplicación Android se conecta por HTTPS/TLS de forma segura al servidor utilizando las credenciales del propio servidor servidor y como cliente, las del DNIe. Este servidor es el que autoriza al usuario comprobando su identidad y consultando el censo de la elección.
+				\item[Servidor de autenticación:] Para permitir el acceso al sistema con las credenciales del DNIe, se utiliza un servidor de autenticación basado en el protocolo oAuth. La aplicación Android se conecta por HTTPS/TLS de forma segura al servidor web estableciendo un canal seguro utilizando el certificado del propio servidor y como certificado de cliente, el de identifiacación del DNIe. Este servidor es el que autoriza al usuario comprobando su identidad y consultando el censo de la elección.
 			
 			\item[Servidor de votación:] El servidor de votación es una versión adaptada del sistema Helios Voting. Se comunica con el cliente por HTTPS y el usuario, autorizado previamente, tiene la posibilidad de, dependiendo de su rol, crear y gestionar una elección, votar en ella y/o, simplemente, consultar los resultados.
 			\end{description}
