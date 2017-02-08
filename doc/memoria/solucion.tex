@@ -229,7 +229,7 @@ class AuthorizeView(View):
 				De cara a la topología de la red del sistema, se ha diseñado la integración para abordar tres configuraciones diferentes dependiendo de las necesidades de la elección:
 				
 				\begin{enumerate}
-					\item Servidor de autenticación y Servidor de votación en la misma red. Acceso de los votantes desde Internet. Figura \ref{fig:topologiaRed_servidoresMismaRed}
+					\item \textbf{Servidor de autenticación y Servidor de votación en la misma red. Acceso de los votantes desde Internet.} Figura \ref{fig:topologiaRed_servidoresMismaRed}
 						
 						Esta topología requiere port forwarding del router que comunica la red de los dos servidores con Internet para que, a través del mismo endpoint, los dispositivos se puedan conectar con los servicios de ambos servidores.
 						
@@ -241,7 +241,7 @@ class AuthorizeView(View):
 							\label{fig:topologiaRed_servidoresMismaRed}
 						\end{figure}
 						
-						\item Servidor de autenticación y Servidor de Votación en redes diferentes. Acceso de los votantes desde Internet. Figura \ref{fig:topologiaRed_servidoresDistintaRed}
+						\item \textbf{Servidor de autenticación y Servidor de Votación en redes diferentes. Acceso de los votantes desde Internet.} Figura \ref{fig:topologiaRed_servidoresDistintaRed}
 						
 						Esta topología no requiere port forwarding, pues cada servidor tiene su propio acceso a/por Internet. Los dispositivos accederían directamente a la IP/URL de cada servidor y utilizarían sus diferentes servicios utilizando el puerto correspondiente.
 						
@@ -253,7 +253,7 @@ class AuthorizeView(View):
 							\label{fig:topologiaRed_servidoresDistintaRed}
 						\end{figure}
 						
-						\item Tanto el Servidor de autenticación, como el Servidor de Votación y los dispositivos se comunican por la misma red, sin necesitar acceder a través de Internet. Figura \ref{fig:topologiaRed_intranet}
+						\item \textbf{Tanto el Servidor de autenticación, como el Servidor de Votación y los dispositivos se comunican por la misma red, sin necesitar acceder a través de Internet.} Figura \ref{fig:topologiaRed_intranet}
 						
 						Haría falta un acceso a Internet para poder realizar consultas OCSP de validación del DNIe.
 						
