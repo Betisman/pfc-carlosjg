@@ -912,6 +912,60 @@ class AuthorizeView(View):
 		8445 - 192.168.1.145 (Servidor Votación) - 443 - Puerto de acceso al servidor Apache por HTTPS/TLS
 		8044 - 192.168.1.145 (Servidor Votación) - 22 - Acceso SSH
 		
+
+			
+			
+		%Foo bar & \specialcell{Foo\\bar} & Foo bar \\    % vertically centered
+		%Foo bar & \specialcell[t]{Foo\\bar} & Foo bar \\ % aligned with top rule
+		%Foo bar & \specialcell[b]{Foo\\bar} & Foo bar \\ % aligned with bottom rule
+		\begin{table}[htbp]
+				\begin{threeparttable}
+					\footnotesize
+					\centering
+						%\begin{tabular}{0.75\textwidth}@{\extracolsep{\fill}}|l|l|m{3cm}| m{3cm}|}
+						%\begin{tabular*}{0.95\textwidth}{@{\extracolsep{\fill}}|l|l|rm{2cm}|rm{1cm}|}
+						\begin{tabularx}{\textwidth}{|L|L|L|L|L|}
+							\hline
+								\begin{center}
+								\textbf{Servidor}
+								\end{center}
+								 &
+								\begin{center}
+								\textbf{Puerto externo}
+								\end{center}
+								 &
+								\begin{center}
+								\textbf{IP servidor interno}
+								\end{center}
+								 &
+								 \begin{center}
+								 \textbf{Puerto interno}
+								 \end{center}
+									& 
+									\begin{center}
+									\textbf{Descripción}
+									\end{center}
+									 \\
+							\hline
+							\multirow{4}{*}{Servidor Identificaión} 	& 8662 & 192.168.1.144 & 442 	& Puerto de acceso al servidor Apache por HTTPS/TLS \\
+							\cline{2-5}
+																												& 8888 & 192.168.1.144 & 80 	& Acceso al Apache por HTTP sin seguridad \\
+							\cline{2-5}
+																												& 8443 & 192.168.1.144 & 443 	& Puerto de acceso al servidor Apache por HTTPS/TLS \\
+							\cline{2-5}
+																												& 8022 & 192.168.1.144 & 22 	& Acceso SSH \\
+							\hline
+		          \multirow{4}{*}{Servidor Votación}	 			& 8889 & 192.168.1.145 & 80 	& Acceso al Apache por HTTP sin seguridad \\
+							\cline{2-5}
+		          																					& 8445 & 192.168.1.145 & 443 	& Puerto de acceso al servidor Apache por HTTPS/TLS \\
+							\cline{2-5}
+		          																					& 8044 & 192.168.1.145 & 22 	& Acceso SSH \\
+							\hline
+						\end{tabularx}
+						\caption{Port forwarding en la red de desarrollo.\label{tab:portForfarding}}
+					\end{threeparttable}
+			\end{table}
+		
 		En caso de la configuración del sistema para trabajar en intranet, por motivos de infraestructura, ya sea por una presentación como la de este propio proyecto o por querer realizar una votación cerrada, la propuesta implementada incluye un router simple funcionando sin conexión a Internet.
 		
 		El router utilizado ha sido XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX. \todo{incluir modelo del router para la presentación}
