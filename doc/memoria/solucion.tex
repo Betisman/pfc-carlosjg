@@ -75,7 +75,7 @@
 						Con el fin de establecer un canal HTTPS seguro entre usuario y servidor, es necesario que en su configuración se contemplen tres certificados, dos de ellos en posesión del servidor y el tercero de obligada presentación por parte del cliente.
 						
 						\begin{description}
-							\item[Certificado de servidor:] Es el certificado que permite al navegador negociar el establecimiento de la conexión segura. Si se ha obtenido de algún proveedor confiable, el navagador lo gestiona de forma casi transparente al usuario. Sin embargo, si la fuente no es confiable y no se encuentra en el almacén de certificados del sistema operativo o el navegador, se muestra una advertencia al usuario aconsejándole que no continúe la navegación, aunque le permite seguir adelante a riesgo del usuario. Es lo que ocurre también cuando se utiliza un certificado autofirmado.
+							\item[Certificado de servidor:] Es el certificado que permite al navegador negociar el establecimiento de la conexión segura. Si se ha obtenido de algún proveedor confiable, el navegador lo gestiona de forma casi transparente al usuario. Sin embargo, si la fuente no es confiable y no se encuentra en el almacén de certificados del sistema operativo o el navegador, se muestra una advertencia al usuario aconsejándole que no continúe la navegación, aunque le permite seguir adelante a riesgo del usuario. Es lo que ocurre también cuando se utiliza un certificado autofirmado.
 							
 							En nuestro caso, se ha decidido utilizar un certificado autofirmado para el prototipo implementado. Los pasos necesarios tanto para crear y firmar el certificado como para configurar el servidor web para que lo utilice se pueden consultar en el anexo \ref{App:ConfiguracionServidorWeb}.
 							
@@ -93,7 +93,7 @@
 						
 						En el siguiente código podemos ver una función que atiende una petición GET a la vista de autorización para mostrar una lista de variables asociadas a la seguridad del servidor que recibe de éste:
 						
-\begin{verbatim}
+\begin{lstlisting}[language=Python, caption=Variables SSL que recibe el servidor web de autenticación.]
 class AuthorizeView(View):
   form_class = AuthorizeForm
   initial = {}
@@ -149,7 +149,7 @@ class AuthorizeView(View):
         logger.warn('get_No vienen las credenciales del DNIe')
 
       return self._render(request=request, form=form, dnie=dnie)
-\end{verbatim}
+\end{lstlisting}
 
 					En la lista se observa una gran cantidad de variables de entorno relacionadas con la seguridad del servidor. 
 					
@@ -956,41 +956,28 @@ class AuthorizeView(View):
 		Para ello, hay que configurar tanto el router como la app Android y los servidores. En el caso del router, para funcionar por Internet habría que abrir los puertos necesarios y realizar su pertinente redireccionamiento a los puertos de los servidores necesarios.
 		
 		Una configuración típica de esta forma de conexión a través de Internet incluye configurar estos redireccionamientos en los puertos del router:
-		
-\iffalse		
-		\todo[inline]{Transformar a tabla}
-		Puerto del Router - IP del servidor - Puerto del servidor - Necesidad
-		8662 - 192.168.1.144 (Servidor Identificación) - 442 - Puerto de acceso al servidor Apache por HTTPS/TLS
-		8888 - 192.168.1.144 (Servidor Identificación) - 80 - Acceso al Apache por HTTP sin seguridad
-		8443 - 192.168.1.144 (Servidor Identificación) - 443 - Puerto de acceso al servidor Apache por HTTPS/TLS
-		8022 - 192.168.1.144 (Servidor Identificación) - 22 - Acceso SSH
-		
-		8889 - 192.168.1.145 (Servidor Votación) - 80 - Acceso al Apache por HTTP sin seguridad
-		8445 - 192.168.1.145 (Servidor Votación) - 443 - Puerto de acceso al servidor Apache por HTTPS/TLS
-		8044 - 192.168.1.145 (Servidor Votación) - 22 - Acceso SSH
-\fi		
-
-		\begin{table}[]
-			\begin{tabularx}{\linewidth}{|l|l|l|l|l|}
-				\hline
-					\multicolumn{1}{c}{\textbf{Servidor}}	&	\multicolumn{1}{c}{\textbf{Puerto externo}}	&	\multicolumn{1}{c}{\textbf{IP servidor interno}}	&	\multicolumn{1}{c}{\textbf{Puerto interno}}	&	\multicolumn{1}{c}{\textbf{Descripción}}	\tabularnewline
-					\hline
-					\multirow{4}{*}{Servidor Identificaión} 	& 8662 & 192.168.1.144 & 442 	& Puerto de acceso al servidor Apache por HTTPS/TLS \tabularnewline
-					\cline{2-5}
-																										& 8888 & 192.168.1.144 & 80 	& Acceso al Apache por HTTP sin seguridad \tabularnewline
-					\cline{2-5}
-																										& 8443 & 192.168.1.144 & 443 	& Puerto de acceso al servidor Apache por HTTPS/TLS \tabularnewline
-					\cline{2-5}
-																										& 8022 & 192.168.1.144 & 22 	& Acceso SSH \tabularnewline
-					\hline
-					\multirow{3}{*}{Servidor Votación}	 			& 8889 & 192.168.1.145 & 80 	& Acceso al Apache por HTTP sin seguridad \tabularnewline
-					\cline{2-5}
-																										& 8445 & 192.168.1.145 & 443 	& Puerto de acceso al servidor Apache por HTTPS/TLS \tabularnewline
-					\cline{2-5}
-																										& 8044 & 192.168.1.145 & 22 	& Acceso SSH \tabularnewline
-					\hline
-			\end{tabularx}
-			\caption{Port forwarding en la red de desarrollo.\label{tab:portForfarding}}
+		
+		\begin{table}[]			
+			\begin{tabularx}{\linewidth}{|l|l|l|l|l|}					
+					\hline						
+					\multicolumn{1}{c}{\textbf{Servidor}}	&	\multicolumn{1}{c}{\textbf{Puerto externo}}	&	\multicolumn{1}{c}{\textbf{IP servidor interno}}	&	\multicolumn{1}{c}{\textbf{Puerto interno}}	&	\multicolumn{1}{c}{\textbf{Descripción}}	\tabularnewline						
+					\hline						
+					\multirow{4}{*}{Servidor Identificación} 	& 8662 & 192.168.1.144 & 442 	& Puerto de acceso al servidor Apache por HTTPS/TLS \tabularnewline						
+					\cline{2-5}						
+					& 8888 & 192.168.1.144 & 80 	& Acceso al Apache por HTTP sin seguridad \tabularnewline						
+					\cline{2-5}						
+					& 8443 & 192.168.1.144 & 443 	& Puerto de acceso al servidor Apache por HTTPS/TLS \tabularnewline						
+					\cline{2-5}						
+					& 8022 & 192.168.1.144 & 22 	& Acceso SSH \tabularnewline						
+					\hline						
+					\multirow{3}{*}{Servidor Votación}	 			& 8889 & 192.168.1.145 & 80 	& Acceso al Apache por HTTP sin seguridad \tabularnewline						
+					\cline{2-5}						
+					& 8445 & 192.168.1.145 & 443 	& Puerto de acceso al servidor Apache por HTTPS/TLS \tabularnewline						
+					\cline{2-5}						
+					& 8044 & 192.168.1.145 & 22 	& Acceso SSH \tabularnewline						
+					\hline					
+				\end{tabularx}					
+				\caption{Port forwarding en la red de desarrollo.\label{tab:portForfarding}}			
 		\end{table}
 			
 		

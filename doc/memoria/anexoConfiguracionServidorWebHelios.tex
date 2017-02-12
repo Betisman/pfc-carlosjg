@@ -2,62 +2,62 @@
 
 El framework web Django provee su propio Servidor Web, pero para poder utilizar un canal seguro HTTPS y configurar el acceso con el DNIe es preciso utilizar un Servidor Web como Apache en el que apoyar el framework. Aquí una lista de pasos que se han llevado a cabo para su configuración. 
 
-\small\begin{verbatim}
-# Instalamos Apache2 y OpenSSL
-> sudo apt-get install apache2
-> sudo apt-get install openSSL
-
-> cd /etc/apache2/mods-available
-
-# Activamos SSL en Apache
-> sudo a2enmod ssl
-
-> sudo apt-get install libapache2-mod-wsgi
-> sudo a2enmod wsgi
-
-> cd /etc/apache2/sites-available
-> sudo cp 000-default.conf sitednie.conf
-> cd /etc/apache2/sites-available
-
-# Preparamos los certificados para el DNIe
-> mkdir ~/Descargas/certificados
-> cd certificados/
-
-# Creamos una clave
-> openssl genrsa -des3 -out server.key 2048
-
-# Petición del certificado, asociándolo con la clave que acabamos de crear
-> openssl req -new -key server.key -out server.csr
-
-# Pese a que no somos una entidad certificadora, firmamos nuestro propio certificado, así
-# obtenemos un certificado autofirmado.
-> openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
-
-
-#Bajamos el certificado de la AC Raíz del DNIE desde:
-#http://www.dnielectronico.es/PortalDNIe/PRF1_Cons02.action?pag=REF_077
-> wget http://www.dnielectronico.es/ZIP/ACRAIZ-SHA2.CAB
-
-# Lo extraemos
-> cabextract ACRAIZ-SHA2.CAB
-
-# Creamos el certificado x509
-> openssl x509 -in ACRAIZ-SHA2.crt -inform DER -out ACRAIZ-SHA2.crt -outform PEM
-> sudo cp ACRAIZ-SHA2.crt acraiz-dnie.cer
-
-> cd /etc/apache2/sites-available
-> sudo cat default-ssl.conf >> sitednie.conf
-
-
-# Configuramos el servidor web para que escuche por un puerto seguro, con SSL y 
-# requiriendo los certificados del DNIe
-> sudo gedit sitednie.conf &	
-\end{verbatim}
+\begin{lstlisting}[language=bash]
+	# Instalamos Apache2 y OpenSSL
+	sudo apt-get install apache2
+	sudo apt-get install openSSL
+	
+	cd /etc/apache2/mods-available
+	
+	# Activamos SSL en Apache
+	sudo a2enmod ssl
+	
+	sudo apt-get install libapache2-mod-wsgi
+	sudo a2enmod wsgi
+	
+	cd /etc/apache2/sites-available
+	sudo cp 000-default.conf sitednie.conf
+	cd /etc/apache2/sites-available
+	
+	# Preparamos los certificados para el DNIe
+	mkdir ~/Descargas/certificados
+	cd certificados/
+	
+	# Creamos una clave
+	openssl genrsa -des3 -out server.key 2048
+	
+	# Petición del certificado, asociándolo con la clave que acabamos de crear
+	openssl req -new -key server.key -out server.csr
+	
+	# Pese a que no somos una entidad certificadora, firmamos nuestro propio certificado, así
+	# obtenemos un certificado autofirmado.
+	openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
+	
+	
+	#Bajamos el certificado de la AC Raíz del DNIE desde:
+	#http://www.dnielectronico.es/PortalDNIe/PRF1_Cons02.action?pag=REF_077
+	wget http://www.dnielectronico.es/ZIP/ACRAIZ-SHA2.CAB
+	
+	# Lo extraemos
+	cabextract ACRAIZ-SHA2.CAB
+	
+	# Creamos el certificado x509
+	openssl x509 -in ACRAIZ-SHA2.crt -inform DER -out ACRAIZ-SHA2.crt -outform PEM
+	sudo cp ACRAIZ-SHA2.crt acraiz-dnie.cer
+	
+	cd /etc/apache2/sites-available
+	sudo cat default-ssl.conf >> sitednie.conf
+	
+	
+	# Configuramos el servidor web para que escuche por un puerto seguro, con SSL y 
+	# requiriendo los certificados del DNIe
+	sudo gedit sitednie.conf &	
+\end{lstlisting}
 
 Puede ser con el comando anterior para usar el editor gedit o con cualquier otro editor de nuestra preferencia, pero se deben modificar los siguientes parámetros del fichero:
 
 En <VirtualHost *:80>:
-\small\begin{verbatim}
+\begin{lstlisting}[language=XML]
 DocumentRoot /home/carlos/Descargas/helios-server
 	<Directory /home/carlos/Descargas/helios-server>
 		<Files wsgi.py>
@@ -68,13 +68,13 @@ DocumentRoot /home/carlos/Descargas/helios-server
 	WSGIDaemonProcess / python-path=/home/carlos/Descargas/helios-server:/home/carlos/Descargas/helios-server/venv/lib/python2.7/site-packages
     WSGIProcessGroup /
     WSGIScriptAlias / /home/carlos/Descargas/helios-server/wsgi.py
-\end{verbatim}
+\end{lstlisting}
 
 
 En <VirtualHost \_default\_:443>:
-\small\begin{verbatim}
-DocumentRoot /home/carlos/Descargas/helios-server
-### Antes de cerrar </VirtualHost>:
+\begin{lstlisting}[language=XML]
+	DocumentRoot /home/carlos/Descargas/helios-server
+	### Antes de cerrar </VirtualHost>:
 
 	<Directory /home/carlos/Descargas/helios-server/>
 	     Options Indexes FollowSymLinks MultiViews
@@ -103,23 +103,24 @@ DocumentRoot /home/carlos/Descargas/helios-server
 	#WSGIDaemonProcess / python-path=/home/carlos/Descargas/helios-server:/home/carlos/Descargas/helios-server/venv/lib/python2.7/site-packages
     WSGIProcessGroup /
     WSGIScriptAlias / /home/carlos/Descargas/helios-server/wsgi.py
-\end{verbatim}
+\end{lstlisting}
 
 
 A continuación hay que editar el fichero ports.conf si es necesario:
-\small\begin{verbatim}
-> sudo gedit /etc/apache2/ports.conf
-
-### Modificar si es necesario:
-<IfModule ssl_module>
-	Listen 443
-	Listen 1443
-</IfModule>
-\end{verbatim}
+\begin{lstlisting}[language=bash]
+	sudo gedit /etc/apache2/ports.conf
+\end{lstlisting}
+\begin{lstlisting}[language=XML]
+	### Modificar si es necesario:
+	<IfModule ssl_module>
+		Listen 443
+		Listen 1443
+	</IfModule>
+\end{lstlisting}
 
 Cargamos la configuración modificada en Apache y reseteamos el servicio:
-\small\begin{verbatim}
-> sudo a2ensite sitednie.conf
-> sudo service apache2 restart
-\end{verbatim}
+\begin{lstlisting}[language=bash]
+	sudo a2ensite sitednie.conf
+	sudo service apache2 restart
+\end{lstlisting}
 

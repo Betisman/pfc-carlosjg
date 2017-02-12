@@ -2,22 +2,22 @@
 
 Pasos para exportar los certificados necesarios para conectar con servidores que requieren el DNIe desde una app Android.
 
-\small\begin{verbatim}
+\begin{lstlisting}[language=bash]
 
-> keytool -keystore keystore.jks -import -alias root -file acraiz-dnie.cer -trustcacerts
+	keytool -keystore keystore.jks -import -alias root -file acraiz-dnie.cer -trustcacerts
 
-> keytool -keystore keystore.jks -import -alias servidor -file server.crt -trustcacerts
+	keytool -keystore keystore.jks -import -alias servidor -file server.crt -trustcacerts
 
-> keytool -importkeystore -srckeystore keystore.jks -destkeystore keystore.bks -srcstoretype JKS 
+	keytool -importkeystore -srckeystore keystore.jks -destkeystore keystore.bks -srcstoretype JKS 
 					-deststoretype BKS -srcstorepass unapassword -deststorepass unapassword 
 					-provider org.bouncycastle.jce.provider.BouncyCastleProvider 
 					-providerpath "../bcprov-jdk16-1.45.jar"
-\end{verbatim}
+\end{lstlisting}
 
 Igualmente, es necesario obtener el hash del certificado del servidor para que la App Android confíe en él y sea capaz de establecer una conexión segura.
 El comando para la obtención de este hash es:
 
 
-\begin{verbatim}
-> openssl x509 -fingerprint -noout -in server.crt
-\end{verbatim}
+\begin{lstlisting}[language=bash]
+	openssl x509 -fingerprint -noout -in server.crt
+\end{lstlisting}
