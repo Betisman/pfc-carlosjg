@@ -61,7 +61,7 @@
 			
 			Una vez el servidor de autenticación autoriza al cliente el acceso al servidor de votación, la navegación por la web se realiza a través de un navegador web del dispositivo. La propia aplicación Android es quien realiza la llamada al navegador para que se abra la aplicación y acceda a la página de inicio con el código de acceso necesario, obtenido del swervidor de autenticación, para que se puedean obtener los tokens que permitan al usuario interactuar con el sistema con priviliegios.
 			
-			\subsection{Servidor de autenticación}\label{arquitectura_servidorAutenticacion}
+			\section{Servidor de autenticación}\label{arquitectura_servidorAutenticacion}
 			El servidor de autenticación implementa el protocolo de autenticación oAuth 2.0 entre el usuario y el sistema. En concreto, se ha realizado un fork del proyecto \textit{django-oauth2-server}\footnote{\url{https://github.com/RichardKnop/django-oauth2-server}} desarrollado por Richard Knop. El objetivo era modificarlo para adaptarlo a diferentes necesidades teniendo en cuenta si el acceso es por la web o a través de la app Android. Además, era necesario que la autorización del usuario se realizara consultando el censo de usuarios y/o votantes de la Elección.
 			 
 			El servidor de autenticación se compone de un servidor web, el sistema de oAuth basado en Django que hemos comentado y una base de datos que contiene tanto permisos de aplicaciones y usuario como los propios usuarios con permiso de acceso al sistema de votación.
@@ -200,8 +200,17 @@ class AuthorizeView(View):
 				
 				Cuando el sistema esté configurado para operar sobre una red interna será necesario desactivar esta configuración del servidor webm, pues sin acceso a Internet no será posible realizar la comprobación contra el servico de la autoridad certificadora.
 				
+					\subsection{Esquema de la base de datos}\label{solucion_servidor_autenticacion_bd}
+					
+						\begin{figure}[!ht]
+							\centering
+								\includegraphics[width=\textwidth]{imgs/oAuthServerER.png}
+							\caption{Diagrama ER del Servidor de Autenticación}
+							\label{fig:er.servidor.autenticacion}
+						\end{figure}
+				
 								
-			\subsection{Servidor de votación}\label{arquitectura_servidorVotacion}
+			\section{Servidor de votación}\label{arquitectura_servidorVotacion}
 			El servidor de votación es el \textit{core} del sistema. Es el que soporta toda la lógica de la elección.
 			
 			De cara a los administradores, permite gestionar una Elección desde su creación y definición hasta la publicación de resultados tras el escrutinio.
@@ -222,6 +231,14 @@ class AuthorizeView(View):
 				\item[Sistema de emails:] Hay un subsistema encargado del envío de emails a usuarios. Lo utiliza tanto el módulo central como celery para enviar emails avisando de los estados de la elección, envío del trozo correspondiente de la clave privada de la elección a los trustees, etc.
 			\end{description}
 			
+				\subsection{Esquema de la base de datos}\label{solucion_servidor_votacion_bd}
+				
+					\begin{figure}[!ht]
+						\centering
+							\includegraphics[width=\textwidth]{imgs/HeliosER.png}
+						\caption{Diagrama ER del Servidor de Votación}
+						\label{fig:er.servidor.votacion}
+					\end{figure}
 		
 		\section{Topología de la red}\label{solucion_topologiaRed}
 				\todo[inline]{Para esto sí que necesito ayuda, por el tema de Firewalls y esas cosas.}
@@ -901,6 +918,7 @@ class AuthorizeView(View):
 		
 		Una configuración típica de esta forma de conexión a través de Internet incluye configurar estos redireccionamientos en los puertos del router:
 		
+\iffalse		
 		\todo[inline]{Transformar a tabla}
 		Puerto del Router - IP del servidor - Puerto del servidor - Necesidad
 		8662 - 192.168.1.144 (Servidor Identificación) - 442 - Puerto de acceso al servidor Apache por HTTPS/TLS
@@ -911,60 +929,32 @@ class AuthorizeView(View):
 		8889 - 192.168.1.145 (Servidor Votación) - 80 - Acceso al Apache por HTTP sin seguridad
 		8445 - 192.168.1.145 (Servidor Votación) - 443 - Puerto de acceso al servidor Apache por HTTPS/TLS
 		8044 - 192.168.1.145 (Servidor Votación) - 22 - Acceso SSH
-		
+\fi		
 
+		\begin{table}[]
+			\begin{tabularx}{\linewidth}{|l|l|l|l|l|}
+				\hline
+					\multicolumn{1}{c}{\textbf{Servidor}}	&	\multicolumn{1}{c}{\textbf{Puerto externo}}	&	\multicolumn{1}{c}{\textbf{IP servidor interno}}	&	\multicolumn{1}{c}{\textbf{Puerto interno}}	&	\multicolumn{1}{c}{\textbf{Descripción}}	\tabularnewline
+					\hline
+					\multirow{4}{*}{Servidor Identificaión} 	& 8662 & 192.168.1.144 & 442 	& Puerto de acceso al servidor Apache por HTTPS/TLS \tabularnewline
+					\cline{2-5}
+																										& 8888 & 192.168.1.144 & 80 	& Acceso al Apache por HTTP sin seguridad \tabularnewline
+					\cline{2-5}
+																										& 8443 & 192.168.1.144 & 443 	& Puerto de acceso al servidor Apache por HTTPS/TLS \tabularnewline
+					\cline{2-5}
+																										& 8022 & 192.168.1.144 & 22 	& Acceso SSH \tabularnewline
+					\hline
+					\multirow{3}{*}{Servidor Votación}	 			& 8889 & 192.168.1.145 & 80 	& Acceso al Apache por HTTP sin seguridad \tabularnewline
+					\cline{2-5}
+																										& 8445 & 192.168.1.145 & 443 	& Puerto de acceso al servidor Apache por HTTPS/TLS \tabularnewline
+					\cline{2-5}
+																										& 8044 & 192.168.1.145 & 22 	& Acceso SSH \tabularnewline
+					\hline
+			\end{tabularx}
+			\caption{Port forwarding en la red de desarrollo.\label{tab:portForfarding}}
+		\end{table}
 			
-			
-		%Foo bar & \specialcell{Foo\\bar} & Foo bar \\    % vertically centered
-		%Foo bar & \specialcell[t]{Foo\\bar} & Foo bar \\ % aligned with top rule
-		%Foo bar & \specialcell[b]{Foo\\bar} & Foo bar \\ % aligned with bottom rule
-		\begin{table}[htbp]
-				\begin{threeparttable}
-					\footnotesize
-					\centering
-						%\begin{tabular}{0.75\textwidth}@{\extracolsep{\fill}}|l|l|m{3cm}| m{3cm}|}
-						%\begin{tabular*}{0.95\textwidth}{@{\extracolsep{\fill}}|l|l|rm{2cm}|rm{1cm}|}
-						\begin{tabularx}{\textwidth}{|L|L|L|L|L|}
-							\hline
-								\begin{center}
-								\textbf{Servidor}
-								\end{center}
-								 &
-								\begin{center}
-								\textbf{Puerto externo}
-								\end{center}
-								 &
-								\begin{center}
-								\textbf{IP servidor interno}
-								\end{center}
-								 &
-								 \begin{center}
-								 \textbf{Puerto interno}
-								 \end{center}
-									& 
-									\begin{center}
-									\textbf{Descripción}
-									\end{center}
-									 \\
-							\hline
-							\multirow{4}{*}{Servidor Identificaión} 	& 8662 & 192.168.1.144 & 442 	& Puerto de acceso al servidor Apache por HTTPS/TLS \\
-							\cline{2-5}
-																												& 8888 & 192.168.1.144 & 80 	& Acceso al Apache por HTTP sin seguridad \\
-							\cline{2-5}
-																												& 8443 & 192.168.1.144 & 443 	& Puerto de acceso al servidor Apache por HTTPS/TLS \\
-							\cline{2-5}
-																												& 8022 & 192.168.1.144 & 22 	& Acceso SSH \\
-							\hline
-		          \multirow{4}{*}{Servidor Votación}	 			& 8889 & 192.168.1.145 & 80 	& Acceso al Apache por HTTP sin seguridad \\
-							\cline{2-5}
-		          																					& 8445 & 192.168.1.145 & 443 	& Puerto de acceso al servidor Apache por HTTPS/TLS \\
-							\cline{2-5}
-		          																					& 8044 & 192.168.1.145 & 22 	& Acceso SSH \\
-							\hline
-						\end{tabularx}
-						\caption{Port forwarding en la red de desarrollo.\label{tab:portForfarding}}
-					\end{threeparttable}
-			\end{table}
+		
 		
 		En caso de la configuración del sistema para trabajar en intranet, por motivos de infraestructura, ya sea por una presentación como la de este propio proyecto o por querer realizar una votación cerrada, la propuesta implementada incluye un router simple funcionando sin conexión a Internet.
 		
