@@ -597,10 +597,6 @@ class AuthorizeView(View):
 				\subsection{Escrutinio}
 				\subsection{Difusión de resultados}
 				
-				
-			\section{Diseño de la capa de datos}
-				\todo[inline]{Al hablar de Helios ya se puso un diagrama de datos. Repetir destacando los cambios. Añadir el diagrama E-R del servidor de oAuth}
-			
 			
 				
 			\section{Diseño de la app de identificación}
@@ -638,112 +634,112 @@ class AuthorizeView(View):
 				
 				\subsection{Estructura de la página web}
 					\todo[inline]{Cambios en la interfaz original de Helios. Responsive....}
-					El principal reto en cuanto a las modificaciones necesarias en la interfaz del sistema original Helios han correspondido a convertir las páginas en \textit{responsive}. Con ello, lo que se busca es adaptar la visualización de las diferentes páginas en distintos dispostivos, con diferentes recursos y distintos tamaños de pantalla, así como la capacidad de adaptarse, en un mismo dispositivo, a una situación en la que la pantalla se observa en vertical y se gira a horizontal o viceversa.
+					El principal reto en cuanto a las modificaciones necesarias en la interfaz del sistema original Helios han correspondido a convertir las páginas en \textit{responsive}. Con ello, lo que se busca es adaptar la visualización de las diferentes páginas en distintos dispositivos, con diferentes recursos y distintos tamaños de pantalla, así como la capacidad de adaptarse, en un mismo dispositivo, a una situación en la que la pantalla se observa en vertical y se gira a horizontal o viceversa.
 					
 					Para llevar a cabo esta tarea, nos hemos centrado en las hojas de estilo existentes a las cuales se le han realizado modificaciones. Principalmente, se han incluido reglas que aplican dependiendo del ancho de la pantalla que 
 					
 				\subsection{Estructura de la aplicación móvil}
 					\todo[inline]{Interfaz de usuario de la app.}
-					La interfaz de usuario de la app Android necesaria para ingresar en el sistema con los certificados deigitales del DNIe 3.0 no ha sido modificada ostensiblemente.
+					La interfaz de usuario de la app Android necesaria para ingresar en el sistema con los certificados digitales del DNIe 3.0 no ha sido modificada ostensiblemente.
 					
 					Aunque es una parte primordial del sistema y su adaptación ha requerido bastante estudio y desarrollo, realmente al final no se utiliza durante un tiempo suficiente. Por ello, para el prototipo se ha decidido no invertir demasiado tiempo en su modificación estética, por lo que se ha reutilizado la diseñada originariamente por los desarrolladores de la app original de la DGP.
 					
 				\subsection{Accesibilidad}
 					\todo[inline]{Destacar accesibilidad}
-\iffalse					
-				\subsection{Imagen corporativa}
-					\todo[inline]{Como imagen de marca, bla bla bla, al no haber un logo del proceso, bla bla bla, se puede introducir uno o utilizar el de la Universidad, bla bla}
-					La interfaz de Helios Voting se corresponde con un sistema neutro para realizar elecciones en la plataforma web de ejemplo que tienen publicada junto con el código fuente del proyecto.
-					
-					Esta interfaz está bien para el propósito que tiene el sistema original, que es, por un lado, mostrar un ejemplo de funcionamiento del proyecto y, por otro, dar una herramienta funcional para la realización de pequeños procesos electorales seguros por Internet para grupos reducidos que no necesiten una implementación propia.
-					
-					A la hora de utilizar esta herramienta para montar un sistema electoral propio, en infraestructuras de un cliente, esta interfaz no se corresponde con la que debería tener un proyecto diseñado para dicho clienta.
-					
-					Cualquier proceso electoral suele y debe tener una imagen corporativa propia que pueda identificarse claramente con el propio proceso y con las autoridades que lo organizan, con la finalidad de que el votante identifique claramente el origen del proceso y no dé lugar a equívocos, además de que, en cierto modo, aumentan la seguridad del mismo en el proceso.
-					
-					La Universidad no parece tener publicada una imagen de marca, con reglas y recomendaciones que definan el estilo que deben tener aquellas webs y documentos que se desarrollen o publiquen en su nombre. No obstante, se observa en su web que sí la tiene. Ya sea en los colores utilizados, en el diseño del logo y en la definición de los documentos publicados en su web.
-					
-					Por ello, se observa necesario implementar una imagen en el sistema que se corresponda con la Universidad. Al no publicar esta unas guías de imagen de marca, lo correcto será proponer un diseño de los sistemas inspirado en los que utiliza actualmente la Universidad en su web oficial o en los documentos que publica. El fin de este diseño integral adecuado será ayudar al usuario a identificar el organizador del proceso electoral, al mismo tiempo que simplifique el proceso de votación, o al menos, no lo complique.
-					
-					Utilizando como base la interfaz actual del proyecto Helios se le realizará una serie de modificaciones para realizar este cambio de marca.
-					
-					Por un lado, junto al logo de la Universidad, es conveniente diseñar un logo que represente la Elección. Esto dota al proceso de una imagen propia, aunque asociada a la entidad organizadora, con la que se trata de transmitir la importancia y seriedad del Proceso al usuario.
-					
-					La elección del juego de colores de los sistemas, tanto de las webs de los sistemas de Identificación y Voto como de la app de Android se basará en los colores de la web actual de la Universidad San Pablo CEU. La estructura de las páginas webs del sistema, no obstante, no será similar a la de la Universidad, ya que tratan información diferente y ésta no es adecuada para el flujo del usuario en el sistema de votación.
-					
-					Para el prototipo a implemetar se ha decidio, no obstante, utilizar la gama de colores que ofrece la librería Bootstrap, sin tener en cuenta estas reglas de marca.
-					
-					
-					\notasInfo[inline]{Dar una muestra de colores y de logos de la elección}
-					
-					\begin{figure}[!ht]
-						\centering
-							\includegraphics[width=.5\textwidth]{imgs/logo_usp_ceu.jpg}
-						\caption{Logo de la Universidad San Pablo CEU en su web}
-						\label{fig:logo.universidad_san_pablo_ceu}
-					\end{figure}
-				
-				
-					\notasInfo[inline]{Colores...accesibilidad!}				
-				
-				Uno de los requisitos que debe cumplir un sistema de votación es que sea accesible para el mayor número de personas posible. Desde el punto de vista de la interfaz esto implica que:
-				\begin{itemize}
-					\item Debe funcionar correctamente en la mayoría de los navegadores web.
-					\item Debe cumplir con los estándares de accesibilidad (WCAG, AA+)
-					\item La web debe cumplir con el estándar del consorcio W3C.
-					\item La información presentada debe cumplir con la internacionalización (i18n) necesaria para llegar al mayor número posible del censo y de los observadores.
-				\end{itemize}
-				
-\fi
-				
-				
-				
-				
-\iffalse				
-				\todo[inline]{Desde aquí hasta el comienzo de \ref{solucion_protocolo} hay que moverlo a Análisis.}
-				En varios de los sistemas estudiados que se han desarrollado para intentar implantar el voto electrónico a un nivel medio, como pueden ser los mexicanos SELES \ref{seles} y SEVI \ref{sevi} o los españoles de Víctor Moreno \cite{moreno07} \notasDuda{???????}o Votescript \ref{ivotingVotescript}\notasDuda{???????} se observa que se realiza una división del proceso electoral en cuatro fases (Registro, Votación, Consolidación de resultados y Auditoría). En el desarrollo de este sistema vamos a identificar las mismas fases, pero con matices.
-				
-				Así, en una primera visión global del sistema, en este se definen cuatro fases:
-				\begin{itemize}
-					\item Preelectoral
-					\item Votación
-					\item Consolidación de resultados
-					\item Postelectoral
-				\end{itemize}
-				
-				Realmente, la mayor diferencia con las fases definidas en los esquemas anteriores se corresponden con el alcance de la primera y la última fase.
-				La fase Preelectoral, denominada comúnmente en los ejemplos estudiados en la Introducción como fase de Registro, en este sistema tiene un alcance mayor. En este proceso electoral no se requiere que el votante se registre para poder votar. El censo lo proporciona la Autoridad Electoral y se carga en el sistema. Igualmente, en los días previos a la jornada electoral el sistema permitirá a los votantes comprobar si están en el censo y qué información contiene éste, tanto personal - para asegurarse de que podrán identificarse - como de permisos de cara a realizar la votación.
+%\iffalse					
+%				\subsection{Imagen corporativa}
+%					\todo[inline]{Como imagen de marca, bla bla bla, al no haber un logo del proceso, bla bla bla, se puede introducir uno o utilizar el de la Universidad, bla bla}
+%					La interfaz de Helios Voting se corresponde con un sistema neutro para realizar elecciones en la plataforma web de ejemplo que tienen publicada junto con el código fuente del proyecto.
+%					
+%					Esta interfaz está bien para el propósito que tiene el sistema original, que es, por un lado, mostrar un ejemplo de funcionamiento del proyecto y, por otro, dar una herramienta funcional para la realización de pequeños procesos electorales seguros por Internet para grupos reducidos que no necesiten una implementación propia.
+%					
+%					A la hora de utilizar esta herramienta para montar un sistema electoral propio, en infraestructuras de un cliente, esta interfaz no se corresponde con la que debería tener un proyecto diseñado para dicho clienta.
+%					
+%					Cualquier proceso electoral suele y debe tener una imagen corporativa propia que pueda identificarse claramente con el propio proceso y con las autoridades que lo organizan, con la finalidad de que el votante identifique claramente el origen del proceso y no dé lugar a equívocos, además de que, en cierto modo, aumentan la seguridad del mismo en el proceso.
+%					
+%					La Universidad no parece tener publicada una imagen de marca, con reglas y recomendaciones que definan el estilo que deben tener aquellas webs y documentos que se desarrollen o publiquen en su nombre. No obstante, se observa en su web que sí la tiene. Ya sea en los colores utilizados, en el diseño del logo y en la definición de los documentos publicados en su web.
+%					
+%					Por ello, se observa necesario implementar una imagen en el sistema que se corresponda con la Universidad. Al no publicar esta unas guías de imagen de marca, lo correcto será proponer un diseño de los sistemas inspirado en los que utiliza actualmente la Universidad en su web oficial o en los documentos que publica. El fin de este diseño integral adecuado será ayudar al usuario a identificar el organizador del proceso electoral, al mismo tiempo que simplifique el proceso de votación, o al menos, no lo complique.
+%					
+%					Utilizando como base la interfaz actual del proyecto Helios se le realizará una serie de modificaciones para realizar este cambio de marca.
+%					
+%					Por un lado, junto al logo de la Universidad, es conveniente diseñar un logo que represente la Elección. Esto dota al proceso de una imagen propia, aunque asociada a la entidad organizadora, con la que se trata de transmitir la importancia y seriedad del Proceso al usuario.
+%					
+%					La elección del juego de colores de los sistemas, tanto de las webs de los sistemas de Identificación y Voto como de la app de Android se basará en los colores de la web actual de la Universidad San Pablo CEU. La estructura de las páginas webs del sistema, no obstante, no será similar a la de la Universidad, ya que tratan información diferente y ésta no es adecuada para el flujo del usuario en el sistema de votación.
+%					
+%					Para el prototipo a implemetar se ha decidio, no obstante, utilizar la gama de colores que ofrece la librería Bootstrap, sin tener en cuenta estas reglas de marca.
+%					
+%					
+%					\notasInfo[inline]{Dar una muestra de colores y de logos de la elección}
+%					
+%					\begin{figure}[!ht]
+%						\centering
+%							\includegraphics[width=.5\textwidth]{imgs/logo_usp_ceu.jpg}
+%						\caption{Logo de la Universidad San Pablo CEU en su web}
+%						\label{fig:logo.universidad_san_pablo_ceu}
+%					\end{figure}
+%				
+%				
+%					\notasInfo[inline]{Colores...accesibilidad!}				
+%				
+%				Uno de los requisitos que debe cumplir un sistema de votación es que sea accesible para el mayor número de personas posible. Desde el punto de vista de la interfaz esto implica que:
+%				\begin{itemize}
+%					\item Debe funcionar correctamente en la mayoría de los navegadores web.
+%					\item Debe cumplir con los estándares de accesibilidad (WCAG, AA+)
+%					\item La web debe cumplir con el estándar del consorcio W3C.
+%					\item La información presentada debe cumplir con la internacionalización (i18n) necesaria para llegar al mayor número posible del censo y de los observadores.
+%				\end{itemize}
+%				
+%\fi
 				
 				
 				
-				Las fase de Votación también tiene un alcance diferente. En primer lugar, empieza con la identificación del votante en el sistema electoral. Una vez el votante ha sido correctamente identificado por el sistema (tal como lo haría contra los miembros de la mesa en el voto tradicional), debe recibir una boleta electrónica que le ofrezca las opciones entre las que, por su circunscripción, deba elegir la que desea votar. Una vez seleccionado, es el momento en el que realmente el votante realiza la votación, traspasando el voto de forma digital al sistema, a la \textit{urna digital} donde se anonimizarán y almacenarán hasta la fase de consolidación.
 				
-				En la fase de consolidación de resultados, el sistema se encargará del conteo de los votos que han sido emitidos
-				\todo[inline]{continuar...}
-				
-				La fase Postelectoral, que denominan Auditoría, prefiero dejarla con este nombre, ya que considero que la auditoría del sistema es una operativa que se realiza durante toda la jornada electoral, no sólo al finalizar ésta. No obstante, es cierto que al final se llevarán a cabo auditorías de los resultados y el funcionamiento. Además de las auditorías llevadas a cabo por los auditores \textit{oficiales}, se va a implementar un mecanismo que permita a los propios votante auditar que su voto ha sido correctamente incluido y contado en el proceso. Esta fase postelectoral también tiene más pasos ... \todo[inline]{continuar con fase postelectoral}
-				
-			\todo[inline]{Antes de este punto hay que hacer un resumen de los diferentes esquemas de votación, teniendo estos como Firma ciega, mixnets, etc...}
-\fi
+%\iffalse				
+%				\todo[inline]{Desde aquí hasta el comienzo de \ref{solucion_protocolo} hay que moverlo a Análisis.}
+%				En varios de los sistemas estudiados que se han desarrollado para intentar implantar el voto electrónico a un nivel medio, como pueden ser los mexicanos SELES \ref{seles} y SEVI \ref{sevi} o los españoles de Víctor Moreno \cite{moreno07} \notasDuda{???????}o Votescript \ref{ivotingVotescript}\notasDuda{???????} se observa que se realiza una división del proceso electoral en cuatro fases (Registro, Votación, Consolidación de resultados y Auditoría). En el desarrollo de este sistema vamos a identificar las mismas fases, pero con matices.
+%				
+%				Así, en una primera visión global del sistema, en este se definen cuatro fases:
+%				\begin{itemize}
+%					\item Preelectoral
+%					\item Votación
+%					\item Consolidación de resultados
+%					\item Postelectoral
+%				\end{itemize}
+%				
+%				Realmente, la mayor diferencia con las fases definidas en los esquemas anteriores se corresponden con el alcance de la primera y la última fase.
+%				La fase Preelectoral, denominada comúnmente en los ejemplos estudiados en la Introducción como fase de Registro, en este sistema tiene un alcance mayor. En este proceso electoral no se requiere que el votante se registre para poder votar. El censo lo proporciona la Autoridad Electoral y se carga en el sistema. Igualmente, en los días previos a la jornada electoral el sistema permitirá a los votantes comprobar si están en el censo y qué información contiene éste, tanto personal - para asegurarse de que podrán identificarse - como de permisos de cara a realizar la votación.
+%				
+%				
+%				
+%				Las fase de Votación también tiene un alcance diferente. En primer lugar, empieza con la identificación del votante en el sistema electoral. Una vez el votante ha sido correctamente identificado por el sistema (tal como lo haría contra los miembros de la mesa en el voto tradicional), debe recibir una boleta electrónica que le ofrezca las opciones entre las que, por su circunscripción, deba elegir la que desea votar. Una vez seleccionado, es el momento en el que realmente el votante realiza la votación, traspasando el voto de forma digital al sistema, a la \textit{urna digital} donde se anonimizarán y almacenarán hasta la fase de consolidación.
+%				
+%				En la fase de consolidación de resultados, el sistema se encargará del conteo de los votos que han sido emitidos
+%				\todo[inline]{continuar...}
+%				
+%				La fase Postelectoral, que denominan Auditoría, prefiero dejarla con este nombre, ya que considero que la auditoría del sistema es una operativa que se realiza durante toda la jornada electoral, no sólo al finalizar ésta. No obstante, es cierto que al final se llevarán a cabo auditorías de los resultados y el funcionamiento. Además de las auditorías llevadas a cabo por los auditores \textit{oficiales}, se va a implementar un mecanismo que permita a los propios votante auditar que su voto ha sido correctamente incluido y contado en el proceso. Esta fase postelectoral también tiene más pasos ... \todo[inline]{continuar con fase postelectoral}
+%				
+%			\todo[inline]{Antes de este punto hay que hacer un resumen de los diferentes esquemas de votación, teniendo estos como Firma ciega, mixnets, etc...}
+%\fi
 
-\iffalse
-			\subsection{Protocolo}\label{solucion_protocolo}
-			\textst{
-				Como se ha comentado en capítulos anteriores, hay una multitud de soluciones propuestas para el voto telemático.
-				
-				Teniendo en cuenta el objetivo de este Proyecto Fin de Carrera, de los sistemas implementados a gran escala, a nivel nacional o regional, podemos destacar Estonia, Noruega y los cantones suizos como las tres experiencias más exitosas y aquellas de las que se pueden estudiar las soluciones, esquemas y protocolos utilizados. No obstante, el alcance de las mismas supera sobremanera el de este proyecto. Igualmente, muchas decisiones las toman en base a satisfacer requisitos que resultan muy importantes en su análisis, pero que en este trabajo no se ha considerado que tengan igual trascendencia, y viceversa, por lo que se han de tomar diferentes consideraciones frente a los mismos problemas dependiendo del impacto que suponen en cada proyecto.
-				}
-				También se han presentado casos de proyectos de voto telemático pensados a menor escala. Entre ellos, hay muchas soluciones que, en parte, podrían satisfacer los requisitos de este proyecto. No obstante en ninguno de ellos encontramos un protocolo que se adapte completamente a los requerimientos planteados, ya que, en algún momento, se analiza un elemento que los hace diferir. Por ejemplo, un proyecto ya maduro como Votescript (\ref{ivotingVotescript}) realiza un estudio académico y técnico muy profundo acerca del voto telemático pero, por su propia definición, el modelo de identificación y emisión del voto lo sitúan físicamente en centros de votación. Este elemento es diferencial para este proyecto, pensado en el voto telemático remoto, aunque puede integrarse cuando se estudian alternativas para que aquellos votantes que, por algún motivo, no pueden o quieren votar por Internet de forma remota tengan la oportunidad de ejercer su derecho de sufragio desde un lugar habilitado para ello por la propia Escuela.
-				\textst{
-				A partir de los esquemas criptográficos estudiados y con ayuda de algunos protocolos ya publicados en otros proyectos, el siguiente paso es diseñar el protocolo de votación que se adapte a las necesidades del Proyecto, cumpliendo con los requisitos y asegurando los niveles de seguridad planteados.
-				
-				En muchas de las soluciones estudiadas se observa que no recibe la importancia necesaria la fase de identificación del votante. Los mecanismos de identificación y autenticación del mismo resultan laxos desde el punto de vista de la seguridad ante el fraude electoral. Por ello han sido descartadas las soluciones basadas en identificación por medio de bases de datos con el típico protocolo de usuario/contraseña o incluso con elementos de seguridad de una generación algo posterior, como pin, patrones, captchas, operaciones aritméticas o métodos similares con mayor o menor complejidad. Igualmente, se han descartado aquellos métodos de identificación que requieran la presencia física del votante frente a los responsables de la mesa de votación, ya que se busca el diseño de un sistema remoto. Así descartamos protocolos de identificación como los publicados por Votescript, en el que el votante acude a un centro o local de votación, se identifica ante la mesa electoral y recibe un token criptográfico personalizado con el que se le permite ejercer el sufragio.
-				
-				La mayoría de las soluciones estudiadas previamente a la realización de esta memoria centran sus esfuerzos en la fase de votación. Buscan la elaboración de un protocolo robusto, basado en esquemas criptográficos, que permita la mayor seguridad posible al cumplimiento de los requisitos fundamentales del voto electrónico, dotando al sistema de privacidad del votante, 
-			}
-				\todo[inline]{Hay que modificarlo. Es anterior a la decisión de utilizar Helios}
-\fi				
-				
+%\iffalse
+%			\subsection{Protocolo}\label{solucion_protocolo}
+%			\textst{
+%				Como se ha comentado en capítulos anteriores, hay una multitud de soluciones propuestas para el voto telemático.
+%				
+%				Teniendo en cuenta el objetivo de este Proyecto Fin de Carrera, de los sistemas implementados a gran escala, a nivel nacional o regional, podemos destacar Estonia, Noruega y los cantones suizos como las tres experiencias más exitosas y aquellas de las que se pueden estudiar las soluciones, esquemas y protocolos utilizados. No obstante, el alcance de las mismas supera sobremanera el de este proyecto. Igualmente, muchas decisiones las toman en base a satisfacer requisitos que resultan muy importantes en su análisis, pero que en este trabajo no se ha considerado que tengan igual trascendencia, y viceversa, por lo que se han de tomar diferentes consideraciones frente a los mismos problemas dependiendo del impacto que suponen en cada proyecto.
+%				}
+%				También se han presentado casos de proyectos de voto telemático pensados a menor escala. Entre ellos, hay muchas soluciones que, en parte, podrían satisfacer los requisitos de este proyecto. No obstante en ninguno de ellos encontramos un protocolo que se adapte completamente a los requerimientos planteados, ya que, en algún momento, se analiza un elemento que los hace diferir. Por ejemplo, un proyecto ya maduro como Votescript (\ref{ivotingVotescript}) realiza un estudio académico y técnico muy profundo acerca del voto telemático pero, por su propia definición, el modelo de identificación y emisión del voto lo sitúan físicamente en centros de votación. Este elemento es diferencial para este proyecto, pensado en el voto telemático remoto, aunque puede integrarse cuando se estudian alternativas para que aquellos votantes que, por algún motivo, no pueden o quieren votar por Internet de forma remota tengan la oportunidad de ejercer su derecho de sufragio desde un lugar habilitado para ello por la propia Escuela.
+%				\textst{
+%				A partir de los esquemas criptográficos estudiados y con ayuda de algunos protocolos ya publicados en otros proyectos, el siguiente paso es diseñar el protocolo de votación que se adapte a las necesidades del Proyecto, cumpliendo con los requisitos y asegurando los niveles de seguridad planteados.
+%				
+%				En muchas de las soluciones estudiadas se observa que no recibe la importancia necesaria la fase de identificación del votante. Los mecanismos de identificación y autenticación del mismo resultan laxos desde el punto de vista de la seguridad ante el fraude electoral. Por ello han sido descartadas las soluciones basadas en identificación por medio de bases de datos con el típico protocolo de usuario/contraseña o incluso con elementos de seguridad de una generación algo posterior, como pin, patrones, captchas, operaciones aritméticas o métodos similares con mayor o menor complejidad. Igualmente, se han descartado aquellos métodos de identificación que requieran la presencia física del votante frente a los responsables de la mesa de votación, ya que se busca el diseño de un sistema remoto. Así descartamos protocolos de identificación como los publicados por Votescript, en el que el votante acude a un centro o local de votación, se identifica ante la mesa electoral y recibe un token criptográfico personalizado con el que se le permite ejercer el sufragio.
+%				
+%				La mayoría de las soluciones estudiadas previamente a la realización de esta memoria centran sus esfuerzos en la fase de votación. Buscan la elaboración de un protocolo robusto, basado en esquemas criptográficos, que permita la mayor seguridad posible al cumplimiento de los requisitos fundamentales del voto electrónico, dotando al sistema de privacidad del votante, 
+%			}
+%				\todo[inline]{Hay que modificarlo. Es anterior a la decisión de utilizar Helios}
+%\fi				
+%				
 				
 				
 				
@@ -764,81 +760,81 @@ class AuthorizeView(View):
 				%\todo[inline]{No he podido conseguir reglamentación oficial de la elección, así que, básicamente, propongo yo las fases y la problemática ... esto, con palabras aquí escrito y bien puesto }
 				%
 				
-\iffalse
-				\section{ESTO ES EL PFC}
-				\todo[inline]{ESTO NO VA EN EL PFC, ES UNA EXPLICACIÓN PARA TENER PRESENTE QUÉ ES EL PFC YU PODER DESARROLLAR LA MEMORIA EN TORNO A LA IDEA QUE TENEMOS.}
-				El sistema que se propone en este PFC es un sistema integral. Busca sostener el proceso electoral desde el comienzo hasta el final del mismo. Por ello empieza en el momento mismo de definición del censo y no termina hasta que la publicación de resultados y su auditoría son oficializadas por el órgano rector de la Elección.
-				
-				La primera fase, preelectoral, es aquella previa al día electoral, en la cual se definen las bases en las que se rige el proceso electoral.
-				
-				Así, es imprescindible cumplimentar varias acciones por parte de los desarrolladores, administradores y órgano electoral.
-				
-				En primer lugar, es fundamental la elaboración de un censo electoral. En éste se recogen los potenciales votantes, aquellos con derecho a voto, identificando, además, la circunscripción \notasDuda{Cir-cuns-crip-ción??? No hay una forma mejor de expresarlo??} a la que pertenece. En unas elecciones legislativas, una circunscripción electoral se puede definir como el conjunto de electores a partir del cual se procede la distribución de los escaños asignados, en función de la distribución del los votos sufragados. En las elecciones legislativas españolas, las circunscripciones se corresponden con las provincias españolas (excepto en el caso de Aturias, que está subdividida en 3 distritos electorales, y la Región de Murcia, que lo hace en 5). Esto significa que del total de diputados que se eligen en este proceso para la totalidad de España, en vez de repartirlos con el recuento total de los votos, se reparten los cargos por cada circunscripción, dependiendo del número de electores de cada una, con lo que los votantes censados en una circunscripción, digamos por ejemplo la provincia de Málaga, elegirán a un número determinado de diputados que serán quienes les representen en el Congreso junto a los elegidos en el resto de territorios españoles. En las Elecciones al Parlamento Europeo, sin embargo, España actúa como una única circunscripción, por lo que los diputados que representarán al país en la cámara supranacional se obtendrán a base de repartir los escaños con respecto al total de votos recogidos en todo el territorio español.
-				
-				Algo parecido es lo que se va a definir en el censo electoral. Además de recoger de forma unívoca a los electores con derecho al voto, se tendrán que sumar las ************\notasCambio{*********} necesarias para su correcta identificación, así como la ``circunscripción'' a la que pertenece, es decir, el grupo sobre el que debe escoger a sus representantes, con el fin de que la opción de voto que el sistema le presente y la que introduzca en el sistema sea correcta.
-				
-				Se vislumbran aquí dos requisitos del voto electrónico que necesitan ser satisfechos para la integridad del proceso electoral.
-				
-				En primer lugar, es básico que el censo defina claramente los votantes con derecho al voto y provea de la información necesaria para que se pueda comprobar la identidad del votante en el momento en el que se disponga a votar. En las elecciones con voto tradicional esto se conseguía añadiendo datos personales tales como el número del DNI, del Pasaporte o, en caso de estas elecciones, el número de identificación del alumno. Así, al acudir a la mesa electoral todos los votantes tenían estos datos con los que se podían identificar frente a los miembros de la misma, los cuales tienen la potestad de permitirles votar o no.
-				
-				Integridad del voto. El hecho de relacionar cada votante con una ``circunscripción'' es esencial a la hora de mantener la integridad de la votación, pues hay que tener en cuenta los candidatos a los que cada votante puede votar, ya que no son los mismos para todos. Igual que en unas legislativas españolas un votante de Málaga no elige entre los mismos candidatos que lo hace un votante de Lugo, en estas elecciones, un alumno elige sus representantes entre los delegados de curso, mientras que los profesores, por su parte, lo hacen entre otros colegas profesores. Es indispensable, pues, gestionar correctamente estas relaciones ya que no se deben recoger votos de votantes a candidatos a los que no tiene derecho a elegir.
-				
-				En el caso de esta elección, es la propia Escuela Politécnica Superior la que debe proveer el censo oficial a los administradores del sistema, los cuales procederán a cargarlo en el mismo a través de los mecanismos implementados para ello.
-				\notasInfo[inline]{(Aquí encontramos un primer punto de auditoría importante).}
-				\notasInfo[inline]{(En algunos países, en vez de elaborarse un censo oficial, son los propios votantes los que han de registrarse)}
-				
-				
-				Es requisito de la Institución que convoca el proceso electoral el definir las ``reglas del juego''. En este caso, el órgano de la EPS encargado de la celebración de las elecciones ha de definir los mecanismos de votación para que el sistema se pueda adaptar y mantener .......
-				\todo[inline]{continuar...}
-				
-				Candidatos. Es necesario que los candidatos puedan presentar su candidatura e incorporarse al sistema para que éste pueda gestionarlos para presentarlos como opciones a los votantes determinados, además de en el momento de consolidación de los votos y posterior publicación de resultados.
-				En muchos procesos se realizan desarrollos que permiten a los partidos políticos registrar sus listas electorales y/o candidatos de forma remota durante el plazo determinado que la Ley Electoral les indica. Así, los partidos inscriben a sus representantes en el proceso electoral. En el caso de esta elección, debido a su carácter tan localizado no vemos necesidad de ello y corresponde a la Escuela Politécnica Superior proporcionar el listado de candidatos elegible y las circunscripciones a las que se presentan.
-				\todo[inline]{Para futuros desarrollos, pensando en la escalabilidad del sistema, se podría desarrollar este punto para que este proceso sea independiente de los órganos electorales de la EPS}.
-				
-				En las elecciones tradicionales, es también necesaria la formación de las mesas electorales, con la definición del número de ellas que son necesarias y la designación de los miembros que van a formar parte de ella. En una elección electrónica y remota, como la que hemos diseñado, el concepto de mesa se puede mantener, sobre todo para poder gestionar las circunscripciones y para continuar con las estadísticas de participación tradicionales, basadas en agrupaciones y disgregaciones de mesas. Sin embargo, al transformarse en un concepto lógico, se pierde el sentido de la designación de los miembros de mesa, por lo que no será un punto a tener en cuenta en el proceso.
-				
-				
-				\todo[inline]{Pasamos a la siguiente fase: Identificación}
-				Una vez acometidas todas las gestiones de la fase preelectoral, pasamos a la fase correspondiente al llamado Día Electoral (aunque realmente la elección en vez de en un día, se pueda alargar a lo largo de un período de tiempo mayor).
-				Tratando de emular a las elecciones tradicionales, esta fase comienza con la apertura de los colegios electorales y las mesas que los componen. En el caso digital, serán los miembros designados por la Junta Electoral los que, previa identificación y requerimiento de sus credenciales digitales, pongan en marcha el sistema en su fase electoral. Será una apertura de los colegios de forma virtual, permitiendo que los votantes puedan acceder al sistema y proceder a votar.
-				La fase de identificación del votante es una fase realmente importante. En las elecciones de voto tradicional, el proceso normal consiste en que el votante acude a la mesa electoral y muestra a los miembros de mesa alguna identificación de curso legal, respaldada por alguna institución estatal reconocida y capacitada. Los miembros de la mesa electoral contrastan la identificación presentada con la información recogida en el censo electoral de dicha mesa y deciden si es suficiente o no para permitir al votante introducir su voto en la urna. En el caso de las elecciones legislativas españolas los documentos que se pueden mostrar son DNI, pasaporte o permiso de conducir. Todos estos documentos son válidos para votar incluso estando caducados. Han de mostrar la fotografía del votante para permitir la identificación por parte de los miembros de mesa, por lo que, aunque sea válido que estén caducados, no se permite utilizar el resguardo de DNI en trámite.
-				\todo[inline]{En el caso de las elecciones de la EPS, los documentos válidos son .-......}
-				Es requisito el sustituir este sistema de identificación del elector por otro en el que no sea necesaria la presencia física de éste ni de los miembros de mesa para permitir el voto, aunque manteniendo el mismo nivel de seguridad en el proceso. Aquí se hace indispensable estudiar las opciones de identificación digital que se pueden implementar para .............
-				\todo[inline]{continuar}
-				
-				Lo ideal es disponer de documentos que contengan tokens criptográficos propios que puedan ser utilizados en los diferentes procesos de identificación y voto. Por ello, vamos a utilizar documentos que los disponen.
-				
-				Así, los documentos válidos para ejercer el derecho al voto serán el DNIe (tanto la primera versión como la denominada 3.0, presentada en enero de 2015) y la TUI \notasMejorar{***InfoTUI***} de la Universidad San Pablo-CEU. En sendos documentos encontramos elementos criptográficos que identifican unívocamente a su dueño. Además encontramos en ellos certificados para la firma digital, que serán necesarios para la fase de votación.
-				
-				El votante se identifica con su documento digital de forma remota. Es necesario que disponga de un lector de chip electrónico conectado al dispositivo desde el que va a realizar el voto, aunque utilizando DNIe con lector de chip sin contacto, no haría falta si se hace uso de un dispositivo con sensor de radiofrecuencia, con capacidad para leer información a través de NFC.
-				
-				A través de la app Android (o la app web), el votante accede al servicio de votación por Internet. El primer paso es la identificación del votante. Es la primera vez que hará uso de los certificados del DNIe. En este caso, la app leerá (con NFC o chip con contacto) el certificado de Autenticación del DNIe, por el cual se asegura la identidad del votante. Con la identidad del votante verificada (por la DGP), se contrasta con el censo, para comprobar:
-				\begin{itemize}
-					\item Si el votante existe en el censo.
-					\item Si el votante ha votado previamente.
-					\item Los datos censales del votante, para comprobar circunscripción, mesa electoral y, por ende, ser capaz de obtener los candidatos entre los que puede escoger.
-				\end{itemize}
-				
-				Una vez verificado el votante y comprobados sus datos censales, se procede a construir la boleta con los candidatos que entre los que le corresponde elegir basándose en su circunscripción electoral. El sistema ha de presentar la boleta al votante y permitir que éste marque la o las opciones que permita el sistema electoral para constituir el voto a emitir.
-				
-				Una vez constituido el voto (papeleta), hay que proceder a la votación digital. Para ello nos basamos en cifrado y firma ciega. Así, el primer paso es que la app utiliza la clave pública de la Entidad Electoral para cifrar el voto. Con el voto cifrado, el votante ha de firmarlo. La firma se realiza con el certificado de Firma que posee el DNIe. Así, el votante firma un conjunto de [voto cifrado + votante], que es el paquete que se pasará al subsistema de gestión del voto.
-				
-				Una vez el votante ha emitido el voto, el sistema le devuelve un resguardo (código QR como en Estonia, un código alfanumérico, no sé todavía) con el cual puede verificar que el voto ha sido correctamente incluido en el sistema. Además, podrá verificar que el voto ha sido correctamente incluido en el escrutinio. \notasCambio[inline]{(No sé si con este resguardo debe poder llegar a la opción de voto elegida, todo depende de cómo tomemos el requisito de coerción y qué es lo que menos le afecta)}
-				
-				El votante puede votar tantas veces como desee cambiar su voto \notasInfo{Así disminuimos el riesgo de coerción}. Para ello, hay un protocolo por el cual cuando un votante emite su voto, todos los anteriores son anulados. \todo[inline]{Hay que definir el protocolo para la anulación de votos por 'revoto'}
-				
-				El sistema de gestión del voto es el encargado de los votos sufragados durante la jornada electoral. El sistema almacena los votos firmados (voto cifrado + votante) en una \textit{urna} digital durante el tiempo que dura la jornada electoral. En caso de recibir un voto de un votante que ya previamente había emitido su voto, debe ser capaz de anular los votos anteriores que éste hubiese sufragado\notasInfo{Como digo antes, hay que definir cómo se hace esto de anular votos emitidos}.
-				Una vez que el Administrador del Proceso Electoral da por terminada la Jornada Electoral, los Miembros de la Junta Electoral utilizan sus claves para formar la clave maestra que permite dar por terminada la fase de votación y comenzar con el Escrutinio.
-				La primera fase del Escrutinio es que los votos firmados deben ser \textit{anonimizados}. Esto lo vamos a realizar en dos pasos. Primero, comprobamos la validez de la firma del voto firmado. Si la firma se corresponde con u voto a descartar, se elimina. Si la firma es válida, se extrae (abrimos el sobre donde va la info del votante y el sobre con su voto secreto) del contenido del voto firmado tanto el voto cifrado como la información asociada del votante. Por un lado, la información del votante se almacena para sacar un listado de votantes (que podrá compararse con el resultado de votantes del censo). Por otra parte, los votos cifrados pasan a otro almacén ya sin asociación con su votante. Para terminar de separar los votos de sus votantes, pasamos por un proceso anonimizador que ... \todo[inline]{Aquí entra en juego ElGamal y sus amigos o las mixnets}.
-				Una vez tenemos los votos separados de sus votantes, procedemos a la siguiente fase del escrutinio, que es la de (abrir el sobre del voto secreto) descifrar el voto. El sistema necesita la clave privada de la Entidad Electoral para descifrar los votos que, recordemos, están cifrados con la clave pública. Con esta clave privada, extraemos el contenido del voto cifrado y obtenemos cada uno de los votos en plano de las urnas digitales.
-				Una vez obtenidos el conjunto de los votos en plano de cada urna digital, podemos proceder a la consolidación de los votos. Se realiza el conteo de cada urna y, con los resultados obtenidos, se puede realizar la totalización para llegar al resultado final de la Elección.
-				
-				El último paso del sistema será el de la Difusión de los Resultados. El sistema de Escrutinio (o Totalización) informa de los resultados al módulo de Difusión, el cual les aplicará el formato necesario para cumplir con las necesidades de publicación de los mismos. En el caso del Proceso Electoral asociado a este proyecto, una web y diversos listados PDFs para poder ser cotejados.
-
-				Sería muy interesante que, como en Estonia, los votantes tuvieran una herramienta para poder verificar que su voto ha sido correctamente incluido y escrutado en el Proceso.
-				
-				Paralelamente a todo el proceso, cada subsistema ha de generar una serie de registros, ficheros logs, que puedan ser visualizados por un conjunto de auditores, observadores u otro grupo de profesionales que tengan que dar cuenta del correcto funcionamiento del Proceso y de la transparencia del mismo, así como del éxito técnico del Sistema.
-\fi		
+%\iffalse
+%				\section{ESTO ES EL PFC}
+%				\todo[inline]{ESTO NO VA EN EL PFC, ES UNA EXPLICACIÓN PARA TENER PRESENTE QUÉ ES EL PFC YU PODER DESARROLLAR LA MEMORIA EN TORNO A LA IDEA QUE TENEMOS.}
+%				El sistema que se propone en este PFC es un sistema integral. Busca sostener el proceso electoral desde el comienzo hasta el final del mismo. Por ello empieza en el momento mismo de definición del censo y no termina hasta que la publicación de resultados y su auditoría son oficializadas por el órgano rector de la Elección.
+%				
+%				La primera fase, preelectoral, es aquella previa al día electoral, en la cual se definen las bases en las que se rige el proceso electoral.
+%				
+%				Así, es imprescindible cumplimentar varias acciones por parte de los desarrolladores, administradores y órgano electoral.
+%				
+%				En primer lugar, es fundamental la elaboración de un censo electoral. En éste se recogen los potenciales votantes, aquellos con derecho a voto, identificando, además, la circunscripción \notasDuda{Cir-cuns-crip-ción??? No hay una forma mejor de expresarlo??} a la que pertenece. En unas elecciones legislativas, una circunscripción electoral se puede definir como el conjunto de electores a partir del cual se procede la distribución de los escaños asignados, en función de la distribución del los votos sufragados. En las elecciones legislativas españolas, las circunscripciones se corresponden con las provincias españolas (excepto en el caso de Aturias, que está subdividida en 3 distritos electorales, y la Región de Murcia, que lo hace en 5). Esto significa que del total de diputados que se eligen en este proceso para la totalidad de España, en vez de repartirlos con el recuento total de los votos, se reparten los cargos por cada circunscripción, dependiendo del número de electores de cada una, con lo que los votantes censados en una circunscripción, digamos por ejemplo la provincia de Málaga, elegirán a un número determinado de diputados que serán quienes les representen en el Congreso junto a los elegidos en el resto de territorios españoles. En las Elecciones al Parlamento Europeo, sin embargo, España actúa como una única circunscripción, por lo que los diputados que representarán al país en la cámara supranacional se obtendrán a base de repartir los escaños con respecto al total de votos recogidos en todo el territorio español.
+%				
+%				Algo parecido es lo que se va a definir en el censo electoral. Además de recoger de forma unívoca a los electores con derecho al voto, se tendrán que sumar las ************\notasCambio{*********} necesarias para su correcta identificación, así como la ``circunscripción'' a la que pertenece, es decir, el grupo sobre el que debe escoger a sus representantes, con el fin de que la opción de voto que el sistema le presente y la que introduzca en el sistema sea correcta.
+%				
+%				Se vislumbran aquí dos requisitos del voto electrónico que necesitan ser satisfechos para la integridad del proceso electoral.
+%				
+%				En primer lugar, es básico que el censo defina claramente los votantes con derecho al voto y provea de la información necesaria para que se pueda comprobar la identidad del votante en el momento en el que se disponga a votar. En las elecciones con voto tradicional esto se conseguía añadiendo datos personales tales como el número del DNI, del Pasaporte o, en caso de estas elecciones, el número de identificación del alumno. Así, al acudir a la mesa electoral todos los votantes tenían estos datos con los que se podían identificar frente a los miembros de la misma, los cuales tienen la potestad de permitirles votar o no.
+%				
+%				Integridad del voto. El hecho de relacionar cada votante con una ``circunscripción'' es esencial a la hora de mantener la integridad de la votación, pues hay que tener en cuenta los candidatos a los que cada votante puede votar, ya que no son los mismos para todos. Igual que en unas legislativas españolas un votante de Málaga no elige entre los mismos candidatos que lo hace un votante de Lugo, en estas elecciones, un alumno elige sus representantes entre los delegados de curso, mientras que los profesores, por su parte, lo hacen entre otros colegas profesores. Es indispensable, pues, gestionar correctamente estas relaciones ya que no se deben recoger votos de votantes a candidatos a los que no tiene derecho a elegir.
+%				
+%				En el caso de esta elección, es la propia Escuela Politécnica Superior la que debe proveer el censo oficial a los administradores del sistema, los cuales procederán a cargarlo en el mismo a través de los mecanismos implementados para ello.
+%				\notasInfo[inline]{(Aquí encontramos un primer punto de auditoría importante).}
+%				\notasInfo[inline]{(En algunos países, en vez de elaborarse un censo oficial, son los propios votantes los que han de registrarse)}
+%				
+%				
+%				Es requisito de la Institución que convoca el proceso electoral el definir las ``reglas del juego''. En este caso, el órgano de la EPS encargado de la celebración de las elecciones ha de definir los mecanismos de votación para que el sistema se pueda adaptar y mantener .......
+%				\todo[inline]{continuar...}
+%				
+%				Candidatos. Es necesario que los candidatos puedan presentar su candidatura e incorporarse al sistema para que éste pueda gestionarlos para presentarlos como opciones a los votantes determinados, además de en el momento de consolidación de los votos y posterior publicación de resultados.
+%				En muchos procesos se realizan desarrollos que permiten a los partidos políticos registrar sus listas electorales y/o candidatos de forma remota durante el plazo determinado que la Ley Electoral les indica. Así, los partidos inscriben a sus representantes en el proceso electoral. En el caso de esta elección, debido a su carácter tan localizado no vemos necesidad de ello y corresponde a la Escuela Politécnica Superior proporcionar el listado de candidatos elegible y las circunscripciones a las que se presentan.
+%				\todo[inline]{Para futuros desarrollos, pensando en la escalabilidad del sistema, se podría desarrollar este punto para que este proceso sea independiente de los órganos electorales de la EPS}.
+%				
+%				En las elecciones tradicionales, es también necesaria la formación de las mesas electorales, con la definición del número de ellas que son necesarias y la designación de los miembros que van a formar parte de ella. En una elección electrónica y remota, como la que hemos diseñado, el concepto de mesa se puede mantener, sobre todo para poder gestionar las circunscripciones y para continuar con las estadísticas de participación tradicionales, basadas en agrupaciones y disgregaciones de mesas. Sin embargo, al transformarse en un concepto lógico, se pierde el sentido de la designación de los miembros de mesa, por lo que no será un punto a tener en cuenta en el proceso.
+%				
+%				
+%				\todo[inline]{Pasamos a la siguiente fase: Identificación}
+%				Una vez acometidas todas las gestiones de la fase preelectoral, pasamos a la fase correspondiente al llamado Día Electoral (aunque realmente la elección en vez de en un día, se pueda alargar a lo largo de un período de tiempo mayor).
+%				Tratando de emular a las elecciones tradicionales, esta fase comienza con la apertura de los colegios electorales y las mesas que los componen. En el caso digital, serán los miembros designados por la Junta Electoral los que, previa identificación y requerimiento de sus credenciales digitales, pongan en marcha el sistema en su fase electoral. Será una apertura de los colegios de forma virtual, permitiendo que los votantes puedan acceder al sistema y proceder a votar.
+%				La fase de identificación del votante es una fase realmente importante. En las elecciones de voto tradicional, el proceso normal consiste en que el votante acude a la mesa electoral y muestra a los miembros de mesa alguna identificación de curso legal, respaldada por alguna institución estatal reconocida y capacitada. Los miembros de la mesa electoral contrastan la identificación presentada con la información recogida en el censo electoral de dicha mesa y deciden si es suficiente o no para permitir al votante introducir su voto en la urna. En el caso de las elecciones legislativas españolas los documentos que se pueden mostrar son DNI, pasaporte o permiso de conducir. Todos estos documentos son válidos para votar incluso estando caducados. Han de mostrar la fotografía del votante para permitir la identificación por parte de los miembros de mesa, por lo que, aunque sea válido que estén caducados, no se permite utilizar el resguardo de DNI en trámite.
+%				\todo[inline]{En el caso de las elecciones de la EPS, los documentos válidos son .-......}
+%				Es requisito el sustituir este sistema de identificación del elector por otro en el que no sea necesaria la presencia física de éste ni de los miembros de mesa para permitir el voto, aunque manteniendo el mismo nivel de seguridad en el proceso. Aquí se hace indispensable estudiar las opciones de identificación digital que se pueden implementar para .............
+%				\todo[inline]{continuar}
+%				
+%				Lo ideal es disponer de documentos que contengan tokens criptográficos propios que puedan ser utilizados en los diferentes procesos de identificación y voto. Por ello, vamos a utilizar documentos que los disponen.
+%				
+%				Así, los documentos válidos para ejercer el derecho al voto serán el DNIe (tanto la primera versión como la denominada 3.0, presentada en enero de 2015) y la TUI \notasMejorar{***InfoTUI***} de la Universidad San Pablo-CEU. En sendos documentos encontramos elementos criptográficos que identifican unívocamente a su dueño. Además encontramos en ellos certificados para la firma digital, que serán necesarios para la fase de votación.
+%				
+%				El votante se identifica con su documento digital de forma remota. Es necesario que disponga de un lector de chip electrónico conectado al dispositivo desde el que va a realizar el voto, aunque utilizando DNIe con lector de chip sin contacto, no haría falta si se hace uso de un dispositivo con sensor de radiofrecuencia, con capacidad para leer información a través de NFC.
+%				
+%				A través de la app Android (o la app web), el votante accede al servicio de votación por Internet. El primer paso es la identificación del votante. Es la primera vez que hará uso de los certificados del DNIe. En este caso, la app leerá (con NFC o chip con contacto) el certificado de Autenticación del DNIe, por el cual se asegura la identidad del votante. Con la identidad del votante verificada (por la DGP), se contrasta con el censo, para comprobar:
+%				\begin{itemize}
+%					\item Si el votante existe en el censo.
+%					\item Si el votante ha votado previamente.
+%					\item Los datos censales del votante, para comprobar circunscripción, mesa electoral y, por ende, ser capaz de obtener los candidatos entre los que puede escoger.
+%				\end{itemize}
+%				
+%				Una vez verificado el votante y comprobados sus datos censales, se procede a construir la boleta con los candidatos que entre los que le corresponde elegir basándose en su circunscripción electoral. El sistema ha de presentar la boleta al votante y permitir que éste marque la o las opciones que permita el sistema electoral para constituir el voto a emitir.
+%				
+%				Una vez constituido el voto (papeleta), hay que proceder a la votación digital. Para ello nos basamos en cifrado y firma ciega. Así, el primer paso es que la app utiliza la clave pública de la Entidad Electoral para cifrar el voto. Con el voto cifrado, el votante ha de firmarlo. La firma se realiza con el certificado de Firma que posee el DNIe. Así, el votante firma un conjunto de [voto cifrado + votante], que es el paquete que se pasará al subsistema de gestión del voto.
+%				
+%				Una vez el votante ha emitido el voto, el sistema le devuelve un resguardo (código QR como en Estonia, un código alfanumérico, no sé todavía) con el cual puede verificar que el voto ha sido correctamente incluido en el sistema. Además, podrá verificar que el voto ha sido correctamente incluido en el escrutinio. \notasCambio[inline]{(No sé si con este resguardo debe poder llegar a la opción de voto elegida, todo depende de cómo tomemos el requisito de coerción y qué es lo que menos le afecta)}
+%				
+%				El votante puede votar tantas veces como desee cambiar su voto \notasInfo{Así disminuimos el riesgo de coerción}. Para ello, hay un protocolo por el cual cuando un votante emite su voto, todos los anteriores son anulados. \todo[inline]{Hay que definir el protocolo para la anulación de votos por 'revoto'}
+%				
+%				El sistema de gestión del voto es el encargado de los votos sufragados durante la jornada electoral. El sistema almacena los votos firmados (voto cifrado + votante) en una \textit{urna} digital durante el tiempo que dura la jornada electoral. En caso de recibir un voto de un votante que ya previamente había emitido su voto, debe ser capaz de anular los votos anteriores que éste hubiese sufragado\notasInfo{Como digo antes, hay que definir cómo se hace esto de anular votos emitidos}.
+%				Una vez que el Administrador del Proceso Electoral da por terminada la Jornada Electoral, los Miembros de la Junta Electoral utilizan sus claves para formar la clave maestra que permite dar por terminada la fase de votación y comenzar con el Escrutinio.
+%				La primera fase del Escrutinio es que los votos firmados deben ser \textit{anonimizados}. Esto lo vamos a realizar en dos pasos. Primero, comprobamos la validez de la firma del voto firmado. Si la firma se corresponde con u voto a descartar, se elimina. Si la firma es válida, se extrae (abrimos el sobre donde va la info del votante y el sobre con su voto secreto) del contenido del voto firmado tanto el voto cifrado como la información asociada del votante. Por un lado, la información del votante se almacena para sacar un listado de votantes (que podrá compararse con el resultado de votantes del censo). Por otra parte, los votos cifrados pasan a otro almacén ya sin asociación con su votante. Para terminar de separar los votos de sus votantes, pasamos por un proceso anonimizador que ... \todo[inline]{Aquí entra en juego ElGamal y sus amigos o las mixnets}.
+%				Una vez tenemos los votos separados de sus votantes, procedemos a la siguiente fase del escrutinio, que es la de (abrir el sobre del voto secreto) descifrar el voto. El sistema necesita la clave privada de la Entidad Electoral para descifrar los votos que, recordemos, están cifrados con la clave pública. Con esta clave privada, extraemos el contenido del voto cifrado y obtenemos cada uno de los votos en plano de las urnas digitales.
+%				Una vez obtenidos el conjunto de los votos en plano de cada urna digital, podemos proceder a la consolidación de los votos. Se realiza el conteo de cada urna y, con los resultados obtenidos, se puede realizar la totalización para llegar al resultado final de la Elección.
+%				
+%				El último paso del sistema será el de la Difusión de los Resultados. El sistema de Escrutinio (o Totalización) informa de los resultados al módulo de Difusión, el cual les aplicará el formato necesario para cumplir con las necesidades de publicación de los mismos. En el caso del Proceso Electoral asociado a este proyecto, una web y diversos listados PDFs para poder ser cotejados.
+%
+%				Sería muy interesante que, como en Estonia, los votantes tuvieran una herramienta para poder verificar que su voto ha sido correctamente incluido y escrutado en el Proceso.
+%				
+%				Paralelamente a todo el proceso, cada subsistema ha de generar una serie de registros, ficheros logs, que puedan ser visualizados por un conjunto de auditores, observadores u otro grupo de profesionales que tengan que dar cuenta del correcto funcionamiento del Proceso y de la transparencia del mismo, así como del éxito técnico del Sistema.
+%\fi		
 	
 	
 	\section{Prototipo}\label{solucion_prototipo}

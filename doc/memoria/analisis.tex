@@ -77,11 +77,11 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 				\begin{description}[font=$\bullet$\ \ ]
 					\item[Votación por Internet] El sistema de votación debe funcionar de forma remota en sus fases de registro, identificación, votación y consulta de resultados. Cualquier votante puede acceder a las funcionalidades del sistema a las que tiene autorización desde cualquier punto conectado a Internet.
 					
-					\item[Permitir votación presencial] El sistema debe proporcionar los mecanismos necesarios para permitir el voto a aquellos votantes con derecho al mismo que quieran emitirlo de forma presencial en el periodo habilitado para ello. \notasInfo[inline]{(Analizando este requisito, la mejor forma es habilitar un horario en la sala de ordenadores de la Escuela destinados a que las personas que quieran puedan votar de forma remota desde estos puestos)}
+					\item[Permitir votación presencial] El sistema debe proporcionar los mecanismos necesarios para permitir el voto a aquellos votantes con derecho al mismo que quieran emitirlo de forma presencial en el periodo habilitado para ello.
 					
-					\item[Disponibilidad total] El sistema debe estar disponible para proporcionar servicio de voto durante todo el periodo estipulado en las normas que se fijen para la elección. \notasInfo[inline]{(24/7, un día, varios días... depende de cómo se defina el proceso)}
+					\item[Disponibilidad total] El sistema debe estar disponible para proporcionar servicio de voto durante todo el periodo estipulado en las normas que se fijen para la elección.
 					
-					\item[Identificación remota] El sistema debe implementar un mecanismo que sea capaz de asegurar la identificación de un votante en el sistema de forma remota, digitalmente, sin posibilidad de error \notasMejorar{Esto de sin posibilidad de error ni me gusta ni queda correcto}.
+					\item[Identificación remota] El sistema debe implementar los mecanismos y adoptar las tecnologías necesarias para asegurar la identificación de un votante en el sistema de forma digital y remota.
 					
 					\item[Autenticación remota] El sistema debe poder autenticar a los votantes que tratan de usar su identificación digital para ingresar en el sistema de forma remota. El sistema no debe errar en esta autenticación, permitiendo la entrada de los votantes autorizados y revocando el acceso a los atacantes, suplantadores o desautorizados.
 					
@@ -91,8 +91,8 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 				\end{description}
 				
 			\subsection{Requisitos propios del voto electrónico}\label{requisitosVotoElectronico}
-			\todo[inline]{AQUÍ HAY QUE DEFINIR LOS REQUISITOS DEL VOTO ELECTRÓNICO. DEPENDE DEL AUTOR, HAY UNOS U OTROS. HABRÁ QUE DEFINIR CUÁLES SON LOS QUE VAMOS A TENER EN CUENTA PARA ESTE PROYECTO. ESTÁN EN --TEMP-- ESPERANDO A QUE TOME LA DECISIÓN. Fujioka? UNEX? MoralesRocha?}
-			A partir de los requisitos estudiados al estudiar el estado actual del voto electrónico en \ref{introduccionRequisitosVotoElectronico}, consideramos los siguientes requisitos como los implícitos al voto electrónico:
+
+				A partir de los requisitos implícitos al voto electrónico presentados en el capítulo \ref{introduccionRequisitosVotoElectronico}, consideramos los siguientes requisitos como los implícitos al voto electrónico:
 			
 				\begin{description}[font=$\bullet$\ \ ]
 					\item[Autenticidad]: Sólo los votantes autorizados pueden votar.
@@ -103,20 +103,15 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 					\item[Verificabilidad]: El votante puede asegurarse de que su voto se ha contado adecuadamente.
 					El sistema tiene que proporcionar una herramienta que permita a un votante poder verificar que la opción por la que ha votado ha sido correctamente añadida a los resultados consolidados del proceso electoral, sin que por ello pueda violarse el requisito de Anonimato, asegurando que ningún actor del sistema pueda tener acceso al contenido de dicho voto.
 					
-					\item[Imposibilidad de coacción]: El voto emitido no puede ser mostrado.
-					El sistema debe evitar que el voto emitido pueda ser mostrado a un tercer actor con el fin de evitar la coacción al votante por medio de éste.
-					\todo[inline]{NO ESTOY DE ACUERDO CON ESTO. ALGUNOS AUTORES INDICAN LO CONTRARIO, QUE ES PRIMORDIAL QUE EL VOTANTE SE QUEDE CON UNA PRUEBA DE SU VOTO. DE TODOS MODOS CONSIDERO QUE SI SE CUMPLE EL REQUISITO DE VERIFICABILIDAD, ES MEJOR CUMPLIR ESTE, PERO NO POR HACERLO VAMOS A CONSEGUIR REBAJAR EL RIESGO DE COERCIÓN, ¿O SÍ?}
-					
-					\item[\textst{Posibilidad de emitir un voto nulo}].
-					\textst{El sistema debe dar la opción al votante de que pueda realizar un voto nulo, al igual que puede realizarlo en un proceso electoral no electrónico.}
-					
-					\item[Fiabilidad]: el sistema debe asegurar que no se producen alteraciones de los resultados.
+					\item[Imposibilidad de coacción]: El sistema debe evitar que el voto emitido pueda ser mostrado a un tercer actor con el fin de evitar la coacción al votante o la venta del voto por/a un tercero.
+				
+					\item[Fiabilidad]: El sistema debe asegurar que no se producen alteraciones de los resultados.
 					Es esencial que el sistema asegure que, aunque existan riesgos inherentes a cualquier sistema informático, estos no van a afectar los resultados del proceso electoral.
 					
-					\item[Auditabilidad]: se debe poder comprobar que el funcionamiento de los elementos que intervienen en el proceso es correcto.
+					\item[Auditabilidad]: Se debe poder comprobar que el funcionamiento de los elementos que intervienen en el proceso es correcto.
 					Para favorecer la transparencia del proceso, es muy importante que el sistema proporcione unas herramientas que permitan tanto la monitorización del proceso como auditorías del mismo. Estas herramientas deben ser fiables y demostrar tanto su correcto funcionamiento como el del proceso electoral en si mismo a una serie de actores designados (operadores, auditores, observadores).
 					
-					\item[Usabilidad]: cualquier votante debe ser capaz de emitir un voto en un tiempo razonable.
+					\item[Usabilidad]: Cualquier votante debe ser capaz de emitir un voto en un tiempo razonable.
 					El sistema debe ser usable y accesible, debe facilitar el proceso de emisión de voto a prácticamente la totalidad del electorado.
 					
 					
@@ -159,8 +154,6 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 				\end{enumerate}
 
 			
-			\todo[inline]{Como lo hice en dos documentos diferentes, al unificarlo, tengo partes repetidas. Hay que borrar los repetidos.}
-
 
 \todo[inline]{He quitado la sección de Necesidades del esquema de voto electrónico...}
 \iffalse		
@@ -781,7 +774,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			
 			El informe que emite la herramienta tiene contenido análogo al siguiente ejemplo:
 		
-\begin{verbatim}
+\begin{lstlisting}
 -- Election --
 
 	loading election...
@@ -827,6 +820,6 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 --- FINAL RESULT ---
 
 === ELECTION FULLY VERIFIED -- SUCCESS! ===
-\end{verbatim}
+\end{lstlisting}
 			
 			\todo[inline]{MUY IMPORTANTE, hay que poner que al menos haya enlaces a los mecanismos de validación de votos.}
