@@ -1,6 +1,6 @@
 \chapter{Solución}\label{solucion}
 \lhead{Capítulo \ref{solucion}}
-\rhead{Descripción detallada de la solución}
+\rhead{Solución}
 %*******************************************************************************
 % *************************************************************************************************************** %
 % 			SOLUCIÓN
@@ -956,29 +956,59 @@ class AuthorizeView(View):
 		Para ello, hay que configurar tanto el router como la app Android y los servidores. En el caso del router, para funcionar por Internet habría que abrir los puertos necesarios y realizar su pertinente redireccionamiento a los puertos de los servidores necesarios.
 		
 		Una configuración típica de esta forma de conexión a través de Internet incluye configurar estos redireccionamientos en los puertos del router:
-		
-		\begin{table}[]			
-			\begin{tabularx}{\linewidth}{|l|l|l|l|l|}					
-					\hline						
-					\multicolumn{1}{c}{\textbf{Servidor}}	&	\multicolumn{1}{c}{\textbf{Puerto externo}}	&	\multicolumn{1}{c}{\textbf{IP servidor interno}}	&	\multicolumn{1}{c}{\textbf{Puerto interno}}	&	\multicolumn{1}{c}{\textbf{Descripción}}	\tabularnewline						
-					\hline						
-					\multirow{4}{*}{Servidor Identificación} 	& 8662 & 192.168.1.144 & 442 	& Puerto de acceso al servidor Apache por HTTPS/TLS \tabularnewline						
+		
+
+		\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+		\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+		\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+		\begin{table}[ht]
+			\small
+			\def\arraystretch{1.25}%  1 is the default, change whatever you need
+			\setstretch{1}
+				\begin{threeparttable}
+					\centering
+						\begin{tabular*}{\textwidth}{| L{0.18\textwidth} | L{0.1\textwidth} | L{0.18\textwidth} | L{0.09\textwidth} | L{0.304\textwidth} |}
+							\hline
+								
+								\begin{center}
+								\textbf{Servidor}
+								\end{center}
+								 & 
+								 \begin{center}
+								 \textbf{Puerto \\ externo}
+								 \end{center}
+								& 
+								\begin{center}
+								\textbf{IP servidor \\ interno}
+								\end{center}
+								& 
+								\begin{center}
+								\textbf{Puerto \\ interno}
+								\end{center}
+								& 
+								\begin{center}
+								\textbf{Descripción}
+								\end{center}
+								 \\
+					\hline\hline						
+					\multirow{4}{*}{\textbf{Autenticación}} 	& 8662 & 192.168.1.144 & 442 	& Puerto de acceso al servidor Apache por HTTPS/TLS \tabularnewline						
 					\cline{2-5}						
-					& 8888 & 192.168.1.144 & 80 	& Acceso al Apache por HTTP sin seguridad \tabularnewline						
+					& 8888 & 192.168.1.144 & 80 	& Puerto de acceso al servidor Apache por HTTP \tabularnewline						
 					\cline{2-5}						
 					& 8443 & 192.168.1.144 & 443 	& Puerto de acceso al servidor Apache por HTTPS/TLS \tabularnewline						
 					\cline{2-5}						
 					& 8022 & 192.168.1.144 & 22 	& Acceso SSH \tabularnewline						
-					\hline						
-					\multirow{3}{*}{Servidor Votación}	 			& 8889 & 192.168.1.145 & 80 	& Acceso al Apache por HTTP sin seguridad \tabularnewline						
+					\hline\hline						
+					\multirow{3}{*}{\textbf{Votación}}	 			& 8889 & 192.168.1.145 & 80 	& Puerto de acceso al servidor Apache por HTTP \tabularnewline						
 					\cline{2-5}						
 					& 8445 & 192.168.1.145 & 443 	& Puerto de acceso al servidor Apache por HTTPS/TLS \tabularnewline						
 					\cline{2-5}						
 					& 8044 & 192.168.1.145 & 22 	& Acceso SSH \tabularnewline						
-					\hline					
-				\end{tabularx}					
-				\caption{Port forwarding en la red de desarrollo.\label{tab:portForfarding}}			
-		\end{table}
+					\hline
+						\end{tabular*}
+						\caption{Port forwarding en la red de desarrollo.\label{tab:portForwarding}}
+					\end{threeparttable}
+			\end{table}
 			
 		
 		
