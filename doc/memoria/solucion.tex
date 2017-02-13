@@ -37,12 +37,12 @@
 		
 			
 		\section{Arquitectura del sistema}\label{solucion_arquitectura}
-			Tal como se determina en el análisis (\ref{analisis}), la solución que se propone para este Proyecto consiste en la integración de tres componentes, adptados a las necesidades de una elección para la EPS.
+			Tal como se determina en el análisis (\ref{analisis}), la solución que se propone para este Proyecto consiste en la integración de tres componentes, adaptados a las necesidades de una elección para la EPS.
 			
 			\begin{description}
 				\item[Cliente:] En el lado cliente, de cara al usuario, se ha implementado una solución para poder acceder a las credenciales del chip sin contacto del DNIe 3.0. Esta implementación es una aplicación Android.
 			
-				\item[Servidor de autenticación:] Para permitir el acceso al sistema con las credenciales del DNIe, se utiliza un servidor de autenticación basado en el protocolo oAuth. La aplicación Android se conecta por HTTPS/TLS de forma segura al servidor web estableciendo un canal seguro utilizando el certificado del propio servidor y como certificado de cliente, el de identifiacación del DNIe. Este servidor es el que autoriza al usuario comprobando su identidad y consultando el censo de la elección.
+				\item[Servidor de autenticación:] Para permitir el acceso al sistema con las credenciales del DNIe, se utiliza un servidor de autenticación basado en el protocolo oAuth. La aplicación Android se conecta por HTTPS/TLS de forma segura al servidor web estableciendo un canal seguro utilizando el certificado del propio servidor y como certificado de cliente, el de identificación del DNIe. Este servidor es el que autoriza al usuario comprobando su identidad y consultando el censo de la elección.
 			
 			\item[Servidor de votación:] El servidor de votación es una versión adaptada del sistema Helios Voting. Se comunica con el cliente por HTTPS y el usuario, autorizado previamente, tiene la posibilidad de, dependiendo de su rol, crear y gestionar una elección, votar en ella y/o, simplemente, consultar los resultados.
 			\end{description}
@@ -53,13 +53,6 @@
 					\caption{Arquitectura del sistema}
 					\label{fig:arquitectura.sistema}
 				\end{figure}
-			
-			\subsection{Cliente Android}\label{arquitectura_clienteAndroid}
-			La aplicación Android de cliente es necesaria para poder utilizar el certificado de autenticación sin contacto incluído en el DNIe 3.0. Desde un ordenador de escritorio, con los drivers del DNIe instalados, el propio Sistema Operativo se encarga de la comunicación con los certificados del carnet. Con ellos, se puede establecer una conexión HTTPS/TLS segura contra un servidor web configurado para interactuar con este tipo de certificados.
-			
-			Para poder utilizar el DNIe sin contacto, se ha adaptado la aplicación original de la DGP para acceder a los certificados sin contacto del DNIe 3.0. Esta aplicación, una vez que se comunica con el chip sin contacto y extrae el certificado de autenticación, utiliza éste para poder establecer la comunicación HTTPS con el servidor de autenticación.
-			
-			Una vez el servidor de autenticación autoriza al cliente el acceso al servidor de votación, la navegación por la web se realiza a través de un navegador web del dispositivo. La propia aplicación Android es quien realiza la llamada al navegador para que se abra la aplicación y acceda a la página de inicio con el código de acceso necesario, obtenido del swervidor de autenticación, para que se puedean obtener los tokens que permitan al usuario interactuar con el sistema con priviliegios.
 			
 			\section{Servidor de autenticación}\label{arquitectura_servidorAutenticacion}
 			El servidor de autenticación implementa el protocolo de autenticación oAuth 2.0 entre el usuario y el sistema. En concreto, se ha realizado un fork del proyecto \textit{django-oauth2-server}\footnote{\url{https://github.com/RichardKnop/django-oauth2-server}} desarrollado por Richard Knop. El objetivo era modificarlo para adaptarlo a diferentes necesidades teniendo en cuenta si el acceso es por la web o a través de la app Android. Además, era necesario que la autorización del usuario se realizara consultando el censo de usuarios y/o votantes de la Elección.
@@ -276,123 +269,23 @@ class AuthorizeView(View):
 						\item [helios\_auth\_user] Para cada elección, esta tabla asocia usuarios del sistema (con derecho a voto o sin él) con las capacidades de administración.			
 									
 					\end{description}
+					
+		\section{Cliente Android}\label{arquitectura_clienteAndroid}
+			La aplicación Android de cliente es necesaria para poder utilizar el certificado de autenticación sin contacto incluido en el DNIe 3.0. Desde un ordenador de escritorio, con los drivers del DNIe instalados, el propio Sistema Operativo se encarga de la comunicación con los certificados del carnet. Con ellos, se puede establecer una conexión HTTPS/TLS segura contra un servidor web configurado para interactuar con este tipo de certificados.
+			
+			Para poder utilizar el DNIe sin contacto, se ha adaptado la aplicación original de la DGP para acceder a los certificados sin contacto del DNIe 3.0. Esta aplicación, una vez que se comunica con el chip sin contacto y extrae el certificado de autenticación, utiliza éste para poder establecer la comunicación HTTPS con el servidor de autenticación.
+			
+			Una vez el servidor de autenticación autoriza al cliente el acceso al servidor de votación, la navegación por la web se realiza a través de un navegador web del dispositivo. La propia aplicación Android es quien realiza la llamada al navegador para que se abra la aplicación y acceda a la página de inicio con el código de acceso necesario, obtenido del servidor de autenticación, para que se puedan obtener los tokens que permitan al usuario interactuar con el sistema con privilegios.
 
-					
-		
-		\section{Topología de la red}\label{solucion_topologiaRed}
-				\todo[inline]{Para esto sí que necesito ayuda, por el tema de Firewalls y esas cosas.}
+			\subsection{Código fuente}\label{solucion_app_codigofuente}
+				Obviamente, el código fuente de la app ha debido ser modificado ya que la funcionalidad que se busca que tenga la aplicación no es la misma que la que ofrece la original.		
+				En la app original, al entrar se nos ofrece un menú radial con diferentes opciones. Esto no ocurre en la versión de este proyecto. La app en nuestro caso está pensada para realizar tan sólo un trabajo, realizar la identificación y autenticación de usuario contra un servidor oAuth y transmitir al sistema de votación la aceptación o revocación de acceso del mismo contra el sistema.		
+				Por ello, la app va a carecer de un menú inicial, ya que no es necesario.		
+				Una vez se abra la app, ya sea desde el menú del dispositivo o desde el botón de login de la página inicial de la web del sistema de votación, aparecerá el menú de selección del CAN del DNIe que queremos utilizar, o, si es la primera vez que cierto usuario utiliza la app, la posibilidad de añadir un nuevo DNIe con su CAN correspondiente.
 				
-				De cara a la topología de la red del sistema, se ha diseñado la integración para abordar tres configuraciones diferentes dependiendo de las necesidades de la elección:
-				
-				\begin{enumerate}
-					\item \textbf{Servidor de autenticación y Servidor de votación en la misma red. Acceso de los votantes desde Internet.} Figura \ref{fig:topologiaRed_servidoresMismaRed}
-						
-						Esta topología requiere port forwarding del router que comunica la red de los dos servidores con Internet para que, a través del mismo endpoint, los dispositivos se puedan conectar con los servicios de ambos servidores.
-						
-						Las consultas OCSP para validación del DNIe se realizan a través de Internet.
-						\begin{figure}[htbp]
-							\centering
-								\includegraphics[width=0.30\textwidth]{imgs/topologiaRed01.jpg}
-							\caption{Topología de la red con los servidores compartiendo red.}
-							\label{fig:topologiaRed_servidoresMismaRed}
-						\end{figure}
-						
-						\item \textbf{Servidor de autenticación y Servidor de Votación en redes diferentes. Acceso de los votantes desde Internet.} Figura \ref{fig:topologiaRed_servidoresDistintaRed}
-						
-						Esta topología no requiere port forwarding, pues cada servidor tiene su propio acceso a/por Internet. Los dispositivos accederían directamente a la IP/URL de cada servidor y utilizarían sus diferentes servicios utilizando el puerto correspondiente.
-						
-						Las consultas OCSP para validación del DNIe se realizan a través de Internet.
-						\begin{figure}[htbp]
-							\centering
-								\includegraphics[width=0.30\textwidth]{imgs/topologiaRed02.jpg}
-							\caption{Topología de la red con los servidores en redes diferentes.}
-							\label{fig:topologiaRed_servidoresDistintaRed}
-						\end{figure}
-						
-						\item \textbf{Tanto el Servidor de autenticación, como el Servidor de Votación y los dispositivos se comunican por la misma red, sin necesitar acceder a través de Internet.} Figura \ref{fig:topologiaRed_intranet}
-						
-						Haría falta un acceso a Internet para poder realizar consultas OCSP de validación del DNIe.
-						
-						Esta topología de red interna no cumple con los requisitos de voto e identificación remotos a través de Internet definidos en \ref{requisitosFuncionales}, pero es una buena solución para elecciones internas o para la presentación de un prototipo.
-						\begin{figure}[htbp]
-							\centering
-								\includegraphics[width=0.30\textwidth]{imgs/topologiaRed03.jpg}
-							\caption{Topología de la red con los servidores y los dispositivos en red privada.}
-							\label{fig:topologiaRed_intranet}
-						\end{figure}
-				\end{enumerate}
-				
-		
-			\section{Esquema de votación}\label{disenhoEsquemaVoto}
-				\subsection{Registro}
-					La fase de registro de votantes en el sistema no será interactivo en cuanto a que no es el propio votante el que debe inscribirse para poder votar en las elecciones, sino que es la Autoridad Electoral quien lo registra en el censo. En esta fase, pues, se trata de establecer el censo de votantes que tienen autoridad para votar en el proceso electoral.
-					
-					Como se advierte en el análisis se ha tomado en consideración que sean los administradores del sistema quienes tengan responsabilidad sobre el tratamiento del censo, por lo que se ha de cargar en el sistema y éste es el que lo va a tratar.
-					
-					El censo ha de cargarse en dos servicios del sistema, tanto en el servidor de autenticación como en el sistema de votación.
-					
-					El censo del subsistema de autenticación se utilizará para llevar el control de los votantes que tienen derecho de acceso al sistema, por lo que a los votantes se les pueden añadir otros usuarios necesarios para llevar a término la votación, como pueden ser administradores o auditores, aunque estos no tengan derecho de voto. Así se conformaría la base de usuarios activos del sistema.
-					
-					En el subsistema de voto también se vuelca el censo para cada uno de los diferentes procesos de voto que conformen la elección.
-					
-					El procedimiento a seguir consistirá en que la Autoridad Organizadora del Proceso Electoral, la Universidad, proveerá una lista del censo a los administradores del sistema. El administrador utilizará la función de carga de votantes con la lista proporcionada para realizar la carga inicial de votantes para cada una de las subelecciones que se configuren.
-					
-					La lista proporcionada por la Universidad debe contener la siguiente información de cada uno de los votantes:
-						\begin{itemize}
-							\item Nombre y apellidos
-							\item DNI
-							\item Clase / grupo de votantes
-							\item E-mail
-						\end{itemize}
-						
-					La carga de los votantes a través de su aplicación se realiza subiendo un fichero csv con la información requerida. Este fichero se pone a disposición de la cola de procesos, la cual, llegado el momento volcará cada uno de los registros en la base de datos del sistema de votación.
-					
-					\notasDuda{Falta definir el proceso de carga de votantes para el servicio de autenticación.}
-					
-				\subsection{Identificación / Autenticación}
-					El servicio de identificación es un subsistema clave en el proceso electoral. En él recae parte de la responsabilidad de la robustez del sistema, en cuanto a que debe asegurar varios de los requisitos básicos que definen el voto electrónico en concreto:
-					
-		\notasInfo[inline]{Esto es así según los requisitos de Fujioka, si se utilizan los de la UNEX, se puede modificar.}
-		\begin{description}
-			\item[Solidez:] Debe asegurar que un votante deshonesto no tenga capacidad de acceder al sistema e interrumpir la votación. Es decir, que sólo debe dar acceso a los votantes que realmente deben ingresar al sistema de votación.
+				\todo{Me he traído esto del código fuente aquí. Hay que cambiarle el nombre e integrarlo con la subsection siguiente}
 			
-			\item[Elegibilidad:] Este requisito implica que el sistema debe controlar que ningún votante que no tenga permitido el voto pueda votar. Aunque es el proceso de votación el que debe controlar esta circunstancia cuando un usuario trata de emitir un voto, el sistema de votación, de forma análoga al requisito anterior, también debe proteger el sistema evitando el acceso a aquellos que, directamente, no tengan permisos para votar.
-			
-			\item[Sin duplicados:] El sistema debe evitar que un votante duplique o reemplace el voto de otro. Igualmente, aunque es el sistema de votación el que debe tener mecanismos que controlen esta situación, la primera barrera debe ser la servicio de autenticación del votante.
-			
-		\end{description}
-
-					
-			 El sistema de identificación del votante se apoya en el protocolo oAuth2.
-			\notasInfo[inline]{Aquí desarrollamos la implementación oAuth que hemos desarrollado para este sistema}
-			Como ya se ha comentado, el sistema de identificación/autenticación federada que se va a utilizar se basa en un proyecto publicado como software libre por el desarrollador Richard Knop con nombre django-oauth2-server.
-			
-			Este servidor está escrito en Python y se ha desarrollado sobre el framework Django, el mismo sobre el que está desarrollado el propio sistema de votación, Helios Voting.
-			
-			El servidor, tal como está desarrollado no sirve para las necesidades del proyecto, pues no soporta certificados digitales.
-			
-			El primer paso para la implementación del servidor consiste en configurar el framework Django para que se apoye en un servidor web externo. Para este proyecto se ha utilizado el servidor web Apache.
-			
-			Es necesario instalar dos módulos específicos:
-			
-			\begin{description}[font=$\bullet$\scshape\bfseries]
-				\item[mod\_wsgi]: Módulo que permite que una aplicación basada en Django corra sobre un servidor web externo, como Apache.
-				\item[mod\_ssl]: Módulo que permite a ciertos servidores web utilizar certificados digitales como forma de autenticación. En el caso de nuestro proyecto, servirán tanto para establecer los canales SSL/TLS como para incluir el certificado digital de autenticación del DNIe en el canal seguro, recuperar la información de usuario del certificado y pasarla al código del servidor.
-			\end{description}
-					
-					
-					\begin{figure}[!ht]
-						\centering
-							\includegraphics[width=.95\textwidth]{imgs/flujoOAuth.jpg}
-						\caption{Flujo oAuth para servicio de autenticación}
-						\label{fig:flujo.oauth}
-					\end{figure}
-					
-					
-					
-					
-					
-					\subsubsection{App Android de Autenticación}\label{solucion_appAndroidAutenticacion}
+			\subsection{App Android de Autenticación}\label{solucion_appAndroidAutenticacion}
 					Ya se ha explicado que para realizar el acceso al sistema de voto desde dispositivos móviles, se ha optado por modificar una de las apps de ejemplo publicadas por la Policía española.
 					
 					La app original mostraba un ejemplo de funcionamiento en el que se accedía a varias webs que necesitaban acceso con identificación por DNIe. Las modificaciones que se han realizado a esta app han consistido en:
@@ -409,9 +302,9 @@ class AuthorizeView(View):
 					\begin{enumerate}
 						\item El usuario entra con un navegador móvil en la web de la elección (figura \ref{fig:login.android.navegador}). Esta le muestra un link para realizar el login seguro a la misma. El sistema de voto identifica con Javascript que el usuario accede desde un dispositivo Android, con lo que modifica el link para que se ejecute un intent, la intención de abrir una app en el dispositivo, en lugar de redirigirse a una web.
 						Este link modificado se corresponde con 
-						\begin{verbatim}
-						intent://scan/#Intent;scheme=dnie;package=com.dnieadmin;end
-						\end{verbatim}
+\begin{lstlisting}[language=XML]
+  intent://scan/#Intent;scheme=dnie;package=com.dnieadmin;end
+\end{lstlisting}
 						
 						En este enlace, \textit{scheme=dnie} y \textit{package=com.dnieadmin} son valores definidos en el AndroidManifest.xml del proyecto. Al utilizar el protocolo \textit{intent://} se indica al dispositivo que se está \textit{intentando} utilizar una aplicación.
 						
@@ -529,33 +422,31 @@ class AuthorizeView(View):
 					
 					Para poder establecer un canal seguro contra el servidor de autenticación, es necesario, según la implementación de la app original de ejemplo, que el certificado del servidor y la AC raíz vayan embebidos en el código de la app. Así mismo, es necesario que se incluya el hash del mismo para que el objeto DroidHTTPClient que establece la conexión al servidor sea capaz de establecer este camino seguro.
 					
-					Esta keystore con los dos cerrtificados se debe incluir en el proyecto Android con un formato BKS, lo cual se consigue realizando los pasos expuestos en el anexo \ref{App:exportarCertsAppAndroid}.
+					Esta keystore con los dos certificados se debe incluir en el proyecto Android con un formato BKS, lo cual se consigue realizando los pasos expuestos en el anexo \ref{App:exportarCertsAppAndroid}.
 					
-					Una vez obtenido el fichero keystore que contiene los dos ceritficados, ha de colocarse en la carpeta del proyecto:
+					Una vez obtenido el fichero keystore que contiene los dos certificados, ha de colocarse en la carpeta del proyecto:
 					
-					\small\begin{verbatim}
-					clienteAndroidDNIeoAuth2/app/src/main/res/raw
-					\end{verbatim}
+\begin{lstlisting}
+  clienteAndroidDNIeoAuth2/app/src/main/res/raw
+\end{lstlisting}
 					
 					Para añadir el hash del certificado del servidor habrá que editar también el fichero:
 					
-					\small\begin{verbatim}
-					clienteAndroidDNIeoAuth2/app/src/main/res/values/trusted_hosts.xml
-					\end{verbatim}
+\small\begin{lstlisting}
+  clienteAndroidDNIeoAuth2/app/src/main/res/values/trusted_hosts.xml
+\end{lstlisting}
 					
 					Este hash se obtiene en el servidor con el comando que se indica igualmente en el anexo \ref{App:exportarCertsAppAndroid}.
 					
 					Así, el fichero que indica qué servidores son confiables y que utiliza la app para poder establecer una conexión segura con el servidor quedaría parecido a este:
 					
 					
-					\small\begin{verbatim}
-<resources xmlns:android="http://schemas.android.com/apk/res/android">
-  <array name="trusted_hosts">
-    <item>D5E6E3759023DE9B881399DC034E8FE1AE7D9D87</item> 
-    <!-- En el servidor: openssl x509 -fingerprint -noout -in server.crt -->
-  </array>
-</resources>
-					\end{verbatim}
+\footnotesize\begin{lstlisting}[language=XML]
+  <resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <array name="trusted_hosts">
+      <!-- En el servidor: openssl x509 -fingerprint -noout -in server.crt -->      <item>D5E6E3759023DE9B881399DC034E8FE1AE7D9D87</item>
+    </array>  </resources>
+\end{lstlisting}
 					
 					El servidor de autenticación establece un canal seguro con su certificado (en el prototipo será autofirmado) pero valida el certificado de autenticación con el certificado AC Raíz de la Policía que posee y que se ha configurado para ser utilizado. Por esta razón aparece un error en el navegador cuando se entra por primera vez a la web (figura \ref{fig:login.android.certAutofirmado}). Avisa al usuario de que no encuentra en su almacén de certificados uno que sea confiable con el servidor. En nuestro caso, para el prototipo, bastará con hacer click en \textit{CANCELAR} ya que no vamos a instalar certificados adicionales. En caso de implementar el sistema en producción, será necesario obtener e instalar en el servidor un certificado confiable, emitido por una autoridad de confianza.
 					
@@ -584,6 +475,122 @@ class AuthorizeView(View):
 						\label{fig:login.android.logado}
 					\end{figure}
 					
+		
+		\section{Topología de la red}\label{solucion_topologiaRed}
+				\todo[inline]{Para esto sí que necesito ayuda, por el tema de Firewalls y esas cosas.}
+				
+				De cara a la topología de la red del sistema, se ha diseñado la integración para abordar tres configuraciones diferentes dependiendo de las necesidades de la elección:
+				
+				\begin{enumerate}
+					\item \textbf{Servidor de autenticación y Servidor de votación en la misma red. Acceso de los votantes desde Internet.} Figura \ref{fig:topologiaRed_servidoresMismaRed}
+						
+						Esta topología requiere port forwarding del router que comunica la red de los dos servidores con Internet para que, a través del mismo endpoint, los dispositivos se puedan conectar con los servicios de ambos servidores.
+						
+						Las consultas OCSP para validación del DNIe se realizan a través de Internet.
+						\begin{figure}[htbp]
+							\centering
+								\includegraphics[width=0.30\textwidth]{imgs/topologiaRed01.jpg}
+							\caption{Topología de la red con los servidores compartiendo red.}
+							\label{fig:topologiaRed_servidoresMismaRed}
+						\end{figure}
+						
+						\item \textbf{Servidor de autenticación y Servidor de Votación en redes diferentes. Acceso de los votantes desde Internet.} Figura \ref{fig:topologiaRed_servidoresDistintaRed}
+						
+						Esta topología no requiere port forwarding, pues cada servidor tiene su propio acceso a/por Internet. Los dispositivos accederían directamente a la IP/URL de cada servidor y utilizarían sus diferentes servicios utilizando el puerto correspondiente.
+						
+						Las consultas OCSP para validación del DNIe se realizan a través de Internet.
+						\begin{figure}[htbp]
+							\centering
+								\includegraphics[width=0.30\textwidth]{imgs/topologiaRed02.jpg}
+							\caption{Topología de la red con los servidores en redes diferentes.}
+							\label{fig:topologiaRed_servidoresDistintaRed}
+						\end{figure}
+						
+						\item \textbf{Tanto el Servidor de autenticación, como el Servidor de Votación y los dispositivos se comunican por la misma red, sin necesitar acceder a través de Internet.} Figura \ref{fig:topologiaRed_intranet}
+						
+						Haría falta un acceso a Internet para poder realizar consultas OCSP de validación del DNIe.
+						
+						Esta topología de red interna no cumple con los requisitos de voto e identificación remotos a través de Internet definidos en \ref{requisitosFuncionales}, pero es una buena solución para elecciones internas o para la presentación de un prototipo.
+						\begin{figure}[htbp]
+							\centering
+								\includegraphics[width=0.30\textwidth]{imgs/topologiaRed03.jpg}
+							\caption{Topología de la red con los servidores y los dispositivos en red privada.}
+							\label{fig:topologiaRed_intranet}
+						\end{figure}
+				\end{enumerate}
+				
+		
+			\section{Esquema de votación}\label{disenhoEsquemaVoto}
+				\subsection{Registro}
+					La fase de registro de votantes en el sistema no será interactivo en cuanto a que no es el propio votante el que debe inscribirse para poder votar en las elecciones, sino que es la Autoridad Electoral quien lo registra en el censo. En esta fase, pues, se trata de establecer el censo de votantes que tienen autoridad para votar en el proceso electoral.
+					
+					Como se advierte en el análisis se ha tomado en consideración que sean los administradores del sistema quienes tengan responsabilidad sobre el tratamiento del censo, por lo que se ha de cargar en el sistema y éste es el que lo va a tratar.
+					
+					El censo ha de cargarse en dos servicios del sistema, tanto en el servidor de autenticación como en el sistema de votación.
+					
+					El censo del subsistema de autenticación se utilizará para llevar el control de los votantes que tienen derecho de acceso al sistema, por lo que a los votantes se les pueden añadir otros usuarios necesarios para llevar a término la votación, como pueden ser administradores o auditores, aunque estos no tengan derecho de voto. Así se conformaría la base de usuarios activos del sistema.
+					
+					En el subsistema de voto también se vuelca el censo para cada uno de los diferentes procesos de voto que conformen la elección.
+					
+					El procedimiento a seguir consistirá en que la Autoridad Organizadora del Proceso Electoral, la Universidad, proveerá una lista del censo a los administradores del sistema. El administrador utilizará la función de carga de votantes con la lista proporcionada para realizar la carga inicial de votantes para cada una de las subelecciones que se configuren.
+					
+					La lista proporcionada por la Universidad debe contener la siguiente información de cada uno de los votantes:
+						\begin{itemize}
+							\item Nombre y apellidos
+							\item DNI
+							\item Clase / grupo de votantes
+							\item E-mail
+						\end{itemize}
+						
+					La carga de los votantes a través de su aplicación se realiza subiendo un fichero csv con la información requerida. Este fichero se pone a disposición de la cola de procesos, la cual, llegado el momento volcará cada uno de los registros en la base de datos del sistema de votación.
+					
+					\notasDuda{Falta definir el proceso de carga de votantes para el servicio de autenticación.}
+					
+				\subsection{Identificación / Autenticación}
+					El servicio de identificación es un subsistema clave en el proceso electoral. En él recae parte de la responsabilidad de la robustez del sistema, en cuanto a que debe asegurar varios de los requisitos básicos que definen el voto electrónico en concreto:
+					
+		\notasInfo[inline]{Esto es así según los requisitos de Fujioka, si se utilizan los de la UNEX, se puede modificar.}
+		\begin{description}
+			\item[Solidez:] Debe asegurar que un votante deshonesto no tenga capacidad de acceder al sistema e interrumpir la votación. Es decir, que sólo debe dar acceso a los votantes que realmente deben ingresar al sistema de votación.
+			
+			\item[Elegibilidad:] Este requisito implica que el sistema debe controlar que ningún votante que no tenga permitido el voto pueda votar. Aunque es el proceso de votación el que debe controlar esta circunstancia cuando un usuario trata de emitir un voto, el sistema de votación, de forma análoga al requisito anterior, también debe proteger el sistema evitando el acceso a aquellos que, directamente, no tengan permisos para votar.
+			
+			\item[Sin duplicados:] El sistema debe evitar que un votante duplique o reemplace el voto de otro. Igualmente, aunque es el sistema de votación el que debe tener mecanismos que controlen esta situación, la primera barrera debe ser la servicio de autenticación del votante.
+			
+		\end{description}
+
+					
+			 El sistema de identificación del votante se apoya en el protocolo oAuth2.
+			\notasInfo[inline]{Aquí desarrollamos la implementación oAuth que hemos desarrollado para este sistema}
+			Como ya se ha comentado, el sistema de identificación/autenticación federada que se va a utilizar se basa en un proyecto publicado como software libre por el desarrollador Richard Knop con nombre django-oauth2-server.
+			
+			Este servidor está escrito en Python y se ha desarrollado sobre el framework Django, el mismo sobre el que está desarrollado el propio sistema de votación, Helios Voting.
+			
+			El servidor, tal como está desarrollado no sirve para las necesidades del proyecto, pues no soporta certificados digitales.
+			
+			El primer paso para la implementación del servidor consiste en configurar el framework Django para que se apoye en un servidor web externo. Para este proyecto se ha utilizado el servidor web Apache.
+			
+			Es necesario instalar dos módulos específicos:
+			
+			\begin{description}[font=$\bullet$\scshape\bfseries]
+				\item[mod\_wsgi]: Módulo que permite que una aplicación basada en Django corra sobre un servidor web externo, como Apache.
+				\item[mod\_ssl]: Módulo que permite a ciertos servidores web utilizar certificados digitales como forma de autenticación. En el caso de nuestro proyecto, servirán tanto para establecer los canales SSL/TLS como para incluir el certificado digital de autenticación del DNIe en el canal seguro, recuperar la información de usuario del certificado y pasarla al código del servidor.
+			\end{description}
+					
+					
+					\begin{figure}[!ht]
+						\centering
+							\includegraphics[width=.95\textwidth]{imgs/flujoOAuth.jpg}
+						\caption{Flujo oAuth para servicio de autenticación}
+						\label{fig:flujo.oauth}
+					\end{figure}
+					
+					
+					
+					
+					
+					
+					
 				\subsection{Definición de la papeleta}\label{solucion_definicionPapeleta}
 					El principal cambio que se ha implementado en la tarea de definición de las opciones de la papeleta ha sido el de añadir automáticamente la opción del voto en blanco a la papeleta.
 					
@@ -599,21 +606,8 @@ class AuthorizeView(View):
 				
 			
 				
-			\section{Diseño de la app de identificación}
-			Para la identificación utilizando un dispositivo móvil se va a implementar una herramienta que hace uso de la tecnología NFC para leer el chip de autenticación del DNIe del votante y comunicar a este usuario con el sistema de votación utilizándolo como mecanismo de identificación y autenticación.
 			
-			La base de este desarrollo es la app de Autenticación implementada por la Policía como ejemplo de desarrollo que se puede realizar con Android para hacer uso del chip NFC del DNIe 3.0.
 			
-			Hay varios elementos que han debido modificarse con respecto a la app original.
-			
-			\subsection{Código fuente}\label{solucion_app_codigofuente}
-			Obviamente, el código fuente de la app ha debido ser modificado ya que la funcionalidad que se busca que tenga la aplicación no es la misma que la que ofrece la original.
-			
-			En la app original, al entrar se nos ofrece un menú radial con diferentes opciones. Esto no ocurre en la versión de este proyecto. La app en nuestro caso está pensada para realizar tan sólo un trabajo, realizar la identificación y autenticación de usuario contra un servidor oAuth y transmitir al sistema de votación la aceptación o revocación de acceso del mismo contra el sistema.
-			
-			Por ello, la app va a carecer de un menú inicial, ya que no es necesario.
-			
-			Una vez se abra la app, ya sea desde el menú del dispositivo o desde el botón de login de la página inicial de la web del sistema de votación, aparecerá el menú de selección del CAN del DNIe que queremos utilizar, o, si es la primera vez que cierto usuario utiliza la app, la posibilidad de añadir un nuevo DNIe con su CAN correspondiente.
 			
 			
 			\todo[inline]{¡¡ Comentado ya en el apartado \ref{solucion_appAndroidAutenticacion} !!}
