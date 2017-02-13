@@ -1,6 +1,10 @@
 \chapter{Introducción}
 \rhead{Introducción}
-\epigraphhead[70]{\epigraph{A man without a vote is a man without protection.}{\textit{Lyndon B. Johnson\footnotemark{Presidente de los Estados Unidos de América (1963-1969) \url{https://es.wikipedia.org/wiki/Lyndon_B._Johnson}}}}}
+\newcounter{epihc} 
+\setcounter{epihc}{\value{footnote}}\stepcounter{epihc}
+\epigraphhead[70]{\epigraph{A man without a vote is a man without protection.}{\textit{Lyndon B. Johnson\footnotemark[\value{epihc}]}}}
+\footnotetext[\value{epihc}]{{Presidente de los Estados Unidos de América (1963-1969) \url{https://es.wikipedia.org/wiki/Lyndon_B._Johnson}}}
+\setcounter{footnote}{\value{epihc}}
 	\par
 	Un sistema de voto por Internet puede tener diferentes formas de ser desarrollado. Se puede diseñar un sistema basado en sufragio desde cabinas electorales gestionadas electrónicamente que envían el conteo a través de la red. En otro marco, se puede diseñar un sistema completamente distribuido en el cual el votante puede ejercer su derecho al voto desde cualquier dispositivo electrónico y cualquier lugar del planeta, enviando el contenido de su voto a través de Internet a la autoridad de recuento electoral.
 	\par
