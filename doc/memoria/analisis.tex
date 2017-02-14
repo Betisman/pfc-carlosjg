@@ -13,7 +13,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 % *************************************************************************************************************** %
 % 			ESPECIFICACIÓN DE REQUISITOS
 % *************************************************************************************************************** %		
-		\section{Especificación de requisitos}\label{requisitos}
+	\section{Especificación de requisitos}\label{requisitos}
 		
 
 			\subsection{Introducción}\label{requisitosIntroduccion}
@@ -250,177 +250,202 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 % *************************************************************************************************************** %
 % 			ROLES / ACTORES
 % *************************************************************************************************************** %
-			\section{Actores}\label{actores}
+	\section{Actores}\label{actores}
 			
-				Considerando el flujo del votante en el sistema, identificamos seis actores/roles en el sistema que deben ser tenidos en cuenta de cara a las funcionalidades, privilegios y responsabilidades que tienen que encontrar en el uso del mismo.
-				
-				En este sistema identificamos 6 actores que interactúan con el mismo en algún momento del proceso (figura \ref{fig:actores}):
-				\begin{itemize}
-					\item Votante
-					\item Administrador
-					\item Miembro de la Junta Electoral
-					\item Auditor
-					\item Autoridad Certificadora
-					\item Trustee
+		Considerando el flujo del votante en el sistema, identificamos seis actores/roles en el sistema que deben ser tenidos en cuenta de cara a las funcionalidades, privilegios y responsabilidades que tienen que encontrar en el uso del mismo.
+		
+		En este sistema identificamos 6 actores que interactúan con el mismo en algún momento del proceso (figura \ref{fig:actores}):
+		\begin{itemize}
+			\item Votante
+			\item Administrador
+			\item Miembro de la Junta Electoral
+			\item Auditor
+			\item Autoridad Certificadora
+			\item Trustee
+		\end{itemize}
+		
+		\begin{figure}[!ht]
+			\centering
+				\includegraphics[width=.80\textwidth]{imgs/actores01.jpg}
+			\caption{Actores/roles que interactúan con el sistema.}
+			\label{fig:actores}
+		\end{figure}
+		
+		\begin{description}[font=$\bullet$\ \ ]
+			\item[Votante] \hfill \
+			
+				El votante es el actor principal del sistema, pues es al que va dirigido el proceso de votación. Es el único rol que tiene la capacidad de votar. Las acciones que puede realizar son:	
+				\begin{itemize}			
+					\item Consultar su presencia en el censo.			
+					\item Identificarse unívocamente en el sistema.			
+					\item Elegir la papeleta con su voto.			
+					\item Capacidad de poder emitir un voto nulo.			
+					\item Firmar el voto.			
+					\item Votar preservando el carácter anónimo del voto.			
+					\item Consultar que su voto ha sido contabilizado.			
+					\item Auditar el correcto escrutinio de la elección.			
 				\end{itemize}
 				
-				\begin{figure}[!ht]
-						\centering
-							\includegraphics[width=.80\textwidth]{imgs/actores01.jpg}
-						\caption{Actores/roles que interactúan con el sistema.}
-						\label{fig:actores}
-					\end{figure}
-				
-				\begin{description}[font=$\bullet$\ \ ]
-					\item[Votante] \hfill \
-					
-						El votante es el actor principal del sistema, pues es al que va dirigido el proceso de votación. Es el único rol que tiene la capacidad de votar. Las acciones que puede realizar son:
-						\begin{itemize}
-							\item Consultar su presencia en el censo.
-							\item Identificarse unívocamente en el sistema.
-							\item Elegir la papeleta con su voto.
-							\item Capacidad de poder emitir un voto nulo.
-							\item Firmar el voto.
-							\item Votar preservando el carácter anónimo del voto.
-							\item Consultar que su voto ha sido contabilizado.
-							\item Auditar el correcto escrutinio de la elección.
-						\end{itemize}
-						
-					\item[Administrador] \hfill \
-					
-						El administrador es el rol encargado de gestión de las fases electorales.\\
-						Tiene responsabilidad y potestad de:
-							\begin{itemize}
-								\item Iniciar el proceso electoral.
-								\item Iniciar el proceso de votación.
-								\item Terminar el proceso de votación.
-								\item Apertura de la urna
-								\item Inicio del escrutinio
-								\item Apertura de los canales de difusión de resultados.
-								\item Finalizar el proceso electoral.
-								\item Designar los trustees de la elección.
-							\end{itemize}
-							
-						Los usuarios con este rol no puede votar. El administrador de la elección no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.
-					
-					\item[Miembro de la Junta Electoral] \hfill \
-					
-					\notasCambio{CAMBIAR EL NOMBRE de miembro de la Junta Electoral}
-						Una vez el administrador de la elección dé por finalizado el proceso electoral, se requerirá que varios miembros de la Junta Electoral proporcionen unas claves personales que, juntando varias de ellas, servirán como llave lógica para la apertura de la urna que contiene los votos.
-						
-						Los usuarios con este rol no pueden votar. El miembro de la Junta Electoral no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.
-						
-						\notasCambio[inline]{Teniendo en cuenta la organización de Helios, los miembros de la Junta Electoral que tenemos aquí son los trustees del sistema original de Adida.}
-						
-					\item[Auditor] \hfill \
-					
-						El auditor debe tener acceso a una serie de funcionalidades del sistema. Su función es velar porque el desarrollo del proceso electoral se realiza sin ningún tipo de fallo o de interferencia por parte de algún atacante.
-						
-						Los usuarios con este rol no pueden votar. El auditor no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.\\
-						Su misión es de control, por lo que ninguna acción que realice en el sistema puede afectar al desarrollo de la elección.
-						
-					\item[Autoridad Certificadora] \hfill \
-					
-						Junto con los cuatro roles expuestos, encontramos un quinto actor en la figura de la Autoridad Certificadora. Esta entidad es la encargada de generar, administrar, validar y verificar las credenciales que han de usar cada uno de los votantes para emitir el voto, así como los de cada uno de los actores del proceso (administradores, miembros de la Junta Electoral, auditores o incluso los sistemas y sus comunicaciones).
-						
-						Al hacer uso del \gls{DNIe} para la identificación y firma del votante, en estas fases, es la Dirección General de la Policía, dependiente del Ministerio del Interior, la que actúa como Autoridad de Certificación, combinando dos pares de claves con un ciudadano concreto a través de la emisión de sendos Certificados de conformidad con los términos de la Declaración de Prácticas y Políticas de Certificación (DPC) \cite{politicasDeCertificacion:2006}\cite{politicasDeCertificacion:2014} que rige el funcionamiento y operaciones de la Infraestructura de Clave Pública de los Certificados de identidad pública y firma electrónica del Documento Nacional de Identidad (DNIe).
-				
-					\item[Trustee] \hfill \
-					
-					Es necesario una serie de actores en el proceso, los llamados Trustees por Helios Voting. Estos actores, que también pueden formar parte de los anteriores grupos de actores, en especial los miembros de la Junta Electoral, son los encargados de custodiar un trozo de la clave secreta que el sistema necesita para la fase de escrutinio. Helios necesita una clave
-					\todo[inline]{Al utilizar Helios, falta la figura del Trustee}
-				\end{description}
-				
-				Los usuarios cuyo rol sea \textit{Votante} son los únicos que tienen capacidad para poder votar en la elección.
-				
-				Hay usuarios que pueden ejercer varios roles en el sistema. Tanto un \textit{Administrador} como, sobre todo, un \textit{Miembro de la Autoridad Electoral}, perteneciendo a la Universidad pueden tener derecho al voto, por lo que deberán también poseer el rol de \textit{Votante} para tener permiso de sufragio.
-				
-				Por ello, en estos casos de usuarios con múltiples roles asociados, para mantener la transparencia y fiabilidad del proceso, estos votantes, a la hora de votar deberán hacerlo accediendo al sistema con un usuario distinto, con un rol asignado de \textit{Votante}, garantizando que no pueden acceder con éste a ningún otro módulo del sistema.
-				
-				Se entiende que el rol de \textit{Auditor} está destinado a personas ajenas a la votación que tienen como objetivo vigilar y asegurar que la elección se lleva a cabo de forma limpia y correcta. Por ende, se entiende que las personas con usuarios asociados a estos roles no deben acceder al sistema de votación en ningún caso, además de que no deberían aparecer acreditados en el censo electoral.
-				
-				
-				
-				
-				
-				
-				\section{Integración}\label{analisis_integracion}
-				
-				Una vez identificados tanto requisitos como actores intervinientes en el proceso electoral, es el momento de abordar la integración de sistemas para obtener la implementación necesaria para realizar la elección. 
-				
-				\begin{itemize}
-					\item El sistema ha de solucionar las necesidades de cada una de las fases de una elección (\ref{fases_proceso_electoral}).
-					
-					\item Del mismo modo, ha de cumplir con los requisitos definidos (\ref{requisitosIntroduccion}).
-					
-					\item Ha de satisfacer también las necesidades y facilitar el cumplimiento de responsabilidades de los actores identificados (\ref{actores}).
-				\end{itemize}
-				
-				Una vez definidos los objetivos del sistema a integrar es necesario identificar los subsistemas que se requieren.
-				
-				El sistema orquestador del protocolo de votación elegido será Helios Voting, de Ben Adida. Este proyecto cumple perfectamente con requisitos tales como el bajo coste, al ser software libre y correr sobre sistemas como Unix, que no requiere pago de licencias. También, gracias a la forma en la que está implementado, las acciones que requiere mayores recursos de cómputo se realizan o en el cliente (cifrado del voto) o tan sólo una vez al finalizar una elección (totalización y su descifrado), por lo que durante el resto del tiempo no necesita un sistema con gran capacidad de cálculo; en su caso, dependiendo del número de elecciones y de votantes, requiera una plataforma fácilmente escalable basándose en el número de usuarios concurrentes que puedan acceder al sistema.
-				
-				Tras un estudio de diferentes opciones para este módulo del sistema a implementar, estos son algunos motivos por los que se ha decidido adaptar el sistema Helios Voting como base:
-				
-		\begin{description}
-			\item[Base criptográfica]: Para mantener la fiabilidad de un sistema de voto por Internet es fundamental una buena base criptográfica y unos protocolos cimentados en sólidos procesos matemáticos. El mundo de la criptografía es muy complejo y en un sistema de votación en la que el votante debe tener su secreto y anonimato protegidos, se vuelve crucial.
+			\item[Administrador] \hfill \
 			
-			Por ello, se ha estimado buscar la solución que implemente los protocolos criptográficos más robustos, desarrollada y mantenida por grandes expertos en la materia, reconocidos internacionalmente en este campo.
+				El administrador es el rol encargado de gestión de las fases electorales.\\
+				Tiene responsabilidad y potestad de:
+					\begin{itemize}
+						\item Iniciar el proceso electoral.
+						\item Iniciar el proceso de votación.
+						\item Terminar el proceso de votación.
+						\item Apertura de la urna
+						\item Inicio del escrutinio
+						\item Apertura de los canales de difusión de resultados.
+						\item Finalizar el proceso electoral.
+						\item Designar los trustees de la elección.
+					\end{itemize}
+					
+				Los usuarios con este rol no puede votar. El administrador de la elección no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.
 			
-			En este caso, encontramos al desarrollador de Helios Voting, el norteamericano Ben Adida\footnote{\url{http://ben.adida.net/}}, doctor en Ingeniería Informática en Criptografía y Seguridad de la Información por el MIT\footnote{\url{http://mit.edu/}} (Massachussetts Institute of Technology), siendo asesorado\footnote{\url{https://vote.heliosvoting.org/about}} en el doctorado por otro Doctor como Ron Rivest\footnote{\url{http://people.csail.mit.edu/rivest/}}, experto en Criptografía y Voto Electrónico. 
+			\item[Miembro de la Junta Electoral] \hfill \
 			
-			Además, para el desarrollo de Helios, se apoyó en la asesoría de profesionales con muchísima experiencia acreditada en conceptos tales como el voto electrónico y criptografía como son Lessig o Benaloh\footnote{\url{http://research.microsoft.com/~benaloh/}} (considerado el precursor de la verificabilidad punto a punto (ver \ref{estadocuestion_e2everifiability})) , entre otros. Con esta carta de presentación, se observa que el nivel de protocolos criptográficos tiene un amplio sustento académico detrás. Igualmente, existen multitud de artículos en los que se presentan, estudian y discuten los protocolos criptográficos del sistema Helios Voting en sus diferentes versiones. Incluso en muchos de estos artículos se ofrecen alternativas a distintos elementos para aumentar la seguridad del sistema o para introducir alternativas a sistemas de voto pero manteniendo la máxima seguridad para que el sistema siga siendo \gls{E2E} verificable. En estas bibliografías se explican las bondades de Helios Voting respecto a los protocolos criptográficos de votación, siendo considerado por muchos expertos como el mejor sistema de votación por Internet auditable \gls{E2E} existente para elecciones con un bajo riesgo de coacción. Sin duda alguna, está más que justificada la decisión de delegar la seguridad criptográfica al propio sistema.
+				Una vez el administrador de la elección dé por finalizado el proceso electoral, se requerirá que varios miembros de la Junta Electoral proporcionen unas claves personales que, juntando varias de ellas, servirán como llave lógica para la apertura de la urna que contiene los votos.
+				
+				Los usuarios con este rol pueden votar. El miembro de la Junta Electoral puede formar parte del censo de votantes acreditados para votar en las elecciones, con lo que, dependiendo de este detalle, puede tener acceso al módulo de votación.
+
+				
+			\item[Auditor] \hfill \
 			
-			\item[Software Libre:] Helios es un sistema de voto por Internet basado en desarrollo de código abierto. Está escrito en Python, utilizando Django como framework de desarrollo. Esta filosofía de software libre permite que el código pueda ser reutilizado y modificado para adaptarlo a las necesidades de la Escuela. Además, el lenguaje utilizado es bastante potente y la facilidad de integración con los recursos que provee la Escuela es un punto importante que se ha tenido en cuenta.
+				El auditor debe tener acceso a una serie de funcionalidades del sistema. Su función es velar porque el desarrollo del proceso electoral se realiza sin ningún tipo de fallo o de interferencia por parte de algún atacante.
+				
+				Los usuarios con este rol no pueden votar. El auditor no forma parte del censo de votantes acreditados para votar en las elecciones, por lo que no puede tener acceso al módulo de votación.
+				
+				Su misión es de control, por lo que ninguna acción que realice en el sistema puede afectar al desarrollo de la elección.
+				
+			\item[Autoridad Certificadora] \hfill \
 			
-			\item[Flexibilidad:] El proyecto Helios Voting está activo, con desarrolladores implicados, incluso con forks en Github proponiendo alternativas o soluciones. Por ejemplo, proyectos como Ágora Voting (\ref{estadocuestion_agoravoting}) nacieron a partir de un fork de Helios Voting, aunque actualmente han virado hacia otros protocolos criptográficos como base de su solución. Existen también algunos forks de este proyecto en el que lo que se realiza es un cambio del protocolo criptográfico, por ejemplo, hay uno (helios-server-mixnet\footnote{\url{https://github.com/RunasSudo/helios-server-mixnet}}, del desarrollador RunasSudo) en el que se se da soporte a mixnets y a criptografía de umbral. Así, se puede observar que los desarrolladores hacen uso de Helios como base y lo adaptan a sus necesidades criptográficas o funcionales.
+				Junto con los cuatro roles expuestos, encontramos un quinto actor en la figura de la Autoridad Certificadora. Esta entidad es la encargada de generar, administrar, validar y verificar las credenciales que han de usar cada uno de los votantes para emitir el voto, así como los de cada uno de los actores del proceso (administradores, miembros de la Junta Electoral, auditores o incluso los sistemas y sus comunicaciones).
+				
+				Al hacer uso del \gls{DNIe} para la identificación y firma del votante, en estas fases, es la Dirección General de la Policía, dependiente del Ministerio del Interior, la que actúa como Autoridad de Certificación, combinando dos pares de claves con un ciudadano concreto a través de la emisión de sendos Certificados de conformidad con los términos de la Declaración de Prácticas y Políticas de Certificación (DPC) \cite{politicasDeCertificacion:2006}\cite{politicasDeCertificacion:2014} que rige el funcionamiento y operaciones de la Infraestructura de Clave Pública de los Certificados de identidad pública y firma electrónica del Documento Nacional de Identidad (DNIe).
+		
+			\item[Trustee] \hfill \
 			
-			\item[Verificabilidad \gls{E2E}:] Según algunos informes\cite{carter2013} desarrollados estudiando una experiencia real del sistema, Helios Voting es un ejemplo excepcional de sistema electoral por Internet \gls{E2E} verificable y lo reconocen como un ``\textit{estándar en verificabilidad de voto por Internet}''. Proporciona al proceso electoral todas las garantías que aporta la verificabilidad \gls{E2E}, como la capacidad de observar pruebas de conocimiento cero no interactivas que verifican que cada voto fue incluido correctamente y que el escrutinio completo fue computado con precisión. 
+			Es necesario una serie de actores en el proceso, los llamados Trustees por Helios Voting. Estos actores, que también pueden formar parte de los anteriores grupos de actores, en especial los miembros de la Junta Electoral, son los encargados de custodiar un trozo de la clave secreta que el sistema necesita para la fase de escrutinio. Helios necesita una clave
+			\todo[inline]{Al utilizar Helios, falta la figura del Trustee}
+		\end{description}
+		
+		Los usuarios cuyo rol sea \textit{Votante} son los únicos que tienen capacidad para poder votar en la elección.
+		
+		Hay usuarios que pueden ejercer varios roles en el sistema. Tanto un \textit{Administrador} como, sobre todo, un \textit{Miembro de la Autoridad Electoral}, perteneciendo a la Universidad pueden tener derecho al voto, por lo que deberán también poseer el rol de \textit{Votante} para tener permiso de sufragio.
+		
+		Por ello, en estos casos de usuarios con múltiples roles asociados, para mantener la transparencia y fiabilidad del proceso, estos votantes, a la hora de votar deberán hacerlo accediendo al sistema con un usuario distinto, con un rol asignado de \textit{Votante}, garantizando que no pueden acceder con éste a ningún otro módulo del sistema.
+		
+		Se entiende que el rol de \textit{Auditor} está destinado a personas ajenas a la votación que tienen como objetivo vigilar y asegurar que la elección se lleva a cabo de forma limpia y correcta. Por ende, se entiende que las personas con usuarios asociados a estos roles no deben acceder al sistema de votación en ningún caso, además de que no deberían aparecer acreditados en el censo electoral.
+		
+				
+				
+				
+				
+				
+	\section{Integración}\label{analisis_integracion}
+				
+		Una vez identificados tanto requisitos como actores intervinientes en el proceso electoral, es el momento de abordar la integración de sistemas para obtener la implementación necesaria para realizar la elección. 
+				
+		\begin{itemize}
+			\item El sistema ha de solucionar las necesidades de cada una de las fases de una elección (\ref{fases_proceso_electoral}).
 			
-			\item[Sistema para elecciones con bajo riesgo de coacción:] Una de las debilidades de Helios Voting es que el protocolo en el que se basa no es efectivo ante la coacción. Por ello, su propio desarrollador indica que es un sistema pensado para elecciones con bajo riesgo de coacción. Las elecciones a llevar a cabo en la Escuela Politécnica Superior cumplen con esta propiedad, pues el riesgo de que se intente coartar a algún votante es mínimo. Por ello mismo, una de las debilidades de Helios no incide en gran medida en el sistema a implementar.
+			\item Del mismo modo, ha de cumplir con los requisitos definidos (\ref{requisitosIntroduccion}).
 			
-			\item[Los votos cifrados no se descifran:] Gracias a que su protocolo criptográfico se basa en el \textbf{cifrado homomórfico aditivo} (ver \ref{primitivaCifradoHomomorfico_elgamal}), no es necesario que sean desencriptados para realizar el escrutinio, por lo que protegen la privacidad, secreto y anonimicidad de cada votante, cumpliendo con varios de los requisitos fundamentales del voto electrónico/por Internet.
-			
-			\item Buscando alguna solución para implementar identificación de usuarios de la EPS, ya provee de mecanismos como oAuth, que puede ser modificado para utilizar el DNIe como herramienta de acceso seguro a la web, o sistemas como el CAS utilizado en las elecciones de la Universidad Católica de Lovaina, que podría servir de base a un sistema de acceso basado en las cuentas de usuario de los estudiantes de la EPS. Son frameworks que no valen tal cual están implementados, pero que permiten una posibilidad de modificación muy interesante para implementar nuevos sistemas de acceso basados en las necesidades de la EPS.
-						
-		\end{description}	
+			\item Ha de satisfacer también las necesidades y facilitar el cumplimiento de responsabilidades de los actores identificados (\ref{actores}).
+		\end{itemize}
+				
+		Para llevar a cabo estos objetivos es necesario identificar los subsistemas que se requieren para implementar la integración de sistemas.
+		
+		Tras un estudio de posibilidades y alternativas, se ha decidido implementar el sistema en base a tres módulos integrados:
+		\begin{itemize}
+			\item Servidor central de votación => \textbf{Helios Voting}
+			\item Servidor de autenticación / identificación de usuario => \textbf{oAuth 2.0 Server}
+			\item Cliente web + app Android => \textbf{Web / App Android Policía}
+		\end{itemize}
+				
+		\subsection{Servidor central de votación}
+			El sistema orquestador del protocolo de votación elegido será Helios Voting, de Ben Adida. Este proyecto cumple perfectamente con requisitos tales como el bajo coste, al ser software libre y correr sobre sistemas como Unix, que no requiere pago de licencias. También, gracias a la forma en la que está implementado, las acciones que requiere mayores recursos de cómputo se realizan o en el cliente (cifrado del voto) o tan sólo una vez al finalizar una elección (totalización y su descifrado), por lo que durante el resto del tiempo no necesita un sistema con gran capacidad de cálculo; en su caso, dependiendo del número de elecciones y de votantes, requiera una plataforma fácilmente escalable basándose en el número de usuarios concurrentes que puedan acceder al sistema.
+				
+			Tras un estudio de diferentes opciones para este módulo del sistema a implementar, estos son algunos motivos por los que se ha decidido adaptar el sistema Helios Voting como:
+				
+			\begin{description}
+				\item[Base criptográfica]: Para mantener la fiabilidad de un sistema de voto por Internet es fundamental una buena base criptográfica y unos protocolos cimentados en sólidos procesos matemáticos. El mundo de la criptografía es muy complejo y en un sistema de votación en la que el votante debe tener su secreto y anonimato protegidos, se vuelve crucial.
+		
+					Por ello, se ha estimado buscar la solución que implemente los protocolos criptográficos más robustos, desarrollada y mantenida por grandes expertos en la materia, reconocidos internacionalmente en este campo.
+		
+					En este caso, encontramos al desarrollador de Helios Voting, el norteamericano Ben Adida\footnote{\url{http://ben.adida.net/}}, doctor en Ingeniería Informática en Criptografía y Seguridad de la Información por el MIT\footnote{\url{http://mit.edu/}} (Massachussetts Institute of Technology), siendo asesorado\footnote{\url{https://vote.heliosvoting.org/about}} en el doctorado por otro Doctor como Ron Rivest\footnote{\url{http://people.csail.mit.edu/rivest/}}, experto en Criptografía y Voto Electrónico. 
+		
+					Además, para el desarrollo de Helios, se apoyó en la asesoría de profesionales con muchísima experiencia acreditada en conceptos tales como el voto electrónico y criptografía como son Lessig o Benaloh\footnote{\url{http://research.microsoft.com/~benaloh/}} (considerado el precursor de la verificabilidad punto a punto (ver \ref{estadocuestion_e2everifiability})) , entre otros. Con esta carta de presentación, se observa que el nivel de protocolos criptográficos tiene un amplio sustento académico detrás. Igualmente, existen multitud de artículos en los que se presentan, estudian y discuten los protocolos criptográficos del sistema Helios Voting en sus diferentes versiones. Incluso en muchos de estos artículos se ofrecen alternativas a distintos elementos para aumentar la seguridad del sistema o para introducir alternativas a sistemas de voto pero manteniendo la máxima seguridad para que el sistema siga siendo \gls{E2E} verificable. En estas bibliografías se explican las bondades de Helios Voting respecto a los protocolos criptográficos de votación, siendo considerado por muchos expertos como el mejor sistema de votación por Internet auditable \gls{E2E} existente para elecciones con un bajo riesgo de coacción. Sin duda alguna, está más que justificada la decisión de delegar la seguridad criptográfica al propio sistema.
+		
+				\item[Software Libre:] Helios es un sistema de voto por Internet basado en desarrollo de código abierto. Está escrito en Python, utilizando Django como framework de desarrollo. Esta filosofía de software libre permite que el código pueda ser reutilizado y modificado para adaptarlo a las necesidades de la Escuela. Además, el lenguaje utilizado es bastante potente y la facilidad de integración con los recursos que provee la Escuela es un punto importante que se ha tenido en cuenta.
+		
+				\item[Flexibilidad:] El proyecto Helios Voting está activo, con desarrolladores implicados, incluso con forks en Github proponiendo alternativas o soluciones. Por ejemplo, proyectos como Ágora Voting (\ref{estadocuestion_agoravoting}) nacieron a partir de un fork de Helios Voting, aunque actualmente han virado hacia otros protocolos criptográficos como base de su solución. Existen también algunos forks de este proyecto en el que lo que se realiza es un cambio del protocolo criptográfico, por ejemplo, hay uno (helios-server-mixnet\footnote{\url{https://github.com/RunasSudo/helios-server-mixnet}}, del desarrollador RunasSudo) en el que se se da soporte a mixnets y a criptografía de umbral. Así, se puede observar que los desarrolladores hacen uso de Helios como base y lo adaptan a sus necesidades criptográficas o funcionales.
+		
+				\item[Verificabilidad \gls{E2E}:] Según algunos informes\cite{carter2013} desarrollados estudiando una experiencia real del sistema, Helios Voting es un ejemplo excepcional de sistema electoral por Internet \gls{E2E} verificable y lo reconocen como un ``\textit{estándar en verificabilidad de voto por Internet}''. Proporciona al proceso electoral todas las garantías que aporta la verificabilidad \gls{E2E}, como la capacidad de observar pruebas de conocimiento cero no interactivas que verifican que cada voto fue incluido correctamente y que el escrutinio completo fue computado con precisión. 
+		
+				\item[Sistema para elecciones con bajo riesgo de coacción:] Una de las debilidades de Helios Voting es que el protocolo en el que se basa no es efectivo ante la coacción. Por ello, su propio desarrollador indica que es un sistema pensado para elecciones con bajo riesgo de coacción. Las elecciones a llevar a cabo en la Escuela Politécnica Superior cumplen con esta propiedad, pues el riesgo de que se intente coartar a algún votante es mínimo. Por ello mismo, una de las debilidades de Helios no incide en gran medida en el sistema a implementar.
+		
+				\item[Los votos cifrados no se descifran:] Gracias a que su protocolo criptográfico se basa en el \textbf{cifrado homomórfico aditivo} (ver \ref{primitivaCifradoHomomorfico_elgamal}), no es necesario que sean desencriptados para realizar el escrutinio, por lo que protegen la privacidad, secreto y anonimicidad de cada votante, cumpliendo con varios de los requisitos fundamentales del voto electrónico/por Internet.
+		
+				\item Buscando alguna solución para implementar identificación de usuarios de la EPS, ya provee de mecanismos como oAuth, que puede ser modificado para utilizar el DNIe como herramienta de acceso seguro a la web, o sistemas como el CAS utilizado en las elecciones de la Universidad Católica de Lovaina, que podría servir de base a un sistema de acceso basado en las cuentas de usuario de los estudiantes de la EPS. Son frameworks que no valen tal cual están implementados, pero que permiten una posibilidad de modificación muy interesante para implementar nuevos sistemas de acceso basados en las necesidades de la EPS.
+					
+			\end{description}	
 				
 				
 
 				
 				
 				
-		Con la intención de utilizar el DNIe como herramienta de seguridad para el login, ha sido necesario adaptar el sistema de login propio de Helios Voting. El sistema ya de por sí ofrecía alternativas, tales como login con terceros como Google, Facebook, Yahoo! o Twitter. También ofrece login por usuario/cotraseña. Y se desarrolló un CAS para el login en las elecciones de la Universidad de Lovaina. Cualquiera de estos sistemas de login está bien para el tipo de elección que queremos desarrollar - incluso el del CAS, asociándolo a la cuenta de alimnado y profesorado de la Universidad me resulta muy interesante - pero no cumplen con los objetivos iniciales del proyecto. Por ello ha sido necesaria la integración de un sistema que permita la utilización del documento oficial español.
-		Se ha utilizado un sistema basado en el protocolo oAuth de tres patas como base para el sistema de login. Este protocolo está implementado en el proyecto django-oauth2-server\footnote{\url{https://github.com/RichardKnop/django-oauth2-server}} desarrollado por Richard Knop. De todos modos, ha sido necesario modificarlo para adaptarlo a las necesidades del DNIe. 
-		
-		
-		Dentro del objetivo de utilizar el DNIe como herramienta criptográfica para la identificación del usuario, estaba el de emplear el nuevo DNIe 3.0 para poder realizar esta identificación segura desde dispositivos móviles. El objetivo final del proyecto se basa en que un votante pueda votar remotamente, haciendo uso de su documento nacional de identidad (obligatorio, y por tanto completamente extendido) para ser identificado, desde cualquier lugar en el que tenga conexión a Internet. Con este documento se puede conseguir esta última premisa. Para ello, había que encontrar la forma de adaptar este protocolo al de Helios. La forma de realizarlo era a través del login contra el sistema que se ha presentado anteriormente. 
-		La mejor forma sería encontrar la forma de que desde los dispositivos móviles se pudiese acceder a los certificados digitales del documento y, con ellos, presentarlos al sistema de identificación para permitir el acceso al sistema. Para ello, se ha hecho uso de las aplicaciones de ejemplo que ha publicado la Dirección General de la Policía de España, entre las que encontramos una herramienta desarrollada para los dispositivos móviles Android que posean conectividad NFC, por la cual se tiene acceso al chip de identificación del documento. a partir de una adaptación de esta app, sería posible acceder al sistema Helios de forma que la identificación del usuario sea inequívoca.
-				
+			Con la intención de utilizar el DNIe como herramienta de seguridad para el login, ha sido necesario adaptar el sistema de login propio de Helios Voting. El sistema ya de por sí ofrecía alternativas, tales como login con terceros como Google, Facebook, Yahoo! o Twitter. También ofrece login por usuario/cotraseña. Y se desarrolló un CAS para el login en las elecciones de la Universidad de Lovaina. Cualquiera de estos sistemas de login está bien para el tipo de elección que queremos desarrollar - incluso el del CAS, asociándolo a la cuenta de alumnado y profesorado de la Universidad me resulta muy interesante - pero no cumplen con los objetivos iniciales del proyecto. Por ello ha sido necesaria la integración de un sistema que permita la utilización del documento oficial español.
+
+		\subsection{Servidor de autenticación / identificación}
+			Se ha utilizado un sistema basado en el protocolo oAuth de tres patas como base para el sistema de login. Este protocolo está implementado en el proyecto django-oauth2-server\footnote{\url{https://github.com/RichardKnop/django-oauth2-server}} desarrollado por Richard Knop. De todos modos, ha sido necesario modificarlo para adaptarlo a las necesidades del DNIe. 
+	
+	
+			Dentro del objetivo de utilizar el DNIe como herramienta criptográfica para la identificación del usuario, estaba el de emplear el nuevo DNIe 3.0 para poder realizar esta identificación segura desde dispositivos móviles. El objetivo final del proyecto se basa en que un votante pueda votar remotamente, haciendo uso de su documento nacional de identidad (obligatorio, y por tanto completamente extendido) para ser identificado, desde cualquier lugar en el que tenga conexión a Internet. Con este documento se puede conseguir esta última premisa. Para ello, había que encontrar la forma de adaptar este protocolo al de Helios. La forma de realizarlo es a través del login contra el sistema que se ha presentado anteriormente. 
+			
+		\subsection{Cliente web + app Android}
+			El escenario que se busca es uno en el que desde los dispositivos móviles se pueda acceder a los certificados digitales del \gls{DNIe} y presentarlos al sistema de identificación para permitir el acceso al sistema.
+			
+			El entorno web está preparado para establecer protocolos seguros basados en certificados digitales, pero es hostil en cuanto estos certificados se encuentran en medios externos al Sistema Operativo. Los navegadores web actuales tienen una buena integración con los Sistemas Operativos y hacen uso sin problemas del almacén de certificados digitales de estos. Así pues, no tienen problema a la hora de establecer canales HTTPS contra servidores que se consideran seguros según el SO, ya que posee certificados y la confiabilidad de las autoridades certificadoras que los han generado.
+			
+			El problema viene cuando el servidor requiere un certificado de cliente y éste se encuentra en un dispositivo externo al Sistema Operativo. Normalmente una tarjeta criptográfica, como en nuestro caso podemos considerar el \gls{DNIe} físico. En este caso, se requiere un driver que permita al SO acceder a los certificados, lo cual no es un problema con el \gls{DNIe}, pues desde la web de la Policía se pueden obtener e instalar. Una vez el SO tiene acceso a estos certificados, nos encontramos el problema de que ha de pasarlos al navegador y éste enviarlos al servidor. Aquí es donde afirmamos que la Web no está preparada para este proceso. Desde que apareció el \gls{DNIe} 2.0, se han ido desarrollando diferentes módulos que permitan realizar una comunicación fiable desde la Web con los certificados del documento. Así, lo más utilizado han sido applets de Java, que se descargan y ejecutan siendo la herramienta que comunica al navegador con los drivers que se comunican con el documento.
+			
+			Hay cierto desarrollo enfocado a este problema, tratando de desligar el \gls{DNIe} de applets de Java, considerados peligrosos por ser un agujero de seguridad, además de alejarse de las recomendaciones del \gls{W3C} respecto a cómo implementar la Web. Así, hay implementaciones puramente Javascript, que obvian estos programas Java y se basan sólo en lenguaje cliente ejecutado en el navegador. Pero no son la solución.
+			
+			Con este problema en mente, aparece el \gls{DNIe} 3.0 y aporta un nuevo enfoque, los certificados, además de por contacto como hasta ahora, son accesibles sin contacto, a través de un lector \gls{NFC}. Los nuevos dispositivos móviles ya implementan esta tecnología y empieza a ser prácticamente de serie según van saliendo al mercado nuevos modelos. Se ha vuelto una tecnología accesible. Es el momento de hacer uso de ella.
+			
+			La Policía ha puesto a disposición de los desarrolladores tres aplicaciones de Android como ejemplo de cómo se pueden acceder a los certificados a través de estos dispositivos por \gls{NFC}.
+			
+			Se ha decidido utilizar una de estas aplicaciones, concretamente la que muestra cómo acceder al chip de identificación, como base de un aplicación adaptada que permita acceder a este certificado, comunicarse con el servidor de autenticación y logar al usuario con el servidor de votación, permitiéndole a partir de ese momento utilizar la aplicación web desde el navegador web de su dispositivo.
+			
 				
 	
 	\section{Esquema de Voto Electrónico}\label{analisisEsquemaVotoElectronico}
 	
 		El esquema de voto electrónico que se va a implementar en el sistema de voto de este PFC se corresponde con el que ya implementa el sistema Helios Voting.
-		
+
 		El esquema se basa en cifrado homomórfico (utilizando el algoritmo de ElGamal) y verificación con pruebas de conocimiento cero de Chaum-Pedersen.
-		
+
 		Algo en lo que se desenvuelve muy bien el homomorfismo es en la totalización, por lo que es una gran herramienta para un sistema de voto. Un protocolo que es capaz de totalizar votos cifrado sin necesidad de descifrarlos es una gran opción para mantener el secreto del voto.
+
+		No obstante, no es la mejor solución para la confianza en el sistema, pues ningún votante u observador es capaz de asegurar que un voto haya sido almacenado en la urna digital o correctamente totalizado en el recuento, así como si ha sido manipulado previamente.
 		
-		Por otro lado, no es la mejor solución para la confianza en el sistema, pues ningún votante u observador es capaz de asegurar que un voto haya sido almacenado en la urna digital o correctamente totalizado en el recuento, así como si ha sido manipulado previamente. Para paliar este problema de confianza es donde aparecen las pruebas de conocimiento cero. A partir de ellas, gracias a pruebas criptográficas se puede asegurar que tanto votos como la suma de ellos no han sido manipulados y fueron correctamente cifrados, así como asegurar su correcta inserción y descifrado en la totalización.
-		
+		Para paliar este problema de confianza es donde aparecen las pruebas de conocimiento cero. A partir de ellas, gracias a pruebas criptográficas se puede asegurar que tanto votos como la suma de ellos no han sido manipulados y fueron correctamente cifrados, así como asegurar su correcta inserción y descifrado en la totalización.
+
 		El proceso empieza con el votante cifrando su voto. Este voto se publica cifrado en un tablón público en el que se acumulan todas las relaciones (votante)-(voto cifrado) y donde cualquier votante puede comprobar que su voto ha sido correctamente tenido en cuenta o que ningún votante ha votado dos veces (que el sistema tenga en cuenta dos votos de un mismo votante, ya que cada votante sí que puede votar más de una vez, pero sólo el último voto es el que el sistema debería contar).
-		
+
 		Cuando se acaba el período de votación y se tienen todos los votos almacenados, se aplica el homomorfismo para obtener el cifrado de la suma de los votos. Esta suma es descifrada a continuación. Para realizar el cifrado de la totalización, se utiliza una clave privada generada antes de comenzar la votación, que ha sido dividida y repartida entre un número determinado de autoridades confiables y honestas que la han custodiado. Estas partes forman parte del protocolo de secreto compartido que se aplica en el sistema. Si una autoridad no es honesta, no se pone en riesgo la integridad de la elección, pues no será posible que altere el resultado ni violará el principio de anonimato del voto, ya que no será capaz de descifrar ni votos individuales ni el resultado de la suma de estos.
-		
+
 		Las autoridades que poseen parte de la clave privada la ponen en común y con ella se descifra la suma de los votos, con lo que se obtiene el resultado final de la elección.
-		
-		La otra parte importante de este esquema es cómo podemos asegurar que un voto ha sido cifrado con la opción de voto que realmente ha seleccionado el votante. Puede ser que en pantalla elija la opción B, pero cómo puede asegurarse que en el sistema es esta elección, y no la opción A o C, por ejemplo, la que se ha almacenado cifrada. Es común que los protocolos de voto electrónico que se basan en el cifrado homomórfico se apoyen en pruebas no interactivas de conocimiento cero para ello. Consisten en proponer la suficiente base matemática como para que usando algún tipo de algoritmo de cifrado asimétrico y con la colaboración del votante, se puede probar que un valor cifrado es realmente el cifrado de la opción elegida y no otra diferente.
+
+		Otra cuestión importante de este esquema es cómo podemos asegurar que un voto ha sido cifrado con la opción de voto que realmente ha seleccionado el votante. Puede ser que en pantalla elija la opción B, pero cómo puede asegurarse que en el sistema es esta elección, y no la opción A o C, por ejemplo, la que se ha almacenado cifrada. Es común que los protocolos de voto electrónico que se basan en el cifrado homomórfico se apoyen en pruebas no interactivas de conocimiento cero para ello. Consisten en proponer la suficiente base matemática como para que usando algún tipo de algoritmo de cifrado asimétrico y con la colaboración del votante, se puede probar que un valor cifrado es realmente el cifrado de la opción elegida y no otra diferente.
 	
 % *************************************************************************************************************** %
 % 			HELIOS VOTING
 % *************************************************************************************************************** %
-		\section{Helios Voting}\label{planteamiento_HeliosVoting}
+	\section{Helios Voting}\label{planteamiento_HeliosVoting}
 		\todo[inline]{He movido esta sección desde Planteamiento a Análisis porque creo que es donde debo comentar qué sistema hemos elegido para adaptar y los motivos que nos han llevado a ello.}
 		
 		Como ya se ha comentado, tras el estudio de varias soluciones ya implementadas y de una solución diseñada desde cero, he decidido usar un sistema ya desarrollado como base para el diseño de la solución que lleve a cabo el proceso electoral en la Escuela.
@@ -430,276 +455,275 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 		\notasCambio[inline]{No me gusta nada cómo está redactado esto ni me parece que esté en el sitio correcto. Cambiar.}
 
 
-			\subsection{Fases de la elección en Helios}\label{planteamiento_HeliosVoting_Fases}
-				Desde el punto de vista del administrador, el actor que más acciones puede realizar en el sistema, una elección con el sistema Helios Voting se desarrolla a través de una serie de fases o acciones.
+		\subsection{Fases de la elección en Helios}\label{planteamiento_HeliosVoting_Fases}
+			Desde el punto de vista del administrador, el actor que más acciones puede realizar en el sistema, una elección con el sistema Helios Voting se desarrolla a través de una serie de fases o acciones.
+				
+			\begin{figure}[!ht]
+				\centering
+					\includegraphics[width=.5\textwidth]{imgs/HeliosFases.jpg}
+				\caption{Fases de una elección en Helios Voting}
+				\label{fig:Helios.Fases}
+			\end{figure}
+				
+				
+			\begin{description}
+				\item[Identificación usuario / login] El primer paso del protocolo es la identificación del usuario para ingresar al sistema. Helios propone varios tipos de servicios de login. Desde el basado en usuario/contraseña contra base de datos, hasta los que utilizan servicios oAuth contra servidores de autenticación de terceros, como Facebook, Google o Yahoo!.
+				
 				
 				\begin{figure}[!ht]
 					\centering
-						\includegraphics[width=.5\textwidth]{imgs/HeliosFases.jpg}
-					\caption{Fases de una elección en Helios Voting}
-					\label{fig:Helios.Fases}
+						\includegraphics[width=1\textwidth]{imgs/capturas2/Imagen001.png}
+					\caption{Fase de Login en Helios Voting}
+					\label{fig:Helios.Fases.Login}
 				\end{figure}
 				
 				
-				\begin{description}
-					\item[Identificación usuario / login] El primer paso del protocolo es la identificación del usuario para ingresar al sistema. Helios propone varios tipos de servicios de login. Desde el basado en usuario/contraseña contra base de datos, hasta los que utilizan servicios oAuth contra servidores de autenticación de terceros, como Facebook, Google o Yahoo!.
+				\item[Crear elección]	El primer paso funcional es la creación de la Elección. Corresponde al administrador crear la elección. Para ello, puede poner el nombre y descripción del Proceso, seleccionar si es una elección al uso o un referéndum, si se usan los nombres de los votantes o pseudónimos, si se presentan los nombres de los candidatos a cada votante en orden aleatorio y si la elección es privada para los votantes registrados o abierta a cualquier votante.
+				
+				\begin{figure}[!ht]
+					\centering
+						\includegraphics[width=1\textwidth]{imgs/capturas2/Imagen003.png}
+					\caption{Fase de creación de una elección en Helios Voting}
+					\label{fig:Helios.Fases.CrearEleccion}
+				\end{figure}
+				
+				\item[Preparar la elección] Antes de abrir el proceso de votación hay que preparar la elección. Para ello hay tres elementos que requieren ser inicializados.
+				
+					\begin{description}
 					
-					
-					\begin{figure}[!ht]
-						\centering
-							\includegraphics[width=1\textwidth]{imgs/capturas2/Imagen001.png}
-						\caption{Fase de Login en Helios Voting}
-						\label{fig:Helios.Fases.Login}
-					\end{figure}
-					
-					
-					\item[Crear elección]	El primer paso funcional es la creación de la Elección. Corresponde al administrador crear la elección. Para ello, puede poner el nombre y descripción del Proceso, seleccionar si es una elección al uso o un referéndum, si se usan los nombres de los votantes o pseudónimos, si se presentan los nombres de los candidatos a cada votante en orden aleatorio y si la elección es privada para los votantes registrados o abierta a cualquier votante.
-					
-					\begin{figure}[!ht]
-						\centering
-							\includegraphics[width=1\textwidth]{imgs/capturas2/Imagen003.png}
-						\caption{Fase de creación de una elección en Helios Voting}
-						\label{fig:Helios.Fases.CrearEleccion}
-					\end{figure}
-					
-					\item[Preparar la elección] Antes de abrir el proceso de votación hay que preparar la elección. Para ello hay tres elementos que requieren ser inicializados.
-					
-						\begin{description}
+						\item[Preguntas] Helios funciona a base de preguntas al electorado. Con una elección creada, el primer paso debería ser formular dichas preguntas y sus posibles respuestas, así como si es multiselección o de elección simple.
 						
-							\item[Preguntas] Helios funciona a base de preguntas al electorado. Con una elección creada, el primer paso debería ser formular dichas preguntas y sus posibles respuestas, así como si es multiselección o de elección simple.
-							
-							\item[Censo de votantes] Es necesario incluir un censo de votantes o permitir una votación abierta. En el caso del censo, Helios permite hacer cargas de ficheros csv con la información del votante (id, email y nombre). También permite que cualquiera pueda emitir un voto.
-							
-							\item [Añadir Trustees] En voto electrónico, es necesario tener entidades de las que poder fiarse para el correcto funcionamiento de la elección. Como es complicado que exista una entidad externa que cumpla con los requisitos, esto se emula utilizando varios trustees. Básicamente, los trustees son entidades fiables que es difícil que se puedan poner de acuerdo entre sí para falsear la elección. Estas entidades combinan sus claves públicas y privadas para formar la clave pública y privada de la elección a utilizar en la encriptación de los votos y la desencriptación del resultado del escrutinio. En Helios, el propio sistema es un trustee, suficiente para llevar a cabo los procesos criptográficos en caso de que no se defina ninguna entidad o usuario confiable adicional.
-							\todo[inline]{Es interesante lo que dice la propia web de Helios cuando se definen los trustees}
-							
-								\begin{description}
-									%\item [Setup key - generate key]
-									\item [Configuración y generación de la clave]
-									\item [Guardar la clave secreta] 
-									\item [Subir la clave pública] (verificar la clave privada)
-								\end{description}					
-							
-						\end{description}
-					
-					\item [Congelar papeleta y abrir la elección] 
-					Una vez se ha definido la papeleta (diferentes preguntas y opciones a elegir), es tarea de los administradores proceder a su congelamiento, con lo cual se asegura que la misma no va a ser modificada durante el periodo de votación. Una vez congelada, se procede a la apertura de urnas, con lo que el sistema permite a los votantes emitir sus votos.
-					
-					\item [Votar]
-					Durante el tiempo fijado al definir las características de la elección, los votantes pueden logarse en el sistema y emitir sus votos.
-					
-					\item [Calcular recuento cifrado] (cerrar votación y computar)
-					Una vez superada la fecha fijada como cierre de urnas, los administradores proceden a iniciar el escrutinio. Para ello, lo primero que se produce es un cierre virtual de las urnas, con lo que los votantes no podrán emitir ningún voto a partir de este momento. A su vez, se inicia el procedimiento de cálculo de votos, el cual, debido al esquema homomórfico de la elección, realizará el recuento sumando los votos encriptados. El resultado de esta suma de votos cifrados, necesitará ser descifrado para poder publicar el resultado.
-					
-					\item [Combinar trustees de descifrado y totalizar los resultados]
-					Para poder realizar el descifrado de la totalización de los votos, se requiere que todos los trustees de la elección combinen su secreto compartido de la clave privada de descifrado de la elección.
-					
-					
-					\item [Computar resultados]
-					Una vez se han combinado las claves necesarias de los trustees, el sistema procede al descifrado de la suma de los votos. Una vez realizado este proceso es cuando se tienen los resultados en claro.
-					
-					\item [Difusión de resultados]
-					La difusión de los resultados en el sistema Helios Voting es simplemente una página donde se recogen cada una de las preguntas de la papeleta, junto con sus opciones propuestas y el resultado de los votos que cada una ha obtenido.
-					Esta difusión se realiza en dos pasos.
-					Primero, el sistema muestra los resultados al administrador. El segundo paso requiere que el administrador de su aprobación para liberar los resultados, momento en el cual cualquier usuario del sistema, votante, auditor o un tercero externo tendrá la posibilidad de ver los resultados y verificar la integridad de los mismos.
-					
-				\item[Auditorías]
-				El sistema Helios Voting implementa dos mecanismos de auditoría activa (que puede realizar el votante y/o auditores o visitantes).
-				Por un lado, el votante tiene la posibilidad de auditar un voto de forma individual. Puede realizar el paso de votar una opción y auditar este voto. El voto será descifrado y presentado en claro, para que compruebe la correctitud del proceso. Este voto, no obstante, será desechado y el votante deberá volver a realizar el proceso de emisión de voto.
-				Por otra parte, Helios Voting implementa un mecanismo de auditoría por el que, tanto los votantes como cualquier persona interesada en el proceso, tiene la posibilidad de auditar el escrutinio una vez ha sido publicado para probar la integridad del mismo.
+						\item[Censo de votantes] Es necesario incluir un censo de votantes o permitir una votación abierta. En el caso del censo, Helios permite hacer cargas de ficheros csv con la información del votante (id, email y nombre). También permite que cualquiera pueda emitir un voto.
+						
+						\item [Añadir Trustees] En voto electrónico, es necesario tener entidades de las que poder fiarse para el correcto funcionamiento de la elección. Como es complicado que exista una entidad externa que cumpla con los requisitos, esto se emula utilizando varios trustees. Básicamente, los trustees son entidades fiables que es difícil que se puedan poner de acuerdo entre sí para falsear la elección. Estas entidades combinan sus claves públicas y privadas para formar la clave pública y privada de la elección a utilizar en la encriptación de los votos y la desencriptación del resultado del escrutinio. En Helios, el propio sistema es un trustee, suficiente para llevar a cabo los procesos criptográficos en caso de que no se defina ninguna entidad o usuario confiable adicional.
+						\todo[inline]{Es interesante lo que dice la propia web de Helios cuando se definen los trustees}
+						
+							\begin{description}
+								%\item [Setup key - generate key]
+								\item [Configuración y generación de la clave]
+								\item [Guardar la clave secreta] 
+								\item [Subir la clave pública] (verificar la clave privada)
+							\end{description}					
+						
+					\end{description}
+				
+				\item [Congelar papeleta y abrir la elección] 
+				Una vez se ha definido la papeleta (diferentes preguntas y opciones a elegir), es tarea de los administradores proceder a su congelamiento, con lo cual se asegura que la misma no va a ser modificada durante el periodo de votación. Una vez congelada, se procede a la apertura de urnas, con lo que el sistema permite a los votantes emitir sus votos.
+				
+				\item [Votar]
+				Durante el tiempo fijado al definir las características de la elección, los votantes pueden logarse en el sistema y emitir sus votos.
+				
+				\item [Calcular recuento cifrado] (cerrar votación y computar)
+				Una vez superada la fecha fijada como cierre de urnas, los administradores proceden a iniciar el escrutinio. Para ello, lo primero que se produce es un cierre virtual de las urnas, con lo que los votantes no podrán emitir ningún voto a partir de este momento. A su vez, se inicia el procedimiento de cálculo de votos, el cual, debido al esquema homomórfico de la elección, realizará el recuento sumando los votos encriptados. El resultado de esta suma de votos cifrados, necesitará ser descifrado para poder publicar el resultado.
+				
+				\item [Combinar trustees de descifrado y totalizar los resultados]
+				Para poder realizar el descifrado de la totalización de los votos, se requiere que todos los trustees de la elección combinen su secreto compartido de la clave privada de descifrado de la elección.
+				
+				
+				\item [Computar resultados]
+				Una vez se han combinado las claves necesarias de los trustees, el sistema procede al descifrado de la suma de los votos. Una vez realizado este proceso es cuando se tienen los resultados en claro.
+				
+				\item [Difusión de resultados]
+				La difusión de los resultados en el sistema Helios Voting es simplemente una página donde se recogen cada una de las preguntas de la papeleta, junto con sus opciones propuestas y el resultado de los votos que cada una ha obtenido.
+				Esta difusión se realiza en dos pasos.
+				Primero, el sistema muestra los resultados al administrador. El segundo paso requiere que el administrador de su aprobación para liberar los resultados, momento en el cual cualquier usuario del sistema, votante, auditor o un tercero externo tendrá la posibilidad de ver los resultados y verificar la integridad de los mismos.
+				
+				\item[Auditorías]	
+				El sistema Helios Voting implementa dos mecanismos de auditoría activa (que puede realizar el votante y/o auditores o visitantes).		
+				Por un lado, el votante tiene la posibilidad de auditar un voto de forma individual. Puede realizar el paso de votar una opción y auditar este voto. El voto será descifrado y presentado en claro, para que compruebe la correctitud del proceso. Este voto, no obstante, será desechado y el votante deberá volver a realizar el proceso de emisión de voto.		
+				Por otra parte, Helios Voting implementa un mecanismo de auditoría por el que, tanto los votantes como cualquier persona interesada en el proceso, tiene la posibilidad de auditar el escrutinio una vez ha sido publicado para probar la integridad del mismo.		
 				Ambos procedimientos se explican en \ref{planteamiento_HeliosVoting_auditoria}.
-				\end{description}
+			\end{description}
 			
-			\subsection{Auditorías}\label{planteamiento_HeliosVoting_auditoria}
-				Las auditorías son procesos fundamentales para la fiabilidad de un sistema de voto por Internet. En este caso vamos a introducir aquellas que, usando pruebas de conocimiento nulo (\ref{primitivaPruebasConocimientoNulo}), permiten comprobar el correcto funcionamiento de cada proceso de la elección. 
+		\subsection{Auditorías}\label{planteamiento_HeliosVoting_auditoria}
+			Las auditorías son procesos fundamentales para la fiabilidad de un sistema de voto por Internet. En este caso vamos a introducir aquellas que, usando pruebas de conocimiento nulo (\ref{primitivaPruebasConocimientoNulo}), permiten comprobar el correcto funcionamiento de cada proceso de la elección. 
+		
+			Durante el período de votación, tanto el votante como entidades externas pueden realizar una serie de pruebas o auditorías para confirmar el correcto estado del proceso. Estas auditorías se realizan a distintos niveles dependiendo del actor que desee realizarlas, así los votantes pueden realizar auditorías de correctitud de su voto emitido, mientras que auditores externos no pueden llevar a cabo estas comprobaciones. Sin embargo, tanto los primeros como los segundos pueden realizar una auditoría al escrutinio.
 			
-				Durante el período de votación, tanto el votante como entidades externas pueden realizar una serie de pruebas o auditorías para confirmar el correcto estado del proceso. Estas auditorías se realizan a distintos niveles dependiendo del actor que desee realizarlas, así los votantes pueden realizar auditorías de correctitud de su voto emitido, mientras que auditores externos no pueden llevar a cabo estas comprobaciones. Sin embargo, tanto los primeros como los segundos pueden realizar una auditoría al escrutinio.
+			La interfaz de usuario de Helios posee una zona dedicada a las pruebas de auditoría. En ellas, según se va avanzando en la Elección, van apareciendo enlaces e instrucciones según se pueden comenzar a realizar pruebas a diferentes elementos del sistema.
+			
+			Las auditorías de procesos que permite Helios Voting durante el proceso de votación:
 				
-				La interfaz de usuario de Helios posee una zona dedicada a las pruebas de auditoría. En ellas, según se va avanzando en la Elección, van apareciendo enlaces e instrucciones según se pueden comenzar a realizar pruebas a diferentes elementos del sistema.
+			\begin{description}
+				\item [Verificación de la papeleta (antes de votar)]
 				
-				Las auditorías de procesos que permite Helios Voting durante el proceso de votación:
+				El sistema permite verificar una papeleta cifrada previamente a su sufragio. La papeleta verificada no será la que se utilice para votar y no será, por tanto, contada sino que, por medidas para combatir la coerción, habrá que volver a encriptarla de nuevo cuando se quiera emitir el voto.
 				
-				\begin{description}
-					\item [Verificación de la papeleta (antes de votar)]
+				Una vez el votante está en la cabina de voto virtual y ha encriptado sus opciones de voto, el sistema permite realizar una verificación para asegurarse de que la encriptación de estas ha sido correcta. Para ello, el sistema presenta al votante la información para auditar su papeleta (ballot audit info) \notasInfo{Poner aquí qué significa esta información}. Este texto es el que debe copiar el votante para utilizar en la herramienta de verificación de papeletas. En ésta, se incluye dicho texto y la URL de la elección datos suficientes para realizar la verificación.
+				
+				\todo[inline]{Explicar en qué consiste la verificación. IMPORTANTE y delicado. Valorar.}
+				Una vez hemos auditado nuestro voto, tenemos la posibilidad de publicar la papeleta auditada en el \textit{Helios tracking center}, permitiendo a otras entidades realizar una doble comprobación de la verificación de la papeleta.
+				
+				
+				\item [Lista de papeletas auditadas]
+				
+					Como hemos avanzado en el punto anterior, en el momento de realizar la votación, el votante puede realizar una verificación del contenido encriptado de su papeleta. El sistema le permite, una vez realizada la comprobación, publicar esta \textit{papeleta abierta} en un tablón con una lista de papeletas auditadas. En cualquier momento de la elección, cualquier usuario, sea votante o no, puede acceder a esta lista y realizar la misma verificación sobre las papeletas ahí publicadas. Estas papeletas, no obstante, no son las que se han utilizado para emitir el voto, pues ya se ha comentado que una vez el votante la \textit{abre} para su verificación, ha de reencriptar su voto para \textit{meterlo en la urna} definitivamente.
 					
-					El sistema permite verificar una papeleta cifrada previamente a su sufragio. La papeleta verificada no será la que se utilice para votar y no será, por tanto, contada sino que, por medidas para combatir la coerción, habrá que volver a encriptarla de nuevo cuando se quiera emitir el voto.
 					
-					Una vez el votante está en la cabina de voto virtual y ha encriptado sus opciones de voto, el sistema permite realizar una verificación para asegurarse de que la encriptación de estas ha sido correcta. Para ello, el sistema presenta al votante la información para auditar su papeleta (ballot audit info) \notasInfo{Poner aquí qué significa esta información}. Este texto es el que debe copiar el votante para utilizar en la herramienta de verificación de papeletas. En ésta, se incluye dicho texto y la URL de la elección datos suficientes para realizar la verificación.
+				\item [Auditoría de la elección ya escrutada]
+				
+					Una vez se ha realizado el escrutinio, el sistema permite a los observadores interesados, realizar una prueba para verificar la veracidad del resultado.
+					\notasInfo[inline]{Es necesario comentar en qué consiste la auditoría del escrutinio.}
 					
-					\todo[inline]{Explicar en qué consiste la verificación. IMPORTANTE y delicado. Valorar.}
-					Una vez hemos auditado nuestro voto, tenemos la posibilidad de publicar la papeleta auditada en el \textit{Helios tracking center}, permitiendo a otras entidades realizar una doble comprobación de la verificación de la papeleta.
 					
-					
-					\item [Lista de papeletas auditadas]
-					
-						Como hemos avanzado en el punto anterior, en el momento de realizar la votación, el votante puede realizar una verificación del contenido encriptado de su papeleta. El sistema le permite, una vez realizada la comprobación, publicar esta \textit{papeleta abierta} en un tablón con una lista de papeletas auditadas. En cualquier momento de la elección, cualquier usuario, sea votante o no, puede acceder a esta lista y realizar la misma verificación sobre las papeletas ahí publicadas. Estas papeletas, no obstante, no son las que se han utilizado para emitir el voto, pues ya se ha comentado que una vez el votante la \textit{abre} para su verificación, ha de reencriptar su voto para \textit{meterlo en la urna} definitivamente.
-						
-						
-					\item [Auditoría de la elección ya escrutada]
-					
-						Una vez se ha realizado el escrutinio, el sistema permite a los observadores interesados, realizar una prueba para verificar la veracidad del resultado.
-						\notasInfo[inline]{Es necesario comentar en qué consiste la auditoría del escrutinio.}
-						
-						
-				\end{description}
+			\end{description}
 				
-			\subsection{Protocolo criptográfico}\label{planteamiento_HeliosVoting_protocoloCriptografico}
-				Otra de las piedras angulares en las que se debe basar un sistema de votación por Internet es en su protocolo criptográfico y en las primitivas que utiliza, base para poder argumentar la fiabilidad de los procesos que se realizan.
-				
-				Helios Voting basa su seguridad criptográfica en un protocolo de cifrado homomórfico (\ref{primitivaCifradoHomomorfico}).
-				
-				El voto se encripta en el navegador del cliente utilizando una implementación del algoritmo de ElGamal Exponencial realizada en Javascript.
-				
-				Como se ha explicado en \ref{primitivaCifradoHomomorfico_elgamal} las propiedades de un cifrado homomórfico implican que el cifrado del producto de dos mensajes (números) se corresponda con el producto de ambos mensajes cifrados.
-				
-				El algoritmo de ElGamal es un algoritmo de cifrado homomórfico. Pese a ser bastante interesante, existe otra aproximación al problema, con el cifrado homomórfico exponencial. De este tipo el algoritmo de ElGamal Exponencial. Con este algoritmo se puede obtener una relación entre la suma de dos mensajes cifrados y el cifrado de la suma de dos mensajes. Se basa en la elección de un número grande usado como generador, el cual usa el mensaje como exponente. El producto de dos generadores elevados exponencialmente cada uno a un mensaje y cifrados es igual que el cifrado del generador elevado a la suma de los dos mensajes.
-				
-				Aplicando estas propiedades al voto electrónico podemos inferir que cifrando los votos de cada votante, se puede obtener el cifrado de la suma de todos ellos. Una vez se obtiene, si se descifra, se obtiene el resultado totalizado de los votos. Es decir, que se pueden cifrar los votos y conseguir obtener la suma de ellos sin violar el secreto de cada voto individual.
-				
-				\todo[inline]{Esto se quedó a la mitad... :S}
+		\subsection{Protocolo criptográfico}\label{planteamiento_HeliosVoting_protocoloCriptografico}
+			Otra de las piedras angulares en las que se debe basar un sistema de votación por Internet es en su protocolo criptográfico y en las primitivas que utiliza, base para poder argumentar la fiabilidad de los procesos que se realizan.
+			
+			Helios Voting basa su seguridad criptográfica en un protocolo de cifrado homomórfico (\ref{primitivaCifradoHomomorfico}).
+			
+			El voto se encripta en el navegador del cliente utilizando una implementación del algoritmo de ElGamal Exponencial realizada en Javascript.
+			
+			Como se ha explicado en \ref{primitivaCifradoHomomorfico_elgamal} las propiedades de un cifrado homomórfico implican que el cifrado del producto de dos mensajes (números) se corresponda con el producto de ambos mensajes cifrados.
+			
+			El algoritmo de ElGamal es un algoritmo de cifrado homomórfico. Pese a ser bastante interesante, existe otra aproximación al problema, con el cifrado homomórfico exponencial. De este tipo el algoritmo de ElGamal Exponencial. Con este algoritmo se puede obtener una relación entre la suma de dos mensajes cifrados y el cifrado de la suma de dos mensajes. Se basa en la elección de un número grande usado como generador, el cual usa el mensaje como exponente. El producto de dos generadores elevados exponencialmente cada uno a un mensaje y cifrados es igual que el cifrado del generador elevado a la suma de los dos mensajes.
+			
+			Aplicando estas propiedades al voto electrónico podemos inferir que cifrando los votos de cada votante, se puede obtener el cifrado de la suma de todos ellos. Una vez se obtiene, si se descifra, se obtiene el resultado totalizado de los votos. Es decir, que se pueden cifrar los votos y conseguir obtener la suma de ellos sin violar el secreto de cada voto individual.
+			
+			\todo[inline]{Esto se quedó a la mitad... :S}
 			
 
 	
-	\subsection{Identificación}\label{analisis_identificacion}
-	Una vez visto el sistema sobre el que basar los procesos electorales que hemos de llevar a cabo en la EPS, es el momento de implementar modificaciones en el mismo.
-	
-	En primer lugar, el cambio más importante es el que se refiere a la identificación de votantes.
-	
-	En Helios, de forma nativa, los sistemas que permiten la entrada de votantes al sistema son usuario/password y una serie de servicios oAuth de terceros, incluyendo Facebook, Twitter, Google y Yahoo!. 
-	
-	Existe una modificación especial para las elecciones de la Universidad de Lovaina en la que se implementó un sistema CAS contra la base de datos de alumnos de la Universidad. Con este sistema, los usuarios se podían logar en el sistema con la identificación de la Universidad y contra un servicio que ésta brindaba, es decir, que el control de entrada de usuarios se delegaba en la Universidad y se confiaba en su sistema a la hora de proporcionar roles y permisos a los usuarios del sistema.
-	
-	Para las Elecciones en la EPS, podría llegar a valorarse este sistema CAS, modificándolo para adecuarlo a la infraestructura digital de la Universidad. Pero no es uno de los objetivos de este PFC, teniendo en cuenta la idea de utilización del DNIe 3.0 y la necesidad de limitar la interacción con la Universidad por el acceso a sus sistemas.
-	
+		\subsection{Identificación}\label{analisis_identificacion}
+			Una vez visto el sistema sobre el que basar los procesos electorales que hemos de llevar a cabo en la EPS, es el momento de implementar modificaciones en el mismo.		
+				
+			En primer lugar, el cambio más importante es el que se refiere a la identificación de votantes.			
+						
+			En Helios, de forma nativa, los sistemas que permiten la entrada de votantes al sistema son usuario/password y una serie de servicios oAuth de terceros, incluyendo Facebook, Twitter, Google y Yahoo!. 			
+						
+			Existe una modificación especial para las elecciones de la Universidad de Lovaina en la que se implementó un sistema CAS contra la base de datos de alumnos de la Universidad. Con este sistema, los usuarios se podían logar en el sistema con la identificación de la Universidad y contra un servicio que ésta brindaba, es decir, que el control de entrada de usuarios se delegaba en la Universidad y se confiaba en su sistema a la hora de proporcionar roles y permisos a los usuarios del sistema.			
+						
+			Para las Elecciones en la EPS, podría llegar a valorarse este sistema CAS, modificándolo para adecuarlo a la infraestructura digital de la Universidad. Pero no es uno de los objetivos de este PFC, teniendo en cuenta la idea de utilización del DNIe 3.0 y la necesidad de limitar la interacción con la Universidad por el acceso a sus sistemas.	
+		
 	
 	
 	o-----------
 	
 	
 	
-	La primera idea para integrar el DNIe en el sistema Helios consistía en realizar un acceso seguro, por SSL, que requiriese autenticación por el DNIe, del mismo modo que la mayoría de las webs de la Administración pública.
+			La primera idea para integrar el DNIe en el sistema Helios consistía en realizar un acceso seguro, por SSL, que requiriese autenticación por el DNIe, del mismo modo que la mayoría de las webs de la Administración pública.			
+						
+			Para llegar a esta implementación, era necesario modificar el sistema de login de Helios, así como el servidor sobre el que corre.			
+						
+			Hubo que configurar el servidor para que éste requiriese el establecimiento de un canal seguro SSL a través de los certificados del DNIe. Para ello, hay que modificar la configuración del servidor Apache sobre el que corremos el proyecto Django sobre el que se implementa Helios Voting.			
+						
+			Una vez configurado el canal HTTPS, había que implementar un módulo de login que pidiese al usuario el DNIe. Para esto existe un applet de java que proporciona la Dirección General de la Policía que cumple con el cometido. 			
+						
+			Con estas implementaciones somos capaces de que un usuario intente acceder al sistema de votación, este le pedirá las credenciales del DNIe para validarlas y establecer un canal SSL seguro con el servidor. A través del canal seguro establecido, el applet presenta las credenciales del usuario por medio del certificado privado del DNIe, previa consulta al usuario del PIN correspondiente. Con las credenciales que recibe el sistema de login, se le puede conceder o denegar acceso al usuario identificado			
+						
+						
+			
 	
-	Para llegar a esta implementación, era necesario modificar el sistema de login de Helios, así como el servidor sobre el que corre.
-	
-	Hubo que configurar el servidor para que éste requiriese el establecimiento de un canal seguro SSL a través de los certificados del DNIe. Para ello, hay que modificar la configuración del servidor Apache sobre el que corremos el proyecto Django sobre el que se implementa Helios Voting.
-	
-	Una vez configurado el canal HTTPS, había que implementar un módulo de login que pidiese al usuario el DNIe. Para esto existe un applet de java que proporciona la Dirección General de la Policía que cumple con el cometido. 
-	
-	Con estas implementaciones somos capaces de que un usuario intente acceder al sistema de votación, este le pedirá las credenciales del DNIe para validarlas y establecer un canal SSL seguro con el servidor. A través del canal seguro establecido, el applet presenta las credenciales del usuario por medio del certificado privado del DNIe, previa consulta al usuario del PIN correspondiente. Con las credenciales que recibe el sistema de login, se le puede conceder o denegar acceso al usuario identificado
 	
 	
-	
-	
-	
-	
-	El Ministerio del Interior de España\footnote{\url{http://www.interior.gob.es/}}, a través de la Dirección General de la Policía, es el órgano encargado de la gestión y desarrollo del DNI electrónico\footnote{\url{http://www.dnielectronico.es/PortalDNIe/}}. Por tanto, además de ser los responsables del control y la emisión de estas credenciales, son los responsables de desarrollar las APIs y documentación para que los desarrolladores puedan utilizar los certificados digitales que llevan en aplicaciones o servicios prestados por terceros.
-	
-	En el caso del DNIe 3.0, en el área de descargas\footnote{\url{http://www.dnielectronico.es/PortalDNIe/PRF1_Cons02.action?pag=REF_1120}} de la web de la DGP han publicado el código fuente de tres aplicaciones Android y su respectiva documentación para dar una muestra de cómo implementar apps que hagan uso del certificado NFC que trae como novedad este documento.
-	
-	Estas tres aplicaciones compartidas se centran en las tres funcionalidades que aporta este chip:
-		\begin{description}
-			\item[Aplicación Android de Lectura:] Código fuente de una aplicación que permite a un dispositivo Android con un sensor NFC el leer los datos públicos del chip NFC del DNI electrónico.
-			\item[Aplicación Android Autenticación:] Código fuente de una aplicación que permite a través de un dispositivo Android el poder autenticarse contra un servidor con las credenciales digitales que integra el chip NFC en el DNI electrónico.
-			\item[Aplicación Adroid Firma:] Código fuente de una aplicación que permite la firma de documentos u otro tipo de objetos digitales con el certificado digital personal privado que ofrece el DNIe a través de software en dispositivos Android gracias a la tecnología sin contacto NFC.
-		\end{description}
+			El Ministerio del Interior de España\footnote{\url{http://www.interior.gob.es/}}, a través de la Dirección General de la Policía, es el órgano encargado de la gestión y desarrollo del DNI electrónico\footnote{\url{http://www.dnielectronico.es/PortalDNIe/}}. Por tanto, además de ser los responsables del control y la emisión de estas credenciales, son los responsables de desarrollar las APIs y documentación para que los desarrolladores puedan utilizar los certificados digitales que llevan en aplicaciones o servicios prestados por terceros.			
+						
+			En el caso del DNIe 3.0, en el área de descargas\footnote{\url{http://www.dnielectronico.es/PortalDNIe/PRF1_Cons02.action?pag=REF_1120}} de la web de la DGP han publicado el código fuente de tres aplicaciones Android y su respectiva documentación para dar una muestra de cómo implementar apps que hagan uso del certificado NFC que trae como novedad este documento.			
+						
+			Estas tres aplicaciones compartidas se centran en las tres funcionalidades que aporta este chip:
+			\begin{description}	
+				\item[Aplicación Android de Lectura:] Código fuente de una aplicación que permite a un dispositivo Android con un sensor NFC el leer los datos públicos del chip NFC del DNI electrónico.		
+				\item[Aplicación Android Autenticación:] Código fuente de una aplicación que permite a través de un dispositivo Android el poder autenticarse contra un servidor con las credenciales digitales que integra el chip NFC en el DNI electrónico.		
+				\item[Aplicación Adroid Firma:] Código fuente de una aplicación que permite la firma de documentos u otro tipo de objetos digitales con el certificado digital personal privado que ofrece el DNIe a través de software en dispositivos Android gracias a la tecnología sin contacto NFC.		
+			\end{description}	
 		
-		El sistema Helios Voting permite votar en unas elecciones desde un navegador web. El objetivo es que también podamos hacerlo desde un smartphone a través de una app que nos permita votar desde cualquier punto con conexión a Internet, por lo que hay que valorar la mejor opción para ello.
+			El sistema Helios Voting permite votar en unas elecciones desde un navegador web. El objetivo es que también podamos hacerlo desde un smartphone a través de una app que nos permita votar desde cualquier punto con conexión a Internet, por lo que hay que valorar la mejor opción para ello.
 		
-		La primera opción es utilizar, como se suele hacer desde un computador de escritorio, un navegador web.
+			La primera opción es utilizar, como se suele hacer desde un computador de escritorio, un navegador web.
 		
-		Una primera prueba que se realizó fue tratar de autenticarse en una web a través del DNIe.
+			Una primera prueba que se realizó fue tratar de autenticarse en una web a través del DNIe.
 		
-		Al entrar en la Sede Electrónica de la Agencia Tributaria, para consultar los expedientes es necesario facilitar certificados digitales para poder ser identificado y autenticado contra el sistema. Al intentar abrir la página, Google Chrome nos muestra un aviso \todo[inline]{Captura de pantalla del móvil donde pide los certificados} en el que nos indica que no se han encontrado los certificados. Incluso nos ofrece la posibilidad de instalarlos. Podríamos dirigirnos a la web de la FNMT\footnote{\url{https://www.sede.fnmt.gob.es/certificados/persona-fisica/obtener-certificado-software}} y gestionar la emisión de un certificado digital, que podríamos descargar y utilizar como identificación digital de la misma forma que lo podemos hacer con el DNIe. De todos modos, la obtención de este certificado por parte de la FNMT requiere de un paso en el que el usuario ha de personarse físicamente en una Oficina de Registro para acreditar su identidad. Con este certificado instalado en el almacén de certificados de Google Chrome se podría gestionar la identificación contra la web a la que tratamos de acceder, pero hemos decidido no continuar por este camino porque es necesario realizar trámites extras que no consideramos necesarios frente a la facilidad de obtener el DNIe.
+			Al entrar en la Sede Electrónica de la Agencia Tributaria, para consultar los expedientes es necesario facilitar certificados digitales para poder ser identificado y autenticado contra el sistema. Al intentar abrir la página, Google Chrome nos muestra un aviso \todo[inline]{Captura de pantalla del móvil donde pide los certificados} en el que nos indica que no se han encontrado los certificados. Incluso nos ofrece la posibilidad de instalarlos. Podríamos dirigirnos a la web de la FNMT\footnote{\url{https://www.sede.fnmt.gob.es/certificados/persona-fisica/obtener-certificado-software}} y gestionar la emisión de un certificado digital, que podríamos descargar y utilizar como identificación digital de la misma forma que lo podemos hacer con el DNIe. De todos modos, la obtención de este certificado por parte de la FNMT requiere de un paso en el que el usuario ha de personarse físicamente en una Oficina de Registro para acreditar su identidad. Con este certificado instalado en el almacén de certificados de Google Chrome se podría gestionar la identificación contra la web a la que tratamos de acceder, pero hemos decidido no continuar por este camino porque es necesario realizar trámites extras que no consideramos necesarios frente a la facilidad de obtener el DNIe.
 		
-		Implementando algún tipo de soporte de autenticación por DNIe en Helios y tratando de acceder desde el móvil a través del navegador, nos encontraríamos este problema. Chrome, o el navegador que utilicemos, no tiene los certificados digitales cargados en su almacén de certificados.
+			Implementando algún tipo de soporte de autenticación por DNIe en Helios y tratando de acceder desde el móvil a través del navegador, nos encontraríamos este problema. Chrome, o el navegador que utilicemos, no tiene los certificados digitales cargados en su almacén de certificados.
 		
 		
-		----
-		Otro camino de investigación se basa en la app de Autenticación publicada por el Ministerio del Interior a través de la Policía.
+			----	
+			Otro camino de investigación se basa en la app de Autenticación publicada por el Ministerio del Interior a través de la Policía.
 		
-		En esta, se implementa un ejemplo a través del cual se pueden realizar varios trámites de consultas contra la web del Ayuntamiento de Madrid. Concretamente, permite las consultas:
-		\begin{itemize}
-			\item Tributos
-			\item Gestión de multas
-			\item Datos censales
-			\item Expedientes
-		\end{itemize}
+			En esta, se implementa un ejemplo a través del cual se pueden realizar varios trámites de consultas contra la web del Ayuntamiento de Madrid. Concretamente, permite las consultas:
+			\begin{itemize}	
+				\item Tributos		
+				\item Gestión de multas		
+				\item Datos censales		
+				\item Expedientes		
+			\end{itemize}
 		
-		El funcionamiento es sencillo. Una vez se abre la app, aparece un menú con las gestiones que se pueden realizar. 
+			El funcionamiento es sencillo. Una vez se abre la app, aparece un menú con las gestiones que se pueden realizar. 
 		
-		Por ejemplo, pulsamos sobre Consulta de los datos censales. 
+			Por ejemplo, pulsamos sobre Consulta de los datos censales. 
 		
-		La siguiente pantalla que nos aparece es una en la que se nos requiere que introduzcamos el CAN (Card Access Number) que podemos ver en el anverso del DNIe físico en la zona inferior derecha. Este identificador es un número de 6 dígitos que se utiliza para establecer un canal cifrado PACE entre el DNIe y el dispositivo. Como indica la documentación proporcionada por los desarrolladores el canal PACE (Password Authenticated Connection Establishment) es obligatorio para establecer esta conexión cifrada, pero en ningún caso reemplaza al código PIN de acceso a los certificados ni da permisos de uso de las claves de firma y/o autenticación del ciudadano. Se trata de una medida de seguridad extra para evitar que un tercero pueda realizar lecturas de datos públicos sin conocimiento del dueño del DNI.
+			La siguiente pantalla que nos aparece es una en la que se nos requiere que introduzcamos el CAN (Card Access Number) que podemos ver en el anverso del DNIe físico en la zona inferior derecha. Este identificador es un número de 6 dígitos que se utiliza para establecer un canal cifrado PACE entre el DNIe y el dispositivo. Como indica la documentación proporcionada por los desarrolladores el canal PACE (Password Authenticated Connection Establishment) es obligatorio para establecer esta conexión cifrada, pero en ningún caso reemplaza al código PIN de acceso a los certificados ni da permisos de uso de las claves de firma y/o autenticación del ciudadano. Se trata de una medida de seguridad extra para evitar que un tercero pueda realizar lecturas de datos públicos sin conocimiento del dueño del DNI.
+			
+			En caso de haber introducido previamente el código CAN en la app, éste se puede visualizar en un listado seleccionable para que no haga falta que el usuario tenga que introducirlo cada vez que quiera utilizar los certificados.
 		
-		En caso de haber introducido previamente el código CAN en la app, éste se puede visualizar en un listado seleccionable para que no haga falta que el usuario tenga que introducirlo cada vez que quiera utilizar los certificados.
+			Una vez introducido el CAN, la siguiente pantalla nos pide que acerquemos el DNIe 3.0 al dispositivo.
 		
-		Una vez introducido el CAN, la siguiente pantalla nos pide que acerquemos el DNIe 3.0 al dispositivo.
+			Es en este momento cuando se produce la comunicación entre dispositivo y el chip de radiofrecuencia, permitiendo el paso de respuestas y comandos entre ambos.
 		
-		Es en este momento cuando se produce la comunicación entre dispositivo y el chip de radiofrecuencia, permitiendo el paso de respuestas y comandos entre ambos.
-		
-		Una vez se realizan las operaciones básicas de lectura de certificados, la app solicita el PIN del DNIe al usuario. Con este PIN, se autentica al usuario contra el DNIe y concede permisos de acceso a las claves. A partir de este momento, todas las comunicaciones entre DNIe y dispositivo van cifradas.
+			Una vez se realizan las operaciones básicas de lectura de certificados, la app solicita el PIN del DNIe al usuario. Con este PIN, se autentica al usuario contra el DNIe y concede permisos de acceso a las claves. A partir de este momento, todas las comunicaciones entre DNIe y dispositivo van cifradas.
 		
 	\todo[inline]{Falta el tipo de cifrado, que en la documentación no aparece}
 		
-		El usuario puede a partir de aquí realizar las operaciones que requieren sus claves, como puede ser la firma de documentos o, la que buscamos para el sistema Helios, establecer una conexión segura con el servidor prestador de servicios, entre otras.
+			El usuario puede a partir de aquí realizar las operaciones que requieren sus claves, como puede ser la firma de documentos o, la que buscamos para el sistema Helios, establecer una conexión segura con el servidor prestador de servicios, entre otras.
 		
-		Siguiendo con la app de ejemplo, a continuación nos conecta con el servicio de datos censales del Ayuntamiento de Madrid y nos muestra nuestros datos censales en caso de una conexión correcta.
+			Siguiendo con la app de ejemplo, a continuación nos conecta con el servicio de datos censales del Ayuntamiento de Madrid y nos muestra nuestros datos censales en caso de una conexión correcta.
 		
-		En principio es una muy buena opción para implementar para el sistema de votación. Permite establecer un canal seguro con una autenticación fiable a través de los certificados del DNIe.
+			En principio es una muy buena opción para implementar para el sistema de votación. Permite establecer un canal seguro con una autenticación fiable a través de los certificados del DNIe.
 		
-		Al final lo que obtenemos es la web empotrada dentro de un WebView\footnote{\url{https://developer.android.com/reference/android/webkit/WebView.html}} creado por la aplicación.
+			Al final lo que obtenemos es la web empotrada dentro de un WebView\footnote{\url{https://developer.android.com/reference/android/webkit/WebView.html}} creado por la aplicación.
 		
-		Después multitud de pruebas y de bucear en foros sobre seguridad digital, certificados digitales, DNIe y Android, resultó haber un problema bastante importante con esta aproximación.
+			Después multitud de pruebas y de bucear en foros sobre seguridad digital, certificados digitales, DNIe y Android, resultó haber un problema bastante importante con esta aproximación.
+			
+			Partamos de la base de la correcta configuración del servidor y login a través de certificados del DNIe. La prueba de la correcta configuración residía en que era posible acceder al servicio, e incluso llegar a emitir un voto, utilizando el DNIe (tanto 2.0 como 3.0) en un PC, utilizando el chip de contacto y utilizando un navegador como el Mozilla Firefox.
 		
-		Partamos de la base de la correcta configuración del servidor y login a través de certificados del DNIe. La prueba de la correcta configuración residía en que era posible acceder al servicio, e incluso llegar a emitir un voto, utilizando el DNIe (tanto 2.0 como 3.0) en un PC, utilizando el chip de contacto y utilizando un navegador como el Mozilla Firefox.
+			Demostrado que era factible esta arquitectura, se intentó desde una versión modificada de la app original de la Policía. En ella, se ajustó el certificado que espera el servidor, así como el link al que tiene que dirigirse tras el login.
 		
-		Demostrado que era factible esta arquitectura, se intentó desde una versión modificada de la app original de la Policía. En ella, se ajustó el certificado que espera el servidor, así como el link al que tiene que dirigirse tras el login.
+			Al realizar las pruebas, se observaba que era posible logarse en el sistema, la app incluso lo mostraba por pantalla en el WebView anteriormente citado. Pero el problema es que realmente la lógica de la app de la Policía no funciona como la de un navegador al uso.
 		
-		Al realizar las pruebas, se observaba que era posible logarse en el sistema, la app incluso lo mostraba por pantalla en el WebView anteriormente citado. Pero el problema es que realmente la lógica de la app de la Policía no funciona como la de un navegador al uso.
+			El funcionamiento es el de peticiones simples estilo REST. Es decir, establece la conexión con el servidor autenticándose con los certificados del DNIe y realizando una llamada a una URL concreta. Esta le devuelve la información requerida y la app construye un WebView y \textit{pinta} el HTML recibido en el WebView.
 		
-		El funcionamiento es el de peticiones simples estilo REST. Es decir, establece la conexión con el servidor autenticándose con los certificados del DNIe y realizando una llamada a una URL concreta. Esta le devuelve la información requerida y la app construye un WebView y \textit{pinta} el HTML recibido en el WebView.
+			Esto, para las funciones de la aplicación de ejemplo cumple con su cometido, pero en nuestro caso no es así, pues si la página que devuelve el servidor contiene links (que tendrá que ser así para poder interactuar con la web) la gestión de los certificados no se mantienen. En este caso, no podemos navegar con la conexión HTTPS establecida.
 		
-		Esto, para las funciones de la aplicación de ejemplo cumple con su cometido, pero en nuestro caso no es así, pues si la página que devuelve el servidor contiene links (que tendrá que ser así para poder interactuar con la web) la gestión de los certificados no se mantienen. En este caso, no podemos navegar con la conexión HTTPS establecida.
-		
-		El elemento WebView de Android todavía no es capaz de soportar este tipo de funcionamiento. No es posible, en la primera conexión con el DNIe almacenar las claves en el almacén del navegador para poder reutilizarlas en siguientes peticiones.
-		
-		
-		Ante este problema, no es posible continuar con la forma de trabajar de la app de la Policía.
-		
-		La opción que se plantea es más radical. Plantear la web del sistema como un servicio REST. Helios funciona casi en su mayoría tratando mensajes JSON como paso de información entre sus distintas fases, por lo que se podría modificar el \textit{Front End} para responder a peticiones REST. Con este nuevo enfoque, se podría implementar una app Android nativa que tuviese todas las opciones que aparecen en la web y que para su funcionamiento realizara peticiones a la web. La información que recuperaría, en lugar de ser HTML que muestra en un \textit{WebView} embebido, como ocurre en la app de la Policía, serían objetos JSON con la información requerida. Obviamente, para cada llamada habría que reutilizar la técnica que se ha descrito en el paso anterior, por la cual se puede realizar una llamada HTTP acoplando las claves del certificado para autenticarse contra el servidor. 
-		
-		El problema de esta solución es que pasamos de un sistema web ya existente a una implementación del sistema para Android, junto con la reimplementación de la web para que soporte tanto votación navegando por ella como por llamadas REST.
-		
-		Además, Helios realiza el cifrado de los votos con un módulo de Javascript, delegando en el cliente la carga de las operaciones criptográficas. Esta propuesta requiere también reescribir los módulos criptográficos en Java, con el aumento del riesgo y ala necesidad de pruebas intensivas para asegurar el correcto funcionamiento de un módulo que ya está implementado y probado.
-		
-		Quizá es el futuro a seguir por el sistema, pero requiere tiempo y recursos no planificados. 
+			El elemento WebView de Android todavía no es capaz de soportar este tipo de funcionamiento. No es posible, en la primera conexión con el DNIe almacenar las claves en el almacén del navegador para poder reutilizarlas en siguientes peticiones.
 		
 		
-		En la búsqueda de una solución que no comprometiese la viabilidad del proyecto, se pensó en una intermedia a las anteriores.
+			Ante este problema, no es posible continuar con la forma de trabajar de la app de la Policía.
 		
-		Las llamadas a Helios, por lo comprobado, teniendo que mantener el canal HTTPS cifrado con el DNIe, deben ser contra un servicio que tenemos que \textit{repintar} en un WebView y que, en caso de querer navegar una vez establecida la conexión, hay que volver a realizar la llamada con los certificados y volver a crear el WebView. Es decir, que no es la navegación natural que se busca. Tampoco es viable implementar una app de voto, ya que teniendo la web se podría reutilizar esta desde el móvil.
+			La opción que se plantea es más radical. Plantear la web del sistema como un servicio REST. Helios funciona casi en su mayoría tratando mensajes JSON como paso de información entre sus distintas fases, por lo que se podría modificar el \textit{Front End} para responder a peticiones REST. Con este nuevo enfoque, se podría implementar una app Android nativa que tuviese todas las opciones que aparecen en la web y que para su funcionamiento realizara peticiones a la web. La información que recuperaría, en lugar de ser HTML que muestra en un \textit{WebView} embebido, como ocurre en la app de la Policía, serían objetos JSON con la información requerida. Obviamente, para cada llamada habría que reutilizar la técnica que se ha descrito en el paso anterior, por la cual se puede realizar una llamada HTTP acoplando las claves del certificado para autenticarse contra el servidor. 
 		
-		Es en este momento en el que aparece el concepto de autenticación delegada. Los desarrolladores de Helios han implementado módulos de oAuth para ingresar al sistema autenticándose con sus cuentas de Facebook, Google o Yahoo!, o un módulo CAS para hacer lo propio con las credenciales de la Universidad de Lovaina. Del mismo modo, se podría implementar un sistema de autenticación delegada basado en el DNIe.
+			El problema de esta solución es que pasamos de un sistema web ya existente a una implementación del sistema para Android, junto con la reimplementación de la web para que soporte tanto votación navegando por ella como por llamadas REST.
 		
-		La idea es la de tener dos servidores diferenciados. Por un lado el del sistema de votación y por otro el servidor de autenticación.
+			Además, Helios realiza el cifrado de los votos con un módulo de Javascript, delegando en el cliente la carga de las operaciones criptográficas. Esta propuesta requiere también reescribir los módulos criptográficos en Java, con el aumento del riesgo y ala necesidad de pruebas intensivas para asegurar el correcto funcionamiento de un módulo que ya está implementado y probado.
 		
-		El usuario, al intentar entrar en el sistema de votación es redirigido al de autenticación. Contra este ha de identificarse el usuario con el DNIe. Si la autenticación es correcta, el servicio de autenticación otorgará permisos de acceso al usuario en el servicio de votación y será redirigido de nuevo a este. A partir de este momento, el usuario, con permisos de accesos, podrá operar en el sistema de votación autenticado de forma segura.
+			Quizá es el futuro a seguir por el sistema, pero requiere tiempo y recursos no planificados. 
 		
-		Con este planteamiento, para votar desde el móvil o desde el PC no tiene mucha diferencia. En ambos casos se accede desde el navegador a la página principal de la Elección. Aquí se pulsa el enlace de autenticación por DNIe. La diferencia principal se observa en este momento:
-		\begin{description}
-			\item[PC:] Desde el PC, el usuario será redirigido al servicio de autenticación y, si el PC tiene correctamente configurados los drivers del DNIe, aparecerá un applet a través del cual se le solicita que introduzca el documento en el lector y, posteriormente, la clave.
-			\item[Smartphone:] Por su parte, desde Android, el enlace de login en vez de redirigir a otra web, lanzará un \textit{intent} de Android en con el que se abre una aplicación Android (si no está instalada, se redirige a la web o \textit{market} desde la cual puede instalarse). Con esta aplicación se realizan las llamadas necesarias al servicio de autenticación y se accede a los certificados del DNIe a través del protocolo NFC. Una vez que el servicio de autenticación gestiona entre el dispositivo y el servidor de votación la validez del usuario, la aplicación se cierra y devuelve al usuario al navegador pero ya logado en el sistema y con una conexión HTTPS segura.
-		\end{description}
+		
+			En la búsqueda de una solución que no comprometiese la viabilidad del proyecto, se pensó en una intermedia a las anteriores.
+		
+			Las llamadas a Helios, por lo comprobado, teniendo que mantener el canal HTTPS cifrado con el DNIe, deben ser contra un servicio que tenemos que \textit{repintar} en un WebView y que, en caso de querer navegar una vez establecida la conexión, hay que volver a realizar la llamada con los certificados y volver a crear el WebView. Es decir, que no es la navegación natural que se busca. Tampoco es viable implementar una app de voto, ya que teniendo la web se podría reutilizar esta desde el móvil.
+		
+			Es en este momento en el que aparece el concepto de autenticación delegada. Los desarrolladores de Helios han implementado módulos de oAuth para ingresar al sistema autenticándose con sus cuentas de Facebook, Google o Yahoo!, o un módulo CAS para hacer lo propio con las credenciales de la Universidad de Lovaina. Del mismo modo, se podría implementar un sistema de autenticación delegada basado en el DNIe.
+		
+			La idea es la de tener dos servidores diferenciados. Por un lado el del sistema de votación y por otro el servidor de autenticación.
+		
+			El usuario, al intentar entrar en el sistema de votación es redirigido al de autenticación. Contra este ha de identificarse el usuario con el DNIe. Si la autenticación es correcta, el servicio de autenticación otorgará permisos de acceso al usuario en el servicio de votación y será redirigido de nuevo a este. A partir de este momento, el usuario, con permisos de accesos, podrá operar en el sistema de votación autenticado de forma segura.
+		
+			Con este planteamiento, para votar desde el móvil o desde el PC no tiene mucha diferencia. En ambos casos se accede desde el navegador a la página principal de la Elección. Aquí se pulsa el enlace de autenticación por DNIe. La diferencia principal se observa en este momento:
+			\begin{description}
+				\item[PC:] Desde el PC, el usuario será redirigido al servicio de autenticación y, si el PC tiene correctamente configurados los drivers del DNIe, aparecerá un applet a través del cual se le solicita que introduzca el documento en el lector y, posteriormente, la clave.	
+				\item[Smartphone:] Por su parte, desde Android, el enlace de login en vez de redirigir a otra web, lanzará un \textit{intent} de Android en con el que se abre una aplicación Android (si no está instalada, se redirige a la web o \textit{market} desde la cual puede instalarse). Con esta aplicación se realizan las llamadas necesarias al servicio de autenticación y se accede a los certificados del DNIe a través del protocolo NFC. Una vez que el servicio de autenticación gestiona entre el dispositivo y el servidor de votación la validez del usuario, la aplicación se cierra y devuelve al usuario al navegador pero ya logado en el sistema y con una conexión HTTPS segura.	
+			\end{description}
 	
-		A partir de este momento, tanto en PC como en Smartphone, el usuario estaría ya logado con seguridad en el sistema y podría comenzar a operar 
-	con el sistema de votación.
+			A partir de este momento, tanto en PC como en Smartphone, el usuario estaría ya logado con seguridad en el sistema y podría comenzar a operar con el sistema de votación.
 	
 	
 	
 		
 		
 		\subsection{Adaptación a dispositivos}\label{analisis_adaptacion_dispositivos}
-		Helios es un sistema que se comenzó a desarrollar alrededor de 2008. En aquel momento, el boom de los dispositivos móviles no estaba en un punto tan álgido como en los últimos años. El desarrollo se dirigió, por tanto, al mundo de la web del momento, centrada en los dispositivos con pantallas de cierto tamaño.
+			Helios es un sistema que se comenzó a desarrollar alrededor de 2008. En aquel momento, el boom de los dispositivos móviles no estaba en un punto tan álgido como en los últimos años. El desarrollo se dirigió, por tanto, al mundo de la web del momento, centrada en los dispositivos con pantallas de cierto tamaño.
 			
 			Un vistazo a la web estándar de Helios Voting\footnote{\url{http://www.heliosvoting.com}} muestra que es \textit{responsive} en cierta medida. Da la sensación de serlo, aunque realmente no está diseñada para ello.
 			
@@ -717,7 +741,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			
 			
 			
-			\subsection{Votación}\label{analisis_votacion}
+		\subsection{Votación}\label{analisis_votacion}
 			La fase de votación, en la que en un sistema tradicional un votante introduce su voto en la urna junto a los votos del resto de votantes, es uno de los derechos fundamentales que un ciudadano tiene en un estado de derecho. Es, además, el derecho que más iguala a los ciudadanos, pues (interpretaciones de la Ley D'Hont\footnote{\url{https://es.wikipedia.org/wiki/Sistema_d'Hondt}} o del peso de cada circunscripción en la Ley Electoral vigente aparte) cualquier persona, independientemente de su condición sexual, social, económica, religiosa, etc. se corresponde con un voto. Una vez hemos votado, todos los votos tienen el mismo valor. El famoso lema de "una persona, un voto".
 			
 			Obviamente, es el elemento central de cualquier sistema de votación.
@@ -732,7 +756,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			
 			Por otro lado, sin embargo, otras corrientes entienden que para que un votante pueda votar varias veces, invalidando por el camino los votos intermedios es necesario que, durante un periodo del proceso electoral, estén almacenados en el sistema un par voto-votante. Esto es así porque si un votante emite un voto, cuando quiera volver a votar, el primero ha de ser descartado, por lo que debe ser posible encontrar el voto previo asociado al votante. Es una violación clara del principio \todo[inline]{Aquí hay que poner la característica que viola del voto electrónico}. Es por ello que estas corrientes defienden que, de la misma forma que el voto tradicional, es más seguro para el votante el que vote solamente una vez, siendo este el único voto que debe ser introducido en la urna. Además, de este modo, no hace falta guardar la dupla voto-votante en el sistema, basta con almacenar el voto en la urna digital y marcar en el censo que el votante ya ha votado.
 			
-			\subsection{Difusión de resultados}\label{analisis_difusion}
+		\subsection{Difusión de resultados}\label{analisis_difusion}
 			La difusión de resultados por parte de Helios consiste en una web muy simple que indica las distintas opciones de voto y cuántos votos ha recibido cada una. Ni siquiera ordena los resultados por orden de votos contabilizados.
 			
 			\textbf{Abstención}

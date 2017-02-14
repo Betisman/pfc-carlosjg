@@ -856,7 +856,7 @@ los diálogos del sistema.
 			
 				Una propiedad bastante útil para el desarrollo de esquemas para votación por Internet es la llamada \textbf{\textit{verificabilidad punto a punto}} (o punta a cabo según otros autores hispanohablantes) (en la literatura inglesa: end-to-end verifiability; E2E-verifiability). Con ella se puede solucionar el problema de la necesidad de confiar en el proceso que recoge, almacena y cuenta los votos.
 				
-				Se considera a Josh Benaloh \footnote{\url{http://research.microsoft.com/en-us/um/people/benaloh/}} como el precursor del concepto de verificabilidad \gls{E2E}. Según su propia definición del término, se considera que los requisitos de un sistema completamente verificable \gls{E2E} son \cite{Benaloh:2006:SVE:1251003.1251008,cryptoeprint:2015:233,dhillon:2015}:
+				Se considera a Josh Benaloh\footnote{\url{http://research.microsoft.com/en-us/um/people/benaloh/}} como el precursor del concepto de verificabilidad \gls{E2E}. Según su propia definición del término, se considera que los requisitos de un sistema completamente verificable \gls{E2E} son \cite{Benaloh:2006:SVE:1251003.1251008,cryptoeprint:2015:233,dhillon:2015}:
 			
 			\begin{enumerate}
 				\item \textbf{Verificabilidad individual}: Los votantes pueden comprobar que sus votos se han registrado con la opción que han elegido.
@@ -905,6 +905,7 @@ los diálogos del sistema.
 					Cada votante se loguea y descarga la clave pública del sistema, la cual usa para cifrar el voto. Este voto cifrado se guarda en un área de almacenamiento público reservada específicamente para el votante.
 					Cuando el período de votación finaliza, el servidor cuenta los votos y publica el resultado encriptado. A continuación, las autoridades proveen cierta información para decodificar, basada en el resultado encriptado y es sus claves privadas. Cuando se consigue suficiente de esta información, el servidor combina las piezas individuales para componer el resultado electoral, que es publicado.
 					El sistema se implementa con una arquitectura basada en un tablón de anuncios, un servidor de autenticación (\textit{gatekeeper}) y un cliente (puede ser tanto un programa de escritorio como un applet de Java).
+					
 					\notasInfo[inline]{Aquí va la imagen de la arquitectura de \textsc{ADDER}.}
 					\begin{figure}[h]
 						\centering
@@ -925,7 +926,7 @@ los diálogos del sistema.
 					
 					Soluciones propuestas por \textsc{ADDER}:
 					\begin{enumerate}
-						\item \textit{Autenticación de usuarios}. Para la autenticación de usuarios, \textsc{ADDER} emplea un sistema análogo a Kerberos que denominan \textit{gatekeeper} (guardián de la puerta). \todo[inline]{(...)}
+						\item \textit{Autenticación de usuarios}. Para la autenticación de usuarios, \textsc{ADDER} emplea un sistema análogo a Kerberos que denominan \textit{gatekeeper}.
 						\item \textit{Privacidad del voto}. Para contrarrestar el conflicto entre privacidad del voto y verificabilidad universal y la necesidad de acceso al contenido del voto para asegurar el correcto conteo, el sistema utiliza técnicas de cifrado homomórfico.
 						\item \textit{Verificabilidad universal}. Para cumplir con este requisito, el sistema se apoya en un tablón de anuncios, en el que se publica información relevante al proceso. Junto al sistema, se han implementado una serie de herramientas libres y de código abierto que permiten hacer uso de los datos publicados en el tablón y realizar una serie de tareas:
 						\begin{enumerate}
