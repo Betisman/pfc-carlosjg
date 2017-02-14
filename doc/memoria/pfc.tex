@@ -237,7 +237,7 @@
     keywordstyle=\color{magenta},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codepurple},
-    basicstyle=\footnotesize,
+    basicstyle=\scriptsize,
     breakatwhitespace=false,         
     breaklines=true,                 
     captionpos=b,                    
@@ -422,6 +422,8 @@
 %% The Bibliography
 %% ==> You need a file 'literature.bib' for this.
 %% ==> You need to run BibTeX for this (Project | Properties... | Uses BibTeX)
+\newcommand{\urlFont}{\ttfamily\scriptsize}
+\setbibliographyfont{url}{\urlFont}
 \cleardoublepage
 \phantomsection
 \addcontentsline{toc}{chapter}{Bibliografía} %'Bibliography' into toc
