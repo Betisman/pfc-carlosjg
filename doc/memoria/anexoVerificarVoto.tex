@@ -1,0 +1,100 @@
+\section{Verificar un voto individualmente} \label{anexo:verificarVoto}
+
+	Esta documentación se puede consultar en la documentación de Helios Voting\footnotesize{\url{http://documentation.heliosvoting.org/verification-specs/helios-v4}}.
+	
+	Recall the Chaum-Pedersen proof that a ciphertext ($\alpha$,$\beta$) under public key $(y, (g,p,q))$ is proven to encode the value $m$ by proving knowledge of $r$, the randomness used to create the ciphertext, specifically that $g$, $y$, $\alpha$, $\beta/g^m$ is a DDH tuple, noting that $\alpha = g^r and \beta/g^m = y^r$.
+
+	\begin{itemize}
+		\item Prover sends $A = g^w \bmod p$ and $B = y^w \bmod p$ for a random $w$.
+		\item Verifier sends challenge, a random challenge $\bmod q$.
+		\item Prover sends $response = w + challenge * r$.
+		\item Verifier checks that:
+		\begin{itemize}
+			\item $g^response = A * \alpha^challenge$
+			\item $y^response = B * (\beta/g^m)^challenge$
+		\end{itemize}
+	\end{itemize}
+	
+\begin{lstlisting}[language=Python]
+	def verify_proof(ciphertext, plaintext, proof, public_key):
+		if pow(public_key.g, proof.response, public_key.p) !=
+		    ((proof.commitment.A * pow(ciphertext.alpha, proof.challenge, public_key.p)) % public_key.p):
+		       return False
+		
+		beta_over_m = modinverse(pow(public_key.g, plaintext, public_key.p), public_key.p) * ciphertext.beta
+		beta_over_m_mod_p = beta_over_m % public_key.p
+		
+		if pow(public_key.y, proof.response, public_key.p) !=
+		   ((proof.commitment.B * pow(beta_over_m_mod_p, proof.challenge, public_key.p)) % public_key.p):
+		      return False
+		
+		return True
+\end{lstlisting}
+
+	In a disjunctive proof that the ciphertext is the encryption of one value between 0 and max, all max+1 proof transcripts are checked, and the sum of the challenges is checked against the expected challenge value. Since we use this proof in non-interactive Fiat-Shamir form, we generate the expected challenge value as SHA1(A0 + "," + B0 + "," + A1 + "," + B1 + ... + "Amax" + "," + Bmax) with A0, B0, A1, B1, ... ,Amax, Bmax in decimal form. (Ai and Bi are the components of the commitment for the i'th proof.)
+
+	Thus, to verify a $<ZK\_PROOF\_0..max>$ on a $<ELGAMAL\_CIPHERTEXT>$, the following steps are taken.
+
+\begin{lstlisting}[language=Python]
+	def verify_disjunctive_0..max_proof(ciphertext, max, disjunctive_proof, public_key):
+		for i in range(max+1):
+		  # the proof for plaintext "i"
+		  if not verify_proof(ciphertext, i, disjunctive_proof[i], public_key):
+		    return False
+		
+		# the overall challenge
+		computed_challenge = sum([proof.challenge for proof in disjunctive_proof]) % public_key.q
+		
+		# concatenate the arrays of A,B values
+		list_of_values_to_hash = sum([[p.commitment.A, p.commitment.B] for p in disjunctive_proof], [])
+		
+		# concatenate as strings
+		str_to_hash = ",".join(list_of_values_to_hash)
+		
+		# hash
+		expected_challenge = int_sha(str_to_hash)
+		
+		# last check
+		return computed_challenge == expected_challenge
+\end{lstlisting}
+
+Thus, given <ELECTION> and a <VOTE>, the verification steps are as follows:
+
+\begin{lstlisting}[language=Python]
+	def verify_vote(election, vote):
+		# check hash (remove the last character which is a useless '=')
+		computed_hash = base64.b64encode(hash.new(election.toJSON()).digest())[:-1]
+		if computed_hash != vote.election_hash:
+		    return False
+		
+		# go through each encrypted answer by index, because we need the index
+		# into the question array, too for figuring out election information
+		for question_num in range(len(vote.answers)):
+		   encrypted_answer = vote.answers[question_num]
+		   question = election.questions[question_num]
+		
+		   # initialize homomorphic sum (assume operator overload on __add__ with 0 special case.)
+		   homomorphic_sum = 0
+		
+		   # go through each choice for the question (loop by integer because two arrays)
+		   for choice_num in range(len(encrypted_answer.choices)):
+		     ciphertext = encrypted_answer.choices[choice_num]
+		     disjunctive_proof = encrypted_answer.individual_proofs[choice_num]
+		     
+		     # check the individual proof (disjunctive max is 1)
+		     if not verify_disjunctive_0..max_proof(ciphertext, 1, disjunctive_proof, election.public_key):
+		        return False
+		        
+		     # keep track of homomorphic sum
+		     homomorphic_sum = ciphertext + homomorphic_sum
+		   
+		   # check the overall proof
+		   if not verify_disjunctive_0..max_proof(homomorphic_sum, question.max,
+		                                          encrypted_answer.overall_proof,
+		                                          election.public_key):
+		       return False
+		       
+		# done, we succeeded
+		return True
+\end{lstlisting}
+

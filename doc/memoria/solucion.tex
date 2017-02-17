@@ -40,51 +40,53 @@
 			Tal como se determina en el análisis (\ref{analisis}), la solución que se propone para este Proyecto consiste en la integración de tres componentes, adaptados a las necesidades de una elección para la EPS.
 			
 			\begin{description}
-				\item[Cliente:] En el lado cliente, de cara al usuario, se ha implementado una solución para poder acceder a las credenciales del chip sin contacto del DNIe 3.0. Esta implementación es una aplicación Android. Además de la app cliente, tanto el sistema de autenticación como el de votación ofrecen una interfaz web para interactuar con el usuario.
+				\item[Cliente:] Para permitir el acceso del usuario al sistema utilizando el \gls{DNIe} 3.0, se ha implementado una solución para poder acceder a las credenciales del chip sin contacto del documento. Este desarrollo es una aplicación Android, basada en una de ejemplo compartida por la Policía. Además de la app cliente, tanto el sistema de autenticación como el de votación ofrecen una interfaz web para interactuar con el usuario a través de navegadores web.
 			
-				\item[Servidor de autenticación:] Para permitir el acceso al sistema con las credenciales del DNIe, se utiliza un servidor de autenticación basado en el protocolo oAuth. La aplicación Android se conecta por HTTPS/TLS de forma segura al servidor web estableciendo un canal seguro utilizando el certificado del propio servidor y como certificado de cliente, el de identificación del DNIe. Este servidor es el que autoriza al usuario comprobando su identidad y consultando el censo de la elección.
+				\item[Sistema de autenticación:] Para permitir el acceso al sistema con las credenciales del DNIe, se utiliza un sistema de autenticación basado en el protocolo oAuth2. El usuario accede a través de un navegador web o de la app Android desarrollada por HTTPS/TLS de forma segura al servidor web. Se establece un canal seguro utilizando el certificado del propio servidor y como certificado de cliente, el de identificación del DNIe. Este sistema es el que autoriza al usuario comprobando su identidad y consultando su presencia en el censo de la elección.
 			
-				\item[Servidor de votación:] El servidor de votación es una versión adaptada del sistema Helios Voting. Se comunica con el cliente por HTTPS y el usuario, autorizado previamente, tiene la posibilidad de, dependiendo de su rol, crear y gestionar una elección, votar en ella y/o, simplemente, consultar los resultados.
+				\item[Sistema de votación:] El sistema de votación es una versión adaptada del sistema Helios Voting. Se comunica con el cliente (y con el sistema de autenticación) por HTTPS y el usuario, autorizado previamente, tiene la posibilidad de, dependiendo de su rol, crear y gestionar una elección, votar en ella y/o, simplemente, consultar los resultados.
 			\end{description}
 			
 			\begin{figure}[!ht]
-					\centering
-						\includegraphics[width=.95\textwidth]{imgs/arquitecturaSistema.jpg}
-					\caption{Arquitectura del sistema}
-					\label{fig:arquitectura.sistema}
-				\end{figure}
+				\centering
+					\includegraphics[width=.95\textwidth]{imgs/arquitecturaSistema00.jpg}
+				\caption{Arquitectura general del sistema}
+				\label{fig:arquitectura.sistema.0}
+			\end{figure}
 			
-			\section{Servidor de autenticación}\label{arquitectura_servidorAutenticacion}
-				El servidor de autenticación implementa el protocolo de autenticación oAuth 2.0 entre el usuario y el sistema. En concreto, se ha realizado un fork del proyecto \textit{django-oauth2-server}\footnote{\url{https://github.com/RichardKnop/django-oauth2-server}} desarrollado por Richard Knop. El objetivo era modificarlo para adaptarlo a diferentes necesidades teniendo en cuenta si el acceso es por la web o a través de la app Android. Además, era necesario que la autorización del usuario se realizara consultando el censo de usuarios y/o votantes de la Elección.	
-			 	
-				El servidor de autenticación se compone de un servidor web, el sistema de oAuth basado en Django que hemos comentado y una base de datos que contiene tanto permisos de aplicaciones y usuario como los propios usuarios con permiso de acceso al sistema de votación.		
-						
-				El servidor web se configura para exponer un endpoint de entrada seguro, permitiendo el acceso por HTTPS. En dicha configuración es muy importante activar diversas características:
-				\begin{description}
-				
-					\item[Servidor web:]
-						El canal de comunicación entre el usuario y el sistema de autenticación es la web, el protocolo es HTTPS y la herramienta que gestiona estos accesos es el servidor web.
+			
+			
+		\section{Servidor de autenticación}\label{arquitectura_servidorAutenticacion}
+			El servidor de autenticación implementa el protocolo de autenticación oAuth 2.0 entre el usuario y el sistema. En concreto, se ha realizado un fork del proyecto \textit{django-oauth2-server}\footnote{\url{https://github.com/RichardKnop/django-oauth2-server}} desarrollado por Richard Knop. El objetivo era modificarlo para adaptarlo a diferentes necesidades teniendo en cuenta si el acceso es por la web o a través de la app Android. Además, era necesario que la autorización del usuario se realizara consultando el censo de usuarios y/o votantes de la Elección.
+		 
+			El servidor de autenticación se compone de un servidor web, el sistema de oAuth basado en Django que hemos comentado y una base de datos que contiene tanto permisos de aplicaciones y usuario como los propios usuarios con permiso de acceso al sistema de votación.	
+				
+			El servidor web se configura para exponer un endpoint de entrada seguro, permitiendo el acceso por HTTPS. En dicha configuración es muy importante activar diversas características:
+			\begin{description}
+			
+				\item[Servidor web:]
+					El canal de comunicación entre el usuario y el sistema de autenticación es la web, el protocolo es HTTPS y la herramienta que gestiona estos accesos es el servidor web.
+					
+					Con el fin de establecer un canal HTTPS seguro entre usuario y servidor, es necesario que en su configuración se contemplen tres certificados, dos de ellos en posesión del servidor y el tercero de obligada presentación por parte del cliente.
+					
+					\begin{description}
+						\item[Certificado de servidor:] Es el certificado que permite al navegador negociar el establecimiento de la conexión segura. Si se ha obtenido de algún proveedor confiable, el navegador lo gestiona de forma casi transparente al usuario. Sin embargo, si la fuente no es confiable y no se encuentra en el almacén de certificados del sistema operativo o el navegador, se muestra una advertencia al usuario aconsejándole que no continúe la navegación, aunque le permite seguir adelante a riesgo del usuario. Es lo que ocurre también cuando se utiliza un certificado autofirmado.
 						
-						Con el fin de establecer un canal HTTPS seguro entre usuario y servidor, es necesario que en su configuración se contemplen tres certificados, dos de ellos en posesión del servidor y el tercero de obligada presentación por parte del cliente.
+						En nuestro caso, se ha decidido utilizar un certificado autofirmado para el prototipo implementado. Los pasos necesarios tanto para crear y firmar el certificado como para configurar el servidor web para que lo utilice se pueden consultar en el anexo \ref{App:ConfiguracionServidorWeb}.
 						
-						\begin{description}
-							\item[Certificado de servidor:] Es el certificado que permite al navegador negociar el establecimiento de la conexión segura. Si se ha obtenido de algún proveedor confiable, el navegador lo gestiona de forma casi transparente al usuario. Sin embargo, si la fuente no es confiable y no se encuentra en el almacén de certificados del sistema operativo o el navegador, se muestra una advertencia al usuario aconsejándole que no continúe la navegación, aunque le permite seguir adelante a riesgo del usuario. Es lo que ocurre también cuando se utiliza un certificado autofirmado.
-							
-							En nuestro caso, se ha decidido utilizar un certificado autofirmado para el prototipo implementado. Los pasos necesarios tanto para crear y firmar el certificado como para configurar el servidor web para que lo utilice se pueden consultar en el anexo \ref{App:ConfiguracionServidorWeb}.
-							
-							\item[Certificado Raíz de la DGP:]
-							
-							\item[Certificado de cliente:] Para utilizar el DNIe como fuente de identificación del usuario, es preciso configurar el servidor web para que requiera en la conexión la presencia del certificado de autenticación del DNIe del usuario. Para ello, el servidor debe poseer el certificado raíz que provee la Dirección General de la Policía. Este certificado se configura en el servidor
-							
-						\end{description}
+						\item[Certificado Raíz de la DGP:]
 						
-						Además de configurar el servidor para que requiera el certificado de cliente SSL, es necesario aplicar la configuración necesaria para pasar la información a la aplicación que la necesita.
+						\item[Certificado de cliente:] Para utilizar el DNIe como fuente de identificación del usuario, es preciso configurar el servidor web para que requiera en la conexión la presencia del certificado de autenticación del DNIe del usuario. Para ello, el servidor debe poseer el certificado raíz que provee la Dirección General de la Policía. Este certificado se configura en el servidor
 						
-						Para ello, el servidor web ha de exportar los datos del certificado SSL a variables de entorno.
-						
-						Cuando se recibe una petición al servidor, éste inyecta estas variables en la request que hace llegar al código. Concretamente, en Python (Django) son accesibles desde el META de la request. 
-						
-						En el siguiente código podemos ver una función que atiende una petición GET a la vista de autorización para mostrar una lista de variables asociadas a la seguridad del servidor que recibe de éste:
+					\end{description}
+					
+					Además de configurar el servidor para que requiera el certificado de cliente SSL, es necesario aplicar la configuración necesaria para pasar la información a la aplicación que la necesita.
+					
+					Para ello, el servidor web ha de exportar los datos del certificado SSL a variables de entorno.
+					
+					Cuando se recibe una petición al servidor, éste inyecta estas variables en la request que hace llegar al código. Concretamente, en Python (Django) son accesibles desde el META de la request. 
+					
+					En el siguiente código podemos ver una función que atiende una petición GET a la vista de autorización para mostrar una lista de variables asociadas a la seguridad del servidor que recibe de éste:
 						
 \begin{lstlisting}[language=Python, caption=Variables SSL que recibe el servidor web de autenticación.]
 class AuthorizeView(View):
@@ -144,71 +146,71 @@ class AuthorizeView(View):
       return self._render(request=request, form=form, dnie=dnie)
 \end{lstlisting}
 
-					En la lista se observa una gran cantidad de variables de entorno relacionadas con la seguridad del servidor. 
-					
-					Aquellas que comienzan por SSL\_SERVER se refieren a la información del certificado del servidor.
-					
-					Por su parte, aquellas que comienzan por SSL\_CLIENT son las que contienen la información proporcionada por el certificado presentado por el cliente. En el caso de este proyecto, contendrán los datos proporcionados por el certificado de autenticación del DNIe.
-					
-					De estas variables, algunas son las que se utilizan para recoger la información del usuario, contrastarlo con el censo de usuarios y poder comprobar qué permisos posee, incluido el de acceso al sistema.
-					
-					\begin{description}
-						\item[SSL\_CLIENT\_S\_DN:] Contiene la información personal del sujeto que identifica el certificado.
-						\item[SSL\_CLIENT\_V\_START:] Contiene la fecha de expedicón del certificado.
-						\item[SSL\_CLIENT\_V\_END:] Contiene la fecha de caducidad del certificado.
-					\end{description}
+				En la lista se observa una gran cantidad de variables de entorno relacionadas con la seguridad del servidor. 
 				
-					\item[Aplicación de autenticación]
-						
-						La aplicación recibe del servidor web la información del certificado del cliente a través de los METAS inyectados en el \textit{header} de la \textit{request} por parte del servidor.
-						
-						La aplicación implementa el flujo oAuth2 en modo Authorization Code. Con la información del usuario que recibe del certificado de cliente, lo identifica y valida los permisos que tiene.
-						
-						En caso de que la validación sea correcta, genera un token que almacena en la base de datos para comunicar al sistema de votación que el votante tiene permisos de acceso. Además, genera un código de autorización que devuelve al cliente. Este código lo tendrá que presentar el cliente al sistema de votación para entrar al sistema. Una vez el sistema reciba el código, lo utilizará para pedir al sistema de autenticación el token de acceso que mapea la aplicación y los permisos que dispone el usuario. Una vez el sistema de autenticación devuelve el token al de votación, éste tendrá que presentárselo para que aquel le comunique aquellos datos personales que posee del usuario que intenta acceder.
-						
-						Sigue, por tanto un modelo del flujo de oAuth2, apoyado en una herramienta escrita por Richard Knop en Python sobre un framework Django. No obstante, este código ha servido de base, pues ha debido ser modificado para adaptarlo a las necesidades particulares de este sistema:
-						
-						\begin{itemize}
-						
-							\item Se ha modificado el proceso de obtención de datos del usuario, pues, además de obtenerlos de la base de datos, hay que extraer información del usuario de los certificados de cliente que presenta para su identificación.
-
-							\item Se ha modificado el sistema de validación del usuario para que contraste esta información del certificado de autenticación con el censo de la base de datos.
-
-							\item Hay que contrastar la validez del certificado, principalmente si no ha caducado. Además, aunque al final se haya configurado en el servidor, hay que realizar una comprobación contra un servidor \gls{OCSP} para ver si ha sido revocado por la autoridad certificadora.
-
-						\end{itemize}
-						
+				Aquellas que comienzan por SSL\_SERVER se refieren a la información del certificado del servidor.
+				
+				Por su parte, aquellas que comienzan por SSL\_CLIENT son las que contienen la información proporcionada por el certificado presentado por el cliente. En el caso de este proyecto, contendrán los datos proporcionados por el certificado de autenticación del DNIe.
+				
+				De estas variables, algunas son las que se utilizan para recoger la información del usuario, contrastarlo con el censo de usuarios y poder comprobar qué permisos posee, incluido el de acceso al sistema.
+				
+				\begin{description}
+					\item[SSL\_CLIENT\_S\_DN:] Contiene la información personal del sujeto que identifica el certificado.
+					\item[SSL\_CLIENT\_V\_START:] Contiene la fecha de expedicón del certificado.
+					\item[SSL\_CLIENT\_V\_END:] Contiene la fecha de caducidad del certificado.
 				\end{description}
+			
+				\item[Aplicación de autenticación]
+					
+					La aplicación recibe del servidor web la información del certificado del cliente a través de los METAS inyectados en el \textit{header} de la \textit{request} por parte del servidor.
+					
+					La aplicación implementa el flujo oAuth2 en modo Authorization Code. Con la información del usuario que recibe del certificado de cliente, lo identifica y valida los permisos que tiene.
+					
+					En caso de que la validación sea correcta, genera un token que almacena en la base de datos para comunicar al sistema de votación que el votante tiene permisos de acceso. Además, genera un código de autorización que devuelve al cliente. Este código lo tendrá que presentar el cliente al sistema de votación para entrar al sistema. Una vez el sistema reciba el código, lo utilizará para pedir al sistema de autenticación el token de acceso que mapea la aplicación y los permisos que dispone el usuario. Una vez el sistema de autenticación devuelve el token al de votación, éste tendrá que presentárselo para que aquel le comunique aquellos datos personales que posee del usuario que intenta acceder.
+					
+					Sigue, por tanto un modelo del flujo de oAuth2, apoyado en una herramienta escrita por Richard Knop en Python sobre un framework Django. No obstante, este código ha servido de base, pues ha debido ser modificado para adaptarlo a las necesidades particulares de este sistema:
+					
+					\begin{itemize}
+					
+						\item Se ha modificado el proceso de obtención de datos del usuario, pues, además de obtenerlos de la base de datos, hay que extraer información del usuario de los certificados de cliente que presenta para su identificación.
+
+						\item Se ha modificado el sistema de validación del usuario para que contraste esta información del certificado de autenticación con el censo de la base de datos.
+
+						\item Hay que contrastar la validez del certificado, principalmente si no ha caducado. Además, aunque al final se haya configurado en el servidor, hay que realizar una comprobación contra un servidor \gls{OCSP} para ver si ha sido revocado por la autoridad certificadora.
+
+					\end{itemize}
+					
+			\end{description}
 				
 				
 				
 				
 				\textbf{OCSP}
 				
-				El \gls{OCSP} es un servicio de revocación que ofrece la autoridad que crea el certificado raíz, en nuestro caso la DGP y la FNMT. Estas organizaciones proveen de un servicio al cual conectarse y consultar la validez de los certificados que se estén tratando de autenticar.ñ
+			El \gls{OCSP} es un servicio de revocación que ofrece la autoridad que crea el certificado raíz, en nuestro caso la DGP y la FNMT. Estas organizaciones proveen de un servicio al cual conectarse y consultar la validez de los certificados que se estén tratando de autenticar.ñ
+			
+			Una alternativa al OCSP es la de generar una \gls{CRL}. Las ventajas de las listas de revocación consisten en que son más simples que el \gls{OCSP} y pueden ser consultadas sin conexión a la red, lo cual es importante en caso de que el sistema esté configurado de modo que corra sobre una red privada, sin acceso a Internet (ver figura \ref{fig:topologiaRed_intranet} en \ref{solucion_topologiaRed}).
+			
+			El sistema funciona validando contra la \gls{OCSP} de la DGP. La implementación de este sistema se realiza por medio de configuración del servidor web. Es el propio servidor quien realiza la comprobación OCSP del certificado cliente y recibe la validez o no del mismo por parte del del servicio externo.
+			
+			Cuando el sistema esté configurado para operar sobre una red interna será necesario desactivar esta configuración del servidor web, pues sin acceso a Internet no será posible realizar la comprobación contra el servicio de la autoridad certificadora.
 				
-				Una alternativa al OCSP es la de generar una \gls{CRL}. Las ventajas de las listas de revocación consisten en que son más simples que el \gls{OCSP} y pueden ser consultadas sin conexión a la red, lo cual es importante en caso de que el sistema esté configurado de modo que corra sobre una red privada, sin acceso a Internet (ver figura \ref{fig:topologiaRed_intranet} en \ref{solucion_topologiaRed}).
+			\subsection{Esquema de la base de datos}\label{solucion_servidor_autenticacion_bd}
+				En la figura \ref{fig:er.servidor.autenticacion} se observa el diagrama entidad-relación correspondiente al sistema de autenticación.
 				
-				El sistema funciona validando contra la \gls{OCSP} de la DGP. La implementación de este sistema se realiza por medio de configuración del servidor web. Es el propio servidor quien realiza la comprobación OCSP del certificado cliente y recibe la validez o no del mismo por parte del del servicio externo.
+				En este diagrama se observan dos ámbitos de entidades diferenciados:
+				\begin{itemize}
+					\item Entidades para gestión de tokens.
+					\item Entidades para gestión de autenticación de usuario.
+				\end{itemize}
 				
-				Cuando el sistema esté configurado para operar sobre una red interna será necesario desactivar esta configuración del servidor web, pues sin acceso a Internet no será posible realizar la comprobación contra el servicio de la autoridad certificadora.
 				
-				\subsection{Esquema de la base de datos}\label{solucion_servidor_autenticacion_bd}
-					En la figura \ref{fig:er.servidor.autenticacion} se observa el diagrama entidad-relación correspondiente al sistema de autenticación.
-					
-					En este diagrama se observan dos ámbitos de entidades diferenciados:
-					\begin{itemize}
-						\item Entidades para gestión de tokens.
-						\item Entidades para gestión de autenticación de usuario.
-					\end{itemize}
-					
-					
-						\begin{figure}[!ht]
-							\centering
-								\includegraphics[width=\textwidth]{imgs/oAuthServerER.png}
-							\caption{Diagrama ER del Servidor de Autenticación}
-							\label{fig:er.servidor.autenticacion}
-						\end{figure}
+					\begin{figure}[!ht]
+						\centering
+							\includegraphics[width=\textwidth]{imgs/oAuthServerER.png}
+						\caption{Diagrama ER del Servidor de Autenticación}
+						\label{fig:er.servidor.autenticacion}
+					\end{figure}
 				
 								
 			\section{Servidor de votación}\label{arquitectura_servidorVotacion}
@@ -223,7 +225,7 @@ class AuthorizeView(View):
 			\begin{description}
 				\item[Cabina de votación:] Es el módulo que permite a los votantes elegir el voto y cifrarlo. Lo separamos del módulo principal porque se un módulo escrito principalmente en javascript y se ejecuta en el navegador del cliente. Se delega en la máquina del cliente la potencia necesaria para el cifrado de su voto.
 				
-				\item[Verificador de la elección:] Es un módulo de acceso externo que permite, pasándole la huella digital de una elección que ya haya termiando, la verificación de la integridad de la misma. Así, por medio de funciones criptográficas, asegura que la elección ha sido correctamente escrutada y que todos los votos fueron correctamente incluídos en el escrutinio.
+				\item[Verificador de la elección:] Es un módulo de acceso externo que permite, pasándole la huella digital de una elección que ya haya terminado, la verificación de la integridad de la misma. Así, por medio de funciones criptográficas, asegura que la elección ha sido correctamente escrutada y que todos los votos fueron correctamente incluídos en el escrutinio.
 				
 				\item[Gestor de tareas:] Utilizando la librería celery y kombu, Helios implementa un gestor de tareas basado en una cola. En el sistema se definen varias tareas que, cuando toca llevarlas a cabo, en vez de encargarse de realizarlas de forma síncrona, las incluye en una cola y sigue con el flujo de funcionamiento normal. Celery se encarga de consultar esta cola y extraer las tareas que hay que realizar. 
 				
@@ -478,114 +480,7 @@ class AuthorizeView(View):
 					
 					El servidor de autenticación establece un canal seguro con su certificado (en el prototipo será autofirmado) pero valida el certificado de autenticación con el certificado AC Raíz de la Policía que posee y que se ha configurado para ser utilizado. Por esta razón aparece un error en el navegador cuando se entra por primera vez a la web (figura \ref{fig:login.android.certAutofirmado}). Avisa al usuario de que no encuentra en su almacén de certificados uno que sea confiable con el servidor. En nuestro caso, para el prototipo, bastará con hacer click en \textit{CANCELAR} ya que no vamos a instalar certificados adicionales. En caso de implementar el sistema en producción, será necesario obtener e instalar en el servidor un certificado confiable, emitido por una autoridad de confianza.
 					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					\todo{Para la votación}
-\begin{lstlisting}
-{
-  "answers": [
-    {
-      "choices": [
-        {
-          "alpha": "11821738026205240772968255127044802517047470083636758723518307835025659581087956393325477768391343346072509698639848364350646619109179179460374442236380223436839844981593365057325056970359476019829362893435549114172515859548010845050316561892024064007240793404559739176578662702745471324465949168459400879467664399142882472076230353716104052678980917402351219848465602315518221339267983814832869044328021711207489979218996497185750403653557190590589203525249802182445788274397102082097516205128449602682195693836852410450316518999441916031105388005144678245150184413574174275885253975594156703272641284359822947872735",
-          "beta": "956239812618638278768915552438226298243021501211706385698585923053811562890056011379328191398770629895910239870405486050350463572209759974496810740557494392857629292660798831188910461746566654460067161762296112236838028136355088189082014159780940973303652714348684606127836525771221935108597938169951884603308243978803147779186045836749523686828200350951754287955353380197557705530147998348841198813566454256529506990120591398210252551246192646658431868101252367525012654581050805132022429669337921506379042891487383946447238613347314986563277058994760639571478101613631877429034747982352150153634463497389690307051"
-        },
-        {
-          "alpha": "8993054153525371972693030086404622579130304992917357091078431397675790112518230931705297557398673392082378152598605085262171046748283688073666369477945288716677598557833554187997245901251889667359174237677006849298761272238899173517807311688046039658489603138511444754550114043134776963149440982335781459361519918758287831424204413971072046363429433600849778137826224637339727692554562188542277521590478874879512738740955082059146987517384195111259367327531080401900211695578395456904521738039520375974359976785327130399157070231536535556898602788483521439152000185172466981532637355092319446331912628690124603512426",
-          "beta": "2800598125854940324802027176507833751696703734752491733389188314217844934345597508751725447795931796271041862028816468784963598625633241442898616520057117558225536547763784045193328034031763311897879695889790497723837861986566792223989084724626430275407083409727749847367009183429493209313083407251044291659597642486767045786136053161614506152285661701024274893873321363725394664075582489167665954826367742066677050922549116100245317067508711488730553381601681655330883912070510442454721754769010789834175125259566852604900718749534194488901163130457633452267737474207452344180380338346764215759389883505701451869544"
-        },
-        {
-          "alpha": "5797550277603524071983662153526261841917419250857991929396367724626858728678336811195565352666833706843663079912424018593267817754282642077997568863037748673046087479654534202661513065856157411368300327889815102819587288276297717940997377655364108526728351567449154317803611972426794899388697036400984287695485551802167275642366291594581890711772936750259003647281906725935074205715789818338714569672234825184563048970948026058455170230885992422297884900777807595202114404196456587521662580577664759764652227587900337409250736293703379186908729016891971420447184450715418279393483973202599390916967084735924380448450",
-          "beta": "9783822113057663698796881926399855765247674032466990886515786357859908783630876992137488611360191841692735386068618127822014051965763223745942950328427351051745487449909833299983535556513398479171145102843862132711675184130583268196538148666035253866913970702390212147951695444959513025501781236740282181702922306844420797558226130195276122054714657395713446833616056686986988796677607173043046648451321862220450495038229345080697994391932420236413963129035100394810463870724707732393004156195627926634818438363684177702542087636116935367860410450107044147455846579146808386061642115923540198014231275045194117958650"
-        }
-      ],
-      "individual_proofs": [
-        [
-          {
-            "challenge": "43874538621142379916145492966409289430255985276793233839535144670232793929873",
-            "commitment": {
-              "A": "14614624460580166084310239809768957161396116623549624332596535577592752679711048603808921012492348387684953238582690318461749059430147315327339614385033029509776766483301206352829401058856959745735379115437583306109587819666648497344613862950180921184062244659993814988733967230567375339248186203655534769883515681839768472764717091274375988871538064899287966065146868639114788159234758953249497407479040423920253745469591517757377730877686100595252341821638310248576015480811313223310168806630343302090451379328360923274001690744609912011429542764098376733440463267866410942385165152881708201695343175940178074822401",
-              "B": "1212936380820885365829703868135912974018703608024672537012933735974970995643281945055542009504470008404986379882095412234121033516417910092820135184188402163266775850954104635564741830375045272312735456192202506426501534566141592451142791377636781419420483183400476876178072689362460684751713542846867598155078258804730680561049294940720363826229872072143942249000177381601131868366391469841532510436828391071137343673996686837355912428389937288301279862371539224693101625305716134373967937549536719728811995917760473081814560824670456995660608777180413578653490350407505175426935796804779958716866720664369838299325"
-            },
-            "response": "35111610374554771924491600617435125565551351678779095565911261872333649419481"
-          },
-          {
-            "challenge": "17455027627200521376398379804435998722483175501173674963493255507426299982582",
-            "commitment": {
-              "A": "14276144535969498348508852984424238679819553017514301371490044295281127395468759740169021445733334067844373887085669231355777875563081204590315297970866363627543014549395820128545337066157336453936777405010150540630512028047922151566810614306654586723704277753366691795612315361999972342423550411659500925356844239902037624078879916995621307117264460669102391673613074572847452119413666016454113132696056184124563255432238236992606071517735919586672965797818532496414227220676511476533760907849661718539193298363112966105771817312590096136723849042526956522808903658610059330697057512578199924681071371152326580317305",
-              "B": "5493755695008579869053771707780105752829800359943749490557396452063740662877156917993885201115442930785419371842916465926192689334895060412623973738807183073077000544425493264757137010662955918646293253950997292177985854255364326894624630373708019867465304258419709166061910338466826609355729039316736585653409687403511939911025333076708000634084721570384042116389831777299850846965562419588149488265958808580202067015701095921860730717603349476613173127459545435055526957668963140512339461834807059441956696795432386818536442113903536263482928622871475560940846165738026092901373759881409659434265331699514266831476"
-            },
-            "response": "55879767585126448548489172509549767078598169937256353971492493135916950997178"
-          }
-        ],
-        [
-          {
-            "challenge": "27214371254593561525103755246527245415365098004925989240328291157531952501665",
-            "commitment": {
-              "A": "3308279691701318962456015032520446677492577315249873786602301128296983112658442566265284633990058189533102686314499670057519501234036131182281224560655515884735266893240049325854849853519397898251009309227625604790743362728353543526226977098925371966639930647254773606631883779771202468964142916130603763464638861116391842319085556259003104242641465533310122358015977585052605958535849562604246158179617590336081557620321016011247037545906159355413918966385145955730394800234401683768549385537782190883717333708824875455552937600818390704923536341656313615183243380324435099485344785382422483159236600370779284049555",
-              "B": "12435741661345782068706114279439280143590478156476393372154225292988460028855217549159712336979710292589184338660867498905184134659598121223781023649195916634180447565557915186605239811574472707845957472845859923522343233568936541667041623979327992121539007257612419649760994289919148810039107937344697981991360066501688636428666733123266281628582700355496976543225619214418533574073555701208141635768276863511930171356899673716971192305012707794337696483553011525235939387956087462554350776211842743552201441329876475760958332595028534413109600329696389507376895787358696582263309865366197800002697602675596912259889"
-            },
-            "response": "10558534534412804489745997990430567976230006025326885338612204248676172306992"
-          },
-          {
-            "challenge": "34115194993749339767440117524333388461738390285322076679882585342267066946683",
-            "commitment": {
-              "A": "13731698192008366840053574489091548941274585205857698228726867974892123176024433502205445374550536932386101283705850434863463973702541448567905875633807604828857954178975637790822313287783493940453485734776849364638607507512397561848506615841463697130635779363136370462995407986698596880885197355183637491805371243258163285324525012082948379820694929899389993164356605275774715381651123906503153033287522104353770931896800160236921760486462527913767625531354433910391700787298207280389011750007853278851078120480469619606453339528045844894195665511743654774419392755025188517204030444166165070232411001530819167049070",
-              "B": "9349504240684535807589913349420337692779470282023825795777397077446336302199966003576750641877949947888710255028164764538838480764149264904865450585695960046076120285723332535184128275517215258755400779566100327913603317048569959524542905924186616643494243150240561283719740175349221174563199308205479181327589146530641996468570849346193323950848448916434996757005020796358693656633754104992087336753867566548156561900118132642617357191874057103912757373683499866111598971690834752017989742949689893910827689157636958975742677042892180346977939268833076535615471623565338725378069945949588396618791213316830002453995"
-            },
-            "response": "5176763459334639863434268463535510901594167363643527842720657697790809305897"
-          }
-        ],
-        [
-          {
-            "challenge": "20540246645133510248508772126054804332279131831120275199135559606644095246601",
-            "commitment": {
-              "A": "10106397188055812737742462645321636338276171374830057164294374704044606864876505431156664669697740698494093326767481527377216983459663921862055559986640704888747142389972435285322536429720505827092982446261203262766293987781003395693994649196965200379585444754712622209120140759830044702815807600763584031643162622192166172735595159975346729484825571827489385720206053820413635263934962209112876040404665714957307635872310419799609703378940018117323368887810064941772649290388513882749673519924922646696188373733535921559090047132224769418573899070908775027139806028085449248084452348088751591481368102970270273305056",
-              "B": "3702922190870587943968714359056302745495762475584261946500033162172103989673753948270264708296097524653957046758238889074017098404231625593502458657712814814181116461669517046714074995265531516967986438875535847255313956638412671864829460248090580312624270765716762651454675612656502895731896139120384241177392126833502286542232118401643417165453728013139486921255535728690157179557520286905461407031485881651812931613049827000519467581063644920177874129260699148887495652249732806737982527568159438619547668114396702130909143271189432363499170676652015436437623094671839465179297869205969840906142295923716587140311"
-            },
-            "response": "7673773933284719536412259876677204164956289948480475588198037430892323898227"
-          },
-          {
-            "challenge": "40789319603209391044035100643943546996234603809846160735535922393763413197438",
-            "commitment": {
-              "A": "15229611588330633510585960074995900185751201124687998282791828588731617663311182791614584369891651515901558535904475685417575924729436290784999322180919650698448260546352431002650520496857637527479165510186745285539634655896414684875115610176920758654690533035249301941021064691804893253376241913478181553485244591434687172258358330880747939387288512975088534685426102341224282049033975904360676568155362935958665264351464124695396110892562242778533672984453928709402048156145262838706232245996375014553568235049763444923448652951516991969626840520288485483549287065955011159828896203484530430233569545704266428247444",
-              "B": "2133463216195818887389546518534994182755331318112914205764712190997217210403709494122416466571854082169694635734046328868709441620642186245793047075825969631463102706387848662412043963071493560309031416343436170178427441398470731367961972026814337856752267630923686354763078588896943483473167783110147309936838581710776660449029764076056253504055192151155040068370411164381442853226564854956298157377351307395542062054793696559633659979486600619606323390321870209617513997606127345580944489157962620750895131275727332203751292908170935559452914248515226324978619128597568159858944881543489114174757701896378373443930"
-            },
-            "response": "6852566648753632522678906133616629808473941306022210723994794012868737228377"
-          }
-        ]
-      ],
-      "overall_proof": [
-        {
-          "challenge": "1253752696342774217501410594567017563436392503337",
-          "commitment": {
-            "A": "11793241493424281950020729347448774391714422500037702847953367565462351978554265223688144433560581429178359264439704719842309417187588763705390804963995060423582974349656516841656863621757415002999351416556680008408025509112514000368344746120205985952150122648686962664121446528343739056165256090967837618768312804269542382782182447989770357288720624365415516067283117869427510567152708408669485711600056096622676019859190999285483621198117681397780487466139005020989993423883895665619600896521506520378675043013901439618822181361903508365192020200327327231386322510242860182563842951236515350826520170445680809765372",
-            "B": "8523081220255060312531704762208280291556391097555759256273278156642291877294539379818412199740194527301592570066713785778715582408572315600649043670738675502506322123177740755141491588887438379591015083076253246661376306636433726055276137430774676235191595632760920893890562242435654463118609805610877865224833719224505707546527870456472221735378530415001161474831179054944733192746637968528976877448745102473305106168780031762765143121722822257653961728125897487534947433989719389148224322217956613984877112974912423624014979674228133079990895185777359134409315459048831449767034075226290672172720351277335813686911"
-          },
-          "response": "13968935777329836215146425324634396744895179592294679261573217697722622897973"
-        }
-      ]
-    }
-  ],
-  "election_hash": "gb+MGZVlw8UmBIljELcfzSeYfYEAXj9h+xqcr+eE2W0",
-  "election_uuid": "4eadbc3a-bbff-11e6-b149-b827eb1e9722"
-}
-\end{lstlisting}
-					
-					
-					
-					
-					
-					
-					
+								
 					
 					\begin{figure}[!ht]
 						\centering
@@ -610,9 +505,18 @@ class AuthorizeView(View):
 						\caption{App Autenticación Android: Acceso al sistema de voto con login con el DNIe.}
 						\label{fig:login.android.logado}
 					\end{figure}
+
+
+		\begin{figure}[!ht]
+			\centering
+				\includegraphics[width=.95\textwidth]{imgs/arquitecturaSistema.jpg}
+			\caption{Arquitectura del sistema}
+			\label{fig:arquitectura.sistema}
+		\end{figure}	
 					
+
 		
-		\section{Topología de la red}\label{solucion_topologiaRed}
+		\section{Topología de red}\label{solucion_topologiaRed}
 				\todo[inline]{Para esto sí que necesito ayuda, por el tema de Firewalls y esas cosas.}
 				
 				De cara a la topología de la red del sistema, se ha diseñado la integración para abordar tres configuraciones diferentes dependiendo de las necesidades de la elección:
@@ -722,16 +626,12 @@ class AuthorizeView(View):
 					
 					\begin{figure}[!ht]
 						\centering
-							\includegraphics[width=.95\textwidth]{imgs/flujoOAuth.jpg}
+							\includegraphics[width=.95\textwidth]{imgs/flujoOAuth20.jpg}
 						\caption{Flujo oAuth para servicio de autenticación}
 						\label{fig:flujo.oauth}
 					\end{figure}
 					
-					
-					
-					
-					
-					
+
 					
 				\subsection{Definición de la papeleta}\label{solucion_definicionPapeleta}
 					El principal cambio que se ha implementado en la tarea de definición de las opciones de la papeleta ha sido el de añadir automáticamente la opción del voto en blanco a la papeleta.
@@ -741,9 +641,211 @@ class AuthorizeView(View):
 					Esta modificación trata de satisfacer el requisito \ref{reqEspecificos_blancos} definido entre los requisitos específicos (\ref{requisitosEspecificos}).
 					
 					
-				\subsection{Elección de candidatura}
 				\subsection{Votación}
-				\subsection{Escrutinio}
+					Para la votación, el sistema implementa una \textit{Cabina de Votación} lógica. Es un módulo que se ejecuta en el cliente y no en el servidor.
+					
+					El sistema se encarga de esta forma de proteger el secreto del voto y la privacidad del votante. El voto se cifra en el navegador del cliente antes de ser enviado al servidor.
+					
+					El sistema lo recibe encriptado y lo guarda así en la base de datos (urna digital).
+					
+					En la totalización (\ref{solucion_totalizacion}), el sistema utilizará técnicas criptográficas avanzadas para combinar todos los votos cifrados y descifrar simplemente la suma de ellos. En ningún momento del proceso electoral el sistema maneja un solo voto descifrado de forma individual.
+					
+					El módulo de votación es un fichero HTML, vote.html, orquestado por código Javascript, escrito dentro del mismo fichero entre etiquetas <script></script>.
+					
+					\begin{figure}[!ht]
+						\centering
+							\includegraphics[width=.95\textwidth]{imgs/cabinaVotacion01.jpg}
+						\caption{Esquema de la Cabina de Votación}
+						\label{fig:esquema.cabina.votacionh}
+					\end{figure}
+					
+					Además, incluye varias librerías Javascript externas, como son:
+					\begin{description}[font=$\bullet$\ \ ]
+						\item [jQuery] Librería que contiene código que extiende la funcionalidad de Javascript realizando más intuitiva la gestión del DOM. Incluye código para gestionar plantillas y estilo para la web. Es una librería muy utilizada en el mundo del desarrollo Web.
+						\item [bigint.js] Implementación de un wrapper para la clase java.math.BigInteger. Necesaria para la gestión de los números grandes utilizados para los diferentes cifrados, tanto como generadores, elementos, semillas o retos.
+						\item [random.js] Generador de números aleatorios.
+						\item [elgamal.js] Implementación en Javascript del algoritmo de cifrado del ElGamal.
+						\item [sha1.js, sha2.js] Implementación en Javascript de los algoritmos de cifrado SHA-1 y SHA-2.
+					\end{description}
+					
+					
+					Durante todo el proceso de votación, aunque éste se divide en tres pasos, el votante se encuentra en la misma página vote.html. La orquestación entre una fase y la siguiente se gestiona a través de código Javascript.
+					
+					\begin{figure}[!ht]
+						\centering
+							\includegraphics[width=.95\textwidth]{imgs/diagramaEstadosVotacion01.jpg}
+						\caption{Diagrama de estados del proceso de votación}
+						\label{fig:diagrama.estados.cabina.votacion}
+					\end{figure}
+					
+					\begin{description}
+						\item [Inicio] \hfill \
+							Se muestra al votante un explicación del proceso que va a realizar para votar, con una enumeración de las fases que proceden.
+							
+							Se incluye un botón para comenzar a votar.
+
+						\item [Paso 1. Selección de candidatos] \hfill \
+							Se muestra al votante los candidatos para cada una de las preguntas que la elección le permite votar.
+							
+							Dependiendo de la configuración de la elección y de cada una de las preguntas, el votante podrá no elegir ningún candidato, elegir sólo 1, un rango o abstenerse.
+							
+							En la zona inferior se le indica al votante cuál es la Huella Digital de la Elección en la que está votando. Esta huella es el hash del JSON que define la propia elección. Por tanto, la huella depende de la lista de votantes censados o registrados. Así, en caso de modificarse el censo una vez que se ha abierto la votación, aquí hay una herramienta para detectarlo, ya que esta huella no se correspondería con la que se genera una vez modificada la elección.
+							
+							Tras seleccionar los candidatos, el votante puede pulsar el botón de continuar.
+
+						\item [Cifrado del voto] \hfill \
+							Entre el paso 1, donde se eligen los candidatos, y el paso 2, donde se revisa y audita el voto, el navegador cifra la papeleta.
+							
+							A continuación se muestra el esquema de un voto cifrado:
+\begin{lstlisting}
+{
+ "answers": [
+  {
+   "choices": [
+    {
+     "alpha": "11821738026205240772968255127044802517047(...)",
+     "beta": "956239812618638278768915552438226298243021(...)"
+    },
+    {
+     "alpha": "89930541535253719726930300864046225791303(...)",
+     "beta": "280059812585494032480202717650783375169670(...)"
+    },
+    {
+     "alpha": "57975502776035240719836621535262618419174(...)",
+     "beta": "978382211305766369879688192639985576524767(...)"
+    }
+   ],
+   "individual_proofs": [
+    [
+     {
+      "challenge": "43874538621142379916145492966409289430255985276793233839535144670232793929873",
+      "commitment": {
+       "A": "14614624460580166084310239809768957161396(...)",
+       "B": "12129363808208853658297038681359129740187(...)"
+      },
+      "response": "35111610374554771924491600617435125565551351678779095565911261872333649419481"
+     },
+     {
+      "challenge": "17455027627200521376398379804435998722483175501173674963493255507426299982582",
+      "commitment": {
+       "A": "14276144535969498348508852984424238679819(...)",
+       "B": "54937556950085798690537717077801057528298(...)"
+      },
+      "response": "55879767585126448548489172509549767078598169937256353971492493135916950997178"
+     }
+    ],
+    [
+     {
+      "challenge": "27214371254593561525103755246527245415365098004925989240328291157531952501665",
+      "commitment": {
+       "A": "33082796917013189624560150325204466774925(...)",
+       "B": "12435741661345782068706114279439280143590(...)"
+      },
+      "response": "10558534534412804489745997990430567976230006025326885338612204248676172306992"
+     },
+     {
+      "challenge": "34115194993749339767440117524333388461738390285322076679882585342267066946683",
+      "commitment": {
+       "A": "13731698192008366840053574489091548941274(...)",
+       "B": "93495042406845358075899133494203376927794(...)"
+      },
+      "response": "5176763459334639863434268463535510901594167363643527842720657697790809305897"
+     }
+    ],
+    [
+     {
+      "challenge": "20540246645133510248508772126054804332279131831120275199135559606644095246601",
+      "commitment": {
+       "A": "10106397188055812737742462645321636338276(...)",
+       "B": "37029221908705879439687143590563027454957(...)"
+      },
+      "response": "7673773933284719536412259876677204164956289948480475588198037430892323898227"
+     },
+     {
+      "challenge": "40789319603209391044035100643943546996234603809846160735535922393763413197438",
+      "commitment": {
+       "A": "15229611588330633510585960074995900185751(...)",
+       "B": "21334632161958188873895465185349941827553(...)"
+      },
+      "response": "6852566648753632522678906133616629808473941306022210723994794012868737228377"
+     }
+    ]
+   ],
+   "overall_proof": [
+    {
+     "challenge": "1253752696342774217501410594567017563436392503337",
+     "commitment": {
+      "A": "1179324149342428195002072934744877439171442(...)",
+      "B": "8523081220255060312531704762208280291556391(...)"
+     },
+     "response": "13968935777329836215146425324634396744895179592294679261573217697722622897973"
+    }
+   ]
+  }
+ ],
+ "election_hash": "gb+MGZVlw8UmBIljELcfzSeYfYEAXj9h+xqcr+eE2W0",
+ "election_uuid": "4eadbc3a-bbff-11e6-b149-b827eb1e9722"
+}
+\end{lstlisting}
+							El contenido de un voto completo se puede ver en el anexo \ref{anexo:ejemploVotoJSON}.
+						
+						
+						\item [Paso 2. Revisar el voto] \hfill \
+							Entre el Paso 1 y el 2, se realiza el cifrado del voto.
+							
+							Una vez seleccionados los candidatos, el sistema nos permite realizar una revisión de nuestra elección. Así, se puede modificar el voto volviendo al Paso 1.
+							
+							En este punto, se genera un código que sirve para realizar el seguimiento del voto si se decide enviar a auditoría.
+							
+							En este paso, el votante tiene la opción de continuar para emitir su voto, con lo que continuaría al Paso 3, o tiene la opción de descifrar su voto y enviarlo a auditoría.
+
+
+						\item [Paso 3. Emitir el voto] \hfill \
+							Con el voto ya preparado y cifrado, la Cabina de Votación envía el voto cifrado al Servidor de Votación. En este momento el votante todavía tiene la opción de votar o de cancelar el voto. 
+							
+							Una vez emita su voto, este se guardará cifrado en la base de datos y nunca será descifrado. Se combinará con el resto de votos cifrados y por homomorfismo aditivo lo que se descifrará será la suma de todos los votos cifrados.
+							
+							Este sistema de voto permite al votante votar tantas veces desee. Sólo se tendrá en cuenta su último voto, quedando los anteriores descartados y fuera del escrutinio. El motivo de este detalle es proteger al votante de un posible escenario de coacción.
+
+						\item [Auditar el voto] \hfill \
+							El votante tiene la opción de auditar el voto. Una vez su voto ha sido cifrado, puede elegir revelar cómo se ha realizado el cifrado de los candidatos que ha seleccionado. El sistema muestra el JSON en el que se han cifrado las opciones del votante y estas pueden utilizarse en una herramienta externa para verificar este proceso de cifrado.
+							
+							Este voto, que ha sido expuesto, no se contabilizará en la totalización. El votante debe volver a la Cabina de Votación para que se vuelva a cifrar su voto y pueda votar con un voto no comprometido.
+							
+							El proceso de evitar que un votante pueda emitir el mismo voto que audita se realiza para dar algo de protección al votante contra la coacción.
+							
+							Igualmente, el votante tiene la posibilidad de enviar su voto auditado a un tablón de seguimiento de votos (Ballot Tracking Center), donde cualquier votante u observador puede realizar la verificación de ese voto.
+							
+							
+							\item [Verificación del voto] \hfill \
+								La herramienta de verificación del voto permite a un votante u observador verificar que el voto fue preparado y cifrado correctamente.
+								
+								Requiere como entrada de datos el JSON del voto y la URL de la elección.
+								
+								El verificador hace uso de pruebas de conocimiento zero para comprobar la validez del voto y de su cifrado. 
+								
+								Comprueba que la huella de la elección se corresponde con la huella del voto. También comprueba la validez de cada una de las opciones elegidas por el votante.
+								
+\begin{lstlisting}
+  loading election...
+  election fingerprint is 4txg7mWSzN8tuZY2l7hvi7HtdbD15fZlRRPBdwZNQMU
+  smart ballot tracker is oBeyzSaS2yi0BN+ubTUMzSPNck73+yQxZU2mSNrH/7s
+  election fingerprint matches ballot
+  Ballot Contents:
+  Question #1 - Preguntando : 
+  Encryption Verified
+  Proofs ok.
+
+
+  SUCCESSFUL VERIFICATION, DONE!	
+\end{lstlisting}
+								En el anexo \ref{anexo:verificarVoto} se puede encontrar información acer de cómo se realiza la verificación de un voto individual obtenida de la web de documentación de Helios Voting.
+								
+					\end{description} 
+					
+					
+					
+				\subsection{Totalización}\label{solucion_totalizacion}
 				\subsection{Difusión de resultados}
 				
 			

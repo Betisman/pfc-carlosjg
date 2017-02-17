@@ -227,6 +227,7 @@
 % Para incluir código
 \usepackage{listings}
 \usepackage{color}
+\usepackage{courier} %% Para poder usar este tipo de letra en las listings. Con \ttfamily
  
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -239,7 +240,7 @@
     keywordstyle=\color{magenta},
     numberstyle=\tiny\color{codegray},
     stringstyle=\color{codepurple},
-    basicstyle=\scriptsize,
+    basicstyle=\scriptsize\ttfamily,
     breakatwhitespace=false,         
     breaklines=true,                 
     captionpos=b,                    
@@ -249,8 +250,11 @@
     showspaces=false,                
     showstringspaces=false,
     showtabs=false,                  
-    tabsize=2
+    tabsize=2,
+    postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{green}\hookrightarrow\space}}
 }
+
+\lstset{}
  
 \lstset{style=mystyle}
 
@@ -459,7 +463,17 @@
 \newpage
 \input{anexoExportarCertificadosAppAndroid.tex}
 
+\newpage
+\input{anexoJsonVoto.tex}
 
+\newpage
+\input{anexoVerificarVoto.tex}
+
+\newpage
+\input{anexoAuditarVoto.tex}
+
+\newpage
+\input{anexoVerificarEleccion.tex}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% NOTAS (PARA BORRADOR)
