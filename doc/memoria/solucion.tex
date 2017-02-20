@@ -632,6 +632,7 @@ class AuthorizeView(View):
 						\label{fig:flujo.oauth}
 					\end{figure}
 					
+					\ref{fig:flujo.oauth}
 					\begin{enumerate}
 						\item La app del DNIe obtiene las credenciales del chip de identificación del documento por \gls{NFC}.
 						\item La app realiza una petición GET a la web del Sistema de Autenticación.
@@ -694,12 +695,15 @@ class AuthorizeView(View):
 					\end{figure}
 					
 					\begin{description}
-						\item [Inicio] \hfill \
+						\item[Inicio]\hfill \
+						
 							Se muestra al votante un explicación del proceso que va a realizar para votar, con una enumeración de las fases que proceden.
 							
 							Se incluye un botón para comenzar a votar.
+							
 
-						\item [Paso 1. Selección de candidatos] \hfill \
+						\item[Paso 1. Selección de candidatos] \hfill \
+						
 							Se muestra al votante los candidatos para cada una de las preguntas que la elección le permite votar.
 							
 							Dependiendo de la configuración de la elección y de cada una de las preguntas, el votante podrá no elegir ningún candidato, elegir sólo 1, un rango de candidatos, abstenerse o votar en blanco.
@@ -708,7 +712,8 @@ class AuthorizeView(View):
 							
 							Tras seleccionar los candidatos, el votante puede pulsar el botón de continuar.
 
-						\item [Cifrado del voto] \hfill \
+						\item[Cifrado del voto] \hfill \
+						
 							Entre el paso 1, donde se eligen los candidatos, y el paso 2, donde se revisa y audita el voto, el navegador cifra la papeleta.
 							
 							A continuación se muestra el esquema de un voto cifrado:
@@ -805,7 +810,8 @@ class AuthorizeView(View):
 							El contenido de un voto completo se puede ver en el anexo \ref{anexo:ejemploVotoJSON}.
 						
 						
-						\item [Paso 2. Revisar el voto] \hfill \
+						\item[Paso 2. Revisar el voto] \hfill \
+						
 							Entre el Paso 1 y el 2, se realiza el cifrado del voto.
 							
 							Una vez seleccionados los candidatos, el sistema nos permite realizar una revisión de nuestra elección. Así, se puede modificar el voto volviendo al Paso 1.
@@ -815,14 +821,16 @@ class AuthorizeView(View):
 							En este paso, el votante tiene la opción de continuar para emitir su voto, con lo que continuaría al Paso 3, o tiene la opción de descifrar su voto y enviarlo a auditoría.
 
 
-						\item [Paso 3. Emitir el voto] \hfill \
+						\item[Paso 3. Emitir el voto] \hfill \
+						
 							Con el voto ya preparado y cifrado, la Cabina de Votación envía el voto cifrado al Servidor de Votación. En este momento el votante todavía tiene la opción de votar o de cancelar el voto. 
 							
 							Una vez emita su voto, este se guardará cifrado en la base de datos y nunca será descifrado. Se combinará con el resto de votos cifrados y por homomorfismo aditivo lo que se descifrará será la suma de todos los votos cifrados.
 							
 							Este sistema de voto permite al votante votar tantas veces desee. Sólo se tendrá en cuenta su último voto, quedando los anteriores descartados y fuera del escrutinio. El motivo de este detalle es proteger al votante de un posible escenario de coacción.
 
-						\item [Auditar el voto] \hfill \
+						\item[Auditar el voto] \hfill \
+						
 							El votante tiene la opción de auditar el voto. Una vez su voto ha sido cifrado, puede elegir revelar cómo se ha realizado el cifrado de los candidatos que ha seleccionado. El sistema muestra el JSON en el que se han cifrado las opciones del votante y estas pueden utilizarse en una herramienta externa para verificar este proceso de cifrado.
 							
 							Este voto, que ha sido expuesto, no se contabilizará en la totalización. El votante debe volver a la Cabina de Votación para que se vuelva a cifrar su voto y pueda votar con un voto no comprometido.
@@ -832,7 +840,8 @@ class AuthorizeView(View):
 							Igualmente, el votante tiene la posibilidad de enviar su voto auditado a un tablón de seguimiento de votos (Ballot Tracking Center), donde cualquier votante u observador puede realizar la verificación de ese voto.
 							
 							
-							\item [Verificación del voto] \hfill \
+							\item[Verificación del voto] \hfill \
+						
 								La herramienta de verificación del voto permite a un votante u observador verificar que el voto fue preparado y cifrado correctamente.
 								
 								Requiere como entrada de datos el JSON del voto y la URL de la elección.
@@ -861,6 +870,55 @@ class AuthorizeView(View):
 					
 					
 				\subsection{Totalización}\label{solucion_totalizacion}
+				
+					La totalización de los votos en el sistema se realiza a través de procedimientos criptográficos.
+					
+					Los votos emitidos han sido almacenados cifrados en la base de datos. De ellos, han sido descartados aquellos que no fuesen el último emitido en aquellos casos en los que un votante votó más de una vez.
+					
+					Por medio del homomorfismo, no es necesario que se descifren los votos para totalizar el resultado de la elección.
+					
+					Los votos no se descifran, se totalizan los votos cifrados y lo que se descifra es el resultado de esta suma.
+					
+					En el código se muestra que para cada voto final de cada votante, aquél se añade a la totalización. Una vez todos añadidos, se almacena la totalización, encriptada, a la espera de ser descifrada.
+
+					\begin{lstlisting}[language=Python]
+ def compute_tally(self):
+    tally = self.init_tally()
+    for voter in self.voter_set.exclude(vote=None):
+    	# Para cada voto final de cada votante, se añade a
+    	# la totalización
+      tally.add_vote(voter.vote, verify_p=False)
+
+	# La totalización, cifrada, se almacena a la espera 
+	# de ser descifrada.
+    self.encrypted_tally = tally
+    self.save()						
+ 
+ # Class Tally 
+ def add_vote(self, encrypted_vote, verify_p=True):
+    # do we verify?
+    if verify_p:
+      if not encrypted_vote.verify(self.election):
+        raise Exception('Bad Vote')
+
+    # for each question
+    for question_num in range(len(self.questions)):
+      question = self.questions[question_num]
+      answers = question['answers']
+      
+      # for each possible answer to each question
+      for answer_num in range(len(answers)):
+        # do the homomorphic addition into the tally
+        enc_vote_choice = encrypted_vote.encrypted_answers[question_num].choices[answer_num]
+        enc_vote_choice.pk = self.public_key
+        self.tally[question_num][answer_num] = encrypted_vote.encrypted_answers[question_num].choices[answer_num] * self.tally[question_num][answer_num]
+
+    self.num_tallied += 1
+					\end{lstlisting}
+
+A continuación se muestra que los votos son, efectivamente, totalizados 
+
+
 				\subsection{Difusión de resultados}
 				
 			
