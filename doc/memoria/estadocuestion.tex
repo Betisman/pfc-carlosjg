@@ -1,6 +1,12 @@
 \chapter{Estado de la cuestión}\label{estadoCuestion}
 \lhead{Capítulo \ref{estadoCuestion}}
 \rhead{Estado de la cuestión}
+\setcounter{epihc}{\value{footnote}}\stepcounter{epihc}
+\epigraphhead[70]{\epigraph{Las elecciones no resuelven por sí mismas los problemas, aunque son el paso previo y necesario para su solución.}{\textit{Adolfo Suárez\footnotemark[\value{epihc}]}}}
+\footnotetext[\value{epihc}]{{Del discurso de cierre de campaña. 14 de junio de 1977}
+\setcounter{epihc}{\value{footnote}}\stepcounter{epihc}
+\footnotetext[\value{epihc}]{Presidente del Gobierno de España (1976-1981)  los Estados Unidos de América (1963-1969) \url{https://es.wikipedia.org/wiki/Adolfo_Su\%C3\%A1rez}}}
+\setcounter{footnote}{\value{epihc}}
 	
 	% *************************************************************************************************************** %
 	% 			ESTADO DE LA CUESTIÓN
@@ -906,7 +912,6 @@ los diálogos del sistema.
 					Cuando el período de votación finaliza, el servidor cuenta los votos y publica el resultado encriptado. A continuación, las autoridades proveen cierta información para decodificar, basada en el resultado encriptado y es sus claves privadas. Cuando se consigue suficiente de esta información, el servidor combina las piezas individuales para componer el resultado electoral, que es publicado.
 					El sistema se implementa con una arquitectura basada en un tablón de anuncios, un servidor de autenticación (\textit{gatekeeper}) y un cliente (puede ser tanto un programa de escritorio como un applet de Java).
 					
-					\notasInfo[inline]{Aquí va la imagen de la arquitectura de \textsc{ADDER}.}
 					\begin{figure}[h]
 						\centering
 							\includegraphics[width=\textwidth]{imgs/ADDER_diagrama.jpg}
@@ -1332,7 +1337,7 @@ los diálogos del sistema.
 						\todo[inline]{Explicación del proceso (Chaum??)}
 						Los esquemas que se basan en protocolos con firma ciega suelen usar canales anónimos para enviar tanto la firma como el voto cifrado a la autoridad electoral, con lo que protege el anonimato del votante.
 						
-						Podemos encontrar este esquema en soluciones como la propuesta en 1992 por Fujioka en \cite{Fujioka93}, la cual sirvió de base a Cranor\footnote{\url{http://lorrie.cranor.org/}} para la implementación de un prototipo (Sensus\footnote{\url{http://lorrie.cranor.org/voting/sensus/}},\footnote{\url{http://lorrie.cranor.org/pubs/hicss/hicss.html}}).
+						Podemos encontrar este esquema en soluciones como la propuesta en 1992 por Fujioka en \cite{Fujioka93}, la cual sirvió de base a Cranor\footnote{\url{http://lorrie.cranor.org/}} para la implementación de un prototipo (Sensus\footnote{\url{http://lorrie.cranor.org/voting/sensus/}}\footnote{\url{http://lorrie.cranor.org/pubs/hicss/hicss.html}}).
 						
 						El esquema desarrollado en Sensus divide el proceso en cuatro etapas: \textit{inicialización}, \textit{registro}, \textit{votación} y \textit{recuento}. A su vez, registra dos autoridades: \textit{Administrador} y \textit{Contador}.
 						\todo[inline]{********* VER BELLEBONI ************}
