@@ -225,7 +225,7 @@ class AuthorizeView(View):
 			\begin{description}
 				\item[Cabina de votación:] Es el módulo que permite a los votantes elegir el voto y cifrarlo. Lo separamos del módulo principal porque se un módulo escrito principalmente en javascript y se ejecuta en el navegador del cliente. Se delega en la máquina del cliente la potencia necesaria para el cifrado de su voto.
 				
-				\item[Verificador de la elección:] Es un módulo de acceso externo que permite, pasándole la huella digital de una elección que ya haya terminado, la verificación de la integridad de la misma. Así, por medio de funciones criptográficas, asegura que la elección ha sido correctamente escrutada y que todos los votos fueron correctamente incluídos en el escrutinio.
+				\item[Verificador de la elección:] Es un módulo de acceso externo que permite, pasándole la huella digital de una elección que ya haya terminado, la verificación de la integridad de la misma. Así, por medio de funciones criptográficas, asegura que la elección ha sido correctamente escrutada y que todos los votos fueron correctamente incluidos en el escrutinio.
 				
 				\item[Gestor de tareas:] Utilizando la librería celery y kombu, Helios implementa un gestor de tareas basado en una cola. En el sistema se definen varias tareas que, cuando toca llevarlas a cabo, en vez de encargarse de realizarlas de forma síncrona, las incluye en una cola y sigue con el flujo de funcionamiento normal. Celery se encarga de consultar esta cola y extraer las tareas que hay que realizar. 
 				
