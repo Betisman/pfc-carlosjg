@@ -349,16 +349,13 @@ class AuthorizeView(View):
 						Define una clase \textbf{DNIe} con una serie de miembros que almacenan la información del usuario recibida desde el Sistema de Autenticación, del certificado digital de autenticación del \gls{DNIe}.
 						
 						\begin{lstlisting}[language=Python]
-class DNIe:
-    def __init__(self, commonName, givenName, surname, serialNumber, c):
-        self.commonName = commonName
-        self.givenName = givenName
-        self.surname = surname
-        self.serialNumber = serialNumber
-        self.c = c
-
-    def __str__(self):
-        return '|-- CN: %s --- GN: %s --- SN: %s --- serialNumber: %s --- C: %s --|' %(self.commonName, self.givenName, self.surname, self.serialNumber, self.c)
+  class DNIe:
+      def __init__(self, commonName, givenName, surname, serialNumber, c):
+          self.commonName = commonName
+          self.givenName = givenName
+          self.surname = surname
+          self.serialNumber = serialNumber
+          self.c = c
 						\end{lstlisting}
 						
 						\todo{POR AQUí}
