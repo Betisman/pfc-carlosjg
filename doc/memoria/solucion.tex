@@ -362,6 +362,13 @@ class AuthorizeView(View):
 						
 						
 					\item [Cabina de votación]
+						En la carpeta \textit{helios\_booth} se encuentra el componente de la Cabina digital de Voto.
+						
+						Es un módulo autoontenido cuya funcionalidad se desarrolla en tan sólo un elemento HTML, apoyado en código Javascript para controlar la interacción con el usuario, el cifrado de los votos y el envío del voto al Sistema de Votación en servidor. La lógica de este módulo se ejecuta en cliente, por eso es importante la comunicación final con el servidor.
+						
+						Su estructura y funcionamiento se explica en \ref{esquemaVotacion_votacion}.
+						
+						
 					\item [Verificador de voto]
 					\item [Tests selenium]
 					\item [Elementos estáticos]
@@ -762,7 +769,7 @@ class AuthorizeView(View):
 					Esta modificación trata de satisfacer el requisito \ref{reqEspecificos_blancos} definido entre los requisitos específicos (\ref{requisitosEspecificos}).
 					
 					
-				\subsection{Votación}
+				\subsection{Votación}\label{esquemaVotacion_votacion}
 					Para la votación, el sistema implementa una \textit{Cabina de Votación} lógica. Es un módulo que se ejecuta en el cliente y no en el servidor.
 					
 					El sistema se encarga de esta forma de proteger el secreto del voto y la privacidad del votante. El voto se cifra en el navegador del cliente antes de ser enviado al servidor.
