@@ -273,6 +273,105 @@ class AuthorizeView(View):
 									
 					\end{description}
 					
+			\subsection{Estructura}
+				El desarrollo del sistema de votación distribuye el código del sistema en una serie de módulos:
+				
+				\begin{description}
+					\item [Core]
+						Dentro del paquete \textit{helios} se encuentra el código fuente que implementa el núcleo del sistema de votación.
+						
+						Sigue el protocolo de un proyecto Django sobre el patrón MVC. Contiene las vistas, el modelo y el controlador que necesita para su funcionamiento.
+						
+						En el fichero \textit{urls.py} se definen los \textit{endpoints} expuestos para la interacción con el sistema. Este fichero establece el punto de comienzo de la \gls{API} \gls{REST} que proporciona el sistema, indicando dónde deben ser realizadas las llamadas HTTP para inicio de procesos y obtención de resultados.
+						
+						Este fichero funciona como un enrutador. Dirige la llamada a un endpoint hacia la vista que va a tratar esta llamada.
+						
+						Estas vistas se encuentran agrupadas en el sistema en el módulo contenido en el fichero \textit{views.py}.
+						
+						Dentro del fichero \textit{models.py} es donde se gestiona el modelo de datos.
+						
+						Estas son las clases que se definen en este módulo:
+						\begin{description}
+							\item [Election]
+								Clase que gestiona las elecciones que pueden ser creadas en el sistema.
+
+							\item [ElectionLog]
+								Clase para gestión de los logs del sistema.
+								
+							\item [VoterFile]
+								Clase diseñada para almacenar los ficheros de votantes utilizados para la carga del censo.
+								
+							\item [Voter]
+								Clase que define los votantes.
+								
+							\item [CastVote]
+								Clase necesaria para almacenar los votos emitidos por los votantes.
+								
+							\item [AuditedBallot]
+								Clase que recoge los votos que han sido auditados.
+								
+							\item [Trustee]
+								Clase que expone los Trustees del sistema.
+								
+						\end{description}
+						
+						Se observa que no es un mapeo exacto del modelo Entidad-Relación visto en \ref{solucion_servidor_votacion_bd}. Define las clases principales que interactúan para llevar a cabo la elección.
+						
+					\item [Autenticación]
+						El sistema de votación posee un módulo de autenticación propio que es el que gestiona las identidades y permisos de un usuario o votante frente al sistema. Este subsistema recoge la identificación del votante, sea cual sea el medio por el que se haya \textit{logado} el usuario.
+						
+						En el caso del login por DNIe, este subsistema es el que maneja la comunicación con el Sistema de Autenticación (\ref{arquitectura_servidorAutenticacion}).
+						
+						Por tanto, bajo la carpeta \textit{helios\_auth} se encuentra el módulo de autenticación del sistema de voto.
+						
+						Aún siendo un subsistema, sigue también el patrón \gls{MVC} de Django. Contiene los ficheros \textit{urls.py}, \textit{views.py} y \textit{models.py}, tan característicos de este patrón en este framework.
+						
+						Lo más peculiar de este subsistema es que contiene adaptadaores par los diferentes sistemas de login que expone. Dentro de la carpeta \textit{auth\_system} implementa una serie de módulos que gestionan estos diferentes métodos de login.
+						
+						Por defecto, Helios ha implementado ya los siguientes módulos para permitir la identificación federada:
+						\begin{itemize}
+							\item Facebook
+							\item oAuth
+							\item OpenID
+							\item CAS
+							\item Google
+							\item LinkedIn
+							\item Twitter
+							\item Yahoo!	
+						\end{itemize}
+
+						Además, incluye un módulo \textit{password.py} utilizado para la identificación de usuario por medio de usuario / contraseña.
+						
+						Para este \gls{PFC} ha sido necesario, pues, la implementación de un módulo nuevo para gestionar la identificación a través del \gls{DNIe}.
+						
+						Este módulo es \textit{dnie.py}.
+						
+						Define una clase \textbf{DNIe} con una serie de miembros que almacenan la información del usuario recibida desde el Sistema de Autenticación, del certificado digital de autenticación del \gls{DNIe}.
+						
+						\begin{lstlisting}[language=Python]
+class DNIe:
+    def __init__(self, commonName, givenName, surname, serialNumber, c):
+        self.commonName = commonName
+        self.givenName = givenName
+        self.surname = surname
+        self.serialNumber = serialNumber
+        self.c = c
+
+    def __str__(self):
+        return '|-- CN: %s --- GN: %s --- SN: %s --- serialNumber: %s --- C: %s --|' %(self.commonName, self.givenName, self.surname, self.serialNumber, self.c)
+						\end{lstlisting}
+						
+						\todo{POR AQUí}
+						
+						
+					\item [Cabina de votación]
+					\item [Verificador de voto]
+					\item [Tests selenium]
+					\item [Elementos estáticos]
+				\end{description}
+
+				
+					
 		\section{Cliente Android}\label{arquitectura_cliente}
 			El cliente del sistema se apoya en el navegador web que utilice el usuario para interactuar con el sistema, principalmente contra el subsistema de votación, pero también contra el de autenticación.
 			
