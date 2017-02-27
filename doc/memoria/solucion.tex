@@ -277,7 +277,7 @@ class AuthorizeView(View):
 				El desarrollo del sistema de votación distribuye el código del sistema en una serie de módulos:
 				
 				\begin{description}
-					\item [Core]
+					\item [Core]\hfill \
 						Dentro del paquete \textit{helios} se encuentra el código fuente que implementa el núcleo del sistema de votación.
 						
 						Sigue el protocolo de un proyecto Django sobre el patrón MVC. Contiene las vistas, el modelo y el controlador que necesita para su funcionamiento.
@@ -317,7 +317,7 @@ class AuthorizeView(View):
 						
 						Se observa que no es un mapeo exacto del modelo Entidad-Relación visto en \ref{solucion_servidor_votacion_bd}. Define las clases principales que interactúan para llevar a cabo la elección.
 						
-					\item [Autenticación]
+					\item [Autenticación]\hfill \
 						El sistema de votación posee un módulo de autenticación propio que es el que gestiona las identidades y permisos de un usuario o votante frente al sistema. Este subsistema recoge la identificación del votante, sea cual sea el medio por el que se haya \textit{logado} el usuario.
 						
 						En el caso del login por DNIe, este subsistema es el que maneja la comunicación con el Sistema de Autenticación (\ref{arquitectura_servidorAutenticacion}).
@@ -361,17 +361,24 @@ class AuthorizeView(View):
 						\todo{POR AQUí}
 						
 						
-					\item [Cabina de votación]
+					\item [Cabina de votación]\hfill \
 						En la carpeta \textit{helios\_booth} se encuentra el componente de la Cabina digital de Voto.
 						
-						Es un módulo autoontenido cuya funcionalidad se desarrolla en tan sólo un elemento HTML, apoyado en código Javascript para controlar la interacción con el usuario, el cifrado de los votos y el envío del voto al Sistema de Votación en servidor. La lógica de este módulo se ejecuta en cliente, por eso es importante la comunicación final con el servidor.
+						Es un módulo autocontenido cuya funcionalidad se desarrolla en tan sólo un elemento HTML, apoyado en código Javascript para controlar la interacción con el usuario, el cifrado de los votos y el envío del voto al Sistema de Votación en servidor. La lógica de este módulo se ejecuta en cliente, por eso es importante la comunicación final con el servidor.
 						
 						Su estructura y funcionamiento se explica en \ref{esquemaVotacion_votacion}.
 						
 						
-					\item [Verificador de voto]
-					\item [Tests selenium]
-					\item [Elementos estáticos]
+					\item [Verificador de voto]\hfill \
+						El verificador de voto es una herramienta para que un votante u observador pueda verificar que el sistema cifra y descifra correctamente un voto.
+						
+						
+					\item [Tests selenium]\hfill \
+						
+						
+					\item [Elementos estáticos]\hfill \
+						Esta carpeta contiene los ficheros estáticos necesarios para la interfaz web, incluyendo HTML, Javascript y hojas de estilo CSS.
+						
 				\end{description}
 
 				
