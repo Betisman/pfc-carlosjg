@@ -400,24 +400,13 @@ class AuthorizeView(View):
 			
 			En el capítulo \ref{analisis_identificacion} se explica la evolución experimentada para la solución de este problema, pues no era posible llevar a cabo la primera idea y hubo que estudiar diversas opciones hasta encontrar con la que finalmente se implementó. Esta consiste en la implementación de una app Android que haga de intermediaria entre el navegador web del dispositivo y, por un lado, la lectura por \gls{NFC} del certificado de autenticación del \gls{DNIe} 3.0 y, por otro lado, con su uso contra el Sistema de Autenticación, para, al final del proceso, dirigir al usuario al propio navegador web con el acceso al Sistema de Votación ya validado.
 			
-			\begin{figure}[hbt]
-			  \includegraphics[width=0.80\textwidth]{imgs/arquitecturaAndroidApp.jpg}
-			  \caption{Arquitectura lógica de la App sobre DNIeDroid\cite{dnieAutenticacion:1.0}}
-			  \label{fig:arquitecturaAppDnieDroid}
+			\begin{figure}[!ht]
+				\centering
+			 	\includegraphics[width=0.80\textwidth]{imgs/arquitecturaAndroidApp.jpg}
+			  	\caption{Arquitectura lógica de la App sobre DNIeDroid\cite{dnieAutenticacion:1.0}}
+			  	\label{fig:arquitecturaAppDnieDroid}
 			\end{figure}
-
-			
-			
-	\iffalse			
-			La aplicación Android de cliente es necesaria para poder utilizar el certificado de autenticación sin contacto incluido en el DNIe 3.0. Desde un ordenador de escritorio, con los drivers del DNIe instalados, el propio Sistema Operativo se encarga de la comunicación con los certificados del carnet. Con ellos, se puede establecer una conexión HTTPS/TLS segura contra un servidor web configurado para interactuar con este tipo de certificados.
-			
-			Para poder utilizar el DNIe sin contacto, se ha adaptado la aplicación original de la DGP para acceder a los certificados sin contacto del DNIe 3.0. Esta aplicación, una vez que se comunica con el chip sin contacto y extrae el certificado de autenticación, utiliza éste para poder establecer la comunicación HTTPS con el servidor de autenticación.
-			
-			Una vez el servidor de autenticación autoriza al cliente el acceso al servidor de votación, la navegación por la web se realiza a través de un navegador web del dispositivo. La propia aplicación Android es quien realiza la llamada al navegador para que se abra la aplicación y acceda a la página de inicio con el código de acceso necesario, obtenido del servidor de autenticación, para que se puedan obtener los tokens que permitan al usuario interactuar con el sistema con privilegios.
-\fi
-
-
-
+		
 			\subsection{Código fuente}\label{solucion_app_codigofuente}
 				Obviamente, el código fuente de la app ha debido ser modificado ya que la funcionalidad que se busca que tenga la aplicación no es la misma que la que ofrece la original.		
 				En la app original, al entrar se nos ofrece un menú radial con diferentes opciones. Esto no ocurre en la versión de este proyecto. La app en nuestro caso está pensada para realizar tan sólo un trabajo, realizar la identificación y autenticación de usuario contra un servidor oAuth y transmitir al sistema de votación la aceptación o revocación de acceso del mismo contra el sistema.		
@@ -744,7 +733,7 @@ class AuthorizeView(View):
 			\end{description}
 					
 					
-					\begin{figure}[!ht]
+					\begin{figure}[!htbp]
 						\centering
 							\includegraphics[width=.95\textwidth]{imgs/flujoOAuth20.jpg}
 						\caption{Flujo oAuth para servicio de autenticación}
