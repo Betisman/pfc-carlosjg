@@ -464,15 +464,23 @@ class AuthorizeView(View):
 					
 					Lo más peculiar de este subsistema es que contiene adaptadores par los diferentes sistemas de login que expone. Dentro de la carpeta \textit{auth\_system} implementa una serie de módulos que gestionan estos diferentes métodos de login.
 					
+					\begin{figure}[hbt]
+						\centering
+					  \includegraphics{imgs/folders_auth_system}
+					  \caption{Carpeta auth\_system que contiene los módulos de autenticación del sistema.jpg}
+					  \label{fig:folders.auth.system}
+					\end{figure}
+
+					
 					Por defecto, Helios ha implementado ya los siguientes módulos para permitir la identificación federada:
 					\begin{itemize}
-						\item Facebook $\Leftarrow$ helios\_auth/facebook.py
-						\item CAS $\Leftarrow$ helios\_auth/cas.py
-						\item Clever.com $\Leftarrow$ helios\_auth/clever.py
-						\item Google $\Leftarrow$ helios\_auth/google.py
-						\item LinkedIn $\Leftarrow$ helios\_auth/linkedin.py
-						\item Twitter $\Leftarrow$ helios\_auth/twitter.py
-						\item Yahoo!	 $\Leftarrow$ helios\_auth/yahoo.py
+						\item Facebook $\Leftarrow$ helios\_auth/auth\_system/facebook.py
+						\item CAS $\Leftarrow$ helios\_auth/auth\_system/cas.py
+						\item Clever.com $\Leftarrow$ helios\_auth/auth\_system/clever.py
+						\item Google $\Leftarrow$ helios\_auth/auth\_system/google.py
+						\item LinkedIn $\Leftarrow$ helios\_auth/auth\_system/linkedin.py
+						\item Twitter $\Leftarrow$ helios\_auth/auth\_system/twitter.py
+						\item Yahoo!	 $\Leftarrow$ helios\_auth/auth\_system/yahoo.py
 					\end{itemize}
 
 
@@ -509,10 +517,6 @@ class AuthorizeView(View):
 						
 				\subsubsection*{Verificador de voto}
 					El verificador de voto es una herramienta para que un votante u observador pueda verificar que el sistema cifra y descifra correctamente un voto.
-					
-					
-				\subsubsection*{Tests selenium}
-					
 					
 				\subsubsection*{Elementos estáticos}
 				
