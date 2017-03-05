@@ -5,16 +5,7 @@
 % *************************************************************************************************************** %
 % 			SOLUCIÓN
 % *************************************************************************************************************** %
-%%%%%%%\section{Identificación y gestión de riesgos}\label{idGestRiesgos}
-%*
-%*
-%*
-%*
-%*
-%*
 
-	%%%%%%%%\subsection{Identificación de riesgos}\label{identificacionRiesgos}
-	\todo[inline]{He eliminado los diagramas que tenía porque ya no se corresponden con el nuevo sistema.}
 	%\begin{figure}[htbp]
 		%\centering
 			%\includegraphics[width=1\textwidth]{imgs/sistema.png}
@@ -74,7 +65,7 @@
 						
 						En nuestro caso, se ha decidido utilizar un certificado autofirmado para el prototipo implementado. Los pasos necesarios tanto para crear y firmar el certificado como para configurar el servidor web para que lo utilice se pueden consultar en el anexo \ref{App:ConfiguracionServidorWeb}.
 						
-						\item[Certificado Raíz de la DGP:]
+						\item[Certificado AC Raíz DGP:] Es el certificado que permite al Sistema Operativo y al navegador web reconocer la Autoridad de Certificación de los certificados de sede electrónica, la AC Raíz DGP, que son los encargados de generar los certificados que se incluyen en el DNIe 3.0.
 						
 						\item[Certificado de cliente:] Para utilizar el DNIe como fuente de identificación del usuario, es preciso configurar el servidor web para que requiera en la conexión la presencia del certificado de autenticación del DNIe del usuario. Para ello, el servidor debe poseer el certificado raíz que provee la Dirección General de la Policía. Este certificado se configura en el servidor
 						
@@ -920,7 +911,7 @@ class AuthorizeView(View):
 \end{lstlisting}
 							El contenido de un voto completo se puede ver en el anexo \ref{anexo:ejemploVotoJSON}.
 							\newline
-						
+						\todo[inline]{CAPTURA PANTALLA}
 						
 						
 						\item[Paso 2. Revisar el voto] \hfill \
@@ -934,7 +925,7 @@ class AuthorizeView(View):
 							En este paso, el votante tiene la opción de continuar para emitir su voto, con lo que continuaría al Paso 3, o tiene la opción de descifrar su voto y enviarlo a auditoría.
 							\newline
 
-
+							\todo[inline]{CAPTURA PANTALLA}
 
 
 						\item[Paso 3. Emitir el voto] \hfill \
@@ -946,6 +937,7 @@ class AuthorizeView(View):
 							Este sistema de voto permite al votante votar tantas veces desee. Sólo se tendrá en cuenta su último voto, quedando los anteriores descartados y fuera del escrutinio. El motivo de este detalle es proteger al votante de un posible escenario de coacción.
 							\newline
 
+\todo[inline]{CAPTURA PANTALLA}
 
 
 						\item[Auditar el voto] \hfill \
@@ -959,6 +951,7 @@ class AuthorizeView(View):
 							Igualmente, el votante tiene la posibilidad de enviar su voto auditado a un tablón de seguimiento de votos (Ballot Tracking Center), donde cualquier votante u observador puede realizar la verificación de ese voto.
 							\newline
 							
+\todo[inline]{CAPTURA PANTALLA}
 							
 							
 						\item[Verificación del voto] \hfill \
@@ -986,6 +979,7 @@ class AuthorizeView(View):
 \end{lstlisting}
 								En el anexo \ref{anexo:verificarVoto} se puede encontrar información acer de cómo se realiza la verificación de un voto individual obtenida de la web de documentación de Helios Voting.
 								\newline
+\todo[inline]{CAPTURA PANTALLA}
 					\end{description} 
 					
 					

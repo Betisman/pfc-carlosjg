@@ -326,7 +326,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			\item[Trustee] \hfill \
 			
 			Es necesario una serie de actores en el proceso, los llamados Trustees por Helios Voting. Estos actores, que también pueden formar parte de los anteriores grupos de actores, en especial los miembros de la Junta Electoral, son los encargados de custodiar un trozo de la clave secreta que el sistema necesita para la fase de escrutinio. Helios necesita una clave
-			\todo[inline]{Al utilizar Helios, falta la figura del Trustee}
+			\todo[inline]{Secreto compartido por aquí}
 		\end{description}
 		
 		Los usuarios cuyo rol sea \textit{Votante} son los únicos que tienen capacidad para poder votar en la elección.
@@ -356,15 +356,24 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 				
 		Para llevar a cabo estos objetivos es necesario identificar los subsistemas que se requieren para implementar la integración de sistemas.
 		
-		Tras un estudio de posibilidades y alternativas, se ha decidido implementar el sistema en base a tres módulos integrados:
+		Tras un estudio de posibilidades y alternativas, se ha decidido implementar el sistema en base a tres módulos integrados (figura \ref{fig:integracion.01}):
 		\begin{itemize}
-			\item Servidor central de votación => \textbf{Helios Voting}
-			\item Servidor de autenticación / identificación de usuario => \textbf{oAuth 2.0 Server}
-			\item Cliente web + app Android => \textbf{Web / App Android Policía}
+			\item Servidor central de votación $\Rightarrow$ \textbf{Helios Voting}
+			
+			\item Servidor de autenticación / identificación de usuario $\Rightarrow$ \textbf{oAuth 2.0 Server}
+			
+			\item Cliente web + app Android $\Rightarrow$ \textbf{Web / App Android Policía}
 		\end{itemize}
+		
+		\begin{figure}[!ht]
+			\centering
+				\includegraphics[width=.80\textwidth]{imgs/integracion01.jpg}
+			\caption{Elementos integradores del sistema}
+			\label{fig:integracion.01}
+		\end{figure}
 				
 		\subsection{Servidor central de votación}
-			El sistema orquestador del protocolo de votación elegido será Helios Voting, de Ben Adida. Este proyecto cumple perfectamente con requisitos tales como el bajo coste, al ser software libre y correr sobre sistemas como Unix, que no requiere pago de licencias. También, gracias a la forma en la que está implementado, las acciones que requiere mayores recursos de cómputo se realizan o en el cliente (cifrado del voto) o tan sólo una vez al finalizar una elección (totalización y su descifrado), por lo que durante el resto del tiempo no necesita un sistema con gran capacidad de cálculo; en su caso, dependiendo del número de elecciones y de votantes, requiera una plataforma fácilmente escalable basándose en el número de usuarios concurrentes que puedan acceder al sistema.
+			El sistema orquestador del protocolo de votación elegido será Helios Voting\footnote{\url{https://github.com/benadida/helios}}, de Ben Adida\footnote{\url{http://ben.adida.net/}}. Este proyecto cumple perfectamente con requisitos tales como el bajo coste, al ser software libre y correr sobre sistemas como Unix, que no requiere pago de licencias. También, gracias a la forma en la que está implementado, las acciones que requiere mayores recursos de cómputo se realizan o en el cliente (cifrado del voto) o tan sólo una vez al finalizar una elección (totalización y su descifrado), por lo que durante el resto del tiempo no necesita un sistema con gran capacidad de cálculo; en su caso, dependiendo del número de elecciones y de votantes, requiera una plataforma fácilmente escalable basándose en el número de usuarios concurrentes que puedan acceder al sistema.
 				
 			Tras un estudio de diferentes opciones para este módulo del sistema a implementar, estos son algunos motivos por los que se ha decidido adaptar el sistema Helios Voting como:
 				
