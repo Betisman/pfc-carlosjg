@@ -460,21 +460,20 @@ class AuthorizeView(View):
 						
 						Aún siendo un subsistema, sigue también el patrón \gls{MVC} de Django. Contiene los ficheros \textit{urls.py}, \textit{views.py} y \textit{models.py}, tan característicos de este patrón en este framework.
 						
-						Lo más peculiar de este subsistema es que contiene adaptadaores par los diferentes sistemas de login que expone. Dentro de la carpeta \textit{auth\_system} implementa una serie de módulos que gestionan estos diferentes métodos de login.
+						Lo más peculiar de este subsistema es que contiene adaptadores par los diferentes sistemas de login que expone. Dentro de la carpeta \textit{auth\_system} implementa una serie de módulos que gestionan estos diferentes métodos de login.
 						
 						Por defecto, Helios ha implementado ya los siguientes módulos para permitir la identificación federada:
 						\begin{itemize}
-							\item Facebook
-							\item oAuth
-							\item OpenID
-							\item CAS
-							\item Google
-							\item LinkedIn
-							\item Twitter
-							\item Yahoo!	
+							\item Facebook $\Leftarrow$ helios\_auth/facebook.py
+							\item CAS $\Leftarrow$ helios\_auth/cas.py
+							\item Clever.com $\Leftarrow$ helios\_auth/clever.py
+							\item Google $\Leftarrow$ helios\_auth/google.py
+							\item LinkedIn $\Leftarrow$ helios\_auth/linkedin.py
+							\item Twitter $\Leftarrow$ helios\_auth/twitter.py
+							\item Yahoo!	 $\Leftarrow$ helios\_auth/yahoo.py
 						\end{itemize}
 
-						Además, incluye un módulo \textit{password.py} utilizado para la identificación de usuario por medio de usuario / contraseña.
+						Además, incluye un módulo \textit{password.py} utilizado para la identificación de usuario por medio del par \{usuario, contraseña\}.
 						
 						Para este \gls{PFC} ha sido necesario, pues, la implementación de un módulo nuevo para gestionar la identificación a través del \gls{DNIe}.
 						
