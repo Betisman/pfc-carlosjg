@@ -50,34 +50,35 @@
 		\section{Sistema de autenticación}\label{arquitectura_servidorAutenticacion}
 			El Sistema de Autenticación implementa el protocolo de autenticación oAuth 2.0 entre el usuario y el sistema. En concreto, se ha realizado un fork del proyecto \textit{django-oauth2-server}\footnote{\url{https://github.com/RichardKnop/django-oauth2-server}} desarrollado por Richard Knop. El objetivo era modificarlo para adaptarlo a diferentes necesidades teniendo en cuenta si el acceso es por la web o a través de la app Android. Además, era necesario que la autorización del usuario se realizara consultando el censo de usuarios y/o votantes de la Elección.
 		 
-			El sistema de autenticación se compone de un servidor web, el sistema de oAuth basado en Django que hemos comentado y una base de datos que contiene tanto permisos de aplicaciones y usuario como los propios usuarios con permiso de acceso al sistema de votación.	
-				
-			El servidor web se configura para exponer un endpoint de entrada seguro, permitiendo el acceso por HTTPS. En dicha configuración es muy importante activar diversas características:
-			\begin{description}
+			El sistema de autenticación se compone de un servidor web, el sistema de oAuth basado en Django que hemos comentado y una base de datos que contiene tanto permisos de aplicaciones y usuario como los propios usuarios con permiso de acceso al sistema de votación.
+	
 			
-				\item[Servidor web:]
-					El canal de comunicación entre el usuario y el sistema de autenticación es la web, el protocolo es HTTPS y la herramienta que gestiona estos accesos es el servidor web.
+	
+			El servidor web se configura para exponer un endpoint de entrada seguro, permitiendo el acceso por HTTPS. En dicha configuración es muy importante activar diversas características:
+			
+			\subsection{Servidor web:}
+				El canal de comunicación entre el usuario y el sistema de autenticación es la web, el protocolo es HTTPS y la herramienta que gestiona estos accesos es el servidor web.
+				
+				Con el fin de establecer un canal HTTPS seguro entre usuario y servidor, es necesario que en su configuración se contemplen tres certificados, dos de ellos en posesión del servidor y el tercero de obligada presentación por parte del cliente.
+				
+				\begin{description}
+					\item[Certificado de servidor:] Es el certificado que permite al navegador negociar el establecimiento de la conexión segura. Si se ha obtenido de algún proveedor confiable, el navegador lo gestiona de forma casi transparente al usuario. Sin embargo, si la fuente no es confiable y no se encuentra en el almacén de certificados del sistema operativo o el navegador, se muestra una advertencia al usuario aconsejándole que no continúe la navegación, aunque le permite seguir adelante a riesgo del usuario. Es lo que ocurre también cuando se utiliza un certificado autofirmado.
 					
-					Con el fin de establecer un canal HTTPS seguro entre usuario y servidor, es necesario que en su configuración se contemplen tres certificados, dos de ellos en posesión del servidor y el tercero de obligada presentación por parte del cliente.
+					En nuestro caso, se ha decidido utilizar un certificado autofirmado para el prototipo implementado. Los pasos necesarios tanto para crear y firmar el certificado como para configurar el servidor web para que lo utilice se pueden consultar en el anexo \ref{App:ConfiguracionServidorWeb}.
 					
-					\begin{description}
-						\item[Certificado de servidor:] Es el certificado que permite al navegador negociar el establecimiento de la conexión segura. Si se ha obtenido de algún proveedor confiable, el navegador lo gestiona de forma casi transparente al usuario. Sin embargo, si la fuente no es confiable y no se encuentra en el almacén de certificados del sistema operativo o el navegador, se muestra una advertencia al usuario aconsejándole que no continúe la navegación, aunque le permite seguir adelante a riesgo del usuario. Es lo que ocurre también cuando se utiliza un certificado autofirmado.
-						
-						En nuestro caso, se ha decidido utilizar un certificado autofirmado para el prototipo implementado. Los pasos necesarios tanto para crear y firmar el certificado como para configurar el servidor web para que lo utilice se pueden consultar en el anexo \ref{App:ConfiguracionServidorWeb}.
-						
-						\item[Certificado AC Raíz DGP:] Es el certificado que permite al Sistema Operativo y al navegador web reconocer la Autoridad de Certificación de los certificados de sede electrónica, la AC Raíz DGP, que son los encargados de generar los certificados que se incluyen en el DNIe 3.0.
-						
-						\item[Certificado de cliente:] Para utilizar el DNIe como fuente de identificación del usuario, es preciso configurar el servidor web para que requiera en la conexión la presencia del certificado de autenticación del DNIe del usuario. Para ello, el servidor debe poseer el certificado raíz que provee la Dirección General de la Policía. Este certificado se configura en el servidor
-						
-					\end{description}
+					\item[Certificado AC Raíz DGP:] Es el certificado que permite al Sistema Operativo y al navegador web reconocer la Autoridad de Certificación de los certificados de sede electrónica, la AC Raíz DGP, que son los encargados de generar los certificados que se incluyen en el DNIe 3.0.
 					
-					Además de configurar el servidor para que requiera el certificado de cliente SSL, es necesario aplicar la configuración necesaria para pasar la información a la aplicación que la necesita.
+					\item[Certificado de cliente:] Para utilizar el DNIe como fuente de identificación del usuario, es preciso configurar el servidor web para que requiera en la conexión la presencia del certificado de autenticación del DNIe del usuario. Para ello, el servidor debe poseer el certificado raíz que provee la Dirección General de la Policía. Este certificado se configura en el servidor
 					
-					Para ello, el servidor web ha de exportar los datos del certificado SSL a variables de entorno.
-					
-					Cuando se recibe una petición al servidor, éste inyecta estas variables en la request que hace llegar al código. Concretamente, en Python (Django) son accesibles desde el META de la request. 
-					
-					En el siguiente código podemos ver una función que atiende una petición GET a la vista de autorización para mostrar una lista de variables asociadas a la seguridad del servidor que recibe de éste:
+				\end{description}
+				
+				Además de configurar el servidor para que requiera el certificado de cliente SSL, es necesario aplicar la configuración necesaria para pasar la información a la aplicación que la necesita.
+				
+				Para ello, el servidor web ha de exportar los datos del certificado SSL a variables de entorno.
+				
+				Cuando se recibe una petición al servidor, éste inyecta estas variables en la request que hace llegar al código. Concretamente, en Python (Django) son accesibles desde el META de la request. 
+				
+				En el siguiente código podemos ver una función que atiende una petición GET a la vista de autorización para mostrar una lista de variables asociadas a la seguridad del servidor que recibe de éste:
 						
 \begin{lstlisting}[language=Python, caption=Variables SSL que recibe el servidor web de autenticación.]
 class AuthorizeView(View):
@@ -137,7 +138,97 @@ class AuthorizeView(View):
       return self._render(request=request, form=form, dnie=dnie)
 \end{lstlisting}
 
-				En la lista se observa una gran cantidad de variables de entorno relacionadas con la seguridad del servidor. 
+				En la lista se observa una gran cantidad de variables de entorno relacionadas con la seguridad del servidor.
+				
+				A continuación se muestra la ejecución de ese código para ver los valores que se devuelven y recogen del certificado, como ejemplo:
+\begin{lstlisting}
+  2017-01-09 18:23:10,163 DEBUG prueba: *CN=JIMÉNEZ GÓMEZ\, JOSÉ CARLOS (AUTENTICACIÓN),GN=JOSÉ CARLOS,SN=JIMÉNEZ,serialNumber=53159931P,C=ES*
+  2017-01-09 18:23:10,165 DEBUG SSL_PROTOCOL: TLSv1.2
+  2017-01-09 18:23:10,167 DEBUG SSL_SESSION_RESUMED: Initial
+  2017-01-09 18:23:10,170 DEBUG SSL_SECURE_RENEG: true
+  2017-01-09 18:23:10,172 DEBUG SSL_CIPHER: ECDHE-RSA-AES128-GCM-SHA256
+  2017-01-09 18:23:10,174 DEBUG SSL_CIPHER_EXPORT: false
+  2017-01-09 18:23:10,176 DEBUG SSL_CIPHER_USEKEYSIZE: 128
+  2017-01-09 18:23:10,178 DEBUG SSL_CIPHER_ALGKEYSIZE: 128
+  2017-01-09 18:23:10,180 DEBUG SSL_COMPRESS_METHOD: NULL
+  2017-01-09 18:23:10,182 DEBUG SSL_VERSION_INTERFACE: mod_ssl/2.4.10
+  2017-01-09 18:23:10,184 DEBUG SSL_VERSION_LIBRARY: OpenSSL/1.0.1t
+  2017-01-09 18:23:10,186 DEBUG SSL_CLIENT_M_VERSION: 3
+  2017-01-09 18:23:10,188 DEBUG SSL_CLIENT_M_SERIAL: 1753616228212A66BD1AB7E719BC5613
+  2017-01-09 18:23:10,191 DEBUG SSL_CLIENT_S_DN: CN=GORDILLO CARDEÑOSA\, ALFONSO (AUTENTICACIÓN),GN=ALFONSO,SN=GORDILLO,serialNumber=11062005B,C=ES
+  2017-01-09 18:23:10,193 DEBUG SSL_CLIENT_I_DN: CN=AC DNIE 001,OU=DNIE,O=DIRECCION GENERAL DE LA POLICIA,C=ES
+  2017-01-09 18:23:10,195 DEBUG SSL_CLIENT_V_START: Jun 11 12:26:58 2016 GMT
+  2017-01-09 18:23:10,197 DEBUG SSL_CLIENT_V_END: Mar 15 22:59:59 2021 GMT
+  2017-01-09 18:23:10,199 DEBUG SSL_CLIENT_V_REMAIN: 1510
+  2017-01-09 18:23:10,201 DEBUG SSL_CLIENT_A_SIG: sha256WithRSAEncryption
+  2017-01-09 18:23:10,203 DEBUG SSL_CLIENT_A_KEY: rsaEncryption
+  2017-01-09 18:23:10,205 DEBUG SSL_CLIENT_CERT: -----BEGIN CERTIFICATE-----
+  TUlJRjh6Q0NCTnVnQXdJQkFnSVFJc1hvYW54bE5oQllORG1TSU85a1BUQU5CZ2tx
+  aGtpRzl3MEJBUXNGQURCYwpNUXN3Q1FZRFZRUUdFd0pGVXpFb01DWUdBMVVFQ2d3
+  ZlJFbFNSVU5EU1U5T0lFZEZUa1ZTUVV3Z1JFVWdURUVnClVFOU1TVU5KUVRFTk1B
+  c0dBMVVFQ3d3RVJFNUpSVEVVTUJJR0ExVUVBd3dMUVVNZ1JFNUpSU0F3TURFd0ho
+  Y04KTVRZeE1USXlNVEl5TmpVNFdoY05NakV3TWpJMk1qSTFPVFU1V2pDQmhERUxN
+  QWtHQTFVRUJoTUNSVk14RWpBUQpCZ05WQkFVVENUVXpNVFU1T1RNeFVERVJNQThH
+  QTFVRUJBd0lTa2xOdzRsT1JWb3hGVEFUQmdOVkJDb01ERXBQClU4T0pJRU5CVWt4
+  UFV6RTNNRFVHQTFVRUF3d3VTa2xOdzRsT1JWb2dSOE9UVFVWYUxDQktUMVBEaVNC
+  RFFWSk0KVDFNZ0tFRlZWRVZPVkVsRFFVTkp3NU5PS1RDQ0FTSXdEUVlKS29aSWh2
+  Y05BUUVCQlFBRGdnRVBBRENDQVFvQwpnZ0VCQUpYcmVxMTV6R0xnMmcwbW5hcmlN
+  U1pUU05ZRTBDVnlhaEw1R3ZydGZjRHlxSUY2SHgvWkxtY2R1ck5yCkd4cUlXYktz
+  amk1Z01pTFVueFowVWdpcGVqN3RyRVp4NDBObW40RmxqZ2lzcmgzMWtpNWtBQ2Rj
+  elBYaE9sN20KVThNK2ZTeXZMVUd1TmN1SUhUYkJGcWV3UWtJNTVydklIZ2x5MjVQ
+  WjZoakczSUJQRThEckZOd0ZUbkN3NXFmYgp6TCs2ZFdXaFpjd2JaZk5rV3FsdUN0
+  emhFRG5PaWJMNkp1c0s3VnhSNE1zc2dRYWZoUnVSdmdyeHJsNGFINXNsCjlGc3l0
+  ZlIvNmNpVHhGMmtremhDZ05GNlluNit4TGo0T3NoVXh3dVo4NHRsM1A5NndrcTRH
+  eGx5V21QSWJhTDMKdFMzQmcwaGdVS3Q4cmFVNy8rQW4rc2hMaDhFQ0F3RUFBYU9D
+  QW9Zd2dnS0NNQXdHQTFVZEV3RUIvd1FDTUFBdwpEZ1lEVlIwUEFRSC9CQVFEQWdl
+  QU1CMEdBMVVkRGdRV0JCUWlwbUlVRTJwYnh1NG5xN0tUbWhUaU9MTDFRVEFmCkJn
+  TlZIU01FR0RBV2dCUWFpYWpGN285MlhWVnhpZk03TmIycUJRQ1ZiekFpQmdnckJn
+  RUZCUWNCQXdRV01CUXcKQ0FZR0JBQ09SZ0VCTUFnR0JnUUFqa1lCQkRCZ0JnZ3JC
+  Z0VGQlFjQkFRUlVNRkl3SHdZSUt3WUJCUVVITUFHRwpFMmgwZEhBNkx5OXZZM053
+  TG1SdWFXVXVaWE13THdZSUt3WUJCUVVITUFLR0kyaDBkSEE2THk5M2QzY3VaRzVw
+  ClpTNWxjeTlqWlhKMGN5OUJRMUpoYVhvdVkzSjBNRHNHQTFVZElBUTBNREl3TUFZ
+  SVlJVlVBUUlDQWdRd0pEQWkKQmdnckJnRUZCUWNDQVJZV2FIUjBjRG92TDNkM2R5
+  NWtibWxsTG1WekwyUndZekNCOEFZSUt3WUJCUVVIQVFJRQpnZU13Z2VBd01nSUJB
+  VEFMQmdsZ2hrZ0JaUU1FQWdFRUlOQUF5cDY1VThZT3M3bGxXSnlvZXRBRzVyVVo1
+  TTR3CnNaNkl4VnJ0ODlQV01ESUNBUUF3Q3dZSllJWklBV1VEQkFJQkJDQUwvdS9R
+  NzZzbit0RWoyRmNIQnlaN0lCRVkKY2xaTmRld1pDUVNnNnVLdmNEQTZCZ2xnaFZR
+  QkFnSUVBZ0V3Q3dZSllJWklBV1VEQkFJQkJDQld6Tld3cm0vOQo5d2YrVHNEZXd5
+  RnNER21kR0tNS0M2U2I0ck1zSlU5UWxqQTZCZ2xnaFZRQkFnSUVBZ1l3Q3dZSllJ
+  WklBV1VECkJBSUJCQ0JXek5Xd3JtLzk5d2YrVHNEZXd5RnNER21k
+  -----END CERTIFICATE-----
+  
+  2017-01-09 18:23:10,207 DEBUG SSL_CLIENT_VERIFY: SUCCESS
+  2017-01-09 18:23:10,210 DEBUG SSL_SERVER_M_VERSION: 1
+  2017-01-09 18:23:10,212 DEBUG SSL_SERVER_M_SERIAL: 69B5F037577EDB1B 
+  2017-01-09 18:23:10,214 DEBUG SSL_SERVER_S_DN: emailAddress=pepe.mel@miservidor.rbb,CN=eleccionesuspceu.com,OU=EPS,O=USP CEU,L=Madrid,ST=Madrid,C=ES
+  2017-01-09 18:23:10,216 DEBUG SSL_SERVER_I_DN: emailAddress=pepe.mel@miservidor.rbb,CN=eleccionesuspceu.com,OU=EPS,O=USP CEU,L=Madrid,ST=Madrid,C=ES
+  2017-01-09 18:23:10,218 DEBUG SSL_SERVER_V_START: Nov 25 19:47:17 2016 GMT
+  2017-01-09 18:23:10,220 DEBUG SSL_SERVER_V_END: Nov 25 19:47:17 2017 GMT
+  2017-01-09 18:23:10,222 DEBUG SSL_SERVER_A_SIG: sha256WithRSAEncryption
+  2017-01-09 18:23:10,224 DEBUG SSL_SERVER_A_KEY: rsaEncryption
+  2017-01-09 18:23:10,226 DEBUG SSL_SERVER_CERT: -----BEGIN CERTIFICATE-----
+  wr9RdcOpIGVzIHVuIGNlcnRpZmljYWRvIGVsZWN0csOzbmljbz8KCkVzIHVuIGRv
+  Y3VtZW50byBkaWdpdGFsIHF1ZSBjb250aWVuZSwgZW50cmUgb3RyYSBpbmZvcm1h
+  Y2nDs24sIGxvcyBkYXRvcyBpZGVudGlmaWNhdGl2b3MgcGVyc29uYWxlcy4gUGVy
+  bWl0ZSBpZGVudGlmaWNhcnNlIGVuIGludGVybmV0IGUgaW50ZXJjYW1iaWFyIGlu
+  Zm9ybWFjacOzbiBjb24gb3RyYXMgcGVyc29uYXMgY29uIGxhIGdhcmFudMOtYSBk
+  ZSBxdWUgc8OzbG8gZWwgdGl0dWxhciBwdWVkZSBhY2NlZGVyIGEgZWxsYS4KCsK/
+  UGFyYSBxdcOpIHNpcnZlIHVuIGNlcnRpZmljYWRvIGVsZWN0csOzbmljbz8KCkVs
+  IGNlcnRpZmljYWRvIGVsZXRyw7NuaWNvIGdhcmFudGl6YSBsYSBpZGVudGlkYWQg
+  ZGVsIHVzdWFyaW8sIGxvIHF1ZSBwZXJtaXRlIHJlYWxpemFyIGxvcyB0csOhbWl0
+  ZXMgcXVlIHJlcXVpZXJhbiBpZGVudGlmaWNhY2nDs24gc2VndXJhIHBvciBwYXJ0
+  ZSBkZWwgdXN1YXJpby4gUGVybWl0ZSB0YW1iacOpbiBsYSBmaXJtYSBlbGVjdHLD
+  s25pY2EgZGUgZm9ybXVsYXJpb3MgeSBkb2N1bWVudG9zIGVsZWN0csOzbmljb3Ms
+  IHF1ZSB0aWVuZSBsYSBtaXNtYSB2YWxpZGV6IGp1csOtZGljYSBxdWUgbGEgZmly
+  bWEgbWFudXNjcml0YSBlbiBlbCBkb2N1bWVudG8gZW4gcGFwZWwuCgpQcm9ibGVt
+  YXMgZGUgbG9zIGNlcnRpZmljYWRvcyBjb24gc3UgbmF2ZWdhZG9yCgpFcyBwb3Np
+  YmxlIHF1ZSBhbCBhY2NlZGVyIGEgbGFzIHDDoWdpbmFzIGRlIGxhIFNlZGUgRWxl
+  Y3Ryw7NuaWNhLCBzdSBuYXZlZ2Fkb3IgcHJlc2VudGUgdW4gbWVuc2FqZSBtw6Fz
+  IG8gbWVub3MgYWxhcm1hbnRlLgoKRXN0ZSBhdmlzbyBpbmRpY2EgcXVlIGVsIHNp
+  dGlvIHF1ZSBzZSB2aXNpdGEgbm8gZXMgZGUgY29uZmlhbnphLCBhbCBubyByZWNv
+  bm9jZXIgc3UgbmF2ZWdhZG9yIGxhIEF1dG9yaWRhZCBkZSBDZXJ
+  -----END CERTIFICATE-----
+\end{lstlisting}
 				
 				Aquellas que comienzan por SSL\_SERVER se refieren a la información del certificado del servidor.
 				
@@ -147,44 +238,75 @@ class AuthorizeView(View):
 				
 				\begin{description}
 					\item[SSL\_CLIENT\_S\_DN:] Contiene la información personal del sujeto que identifica el certificado.
-					\item[SSL\_CLIENT\_V\_START:] Contiene la fecha de expedicón del certificado.
+						En el ejemplo:
+\begin{lstlisting}
+  SSL\_CLIENT\_S\_DN: CN=GORDILLO CARDEÑOSA\\, ALFONSO (AUTENTICACIÓN),GN=ALFONSO,SN=GORDILLO,serialNumber=11062005B,C=ES	
+\end{lstlisting}
+						Así, del certificado de cliente obtenemos:
+						\begin{description}
+							\item [CN (commonName):] GORDILLO CARDEÑOSA\\, ALFONSO (AUTENTICACIÓN) $\Leftarrow$ Junto con el nombre de la persona identificada por el certificado, se encuentra el tipo de certificado que estamos recibiendo, en este caso, el de AUTENTICACIÓN.
+							
+							\item [GN (givenName):] ALFONSO
+							
+							\item [SN (surName):] GORDILLO
+							
+							\item [serialNumber:] 11062005B $\Leftarrow$ En el caso del DNIe, en serialNumber encontraremos el número del DNI de la persona identificada por el documento.
+							
+							\item [C (country):] ES $\Leftarrow$ Código del país de expedición del documento según el estándar ISO 3166\footnote{\url{https://es.wikipedia.org/wiki/ISO_3166}}. En este caso, ES\footnote{\url{https://es.wikipedia.org/wiki/ISO_3166-2:ES}} = ESPAÑA.
+							
+						\end{description}
+
+					
+					
+					\item[SSL\_CLIENT\_V\_START:] Contiene la fecha de expedición del certificado.
+\begin{lstlisting}					
+  SSL\_CLIENT\_V\_START: Jun 11 12:26:58 2016 GMT
+\end{lstlisting}
+
+					
+					
 					\item[SSL\_CLIENT\_V\_END:] Contiene la fecha de caducidad del certificado.
+\begin{lstlisting}					
+  SSL\_CLIENT\_V\_END: Mar 15 22:59:59 2021 GMT
+\end{lstlisting}
+					
 				\end{description}
-			
-				\item[Aplicación de autenticación]
+				
+		
+		
+		
+			\subsection{Aplicación de autenticación}
 					
-					La aplicación recibe del servidor web la información del certificado del cliente a través de los METAS inyectados en el \textit{header} de la \textit{request} por parte del servidor.
+				La aplicación recibe del servidor web la información del certificado del cliente a través de los METAS inyectados en el \textit{header} de la \textit{request} por parte del servidor.
+				
+				La aplicación implementa el flujo oAuth2 en modo Authorization Code. Con la información del usuario que recibe del certificado de cliente, lo identifica y valida los permisos que tiene.
+				
+				En caso de que la validación sea correcta, genera un token que almacena en la base de datos para comunicar al sistema de votación que el votante tiene permisos de acceso. Además, genera un código de autorización que devuelve al cliente. Este código lo tendrá que presentar el cliente al sistema de votación para entrar al sistema. Una vez el sistema reciba el código, lo utilizará para pedir al sistema de autenticación el token de acceso que mapea la aplicación y los permisos que dispone el usuario. Una vez el sistema de autenticación devuelve el token al de votación, éste tendrá que presentárselo para que aquel le comunique aquellos datos personales que posee del usuario que intenta acceder.
+				
+				Sigue, por tanto un modelo del flujo de oAuth2, apoyado en una herramienta escrita por Richard Knop en Python sobre un framework Django. No obstante, este código ha servido de base, pues ha debido ser modificado para adaptarlo a las necesidades particulares de este sistema:
 					
-					La aplicación implementa el flujo oAuth2 en modo Authorization Code. Con la información del usuario que recibe del certificado de cliente, lo identifica y valida los permisos que tiene.
-					
-					En caso de que la validación sea correcta, genera un token que almacena en la base de datos para comunicar al sistema de votación que el votante tiene permisos de acceso. Además, genera un código de autorización que devuelve al cliente. Este código lo tendrá que presentar el cliente al sistema de votación para entrar al sistema. Una vez el sistema reciba el código, lo utilizará para pedir al sistema de autenticación el token de acceso que mapea la aplicación y los permisos que dispone el usuario. Una vez el sistema de autenticación devuelve el token al de votación, éste tendrá que presentárselo para que aquel le comunique aquellos datos personales que posee del usuario que intenta acceder.
-					
-					Sigue, por tanto un modelo del flujo de oAuth2, apoyado en una herramienta escrita por Richard Knop en Python sobre un framework Django. No obstante, este código ha servido de base, pues ha debido ser modificado para adaptarlo a las necesidades particulares de este sistema:
-					
-					\begin{itemize}
-					
-						\item Se ha modificado el proceso de obtención de datos del usuario, pues, además de obtenerlos de la base de datos, hay que extraer información del usuario de los certificados de cliente que presenta para su identificación.
+				\begin{itemize}
+				
+					\item Se ha modificado el proceso de obtención de datos del usuario, pues, además de obtenerlos de la base de datos, hay que extraer información del usuario de los certificados de cliente que presenta para su identificación.
 
-						\item Se ha modificado el sistema de validación del usuario para que contraste esta información del certificado de autenticación con el censo de la base de datos.
+					\item Se ha modificado el sistema de validación del usuario para que contraste esta información del certificado de autenticación con el censo de la base de datos.
 
-						\item Hay que contrastar la validez del certificado, principalmente si no ha caducado. Además, aunque al final se haya configurado en el servidor, hay que realizar una comprobación contra un servidor \gls{OCSP} para ver si ha sido revocado por la autoridad certificadora.
+					\item Hay que contrastar la validez del certificado, principalmente si no ha caducado. Además, aunque al final se haya configurado en el servidor, hay que realizar una comprobación contra un servidor \gls{OCSP} para ver si ha sido revocado por la autoridad certificadora.
 
-					\end{itemize}
-					
-			\end{description}
+				\end{itemize}
 				
 				
 				
 				
-				\textbf{OCSP}
+			\subsection{OCSP}
 				
-			El \gls{OCSP} es un servicio de revocación que ofrece la autoridad que crea el certificado raíz, en nuestro caso la DGP y la FNMT. Estas organizaciones proveen de un servicio al cual conectarse y consultar la validez de los certificados que se estén tratando de autenticar.ñ
-			
-			Una alternativa al OCSP es la de generar una \gls{CRL}. Las ventajas de las listas de revocación consisten en que son más simples que el \gls{OCSP} y pueden ser consultadas sin conexión a la red, lo cual es importante en caso de que el sistema esté configurado de modo que corra sobre una red privada, sin acceso a Internet (ver figura \ref{fig:topologiaRed_intranet} en \ref{solucion_topologiaRed}).
-			
-			El sistema funciona validando contra la \gls{OCSP} de la DGP. La implementación de este sistema se realiza por medio de configuración del servidor web. Es el propio servidor quien realiza la comprobación OCSP del certificado cliente y recibe la validez o no del mismo por parte del del servicio externo.
-			
-			Cuando el sistema esté configurado para operar sobre una red interna será necesario desactivar esta configuración del servidor web, pues sin acceso a Internet no será posible realizar la comprobación contra el servicio de la autoridad certificadora.
+				\gls{OCSP} es un servicio de revocación que ofrece la autoridad que crea el certificado raíz, en nuestro caso la \gls{DGP} y la \gls{FNMT}. Estas organizaciones proveen de un servicio al cual conectarse y consultar la validez de los certificados que se estén tratando de autenticar.ñ
+				
+				Una alternativa al \gls{OCSP} es la de generar una \gls{CRL}. Las ventajas de las listas de revocación consisten en que son más simples que el \gls{OCSP} y pueden ser consultadas sin conexión a la red, lo cual es importante en caso de que el sistema esté configurado de modo que corra sobre una red privada, sin acceso a Internet (ver figura \ref{fig:topologiaRed_intranet} en \ref{solucion_topologiaRed}).
+				
+				El sistema funciona validando contra la \gls{OCSP} de la \gls{DGP}. La implementación de este sistema se realiza por medio de configuración del servidor web. Es el propio servidor quien realiza la comprobación OCSP del certificado cliente y recibe la validez o no del mismo por parte del del servicio externo.
+				
+				Cuando el sistema esté configurado para operar sobre una red interna será necesario desactivar esta configuración del servidor web, pues sin acceso a Internet no será posible realizar la comprobación contra el servicio de la autoridad certificadora.
 				
 			\subsection{Esquema de la base de datos}\label{solucion_servidor_autenticacion_bd}
 				En la figura \ref{fig:er.servidor.autenticacion} se presenta el diagrama entidad-relación correspondiente al sistema de autenticación.
@@ -205,25 +327,25 @@ class AuthorizeView(View):
 				
 								
 			\section{Sistema de votación}\label{arquitectura_servidorVotacion}
-			El Sistema de Votación es el \textit{core} del sistema. Es el que soporta toda la lógica de la elección.
-			
-			De cara a los administradores, permite gestionar una Elección desde su creación y definición hasta la publicación de resultados tras el escrutinio.
-			
-			De cara al votante, le permite acceder a la elección de las alternativas que se le presentan para votar y emitir su voto de forma segura, secreta y anónima, con la seguridad de que no es manipulado y que será correctamente escrutado.
-			
-			Junto al módulo central de votación, este sistema presenta otros cuatro módulos específicos.
-			
-			\begin{description}
-				\item[Cabina de votación:] Es el módulo que permite a los votantes elegir el voto y cifrarlo. Lo separamos del módulo principal porque se un módulo escrito principalmente en javascript y se ejecuta en el navegador del cliente. Se delega en la máquina del cliente la potencia necesaria para el cifrado de su voto.
+				El Sistema de Votación es el \textit{core} del sistema. Es el que soporta toda la lógica de la elección.
 				
-				\item[Verificador de la elección:] Es un módulo de acceso externo que permite, pasándole la huella digital de una elección que ya haya terminado, la verificación de la integridad de la misma. Así, por medio de funciones criptográficas, asegura que la elección ha sido correctamente escrutada y que todos los votos fueron correctamente incluidos en el escrutinio.
+				De cara a los administradores, permite gestionar una Elección desde su creación y definición hasta la publicación de resultados tras el escrutinio.
 				
-				\item[Gestor de tareas:] Utilizando la librería celery y kombu, Helios implementa un gestor de tareas basado en una cola. En el sistema se definen varias tareas que, cuando toca llevarlas a cabo, en vez de encargarse de realizarlas de forma síncrona, las incluye en una cola y sigue con el flujo de funcionamiento normal. Celery se encarga de consultar esta cola y extraer las tareas que hay que realizar. 
+				De cara al votante, le permite acceder a la elección de las alternativas que se le presentan para votar y emitir su voto de forma segura, secreta y anónima, con la seguridad de que no es manipulado y que será correctamente escrutado.
 				
-				Es el responsable de realizar tareas como la carga de ficheros de votantes del censo, iniciar el escrutinio o el envío masivo de emails a usuarios del sistema, entre otras.
-				
-				\item[Sistema de emails:] Hay un subsistema encargado del envío de emails a usuarios. Lo utiliza tanto el módulo central como celery para enviar emails avisando de los estados de la elección, envío del trozo correspondiente de la clave privada de la elección a los trustees, etc.
-			\end{description}
+				Junto al módulo central de votación, este sistema presenta otros cuatro módulos específicos.
+			
+				\begin{description}
+					\item[Cabina de votación:] Es el módulo que permite a los votantes elegir el voto y cifrarlo. Lo separamos del módulo principal porque se un módulo escrito principalmente en javascript y se ejecuta en el navegador del cliente. Se delega en la máquina del cliente la potencia necesaria para el cifrado de su voto.
+					
+					\item[Verificador de la elección:] Es un módulo de acceso externo que permite, pasándole la huella digital de una elección que ya haya terminado, la verificación de la integridad de la misma. Así, por medio de funciones criptográficas, asegura que la elección ha sido correctamente escrutada y que todos los votos fueron correctamente incluidos en el escrutinio.
+					
+					\item[Gestor de tareas:] Utilizando la librería celery y kombu, Helios implementa un gestor de tareas basado en una cola. En el sistema se definen varias tareas que, cuando toca llevarlas a cabo, en vez de encargarse de realizarlas de forma síncrona, las incluye en una cola y sigue con el flujo de funcionamiento normal. Celery se encarga de consultar esta cola y extraer las tareas que hay que realizar. 
+					
+					Es el responsable de realizar tareas como la carga de ficheros de votantes del censo, iniciar el escrutinio o el envío masivo de emails a usuarios del sistema, entre otras.
+					
+					\item[Sistema de emails:] Hay un subsistema encargado del envío de emails a usuarios. Lo utiliza tanto el módulo central como celery para enviar emails avisando de los estados de la elección, envío del trozo correspondiente de la clave privada de la elección a los trustees, etc.
+				\end{description}
 			
 			\todo{Diagrama sistema votación}
 				\subsection{Esquema de la base de datos}\label{solucion_servidor_votacion_bd}
@@ -239,29 +361,50 @@ class AuthorizeView(View):
 			
 			
 					En el esquema se distinguen tres grupos de entidades:
-					\begin{itemize}		
-						\item Las propias del core de Helios, cuyos nombres comienzan por \textit{helios\_}. 		
-						\item Las entidades que utilizan la herramienta Celery (las que comienzan por \textit{djcelery\_}).		
-						\item Las entidades que utiliza la herramienta Kombu (las que comienzan por \textit{djkombu\_}).		
+					\begin{itemize}
+		
+						\item Las propias del core de Helios, cuyos nombres comienzan por \textit{helios\_}. 
+		
+						\item Las entidades que utilizan la herramienta Celery (las que comienzan por \textit{djcelery\_}).
+		
+						\item Las entidades que utiliza la herramienta Kombu (las que comienzan por \textit{djkombu\_}).
+		
 					\end{itemize}
 			
-					Con respecto al primer grupo, las que forman la capa de negocio del sistema Helios, se observa un diseño bastante simple, aunque adecuado para las necesidades del sistema:		
-				
-					\begin{description}			
-						\item [helios\_election] Es la tabla que almacena las diferentes elecciones que crean los administradores.			
-									
-						\item [helios\_auditedballot] En esta tabla se almacenan los votos que los votantes deciden verificar y publicar en el tablón para que puedan ser posteriormente auditados.			
-									
-						\item [helios\_electionlog] Esta entidad registra los eventos que suceden en torno a una elección, ya sea su creación, congelamiento de la papeleta, apertura de la urna, escrutinio, etc.			
-									
-						\item [helios\_trustee] Es la entidad que recoge la información de los usuarios que actúan como trustees de la elección. Entre la información de estos que se registra se incluyen las claves públicas que se almacena automáticamente al dar de alta a un trustee. También la clave secreta, que el trustee habrá de subir al servidor una vez se requiera para poder realizar el escrutinio.			
-									
-						\item [helios\_voterfile] Esta entidad almacena los ficheros de votantes que el administrador sube al servidor desde la interfaz web del sistema. Desde estos ficheros se carga el listado de votantes.			
-									
-						\item [helios\_user] En esta tabla se almacenan los usuarios / votantes del sistema, relacionados cada uno con las elecciones a las que tienen derecho a voto.			
-									
-						\item [helios\_auth\_user] Para cada elección, esta tabla asocia usuarios del sistema (con derecho a voto o sin él) con las capacidades de administración.			
-									
+					Con respecto al primer grupo, las que forman la capa de negocio del sistema Helios, se observa un diseño bastante simple, aunque adecuado para las necesidades del sistema:
+		
+		
+		
+					\begin{description}
+			
+						\item [helios\_election] Es la tabla que almacena las diferentes elecciones que crean los administradores.
+			
+						
+			
+						\item [helios\_auditedballot] En esta tabla se almacenan los votos que los votantes deciden verificar y publicar en el tablón para que puedan ser posteriormente auditados.
+			
+						
+			
+						\item [helios\_electionlog] Esta entidad registra los eventos que suceden en torno a una elección, ya sea su creación, congelamiento de la papeleta, apertura de la urna, escrutinio, etc.
+			
+						
+			
+						\item [helios\_trustee] Es la entidad que recoge la información de los usuarios que actúan como trustees de la elección. Entre la información de estos que se registra se incluyen las claves públicas que se almacena automáticamente al dar de alta a un trustee. También la clave secreta, que el trustee habrá de subir al servidor una vez se requiera para poder realizar el escrutinio.
+			
+						
+			
+						\item [helios\_voterfile] Esta entidad almacena los ficheros de votantes que el administrador sube al servidor desde la interfaz web del sistema. Desde estos ficheros se carga el listado de votantes.
+			
+						
+			
+						\item [helios\_user] En esta tabla se almacenan los usuarios / votantes del sistema, relacionados cada uno con las elecciones a las que tienen derecho a voto.
+			
+						
+			
+						\item [helios\_auth\_user] Para cada elección, esta tabla asocia usuarios del sistema (con derecho a voto o sin él) con las capacidades de administración.
+			
+						
+			
 					\end{description}
 					
 			\subsection{Estructura}
@@ -399,9 +542,12 @@ class AuthorizeView(View):
 			\end{figure}
 		
 			\subsection{Código fuente}\label{solucion_app_codigofuente}
-				Obviamente, el código fuente de la app ha debido ser modificado ya que la funcionalidad que se busca que tenga la aplicación no es la misma que la que ofrece la original.		
-				En la app original, al entrar se nos ofrece un menú radial con diferentes opciones. Esto no ocurre en la versión de este proyecto. La app en nuestro caso está pensada para realizar tan sólo un trabajo, realizar la identificación y autenticación de usuario contra un servidor oAuth y transmitir al sistema de votación la aceptación o revocación de acceso del mismo contra el sistema.		
-				Por ello, la app va a carecer de un menú inicial, ya que no es necesario.		
+				Obviamente, el código fuente de la app ha debido ser modificado ya que la funcionalidad que se busca que tenga la aplicación no es la misma que la que ofrece la original.
+		
+				En la app original, al entrar se nos ofrece un menú radial con diferentes opciones. Esto no ocurre en la versión de este proyecto. La app en nuestro caso está pensada para realizar tan sólo un trabajo, realizar la identificación y autenticación de usuario contra un servidor oAuth y transmitir al sistema de votación la aceptación o revocación de acceso del mismo contra el sistema.
+		
+				Por ello, la app va a carecer de un menú inicial, ya que no es necesario.
+		
 				Una vez se abra la app, ya sea desde el menú del dispositivo o desde el botón de login de la página inicial de la web del sistema de votación, aparecerá el menú de selección del CAN del DNIe que queremos utilizar, o, si es la primera vez que cierto usuario utiliza la app, la posibilidad de añadir un nuevo DNIe con su CAN correspondiente.
 				
 				\todo{Me he traído esto del código fuente aquí. Hay que cambiarle el nombre e integrarlo con la subsection siguiente}
@@ -565,8 +711,10 @@ class AuthorizeView(View):
 \footnotesize\begin{lstlisting}[language=XML]
   <resources xmlns:android="http://schemas.android.com/apk/res/android">
     <array name="trusted_hosts">
-      <!-- En el servidor: openssl x509 -fingerprint -noout -in server.crt -->      <item>D5E6E3759023DE9B881399DC034E8FE1AE7D9D87</item>
-    </array>  </resources>
+      <!-- En el servidor: openssl x509 -fingerprint -noout -in server.crt -->
+      <item>D5E6E3759023DE9B881399DC034E8FE1AE7D9D87</item>
+    </array>
+  </resources>
 \end{lstlisting}
 					
 					El servidor de autenticación establece un canal seguro con su certificado (en el prototipo será autofirmado) pero valida el certificado de autenticación con el certificado AC Raíz de la Policía que posee y que se ha configurado para ser utilizado. Por esta razón aparece un error en el navegador cuando se entra por primera vez a la web (figura \ref{fig:login.android.certAutofirmado}). Avisa al usuario de que no encuentra en su almacén de certificados uno que sea confiable con el servidor. En nuestro caso, para el prototipo, bastará con hacer click en \textit{CANCELAR} ya que no vamos a instalar certificados adicionales. En caso de implementar el sistema en producción, será necesario obtener e instalar en el servidor un certificado confiable, emitido por una autoridad de confianza.
@@ -1264,8 +1412,10 @@ A continuación se muestra que los votos son, efectivamente, totalizados
 	
 	
 	\section{Prototipo}\label{solucion_prototipo}
-		Para implementar el software desarrollado en este Proyecto, se decidió montar un prototipo que cumpliera con los requisitos funcionales y diera una muestra de las capacidades del mismo a una escala reducida.	
-		
+		Para implementar el software desarrollado en este Proyecto, se decidió montar un prototipo que cumpliera con los requisitos funcionales y diera una muestra de las capacidades del mismo a una escala reducida.
+	
+	
+	
 		Para ello, había que desarrollar los 3 módulos de software:
 		\begin{itemize}
 			\item Servidor de votación
@@ -1275,22 +1425,38 @@ A continuación se muestra que los votos son, efectivamente, totalizados
 	
 	
 		\subsection{Arquitectura física}\label{solucion_prototipo_arquitecturaFisica}
-			Para montar los dos servidores, se decidió pasar de las máquina virtuales en las que se desarrollaron al uso de dos Raspberry Pi como base hardware.		
-				
-			Raspberry Pi es un computador de placa reducida, única o simple de bajo coste desarrollado por la Fundación Raspberry Pi, con base en Reino Unido, con el objetivo de estimular la enseñanza de la informática en las escuelas.			
-						
-			El lanzamiento del primero de los modelos fue a finales de febrero de 2012. Hasta el momento, Raspberry Pi ha comercializado 5 modelos de placas, desde la Raspberry Pi 1 Modelo A en 2012 hasta la Raspberry Pi 3 Modelo B, lanzada en 2016.			
-						
-			Los modelos con los que se ha montado el prototipo son:		
-			
-			\begin{description}		
-				\item[Servidor de votación]	Raspberry Pi Model 3 B		
-				\item[Servidor de identificación y autenticación] Raspberry Pi Model B (Rev. 2.0, 512Mb)		
-			\end{description}	
-			
-			\todo[inline]{Incluir fotos de las raspberrys					}		
-				
-			En la tabla \ref{tab:DetallesTecnicosRaspberryPi} se detallan y comparan las características de ambos modelos de hardware.	
+			Para montar los dos servidores, se decidió pasar de las máquina virtuales en las que se desarrollaron al uso de dos Raspberry Pi como base hardware.
+		
+		
+		
+			Raspberry Pi es un computador de placa reducida, única o simple de bajo coste desarrollado por la Fundación Raspberry Pi, con base en Reino Unido, con el objetivo de estimular la enseñanza de la informática en las escuelas.
+			
+			
+			
+			El lanzamiento del primero de los modelos fue a finales de febrero de 2012. Hasta el momento, Raspberry Pi ha comercializado 5 modelos de placas, desde la Raspberry Pi 1 Modelo A en 2012 hasta la Raspberry Pi 3 Modelo B, lanzada en 2016.
+			
+			
+			
+			Los modelos con los que se ha montado el prototipo son:
+		
+		
+	
+			\begin{description}
+		
+				\item[Servidor de votación]	Raspberry Pi Model 3 B
+		
+				\item[Servidor de identificación y autenticación] Raspberry Pi Model B (Rev. 2.0, 512Mb)
+		
+			\end{description}
+	
+		
+	
+			\todo[inline]{Incluir fotos de las raspberrys					}
+		
+			
+	
+			En la tabla \ref{tab:DetallesTecnicosRaspberryPi} se detallan y comparan las características de ambos modelos de hardware.
+	
 		
 			\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 			\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -1411,22 +1577,37 @@ A continuación se muestra que los votos son, efectivamente, totalizados
 								\textbf{Descripción}
 								\end{center}
 								 \\
-					\hline\hline						
-					\multirow{4}{*}{\textbf{Autenticación}} 	& 8662 & 192.168.1.144 & 442 	& Puerto de acceso al servidor Apache por HTTPS/TLS \tabularnewline						
-					\cline{2-5}						
-					& 8888 & 192.168.1.144 & 80 	& Puerto de acceso al servidor Apache por HTTP \tabularnewline						
-					\cline{2-5}						
-					& 8443 & 192.168.1.144 & 443 	& Puerto de acceso al servidor Apache por HTTPS/TLS \tabularnewline						
-					\cline{2-5}						
-					& 8022 & 192.168.1.144 & 22 	& Acceso SSH \tabularnewline						
-					\hline\hline						
-					\multirow{3}{*}{\textbf{Votación}}	 			& 8889 & 192.168.1.145 & 80 	& Puerto de acceso al servidor Apache por HTTP \tabularnewline						
-					\cline{2-5}						
-					& 8445 & 192.168.1.145 & 443 	& Puerto de acceso al servidor Apache por HTTPS/TLS \tabularnewline						
-					\cline{2-5}						
-					& 8044 & 192.168.1.145 & 22 	& Acceso SSH \tabularnewline						
+					\hline\hline
+						
+					\multirow{4}{*}{\textbf{Autenticación}} 	& 8662 & 192.168.1.144 & 442 	& Puerto de acceso al servidor Apache por HTTPS/TLS \tabularnewline
+						
+					\cline{2-5}
+						
+					& 8888 & 192.168.1.144 & 80 	& Puerto de acceso al servidor Apache por HTTP \tabularnewline
+						
+					\cline{2-5}
+						
+					& 8443 & 192.168.1.144 & 443 	& Puerto de acceso al servidor Apache por HTTPS/TLS \tabularnewline
+						
+					\cline{2-5}
+						
+					& 8022 & 192.168.1.144 & 22 	& Acceso SSH \tabularnewline
+						
+					\hline\hline
+						
+					\multirow{3}{*}{\textbf{Votación}}	 			& 8889 & 192.168.1.145 & 80 	& Puerto de acceso al servidor Apache por HTTP \tabularnewline
+						
+					\cline{2-5}
+						
+					& 8445 & 192.168.1.145 & 443 	& Puerto de acceso al servidor Apache por HTTPS/TLS \tabularnewline
+						
+					\cline{2-5}
+						
+					& 8044 & 192.168.1.145 & 22 	& Acceso SSH \tabularnewline
+						
 					\hline
-						\end{tabular*}
+						\end{tabular*}
+
 						\caption{Port forwarding en la red de desarrollo.\label{tab:portForwarding}}
 					\end{threeparttable}
 			\end{table}
