@@ -33,9 +33,9 @@
 			\begin{description}
 				\item[Cliente:] Para permitir el acceso del usuario al sistema utilizando el \gls{DNIe} 3.0, se ha implementado una solución para poder acceder a las credenciales del chip sin contacto del documento. Este desarrollo es una aplicación Android, basada en una de ejemplo compartida por la Policía. Además de la app cliente, tanto el sistema de autenticación como el de votación ofrecen una interfaz web para interactuar con el usuario a través de navegadores web.
 			
-				\item[Sistema de autenticación:] Para permitir el acceso al sistema con las credenciales del DNIe, se utiliza un sistema de autenticación basado en el protocolo oAuth2. El usuario accede a través de un navegador web o de la app Android desarrollada por HTTPS/TLS de forma segura al servidor web. Se establece un canal seguro utilizando el certificado del propio servidor y como certificado de cliente, el de identificación del DNIe. Este sistema es el que autoriza al usuario comprobando su identidad y consultando su presencia en el censo de la elección.
+				\item[Sistema de autenticación:] Para permitir el acceso al sistema con las credenciales del DNIe, se utiliza un sistema de autenticación basado en el protocolo oAuth2. El usuario accede a través de un navegador web o de la app Android desarrollada por \gls{HTTPS} de forma segura al servidor web. Se establece un canal seguro utilizando el certificado del propio servidor y como certificado de cliente, el de identificación del DNIe. Este sistema es el que autoriza al usuario comprobando su identidad y consultando su presencia en el censo de la elección.
 			
-				\item[Sistema de votación:] El sistema de votación es una versión adaptada del sistema Helios Voting. Se comunica con el cliente (y con el sistema de autenticación) por HTTPS y el usuario, autorizado previamente, tiene la posibilidad de, dependiendo de su rol, crear y gestionar una elección, votar en ella y/o, simplemente, consultar los resultados.
+				\item[Sistema de votación:] El sistema de votación es una versión adaptada del sistema Helios Voting. Se comunica con el cliente (y con el sistema de autenticación) por \gls{HTTPS} y el usuario, autorizado previamente, tiene la posibilidad de, dependiendo de su rol, crear y gestionar una elección, votar en ella y/o, simplemente, consultar los resultados.
 			\end{description}
 			
 			\begin{figure}[!ht]
@@ -54,12 +54,12 @@
 	
 			
 	
-			El servidor web se configura para exponer un endpoint de entrada seguro, permitiendo el acceso por HTTPS. En dicha configuración es muy importante activar diversas características:
+			El servidor web se configura para exponer un endpoint de entrada seguro, permitiendo el acceso por \gls{HTTPS}. En dicha configuración es muy importante activar diversas características:
 			
 			\subsection{Servidor web:}
-				El canal de comunicación entre el usuario y el sistema de autenticación es la web, el protocolo es HTTPS y la herramienta que gestiona estos accesos es el servidor web.
+				El canal de comunicación entre el usuario y el sistema de autenticación es la web, el protocolo es \gls{HTTPS} y la herramienta que gestiona estos accesos es el servidor web.
 				
-				Con el fin de establecer un canal HTTPS seguro entre usuario y servidor, es necesario que en su configuración se contemplen tres certificados, dos de ellos en posesión del servidor y el tercero de obligada presentación por parte del cliente.
+				Con el fin de establecer un canal \gls{HTTPS} seguro entre usuario y servidor, es necesario que en su configuración se contemplen tres certificados, dos de ellos en posesión del servidor y el tercero de obligada presentación por parte del cliente.
 				
 				\begin{description}
 					\item[Certificado de servidor:] Es el certificado que permite al navegador negociar el establecimiento de la conexión segura. Si se ha obtenido de algún proveedor confiable, el navegador lo gestiona de forma casi transparente al usuario. Sin embargo, si la fuente no es confiable y no se encuentra en el almacén de certificados del sistema operativo o el navegador, se muestra una advertencia al usuario aconsejándole que no continúe la navegación, aunque le permite seguir adelante a riesgo del usuario. Es lo que ocurre también cuando se utiliza un certificado autofirmado.
@@ -410,78 +410,81 @@ class AuthorizeView(View):
 			\subsection{Estructura}
 				El desarrollo del sistema de votación distribuye el código del sistema en una serie de módulos:
 				
-				\begin{description}
-					\item [Core]\hfill \
-						Dentro del paquete \textit{helios} se encuentra el código fuente que implementa el núcleo del sistema de votación.
-						
-						Sigue el protocolo de un proyecto Django sobre el patrón MVC. Contiene las vistas, el modelo y el controlador que necesita para su funcionamiento.
-						
-						En el fichero \textit{urls.py} se definen los \textit{endpoints} expuestos para la interacción con el sistema. Este fichero establece el punto de comienzo de la \gls{API} \gls{REST} que proporciona el sistema, indicando dónde deben ser realizadas las llamadas HTTP para inicio de procesos y obtención de resultados.
-						
-						Este fichero funciona como un enrutador. Dirige la llamada a un endpoint hacia la vista que va a tratar esta llamada.
-						
-						Estas vistas se encuentran agrupadas en el sistema en el módulo contenido en el fichero \textit{views.py}.
-						
-						Dentro del fichero \textit{models.py} es donde se gestiona el modelo de datos.
-						
-						Estas son las clases que se definen en este módulo:
-						\begin{description}
-							\item [Election]
-								Clase que gestiona las elecciones que pueden ser creadas en el sistema.
+				\subsubsection*{Core}
+				
+					Dentro del paquete \textit{helios} se encuentra el código fuente que implementa el núcleo del sistema de votación.
+					
+					Sigue el protocolo de un proyecto Django sobre el patrón MVC. Contiene las vistas, el modelo y el controlador que necesita para su funcionamiento.
+					
+					En el fichero \textit{urls.py} se definen los \textit{endpoints} expuestos para la interacción con el sistema. Este fichero establece el punto de comienzo de la \gls{API} \gls{REST} que proporciona el sistema, indicando dónde deben ser realizadas las llamadas \gls{HTTP} para inicio de procesos y obtención de resultados.
+					
+					Este fichero funciona como un enrutador. Dirige la llamada a un endpoint hacia la vista que va a tratar esta llamada.
+					
+					Estas vistas se encuentran agrupadas en el sistema en el módulo contenido en el fichero \textit{views.py}.
+					
+					Dentro del fichero \textit{models.py} es donde se gestiona el modelo de datos.
+					
+					Estas son las clases que se definen en este módulo:
+					\begin{description}
+						\item [Election]
+							Clase que gestiona las elecciones que pueden ser creadas en el sistema.
 
-							\item [ElectionLog]
-								Clase para gestión de los logs del sistema.
-								
-							\item [VoterFile]
-								Clase diseñada para almacenar los ficheros de votantes utilizados para la carga del censo.
-								
-							\item [Voter]
-								Clase que define los votantes.
-								
-							\item [CastVote]
-								Clase necesaria para almacenar los votos emitidos por los votantes.
-								
-							\item [AuditedBallot]
-								Clase que recoge los votos que han sido auditados.
-								
-							\item [Trustee]
-								Clase que expone los Trustees del sistema.
-								
-						\end{description}
+						\item [ElectionLog]
+							Clase para gestión de los logs del sistema.
+							
+						\item [VoterFile]
+							Clase diseñada para almacenar los ficheros de votantes utilizados para la carga del censo.
+							
+						\item [Voter]
+							Clase que define los votantes.
+							
+						\item [CastVote]
+							Clase necesaria para almacenar los votos emitidos por los votantes.
+							
+						\item [AuditedBallot]
+							Clase que recoge los votos que han sido auditados.
+							
+						\item [Trustee]
+							Clase que expone los Trustees del sistema.
+							
+					\end{description}
+					
+					Se observa que no es un mapeo exacto del modelo Entidad-Relación visto en \ref{solucion_servidor_votacion_bd}. Define las clases principales que interactúan para llevar a cabo la elección.
 						
-						Se observa que no es un mapeo exacto del modelo Entidad-Relación visto en \ref{solucion_servidor_votacion_bd}. Define las clases principales que interactúan para llevar a cabo la elección.
 						
-					\item [Autenticación]\hfill \
-						El sistema de votación posee un módulo de autenticación propio que es el que gestiona las identidades y permisos de un usuario o votante frente al sistema. Este subsistema recoge la identificación del votante, sea cual sea el medio por el que se haya \textit{logado} el usuario.
-						
-						En el caso del login por DNIe, este subsistema es el que maneja la comunicación con el Sistema de Autenticación (\ref{arquitectura_servidorAutenticacion}).
-						
-						Por tanto, bajo la carpeta \textit{helios\_auth} se encuentra el módulo de autenticación del sistema de voto.
-						
-						Aún siendo un subsistema, sigue también el patrón \gls{MVC} de Django. Contiene los ficheros \textit{urls.py}, \textit{views.py} y \textit{models.py}, tan característicos de este patrón en este framework.
-						
-						Lo más peculiar de este subsistema es que contiene adaptadores par los diferentes sistemas de login que expone. Dentro de la carpeta \textit{auth\_system} implementa una serie de módulos que gestionan estos diferentes métodos de login.
-						
-						Por defecto, Helios ha implementado ya los siguientes módulos para permitir la identificación federada:
-						\begin{itemize}
-							\item Facebook $\Leftarrow$ helios\_auth/facebook.py
-							\item CAS $\Leftarrow$ helios\_auth/cas.py
-							\item Clever.com $\Leftarrow$ helios\_auth/clever.py
-							\item Google $\Leftarrow$ helios\_auth/google.py
-							\item LinkedIn $\Leftarrow$ helios\_auth/linkedin.py
-							\item Twitter $\Leftarrow$ helios\_auth/twitter.py
-							\item Yahoo!	 $\Leftarrow$ helios\_auth/yahoo.py
-						\end{itemize}
+				\subsubsection*{Autenticación}
+					
+					El sistema de votación posee un módulo de autenticación propio que es el que gestiona las identidades y permisos de un usuario o votante frente al sistema. Este subsistema recoge la identificación del votante, sea cual sea el medio por el que se haya \textit{logado} el usuario.
+					
+					En el caso del login por DNIe, este subsistema es el que maneja la comunicación con el Sistema de Autenticación (\ref{arquitectura_servidorAutenticacion}).
+					
+					Por tanto, bajo la carpeta \textit{helios\_auth} se encuentra el módulo de autenticación del sistema de voto.
+					
+					Aún siendo un subsistema, sigue también el patrón \gls{MVC} de Django. Contiene los ficheros \textit{urls.py}, \textit{views.py} y \textit{models.py}, tan característicos de este patrón en este framework.
+					
+					Lo más peculiar de este subsistema es que contiene adaptadores par los diferentes sistemas de login que expone. Dentro de la carpeta \textit{auth\_system} implementa una serie de módulos que gestionan estos diferentes métodos de login.
+					
+					Por defecto, Helios ha implementado ya los siguientes módulos para permitir la identificación federada:
+					\begin{itemize}
+						\item Facebook $\Leftarrow$ helios\_auth/facebook.py
+						\item CAS $\Leftarrow$ helios\_auth/cas.py
+						\item Clever.com $\Leftarrow$ helios\_auth/clever.py
+						\item Google $\Leftarrow$ helios\_auth/google.py
+						\item LinkedIn $\Leftarrow$ helios\_auth/linkedin.py
+						\item Twitter $\Leftarrow$ helios\_auth/twitter.py
+						\item Yahoo!	 $\Leftarrow$ helios\_auth/yahoo.py
+					\end{itemize}
 
-						Además, incluye un módulo \textit{password.py} utilizado para la identificación de usuario por medio del par \{usuario, contraseña\}.
-						
-						Para este \gls{PFC} ha sido necesario, pues, la implementación de un módulo nuevo para gestionar la identificación a través del \gls{DNIe}.
-						
-						Este módulo es \textit{dnie.py}.
-						
-						Define una clase \textbf{DNIe} con una serie de miembros que almacenan la información del usuario recibida desde el Sistema de Autenticación, del certificado digital de autenticación del \gls{DNIe}.
-						
-						\begin{lstlisting}[language=Python]
+
+					Además, incluye un módulo \textit{password.py} utilizado para la identificación de usuario por medio del par \{usuario, contraseña\}.
+					
+					Para este \gls{PFC} ha sido necesario, pues, la implementación de un módulo nuevo para gestionar la identificación a través del \gls{DNIe}.
+					
+					Este módulo es \textit{dnie.py}.
+					
+					Define una clase \textbf{DNIe} con una serie de miembros que almacenan la información del usuario recibida desde el Sistema de Autenticación, del certificado digital de autenticación del \gls{DNIe}.
+					
+					\begin{lstlisting}[language=Python]
   class DNIe:
       def __init__(self, commonName, givenName, surname, serialNumber, c):
           self.commonName = commonName
@@ -489,30 +492,32 @@ class AuthorizeView(View):
           self.surname = surname
           self.serialNumber = serialNumber
           self.c = c
-						\end{lstlisting}
-						
-						\todo{POR AQUí}
-						
-						
-					\item [Cabina de votación]\hfill \
-						En la carpeta \textit{helios\_booth} se encuentra el componente de la Cabina digital de Voto.
-						
-						Es un módulo autocontenido cuya funcionalidad se desarrolla en tan sólo un elemento HTML, apoyado en código Javascript para controlar la interacción con el usuario, el cifrado de los votos y el envío del voto al Sistema de Votación en servidor. La lógica de este módulo se ejecuta en cliente, por eso es importante la comunicación final con el servidor.
-						
-						Su estructura y funcionamiento se explica en \ref{esquemaVotacion_votacion}.
+					\end{lstlisting}
+					
+					\todo{POR AQUí}
 						
 						
-					\item [Verificador de voto]\hfill \
-						El verificador de voto es una herramienta para que un votante u observador pueda verificar que el sistema cifra y descifra correctamente un voto.
+
+				\subsubsection*{Cabina de votación}
+				
+					En la carpeta \textit{helios\_booth} se encuentra el componente de la Cabina digital de Voto.
+					
+					Es un módulo autocontenido cuya funcionalidad se desarrolla en tan sólo un elemento HTML, apoyado en código Javascript para controlar la interacción con el usuario, el cifrado de los votos y el envío del voto al Sistema de Votación en servidor. La lógica de este módulo se ejecuta en cliente, por eso es importante la comunicación final con el servidor.
+					
+					Su estructura y funcionamiento se explica en \ref{esquemaVotacion_votacion}.
 						
 						
-					\item [Tests selenium]\hfill \
+				\subsubsection*{Verificador de voto}
+					El verificador de voto es una herramienta para que un votante u observador pueda verificar que el sistema cifra y descifra correctamente un voto.
+					
+					
+				\subsubsection*{Tests selenium}
+					
+					
+				\subsubsection*{Elementos estáticos}
+				
+					Esta carpeta contiene los ficheros estáticos necesarios para la interfaz web, incluyendo HTML, Javascript y hojas de estilo CSS.
 						
-						
-					\item [Elementos estáticos]\hfill \
-						Esta carpeta contiene los ficheros estáticos necesarios para la interfaz web, incluyendo HTML, Javascript y hojas de estilo CSS.
-						
-				\end{description}
 
 				
 					
@@ -558,10 +563,10 @@ class AuthorizeView(View):
 					\begin{itemize}
 						\item Eliminar el menú inicial con el que se podía elegir el servicio al que se pretendía acceder.
 						\item La app ahora sólo tiene una funcionalidad, conectarse contra el servidor de autenticación de nuestro sistema de votación.
-						\item Para ello, se ha modificado el software cambiando el flujo de llamadas. Originalmente sólo se hacía una llamada a una web para obtener información. Para cumplir con el protocolo oAuth, se ha incrementado el número de llamadas HTTPS de la app, con una mayor comunicación bidireccional entre el servicio y el dispositivo.
+						\item Para ello, se ha modificado el software cambiando el flujo de llamadas. Originalmente sólo se hacía una llamada a una web para obtener información. Para cumplir con el protocolo oAuth, se ha incrementado el número de llamadas \gls{HTTPS} de la app, con una mayor comunicación bidireccional entre el servicio y el dispositivo.
 						\item La app embebe keystore con los certificados de servidor y el raíz de la Policía para cada uno de los servicios que utiliza. Se han eliminado y se ha incorporado una keystore con los certificados del servidor de autenticación y el de la AC raíz de la Policía.
 						\item La app posee una lista de servidores en los que confía. En esta lista se incluyen los hashes de los certificados de servidor de los servicios que consulta. Se han eliminado los elementos de esta lista y se ha añadido el hash del certificado del servidor de autenticación, que es contra el que ahora se va a comunicar la app.
-						\item En la app original, se realiza una llamada HTTPS, se obtiene la información y se muestra en una página estática dentro de un WebView. Los WebViews en Android no soportan navegación manteniendo certificado de cliente, por lo que no es útil para la nueva funcionalidad de nuestra app. Por ello, se ha eliminado esta forma de mostrar información. Ahora se realizan las comunicaciones del flujo oAuth y cuando el usuario ha sido identificado y autenticado, se redirige a la web del sistema de voto por medio de un navegador externo a la app.
+						\item En la app original, se realiza una llamada \gls{HTTPS}, se obtiene la información y se muestra en una página estática dentro de un WebView. Los WebViews en Android no soportan navegación manteniendo certificado de cliente, por lo que no es útil para la nueva funcionalidad de nuestra app. Por ello, se ha eliminado esta forma de mostrar información. Ahora se realizan las comunicaciones del flujo oAuth y cuando el usuario ha sido identificado y autenticado, se redirige a la web del sistema de voto por medio de un navegador externo a la app.
 					\end{itemize}
 					
 					La comunicación puede comenzar de dos formas:
@@ -670,7 +675,7 @@ class AuthorizeView(View):
 						\label{fig:login.android.DNIe.PIN}
 					\end{figure}
 					
-					Es en este momento cuando la app utiliza el certificado de autenticación del DNIe realizar una petición HTTPS/TLS contra el servidor de autenticación del sistema de voto. Cada una de las llamadas que le exige el protocolo de comunicación oAuth2 se realizará de forma segura, con los certificados del servidor y el de autenticación del documento (figuras \ref{fig:login.android.lanzandoConexion} y \ref{fig:login.android.recepcionCodigooAuth}). 
+					Es en este momento cuando la app utiliza el certificado de autenticación del DNIe realizar una petición \gls{HTTPS} contra el servidor de autenticación del sistema de voto. Cada una de las llamadas que le exige el protocolo de comunicación oAuth2 se realizará de forma segura, con los certificados del servidor y el de autenticación del documento (figuras \ref{fig:login.android.lanzandoConexion} y \ref{fig:login.android.recepcionCodigooAuth}). 
 					
 					\begin{figure}[!ht]
 						\centering
@@ -1578,15 +1583,15 @@ A continuación se muestra que los votos son, efectivamente, totalizados
 								 \\
 					\hline\hline
 						
-					\multirow{4}{*}{\textbf{Autenticación}} 	& 8662 & 192.168.1.144 & 442 	& Puerto de acceso al servidor Apache por HTTPS/TLS \tabularnewline
+					\multirow{4}{*}{\textbf{Autenticación}} 	& 8662 & 192.168.1.144 & 442 	& Puerto de acceso al servidor Apache por \gls{HTTPS} \tabularnewline
 						
 					\cline{2-5}
 						
-					& 8888 & 192.168.1.144 & 80 	& Puerto de acceso al servidor Apache por HTTP \tabularnewline
+					& 8888 & 192.168.1.144 & 80 	& Puerto de acceso al servidor Apache por \gls{HTTP} \tabularnewline
 						
 					\cline{2-5}
 						
-					& 8443 & 192.168.1.144 & 443 	& Puerto de acceso al servidor Apache por HTTPS/TLS \tabularnewline
+					& 8443 & 192.168.1.144 & 443 	& Puerto de acceso al servidor Apache por \gls{HTTPS} \tabularnewline
 						
 					\cline{2-5}
 						
@@ -1594,11 +1599,11 @@ A continuación se muestra que los votos son, efectivamente, totalizados
 						
 					\hline\hline
 						
-					\multirow{3}{*}{\textbf{Votación}}	 			& 8889 & 192.168.1.145 & 80 	& Puerto de acceso al servidor Apache por HTTP \tabularnewline
+					\multirow{3}{*}{\textbf{Votación}}	 			& 8889 & 192.168.1.145 & 80 	& Puerto de acceso al servidor Apache por \gls{HTTP} \tabularnewline
 						
 					\cline{2-5}
 						
-					& 8445 & 192.168.1.145 & 443 	& Puerto de acceso al servidor Apache por HTTPS/TLS \tabularnewline
+					& 8445 & 192.168.1.145 & 443 	& Puerto de acceso al servidor Apache por \gls{HTTPS} \tabularnewline
 						
 					\cline{2-5}
 						
