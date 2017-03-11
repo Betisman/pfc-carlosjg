@@ -410,9 +410,10 @@
 
 %\makeglossaries %% Va en el preámbulo
 \lhead{}
-\rhead{Glosario}
+\rhead{Glosario de términos}
 \input{glosario.tex}
-\printglossaries
+\renewcommand*{\acronymname}{Glosario de términos}
+\printglossaries[title={Glosario de términos}]
 
 
 
