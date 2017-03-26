@@ -2,6 +2,7 @@
 \lhead{Capítulo \ref{lineasFuturas}}
 \rhead{Líneas futuras}
 
+\iffalse
 \todo[inline]{Uso de Enigma \url{http://enigma.media.mit.edu/enigma_full.pdf}(8.9, página 13) para el voto por Internet.}
 \todo[inline]{{tro: \url{http://www.pabloyglesias.com/cifrado-homomorfico-blockchain/}}}
 
@@ -11,8 +12,8 @@
 \todo[inline]{Investigar métodos de identificación - biometría, SIM con IDs ... }
 
 \todo[inline]{Carlos, asegúrate de que comentamos en algún sitio que es el primer sistema con el que se puede votar con el nuevo DNIe 3.0. Importante por la novedad.}
-
-	Este proyecto representa una prueba de concepto de cómo se puede implementar un sistema de voto por Internet que permita que el DNIe 3.0 sea la herramienta que permita la identificación digital del votante y que el acceso al sistema de voto se pueda realizar desde dispositivos móviles tales como un smartphone o una tablet Android.
+\fi
+	Este proyecto representa una prueba de concepto de cómo se puede implementar un sistema de voto por Internet que utiliza el DNIe 3.0 como herramienta para la identificación digital del votante y que busca facilitar que el acceso seguro al sistema de voto se pueda realizar desde dispositivos móviles tales como un smartphone o una tablet Android.
 	
 	No obstante, como cualquier prueba de concepto, tras la elaboración de la memoria del proyecto y la implementación del mismo, se advierten varios ámbitos donde hay carencias tecnológicas o se observan oportunidades de mejora en el desarrollo.
 	
@@ -55,8 +56,8 @@
 	 	
 	 	Sería interesante sustituir este mecanismo de identificación por uno realmente seguro.
 	 	
-	 	Por un lado, se podría estudiar el componente WebView de Android para observar cómo es su implementación. Se puede comentar con los desarrolladores de Google el problema que tiene en cuanto al uso de certificados de cliente y navegación segura por una web (en contra de un sistema REST) para ver si hay opciones de implementación de un nuevo módulo que cumpla con las necesidades. También cabe la posibilidad de implementar un componente WebView modificado para cumplir con los requisitos de este sistema. 
+	 	Por un lado, se podría estudiar el componente WebView de Android para observar cómo es su implementación. Se puede comentar con los desarrolladores de Google el problema que tiene en cuanto al uso de certificados de cliente y navegación segura por una web (en contra de un sistema \gls{REST}) para ver si hay opciones de implementación de un nuevo módulo que cumpla con las necesidades. También cabe la posibilidad de implementar un componente WebView modificado para cumplir con los requisitos de este sistema. 
 	 	
-	 	Otra opción, no obstante es cambiar el sistema para que pueda funcionar con el componente WebView de Android. Para ello sería necesario convertirlo en un sistema completamente REST. Con ello, se puede pensar en la implementación de una app Android que no sólo sirva para la autenticación, sino para la votación completa. esto implica reescribir el sistema pasando de web a Android. El backend del sistema sería el mismo, sólo que serviría HTML a las conexiones realizadas con navegadores clientes de escritorio, pero desde apps Android se basaría en peticiones HTTPS directas contra servicios REST incluyendo el certificado en cada una de ellas.
+	 	Otra opción, no obstante es cambiar el sistema para que pueda funcionar con el componente WebView de Android. Para ello sería necesario convertirlo en un sistema completamente \gls{REST}. Con ello, se puede pensar en la implementación de una app Android que no sólo sirva para la autenticación, sino para la votación completa. esto implica reescribir el sistema pasando de web a Android. El backend del sistema sería el mismo, sólo que serviría HTML a las conexiones realizadas con navegadores clientes de escritorio, pero desde apps Android se basaría en peticiones HTTPS directas contra servicios \gls{REST} incluyendo el certificado en cada una de ellas.
 	 	
 		No obstante, la limitación del sistema ha sido provocada por los requisitos del mismo. En concreto, el uso del DNIe 3.0 con su chip \gls{NFC}. Otra línea de desarrollo puede ser la búsqueda de nuevos servicios de identificación digitales y la implementación para este sistema. Para ello pienso que es interesante la investigación en identificación digital basada en biometría (huellas digitales, lectura ocular, facial, etc.), pasaporte digital, mobId (usado en Estonia\ref{ivotingEstonia}, \cite{Morshed2010}), bitcoins, multifactor, etc. Considero que es un mundo con unas posibilidades enormes que merece la pena ser investigado para encontrar soluciones que adaptar e incorporar al sistema desarrollado en este proyecto.
