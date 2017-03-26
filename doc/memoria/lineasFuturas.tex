@@ -12,9 +12,51 @@
 
 \todo[inline]{Carlos, asegúrate de que comentamos en algún sitio que es el primer sistema con el que se puede votar con el nuevo DNIe 3.0. Importante por la novedad.}
 
-
-	Tras la elaboración de la memoria de este proyecto y la implementación del mismo, se advierten varios ámbitos donde hay alguna carencia tecnológica o se observa una oportunidad de desarrollo futuro.
+	Este proyecto representa una prueba de concepto de cómo se puede implementar un sistema de voto por Internet que permita que el DNIe 3.0 sea la herramienta que permita la identificación digital del votante y que el acceso al sistema de voto se pueda realizar desde dispositivos móviles tales como un smartphone o una tablet Android.
 	
-	Una necesidad de este sistema es una migración hacia TDD. Un sistema tan importante como una votación, que debe minimizar los errores al máximo por la criticidad de los mismos, debería apoyarse en un sistema automatizado de tests. Deberían implementarse tests unitarios y punto a punto para todos los subsistemas y funcionalidades del sistema. Con esto, se puede asegurar la integridad del mismo y facilitar los cambios en el software, provocando un software más estable.
+	No obstante, como cualquier prueba de concepto, tras la elaboración de la memoria del proyecto y la implementación del mismo, se advierten varios ámbitos donde hay carencias tecnológicas o se observan oportunidades de mejora en el desarrollo.
+	
+	\section{Auditoría de seguridad / criptografía}
+		El principal punto en el que se debería intervenir es en la seguridad criptográfica del proyecto. Cierto es que el desarrollo se basa en un sistema como Helios Voting, que está avalado tecnológicamente por instituciones como el \gls{MIT} y por grandes expertos internacionales en criptografía (avanzados en \ref{}). Pero en el momento en el que se ha debido desarrollar una solución para admitir el DNIe como herramienta de identificación digital, ya se ha impactado en la seguridad del sistema. En caso de querer llevar esta solución a la práctica para un proceso electoral real, es necesario que se realice un estudio de los elementos criptográficos utilizados en el proyecto, así como de la seguridad de cada uno de los elementos implementados. Especialmente crítico es esto teniendo en cuenta que se trata de un sistema accesible por Internet, cuyo core está escrito hace algunos años.
+	
+		Por ello, en caso de querer avanzar en este sentido, recomiendo desarrollar estas cuestiones incluyendo una auditoría de seguridad rigurosa del sistema. Por un lado permitiría incrementar la seguridad y fiabilidad del mismo y, por otro, dota al sistema de capacidades legales que puedan cumplir criterios de los estamentos u organizaciones que puedan requerir de este servicio electoral.
+	
+	\section{Procurar escalabilidad del sistema}
+		El código del core de Helios Voting está escrito en Python sobre un framework Django.
+		
+		Una posible línea de desarrollo futuro para este proyecto podría ser la migración del mismo hacia sistemas modernos escalables. En estos momentos, la posibilidad de escalar el sistema implementado consiste en migrarlo a máquina con mayor potencia y recursos. Está muy limitado en caso de aumentar el número de votantes.
+		
+		Pienso que sería una muy buena línea de desarrollo el migrar el sistema a una tecnología que permita escalabilidad de forma simple. Para ellos, pienso en tecnologías como Nodejs y microservicios. Nodejs permite la implementación de sistemas estables, con una comunidad inmensa sobre la que apoyarse, con una ingente cantidad de módulos que reutlizar. Esto proporciona una herramienta importante para favorecer el desarrollo ágil. Junto a esta tecnología, se puede introducir el uso de microservicios. Migrando el sistema al uso de microservicios podemos mejorar el rendimiento del sistema. Por un lado es más fácil probar la funcionalidad del sistema, ya que con pruebas unitarias de cada microservicio, aseguras la funcionalidad de cada uno. Además el uso de microservicios facilita la fácil escalabilidad del sistema, pues si la carga aumenta, en lugar de una migración a una máquina más potente, se pueden lanzar nuevas instancias de cada uno de los microservicios más impactados para que estos trabajen en paralelo.
+		
+		Considero que este desarrollo es bastante interesante porque permite el crecimiento de las capacidades del proyecto con una inversión muy baja.
+		
+	\section{Pruebas}
+		Un sistema de voto, y más si es accesible por Internet, necesita un sistema de tests que sea robusto, estable y minucioso. Hay que asegurar en la medida de lo posible que el sistema no falla.
+		
+		Este proyecto carece de un sistema fiable de test, lo que identifica este punto como la mayor vulnerabilidad del sistema.
+		
+		Es fundamental que se desarrolle una batería de pruebas para el sistema que permita asegurar su fiabilidad.
+		
+		Para ello, una posibilidad que recomiendo, es la reescritura del sistema siguiendo una metodología de desarrollo basada en \gls{TDD}. 
+		
+		Así, se desarrollaría el sistema obligando al mismo a pasar los tests pensados para cada módulo y para el sistema de forma global.
+		
+		Esta metodología permite desarrollar de forma segura y fiable, permitiendo, igualmente, refactorizar código con la misma seguridad, con lo que al final el la velocidad de desarrollo se acelera bastante.
+		
+		Un sistema tan importante como una votación, que debe minimizar los errores al máximo por la criticidad de los mismos, debería apoyarse en un sistema automatizado de tests. Deberían implementarse tests unitarios y punto a punto para todos los subsistemas y funcionalidades del sistema. Con esto, se puede asegurar la integridad del mismo y facilitar los cambios en el software, provocando un software más estable.
 	
 	 
+	 
+	 Combinando estas líneas de desarrollo futuro pienso en una metodología de desarrollo TDD, con herramientas de Integración Continua, lenguages como Python o Nodejs y el uso de microservicios. Creo que se puede implementar un sistema estable y con un rendimiento muy elevado, que facilite el desarrollo de funcionalidades de forma segura. Este sistema se basaría en pruebas automatizadas lo que, además de asegurar la estabilidad del sistema frente a cambios, permitiría la refactorización del código de forma segura, incrementando la adaptabilidad del sistema y su rendimiento.
+	 
+	 
+	 \section{Sistema de identificación del votante}
+	 	Por limitaciones tecnológicas del componente WebView de Android se debió desarrollar una solución alternativa de identificación del votante contra el sistema basada en oAuth. Este desarrollo entiendo que es el punto más vulnerable del sistema, por lo que considero que es una buena línea de desarrollo para el futuro.
+	 	
+	 	Sería interesante sustituir este mecanismo de identificación por uno realmente seguro.
+	 	
+	 	Por un lado, se podría estudiar el componente WebView de Android para observar cómo es su implementación. Se puede comentar con los desarrolladores de Google el problema que tiene en cuanto al uso de certificados de cliente y navegación segura por una web (en contra de un sistema REST) para ver si hay opciones de implementación de un nuevo módulo que cumpla con las necesidades. También cabe la posibilidad de implementar un componente WebView modificado para cumplir con los requisitos de este sistema. 
+	 	
+	 	Otra opción, no obstante es cambiar el sistema para que pueda funcionar con el componente WebView de Android. Para ello sería necesario convertirlo en un sistema completamente REST. Con ello, se puede pensar en la implementación de una app Android que no sólo sirva para la autenticación, sino para la votación completa. esto implica reescribir el sistema pasando de web a Android. El backend del sistema sería el mismo, sólo que serviría HTML a las conexiones realizadas con navegadores clientes de escritorio, pero desde apps Android se basaría en peticiones HTTPS directas contra servicios REST incluyendo el certificado en cada una de ellas.
+	 	
+		No obstante, la limitación del sistema ha sido provocada por los requisitos del mismo. En concreto, el uso del DNIe 3.0 con su chip \gls{NFC}. Otra línea de desarrollo puede ser la búsqueda de nuevos servicios de identificación digitales y la implementación para este sistema. Para ello pienso que es interesante la investigación en identificación digital basada en biometría (huellas digitales, lectura ocular, facial, etc.), pasaporte digital, mobId (usado en Estonia\ref{ivotingEstonia}, \cite{Morshed2010}), bitcoins, multifactor, etc. Considero que es un mundo con unas posibilidades enormes que merece la pena ser investigado para encontrar soluciones que adaptar e incorporar al sistema desarrollado en este proyecto.
