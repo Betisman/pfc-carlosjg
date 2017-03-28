@@ -557,14 +557,14 @@ class AuthorizeView(View):
 		
 				Por ello, la app va a carecer de un menú inicial, ya que no es necesario.
 		
-				Una vez se abra la app, ya sea desde el menú del dispositivo o desde el botón de login de la página inicial de la web del sistema de votación, aparecerá el menú de selección del CAN del DNIe que queremos utilizar, o, si es la primera vez que cierto usuario utiliza la app, la posibilidad de añadir un nuevo DNIe con su CAN correspondiente.
+				Una vez se abra la app, ya sea desde el menú del dispositivo o desde el botón de login de la página inicial de la web del sistema de votación, aparecerá el menú de selección del \gls{CAN} del \gls{DNIe} que queremos utilizar, o, si es la primera vez que cierto usuario utiliza la app, la posibilidad de añadir un nuevo \gls{DNIe} con su \gls{CAN} correspondiente.
 				
 				\todo{Me he traído esto del código fuente aquí. Hay que cambiarle el nombre e integrarlo con la subsection siguiente}
 			
 			\subsection{App Android de Autenticación}\label{solucion_appAndroidAutenticacion}
 					Ya se ha explicado que para realizar el acceso al sistema de voto desde dispositivos móviles, se ha optado por modificar una de las apps de ejemplo publicadas por la Policía española.
 					
-					La app original mostraba un ejemplo de funcionamiento en el que se accedía a varias webs que necesitaban acceso con identificación por DNIe. Las modificaciones que se han realizado a esta app han consistido en:
+					La app original mostraba un ejemplo de funcionamiento en el que se accedía a varias webs que necesitaban acceso con identificación por \gls{DNIe}. Las modificaciones que se han realizado a esta app han consistido en:
 					\begin{itemize}
 						\item Eliminar el menú inicial con el que se podía elegir el servicio al que se pretendía acceder.
 						\item La app ahora sólo tiene una funcionalidad, conectarse contra el servidor de autenticación de nuestro sistema de votación.
