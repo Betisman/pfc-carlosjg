@@ -24,7 +24,49 @@
 	
 	El primer escollo para implantar el voto por Internet en España se encuentra en la Constitución Española.
 
+	
+	
+	Tecnológicamente es posible diseñar e implementar sistemas de votación remota seguros. Existen multitud de protocolos criptográficos para asegurar el voto, conexiones seguras, formas de identificar digitalmente a los votantes. El problema no creo que sea la tecnología. Más bien, desde mi punto de vista, el problema principal es la confianza.
+	
+	
+	En la Constitución Española, dentro de la Ley Electoral, se dispone un escenario para las elecciones tradicionales basado en la desconfianza de los partidos políticos en el proceso. Por ello, hay multitud de testigos y conteo manual de los votos. Las mesas electorales constan de Presidente y dos vocales, con la posibilidad de estar acompañados de interventores de los diferentes partidos políticos, designados para ser testigos del proceso de voto y conteo, controlando que no haya manipulación del proceso.
+	
+	El de España es un sistema bastante seguro. Tiene riesgos de integridad y coacción bastante bajos. Junto a ello, los sistemas utilizados actualmente para la difusión de resultados impacta claramente en la transparencia.
+	
+	Los votos son contados manualmente por la mesa electoral de forma pública. El resultado, que consta en acta, es transmitido al Centro de Recogida de Datos, donde se digitaliza para cada mesa y se realiza la totalización de estos. Esta totalización es la que se difunde por numerosos medios en tiempo casi real. El resultsado es que, tal como llega un acta, se difunde el resultado. Esta idea de tiempo real tiene como objetivo minimizar la desconfianza del electorado de que los resultados puedan ser manipulados.
+	No obstante, los resultados ofrecidos durante la noche electoral no dejan de ser unos resultados provisionales. En los días posteriores se realiza un proceso público en el que los jueces de las diferentes Juntas Electorales revisan las actas de escrutinio de cada mesa para resolver impugnaciones o diferencias entre los resultados reales y los digitalizados de forma provisional. Es tras este proceso cuando se declara el resultado oficial, varios días después de la celebración de la elección.
+	
+	Se observa que en un Proceso Electoral interviene mucha gente. Para poder manipular unas elecciones en España hay que poner de acuerdo a muchas personas para que se comporten de forma deshonesta. Es un sistema con una integridad alta.
+	
+	No obstante, se argumentan motivos para la implantación del voto remoto.
+	Recursos. El voto remoto por Internet es una gran opción en cuanto a ahorro de recursos. Se podría disminuir el papel invertido en papeletas, apertura de colegios electorales, personal, despliegue policíal. Transporte de urnas, miembros de mesa.
+	
+	Accesibilidad. El voto remoto facilitaría el voto a muchas personas con movilidad reducida o algún problema explícito que le impida acudir a su Colegio Electoral.
+	
+	Movilidad. Al poder votar desde casa, el voto remoto reduciría la movilidad de votantes hasta sus colegios electorales.
+	
+	Rapidez. Otro argumento a favor del voto remoto es la velocidad de escrutinio y totalización.
+	
+	Disminución de la abstención. En círculos favorables a la implantación del voto ubicuo se incluye la argumentación de que éste favorecería la disminución de la abstención, ya que motivaría a muchos votantes a ejercer su derecho sin necesidad de desplazarse al Colegio Electoral. Además, se espera que incentive el voto joven, ya que se considera que los jóvenes serían menos reacios a utilizar este proceso.
+	
+	
+	Además de los riesgos de seguridad y todos los expuestos en el capítulo \ref{riesgos}, considero que algunos de estos argumentos no son suficientes para sustituir el voto tradicional por el remoto.
+	
+	
+	
+	El problema, una vez más, es la confianza en el Sistema. En los últimos comicios, un gran grupo de seguidores de un partido pusieron en tela de juicio el proceso de conteo de votos. Recuerdo que el conteo de votos es manual y público en las mesas y que se envía a un sistema central para que realice la totalización provisional mientras los recibe. En los días posteriores se realiza el Escrutinio Definitivo. Es decir, se puso en entredicho la honestidad de un sistema informático que realiza el escrutinio provisional. Todo esto dentro de un sistema electoral diseñado para combatir la coacción y asegurar la integridad con la intervención de muchos actores y todo de forma pública. Si esto ocurrió con este Sistema, es fácil discernir los problemas de confianza que puede ofrecer un sistema que parecerá de caja negra, sin intervención de terceros de forma manual, sin recibos de voto, sin posibilidad física de recuperación en caso de catástrofe.
 
+	Si pensamos en este sistema en cuanto a velocidad de escrutinio y difusión de resultados, en las últimas elecciones, tres horas después del cierre de los colegios ya se sabe, provisionalmente, el resultado escrutado de alrededor de un 80\% de las mesas. No considero, pues, que este sea un argumento determinante a tener en cuenta. Sobre todo teniendo en cuenta que otros estados, democráticamente longevos, incluso cierran los colegios tras cerrarlos la noche electoral y es al día siguiente cuando comienzan el escrutinio.
+	
+	Para que el sistema no sea una caja negra al votante, hay que proveer de herramientas para que este pueda asegurar la fiabilidad del proceso, tanto en el escrutinio, como que su voto ha sido contabilizado y no manipulado. Esto se puede conseguir con técnicas criptográficas. Utilizando un escrutinio homomórfico (el voto nunca es descifrado, se totalizan los votos cifrados y es este resultado el que se descifra). Con criptografía se puede asegurar que un voto no ha sido manipulado, con lo que un votante puede usar estas técnicas y realizar por sí mismo la comprobación. Pero esto, en la práctica no es lo mismo que ver cómo tu voto se introduce en una urna transparente. Que el voto se metió en un sobre cerrado, secreto. Y se puede asistir al conteo de todos los votos. En términos de votantes no acostumbrados a sistemas criptográficos la comparación deriva a que el sistema informático es una caja peligros en la que sumar un voto a un partido o candidato contrario por parte de los desarrolladores del sistema es claramente factible.
+	
+	Con software libre se minimiza este problema, y muchas voces abogan porque así debería ser. Los algoritmos accesibles a la auditoría ciudadana. Pero a alguien no interesado en la parte técnica del proceso puede resultar complicado demostrarle que el código libre compartido es el mismo que finalmente se ejecute durante el día electoral.
+	
+	Un sistema remoto tiene demasiados puntos que pueden provocar desconfianza en el proceso. Algo que hay que valorar bastante antes de sustituir el voto tradicional, diseñado para evitar esta sensación de desconfianza.
+	
+	
+	Me gustaría que fuésemos capaces de superar estas limitaciones y poder implementar el voto por Internet a escala legislativa, pero hoy en día todavía hay muchas barreras, sobre todo sociales, que hay atravesar. No obstante, algún día tendremos la oportunidad, el derecho y el deber de votar desde casa a través de nuestros dispositivos conectados a Internet.
+	
 
 
 

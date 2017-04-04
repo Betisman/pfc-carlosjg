@@ -26,7 +26,16 @@
 		%\label{fig:flujoSistema}
 	%\end{figure}
 		
-			
+		En este capítulo se expone la solución desarrollada para llevar a cabo el sistema analizado en los capítulos anteriores.
+		
+		Durante el capítulo se expondrán la arquitectura, topología de red, software y decisiones de diseño que se hacen posible este proyecto de integración de sistemas.
+		
+		El capítulo finaliza con la exposición de una prueba de concepto implementada en base a estas decisiones tomadas a lo largo del capítulo.
+		
+		Este prototipo trata de demostrar que se puede implementar un sistema de voto seguro que utilice el \gls{DNIe} 3.0 como herramienta de identificación digital del votante. De hecho, es la primera implementación que utiliza esta tecnología para un proyecto electoral.
+		
+		Además, el prototipo muestra que la versatilidad del proyecto, pues se utiliza software libre, con herramientas libres y usando como servidores dos Raspberry Pi, unos dispositivos que destacan por una potencia destacada a un coste realmente bajo.
+		
 		\section{Arquitectura del sistema}\label{solucion_arquitectura}
 			Tal como se determina en el análisis (\ref{analisis}), la solución que se propone para este Proyecto consiste en la integración de tres componentes, adaptados a las necesidades de una elección para la EPS.
 			
@@ -945,7 +954,7 @@ class AuthorizeView(View):
 					
 					\begin{figure}[!ht]
 						\centering
-							\includegraphics[width=.95\textwidth]{imgs/diagramaEstadosVotacion01.jpg}
+							\includegraphics[width=.95\textwidth]{imgs/diagramaEstadosVotacion01.png}
 						\caption{Diagrama de estados del proceso de votación}
 						\label{fig:diagrama.estados.cabina.votacion}
 					\end{figure}
@@ -1223,7 +1232,7 @@ A continuación se muestra que los votos son, efectivamente, totalizados
 					
 				\subsection{Estructura de la aplicación móvil}
 					\todo[inline]{Interfaz de usuario de la app.}
-					La interfaz de usuario de la app Android necesaria para ingresar en el sistema con los certificados digitales del DNIe 3.0 no ha sido modificada ostensiblemente.
+					La interfaz de usuario de la app Android necesaria para ingresar en el sistema con los certificados digitales del \gls{DNIe} 3.0 no ha sido modificada ostensiblemente.
 					
 					Aunque es una parte primordial del sistema y su adaptación ha requerido bastante estudio y desarrollo, realmente al final no se utiliza durante un tiempo suficiente. Por ello, para el prototipo se ha decidido no invertir demasiado tiempo en su modificación estética, por lo que se ha reutilizado la diseñada originariamente por los desarrolladores de la app original de la DGP.
 					
