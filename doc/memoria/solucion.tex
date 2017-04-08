@@ -343,13 +343,20 @@ class AuthorizeView(View):
 				De cara al votante, le permite acceder a la elección de las alternativas que se le presentan para votar y emitir su voto de forma segura, secreta y anónima, con la seguridad de que no es manipulado y que será correctamente escrutado.
 				
 				Junto al módulo central de votación, este sistema presenta otros cuatro módulos específicos.
+				
+				\begin{figure}[!ht]
+					\centering
+						\includegraphics[width=.95\textwidth]{imgs/arquitecturaSistema.png}
+					\caption{Arquitectura del sistema}
+					\label{fig:arquitectura.sistema}
+				\end{figure}	
 			
 				\begin{description}
 					\item[Cabina de votación:] Es el módulo que permite a los votantes elegir el voto y cifrarlo. Lo separamos del módulo principal porque se un módulo escrito principalmente en javascript y se ejecuta en el navegador del cliente. Se delega en la máquina del cliente la potencia necesaria para el cifrado de su voto.
 					
 					\item[Verificador de la elección:] Es un módulo de acceso externo que permite, pasándole la huella digital de una elección que ya haya terminado, la verificación de la integridad de la misma. Así, por medio de funciones criptográficas, asegura que la elección ha sido correctamente escrutada y que todos los votos fueron correctamente incluidos en el escrutinio.
 					
-					\item[Gestor de tareas:] Utilizando la librería celery y kombu, Helios implementa un gestor de tareas basado en una cola. En el sistema se definen varias tareas que, cuando toca llevarlas a cabo, en vez de encargarse de realizarlas de forma síncrona, las incluye en una cola y sigue con el flujo de funcionamiento normal. Celery se encarga de consultar esta cola y extraer las tareas que hay que realizar. 
+					\item[Gestor de tareas:] Utilizando las librerías celery y kombu, Helios implementa un gestor de tareas basado en una cola. En el sistema se definen varias tareas que, cuando toca llevarlas a cabo, en vez de encargarse de realizarlas de forma síncrona, las incluye en una cola y sigue con el flujo de funcionamiento normal. Celery se encarga de consultar esta cola y extraer las tareas que hay que realizar. 
 					
 					Es el responsable de realizar tareas como la carga de ficheros de votantes del censo, iniciar el escrutinio o el envío masivo de emails a usuarios del sistema, entre otras.
 					
@@ -495,12 +502,18 @@ class AuthorizeView(View):
 
 
 					Además, incluye un módulo \textit{password.py} utilizado para la identificación de usuario por medio del par \{usuario, contraseña\}.
+					\begin{itemize}
+						\item User/password $\Leftarrow$ helios\_auth/auth\_system/password.py
+					\end{itemize}
 					
 					Para este \gls{PFC} ha sido necesario, pues, la implementación de un módulo nuevo para gestionar la identificación a través del \gls{DNIe}.
 					
 					Este módulo es \textit{dnie.py}.
+					\begin{itemize}
+						\item DNIe $\Leftarrow$ helios\_auth/auth\_system/dnie.py
+					\end{itemize}
 					
-					Define una clase \textbf{DNIe} con una serie de miembros que almacenan la información del usuario recibida desde el Sistema de Autenticación, del certificado digital de autenticación del \gls{DNIe}.
+					Define una clase \textbf{\gls{DNIe}} con una serie de miembros que almacenan la información del usuario recibida desde el Sistema de Autenticación, del certificado digital de autenticación del \gls{DNIe}.
 					
 					\begin{lstlisting}[language=Python]
   class DNIe:
@@ -560,15 +573,14 @@ class AuthorizeView(View):
 			\end{figure}
 		
 			\subsection{Código fuente}\label{solucion_app_codigofuente}
-				Obviamente, el código fuente de la app ha debido ser modificado ya que la funcionalidad que se busca que tenga la aplicación no es la misma que la que ofrece la original.
+				El código fuente de la app original de la \gls{DGP} ha debido ser modificado ya que la funcionalidad que se busca que tenga la aplicación no es la misma que la que ofrece la original.
 		
 				En la app original, al entrar se nos ofrece un menú radial con diferentes opciones. Esto no ocurre en la versión de este proyecto. La app en nuestro caso está pensada para realizar tan sólo un trabajo, realizar la identificación y autenticación de usuario contra un servidor oAuth y transmitir al sistema de votación la aceptación o revocación de acceso del mismo contra el sistema.
 		
 				Por ello, la app va a carecer de un menú inicial, ya que no es necesario.
 		
 				Una vez se abra la app, ya sea desde el menú del dispositivo o desde el botón de login de la página inicial de la web del sistema de votación, aparecerá el menú de selección del \gls{CAN} del \gls{DNIe} que queremos utilizar, o, si es la primera vez que cierto usuario utiliza la app, la posibilidad de añadir un nuevo \gls{DNIe} con su \gls{CAN} correspondiente.
-				
-				\todo{Me he traído esto del código fuente aquí. Hay que cambiarle el nombre e integrarlo con la subsection siguiente}
+
 			
 			\subsection{App Android de Autenticación}\label{solucion_appAndroidAutenticacion}
 					Ya se ha explicado que para realizar el acceso al sistema de voto desde dispositivos móviles, se ha optado por modificar una de las apps de ejemplo publicadas por la Policía española.
@@ -692,19 +704,21 @@ class AuthorizeView(View):
 					Es en este momento cuando la app utiliza el certificado de autenticación del DNIe realizar una petición \gls{HTTPS} contra el servidor de autenticación del sistema de voto. Cada una de las llamadas que le exige el protocolo de comunicación oAuth2 se realizará de forma segura, con los certificados del servidor y el de autenticación del documento (figuras \ref{fig:login.android.lanzandoConexion} y \ref{fig:login.android.recepcionCodigooAuth}). 
 					
 					\begin{figure}[!ht]
-						\centering
-							\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[height=6cm]{imgs/login_Android/android_090.png}}
-						\caption{App Autenticación Android: Lanzando conexión segura con los certificados.}
-						\label{fig:login.android.lanzandoConexion}
+				    		\centering
+				    		\begin{minipage}{0.45\textwidth}
+				    		    	\centering				
+							\includegraphics[height=6cm]{imgs/login_Android/android_090.png}				
+							\caption{App Autenticación Android: Lanzando conexión segura con los certificados.}				
+							\label{fig:login.android.lanzandoConexion}
+				    		\end{minipage}\hfill
+				    		\begin{minipage}{0.45\textwidth}
+				        		\centering				
+							\includegraphics[height=6cm]{imgs/login_Android/android_100.png}				
+							\caption{App Autenticación Android: Recepción de código oAuth.}				
+							\label{fig:login.android.recepcionCodigooAuth}    	\end{minipage}
 					\end{figure}
 					
-					\begin{figure}[!ht]
-						\centering
-							\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[height=6cm]{imgs/login_Android/android_100.png}}
-						\caption{App Autenticación Android: Recepción de código oAuth.}
-						\label{fig:login.android.recepcionCodigooAuth}
-					\end{figure}
-					
+										
 					Para poder establecer un canal seguro contra el servidor de autenticación, es necesario, según la implementación de la app original de ejemplo, que el certificado del servidor y la AC raíz vayan embebidos en el código de la app. Así mismo, es necesario que se incluya el hash del mismo para que el objeto DroidHTTPClient que establece la conexión al servidor sea capaz de establecer este camino seguro.
 					
 					Esta keystore con los dos certificados se debe incluir en el proyecto Android con un formato BKS, lo cual se consigue realizando los pasos expuestos en el anexo \ref{App:exportarCertsAppAndroid}.
@@ -762,14 +776,6 @@ class AuthorizeView(View):
 						\caption{App Autenticación Android: Acceso al sistema de voto con login con el DNIe.}
 						\label{fig:login.android.logado}
 					\end{figure}
-
-
-		\begin{figure}[!ht]
-			\centering
-				\includegraphics[width=.95\textwidth]{imgs/arquitecturaSistema.png}
-			\caption{Arquitectura del sistema}
-			\label{fig:arquitectura.sistema}
-		\end{figure}	
 					
 
 		

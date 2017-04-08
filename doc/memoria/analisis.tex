@@ -372,7 +372,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			\label{fig:integracion.01}
 		\end{figure}
 				
-		\subsection{Servidor central de votación}
+		\subsection{Sistema central de votación}\label{analisis_integracion_sistemaVotacion}
 			El sistema orquestador del protocolo de votación elegido será Helios Voting\footnote{\url{https://github.com/benadida/helios}}, de Ben Adida\footnote{\url{http://ben.adida.net/}}. Este proyecto cumple perfectamente con requisitos tales como el bajo coste, al ser software libre y correr sobre sistemas como Unix, que no requiere pago de licencias. También, gracias a la forma en la que está implementado, las acciones que requiere mayores recursos de cómputo se realizan o en el cliente (cifrado del voto) o tan sólo una vez al finalizar una elección (totalización y su descifrado), por lo que durante el resto del tiempo no necesita un sistema con gran capacidad de cálculo; en su caso, dependiendo del número de elecciones y de votantes, requiera una plataforma fácilmente escalable basándose en el número de usuarios concurrentes que puedan acceder al sistema.
 				
 			Tras un estudio de diferentes opciones para este módulo del sistema a implementar, estos son algunos motivos por los que se ha decidido adaptar el sistema Helios Voting como:
@@ -407,7 +407,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 				
 			Con la intención de utilizar el DNIe como herramienta de seguridad para el login, ha sido necesario adaptar el sistema de login propio de Helios Voting. El sistema ya de por sí ofrecía alternativas, tales como login con terceros como Google, Facebook, Yahoo! o Twitter. También ofrece login por usuario/contraseña. Y se desarrolló un CAS para el login en las elecciones de la Universidad de Lovaina. Cualquiera de estos sistemas de login está bien para el tipo de elección que queremos desarrollar - incluso el del CAS, asociándolo a la cuenta de alumnado y profesorado de la Universidad me resulta muy interesante - pero no cumplen con los objetivos iniciales del proyecto. Por ello ha sido necesaria la integración de un sistema que permita la utilización del documento oficial español.
 
-		\subsection{Servidor de autenticación / identificación}
+		\subsection{Sistema de autenticación / identificación}
 			Se ha utilizado un sistema basado en el protocolo oAuth de tres patas como base para el sistema de login. Este protocolo está implementado en el proyecto django-oauth2-server\footnote{\url{https://github.com/RichardKnop/django-oauth2-server}} desarrollado por Richard Knop. De todos modos, ha sido necesario modificarlo para adaptarlo a las necesidades del DNIe. 
 	
 	
@@ -454,14 +454,10 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 % 			HELIOS VOTING
 % *************************************************************************************************************** %
 	\section{Helios Voting}\label{planteamiento_HeliosVoting}
-		\todo[inline]{He movido esta sección desde Planteamiento a Análisis porque creo que es donde debo comentar qué sistema hemos elegido para adaptar y los motivos que nos han llevado a ello.}
 		
-		Como ya se ha comentado, tras el estudio de varias soluciones ya implementadas y de una solución diseñada desde cero, he decidido usar un sistema ya desarrollado como base para el diseño de la solución que lleve a cabo el proceso electoral en la Escuela.
+		Tras el estudio de diferentes opciones para la implementación del \textit{core} del sistema de votación, se ha decidido, teniendo en cuenta en los motivos planteados en \ref{analisis_integracion_sistemaVotacion}, basar el desarrollo de este módulo en la adaptación del proyecto de software libre Helios Voting.
 		
-		
-		
-		\notasCambio[inline]{No me gusta nada cómo está redactado esto ni me parece que esté en el sitio correcto. Cambiar.}
-
+		Por ello, se plantea aquí una breve descripción de varios elementos técnicos y funcionales de este proyecto, así como de las actuaciones que se deben realizar sobre cada módulo para poder realizar una integración satisfactoria y desarrollar un sistema que cumpla con los requisitos y necesidades de la Elección a la Junta de Escuela.
 
 		\subsection{Fases de la elección en Helios}\label{planteamiento_HeliosVoting_Fases}
 			Desde el punto de vista del administrador, el actor que más acciones puede realizar en el sistema, una elección con el sistema Helios Voting se desarrolla a través de una serie de fases o acciones.
@@ -585,11 +581,9 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			
 			Como se ha explicado en \ref{primitivaCifradoHomomorfico_elgamal} las propiedades de un cifrado homomórfico implican que el cifrado del producto de dos mensajes (números) se corresponda con el producto de ambos mensajes cifrados.
 			
-			El algoritmo de ElGamal es un algoritmo de cifrado homomórfico. Pese a ser bastante interesante, existe otra aproximación al problema, con el cifrado homomórfico exponencial. De este tipo el algoritmo de ElGamal Exponencial. Con este algoritmo se puede obtener una relación entre la suma de dos mensajes cifrados y el cifrado de la suma de dos mensajes. Se basa en la elección de un número grande usado como generador, el cual usa el mensaje como exponente. El producto de dos generadores elevados exponencialmente cada uno a un mensaje y cifrados es igual que el cifrado del generador elevado a la suma de los dos mensajes.
+			El algoritmo de ElGamal es un algoritmo de cifrado homomórfico. Este algoritmo de cifrado homomórfico define que \textit{"el cifrado de la multiplicación de dos elementos es igual a la multiplicación de ambos elementos cifrados"}. A partir de este algoritmo, se realiza una evolución importante para el voto electrónico, con el el cifrado homomórfico exponencial. De este tipo es el algoritmo de ElGamal Exponencial, que define que \textit{"el cifrado de la suma de dos elementos es igual que la suma de los dos elementos cifrados"}. Esto se obtiene variando ElGamal tradicional hacia la exponenciación de sus elementos. Se basa en la elección de un número grande usado como generador, el cual usa el mensaje como exponente. El producto de dos generadores elevados exponencialmente cada uno a un mensaje y cifrados es igual que el cifrado del generador elevado a la suma de los dos mensajes.
 			
-			Aplicando estas propiedades al voto electrónico podemos inferir que cifrando los votos de cada votante, se puede obtener el cifrado de la suma de todos ellos. Una vez se obtiene, si se descifra, se obtiene el resultado totalizado de los votos. Es decir, que se pueden cifrar los votos y conseguir obtener la suma de ellos sin violar el secreto de cada voto individual.
-			
-			\todo[inline]{Esto se quedó a la mitad... :S}
+			Aplicando estas propiedades al voto electrónico podemos inferir que cifrando los votos de cada votante, se puede obtener el la suma de los votos cifrados. Cuando se descifra esta suma de votos cifrados, se obtiene el resultado totalizado de los votos. Es decir, que se pueden cifrar los votos y conseguir obtener la suma de ellos sin violar el secreto de cada voto individual. En ningún momento el voto está en plano, desde que el votante lo cifra al votar permanece encriptado. Ni siquiera al totalizar se descifran los votos, sólo se descifra la suma de ellos. 
 			
 
 	
@@ -606,7 +600,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 		
 	
 	
-	o-----------
+	o----------- \todo[inline]{Hay que revisar cómo redactar correctamente este apartado}
 	
 	
 	
@@ -647,7 +641,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			Implementando algún tipo de soporte de autenticación por DNIe en Helios y tratando de acceder desde el móvil a través del navegador, nos encontraríamos este problema. Chrome, o el navegador que utilicemos, no tiene los certificados digitales cargados en su almacén de certificados.
 		
 		
-			----	
+			---- \todo[inline]{Este apartado debe ser mejorado}	
 			Otro camino de investigación se basa en la app de Autenticación publicada por el Ministerio del Interior a través de la Policía.
 		
 			En esta, se implementa un ejemplo a través del cual se pueden realizar varios trámites de consultas contra la web del Ayuntamiento de Madrid. Concretamente, permite las consultas:
@@ -671,8 +665,6 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			Es en este momento cuando se produce la comunicación entre dispositivo y el chip de radiofrecuencia, permitiendo el paso de respuestas y comandos entre ambos.
 		
 			Una vez se realizan las operaciones básicas de lectura de certificados, la app solicita el PIN del DNIe al usuario. Con este PIN, se autentica al usuario contra el DNIe y concede permisos de acceso a las claves. A partir de este momento, todas las comunicaciones entre DNIe y dispositivo van cifradas.
-		
-	\todo[inline]{Falta el tipo de cifrado, que en la documentación no aparece}
 		
 			El usuario puede a partir de aquí realizar las operaciones que requieren sus claves, como puede ser la firma de documentos o, la que buscamos para el sistema Helios, establecer una conexión segura con el servidor prestador de servicios, entre otras.
 		
@@ -761,9 +753,14 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			
 			A la hora de diseñar el protocolo de un sistema de votación, uno de los puntos más importantes es el de decidir si el voto debe ser único. Hay que valorar qué es lo más adecuado para el protocolo, si un votante puede emitir tantos votos como quiera, validando tan sólo uno de ellos y rechazando el resto. O si, por el contrario, el votante debería ejercer su derecho al voto tan sólo una vez y deberíamos asegurar que no hay posibilidad de que pueda volver a hacerlo.
 			
-			La posibilidad de permitir al votante emitir su voto más de una vez proviene, en parte, de la necesidad de proteger al votante frente a la coerción por parte de un tercero. En caso de ser coaccionado a votar por un candidato, siempre tendrá la posibilidad de volver a emitir un nuevo voto que invalide el anterior mientras esté abierto el período electoral. Este mecanismo, unido con la carencia de un recibo que demuestre el contenido del voto válido emitido, hace muy complicado que un tercero que coaccione\notasDuda{Aquel que coacciona es un ... ¿?} pueda llevar a cabo su fraude electoral, pues es muy complicado que pueda conseguir que el voto que coacciona sea el último emitido por todos y cada uno de los votantes que necesita para cambiar el resultado electoral.
+			La posibilidad de permitir al votante emitir su voto más de una vez proviene, en parte, de la necesidad de proteger al votante frente a la cocacción por parte de un tercero.
+			En caso de ser coaccionado a votar por un candidato, siempre tendrá la posibilidad de volver a emitir un nuevo voto que invalide el anterior mientras esté abierto el período electoral.
+			Este mecanismo, unido a que no se emite ningún recibo que demuestre el contenido del voto, hace muy complicado que un sujeto coaccionador pueda llevar a cabo un fraude electoral, ya que resultaría muy complicado que pudiese conseguir que el voto por el que coacciona sea el último emitido por todos y cada uno de los votantes que necesita para cambiar el resultado electoral.
 			
-			Por otro lado, sin embargo, otras corrientes entienden que para que un votante pueda votar varias veces, invalidando por el camino los votos intermedios es necesario que, durante un periodo del proceso electoral, estén almacenados en el sistema un par voto-votante. Esto es así porque si un votante emite un voto, cuando quiera volver a votar, el primero ha de ser descartado, por lo que debe ser posible encontrar el voto previo asociado al votante. Es una violación clara del principio \todo[inline]{Aquí hay que poner la característica que viola del voto electrónico}. Es por ello que estas corrientes defienden que, de la misma forma que el voto tradicional, es más seguro para el votante el que vote solamente una vez, siendo este el único voto que debe ser introducido en la urna. Además, de este modo, no hace falta guardar la dupla voto-votante en el sistema, basta con almacenar el voto en la urna digital y marcar en el censo que el votante ya ha votado.
+			Sin embargo, otras corrientes entienden que para que un votante pueda votar varias veces, invalidando por el camino los votos intermedios es necesario que, durante un periodo del proceso electoral, estén almacenados en el sistema un par voto-votante. Esto es así porque si un votante emite un voto, cuando quiera volver a votar, el primero ha de ser descartado, por lo que debe ser posible encontrar el voto previo asociado al votante. Es una violación del anonimato del votante, característica esencial en muchos procesos electorales. Sin ir más lejos, este detalle descartaría, basándonos en la Constitución Española, a un sistema con esta propiedad, pues en el Texto se recoge que el voto ha de ser anónimo y no puede ser trazado. Manteniendo la paridad votante-voto, esta relación podría ser trazada.
+			Es por ello que estas corrientes defienden que, de la misma forma que el voto tradicional, es más seguro para el votante el que vote solamente una vez, siendo este el único voto que debe ser introducido en la urna. Además, de este modo, no hace falta guardar la dupla voto-votante en el sistema, basta con almacenar el voto en la urna digital y marcar en el censo que el votante ya ha votado.
+			
+			En el caso del protocolo criptográfico de Helios, en el que se apoya este desarrollo, se puede implementar una elección con un mecanismo de voto múltiple a la vez que se protege el anonimato de cada votante. Esto se consigue utilizando el cifrado homomórfico. Los votos, al estar cifrados, pueden almacenarse junto a la identidad de su votante. En caso de un nuevo voto, se puede localizar y descartar el anterior. Al final, se une su último voto al del resto de los votantes y se totalizan, para, en el último paso, descifrar el resultado de la suma. La protección del anonimato y la imposibilidad de trazabilidad del voto es posible porque una vez que un voto ha sido cifrado, nunca será descifrado, por lo que nunca estará almacenado un voto en plano junto con su votante.
 			
 		\subsection{Difusión de resultados}\label{analisis_difusion}
 			La difusión de resultados por parte de Helios consiste en una web muy simple que indica las distintas opciones de voto y cuántos votos ha recibido cada una. Ni siquiera ordena los resultados por orden de votos contabilizados.
