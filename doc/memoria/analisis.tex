@@ -154,7 +154,8 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 				\end{enumerate}
 
 			
-
+
+
 \iffalse		
 			\subsection{Necesidades del esquema de voto electrónico}
 			\begin{description}[font=$\bullet$\ \ ]
@@ -273,16 +274,26 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 		\begin{description}[font=$\bullet$\ \ ]
 			\item[Votante] \hfill \
 			
-				El votante es el actor principal del sistema, pues es al que va dirigido el proceso de votación. Es el único rol que tiene la capacidad de votar. Las acciones que puede realizar son:	
-				\begin{itemize}			
-					\item Consultar su presencia en el censo.			
-					\item Identificarse unívocamente en el sistema.			
-					\item Elegir la papeleta con su voto.			
-					\item Capacidad de poder emitir un voto nulo.			
-					\item Firmar el voto.			
-					\item Votar preservando el carácter anónimo del voto.			
-					\item Consultar que su voto ha sido contabilizado.			
-					\item Auditar el correcto escrutinio de la elección.			
+				El votante es el actor principal del sistema, pues es al que va dirigido el proceso de votación. Es el único rol que tiene la capacidad de votar. Las acciones que puede realizar son:
+	
+				\begin{itemize}
+			
+					\item Consultar su presencia en el censo.
+			
+					\item Identificarse unívocamente en el sistema.
+			
+					\item Elegir la papeleta con su voto.
+			
+					\item Capacidad de poder emitir un voto nulo.
+			
+					\item Firmar el voto.
+			
+					\item Votar preservando el carácter anónimo del voto.
+			
+					\item Consultar que su voto ha sido contabilizado.
+			
+					\item Auditar el correcto escrutinio de la elección.
+			
 				\end{itemize}
 				
 			\item[Administrador] \hfill \
@@ -321,7 +332,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			
 				Junto con los cuatro roles expuestos, encontramos un quinto actor en la figura de la Autoridad Certificadora. Esta entidad es la encargada de generar, administrar, validar y verificar las credenciales que han de usar cada uno de los votantes para emitir el voto, así como los de cada uno de los actores del proceso (administradores, miembros de la Junta Electoral, auditores o incluso los sistemas y sus comunicaciones).
 				
-				Al hacer uso del \gls{DNIe} para la identificación y firma del votante, en estas fases, es la Dirección General de la Policía, dependiente del Ministerio del Interior, la que actúa como Autoridad de Certificación, combinando dos pares de claves con un ciudadano concreto a través de la emisión de sendos Certificados de conformidad con los términos de la Declaración de Prácticas y Políticas de Certificación (DPC) \cite{politicasDeCertificacion:2006}\cite{politicasDeCertificacion:2014} que rige el funcionamiento y operaciones de la Infraestructura de Clave Pública de los Certificados de identidad pública y firma electrónica del Documento Nacional de Identidad (DNIe).
+				Al hacer uso del \gls{DNIe} para la identificación y firma del votante, en estas fases, es la Dirección General de la Policía, dependiente del Ministerio del Interior, la que actúa como Autoridad de Certificación, combinando dos pares de claves con un ciudadano concreto a través de la emisión de sendos Certificados de conformidad con los términos de la Declaración de Prácticas y Políticas de Certificación (DPC) \cite{politicasDeCertificacion:2006}\cite{politicasDeCertificacion:2014} que rige el funcionamiento y operaciones de la Infraestructura de Clave Pública de los Certificados de identidad pública y firma electrónica del Documento Nacional de Identidad (\gls{DNIe}).
 		
 			\item[Trustee] \hfill \
 			
@@ -396,7 +407,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 		
 				\item[Los votos cifrados no se descifran:] Gracias a que su protocolo criptográfico se basa en el \textbf{cifrado homomórfico aditivo} (ver \ref{primitivaCifradoHomomorfico_elgamal}), no es necesario que sean desencriptados para realizar el escrutinio, por lo que protegen la privacidad, secreto y anonimicidad de cada votante, cumpliendo con varios de los requisitos fundamentales del voto electrónico/por Internet.
 		
-				\item Buscando alguna solución para implementar identificación de usuarios de la EPS, ya provee de mecanismos como oAuth, que puede ser modificado para utilizar el DNIe como herramienta de acceso seguro a la web, o sistemas como el CAS utilizado en las elecciones de la Universidad Católica de Lovaina, que podría servir de base a un sistema de acceso basado en las cuentas de usuario de los estudiantes de la EPS. Son frameworks que no valen tal cual están implementados, pero que permiten una posibilidad de modificación muy interesante para implementar nuevos sistemas de acceso basados en las necesidades de la EPS.
+				\item Buscando alguna solución para implementar identificación de usuarios de la EPS, ya provee de mecanismos como oAuth, que puede ser modificado para utilizar el \gls{DNIe} como herramienta de acceso seguro a la web, o sistemas como el CAS utilizado en las elecciones de la Universidad Católica de Lovaina, que podría servir de base a un sistema de acceso basado en las cuentas de usuario de los estudiantes de la EPS. Son frameworks que no valen tal cual están implementados, pero que permiten una posibilidad de modificación muy interesante para implementar nuevos sistemas de acceso basados en las necesidades de la EPS.
 					
 			\end{description}	
 				
@@ -503,7 +514,6 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 						\todo[inline]{Es interesante lo que dice la propia web de Helios cuando se definen los trustees}
 						
 							\begin{description}
-								%\item [Setup key - generate key]
 								\item [Configuración y generación de la clave]
 								\item [Guardar la clave secreta] 
 								\item [Subir la clave pública] (verificar la clave privada)
@@ -532,10 +542,14 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 				Esta difusión se realiza en dos pasos.
 				Primero, el sistema muestra los resultados al administrador. El segundo paso requiere que el administrador de su aprobación para liberar los resultados, momento en el cual cualquier usuario del sistema, votante, auditor o un tercero externo tendrá la posibilidad de ver los resultados y verificar la integridad de los mismos.
 				
-				\item[Auditorías]	
-				El sistema Helios Voting implementa dos mecanismos de auditoría activa (que puede realizar el votante y/o auditores o visitantes).		
-				Por un lado, el votante tiene la posibilidad de auditar un voto de forma individual. Puede realizar el paso de votar una opción y auditar este voto. El voto será descifrado y presentado en claro, para que compruebe la correctitud del proceso. Este voto, no obstante, será desechado y el votante deberá volver a realizar el proceso de emisión de voto.		
-				Por otra parte, Helios Voting implementa un mecanismo de auditoría por el que, tanto los votantes como cualquier persona interesada en el proceso, tiene la posibilidad de auditar el escrutinio una vez ha sido publicado para probar la integridad del mismo.		
+				\item[Auditorías]
+	
+				El sistema Helios Voting implementa dos mecanismos de auditoría activa (que puede realizar el votante y/o auditores o visitantes).
+		
+				Por un lado, el votante tiene la posibilidad de auditar un voto de forma individual. Puede realizar el paso de votar una opción y auditar este voto. El voto será descifrado y presentado en claro, para que compruebe la correctitud del proceso. Este voto, no obstante, será desechado y el votante deberá volver a realizar el proceso de emisión de voto.
+		
+				Por otra parte, Helios Voting implementa un mecanismo de auditoría por el que, tanto los votantes como cualquier persona interesada en el proceso, tiene la posibilidad de auditar el escrutinio una vez ha sido publicado para probar la integridad del mismo.
+		
 				Ambos procedimientos se explican en \ref{planteamiento_HeliosVoting_auditoria}.
 			\end{description}
 			
@@ -588,47 +602,73 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 
 	
 		\subsection{Identificación}\label{analisis_identificacion}
-			Una vez visto el sistema sobre el que basar los procesos electorales que hemos de llevar a cabo en la EPS, es el momento de implementar modificaciones en el mismo.		
-				
-			En primer lugar, el cambio más importante es el que se refiere a la identificación de votantes.			
-						
-			En Helios, de forma nativa, los sistemas que permiten la entrada de votantes al sistema son usuario/password y una serie de servicios oAuth de terceros, incluyendo Facebook, Twitter, Google y Yahoo!. 			
-						
-			Existe una modificación especial para las elecciones de la Universidad de Lovaina en la que se implementó un sistema CAS contra la base de datos de alumnos de la Universidad. Con este sistema, los usuarios se podían logar en el sistema con la identificación de la Universidad y contra un servicio que ésta brindaba, es decir, que el control de entrada de usuarios se delegaba en la Universidad y se confiaba en su sistema a la hora de proporcionar roles y permisos a los usuarios del sistema.			
-						
-			Para las Elecciones en la EPS, podría llegar a valorarse este sistema CAS, modificándolo para adecuarlo a la infraestructura digital de la Universidad. Pero no es uno de los objetivos de este PFC, teniendo en cuenta la idea de utilización del DNIe 3.0 y la necesidad de limitar la interacción con la Universidad por el acceso a sus sistemas.	
-		
+			Una vez visto el sistema sobre el que basar los procesos electorales que hemos de llevar a cabo en la EPS, es el momento de implementar modificaciones en el mismo.
+		
+		
+		
+			En primer lugar, el cambio más importante es el que se refiere a la identificación de votantes.
+			
+			
+			
+			En Helios, de forma nativa, los sistemas que permiten la entrada de votantes al sistema son usuario/password y una serie de servicios oAuth de terceros, incluyendo Facebook, Twitter, Google y Yahoo!. 
+			
+			
+			
+			Existe una modificación especial para las elecciones de la Universidad de Lovaina en la que se implementó un sistema CAS contra la base de datos de alumnos de la Universidad. Con este sistema, los usuarios se podían logar en el sistema con la identificación de la Universidad y contra un servicio que ésta brindaba, es decir, que el control de entrada de usuarios se delegaba en la Universidad y se confiaba en su sistema a la hora de proporcionar roles y permisos a los usuarios del sistema.
+			
+			
+			
+			Para las Elecciones en la EPS, podría llegar a valorarse este sistema CAS, modificándolo para adecuarlo a la infraestructura digital de la Universidad. Pero no es uno de los objetivos de este PFC, teniendo en cuenta la idea de utilización del DNIe 3.0 y la necesidad de limitar la interacción con la Universidad por el acceso a sus sistemas.
+	
+			\subsubsection{Evolución}
 	
 	
-	o----------- \todo[inline]{Hay que revisar cómo redactar correctamente este apartado}
 	
-	
-	
-			La primera idea para integrar el \gls{DNIe} en el sistema Helios consistía en realizar un acceso seguro, por \gls{SSL}, que requiriese autenticación por el \gls{DNIe}, del mismo modo que la mayoría de las webs de la Administración pública.			
-						
-			Para llegar a esta implementación, era necesario modificar el sistema de login de Helios, así como el servidor sobre el que corre.			
-						
-			Hubo que configurar el servidor para que éste requiriese el establecimiento de un canal seguro \gls{SSL} a través de los certificados del \gls{DNIe}. Para ello, hay que modificar la configuración del servidor Apache sobre el que corremos el proyecto Django sobre el que se implementa Helios Voting.			
-						
-			Una vez configurado el canal \gls{HTTPS}, había que implementar un módulo de login que pidiese al usuario el DNIe. Para esto existe un applet de java que proporciona la Dirección General de la Policía que cumple con el cometido. 			
-						
-			Con estas implementaciones somos capaces de que un usuario intente acceder al sistema de votación, este le pedirá las credenciales del DNIe para validarlas y establecer un canal SSL seguro con el servidor. A través del canal seguro establecido, el applet presenta las credenciales del usuario por medio del certificado privado del \gls{DNIe}, previa consulta al usuario del \gls{PIN} correspondiente. Con las credenciales que recibe el sistema de login, se le puede conceder o denegar acceso al usuario identificado			
-						
-						
+			La primera idea para integrar el \gls{DNIe} 3.0 en el sistema Helios consistía en realizar un acceso seguro, por \gls{SSL}, que requiriese autenticación por el \gls{DNIe}, del mismo modo que la mayoría de las webs de la Administración pública.
+			
+			
+			
+			Para llegar a esta implementación, era necesario modificar el sistema de login de Helios, así como el servidor sobre el que corre.
+			
+			
+			
+			Hubo que configurar el servidor para que éste requiriese el establecimiento de un canal seguro \gls{SSL} a través de los certificados del \gls{DNIe}. Para ello, hay que modificar la configuración del servidor Apache sobre el que corremos el proyecto Django sobre el que se implementa Helios Voting.
+			
+			
+			
+			Una vez configurado el canal \gls{HTTPS}, había que implementar un módulo de login que pidiese al usuario el DNIe. Para esto existe un applet de java que proporciona la Dirección General de la Policía que cumple con el cometido. 
+			
+			
+			
+			Con estas implementaciones somos capaces de que un usuario intente acceder al sistema de votación, este le pedirá las credenciales del DNIe para validarlas y establecer un canal SSL seguro con el servidor. A través del canal seguro establecido, el applet presenta las credenciales del usuario por medio del certificado privado del \gls{DNIe}, previa consulta al usuario del \gls{PIN} correspondiente. Con las credenciales que recibe el sistema de login, se le puede conceder o denegar acceso al usuario identificado
+			
+			
+			
+			
+			
 			
 	
 	
 	
-			El Ministerio del Interior de España\footnote{\url{http://www.interior.gob.es/}}, a través de la Dirección General de la Policía, es el órgano encargado de la gestión y desarrollo del DNI electrónico\footnote{\url{http://www.dnielectronico.es/PortalDNIe/}}. Por tanto, además de ser los responsables del control y la emisión de estas credenciales, son los responsables de desarrollar las APIs y documentación para que los desarrolladores puedan utilizar los certificados digitales que llevan en aplicaciones o servicios prestados por terceros.			
-						
-			En el caso del \gls{DNIe} 3.0, en el área de descargas\footnote{\url{http://www.dnielectronico.es/PortalDNIe/PRF1_Cons02.action?pag=REF_1120}} de la web de la DGP han publicado el código fuente de tres aplicaciones Android y su respectiva documentación para dar una muestra de cómo implementar apps que hagan uso del certificado NFC que trae como novedad este documento.			
-						
+			El Ministerio del Interior de España\footnote{\url{http://www.interior.gob.es/}}, a través de la Dirección General de la Policía, es el órgano encargado de la gestión y desarrollo del DNI electrónico\footnote{\url{http://www.dnielectronico.es/PortalDNIe/}}. Por tanto, además de ser los responsables del control y la emisión de estas credenciales, son los responsables de desarrollar las APIs y documentación para que los desarrolladores puedan utilizar los certificados digitales que llevan en aplicaciones o servicios prestados por terceros.
+			
+			
+			
+			En el caso del \gls{DNIe} 3.0, en el área de descargas\footnote{\url{http://www.dnielectronico.es/PortalDNIe/PRF1_Cons02.action?pag=REF_1120}} de la web de la DGP han publicado el código fuente de tres aplicaciones Android y su respectiva documentación para dar una muestra de cómo implementar apps que hagan uso del certificado NFC que trae como novedad este documento.
+			
+			
+			
 			Estas tres aplicaciones compartidas se centran en las tres funcionalidades que aporta este chip:
-			\begin{description}	
-				\item[Aplicación Android de Lectura:] Código fuente de una aplicación que permite a un dispositivo Android con un sensor NFC el leer los datos públicos del chip NFC del DNI electrónico.		
-				\item[Aplicación Android Autenticación:] Código fuente de una aplicación que permite a través de un dispositivo Android el poder autenticarse contra un servidor con las credenciales digitales que integra el chip NFC en el DNI electrónico.		
-				\item[Aplicación Android Firma:] Código fuente de una aplicación que permite la firma de documentos u otro tipo de objetos digitales con el certificado digital personal privado que ofrece el DNIe a través de software en dispositivos Android gracias a la tecnología sin contacto NFC.		
-			\end{description}	
+			\begin{description}
+	
+				\item[Aplicación Android de Lectura:] Código fuente de una aplicación que permite a un dispositivo Android con un sensor NFC el leer los datos públicos del chip NFC del DNI electrónico.
+		
+				\item[Aplicación Android Autenticación:] Código fuente de una aplicación que permite a través de un dispositivo Android el poder autenticarse contra un servidor con las credenciales digitales que integra el chip NFC en el DNI electrónico.
+		
+				\item[Aplicación Android Firma:] Código fuente de una aplicación que permite la firma de documentos u otro tipo de objetos digitales con el certificado digital personal privado que ofrece el DNIe a través de software en dispositivos Android gracias a la tecnología sin contacto NFC.
+		
+			\end{description}
+	
 		
 			El sistema Helios Voting permite votar en unas elecciones desde un navegador web. El objetivo es que también podamos hacerlo desde un smartphone a través de una app que nos permita votar desde cualquier punto con conexión a Internet, por lo que hay que valorar la mejor opción para ello.
 		
@@ -636,20 +676,26 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 		
 			Una primera prueba que se realizó fue tratar de autenticarse en una web a través del DNIe.
 		
-			Al entrar en la Sede Electrónica de la Agencia Tributaria, para consultar los expedientes es necesario facilitar certificados digitales para poder ser identificado y autenticado contra el sistema. Al intentar abrir la página, Google Chrome nos muestra un aviso \todo[inline]{Captura de pantalla del móvil donde pide los certificados} en el que nos indica que no se han encontrado los certificados. Incluso nos ofrece la posibilidad de instalarlos. Podríamos dirigirnos a la web de la FNMT\footnote{\url{https://www.sede.fnmt.gob.es/certificados/persona-fisica/obtener-certificado-software}} y gestionar la emisión de un certificado digital, que podríamos descargar y utilizar como identificación digital de la misma forma que lo podemos hacer con el DNIe. De todos modos, la obtención de este certificado por parte de la FNMT requiere de un paso en el que el usuario ha de personarse físicamente en una Oficina de Registro para acreditar su identidad. Con este certificado instalado en el almacén de certificados de Google Chrome se podría gestionar la identificación contra la web a la que tratamos de acceder, pero hemos decidido no continuar por este camino porque es necesario realizar trámites extras que no consideramos necesarios frente a la facilidad de obtener el DNIe.
+			Al entrar en la Sede Electrónica de la Agencia Tributaria, para consultar los expedientes es necesario facilitar certificados digitales para poder ser identificado y autenticado contra el sistema. Al intentar abrir la página, el navegador nos muestra un aviso \todo[inline]{Captura de pantalla del móvil donde pide los certificados} en el que nos indica que no se han encontrado los certificados. Incluso nos ofrece la posibilidad de instalarlos. Podríamos dirigirnos a la web de la FNMT\footnote{\url{https://www.sede.fnmt.gob.es/certificados/persona-fisica/obtener-certificado-software}} y gestionar la emisión de un certificado digital, que podríamos descargar y utilizar como identificación digital de la misma forma que lo podemos hacer con el DNIe. De todos modos, la obtención de este certificado por parte de la FNMT requiere de un paso en el que el usuario ha de personarse físicamente en una Oficina de Registro para acreditar su identidad. Con este certificado instalado en el almacén de certificados de Google Chrome se podría gestionar la identificación contra la web a la que tratamos de acceder, pero hemos decidido no continuar por este camino porque es necesario realizar trámites extras que no consideramos necesarios frente a la facilidad de obtener el DNIe.
 		
 			Implementando algún tipo de soporte de autenticación por DNIe en Helios y tratando de acceder desde el móvil a través del navegador, nos encontraríamos este problema. Chrome, o el navegador que utilicemos, no tiene los certificados digitales cargados en su almacén de certificados.
 		
 		
-			---- \todo[inline]{Este apartado debe ser mejorado}	
+			\subsubsection*{App Android}
+	
 			Otro camino de investigación se basa en la app de Autenticación publicada por el Ministerio del Interior a través de la Policía.
 		
 			En esta, se implementa un ejemplo a través del cual se pueden realizar varios trámites de consultas contra la web del Ayuntamiento de Madrid. Concretamente, permite las consultas:
-			\begin{itemize}	
-				\item Tributos		
-				\item Gestión de multas		
-				\item Datos censales		
-				\item Expedientes		
+			\begin{itemize}
+	
+				\item Tributos
+		
+				\item Gestión de multas
+		
+				\item Datos censales
+		
+				\item Expedientes
+		
 			\end{itemize}
 		
 			El funcionamiento es sencillo. Una vez se abre la app, aparece un menú con las gestiones que se pueden realizar. 
@@ -674,9 +720,12 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 		
 			Al final lo que obtenemos es la web empotrada dentro de un WebView\footnote{\url{https://developer.android.com/reference/android/webkit/WebView.html}} creado por la aplicación.
 		
+
+			\subsubsection*{Problema}
+			
 			Después multitud de pruebas y de bucear en foros sobre seguridad digital, certificados digitales, DNIe y Android, resultó haber un problema bastante importante con esta aproximación.
 			
-			Partamos de la base de la correcta configuración del servidor y login a través de certificados del DNIe. La prueba de la correcta configuración residía en que era posible acceder al servicio, e incluso llegar a emitir un voto, utilizando el DNIe (tanto 2.0 como 3.0) en un PC, utilizando el chip de contacto y utilizando un navegador como el Mozilla Firefox.
+			Partamos de la base de la correcta configuración del servidor y login a través de certificados del DNIe. La prueba de la correcta configuración residía en que era posible acceder al servicio, e incluso llegar a emitir un voto, utilizando el \gls{DNIe} (tanto 2.0 como 3.0) en un PC, utilizando el chip de contacto y utilizando un navegador como el Mozilla Firefox.
 		
 			Demostrado que era factible esta arquitectura, se intentó desde una versión modificada de la app original de la Policía. En ella, se ajustó el certificado que espera el servidor, así como el link al que tiene que dirigirse tras el login.
 		
@@ -691,7 +740,10 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 		
 			Ante este problema, no es posible continuar con la forma de trabajar de la app de la Policía.
 		
-			La opción que se plantea es más radical. Plantear la web del sistema como un servicio \gls{REST}. Helios funciona casi en su mayoría tratando mensajes JSON como paso de información entre sus distintas fases, por lo que se podría modificar el \textit{Front End} para responder a peticiones \gls{REST}. Con este nuevo enfoque, se podría implementar una app Android nativa que tuviese todas las opciones que aparecen en la web y que para su funcionamiento realizara peticiones a la web. La información que recuperaría, en lugar de ser \gls{HTML} que muestra en un \textit{WebView} embebido, como ocurre en la app de la Policía, serían objetos JSON con la información requerida. Obviamente, para cada llamada habría que reutilizar la técnica que se ha descrito en el paso anterior, por la cual se puede realizar una llamada \gls{HTTP} acoplando las claves del certificado para autenticarse contra el servidor. 
+			\subsubsection*{REST}
+			Ante este problema aparece una alternativa. Plantear la web del sistema como un servicio \gls{REST}.
+			
+			Helios funciona casi en su mayoría tratando mensajes JSON como paso de información entre sus distintas fases, por lo que se podría modificar el \textit{Front End} para responder a peticiones \gls{REST}. Con este nuevo enfoque, se podría implementar una app Android nativa que tuviese todas las opciones que aparecen en la web y que para su funcionamiento realizara peticiones a la web. La información que recuperaría, en lugar de ser \gls{HTML} que muestra en un \textit{WebView} embebido, como ocurre en la app de la Policía, serían objetos JSON con la información requerida. Obviamente, para cada llamada habría que reutilizar la técnica que se ha descrito en el paso anterior, por la cual se puede realizar una llamada \gls{HTTP} acoplando las claves del certificado para autenticarse contra el servidor. 
 		
 			El problema de esta solución es que pasamos de un sistema web ya existente a una implementación del sistema para Android, junto con la reimplementación de la web para que soporte tanto votación navegando por ella como por llamadas REST.
 		
@@ -699,7 +751,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 		
 			Quizá es el futuro a seguir por el sistema, pero requiere tiempo y recursos no planificados. 
 		
-		
+		\subsubsection*{Solución}
 			En la búsqueda de una solución que no comprometiese la viabilidad del proyecto, se pensó en una intermedia a las anteriores.
 		
 			Las llamadas a Helios, por lo comprobado, teniendo que mantener el canal \gls{HTTPS} cifrado con el DNIe, deben ser contra un servicio que tenemos que \textit{repintar} en un WebView y que, en caso de querer navegar una vez establecida la conexión, hay que volver a realizar la llamada con los certificados y volver a crear el WebView. Es decir, que no es la navegación natural que se busca. Tampoco es viable implementar una app de voto, ya que teniendo la web se podría reutilizar esta desde el móvil.
@@ -712,8 +764,10 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 		
 			Con este planteamiento, para votar desde el móvil o desde el PC no tiene mucha diferencia. En ambos casos se accede desde el navegador a la página principal de la Elección. Aquí se pulsa el enlace de autenticación por DNIe. La diferencia principal se observa en este momento:
 			\begin{description}
-				\item[PC:] Desde el PC, el usuario será redirigido al servicio de autenticación y, si el PC tiene correctamente configurados los drivers del DNIe, aparecerá un applet a través del cual se le solicita que introduzca el documento en el lector y, posteriormente, la clave.	
-				\item[Smartphone:] Por su parte, desde Android, el enlace de login en vez de redirigir a otra web, lanzará un \textit{intent} de Android en con el que se abre una aplicación Android (si no está instalada, se redirige a la web o \textit{market} desde la cual puede instalarse). Con esta aplicación se realizan las llamadas necesarias al servicio de autenticación y se accede a los certificados del DNIe a través del protocolo NFC. Una vez que el servicio de autenticación gestiona entre el dispositivo y el servidor de votación la validez del usuario, la aplicación se cierra y devuelve al usuario al navegador pero ya logado en el sistema y con una conexión \gls{HTTPS} segura.	
+				\item[PC:] Desde el PC, el usuario será redirigido al servicio de autenticación y, si el PC tiene correctamente configurados los drivers del DNIe, aparecerá un applet a través del cual se le solicita que introduzca el documento en el lector y, posteriormente, la clave.
+	
+				\item[Smartphone:] Por su parte, desde Android, el enlace de login en vez de redirigir a otra web, lanzará un \textit{intent} de Android en con el que se abre una aplicación Android (si no está instalada, se redirige a la web o \textit{market} desde la cual puede instalarse). Con esta aplicación se realizan las llamadas necesarias al servicio de autenticación y se accede a los certificados del DNIe a través del protocolo NFC. Una vez que el servicio de autenticación gestiona entre el dispositivo y el servidor de votación la validez del usuario, la aplicación se cierra y devuelve al usuario al navegador pero ya logado en el sistema y con una conexión \gls{HTTPS} segura.
+	
 			\end{description}
 	
 			A partir de este momento, tanto en PC como en Smartphone, el usuario estaría ya logado con seguridad en el sistema y podría comenzar a operar con el sistema de votación.
@@ -735,8 +789,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			
 			Para ello, se incluye una serie de librerías que facilitan la transformación de la web para ser adaptada a la visualización desde pantallas de dispositivos móviles, destacando Bootstrap\footnote{\url{http://getbootstrap.com/}} y Modernizr\footnote{\url{https://modernizr.com/}}. 
 			
-			\todo[inline]{Continuar con la migración a responsive web}
-			
+			Con estas librerías y ajustes planos de CSS y Javascript se consigue que la visualización de las páginas se adapten a los diferentes dispositivos desde los que van a ser visualizadas.
 			
 			
 			
@@ -749,15 +802,16 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			
 			Teniendo en cuenta los criterios sobre los que se basa el voto electrónico/por internet, esta fase debería cumplir una serie de propiedades inherentes al mismo.
 			
-			\todo[inline]{Introducir aquí las características del voto por Internet que aplican a la fase de votación, ya sea por Fujioka, la UNEX u otro autor.}
-			
 			A la hora de diseñar el protocolo de un sistema de votación, uno de los puntos más importantes es el de decidir si el voto debe ser único. Hay que valorar qué es lo más adecuado para el protocolo, si un votante puede emitir tantos votos como quiera, validando tan sólo uno de ellos y rechazando el resto. O si, por el contrario, el votante debería ejercer su derecho al voto tan sólo una vez y deberíamos asegurar que no hay posibilidad de que pueda volver a hacerlo.
 			
-			La posibilidad de permitir al votante emitir su voto más de una vez proviene, en parte, de la necesidad de proteger al votante frente a la cocacción por parte de un tercero.
+			La posibilidad de permitir al votante emitir su voto más de una vez proviene, en parte, de la necesidad de proteger al votante frente a la coacción por parte de un tercero.
+			
 			En caso de ser coaccionado a votar por un candidato, siempre tendrá la posibilidad de volver a emitir un nuevo voto que invalide el anterior mientras esté abierto el período electoral.
+			
 			Este mecanismo, unido a que no se emite ningún recibo que demuestre el contenido del voto, hace muy complicado que un sujeto coaccionador pueda llevar a cabo un fraude electoral, ya que resultaría muy complicado que pudiese conseguir que el voto por el que coacciona sea el último emitido por todos y cada uno de los votantes que necesita para cambiar el resultado electoral.
 			
 			Sin embargo, otras corrientes entienden que para que un votante pueda votar varias veces, invalidando por el camino los votos intermedios es necesario que, durante un periodo del proceso electoral, estén almacenados en el sistema un par voto-votante. Esto es así porque si un votante emite un voto, cuando quiera volver a votar, el primero ha de ser descartado, por lo que debe ser posible encontrar el voto previo asociado al votante. Es una violación del anonimato del votante, característica esencial en muchos procesos electorales. Sin ir más lejos, este detalle descartaría, basándonos en la Constitución Española, a un sistema con esta propiedad, pues en el Texto se recoge que el voto ha de ser anónimo y no puede ser trazado. Manteniendo la paridad votante-voto, esta relación podría ser trazada.
+			
 			Es por ello que estas corrientes defienden que, de la misma forma que el voto tradicional, es más seguro para el votante el que vote solamente una vez, siendo este el único voto que debe ser introducido en la urna. Además, de este modo, no hace falta guardar la dupla voto-votante en el sistema, basta con almacenar el voto en la urna digital y marcar en el censo que el votante ya ha votado.
 			
 			En el caso del protocolo criptográfico de Helios, en el que se apoya este desarrollo, se puede implementar una elección con un mecanismo de voto múltiple a la vez que se protege el anonimato de cada votante. Esto se consigue utilizando el cifrado homomórfico. Los votos, al estar cifrados, pueden almacenarse junto a la identidad de su votante. En caso de un nuevo voto, se puede localizar y descartar el anterior. Al final, se une su último voto al del resto de los votantes y se totalizan, para, en el último paso, descifrar el resultado de la suma. La protección del anonimato y la imposibilidad de trazabilidad del voto es posible porque una vez que un voto ha sido cifrado, nunca será descifrado, por lo que nunca estará almacenado un voto en plano junto con su votante.
@@ -772,6 +826,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			Sin embargo, para el tipo de elección que desarrollamos para la EPS, con censo cerrado, se ha creído oportuno implementar un mecanismo para que la abstención sea mostrada en la difusión de resultados. Para ello hay que retocar el módulo de presentación de resultados e incluir una consulta del censo para la elección y contrastar el número resultante con la suma de los votos (contando los blancos) que se han emitido.
 			
 			\textbf{Falta información electoral}
+			
 			Junto con el problema de la abstención, podemos incluir que falta información acerca de la propia elección. Muestra las votaciones por "preguntas", pero no aporta datos como el comentado de la abstención, censo, participación y diversos valores que deben estar presentes para dar legitimidad a un proceso electoral.
 			
 			Sería correcto incrementar el valor de la información en la medida de lo posible añadiendo este tipo de datos a la web de difusión de resultados. Incluso, resultaría muy interesante acompañar estos datos en crudo con algún tipo de elaboración de datos para dar mayor contexto al resultado del Proceso.
@@ -852,4 +907,3 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 === ELECTION FULLY VERIFIED -- SUCCESS! ===
 \end{lstlisting}
 			
-			\todo[inline]{MUY IMPORTANTE, hay que poner que al menos haya enlaces a los mecanismos de validación de votos.}

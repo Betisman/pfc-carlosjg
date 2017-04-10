@@ -42,7 +42,7 @@
 			\begin{description}
 				\item[Cliente:] Para permitir el acceso del usuario al sistema utilizando el \gls{DNIe} 3.0, se ha implementado una solución para poder acceder a las credenciales del chip sin contacto del documento. Este desarrollo es una aplicación Android, basada en una de ejemplo compartida por la Policía. Además de la app cliente, tanto el sistema de autenticación como el de votación ofrecen una interfaz web para interactuar con el usuario a través de navegadores web.
 			
-				\item[Sistema de autenticación:] Para permitir el acceso al sistema con las credenciales del DNIe, se utiliza un sistema de autenticación basado en el protocolo oAuth2. El usuario accede a través de un navegador web o de la app Android desarrollada por \gls{HTTPS} de forma segura al servidor web. Se establece un canal seguro utilizando el certificado del propio servidor y como certificado de cliente, el de identificación del DNIe. Este sistema es el que autoriza al usuario comprobando su identidad y consultando su presencia en el censo de la elección.
+				\item[Sistema de autenticación:] Para permitir el acceso al sistema con las credenciales del \gls{DNIe}, se utiliza un sistema de autenticación basado en el protocolo oAuth2. El usuario accede a través de un navegador web o de la app Android desarrollada por \gls{HTTPS} de forma segura al servidor web. Se establece un canal seguro utilizando el certificado del propio servidor y como certificado de cliente, el de identificación del \gls{DNIe}. Este sistema es el que autoriza al usuario comprobando su identidad y consultando su presencia en el censo de la elección.
 			
 				\item[Sistema de votación:] El sistema de votación es una versión adaptada del sistema Helios Voting. Se comunica con el cliente (y con el sistema de autenticación) por \gls{HTTPS} y el usuario, autorizado previamente, tiene la posibilidad de, dependiendo de su rol, crear y gestionar una elección, votar en ella y/o, simplemente, consultar los resultados.
 			\end{description}
@@ -75,9 +75,9 @@
 					
 					En nuestro caso, se ha decidido utilizar un certificado autofirmado para el prototipo implementado. Los pasos necesarios tanto para crear y firmar el certificado como para configurar el servidor web para que lo utilice se pueden consultar en el anexo \ref{App:ConfiguracionServidorWeb}.
 					
-					\item[Certificado AC Raíz DGP:] Es el certificado que permite al Sistema Operativo y al navegador web reconocer la Autoridad de Certificación de los certificados de sede electrónica, la AC Raíz DGP, que son los encargados de generar los certificados que se incluyen en el DNIe 3.0.
+					\item[Certificado AC Raíz DGP:] Es el certificado que permite al Sistema Operativo y al navegador web reconocer la Autoridad de Certificación de los certificados de sede electrónica, la AC Raíz DGP, que son los encargados de generar los certificados que se incluyen en el \gls{DNIe} 3.0.
 					
-					\item[Certificado de cliente:] Para utilizar el DNIe como fuente de identificación del usuario, es preciso configurar el servidor web para que requiera en la conexión la presencia del certificado de autenticación del DNIe del usuario. Para ello, el servidor debe poseer el certificado raíz que provee la Dirección General de la Policía. Este certificado se configura en el servidor
+					\item[Certificado de cliente:] Para utilizar el \gls{DNIe} como fuente de identificación del usuario, es preciso configurar el servidor web para que requiera en la conexión la presencia del certificado de autenticación del \gls{DNIe} del usuario. Para ello, el servidor debe poseer el certificado raíz que provee la Dirección General de la Policía. Este certificado se configura en el servidor
 					
 				\end{description}
 				
@@ -140,11 +140,11 @@ class AuthorizeView(View):
           except Exception as ex:
             logger.warn('El objeto no tiene la clave *' + k + '* --- ' + ex)
 
-        dnie = get_dni_info_from_ssl(request)
+        \gls{DNIe} = get_dni_info_from_ssl(request)
       except Exception as e:
-        logger.warn('get_No vienen las credenciales del DNIe')
+        logger.warn('get_No vienen las credenciales del \gls{DNIe}')
 
-      return self._render(request=request, form=form, dnie=dnie)
+      return self._render(request=request, form=form, \gls{DNIe}=dnie)
 \end{lstlisting}
 
 				En la lista se observa una gran cantidad de variables de entorno relacionadas con la seguridad del servidor.
@@ -165,7 +165,7 @@ class AuthorizeView(View):
   2017-01-09 18:23:10,186 DEBUG SSL_CLIENT_M_VERSION: 3
   2017-01-09 18:23:10,188 DEBUG SSL_CLIENT_M_SERIAL: 1753616228212A66BD1AB7E719BC5613
   2017-01-09 18:23:10,191 DEBUG SSL_CLIENT_S_DN: CN=GORDILLO CARDEÑOSA\, ALFONSO (AUTENTICACIÓN),GN=ALFONSO,SN=GORDILLO,serialNumber=11062005B,C=ES
-  2017-01-09 18:23:10,193 DEBUG SSL_CLIENT_I_DN: CN=AC DNIE 001,OU=DNIE,O=DIRECCION GENERAL DE LA POLICIA,C=ES
+  2017-01-09 18:23:10,193 DEBUG SSL_CLIENT_I_DN: CN=AC \gls{DNIe} 001,OU=DNIE,O=DIRECCION GENERAL DE LA POLICIA,C=ES
   2017-01-09 18:23:10,195 DEBUG SSL_CLIENT_V_START: Jun 11 12:26:58 2016 GMT
   2017-01-09 18:23:10,197 DEBUG SSL_CLIENT_V_END: Mar 15 22:59:59 2021 GMT
   2017-01-09 18:23:10,199 DEBUG SSL_CLIENT_V_REMAIN: 1510
@@ -241,7 +241,7 @@ class AuthorizeView(View):
 				
 				Aquellas que comienzan por SSL\_SERVER se refieren a la información del certificado del servidor.
 				
-				Por su parte, aquellas que comienzan por SSL\_CLIENT son las que contienen la información proporcionada por el certificado presentado por el cliente. En el caso de este proyecto, contendrán los datos proporcionados por el certificado de autenticación del DNIe.
+				Por su parte, aquellas que comienzan por SSL\_CLIENT son las que contienen la información proporcionada por el certificado presentado por el cliente. En el caso de este proyecto, contendrán los datos proporcionados por el certificado de autenticación del \gls{DNIe}.
 				
 				De estas variables, algunas son las que se utilizan para recoger la información del usuario, contrastarlo con el censo de usuarios y poder comprobar qué permisos posee, incluido el de acceso al sistema.
 				
@@ -259,7 +259,7 @@ class AuthorizeView(View):
 							
 							\item [SN (surName):] GORDILLO
 							
-							\item [serialNumber:] 11062005B $\Leftarrow$ En el caso del DNIe, en serialNumber encontraremos el número del DNI de la persona identificada por el documento.
+							\item [serialNumber:] 11062005B $\Leftarrow$ En el caso del \gls{DNIe}, en serialNumber encontraremos el número del DNI de la persona identificada por el documento.
 							
 							\item [C (country):] ES $\Leftarrow$ Código del país de expedición del documento según el estándar ISO 3166\footnote{\url{https://es.wikipedia.org/wiki/ISO_3166}}. En este caso, ES\footnote{\url{https://es.wikipedia.org/wiki/ISO_3166-2:ES}} = ESPAÑA.
 							
@@ -473,7 +473,7 @@ class AuthorizeView(View):
 					
 					El sistema de votación posee un módulo de autenticación propio que es el que gestiona las identidades y permisos de un usuario o votante frente al sistema. Este subsistema recoge la identificación del votante, sea cual sea el medio por el que se haya \textit{logado} el usuario.
 					
-					En el caso del login por DNIe, este subsistema es el que maneja la comunicación con el Sistema de Autenticación (\ref{arquitectura_servidorAutenticacion}).
+					En el caso del login por \gls{DNIe}, este subsistema es el que maneja la comunicación con el Sistema de Autenticación (\ref{arquitectura_servidorAutenticacion}).
 					
 					Por tanto, bajo la carpeta \textit{helios\_auth} se encuentra el módulo de autenticación del sistema de voto.
 					
@@ -510,13 +510,13 @@ class AuthorizeView(View):
 					
 					Este módulo es \textit{dnie.py}.
 					\begin{itemize}
-						\item DNIe $\Leftarrow$ helios\_auth/auth\_system/dnie.py
+						\item \gls{DNIe} $\Leftarrow$ helios\_auth/auth\_system/dnie.py
 					\end{itemize}
 					
 					Define una clase \textbf{\gls{DNIe}} con una serie de miembros que almacenan la información del usuario recibida desde el Sistema de Autenticación, del certificado digital de autenticación del \gls{DNIe}.
 					
 					\begin{lstlisting}[language=Python]
-  class DNIe:
+  class \gls{DNIe}:
       def __init__(self, commonName, givenName, surname, serialNumber, c):
           self.commonName = commonName
           self.givenName = givenName
@@ -568,7 +568,7 @@ class AuthorizeView(View):
 			\begin{figure}[!ht]
 				\centering
 			 	\includegraphics[width=0.90\textwidth]{imgs/arquitecturaAndroidApp.png}
-			  	\caption{Arquitectura lógica de la App sobre DNIeDroid\cite{dnieAutenticacion:1.0}}
+			  	\caption{Arquitectura lógica de la App sobre \gls{DNIe}Droid\cite{dnieAutenticacion:1.0}}
 			  	\label{fig:arquitecturaAppDnieDroid}
 			\end{figure}
 		
@@ -634,7 +634,7 @@ class AuthorizeView(View):
 						\label{fig:login.android.seleccionCANvacio}
 					\end{figure}
 					
-					Este canal \gls{PACE} es obligatorio a la hora de establecer una conexión inalámbrica cifrada, pero no sustituye al \gls{PIN} en ningún caso, igual que no da permiso de uso de las claves de autenticación y/o firma del ciudadano. Es una herramienta más de seguridad para evitar que un tercero pueda leer información del DNIe sin conocimiento del ciudadano dueño del documento.
+					Este canal \gls{PACE} es obligatorio a la hora de establecer una conexión inalámbrica cifrada, pero no sustituye al \gls{PIN} en ningún caso, igual que no da permiso de uso de las claves de autenticación y/o firma del ciudadano. Es una herramienta más de seguridad para evitar que un tercero pueda leer información del \gls{DNIe} sin conocimiento del ciudadano dueño del documento.
 					
 					\begin{figure}[!ht]
 						\centering
@@ -666,7 +666,7 @@ class AuthorizeView(View):
 					\begin{figure}[!ht]
 						\centering
 							\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[height=6cm]{imgs/login_Android/android_050.png}}
-						\caption{App Autenticación Android: Esperando que se aproxime el DNIe 3.0.}
+						\caption{App Autenticación Android: Esperando que se aproxime el \gls{DNIe} 3.0.}
 						\label{fig:login.android.aproximeDNIe}
 					\end{figure}
 					
@@ -684,7 +684,7 @@ class AuthorizeView(View):
 					\end{figure}
 					
 					
-					Para poder llegar a utilizar los certificados, no obstante, primero se solicitará el \gls{PIN} al usuario (figura \ref{fig:login.android.DNIe.PIN}), con el cual se autentica al mismo contra el DNIe y se le conceden permiso de acceso a las claves. A partir de este momento, la comunicación entre documento y dispositivo va cifrada y se pueden acceder a los certificados.
+					Para poder llegar a utilizar los certificados, no obstante, primero se solicitará el \gls{PIN} al usuario (figura \ref{fig:login.android.DNIe.PIN}), con el cual se autentica al mismo contra el \gls{DNIe} y se le conceden permiso de acceso a las claves. A partir de este momento, la comunicación entre documento y dispositivo va cifrada y se pueden acceder a los certificados.
 					
 					\begin{figure}[!ht]
 						\begin{subfigure}{.5\textwidth}
@@ -697,24 +697,30 @@ class AuthorizeView(View):
 								\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[height=6cm]{imgs/login_Android/android_080.png}}
 							\label{fig:login.android.PINintroducido}
 						\end{subfigure}
-						\caption{App Autenticación Android: Introducción del PIN del DNIe 3.0}
+						\caption{App Autenticación Android: Introducción del PIN del \gls{DNIe} 3.0}
 						\label{fig:login.android.DNIe.PIN}
 					\end{figure}
 					
-					Es en este momento cuando la app utiliza el certificado de autenticación del DNIe realizar una petición \gls{HTTPS} contra el servidor de autenticación del sistema de voto. Cada una de las llamadas que le exige el protocolo de comunicación oAuth2 se realizará de forma segura, con los certificados del servidor y el de autenticación del documento (figuras \ref{fig:login.android.lanzandoConexion} y \ref{fig:login.android.recepcionCodigooAuth}). 
+					Es en este momento cuando la app utiliza el certificado de autenticación del \gls{DNIe} realizar una petición \gls{HTTPS} contra el servidor de autenticación del sistema de voto. Cada una de las llamadas que le exige el protocolo de comunicación oAuth2 se realizará de forma segura, con los certificados del servidor y el de autenticación del documento (figuras \ref{fig:login.android.lanzandoConexion} y \ref{fig:login.android.recepcionCodigooAuth}). 
 					
 					\begin{figure}[!ht]
 				    		\centering
 				    		\begin{minipage}{0.45\textwidth}
-				    		    	\centering				
-							\includegraphics[height=6cm]{imgs/login_Android/android_090.png}				
-							\caption{App Autenticación Android: Lanzando conexión segura con los certificados.}				
+				    		    	\centering
+				
+							\includegraphics[height=6cm]{imgs/login_Android/android_090.png}
+				
+							\caption{App Autenticación Android: Lanzando conexión segura con los certificados.}
+				
 							\label{fig:login.android.lanzandoConexion}
 				    		\end{minipage}\hfill
 				    		\begin{minipage}{0.45\textwidth}
-				        		\centering				
-							\includegraphics[height=6cm]{imgs/login_Android/android_100.png}				
-							\caption{App Autenticación Android: Recepción de código oAuth.}				
+				        		\centering
+				
+							\includegraphics[height=6cm]{imgs/login_Android/android_100.png}
+				
+							\caption{App Autenticación Android: Recepción de código oAuth.}
+				
 							\label{fig:login.android.recepcionCodigooAuth}    	\end{minipage}
 					\end{figure}
 					
@@ -760,7 +766,7 @@ class AuthorizeView(View):
 						\label{fig:login.android.certAutofirmado}
 					\end{figure}
 					
-					Una vez asumimos el certificado autofirmado, por fin accedemos a la web del sistema de voto logados con la información contenida en el certificado de autenticación de nuestro DNIe 3.0 (figura \ref{fig:login.android.logado}).
+					Una vez asumimos el certificado autofirmado, por fin accedemos a la web del sistema de voto logados con la información contenida en el certificado de autenticación de nuestro \gls{DNIe} 3.0 (figura \ref{fig:login.android.logado}).
 					
 					\begin{figure}[!ht]
 						\begin{subfigure}{.5\textwidth}
@@ -773,14 +779,14 @@ class AuthorizeView(View):
 								\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[height=6cm]{imgs/login_Android/android_120.png}}
 							\label{fig:login.android.logado02}
 						\end{subfigure}
-						\caption{App Autenticación Android: Acceso al sistema de voto con login con el DNIe.}
+						\caption{App Autenticación Android: Acceso al sistema de voto con login con el \gls{DNIe}.}
 						\label{fig:login.android.logado}
 					\end{figure}
 					
 
 		
 		\section{Topología de red}\label{solucion_topologiaRed}
-				\todo[inline]{Para esto sí que necesito ayuda, por el tema de Firewalls y esas cosas.}
+
 				
 				De cara a la topología de la red del sistema, se ha diseñado la integración para abordar tres configuraciones diferentes dependiendo de las necesidades de la elección:
 				
@@ -789,7 +795,7 @@ class AuthorizeView(View):
 						
 						Esta topología requiere port forwarding del router que comunica la red de los dos servidores con Internet para que, a través del mismo endpoint, los dispositivos se puedan conectar con los servicios de ambos servidores.
 						
-						Las consultas OCSP para validación del DNIe se realizan a través de Internet.
+						Las consultas OCSP para validación del \gls{DNIe} se realizan a través de Internet.
 						\newline
 						
 						
@@ -806,7 +812,7 @@ class AuthorizeView(View):
 						
 						Esta topología no requiere port forwarding, pues cada servidor tiene su propio acceso a/por Internet. Los dispositivos accederían directamente a la IP/URL de cada servidor y utilizarían sus diferentes servicios utilizando el puerto correspondiente.
 						
-						Las consultas OCSP para validación del DNIe se realizan a través de Internet.
+						Las consultas OCSP para validación del \gls{DNIe} se realizan a través de Internet.
 						\newline
 						
 						
@@ -822,7 +828,7 @@ class AuthorizeView(View):
 						
 					\item \textbf{Tanto el Servidor de autenticación, como el Servidor de Votación y los dispositivos se comunican por la misma red, sin necesitar acceder a través de Internet.} Figura \ref{fig:topologiaRed_intranet}
 						
-						Haría falta un acceso a Internet para poder realizar consultas OCSP de validación del DNIe.
+						Haría falta un acceso a Internet para poder realizar consultas OCSP de validación del \gls{DNIe}.
 						
 						Esta topología de red interna no cumple con los requisitos de voto e identificación remotos a través de Internet definidos en \ref{requisitosFuncionales}, pero es una buena solución para elecciones internas o para la presentación de un prototipo.
 						\newline
@@ -866,7 +872,6 @@ class AuthorizeView(View):
 				\subsection{Identificación / Autenticación}
 					El servicio de identificación es un subsistema clave en el proceso electoral. En él recae parte de la responsabilidad de la robustez del sistema, en cuanto a que debe asegurar varios de los requisitos básicos que definen el voto electrónico en concreto:
 					
-		\notasInfo[inline]{Esto es así según los requisitos de Fujioka, si se utilizan los de la UNEX, se puede modificar.}
 		\begin{description}
 			\item[Solidez:] Debe asegurar que un votante deshonesto no tenga capacidad de acceder al sistema e interrumpir la votación. Es decir, que sólo debe dar acceso a los votantes que realmente deben ingresar al sistema de votación.
 			
@@ -892,7 +897,7 @@ class AuthorizeView(View):
 			
 			\begin{description}[font=$\bullet$\scshape\bfseries]
 				\item[mod\_wsgi]: Módulo que permite que una aplicación basada en Django corra sobre un servidor web externo, como Apache.
-				\item[mod\_ssl]: Módulo que permite a ciertos servidores web utilizar certificados digitales como forma de autenticación. En el caso de nuestro proyecto, servirán tanto para establecer los canales SSL/TLS como para incluir el certificado digital de autenticación del DNIe en el canal seguro, recuperar la información de usuario del certificado y pasarla al código del servidor.
+				\item[mod\_ssl]: Módulo que permite a ciertos servidores web utilizar certificados digitales como forma de autenticación. En el caso de nuestro proyecto, servirán tanto para establecer los canales SSL/TLS como para incluir el certificado digital de autenticación del \gls{DNIe} en el canal seguro, recuperar la información de usuario del certificado y pasarla al código del servidor.
 			\end{description}
 					
 					
@@ -905,12 +910,12 @@ class AuthorizeView(View):
 					
 					\ref{fig:flujo.oauth}
 					\begin{enumerate}
-						\item La app del DNIe obtiene las credenciales del chip de identificación del documento por \gls{NFC}.
+						\item La app del \gls{DNIe} obtiene las credenciales del chip de identificación del documento por \gls{NFC}.
 						\item La app realiza una petición GET a la web del Sistema de Autenticación.
 						\item El Sistema de Autenticación devuelve un formulario de aceptación con la información de los \textit{scopes} de autorización.
 						\item La app Android realiza una petición POST con los \textit{scopes} aceptados por el usuario, dando aquí su conformidad a que la aplicación web de votación tenga acceso a información sobre el usuario.
 						\item El Sistema de Autenticación consulta la Base de Datos de censo de votantes y usuarios y, si permite el acceso al usuario, devuelve un \textit{access code}.
-						\item La app del DNIe lanza un \textit{intent} de Android para abrir el navegador web por defecto del dispositivo en la página de inicio del Sistema de Votación, pasándole además el \textit{access code}. Aquí el entorno del dispositivo termina en la app y pasa al navegador web.
+						\item La app del \gls{DNIe} lanza un \textit{intent} de Android para abrir el navegador web por defecto del dispositivo en la página de inicio del Sistema de Votación, pasándole además el \textit{access code}. Aquí el entorno del dispositivo termina en la app y pasa al navegador web.
 						\item Desde el navegador, se lanza una petición de acceso al Sistema de Votación con el \textit{access code} y una url de \textit{callback} como parámetros.
 						\item El Sistema de Votación realiza una petición a la url del Sistema de Autenticación que va en el \textit{callback} (/api/token) con el \textit{access code} como parámetro.
 						\item El Sistema de Autenticación genera y devuelve un \textit{token} al Sistema de Votación.
@@ -1230,16 +1235,16 @@ A continuación se muestra que los votos son, efectivamente, totalizados
 				Otro aspecto a tener en cuenta será la adaptación a dispositivos móviles, pues lo que se busca es el voto seguro desde este tipo de dispositivos, algo que no cubre con suficiencia la versión actual de Helios Voting.
 				
 				\subsection{Estructura de la página web}
-					\todo[inline]{Cambios en la interfaz original de Helios. Responsive....}
+
 					El principal reto en cuanto a las modificaciones necesarias en la interfaz del sistema original Helios han correspondido a convertir las páginas en \textit{responsive}. Con ello, lo que se busca es adaptar la visualización de las diferentes páginas en distintos dispositivos, con diferentes recursos y distintos tamaños de pantalla, así como la capacidad de adaptarse, en un mismo dispositivo, a una situación en la que la pantalla se observa en vertical y se gira a horizontal o viceversa.
 					
 					Para llevar a cabo esta tarea, nos hemos centrado en las hojas de estilo existentes a las cuales se le han realizado modificaciones. Principalmente, se han incluido reglas que aplican dependiendo del ancho de la pantalla que 
 					
 				\subsection{Estructura de la aplicación móvil}
-					\todo[inline]{Interfaz de usuario de la app.}
+
 					La interfaz de usuario de la app Android necesaria para ingresar en el sistema con los certificados digitales del \gls{DNIe} 3.0 no ha sido modificada ostensiblemente.
 					
-					Aunque es una parte primordial del sistema y su adaptación ha requerido bastante estudio y desarrollo, realmente al final no se utiliza durante un tiempo suficiente. Por ello, para el prototipo se ha decidido no invertir demasiado tiempo en su modificación estética, por lo que se ha reutilizado la diseñada originariamente por los desarrolladores de la app original de la DGP.
+					Aunque es una parte primordial del sistema y su adaptación ha requerido bastante estudio y desarrollo, realmente al final no se utiliza durante un tiempo suficiente. Por ello, se ha reutilizado la diseñada originariamente por los desarrolladores de la app original de la DGP, con las modificaciones necesarias debidas al cambio de funcionalidad de la aplicación.
 					
 				\subsection{Accesibilidad}
 					\todo[inline]{Destacar accesibilidad}
@@ -1401,11 +1406,11 @@ A continuación se muestra que los votos son, efectivamente, totalizados
 %				
 %				Lo ideal es disponer de documentos que contengan tokens criptográficos propios que puedan ser utilizados en los diferentes procesos de identificación y voto. Por ello, vamos a utilizar documentos que los disponen.
 %				
-%				Así, los documentos válidos para ejercer el derecho al voto serán el DNIe (tanto la primera versión como la denominada 3.0, presentada en enero de 2015) y la TUI \notasMejorar{***InfoTUI***} de la Universidad San Pablo-CEU. En sendos documentos encontramos elementos criptográficos que identifican unívocamente a su dueño. Además encontramos en ellos certificados para la firma digital, que serán necesarios para la fase de votación.
+%				Así, los documentos válidos para ejercer el derecho al voto serán el \gls{DNIe} (tanto la primera versión como la denominada 3.0, presentada en enero de 2015) y la TUI \notasMejorar{***InfoTUI***} de la Universidad San Pablo-CEU. En sendos documentos encontramos elementos criptográficos que identifican unívocamente a su dueño. Además encontramos en ellos certificados para la firma digital, que serán necesarios para la fase de votación.
 %				
-%				El votante se identifica con su documento digital de forma remota. Es necesario que disponga de un lector de chip electrónico conectado al dispositivo desde el que va a realizar el voto, aunque utilizando DNIe con lector de chip sin contacto, no haría falta si se hace uso de un dispositivo con sensor de radiofrecuencia, con capacidad para leer información a través de NFC.
+%				El votante se identifica con su documento digital de forma remota. Es necesario que disponga de un lector de chip electrónico conectado al dispositivo desde el que va a realizar el voto, aunque utilizando \gls{DNIe} con lector de chip sin contacto, no haría falta si se hace uso de un dispositivo con sensor de radiofrecuencia, con capacidad para leer información a través de NFC.
 %				
-%				A través de la app Android (o la app web), el votante accede al servicio de votación por Internet. El primer paso es la identificación del votante. Es la primera vez que hará uso de los certificados del DNIe. En este caso, la app leerá (con NFC o chip con contacto) el certificado de Autenticación del DNIe, por el cual se asegura la identidad del votante. Con la identidad del votante verificada (por la DGP), se contrasta con el censo, para comprobar:
+%				A través de la app Android (o la app web), el votante accede al servicio de votación por Internet. El primer paso es la identificación del votante. Es la primera vez que hará uso de los certificados del \gls{DNIe}. En este caso, la app leerá (con NFC o chip con contacto) el certificado de Autenticación del \gls{DNIe}, por el cual se asegura la identidad del votante. Con la identidad del votante verificada (por la DGP), se contrasta con el censo, para comprobar:
 %				\begin{itemize}
 %					\item Si el votante existe en el censo.
 %					\item Si el votante ha votado previamente.
@@ -1414,7 +1419,7 @@ A continuación se muestra que los votos son, efectivamente, totalizados
 %				
 %				Una vez verificado el votante y comprobados sus datos censales, se procede a construir la boleta con los candidatos que entre los que le corresponde elegir basándose en su circunscripción electoral. El sistema ha de presentar la boleta al votante y permitir que éste marque la o las opciones que permita el sistema electoral para constituir el voto a emitir.
 %				
-%				Una vez constituido el voto (papeleta), hay que proceder a la votación digital. Para ello nos basamos en cifrado y firma ciega. Así, el primer paso es que la app utiliza la clave pública de la Entidad Electoral para cifrar el voto. Con el voto cifrado, el votante ha de firmarlo. La firma se realiza con el certificado de Firma que posee el DNIe. Así, el votante firma un conjunto de [voto cifrado + votante], que es el paquete que se pasará al subsistema de gestión del voto.
+%				Una vez constituido el voto (papeleta), hay que proceder a la votación digital. Para ello nos basamos en cifrado y firma ciega. Así, el primer paso es que la app utiliza la clave pública de la Entidad Electoral para cifrar el voto. Con el voto cifrado, el votante ha de firmarlo. La firma se realiza con el certificado de Firma que posee el \gls{DNIe}. Así, el votante firma un conjunto de [voto cifrado + votante], que es el paquete que se pasará al subsistema de gestión del voto.
 %				
 %				Una vez el votante ha emitido el voto, el sistema le devuelve un resguardo (código QR como en Estonia, un código alfanumérico, no sé todavía) con el cual puede verificar que el voto ha sido correctamente incluido en el sistema. Además, podrá verificar que el voto ha sido correctamente incluido en el escrutinio. \notasCambio[inline]{(No sé si con este resguardo debe poder llegar a la opción de voto elegida, todo depende de cómo tomemos el requisito de coerción y qué es lo que menos le afecta)}
 %				
@@ -1443,7 +1448,7 @@ A continuación se muestra que los votos son, efectivamente, totalizados
 		\begin{itemize}
 			\item Servidor de votación
 			\item Servidor de identificación y autenticación
-			\item App Android de identificación con DNIe
+			\item App Android de identificación con \gls{DNIe}
 		\end{itemize}
 	
 	

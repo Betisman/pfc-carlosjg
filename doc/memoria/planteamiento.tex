@@ -72,9 +72,11 @@
 				\begin{itemize}
 					\item \textit{Artículo 32: Composición de las Juntas}
 				
-						\textit{La Junta de Facultad, Escuela o Centro estará compuesta por miembros natos y electos.}	
+						\textit{La Junta de Facultad, Escuela o Centro estará compuesta por miembros natos y electos.}
+	
 				
-						\textit{Son miembros natos: El Decano o Director, que presidirá sus reuniones; los Vicedecanos o Subdirectores, el Secretario académico, que levantará acta de sus sesiones y los Directores de los Departamentos integrados en la Facultad o Escuela.}	
+						\textit{Son miembros natos: El Decano o Director, que presidirá sus reuniones; los Vicedecanos o Subdirectores, el Secretario académico, que levantará acta de sus sesiones y los Directores de los Departamentos integrados en la Facultad o Escuela.}
+	
 				
 						\textit{Son miembros electos: Quienes resulten elegidos en representación del profesorado y de los alumnos de acuerdo con la normativa que reglamentariamente se establezca.}
 				
@@ -100,7 +102,8 @@
 						\item Publicación del censo
 						\item Constitución de la Junta Electoral
 						\item Designación de las mesas electorales
-					\end{itemize}
+					\end{itemize}
+
 
 % *************************************************************************************************************** %
 % 			ALCANCE DEL PROYECTO
@@ -133,8 +136,6 @@
 		\item Fase Voting
 		\item Fase Post-Voting
 	\end{itemize}
-	
-	(...)
 	
 
 		Teniendo en cuenta el EML, identificamos las tres fases que dirigen el proceso electoral como fases preelectoral, electoral y postelectoral, adecuándolas al idioma español. Cada una de estas fases contiene una series de procesos o tareas determinadas.
@@ -209,7 +210,7 @@
 				
 				Dependiendo del mecanismo digital de identificación y votación que se adopte para el sistema, la fase de registro puede ser tan simple como la correcta carga del censo en el sistema o puede aumentar ligeramente su complejidad. Si se decide utilizar una identificación basada en base de datos, habría que asignar a cada votante un nombre de usuario y una contraseña, al menos para ingresar en el sistema, ya que podría generarse otro par para la votación. En cualquier caso, en una situación como esta, además de la carga del censo resulta necesario una asociación de cada votante incluido en este con los nombres de usuarios y contraseñas generados para cada uno.
 				
-				La Universidad proporciona a cada alumno, profesor y empleado un carnet universitario para su identificación. Entre otros servicios, estos carnets poseen la funcionalidad de identidad y firma digitales. Puede una buena opción hacer uso de estos servicios y evitar la asociación anterior, la cual, además del paso extra, no proporciona un nivel de seguridad aceptable. El servicio de esta tarjeta (TUI) o del DNIe español permite una identificación digital unívoca y confiable entre el votante y el sistema. Haciendo uso del servicio de firma digital, también se varía el esquema de votación del sistema, pues no requeriría de un módulo de generación de firmas electrónicas para votantes, pues cada uno llevaría el suyo propio en su TUI personal.
+				La Universidad proporciona a cada alumno, profesor y empleado un carnet universitario para su identificación. Entre otros servicios, estos carnets poseen la funcionalidad de identidad y firma digitales. Puede una buena opción hacer uso de estos servicios y evitar la asociación anterior, la cual, además del paso extra, no proporciona un nivel de seguridad aceptable. El servicio de esta tarjeta (TUI) o del \gls{DNIe} español permite una identificación digital unívoca y confiable entre el votante y el sistema. Haciendo uso del servicio de firma digital, también se varía el esquema de votación del sistema, pues no requeriría de un módulo de generación de firmas electrónicas para votantes, pues cada uno llevaría el suyo propio en su TUI personal.
 				
 				
 						
@@ -297,7 +298,7 @@
 						
 						Parece una buena opción, pues hoy por hoy, es bastante común que llevemos el smartphone con nosotros de la misma forma que llevamos el DNI. De cara a un proceso electoral, es un dispositivo muy personal, bastante asociado al día a día de su dueño, por lo que es una herramienta con un gran potencial para proporcionar un servicio de identificación unívoca entre el usuario-votante y su registro en el censo electoral o contra los administradores del proceso.
 						
-						Otra ventaja es que, al estar los certificados en la SIM, nos ahorramos el hardware necesario para la lectura de certificados externos, como son el DNIe 2.0 español o las SmartCards tradicionales. Incluso no haría falta hardware de lectura por radiofrecuencia como necesitan algunas SmartCards modernas o el propio DNIe 3.0, con lo que se puede ahorrar en hardware interno del dispositivo.
+						Otra ventaja es que, al estar los certificados en la SIM, nos ahorramos el hardware necesario para la lectura de certificados externos, como son el \gls{DNIe} 2.0 español o las SmartCards tradicionales. Incluso no haría falta hardware de lectura por radiofrecuencia como necesitan algunas SmartCards modernas o el propio \gls{DNIe} 3.0, con lo que se puede ahorrar en hardware interno del dispositivo.
 						
 						Lamentablemente, es una tecnología que en estos momentos no se implementa a gran escala en España y no hay visos de que ocurra en un futuro próximo. Motivo suficiente para descartar esta opción.
 						
@@ -315,9 +316,9 @@
 					
 						Lo ideal para una elección por el sistema de voto por Internet es implementar un proceso que resulte sencillo al votante, ya que si resulta ser más complicado que el voto tradicional, el votante no le verá sentido y no hará uso de él.
 						
-Con este planteamiento, parece que el uso del DNIe es una buena idea. Por un lado, es un documento oficial que llevamos normalmente con nosotros en todo momento. Además es el mismo documento que nos identifica en las elecciones tradicionales, con lo que para el votante no debería suponer ninguna suspicacia ni trauma, al estar completamente insertado en la sociedad su uso para este cometido (asumimos en este supuesto que la implantación del DNIe en España es casi completo, que el votante ya no necesita acudir a una comisaría a solicitarlo y que los certificados no están caducados).
+Con este planteamiento, parece que el uso del \gls{DNIe} es una buena idea. Por un lado, es un documento oficial que llevamos normalmente con nosotros en todo momento. Además es el mismo documento que nos identifica en las elecciones tradicionales, con lo que para el votante no debería suponer ninguna suspicacia ni trauma, al estar completamente insertado en la sociedad su uso para este cometido (asumimos en este supuesto que la implantación del \gls{DNIe} en España es casi completo, que el votante ya no necesita acudir a una comisaría a solicitarlo y que los certificados no están caducados).
 
-						Ventajas del uso del DNIe como identificador del votante:
+						Ventajas del uso del \gls{DNIe} como identificador del votante:
 							\begin{itemize}
 								\item Documento expedido por las propias Autoridades del Estado, quienes lo avalan.
 								\item Seguridad.
@@ -325,25 +326,25 @@ Con este planteamiento, parece que el uso del DNIe es una buena idea. Por un lad
 								\item Es el mismo documento que ya se utiliza para identificarse en las elecciones presenciales tradicionales.
 							\end{itemize}
 							
-						Inconvenientes del DNIe:
+						Inconvenientes del \gls{DNIe}:
 							\begin{itemize}
-								\item Extranjeros con derecho a voto pueden no tener DNIe, pero deberían poder votar con el pasaporte.
-								\item Certificados caducados.Los certificados que incluye el DNIe tienen una fecha de caducidad a partir de la cual son revocados y no tienen validez legal. Esta fecha no se corresponde con la caducidad del documento físico, que está impresa en el anverso del documento. Esta discordancia de fechas considero que es un punto débil del DNIe, pues es muy posible que el usuario no renueve los certificados simplemente porque no sepa que han caducado, dado que el propio documento físico no lo ha hecho.
+								\item Extranjeros con derecho a voto pueden no tener \gls{DNIe}, pero deberían poder votar con el pasaporte.
+								\item Certificados caducados.Los certificados que incluye el \gls{DNIe} tienen una fecha de caducidad a partir de la cual son revocados y no tienen validez legal. Esta fecha no se corresponde con la caducidad del documento físico, que está impresa en el anverso del documento. Esta discordancia de fechas considero que es un punto débil del \gls{DNIe}, pues es muy posible que el usuario no renueve los certificados simplemente porque no sepa que han caducado, dado que el propio documento físico no lo ha hecho.
 								\item Rotura del chip que contiene los certificados.
-								\item Limitaciones técnicas para las aplicaciones web. En el estado actual de la tecnología, es necesario hacer uso de un applet de Java para poder firmar con el DNIe. De cara a la identificación, ya hay software Javascript que se salta este paso, aunque no a la hora de firmar, para lo cual, hoy por hoy, no hay alternativa. Este detalle es una limitación importante, quizá no para el voto electrónico, pero sí para el voto ubicuo por Internet, ya que requiere de más tecnología que simplemente un dispositivo conectado a Internet y un lector. Además, el uso de applets está cada vez más limitado en Internet, en desuso, y se recomienda implementar alternativas basadas en el estándar W3C. Por desgracia, este organismo todavía no tiene definido de una manera versátil cómo afrontar el problema de la criptografía con certificados digitales personales en los nuevos estándares web.
-								\item Necesidad de HW externo, como son los lectores de Smartcard. Para poder utilizar el DNIe como identificador, el sistema tiene que poder leer los datos que le indica. Si hacemos uso de los certificados que contiene, necesitamos un lector externo, lo cual quizás no sea un problema si usamos un PC que tenemos en casa, pero sí que puede serlo cuando queremos votar desde otro ordenador o incluso desde un dispositivo móvil, donde ya no es tan simple que tengamos este lector y que sea compatible.
+								\item Limitaciones técnicas para las aplicaciones web. En el estado actual de la tecnología, es necesario hacer uso de un applet de Java para poder firmar con el \gls{DNIe}. De cara a la identificación, ya hay software Javascript que se salta este paso, aunque no a la hora de firmar, para lo cual, hoy por hoy, no hay alternativa. Este detalle es una limitación importante, quizá no para el voto electrónico, pero sí para el voto ubicuo por Internet, ya que requiere de más tecnología que simplemente un dispositivo conectado a Internet y un lector. Además, el uso de applets está cada vez más limitado en Internet, en desuso, y se recomienda implementar alternativas basadas en el estándar W3C. Por desgracia, este organismo todavía no tiene definido de una manera versátil cómo afrontar el problema de la criptografía con certificados digitales personales en los nuevos estándares web.
+								\item Necesidad de HW externo, como son los lectores de Smartcard. Para poder utilizar el \gls{DNIe} como identificador, el sistema tiene que poder leer los datos que le indica. Si hacemos uso de los certificados que contiene, necesitamos un lector externo, lo cual quizás no sea un problema si usamos un PC que tenemos en casa, pero sí que puede serlo cuando queremos votar desde otro ordenador o incluso desde un dispositivo móvil, donde ya no es tan simple que tengamos este lector y que sea compatible.
 Cierto es que podríamos hacer uso de la banda MRZ del documento escaneándola pero solamente con este dato no se puede mantener un nivel aceptable de seguridad. Por ejemplo, se podría identificar un usuario con una fotocopia de un DNI, lo cual en unas elecciones oficiales en España no está permitido.
 							\end{itemize}
 							
-				A partir de enero de 2015, el Ministerio del Interior de España, a través de la Dirección General de la Policía, empezó a emitir una nueva versión del DNIe, denominada 3.0, la cual, entre varios avances, posee, junto al chip electrónico, otro chip de radiofrecuencia basado en tecnología NFC.
+				A partir de enero de 2015, el Ministerio del Interior de España, a través de la Dirección General de la Policía, empezó a emitir una nueva versión del \gls{DNIe}, denominada 3.0, la cual, entre varios avances, posee, junto al chip electrónico, otro chip de radiofrecuencia basado en tecnología NFC.
 				
-				Sin entrar en los posibles problemas de seguridad que implica el uso de chips de radiofrecuencia, se observa interesante este avance en cuanto a una aplicación de voto por Internet. Hoy en día son muchos los dispositivos móviles (smartphones y tablets) que disponen de un lector de chips por NFC, con lo que el inconveniente de necesitar lectores externos para identificación del votante y firma digital del voto ya no existiría. El votante podría votar desde una app instalada en su smartphone sin necesidad de elementos externos, ya que este chip NFC contiene los mismos certificados que el chip por contacto que existía hasta ahora en la primera versión del DNIe.
+				Sin entrar en los posibles problemas de seguridad que implica el uso de chips de radiofrecuencia, se observa interesante este avance en cuanto a una aplicación de voto por Internet. Hoy en día son muchos los dispositivos móviles (smartphones y tablets) que disponen de un lector de chips por NFC, con lo que el inconveniente de necesitar lectores externos para identificación del votante y firma digital del voto ya no existiría. El votante podría votar desde una app instalada en su smartphone sin necesidad de elementos externos, ya que este chip NFC contiene los mismos certificados que el chip por contacto que existía hasta ahora en la primera versión del \gls{DNIe}.
 
 				\end{itemize}
 				
 	
 
-	Para este proyecto vamos a utilizar el login con DNIe pues creemos que es una buena prueba de concepto para demostrar la viabilidad de esta tecnología como futuro del voto por Internet en España. 
+	Para este proyecto vamos a utilizar el login con \gls{DNIe} pues creemos que es una buena prueba de concepto para demostrar la viabilidad de esta tecnología como futuro del voto por Internet en España. 
 	
 	Posee certificados de identificación y firma. El primero es esencial a la hora de identificar a un votante de forma unívoca. El certificado de firma es fundamental en procesos electorales que incluyan, por ejemplo, procesos basados en protocolos de firma ciega, pues pueden firmar con seguridad documentos digitales, manteniendo secreto e identidad.
 	
@@ -387,13 +388,13 @@ Cierto es que podríamos hacer uso de la banda MRZ del documento escaneándola per
 		
 		Aunque el peso de la criptografía la estamos delegando en el sistema elegido, en este se observan una serie de elementos que no se ajustan a la primera idea sobre el sistema desde cero.
 		
-		El esquema criptográfico utilizado por Helios es homomórfico. En una primera versión apostaban por un esquema basado en mixnets, análogo al utilizado en el desarrollo del sistema estonio. El uso de una mixnet resultaba bastante interesante al pensar en la identificación del votante con un soporte que posee certificados digitales, como el DNIe, que permitiría identificar al votante y que este pudiese firmar su voto. Así, utilizando un protocolo de firma ciega, podría asegurarse la identificación unívoca del votante, su elegibilidad para votar y si ya ha ejercido su voto con anterioridad. A partir del momento en el que se cierra la votación y comienza el escrutinio, sería muy importante desacoplar el dato del votante del voto emitido, momento en el que entra en juego el esquema de mixnets, ideal para llevar a cabo este proceso de desacoplamiento votante-voto.
+		El esquema criptográfico utilizado por Helios es homomórfico. En una primera versión apostaban por un esquema basado en mixnets, análogo al utilizado en el desarrollo del sistema estonio. El uso de una mixnet resultaba bastante interesante al pensar en la identificación del votante con un soporte que posee certificados digitales, como el \gls{DNIe}, que permitiría identificar al votante y que este pudiese firmar su voto. Así, utilizando un protocolo de firma ciega, podría asegurarse la identificación unívoca del votante, su elegibilidad para votar y si ya ha ejercido su voto con anterioridad. A partir del momento en el que se cierra la votación y comienza el escrutinio, sería muy importante desacoplar el dato del votante del voto emitido, momento en el que entra en juego el esquema de mixnets, ideal para llevar a cabo este proceso de desacoplamiento votante-voto.
 		
 		Aunque en la primera versión de Helios el esquema utilizado fue el de mixnets, a partir de la siguiente versión se cambió al homomorfismo. El futuro a partir de la versión 3 era implementar ambas soluciones en el sistema, pero al final se decidió no continuar con la integración de la mixnet.
 		
-		El sistema de identificación actual de Helios es el de usuario/contraseña o el uso de protocolos oAuth contra entidades externas, como Google, Facebook, Yahoo! o Twitter. En el caso de las Elecciones a la Junta de Escuela, parece muy interesante la introducción de los certificados digitales, aprovechando el esfuerzo de la Administración al desarrollar una nueva versión del DNI electrónico, con chips sin contacto NFC, lo que puede suponer una oportunidad para el uso de certificados digitales desde dispositivos móviles. No obstante, eliminando el elemento innovador del nuevo chip del DNIe, observando casos de éxito del sistema Helios en elecciones reales, los organismos en los que se ha utilizado han desarrollado sus propios módulos de identificación de votantes. En concreto, en las elecciones de la Universidad de Louvain, se desarrolló el subsistencia de identificación para que fuese compatible con las credenciales que los alumnos utilizaban para acceder a los servicios de la propia Universidad.
+		El sistema de identificación actual de Helios es el de usuario/contraseña o el uso de protocolos oAuth contra entidades externas, como Google, Facebook, Yahoo! o Twitter. En el caso de las Elecciones a la Junta de Escuela, parece muy interesante la introducción de los certificados digitales, aprovechando el esfuerzo de la Administración al desarrollar una nueva versión del DNI electrónico, con chips sin contacto NFC, lo que puede suponer una oportunidad para el uso de certificados digitales desde dispositivos móviles. No obstante, eliminando el elemento innovador del nuevo chip del \gls{DNIe}, observando casos de éxito del sistema Helios en elecciones reales, los organismos en los que se ha utilizado han desarrollado sus propios módulos de identificación de votantes. En concreto, en las elecciones de la Universidad de Louvain, se desarrolló el subsistencia de identificación para que fuese compatible con las credenciales que los alumnos utilizaban para acceder a los servicios de la propia Universidad.
 		
-		Por tanto, para las Elecciones de la EPS, sería una buena solución el desacoplar el módulo de identificación de votante y desarrollar uno nuevo que se comunique con la base de datos del censo de la Universidad. Para esto, se puede implementar, como en las elecciones de la Universidad de Louvain, un servicio de usuario/password y continuar con el sistema Helios existente. También se podría desarrollar un servicio de autenticación oAuth siendo la propia Universidad la que proporciona los tokens. Pero, como se ha avanzado, se va a implementar un sistema de autenticación basado en las credenciales proporcionadas por el DNIe.
+		Por tanto, para las Elecciones de la EPS, sería una buena solución el desacoplar el módulo de identificación de votante y desarrollar uno nuevo que se comunique con la base de datos del censo de la Universidad. Para esto, se puede implementar, como en las elecciones de la Universidad de Louvain, un servicio de usuario/password y continuar con el sistema Helios existente. También se podría desarrollar un servicio de autenticación oAuth siendo la propia Universidad la que proporciona los tokens. Pero, como se ha avanzado, se va a implementar un sistema de autenticación basado en las credenciales proporcionadas por el \gls{DNIe}.
 		
 		Un primer cambio importante que se propone para el sistema Helios es que la gestión del censo electoral pueda externalizarse. Actualmente, el sistema guarda en su propia base de datos la lista de votantes que pueden votar. De hecho, por el carácter general del sistema, esto es así para que el administrador de la elección pueda cargar el censo de votantes a través de ficheros csv, separados por comas. Para el cometido del proyecto, sería necesario modificar este sistema censal.
 		
@@ -401,20 +402,9 @@ Cierto es que podríamos hacer uso de la banda MRZ del documento escaneándola per
 		\begin{itemize}
 			\item Capar el sistema para que no permita el voto a cualquier votante, sino solamente a aquellos votantes que aparezcan en el censo.
 			\item Externalizar el listado de votantes para que no lo gestione Helios, sino el organizador de la Elección.
-			\item Cambiar los métodos de autenticación para que el permitido sea el DNIe.
-			\item \textst{Modificar la cabina de votación virtual para poder firmar el voto con el certificado digital del DNIe.}
-			\item \textst{Adaptar el almacenamiento del voto mientras la elección está abierta a que éste esté firmado digitalmente por el votante.}
-			\item \textst{Modificar el proceso de escrutinio. Una vez cerrada la votación y abierta la urna, los votos han de ser separados de la firma digital de sus votantes. Esta firma se utilizará para establecer la participación sobre el censo.}
-			\item \textst{Adaptar el proceso de la votación y el escrutinio a la existencia de múltiples mesas electorales, imitando el concepto de mesas, colegios y circunscripciones de las elecciones a mayor escala. En las Elecciones a Junta de Escuela, teniendo en cuenta las características del votante, el censo es diferente y las papeletas también deben serlo, ya que se elige entre diferentes candidatos.}
+			\item Cambiar los métodos de autenticación para que el permitido sea el \gls{DNIe}.
 			\item Modificar la interfaz web del sistema para adecuarla a las Elecciones a la Junta de Escuela de la EPS.
 		\end{itemize}
-		
-		\notasCambio[inline]{Introducir la firma del voto con el DNIe no introduce ningún tipo de mejora en la seguridad respecto del que provee de por sí la propia herramienta Helios Voting. Así que no lo vamos a hacer. Hay que cambiar las modificaciones sobre la misma.}
-		
-		
-		
-		Tareas:
-		1. Implementación de un módulo de autenticación basado en el DNIe para Django. El nombre que tendrá será dnie.py.
 		
 		
 		
