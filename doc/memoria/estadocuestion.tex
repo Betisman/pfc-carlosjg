@@ -373,7 +373,8 @@ los diálogos del sistema.
 			Observando esta tabla, se descubre que hay un motivo en el que coinciden por unanimidad los territorios citados, que es la Accesibilidad de los votantes al proceso electoral, permitiendo que votantes con discapacidades o que se encuentren fuera de su circunscripción electoral, por ejemplo, puedan ejercer su voto. Los siguientes motivos tenidos en cuenta para la inversión en Voto por Internet son la búsqueda de un aumento de la participación y el posicionamiento de liderazgo en cuanto a Gobierno Electrónico.
 			
 			Es interesante destacar de esta tabla que aunque la mayoría apuesta por el Voto por Internet como una herramienta para incrementar la participación electoral, tan sólo dos territorios se centran en la participación de los jóvenes. De hecho, Noruega, que es uno de esos dos territorios, ni siquiera esgrime el motivo de la participación electoral como uno que le lleve a invertir en iVoting por encima de otros.
-			
+
+
 			% Para forzar nueva línea dentro de una celda
 		\newcommand{\specialcell}[2][c]{%
 			\begin{tabular}[#1]{@{}c@{}}#2\end{tabular}}
@@ -382,6 +383,7 @@ los diálogos del sistema.
 		%Foo bar & \specialcell[b]{Foo\\bar} & Foo bar \\ % aligned with bottom rule
 		\begin{table}[htbp]
 				\begin{threeparttable}
+					\renewcommand{\familydefault}{\ttdefault}\normalfont
 					\footnotesize
 					\centering
 						%\begin{tabular}{0.75\textwidth}@{\extracolsep{\fill}}|l|l|m{3cm}| m{3cm}|}
@@ -390,7 +392,13 @@ los diálogos del sistema.
 							\hline
 								\multirow{2}{*}{\textbf{Territorio}} & \multicolumn{7}{c|}{\textbf{Razones para adopción del Voto por Internet}} \\
 							\cline{2-8}
-								 & \tiny\textbf{Participación electoral} & \tiny\textbf{Liderazgo en Gobierno Electrónico} & \tiny\textbf{Accesibilidad} & \tiny\textbf{Conveniencia} & \tiny\textbf{Foco en servicio centrado en el ciudadano} & \tiny\textbf{Incrementar la participación de los jóvenes} & \tiny\textbf{Eficiencia en el escrutinio} \\
+								 & \fontsize{5}{6}\textbf{Participación electoral} 
+								 & \fontsize{5}{6}\textbf{Liderazgo en Gobierno Electrónico} 
+								 & \fontsize{5}{6}\textbf{Accesibilidad} 
+								 & \fontsize{5}{6}\textbf{Conveniencia} 
+								 & \fontsize{5}{6}\textbf{Foco en servicio centrado en el ciudadano} 
+								 & \fontsize{5}{6}\textbf{Incrementar la participación de los jóvenes} 
+								 & \fontsize{5}{6}\textbf{Eficiencia en el escrutinio} \\
 							\hline
 								\raisebox{-1px}{\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[width=5mm,height=3mm]{imgs/Flag_of_Estonia.png}}} Estonia	& $\bullet$ 	& $\bullet$ & $\bullet$ & & & & 	\\
 							\hline
@@ -404,7 +412,7 @@ los diálogos del sistema.
 							\hline
 								\raisebox{-1px}{\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[width=5mm,height=3mm]{imgs/Flag_of_Canada.png}}} Halifax	& $\bullet$ 	& & $\bullet$ & & & & \\
 							\hline
-								\raisebox{-1px}{\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[width=5mm,height=3mm]{imgs/Flag_of_Canada.png}}} \scriptsize{Cape Breton}	& $\bullet$ 	& $\bullet$ & $\bullet$ & & & & \\
+								\raisebox{-1px}{\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[width=5mm,height=3mm]{imgs/Flag_of_Canada.png}}} \tiny{Cape Breton}	& $\bullet$ 	& $\bullet$ & $\bullet$ & & & & \\
 							\hline
 								\raisebox{-1px}{\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[width=5mm,height=3mm]{imgs/Flag_of_England.png}}} Truro	& $\bullet$ 	& $\bullet$ & $\bullet$ & $\bullet$ & & $\bullet$ &  	\\
 							\hline
