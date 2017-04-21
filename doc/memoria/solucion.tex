@@ -900,15 +900,18 @@ class AuthorizeView(View):
 				\item[mod\_ssl]: Módulo que permite a ciertos servidores web utilizar certificados digitales como forma de autenticación. En el caso de nuestro proyecto, servirán tanto para establecer los canales SSL/TLS como para incluir el certificado digital de autenticación del \gls{DNIe} en el canal seguro, recuperar la información de usuario del certificado y pasarla al código del servidor.
 			\end{description}
 					
-					
+			
+			\todo[inline]{Faltan un par de párrafosw}
+			
+			El flujo del proceso de identificación del usuario a través del protocolo oAuth2 modificado se puede observar en la figura \ref{fig:flujo.oauth}, donde se esquematizan los siguientes pasos:
+			
 					\begin{figure}[!htbp]
 						\centering
 							\includegraphics[width=.95\textwidth]{imgs/flujoOAuth20.png}
 						\caption{Flujo oAuth para servicio de autenticación}
 						\label{fig:flujo.oauth}
 					\end{figure}
-					
-					\ref{fig:flujo.oauth}
+										
 					\begin{enumerate}
 						\item La app del \gls{DNIe} obtiene las credenciales del chip de identificación del documento por \gls{NFC}.
 						\item La app realiza una petición GET a la web del Sistema de Autenticación.
@@ -961,7 +964,7 @@ class AuthorizeView(View):
 					\end{description}
 					
 					
-					Durante todo el proceso de votación, aunque éste se divide en tres pasos, el votante se encuentra en la misma página vote.html. La orquestación entre una fase y la siguiente se gestiona a través de código Javascript.
+					Durante todo el proceso de votación, aunque éste se divide en tres pasos, el votante se encuentra en la misma página \textit{vote.html}. La orquestación entre una fase y la siguiente se gestiona a través de código Javascript.
 					
 					\begin{figure}[!ht]
 						\centering
@@ -1209,6 +1212,8 @@ class AuthorizeView(View):
 
 A continuación se muestra que los votos son, efectivamente, totalizados 
 
+
+\todo[inline]{IMPORTANTE!!!!!!!!!!!!!!!!!!!!!}
 
 				\subsection{Difusión de resultados}
 				
