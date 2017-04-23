@@ -1305,6 +1305,41 @@ los diálogos del sistema.
 					
 						\notasInfo[inline]{Aquí hay que añadir el texto sobre el cifrado homomórfico}
 						
+						El cifrado homomórfico es un tipo de cifrado basado en algoritmos criptográficos que poseen la propiedad de que si se aplica una función ($f$) a un mensaje cifrado, el resultado de descifrarlo es igual a la aplicación de otra función ($g$) al mensaje sin cifrar.
+						
+						Definamos $\delta$ como la función de descifrado y $\varepsilon$ como la función de cifrado.
+						
+					    $\delta(\varepsilon(m, k), k) = m$
+					    
+					    $\delta(f(\varepsilon(m, k)), k) = g(m)$
+					    
+					    Hay algoritmos en los que las funciones que se aplican ($f$ y $g$) son idénticas, de forma que ($f$ = $g$), lo cual resulta muy interesante ya que aplicando la misma función a un mensaje cifrado, al descifrar se obtiene el mismo resultado que se resultaría de aplicar la función al mensaje en claro.
+					    
+					    $\delta(f(\varepsilon(m, k)), k) = f(m)$
+						
+						En la figura \ref{fig:homomorfismo} se muestra un ejemplo de cifrado homomórfico basado en la aplicación de la operación multiplicación.
+						
+						$ m = [11, 7] \Rightarrow m[0] = 11, m[1] = 7 $
+						
+						$ f(m) = m[0] * m[1] \Rightarrow $
+						
+						$ f(m) = 11 * 7 = 77 $
+						
+						$ \varepsilon(m, k) = m' $
+						
+						$ \varepsilon(11|7, k) = [15, 12] = m' $
+						
+						$ f(m') = m'[0] * m'[1] \Rightarrow $
+						
+						$ f(m') = 15 * 12 = 180 $
+						
+						$ \delta(180, k) = 77 $
+						
+						$ \delta(f(m')) = f(m) $
+						
+						$ \delta(f(\varepsilon(m, k)), k) = f(m) $
+						
+						
 						\begin{figure}[htbp]
 							\centering
 							\includegraphics[width=0.80\textwidth]{imgs/homomorfismo.png}
