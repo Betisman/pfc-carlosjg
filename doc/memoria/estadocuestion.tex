@@ -1313,11 +1313,13 @@ los diálogos del sistema.
 					    
 					    $\delta(f(\varepsilon(m, k)), k) = g(m)$
 					    
-					    Hay algoritmos en los que las funciones que se aplican ($f$ y $g$) son idénticas, de forma que ($f$ = $g$), lo cual resulta muy interesante ya que aplicando la misma función a un mensaje cifrado, al descifrar se obtiene el mismo resultado que se resultaría de aplicar la función al mensaje en claro.
+					    Hay algoritmos en los que las funciones que se aplican ($f$ y $g$) son idénticas, de forma que ($f$ = $g$), lo cual resulta muy interesante ya que aplicando la misma función a un mensaje cifrado, al descifrar se obtiene el mismo resultado que resultaría de aplicar la función al mensaje en claro.
 					    
 					    $\delta(f(\varepsilon(m, k)), k) = f(m)$
 						
-						En la figura \ref{fig:homomorfismo} se muestra un ejemplo de cifrado homomórfico basado en la aplicación de la operación multiplicación.
+						En la figura \ref{fig:homomorfismo} se muestra un diagrama con el siguiente ejemplo de cifrado homomórfico basado en la aplicación de la operación multiplicación:
+						
+						($m$ es el mensaje a cifrar, $m'$ es el mensaje cifrado)
 						
 						$ m = [11, 7] \Rightarrow m[0] = 11, m[1] = 7 $
 						
@@ -1329,6 +1331,8 @@ los diálogos del sistema.
 						
 						$ \varepsilon(11|7, k) = [15, 12] = m' $
 						
+						\hfill
+						
 						$ f(m') = m'[0] * m'[1] \Rightarrow $
 						
 						$ f(m') = 15 * 12 = 180 $
@@ -1339,6 +1343,16 @@ los diálogos del sistema.
 						
 						$ \delta(f(\varepsilon(m, k)), k) = f(m) $
 						
+						
+						Entre los algoritmos parcialmente homomórficos, podemos destacar los siguientes:
+						
+						\begin{description}
+							\item [RSA] $\varepsilon(m_1) * \varepsilon(m_2) = \varepsilon(m_1 * m_2)$
+							\item [ElGamal] $\varepsilon(m_1) * \varepsilon(m_2) = \varepsilon(m_1 * m_2)$
+							\item [Benaloh] $\varepsilon(m_1) * \varepsilon(m_2) = \varepsilon(m_1 + m_2 mod c)$
+							\item [Goldwasser-Micali] $\varepsilon(x_1) * \varepsilon(x_2) = \varepsilon(x_1 \oplus x_2)$
+							\item [Paillier] $\varepsilon(m_1) * \varepsilon(m_2) = \varepsilon((m_1 + m_2) mod c)$
+						\end{description}
 						
 						\begin{figure}[htbp]
 							\centering
