@@ -410,9 +410,33 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 				\item Buscando alguna solución para implementar identificación de usuarios de la EPS, ya provee de mecanismos como oAuth, que puede ser modificado para utilizar el \gls{DNIe} como herramienta de acceso seguro a la web, o sistemas como el CAS utilizado en las elecciones de la Universidad Católica de Lovaina, que podría servir de base a un sistema de acceso basado en las cuentas de usuario de los estudiantes de la EPS. Son frameworks que no valen tal cual están implementados, pero que permiten una posibilidad de modificación muy interesante para implementar nuevos sistemas de acceso basados en las necesidades de la EPS.
 					
 			\end{description}	
-				
-				
-
+			
+			\begin{table}[htbp]
+				\begin{threeparttable}
+					\centering
+					%\begin{tabular}{*{2}{|p{.425\linewidth}|}}
+					\begin{tabular}{|p{.475\linewidth}|p{.475\linewidth}|}
+					\hline
+					\textbf{Base criptográfica} & La reputación de la comunidad universitaria que está detrás de Helios Voting es suficiente como para garantizar la calidad y funcionalidad de los protocolos criptográficos implementados en el sistema. \\
+    				\hline
+    				\textbf{Software Libre} & Helios Voting es un proyecto de Software Libre, lo que permite que pueda ser modificado, lo cual es ideal para utilizarlo como base de un sistema integrado, adaptándolo a las necesidades propias de nuestro desarrollo. \\
+    				\hline
+    				\textbf{Flexibilidad} & Helios Voting es un sistema maduro, con usuarios activos en su desarrollo en Github y con varios sistemas desarrollándose como \textit{forks} de éste en la misma plataforma, por lo que hay una buena comunidad detrás de él. \\
+    				\hline
+    				\textbf{Verificabilidad E2E} & Helios es un estándar de facto en cuanto a verificabiliad E2E, el protocolo que considero que mejor se amolda al tipo de sistema que se desea implementar en este \gls{PFC}. \\
+    				\hline
+    				\textbf{Bajo riesgo de coacción} & Helios define como una de sus principales vulnerabilidades que está dirigido a elecciones con bajo riesgo de coacción, como es el caso de la que se afronta en este \gls{PFC}, por lo que no es un factor determinante para no utilizar este sistema. \\
+    				\hline
+    				\textbf{Votos cifrados no se descifran} & Protocolo criptográfico basado en cifrado homomórfico aditivo, que permite totalizar sin necesidad de descifrar votos individualmente. \\
+    				\hline
+    				\textbf{Capacidad de integración del \gls{DNIe}} & Helios proporciona sistemas de identificación / login de terceros, incluyendo la posibilidad de poder escribir uno propio, en este caso para incluir el \gls{DNIe} 3.0 como método válido. \\
+							\hline
+						\end{tabular}
+						\caption{Principales motivos de elección de Helios Voting como base del Sistema}
+				\label{tbl:principales.motivos.helios.voting.base.sistema}
+					\end{threeparttable}
+			\end{table}
+			
 				
 				
 				

@@ -33,7 +33,7 @@
 	Así pues, el objetivo general del PFC será:
 	
 	\begin{itemize}
-		\item Diseñar un esquema y un sistema de voto electrónico remoto a través de Internet que sea robusto, fiable, verificable y auditable\notasDuda{?¿?¿?¿, además de un coste ajustado,} para que se puedan llevar a cabo las Elecciones a Delegado y Subdelegado de Curso y las Elecciones a Miembro de la Junta Electoral de la Escuela Politécnica Superior de la Universidad San Pablo CEU. 
+		\item Diseñar un esquema y un sistema de voto electrónico remoto a través de Internet que sea robusto, fiable, verificable y auditable para que se puedan llevar a cabo las Elecciones a Miembro de la Junta Electoral de la Escuela Politécnica Superior de la Universidad San Pablo CEU. 
 	\end{itemize}
 	
 	Teniendo en cuenta el objetivo general, vamos a definir una serie de objetivos intermedios que habrá que cumplir:
@@ -44,15 +44,7 @@
 		\item Especificar el mecanismo y los protocolos para la identificación de votantes en el sistema y la emisión de los votos sin coerción.
 		\item Especificar los mecanismos y protocolos para una segura recepción de los votos, así como un correcto escrutinio y una veraz publicación de resultados.
 		\item Plantear un sistema de voto existente que cumpla con los requisitos del voto electrónico y sea adaptable a las necesidades de los procesos electorales a acometer.
-		\item ...
-		\item ...\todo[inline]{SEGUIR CON LOS OBJETIVOS}
 	\end{enumerate}
-%*
-%*
-%*
-%*
-%*
-%*
 
 % *************************************************************************************************************** %
 % 			DESCRIPCIÓN DEL SISTEMA REAL
@@ -143,25 +135,28 @@
 		\begin{itemize}
 			\item Fase Preelectoral
 			\begin{description}[font=$\bullet$\ \ ]
-				\item[Definición de los límites o reglas de la elección]: Deben definirse de forma que no parezca ambigua las reglas electorales. Qué se vota, a quién se vota, de qué forma, cómo se cuentan los votos o se asignan los cargos. Quiénes pueden votar, cuándo comienza y finaliza el sufragio.
-				\item[Elaboración del censo]: Las autoridades de la Elección deben realizar un proceso de elaboración del censo electoral, para identificar qué votantes tienen derecho a ejercer el voto y dónde (con qué opciones de voto).
-				\item[Registro de votantes]: Puede ser necesario que, según los mecanismos de identificación a utilizar, el votante deba registrarse previamente a la elección frente a la Autoridad Electoral, con el fin de, si no existe censo electoral formalizado, introducirse en el censo de la elección o, si existe ese censo previo, obtener la acreditación identificativa necesaria para poder votar de forma remota con las garantías avaladas por la autoridad electoral.
+				\item[Definición de los límites o reglas de la elección:] Deben definirse de forma que no parezca ambigua las reglas electorales. Qué se vota, a quién se vota, de qué forma, cómo se cuentan los votos o se asignan los cargos. Quiénes pueden votar, cuándo comienza y finaliza el sufragio.
+				\item[Elaboración del censo:] Las autoridades de la Elección deben realizar un proceso de elaboración del censo electoral, para identificar qué votantes tienen derecho a ejercer el voto y dónde (con qué opciones de voto).
+				\item[Registro de votantes:] Puede ser necesario que, según los mecanismos de identificación a utilizar, el votante deba registrarse previamente a la elección frente a la Autoridad Electoral, con el fin de, si no existe censo electoral formalizado, introducirse en el censo de la elección o, si existe ese censo previo, obtener la acreditación identificativa necesaria para poder votar de forma remota con las garantías avaladas por la autoridad electoral.
 				\notasInfo[inline]{EN LA TESIS DE VMMR, CAPÍTULO 5, VIENE MUCHA INFORMACIÓN. DE CARA A LA SOLUCIÓN, PODEMOS CITARLE, HABLAR DE QUE LO QUE HAY QUE CONSEGUIR ES IDENTIFICAR A UNA PERSONA DE FORMA INCORRUPTIBLE Y RELACIONARLA CON UN SISTEMA DIGITAL (FIRMA!!!!). HABLA DE LA HUELLA DACTILAR, LA FIRMA MANUSCRITA Y LA VOZ}
-				\item[Presentación de candidaturas]: A efectos del sistema informático que desarrollamos es el proceso en el que la autoridad electoral define qué candidaturas pueden ser elegidas por cada votante en cada circunscripción lógica.
+				\item[Presentación de candidaturas:] A efectos del sistema informático que desarrollamos es el proceso en el que la autoridad electoral define qué candidaturas pueden ser elegidas por cada votante en cada circunscripción lógica.
 				\todo{Explicar esto de la circunscripción lógica, aunque sea en un footnote}
 			\end{description}
 			
 			\item Fase Electoral (Votación)
 			\begin{description}[font=$\bullet$\ \ ]
-				\item[Identificación]: El primer paso del proceso de votación es el de la identificación del votante. Como ya se ha planteado, la identificación del votante es uno de los procesos críticos de una elección, pues, el sistema debe cumplir con varios requisitos básicos del voto electrónico, como puede ser el principio de autenticidad (en el que sólo los votantes autorizados pueden votar) o el democrático (por el cual el votante que tiene derecho a votar es sólo para hacerlo una vez).
-				\item[Votación]: El momento en el que el votante ya identificado, observa las opciones que puede elegir y ejerce su voto a una o varias de ellas (dependiendo del tipo de elección).
-				\item[Totalización de resultados]: \todo{Explicar la totalización, incluyendo lo de la diferencia con el escrutinio}
+				\item[Identificación:] El primer paso del proceso de votación es el de la identificación del votante. Como ya se ha planteado, la identificación del votante es uno de los procesos críticos de una elección, pues, el sistema debe cumplir con varios requisitos básicos del voto electrónico, como puede ser el principio de autenticidad (en el que sólo los votantes autorizados pueden votar) o el democrático (por el cual el votante que tiene derecho a votar es sólo para hacerlo una vez).
+				\item[Votación:] El momento en el que el votante ya identificado, observa las opciones que puede elegir y ejerce su voto a una o varias de ellas (dependiendo del tipo de elección).
+				\item[Totalización de resultados:] 
+					La totalización de resultados es la fase del proceso electoral en la que se agregan los resultados contados en cada una de las mesas electorales en los diferentes niveles que componen la división territorial electoral. Por ejemplo, se suman todas las mesas de un colegio y se obtienen los resultados de ese colegio. Se suman estos para obtener los resultados de un distrito. Estos se sumarían para obtener los de una localidad, estos para los de una provincia, los de la Comunidad Autónoma, los de nivel nacional. Etc. Además, en cada elección, dependiendo de cómo sea, el nivel básico de circunscripción variará, siendo la localidad, por ejemplo, la circunscripción en elecciones Municipales o la provincia (en casi todas las comunidades autónomas) en caso de elecciones autonómicas o nacionales.
+					
+					En elecciones de voto electrónico dependerá de si son de urna electrónica centralizada o virtualmente distribuida para realizar la totalización simulando mesas electorales o no. Igualmente, las circunscripciones en este tipo de elecciones pueden ser cambiadas de forma lógica, pensando en qué votantes han de elegir diferentes candidatos, en lugar de tomar como base la segregación territorial.
 			\end{description}
 
 			\item Fase postelectoral
 			\begin{description}[font=$\bullet$\ \ ]
-				\item[Difusión de resultados]: La difusión de resultados es la fase que tiene la responsabilidad de publicar los resultados de forma oficial u oficiosa. En los sistemas de conteo \todo{falta!!}
-			\end{description}
+				\item[Difusión de resultados:] La difusión de resultados es la fase que tiene la responsabilidad de publicar los resultados de forma oficial u oficiosa. La velocidad de difusión de los resultados es importante para afianzar la transparencia del proceso. En los conteos tradicionales se muestra según van siendo totalizados los resultados de cada mesa, mostrando los resultados con pequeñas variaciones en el porcentaje de censo escrutado, en lugar de esperar a recibir toda la información y sumarla, lo que supondría difundir tan sólo una vez, aunque los resultados al 100\% del censo escrutado. Esto, en elecciones de voto electrónico o por Internet, es más complicado que ocurra si la topología en la que se basa el sistema es de urna electrónica centralizada en lugar de distribuida. 
+				\end{description}
 			
 			\item \textbf{Auditoría}:
 			No es una fase propiamente dicha en el sentido cronológico en el que se han definido las anteriores. La fase de auditoría abarca todas las etapas del proceso, en mayor o menor medida, puesto que debe permitir la vigilancia del correcto funcionamiento del mismo en todas ellas.
@@ -171,12 +166,12 @@
 
 		\subsection{Fase preelectoral}\label{fase_electoral_preelectoral}
 			\subsubsection{Definición de los límites o reglas de la elección}\label{fase_electoral_preelectoral_reglas}
-				\par
-				Para ejercer la democracia de forma correcta las ''reglas del juego'' deben estar bien definidas, de forma clara y concisa, estableciendo los límites, los mecanismos, las fechas y todo lo necesario para una correcta interpretación, sin lugar a ambigüedades.
-				(...)
-				\par
+
+				Para ejercer la democracia de forma correcta las ''reglas del juego'' deben estar bien definidas, de forma clara y concisa, estableciendo los límites, los mecanismos, las fechas y todo lo necesario para una correcta interpretación, sin lugar a ambigüedades.
+
 				Estas reglas de la elección son responsabilidad de la Autoridad Electoral encargada de la organización de los comicios, así como del organismo que los convoca. De cara al sistema informático, esta fase preelectoral es la que sienta las bases de la lógica de negocio del sistema. Ya que define las reglas que el sistema deberá cumplir para llevar a cabo correctamente la elección.
 				(...)
+				\todo[inline]{OJO. Incompleto}
 			
 			\subsubsection{Elaboración del censo}\label{fase_electoral_preelectoral_censo}
 				\par
@@ -225,8 +220,10 @@
 			
 			Uno de los requisitos principales del voto electrónico se centra en la privacidad del mismo. El voto es secreto. Para satisfacer este requisito es encesario contar con herramientas que protejan el secreto de voto. Hay muchas esquemas de voto electrónico diferentes que pueden utilizarse para desarrollar un sistema de voto telemático, pero en la práctica totalidad de ellas será necesario generar al menos una clave criptográfica de cifrado.
 			
-			En algunos esquemas, además de clave de cifrado hará falta clave de descifrado (en Helios (\ref{estadocuestion_helios}), por ejemplo, no se necesita, pues el voto una vez cifrado, no se descifra). Se puede considerar la generación de claves públicas y claves privadas si el esquema criptográfico del protocolo así lo requiere. En esquemas que se basan en el secreto compartido, se han de generar claves para los actores encargados de juntar la clave privada de la elección. Etc.
-			\todo[inline]{Esto no es cierto, hay que arreglarlo, en Helios se necesitan las claves de cifrado para descifrar la totalización! para eso están los trusteeees!!!!}
+			En algunos esquemas, además de clave de cifrado hará falta clave de descifrado. Se puede considerar la generación de claves públicas y claves privadas si el esquema criptográfico del protocolo así lo requiere. En esquemas que se basan en el secreto compartido, se han de generar claves para los actores encargados de juntar la clave privada de la elección.
+			
+			Por ejemplo, en Helios Voting (\ref{estadocuestion_helios}), no se descifra cada voto, pero se requiere una clave para descifrar el resultado totalizado. Para ello, existe la figura de los trustees, que se reparten (comparten) esta clave (compartida) y, una vez totalizado el resultado de los votos cifrados, aportan su trozo para juntarla y utilizarla para descifrar el resultado. 
+
 			
 			Aparte, habrá que generar claves para los certificados de servidor y cliente como herramientas seguras en las que basar la infraestructura del sistema.
 			
@@ -364,6 +361,7 @@ Cierto es que podríamos hacer uso de la banda MRZ del documento escaneándola per
 				
 		\subsection{Fase postelectoral}\label{fase_electoral_postelectoral}
 		\todo[inline]{Tras el escrutinio, la difusión de resultados y proclamación oficial. Además, facilitar que el votante asegure el escrutinio de su voto.}
+			\subsubsection{Difusión de resultados}\label{fase_electoral_postelectoral_difusion_resultados}
 			
 
 % *************************************************************************************************************** %
