@@ -357,12 +357,26 @@ Cierto es que podríamos hacer uso de la banda \gls{MRZ} del documento escaneándo
 
 			\subsubsection{Totalización de resultados}\label{fase_electoral_electoral_totalizacion}
 				\todo[inline]{falta la totalización}
+				La totalización es el proceso en el que se suman los resultados recogidos en cada mesa electoral y se agrupan estas agregaciones de votos en los diferentes niveles que existen "por encima".
+				
+				En los procesos electorales tradicionales, esto resulta ser, por ejemplo, que se suman los resultados de cada una de las mesas de un local y se obtiene el resultado de ese colegio. A continuación se totalizan los resultados de todos los colegios de un distrito para obtener los resultados de este. Los resultados del distrito se totalizan para obtener los de una localidad, estos para llegar a los de una comarca, a continuación provincia o circunscripción, comunidad autónoma y  los estatales.
+				
+				En nuestro sistema de votación remota, la totalización consistirá en sumar, para cada "circunscripción lógica" los votos emitidos por cada votante.
+				
+				La idea es utilizar un protocolo de cifrado homomórfico aditivo, con lo que la totalización se realizaría sobre votos cifrados y sería el resultado de esta el que se descifre. Así se asegura la privacidad del votante a la vez que se le permite votar tantas veces como desee, para reducir el peligro de la coacción.
+				
 				
 				
 		\subsection{Fase postelectoral}\label{fase_electoral_postelectoral}
 		\todo[inline]{Tras el escrutinio, la difusión de resultados y proclamación oficial. Además, facilitar que el votante asegure el escrutinio de su voto.}
+		
 			\subsubsection{Difusión de resultados}\label{fase_electoral_postelectoral_difusion_resultados}
 			
+			La difusión de resultados trata de dar visibilidad a los resultados del escrutinio y totalización de los votos de la elección.
+			
+			En los procesos electorales tradicionales es un proceso esencial en cuanto a la transparencia del mismo. Se intenta que la difusión sea casi en tiempo real. Básicamente, cuanto antes se muestre el resultado de escrutar una mesa, menor será la probabilidad de que los interesados en la elección tengan la sensación de que haya podido haber alguna manipulación de los resultados. Igualmente, en España, estos resultados de la noche electoral son provisionales, por lo que carece de sentido una exhausta   demostración de su correctitud, ya que los fallos que haya en el conteo se resolverán unas horas o días más tarde en el recuento definitivo, llevado a cabo públicamente por un juez de paz.
+			
+			En el caso de nuestro sistema de voto remoto, lo normal será que la difusión se haga del 100\% escrutado, ya que se totalizarán todos los votos al mismo tiempo, por lo que este efecto de transparencia no podrá tenerse en cuenta. Para ello, habrá que confiar en los procesos criptográficos diseñados para salvaguardar la integridad del escrutinio de los votos y a las auditorías que lo demuestren.
 
 % *************************************************************************************************************** %
 % 			GGGGGGGGGGGGGGGGGGGGGGGGGGGGG
