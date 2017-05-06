@@ -1364,7 +1364,9 @@ los diálogos del sistema.
 
 					
 						\paragraph{ElGamal / ElGamal Exponencial}\label{primitivaCifradoHomomorfico_elgamal}
-							\hfill
+
+							\hfill \\
+							
 							Uno de los algoritmos más utilizados para realizar un cifrado homomórfico es el de ElGamal.
 							Este algoritmo es un sistema de cifrado homomórfico respecto de la operación multiplicación. Con esto, se obtiene un proceso en el que el producto de de dos mensajes cifrados equivale al cifrado del producto de ambos mensajes.
 							
@@ -1386,7 +1388,7 @@ los diálogos del sistema.
 			% 			ESQUEMAS DE VOTO ELECTRÓNICO
 			% *************************************************************************************************************** %
 			\subsection{Esquemas de Voto Electrónico}\label{esquemasVotoElectronico}
-			\todo[inline]{El problema es que parece que repetimos en los esquemas lo que se pon en las primitivas. Hay que ver cómo debo escribirlo.}
+
 				Los sistemas de voto electrónico están formados por un diseño conceptual y el llamado esquema o paradigma de voto electrónico (E-Voting Schemes - EVS). El esquema es el núcleo del sistema, lo que asegura que los requisitos se cumplan.
 				
 				La práctica totalidad de estos esquemas usan mecanismos y principios criptográficos.
@@ -1414,10 +1416,8 @@ los diálogos del sistema.
 						
 					\item Esquema de Voto Electrónico basado en \textbf{Secreto Compartido}
 					
-						En el esquema de voto electrónico basado en secreto compartido, también llamado Paradigma de Benaloh [***** CITA *****]\notasMejorar{Falta la cita}, el votante comparte su voto entre varias autoridades electorales. Una vez finalizado el proceso de votación, cada autoridad computa los votos que ha recibido y los pone en común con el resto de autoridades electorales que toman parte en la elección. Así se obtiene el resultado total del proceso.
-						
-						%***************** LITERAL *********** La implementación de este esquema posee altos costos en términos de comunicación, ya que cada voto debe enviarse por varios canales diferentes (tantos como autoridades electorales haya). \notasCambio{LITERAL}
-					
+						En el esquema de voto electrónico el votante comparte su voto entre varias autoridades electorales. Una vez finalizado el proceso de votación, cada autoridad computa los votos que ha recibido y los pone en común con el resto de autoridades electorales que toman parte en la elección. Así se obtiene el resultado total del proceso.
+											
 					\item Esquema de Voto Electrónico basado en \textbf{Pruebas de Conocimiento Nulo}
 					
 					\item Esquema de Voto Electrónico basado en \textbf{Firma Ciega}
@@ -1428,7 +1428,6 @@ los diálogos del sistema.
 						
 						Se caracteriza porque la entidad firmante no adquiere ningún conocimiento sobre el contenido del mensaje que está firmando, aunque, con posterioridad, la firma obtenida puede ser verificada como válida tanto por esta entidad firmante como cualquier otra entidad que disponga de la información necesaria.
 						
-						\todo[inline]{Explicación del proceso (Chaum??)}
 						Los esquemas que se basan en protocolos con firma ciega suelen usar canales anónimos para enviar tanto la firma como el voto cifrado a la autoridad electoral, con lo que protege el anonimato del votante.
 						
 						Podemos encontrar este esquema en soluciones como la propuesta en 1992 por Fujioka en \cite{Fujioka93}, la cual sirvió de base a Cranor\footnote{\url{http://lorrie.cranor.org/}} para la implementación de un prototipo (Sensus\footnote{\url{http://lorrie.cranor.org/voting/sensus/}}\footnote{\url{http://lorrie.cranor.org/pubs/hicss/hicss.html}}).
