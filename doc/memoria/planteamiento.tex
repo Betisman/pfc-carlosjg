@@ -111,8 +111,9 @@
 % *************************************************************************************************************** %
 	\section{Fases del proceso electoral}\label{fases_proceso_electoral}
 	
-	El Consejo Europeo, dentro de si definición de estándares, recomienda la aceptación para utilizar el \textit{Election Markup Language} (EML). Desarrollado por la \textit{Organization for the Advancement of Structured Information Standards} (OASIS), su objetivo es el de permitir el ''intercambio de información entre hardware, software y proveedores de servicios implicados en cualquier aspecto relacionado con el desarrollo de elecciones o servicios a votantes tanto para organizaciones públicas como privadas.'' \cite{Codina:tesis}
-	Según el estándar EML, se distinguen cuatro actores implicados y tres fases en el proceso electoral.
+	El Consejo Europeo, dentro de si definición de estándares, recomienda la aceptación para utilizar el \gls{EML}. Desarrollado por la \gls{OASIS}, su objetivo es el de permitir el ''intercambio de información entre hardware, software y proveedores de servicios implicados en cualquier aspecto relacionado con el desarrollo de elecciones o servicios a votantes tanto para organizaciones públicas como privadas.'' \cite{Codina:tesis}
+	
+	Según el estándar \gls{EML}, se distinguen cuatro actores implicados y tres fases en el proceso electoral.
 	
 	\textbf{Actores}
 	\begin{itemize}
@@ -130,7 +131,7 @@
 	\end{itemize}
 	
 
-		Teniendo en cuenta el EML, identificamos las tres fases que dirigen el proceso electoral como fases preelectoral, electoral y postelectoral, adecuándolas al idioma español. Cada una de estas fases contiene una series de procesos o tareas determinadas.
+		Teniendo en cuenta el \gls{EML}, identificamos las tres fases que dirigen el proceso electoral como fases preelectoral, electoral y postelectoral, adecuándolas al idioma español. Cada una de estas fases contiene una series de procesos o tareas determinadas.
 		
 		\begin{itemize}
 			\item Fase Preelectoral
@@ -254,15 +255,16 @@
 				En un sistema de voto por Internet no hay una interacción directa entre el votante y la autoridad electoral, que es quien debe permitirle votar. Por ello, es muy importante que los mecanismos para identificar al votante sean precisos y confiables. Con este objetivo, hay que valorar qué método de identificación es el mejor para cumplir con los requisitos de la elección y del voto electrónico telemático y remoto.
 
 				\begin{itemize}
-					\item \textbf{Usuario / contraseña}
+					\item[$\circ$] \textbf{Usuario / contraseña}
 					
 						Para las elecciones de la Junta de Escuela de la EPS, el método de usar un par usuario / contraseña sería una solución sencilla. El censo está bastante acotado y, al ser todos los potenciales votantes miembros de la Universidad, poseen una cuenta de correo electrónico corporativa proporcionada por ésta. El proceso sería tan fácil como, por ejemplo, usar la dirección de correo electrónico de cada alumno / profesor / trabajador de la Escuela como nombre de usuario y enviarles un email a cada uno con una clave aleatoria generada por la autoridad electoral.
 						
 						Esta solución, no obstante, sería inviable para elecciones más ambiciosas, como lo son las legislativas estatales o autonómicas, ya que carecemos de elementos como direcciones de correo electrónico de todo el censo. Se podría utilizar el correo ordinario como método para hacer llegar estas credenciales, de la misma forma en que los partidos políticos hacen llegar la propaganda electoral o la Junta Electoral hace llegar la información del censo electoral a cada votante. Considero que sería un gasto extra de recursos económicos, humanos y medioambientales que no se sostiene para la utilización de este servicio. Tampoco se asegura la recepción del correo si aprovechamos el envío de la información del censo electoral, pues el envío, al contrario que cuando hemos solicitado el voto por correo y nos hacen llegar las papeletas, no es certificado. Realizar este envío de credenciales con garantía de recibo, resultaría muy costoso y lenta.
 						
 						Otro motivo que desaconseja el envío de credenciales por correo es que éstas podrían ser interceptadas por otra persona distinta a quien identifican de forma no muy complicada, lo cual supone una brecha de seguridad bastante importante.
+					\hfill 
 					
-					\item \textbf{Social Login}
+					\item[$\circ$] \textbf{Social Login}
 					
 					Ahora está muy extendido el concepto de login por Social Sign-in, que es un tipo de single sign-on que hace uso de la información de un usuario registrado en una red social para acceder a una web o servicio de terceros en vez de que estos implementen un sistema de cuentas de usuarios propia.
 					
@@ -281,7 +283,9 @@
 						\label{fig:Facebook_single_signin}
 					\end{figure}
 					
-					\item \textbf{Mobile ID}
+					\hfill
+					
+					\item[$\circ$] \textbf{Mobile ID}
 					
 						El Gobierno de Estonia, para sus comicios por Internet está desarrollando una tecnología en la que el propio smartphone es la herramienta que sirve para identificarnos.
 						
@@ -297,15 +301,18 @@
 						
 %\todo[inline]{ hay que mirar bien esto del MobID, pues no sé si habrá algo desarrollado, de todos modos, en España esto ni se contempla}
 
-					\item \textbf{Smartcard}
+\hfill
+
+					\item[$\circ$] \textbf{Smartcard}
 					
 						Otra opción posible es el uso de una smartcard que contenga certificados emitidos por la Autoridad Electoral para cada votante. Los inconvenientes de este método son varios:
 						\begin{itemize}
 							\item Por un lado, requiere un registro previo de los votantes, pues hay que generarles los certificados.
 							\item Un problema logístico ya que, una vez generados los certificados e introducidos en las tarjetas, éstas deben hacerse llegar a los votantes que las van a utilizar. Este paso, en unas elecciones a gran escala puede suponer un esfuerzo injustificado.
 						\end{itemize}
+\hfill
 
-					\item \textbf{DNIe}
+					\item[$\circ$] \textbf{DNIe}
 					
 						Lo ideal para una elección por el sistema de voto por Internet es implementar un proceso que resulte sencillo al votante, ya que si resulta ser más complicado que el voto tradicional, el votante no le verá sentido y no hará uso de él.
 						

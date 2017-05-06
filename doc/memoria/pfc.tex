@@ -189,6 +189,9 @@
 
 % Para el glosario
 \usepackage[toc,acronym]{glossaries}
+%\usepackage[nopostdot,nogroupskip,nonumberlist]{glossaries-extra}
+%\glsunsetall[main] % Con esto, los acrónimos no se muestran en long-form, ni siquiera cuando aparecen por primera vez
+% Si se quiere que alguno se muestre en long form, se puede poner justo antes de \gls{XYZ} este comando: \glslocalreset{XYZ}
 \makeglossaries
 
 

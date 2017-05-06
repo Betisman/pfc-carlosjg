@@ -67,8 +67,6 @@
 	En la actualidad, son muchos los proyectos que tratan de incluir el voto electrónico en los procesos electorales por todo el planeta. Estos intentos, de hecho, no se limitan a pequeños sufragios de entidades privadas o gobiernos locales, ya que se han propuesto múltiples paradigmas diseñados para ser implementados en elecciones a nivel estatal, como se puede ver en las experiencia de Estonia, país en el que se desarrolla la votación electrónica remota vinculante con mayor censo activo.
 	
 	El voto electrónico se lleva tratando de desarrollar e implementar desde hace bastante tiempo. Concretamente, podríamos datar el comienzo en el año 1868, cuando el inventor estadounidense Thomas Alva Edison\footnote{Inventor estadounidense (1847-1931) \url{https://es.wikipedia.org/wiki/Thomas_Alva_Edison}}  registró su primera patente, consistente en un instrumento simple para el recuento mecánico de votos. El instrumento se podía colocar en la mesa delante de cada congresista y tenía dos botones, uno para el voto a favor y otro para el voto en contra. Pese a considerarlo un avance, no consiguió ser aceptado en el Congreso de Washington, donde le dieron el siguiente motivo para argumentar el rechazo de los representantes a esta nueva tecnología: 
-	
-		\notasInfo[inline]{If there is any invention on Earth that we don't want down here, that is it.}
 	 
 	 \begin{verse}
 		 \textit{''Si hay en la tierra algún invento que no queremos aquí, es exactamente el suyo. Uno de nuestros principales intereses es evitar fraudes en las votaciones, y su aparato no haría otra cosa que favorecerlos''.}
@@ -168,5 +166,17 @@
 		
 		\todo[inline]{Aquí referencia a los requisitos del voto electrónico}
 		
-		La fase de implementación, si el diseño ha sido bien desarrollado debería llevar el tiempo necesario para realizar el software y la integración de los diferentes módulos y sistemas. Sin embargo, la fase de Pruebas cobra una importancia capital en este tipo de proyectas. Al tener una vida tan corta y una importancia en cuanto a datos tan alta, el margen de error del sistema durante el breve período que estará en producción debe ser residual. Este tipo de sistemas deben tener una tolerancia a fallos de prácticamente el 100\%. No hay opción a realizar sistemas evolutivos, por lo que hay que tratar de que no lleguen errores a producción, ya que los que se encuentren durante la jornada electoral se tendrían que arreglar en el momento, con las implicaciones que esto acarrea en cuanto a riesgo de una mala solución y compromiso con los datos o, incluso, con la transparencia del proceso (técnicos modificando código fuente durante la jornada electoral no es una buena práctica de cara a auditorías externas en un sistema electrónico de voto). Por ello, la única forma en la que se 
-		\todo[inline]{seguir por aquí}
+		La fase de implementación, si el diseño ha sido bien desarrollado debería llevar el tiempo necesario para realizar el software y la integración de los diferentes módulos y sistemas. Sin embargo, la fase de Pruebas cobra una importancia capital en este tipo de proyectas. Al tener una vida tan corta y una importancia en cuanto a datos tan alta, el margen de error del sistema durante el breve período que estará en producción debe ser residual. Este tipo de sistemas deben tener una tolerancia a fallos de prácticamente el 100\%. No hay opción a realizar sistemas evolutivos, por lo que hay que tratar de que no lleguen errores a producción, ya que los que se encuentren durante la jornada electoral se tendrían que arreglar en el momento, con las implicaciones que esto acarrea en cuanto a riesgo de una mala solución y compromiso con los datos o, incluso, con la transparencia del proceso (técnicos modificando código fuente durante la jornada electoral no es una buena práctica de cara a auditorías externas en un sistema electrónico de voto).
+		
+		Es indispensable, por tanto, desarrollar un sistema de testing serio y automatizado. Deberían implementarse, por una parte, un protocolo de pruebas que abarque desde las unitarias a las de sistema, teniendo en cuenta tanto datos, como software, hardware y redes. Además, es muy importante que estas sean automáticas y que se ejecuten cada vez que el software sea modificado, asegurando así la integridad del mismo.
+		
+		La fase de documentación es importante para dejar constancia de cómo se ha desarrollado el proyecto. Junto a los textos que expliquen la implementación del mismo, se debe documentar el protocolo de pruebas, manual de usuario personalizado para cada uno de los actores que interactúan con el sistema, protocolos de mantenimiento, etc. En el caso de este \gls{PFC}, se incluiría aquí la redacción de esta memoria.
+		
+		La fase de mantenimiento es muy importante en proyectos evolutivos. Un proyecto que se ejecuta, se implanta en producción y tiene una vida objetiva relativamente longeva, requiere un plan de mantenimiento que asegure que los posibles \textit{bugs} sean corregidos y las posibles nuevas funcionalidades requeridas sean desarrolladas. En el caso de un proyecto para un proceso electoral, esta fase puede no tener esta importancia, pues el proyecto tiene una vida muy corta, normalmente asociada a la noche electoral, por lo que no tiene sentido proveer un mantenimiento activo, sino un protocolo de contingencia ante posibles problemas que haya que arreglar \textit{en directo}.
+
+		
+		
+		
+		
+		
+		

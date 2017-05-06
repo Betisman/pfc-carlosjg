@@ -539,9 +539,9 @@ los diálogos del sistema.
 			
 			La ley electoral estonia permite a los votantes ejercer su derecho al voto de tres formas:
 			\begin{enumerate}[a)]
-				\item Voto tradicional. Los votantes pueden acudir a los colegios electorales e introducir su voto en la urna previa identificación del votante por parte de los miembros de la mesa.
-				\item Voto postal. Los votantes estonios tienen la posibilidad de acudir en unas fechas determinadas anteriores al día electoral a unas Estaciones de Votación, que funcionan de forma análoga a Correos en España, donde pueden entregar el voto en papel y una acreditación que le identifique. Esta Estación se encarga de hacer llegar el voto y la identificación a la mesa o Distrito Electoral donde el votante esté censado.
-				\item Voto por Internet. Durante un período de tiempo anterior al día electoral, los votantes tienen la posibilidad de entregar el voto por medio de Internet.
+				\item \textbf{Voto tradicional} Los votantes pueden acudir a los colegios electorales e introducir su voto en la urna previa identificación del votante por parte de los miembros de la mesa.
+				\item \textbf{Voto postal} Los votantes estonios tienen la posibilidad de acudir en unas fechas determinadas anteriores al día electoral a unas Estaciones de Votación, que funcionan de forma análoga a Correos en España, donde pueden entregar el voto en papel y una acreditación que le identifique. Esta Estación se encarga de hacer llegar el voto y la identificación a la mesa o Distrito Electoral donde el votante esté censado.
+				\item \textbf{Voto por Internet} Durante un período de tiempo anterior al día electoral, los votantes tienen la posibilidad de entregar el voto por medio de Internet.
 			\end{enumerate}
 			
 			Aunque el votante haya emitido su voto de forma electrónica, la Ley Electoral estonia permite al mismo ejercer su voto de cualquiera de las otras dos formas invalidando su voto electrónico. Es decir, que si una vez votado por Internet, el votante decide votar por correo, éste voto anulará el emitido por Internet. Lo mismo pasaría si decidiese votar presencialmente el día electoral, que su voto emitido por Internet quedaría anulado y fuera del escrutinio. Este hecho es una medida de la Autoridad Electoral para proteger a los votantes frente a la coerción, proveyendo de un mecanismo por el cual un votante que haya elegido una formación determinada por presiones de terceros podría libremente cambiar la dirección de su voto una vez emitido el primero.\\\hspace*{\fill}
@@ -835,9 +835,6 @@ los diálogos del sistema.
 			Según su documentación, las bases del sistema se pueden adecuar sin problemas a un \textit{sistema abierto} (voto por Internet), pero el precio que implica la comodidad de los votantes de poder votar sin necesidad de trasladarse a locales oficiales incurre en un incremento de los riesgos de coerción. 
 			
 			
-			\todo[inline]{Lo que quizá sí que habría que hablar, o no, hay que decidirlo es de las elecciones que se han hecho utilizando Helios (Universidad de Louven, Harvard) y Ágora (Podemos), pues son experiencias reales con sistemas que me planteo utilizar como base.}
-			
-			
 			\subsection{SEVI}\label{sevi}
 				El Sistema Electrónico de Votación por Internet (SEVI) \cite{tesisMLLGarcia} es una propuesta de sistema software de voto electrónico para reemplazar el canal que constituye el correo postal certificado en el proceso electoral de México.
 				
@@ -896,12 +893,14 @@ los diálogos del sistema.
 			
 			Según estos mismos informes\cite{carter2013}, un ejemplo de sistema electoral por Internet \gls{E2E} verificable es Helios Voting (\ref{estadocuestion_helios}), del que dicen que es un reconocido ``\textit{estándar en verificabilidad de voto por Internet}''. Las bonanzas de este sistema es que proporciona al proceso todas las garantías que aporta la verificabilidad \gls{E2E}, como la capacidad de observar pruebas de conocimiento cero no interactivas que verifican que cada voto fue incluido correctamente y que el escrutinio completo fue computado con precisión. No obstante, hay que remarcar que, como su propio desarrollador indica, Helios es un sistema pensado en elecciones con bajo riesgo de coerción, lo cual no es válido para elecciones nacionales como el modelo estonio o noruego.
 			
-			Las garantías que ofrecen los esquemas de verificabilidad \gls{E2E} eliminan la necesidad de los votantes de confiar tanto en los propios clientes (dispositivos, navegadores, sistemas operativos) que utilizan para votar, como los servidores y los trabajadores oficiales que administran los sistemas asociados a la recepción, descifrado y conteo de votos, que son los pilares críticos en los que se basa un sistema de voto por Internet.\notasCambio{Falta decir el porqué!! Por qué se olvidan los votantes de la amenaza? pues porque el \gls{E2E} consigue que se demuestre la invariabilidad del voto emitido frente al contado...\gls{E2E}}. Con esta perspectiva de relajada confianza en los dispositivos clientes, se torna como un buen protocolo para el voto por Internet sin locales habilitados. Se debe a que en este marco altamente distribuido, la votación se realiza desde entornos no controlados por el sistema, con lo que hay un alto riesgo de amenazas, pero la verificiabilidad \gls{E2E} se encarga de demostrar la invariabiliadd del voto emitido frente al escrutado, por lo que minimiza varios de los triesgos inherentes a los clientes no controlados. (Obvia comentar que sigue habiendo bastantes amenazas que este medio no va a tratar y tendrán que ser enfrentadas con otras herramientas.)
+			Las garantías que ofrecen los esquemas de verificabilidad \gls{E2E} eliminan la necesidad de los votantes de confiar tanto en los propios clientes (dispositivos, navegadores, sistemas operativos) que utilizan para votar, como los servidores y los trabajadores oficiales que administran los sistemas asociados a la recepción, descifrado y conteo de votos, que son los pilares críticos en los que se basa un sistema de voto por Internet. Esto es así porque los esquemas basados en verificabilidad \gls{E2E} aseguran la inviolabilidad del voto emitido hasta ser contado, eliminando la amenaza de interceptación del mismo en cliente, canal de comunicación o servidor de escrutinio.
+			
+			Con esta perspectiva de relajada confianza en los dispositivos clientes, se torna como un buen protocolo para el voto por Internet sin locales habilitados. Se debe a que en este marco altamente distribuido, la votación se realiza desde entornos no controlados por el sistema, con lo que hay un alto riesgo de amenazas, pero la verificiabilidad \gls{E2E} se encarga de demostrar la invariabiliad del voto emitido frente al escrutado, por lo que minimiza varios de los riesgos inherentes a los clientes no controlados. (Obvia comentar que sigue habiendo bastantes amenazas que este medio no va a tratar y tendrán que ser enfrentadas con otras herramientas.)
 			
 			
 			En esta sección, vamos a recoger e introducir brevemente, tres ejemplos de proyectos desarrollados con el objetivo de cumplir con las premisas de la verificabilidad punto a punto  (\gls{E2E}-verifiability).
 			
-			De los tres 
+			De los tres sistemas, ADDER (\ref{estadocuestion_adder}) es un desarrollo académico, Ágora Voting(\ref{estadocuestion_agoravoting}) es un sistema desarrollado en España con un amplio historial de procesos electorales llevados a cabo, al igual que Helios Voting(\ref{estadocuestion_helios}), considerado un estándar de facto de votación basada en verificabilidad \gls{E2E}.
 			
 				\subsection{ADDER}\label{estadocuestion_adder}
 					\textsc{Adder} \cite{conf_acsac_KiayiasKW06} se define como un sistema de voto electrónico basado en Internet, libre y de código abierto. Desarrollado por la Universidad de Connecticut (EEUU) en 2006, supone una plataforma de eVoting completamente funcional con una serie de características de seguridad como robustez, privacidad del voto, auditabilidad y verificabilidad.
@@ -954,7 +953,7 @@ los diálogos del sistema.
 						\begin{enumerate}
 							\item \textit{Recuento de los votos encriptados}. Gracias a las propiedades del cifrado homomórfico, no necesita usar claves privadas para contar los votos, pues no es necesario que los descifre para realizar el recuento. El programa puede repetir el proceso ejecutado en el servidor.
 							\item \textit{Verificación de todas las pruebas}. Cada votante puede comprobar la pruebas de validación de su voto.
-							\item \textit{Descifrado del recuento final}. Una vez que todas las autoridades han terminado sus descifrados parciales, la suite de verificación recalcula los coeficientes de Lagrange y desencripta la suma final.\notasInfo{esto no está muy bien explicado}
+							\item \textit{Descifrado del recuento final}. Una vez que todas las autoridades han terminado sus descifrados parciales, la suite de verificación recalcula los coeficientes de Lagrange y desencripta la suma final.
 							\item \textit{Verificación del hash}.
 						\end{enumerate}
 						\item Verificabilidad del votante.
@@ -1364,8 +1363,7 @@ los diálogos del sistema.
 						\end{figure}
 
 					
-						\paragraph*{ElGamal / ElGamal Exponencial}\label{primitivaCifradoHomomorfico_elgamal}
-				\todo[inline]{esto no es una subsection!!!!}
+						\paragraph*{ElGamal / ElGamal Exponencial}\label{primitivaCifradoHomomorfico}
 							Uno de los algoritmos más utilizados para realizar un cifrado homomórfico es el de ElGamal.
 							Este algoritmo es un sistema de cifrado homomórfico respecto de la operación multiplicación. Con esto, se obtiene un proceso en el que el producto de de dos mensajes cifrados equivale al cifrado del producto de ambos mensajes.
 							
@@ -1434,10 +1432,7 @@ los diálogos del sistema.
 						
 						Podemos encontrar este esquema en soluciones como la propuesta en 1992 por Fujioka en \cite{Fujioka93}, la cual sirvió de base a Cranor\footnote{\url{http://lorrie.cranor.org/}} para la implementación de un prototipo (Sensus\footnote{\url{http://lorrie.cranor.org/voting/sensus/}}\footnote{\url{http://lorrie.cranor.org/pubs/hicss/hicss.html}}).
 						
-						El esquema desarrollado en Sensus divide el proceso en cuatro etapas: \textit{inicialización}, \textit{registro}, \textit{votación} y \textit{recuento}. A su vez, registra dos autoridades: \textit{Administrador} y \textit{Contador}.
-						\todo[inline]{********* VER BELLEBONI ************}
-				
-				
+						El esquema desarrollado en Sensus divide el proceso en cuatro etapas: \textit{inicialización}, \textit{registro}, \textit{votación} y \textit{recuento}.				
 					\item Esquema de Voto Electrónico basado en \textbf{papeletas precifradas}
 					
 						Este esquema de voto electrónico aparece en la tesis de Morales Rocha \cite{tesisSeguridadVMMorales}.
@@ -1579,10 +1574,7 @@ los diálogos del sistema.
 		% 			NFC
 		% *************************************************************************************************************** %
 		\subsection{NFC}\label{estadoNFC}
-			\notasInfo[inline]{Buena fuente de información en \url{https://www.agpd.es/portalwebAGPD/canaldocumentacion/publicaciones/common/Guias/Guia_RFID.pdf}}
-			%\notasInfo[inline]{hjhjhjh \url{http://www.feedspot.com/?dadi=1#feed/fof_fo_353622__f_38903/article/3511839278?dd=43115052604544} }
-			%\notasInfo[inline]{fgfg \url{https://mundonfc.wordpress.com/2012/02/09/como-funciona-el-nfc/}}
-			NFC (\textbf{N}ear \textbf{F}ield \textbf{C}ommunication - Comunicación de Campo Cercano) se trata de una tecnología de comunicación inalámbrica de corto alcance.
+			\gls{NFC} (\textbf{N}ear \textbf{F}ield \textbf{C}ommunication - Comunicación de Campo Cercano) se trata de una tecnología de comunicación inalámbrica de corto alcance.
 			
 			El origen de esta tecnología está en el RFID, tecnología ya bastante utilizada en múltiples campos de nuestra vida cotidiana. Un buen ejemplo son las etiquetas en prendas en tiendas de ropa o en productos de supermercado. Si tratas de llevarte algo sin pagar, al pasar por unos arcos a la salida preparados con cierto campo magnético, las etiquetas RFID activan una alarma, la cual se desactiva una vez se ha abonado el producto.
 			
