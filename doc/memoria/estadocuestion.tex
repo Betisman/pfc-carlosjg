@@ -1585,16 +1585,16 @@ los diálogos del sistema.
 				\label{fig:logoRFID}
 			\end{figure}
 			
-			RFID (\textbf{R}adio \textbf{F}requency IDentification, en español identificación por radiofrecuencia) es una tecnología de comunicación inalámbrica centrada en la transmisión de un identificador mediante ondas de radio. Así, a cualquier producto se le puede asociar un identificador unívoco a través de una etiqueta RFID y así poder ser detectado y leído por un lector apropiado de forma inalámbrica.
+			\gls{RFID} es una tecnología de comunicación inalámbrica centrada en la transmisión de un identificador mediante ondas de radio. Así, a cualquier producto se le puede asociar un identificador unívoco a través de una etiqueta RFID y así poder ser detectado y leído por un lector apropiado de forma inalámbrica.
 			
-			En el caso de NFC, se trata de un concepto similar, pero buscando la transmisión de datos más complejos que un simple identificador.
+			En el caso de \gls{NFC}, se trata de un concepto similar, pero buscando la transmisión de datos más complejos que un simple identificador.
 			
-			NFC, se basa en la norma ISO 14443 (RFID), un estándar internacional relacionado con tarjetas de identificación electrónica, especialmente tarjetas de proximidad. Como establece esta norma estándar, NFC se comunica mediante inducción en un campo magnético. Por tanto cada tarjeta NFC cuenta con una antena en espiral, con lo que cuando se ambas (origen-destino) se colocan dentro de un campo electromagnético cercano, se puede realizar la transmisión de datos. Cumpliendo igualmente con la norma, esta tecnología trabaja en una banda de frecuencia de 13,56 MHz.
+			\gls{NFC}, se basa en la norma ISO 14443 (\gls{RFID}), un estándar internacional relacionado con tarjetas de identificación electrónica, especialmente tarjetas de proximidad. Como establece esta norma estándar, \gls{NFC} se comunica mediante inducción en un campo magnético. Por tanto cada tarjeta \gls{NFC} cuenta con una antena en espiral, con lo que cuando se ambas (origen-destino) se colocan dentro de un campo electromagnético cercano, se puede realizar la transmisión de datos. Cumpliendo igualmente con la norma, esta tecnología trabaja en una banda de frecuencia de 13,56 MHz.
 			
 			\begin{figure}[htbp]
 				\centering
 					\includegraphics[width=0.80\textwidth]{imgs/nfc_usim_img.png}
-				\caption{Arquitectura de un chip NFC}
+				\caption{Arquitectura de un chip \gls{NFC}}
 				\label{fig:arquitecturaNFC}
 			\end{figure}
 			
@@ -1609,24 +1609,24 @@ los diálogos del sistema.
 			Este protocolo de comunicaciones puede trabajar a diferentes velocidades: 106, 212, 424 ó 848 Kbits/s.
 			La velocidad de la transmisión se negocia al comienzo de la comunicación entre los dispositivos, aunque puede regularse según sea necesario variando ciertos parámetros.
 			
-			Según NFC Forum, organización fundada en 2004 por Philips, Nokia y Sony y que hoy reúne alrededor de 170 miembros, la conexión entre dos dispositivos se realiza de forma automática cuando estos se encuentran cerca el uno del otro, digamos, a unos 5cm de distancia. De todos modos, esta distancia es variable en cuanto a que se puede ver afectada por ciertos factores como pueden ser el tipo de emisor/receptor, temperatura, aislantes, etc. Este foro fija la máxima distancia para operar con este canal de transmisión en 20cm, con el propósito de cubrir la seguridad de la información, que esta no pueda ser accedida de forma remota por un atacante a distancia.
+			Según \gls{NFC} Forum, organización fundada en 2004 por Philips, Nokia y Sony y que hoy reúne alrededor de 170 miembros, la conexión entre dos dispositivos se realiza de forma automática cuando estos se encuentran cerca el uno del otro, digamos, a unos 5cm de distancia. De todos modos, esta distancia es variable en cuanto a que se puede ver afectada por ciertos factores como pueden ser el tipo de emisor/receptor, temperatura, aislantes, etc. Este foro fija la máxima distancia para operar con este canal de transmisión en 20cm, con el propósito de cubrir la seguridad de la información, que esta no pueda ser accedida de forma remota por un atacante a distancia.
 			
 			Dentro de los modos de comunicación activo y pasivo también se definen 3 modos de comunicación:
 			
 			\begin{description}
 				\item[Modo Lectura / Escritura] Con este modo, las aplicaciones pueden transferir datos en un formato definido por el NFC Forum, aunque es un modo no considerado seguro.
-				\item[Modo emulación NFC Card] Este modo permite al dispositivo actuar como una Smartcard estándar, es decir, la transmisión de datos se encuentra securizada.
+				\item[Modo emulación \gls{NFC} Card] Este modo permite al dispositivo actuar como una Smartcard estándar, es decir, la transmisión de datos se encuentra securizada.
 				\item[Modo Peer to Peer] Este modo permite la comunicación directa entre dos dispositivos a nivel de enlace.
 			\end{description}
 			
 			
-			Hoy en día, el uso del NFC está bastante extendido en cuanto a que muchos dispositivos entre smartphone y tablets lo implementa de serie. Además, está desarrollándose el pago con tarjetas de débito/crédito contactless, por lo que muchos comercios ya poseen TPVs para tarjetas sin contacto, o incluso con pago a través del móvil por NFC.
+			Hoy en día, el uso del \gls{NFC} está bastante extendido en cuanto a que muchos dispositivos entre smartphone y tablets lo implementa de serie. Además, está desarrollándose el pago con tarjetas de débito/crédito contactless, por lo que muchos comercios ya poseen \gls{TPV}s para tarjetas sin contacto, o incluso con pago a través del móvil por \gls{NFC}.
 			
-			Igualmente, desde hace un tiempo, existen tarjetas NFC con las que se pueden realizar tareas al poner en contacto con el dispositivo móvil. Un ejemplo de funcionamiento sería colocar una etiqueta NFC junto a la puerta y que al pasar el móvil por ella se encienda la luz de la habitación por medio de una bombilla inteligente. O colocar una tarjeta junto a la puerta de casa que indique al móvil que desconecte el WiFi al salir de casa para disminuir el consumo de batería.
+			Igualmente, desde hace un tiempo, existen tarjetas \gls{NFC} con las que se pueden realizar tareas al poner en contacto con el dispositivo móvil. Un ejemplo de funcionamiento sería colocar una etiqueta NFC junto a la puerta y que al pasar el móvil por ella se encienda la luz de la habitación por medio de una bombilla inteligente. O colocar una tarjeta junto a la puerta de casa que indique al móvil que desconecte el WiFi al salir de casa para disminuir el consumo de batería.
 			
-			También se utiliza el NFC en marketing. Hay anuncios que incorporan etiquetas NFC en ellos. Concretamente, en junio de 2010, una empresa de Motril diseñó el primer anuncio en España que incorporaba una etiqueta NFC situada bajo pegatinas colocadas en motos que realizaban una ruta deportiva.
+			También se utiliza el \gls{NFC} en marketing. Hay anuncios que incorporan etiquetas NFC en ellos. Concretamente, en junio de 2010, una empresa de Motril diseñó el primer anuncio en España que incorporaba una etiqueta NFC situada bajo pegatinas colocadas en motos que realizaban una ruta deportiva.
 			
-			Ya en 2015, con la salida del \gls{DNIe} 3.0, la tecnología NFC llegó a la identificación de los ciudadanos españoles. Esta nueva versión del carnet de identidad complementa el chip con contacto que incluía la primera versión del \gls{DNIe} con un chip sin contacto que realiza las mismas funciones sin necesidad de un lector de chips del primer tipo.
+			Ya en 2015, con la salida del \gls{DNIe} 3.0, la tecnología \gls{NFC} llegó a la identificación de los ciudadanos españoles. Esta nueva versión del carnet de identidad complementa el chip con contacto que incluía la primera versión del \gls{DNIe} con un chip sin contacto que realiza las mismas funciones sin necesidad de un lector de chips del primer tipo.
 		
 		% *************************************************************************************************************** %
 		% 			DNI ELECTRÓNICO
@@ -1645,7 +1645,7 @@ los diálogos del sistema.
 corresponde a la clave pública de su emisor. Este paso no es necesario
 para el certificado de la CA raíz.
 				\item Verificar la validez del certificado, es decir, no ha caducado.
-				\item Realizar la validación OCSP contra el servidor de la FNMT.
+				\item Realizar la validación \gls{OCSP} contra el servidor de la \gls{FNMT}.
 			\end{itemize}
 		
 		
