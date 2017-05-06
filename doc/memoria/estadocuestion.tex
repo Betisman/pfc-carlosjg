@@ -1363,7 +1363,8 @@ los diálogos del sistema.
 						\end{figure}
 
 					
-						\paragraph*{ElGamal / ElGamal Exponencial}\label{primitivaCifradoHomomorfico}
+						\paragraph{ElGamal / ElGamal Exponencial}\label{primitivaCifradoHomomorfico_elgamal}
+							\hfill
 							Uno de los algoritmos más utilizados para realizar un cifrado homomórfico es el de ElGamal.
 							Este algoritmo es un sistema de cifrado homomórfico respecto de la operación multiplicación. Con esto, se obtiene un proceso en el que el producto de de dos mensajes cifrados equivale al cifrado del producto de ambos mensajes.
 							
@@ -1373,7 +1374,7 @@ los diálogos del sistema.
 							
 							La propiedad de ElGamal en cuanto a homomorfismo es muy interesante, pero de cara al voto por Internet, presenta ciertos problemas. El principal es que la operación en la que se basa es el producto. Sería mucho más útil que el homomorfismo fuera sobre la suma, ya que el escrutinio no es otra cosa que la suma (totalización) de votos.
 							
-							Así, existe una variante de ElGamal que se denomina ElGamal Exponencial. En esta variante, en lugar de encriptar el mensaje \[m\] como en ElGamal tradicional, se cifra {\[g^{m}\]} donde $g$ es un generador (normalmente se suele reutilizar el mismo que se utiliza para generar la clave pública), transformando el sistema en un homomorfismo aditivo, es decir, sobre la operación suma.
+							Así, existe una variante de ElGamal que se denomina ElGamal Exponencial. En esta variante, en lugar de encriptar el mensaje $m$ como en ElGamal tradicional, se cifra $g^{m}$, donde $g$ es un generador (normalmente se suele reutilizar el mismo que se utiliza para generar la clave pública), transformando el sistema en un homomorfismo aditivo, es decir, sobre la operación suma.
 							
 							\[\varepsilon (g^{x_{1}}) \cdot \varepsilon (g^{x_{2}}) = \varepsilon (g^{x_{1} + x_{2}})\]
 							
