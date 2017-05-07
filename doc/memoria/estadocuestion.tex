@@ -382,6 +382,7 @@ los diálogos del sistema.
 		%Foo bar & \specialcell[t]{Foo\\bar} & Foo bar \\ % aligned with top rule
 		%Foo bar & \specialcell[b]{Foo\\bar} & Foo bar \\ % aligned with bottom rule
 		\begin{table}[htbp]
+			\centering
 				\begin{threeparttable}
 					\renewcommand{\familydefault}{\ttdefault}\normalfont
 					\footnotesize
@@ -475,6 +476,7 @@ los diálogos del sistema.
 			
 			
 			\begin{table}[htbp]
+				\centering
 				\begin{threeparttable}
 					\centering
 						%\begin{tabular}{0.75\textwidth}@{\extracolsep{\fill}}|l|l|m{3cm}| m{3cm}|}
@@ -579,8 +581,8 @@ los diálogos del sistema.
 			
 			En diversos países se ha logrado implementar sistemas reales de votación deslocalizada por Internet en varios de sus territorios, alternativamente y al mismo nivel que el sistema tradicional presencial. Un ejemplo veremos que es Suiza con los proyectos de varios de sus cantones. No es comparable a la experiencia estonia, pues cada cantón se rige de forma diferente y son diferentes empresas las que realizan los desarrollos del sistema independientemente del resto, además de que no todos los cantones han implementado estos sistemas remotos.
 			
-			\notasInfo[inline]{
-			INTERESANTE -- http://elecciones.smartmatic.com/estonia-y-el-voto-por-internet/
+%			\notasInfo[inline]{
+%			INTERESANTE -- http://elecciones.smartmatic.com/estonia-y-el-voto-por-internet/
 			%\\
 			%Históricamente, las comisiones electorales del mundo han tenido en el voto remoto una alternativa para hacer el sufragio más accesible y conveniente. Por ello, muchos países permiten a sus conciudadanos ejercer el voto postal, sea desde el territorio nacional o el extranjero. \\
 %
@@ -603,12 +605,21 @@ los diálogos del sistema.
 %En conjunto, estas medidas garantizan la implementación exitosa del voto por internet y, por ende, resguardan la legitimidad de la elección. El voto en línea estonio trabaja como sustituto al voto por correo y no sustituye al voto tradicional, más bien se apalanca en éste.
 %
 %Desde el año 2005, Estonia se ha apoyado con éxito en Internet para realizar siete elecciones gubernamentales. Como evidencia del nivel de confianza pública en el sistema, en las elecciones al Parlamento Europeo ocurridas en mayo de este año el 33\% de todo el electorado estonio decidió emitir su voto en línea.
-}
+%}
 			
 			
 			
 			\subsection{Noruega}\label{ivotingNoruega}
 			\todo[inline]{¿Hay que hablar de Noruega?}
+				La implantación del voto electrónico en Noruega empieza en 1993 con una experiencia piloto utilizando máquinas de lectura óptica en la capital, Oslo.
+				
+				Ya en 2011, en las elecciones municipales se realiza una primera prueba de voto por Internet en la participaron diez municipios (de un total de 429). Los votantes tenían la posibilidad de votar por Internet durante un período de voto anticipado. No obstante, podían votar mediante el tradicional voto en papel el día de las elecciones, prevaleciendo este voto físico sobre el emitido previamente por Internet.
+				
+				Dos años más tarde, en las elecciones parlamentarias de 2013 se realiza una segunda prueba de voto por Internet en 12 municipios. Más de 250.000 votantes tenían la posibilidad de utilizar este canal de votación.
+				
+				En 2014, no obstante, el Gobierno noruego decide dar por concluidas las pruebas de voto por Internet debido a la controversia política existente y a que los ensayos realizados no dieron muestras de impulsar la participación entre los ciudadanos.
+				
+
 			
 			%\begin{table}[htbp]
 				%\centering
@@ -641,6 +652,7 @@ los diálogos del sistema.
 			
 			
 			\begin{table}[htbp]
+				\centering
 				\begin{threeparttable}
 					\centering
 						%\begin{tabular}{0.75\textwidth}@{\extracolsep{\fill}}|l|l|m{3cm}| m{3cm}|}
@@ -709,6 +721,7 @@ los diálogos del sistema.
 			%\end{table}
 			%
 			\begin{table}[htbp]
+				\centering
 				\begin{threeparttable}
 					\centering
 						%\begin{tabular}{0.75\textwidth}@{\extracolsep{\fill}}|l|l|m{3cm}| m{3cm}|}
@@ -750,6 +763,8 @@ los diálogos del sistema.
 			\subsection{Suiza}\label{ivotingSuiza}
 			El estado suizo se divide administrativamente en cantones. Estos cantones son los responsables de la celebración de procesos electorales en sus territorios. Con esto, varios de ellos, impulsados por el Estado, han dedicado mucho esfuerzo al estudio y desarrollo del voto por Internet para poder implementarlo de forma general.
 			
+			Suiza es un país especial, pues tiene una gran costumbre en la realización de referendos. Entre 1789 y 2012 se contabilizaron 577 comicios en el país, lo que da una idea de la necesidad de acometer soluciones para combatir el ''cansancio'' democrático que puede suponer votar unas seis veces al año.
+			
 			Con el objetivo de la implantación del voto electrónico, el estado suizo marcó tres fases de actuación como línea a seguir para la resolución de estudios y pruebas pilotos previas a una futura utilización de este sistema con garantías de viabilidad y seguridad.\cite{suiza1}
 			
 			En una primera fase, de 2000 a 2002, se realizaron una serie de estudios e investigaciones que derivaron en la creación de programas piloto de voto electrónico.
@@ -760,8 +775,9 @@ los diálogos del sistema.
 			
 			En 2010 ya eran 12 los cantones que realizaron pruebas pilotos en los comicios del 28 de noviembre. El número de votantes que podían votar de forma electrónica ascendía a 193.236 personas aunque, sin embargo, tan sólo 28.192, no llegó al 15\%, lo hicieron de esta forma.
 			
-			Sin embargo, en 2011, el Gobierno Federal \todo[inline]{seguir?...}
+			En 2017, Swiss Post, ente organizador de comicios electorales en Suiza publicó una \textit{demo}\footnote{\url{https://www.evoting.ch/index_en.php}} de votación por Internet para que los ciudadanos puedan tener contacto con este tipo de sistemas y aclarar así dudas de funcionamiento y tecnología. 
 			
+			La tecnología utilizada para este sistema se basa en un protocolo \gls{E2E} verificable. Se puede utilizar en cualquier navegador web. Los votos se cifran en el servidor y se almacenan de forma segura desacoplándolos de la información del votante.
 			
 			\subsection{Universidades}\label{iVotingUniversidades}
 				A nivel de Juntas de Gobierno o de Elecciones de Rector a nivel universitario, merece la pena introducir que existen experiencias de voto por Internet en varias de ellas, destacando las de la \gls{UNED} o las de la \gls{UPV/EHU}.
@@ -921,12 +937,22 @@ los diálogos del sistema.
 						\label{fig:ADDER_diagrama_secuencia}
 					\end{figure}
 					
-					---- System overview ----
-					El procedimiento del proceso electoral comienza permitiendo al administrador del mismo alimentar al sistema con la lista de usuarios (votantes y autoridades) y de candidatos.
-					Las autoridades ingresan al sistema y participan en el protocolo de generación de claves criptográficas. Aquí, se genera una clave pública para el sistema y claves privadas únicas para cada una de las autoridades.
-					Cada votante se loguea y descarga la clave pública del sistema, la cual usa para cifrar el voto. Este voto cifrado se guarda en un área de almacenamiento público reservada específicamente para el votante.
-					Cuando el período de votación finaliza, el servidor cuenta los votos y publica el resultado encriptado. A continuación, las autoridades proveen cierta información para decodificar, basada en el resultado encriptado y es sus claves privadas. Cuando se consigue suficiente de esta información, el servidor combina las piezas individuales para componer el resultado electoral, que es publicado.
-					El sistema se implementa con una arquitectura basada en un tablón de anuncios, un servidor de autenticación (\textit{gatekeeper}) y un cliente (puede ser tanto un programa de escritorio como un applet de Java).
+					Procedimiento de la elección:
+					
+					\begin{itemize}
+						\item El primer paso en el procedimiento del proceso electoral con este sistema es que el administrados ha de alimentar al sistema con la lista de usuarios (votantes y autoridades) y candidatos.
+					
+						\item Las autoridades acceden al sistema para pariticipar en la generación de claves criptográficas. Se genera una clave pública para el sistema y privadas para cada una de las autoridades.
+					
+						\item En el período de votación, cada votante ingresa en el sistema y descarga la clave pública de éste. Con esta clave cifra su voto. El voto cifrado se guarda en un área reservada al votante.
+					
+						\item Al finalizar el período de votación, el servidor cuenta los votos y publica el resultado cifrado.
+					
+						\item Las autoridades proporcionan información basada en el resultado cifrado y sus claves privadas para descifrar el resultado. El sistema combina estas claves individuales y los descifrados parciales del resultado para componer el resultado electoral, que se publica.
+					
+						\item El sistema, por tanto, se implementa alrededor de un tablón de anuncios, un servidor de autenticación (\textit{gatekeeper}) y un cliente. Haciendo uso de secreto compartido a la hora de repartir trozos de la clave privada del sistema y del resultado cifrado entre las diferentes autoridades con responsabilidad en el sistema.
+
+					\end{itemize}					
 					
 					\begin{figure}[h]
 						\centering
@@ -1302,8 +1328,6 @@ los diálogos del sistema.
 					% 			CIFRADO HOMOMÓRFICO
 					% *************************************************************************************************************** %
 					\subsubsection{Cifrado homomórfico}\label{primitivaCifradoHomomorfico}
-					
-						\notasInfo[inline]{Aquí hay que añadir el texto sobre el cifrado homomórfico}
 						
 						El cifrado homomórfico es un tipo de cifrado basado en algoritmos criptográficos que poseen la propiedad de que si se aplica una función ($f$) a un mensaje cifrado, el resultado de descifrarlo es igual a la aplicación de otra función ($g$) al mensaje sin cifrar.
 						
@@ -1449,6 +1473,7 @@ los diálogos del sistema.
 				
 				El propio autor de la tesis citada \cite{tesisSeguridadVMMorales}, incorpora (en la página 109) un resumen con las ventajas y desventajas que ofrece cada uno de estos esquemas (tabla \ref{tab:ResumenVentajasDesventajasEsquemasVotoElectronico}).				
 				\begin{table}[htbp]
+					\centering
 					\fontsize{10}{9}\selectfont
 					\begin{tabularx}{\textwidth}{|Z|Y|Y|}
 						\hline
