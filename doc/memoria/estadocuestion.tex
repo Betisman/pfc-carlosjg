@@ -106,27 +106,30 @@
 				
 				Con el fin de visualizar el problema, planteo un ejemplo típico.
 				
-						
-						\begin{quotation}
+
+				\begin{center}
+					\fbox{
+						\begin{minipage}{0.9\textwidth}
 							Para comenzar con el ejemplo, introducimos una serie de actores:
 							\begin{description}
-								\item[Blanca y Begoña:] dos votantes.
-								\item[Rafael:] quiere influenciar el voto de Blanca.
+								\item[Marta y Begoña:] dos votantes.
+								\item[Rafael:] quiere influenciar el voto de Marta.
 								\item[Alphas y Betas:] las dos opciones entre las que los votantes han de elegir en la Elección.
 							\end{description}
 							
-							Blanca tiene intención de votar por los Alphas, mientras que Begoña desea votar a los Betas. Por su parte, Rafael tiene un gran interés en que Blanca vote por los Betas.
+							Marta tiene intención de votar por los Alphas, mientras que Begoña desea votar a los Betas. Por su parte, Rafael tiene un gran interés en que Marta vote por los Betas.
 							
-							Como hemos avanzado, en cualquier proceso electoral hay un conflicto entre la verificabilidad y el secreto. Cualquier votante querría verificar que el proceso de su voto ocurre correctamente, desde su inclusión en la urna hasta el preciso conteo en el escrutinio. De forma particular, Blanca quiere verificar que su voto es apropiadamente escrutado como Alphas. No obstante, si Blanca consigue suficiente información como para poder demostrar a Rafael de que votó por los Betas, aparece la amenaza de la compraventa de votos. Sabiendo que el voto emitido es demostrable a un tercero, antes de que Blanca vote, Rafael podría ofrecerle dinero u otros recursos a cambio de que su voto sea para los Betas en vez de para los Alphas. 
+							Como hemos avanzado, en cualquier proceso electoral hay un conflicto entre la verificabilidad y el secreto. Cualquier votante querría verificar que el proceso de su voto ocurre correctamente, desde su inclusión en la urna hasta el preciso conteo en el escrutinio. De forma particular, Marta quiere verificar que su voto es apropiadamente escrutado como Alphas. No obstante, si Marta consigue suficiente información como para poder demostrar a Rafael de que votó por los Betas, aparece la amenaza de la compraventa de votos. Sabiendo que el voto emitido es demostrable a un tercero, antes de que Marta vote, Rafael podría ofrecerle dinero u otros recursos a cambio de que su voto sea para los Betas en vez de para los Alphas. 
 							
-							Naturalmente, junto con la amenaza de la compraventa de votos, aparece también la de la coerción. Como Blanca puede mostrar el contenido de su voto a Rafael, puede ser coaccionada por éste para que vote por Betas como él quiere, en lugar de los Alphas, como ella pretendía, por miedo a represalias.
+							Naturalmente, junto con la amenaza de la compraventa de votos, aparece también la de la coerción. Como Marta puede mostrar el contenido de su voto a Rafael, puede ser coaccionada por éste para que vote por Betas como él quiere, en lugar de los Alphas, como ella pretendía, por miedo a represalias.
 							
-							Lo que se debe buscar con el voto electrónico es que Blanca consiga la información suficiente para verificar personalmente que su voto a Carnívoros ha sido efectivamente emitido y escrutado como Alphas, pero que no consiga la información necesaria como para probar a Juan el contenido de su voto.
+							Lo que se debe buscar con el voto electrónico es que Marta consiga la información suficiente para verificar personalmente que su voto a Carnívoros ha sido efectivamente emitido y escrutado como Alphas, pero que no consiga la información necesaria como para probar a Juan el contenido de su voto.
 							
-							Si Blanca vota a Alphas y Begoña a Betas, ambas deberían tener la seguridad de que sus votos han sido correctamente incluidos en el escrutinio según sus opciones elegidas. Las dos pueden decirle a Rafael que han votado a Betas, con lo que Blanca estará mintiendo y Begoña dirá la verdad, pero Rafael no notará la diferencia. Quizá, al ver Rafael que no tiene seguridad para incentivar o coartar a Blanca, desista de tratar de comprar su voto (o de coartarlo) y se acabe así con la amenaza.
-				\end{quotation}
-				
-				\notasCambio[inline]{Hay que arreglar este párrafo.}
+							Si Marta vota a Alphas y Begoña a Betas, ambas deberían tener la seguridad de que sus votos han sido correctamente incluidos en el escrutinio según sus opciones elegidas. Las dos pueden decirle a Rafael que han votado a Betas, con lo que Marta estará mintiendo y Begoña dirá la verdad, pero Rafael no notará la diferencia. Quizá, al ver Rafael que no tiene seguridad para incentivar o coartar a Marta, desista de tratar de comprar su voto (o de coartarlo) y se acabe así con la amenaza.
+
+					\end{minipage}
+				}
+			\end{center}
 
 			Resumiendo, es muy complicado conseguir que los Sistemas de Voto sean confiables ya que presentan requisitos de seguridad que chocan entre ellos:
 			\begin{itemize}
@@ -1290,7 +1293,9 @@ los diálogos del sistema.
 						Los protocolos basados en pruebas de conocimiento cero o nulo son protocolos criptográficos que se basan en la necesidad de una de las partes en poder demostrar a otra que un enunciado es cierto sin revelar nada más que la veracidad del mismo.
 						
 						Un sencillo ejemplo para entender el concepto de este tipo de protocolos lo encontramos en una publicación de Pablo Della Paolera, astrónomo de la Universidad Nacional de La Plata (Argentina), en su blog personal \cite{dellaPaolera2014}. En esta publicación explica que se puede demostrar \textit{algo} correctamente sin necesidad de demostrar \textit{por qué}.
-						\begin{quotation}
+			\begin{center}
+				\fbox{
+					\begin{minipage}{0.9\textwidth}
 						Basándonos en el ejemplo publicado, supongamos dos actores $A$ y $B$. 
 						
 						$B$ quiere demostrar que \textit{$A$ tiene (o no) la misma cantidad de monedas en su bolsillo izquierdo que en el derecho}. 
@@ -1307,7 +1312,10 @@ los diálogos del sistema.
 						$$Z - Y = D$$
 						
 						Pese a que no es resoluble, sabiendo los valores de $C$ y $D$ se puede demostrar en qué bolsillo tiene más monedas ($C > D$ ó $D > C$) o si se tienen las mismas ($C = D$), sin necesidad de conocer los valores reales.
-						\end{quotation}
+						\end{minipage}
+					}
+				\end{center}
+					
 						
 					La importancia de este esquema criptográfico es tal que se ha implementado de forma satisfactoria en campos tan esenciales como la verificación de armas nucleares, permitiendo a los observadores internacionales medir la veracidad de una nación al cuantificar su fuerza nuclear sin necesidad de conocer la tecnología o cabezas u otros detalles clasificados que no quieren que sean sacados a la luz.
 					
@@ -1320,9 +1328,44 @@ los diálogos del sistema.
 					% 			REDES MIXTAS - MIXNETS
 					% *************************************************************************************************************** %
 					\subsubsection{Mixnets}\label{primitivaMixnets}
-						\todo[inline]{Adaptar el texto de temp.tex}
-						Los sistema de mixnets, o redes mixtas, se basan en una ténica enunciada por David Chaum 
+						Los sistema de mixnets, o redes mixtas, se basan en una técnica enunciada por David Chaum en 1981 en \cite{Chaum:1981:UEM:358549.358563} que permite establecer un canal anónimo entre un emisor y un receptor.
+						
+						El funcionamiento básico consiste en que cada servidor, cuando recibe una serie de mensajes, los mezcla y entrega al siguiente servidor. Y así en todos los servidores hasta llegar al definitivo.
+						
+						La relación entre una entrada y su correspondiente salida sólo es conocida por el servidor que realiza el mezclado. De este modo, al final del proceso de mezclado no se puede determinar qué entrada corresponde con qué salida. A no ser que haya una conspiración coordinada entre todos los servidores del proceso.
 					
+						Esta idea de mezclado es aplicable al voto electrónico en busca de poder desacoplar el voto de su votante, protegiendo así la privacidad de éste.
+						
+						Para una mixnet se utiliza un esquema de cifrado de clave pública $(G, E, D)$ donde $(pubK, secK) \leftarrow G()$ genera un par de claves pública y secreta.
+						$c \leftarrow E_{pubK}(m)$ cifra el mensaje $v$ utilizando la clave pública $pubK$
+						$D_{secK}(c)$ descifra el mensaje cifrado $c$ utilizando la clave secreta $secK$
+						
+						El esquema ha de ser correcto y seguro. Para todo mensaje $v$, $D_{secK}(E_{pubK}(m)) = m$ y debe ser imposible conocer la información de m a partir de $c$.
+						
+						La mixnet consiste en $n$ servidores, cada uno de los cuales genera un par de claves públicas y privadas $(pubK_1, secK_1), (pubK_2, secK_2), ..., (pubK_n, secK_n)$. Supongamos $i$ usuarios que quieren enviar mensajes $m_1, m_2, ..., m_i$ a través de la red. Cada usuario prepara un mensaje cifrado de forma que $c_i = E_{pubK_1}(E_{pubK_2}(...(E_{pubK_n}(m_i))...))$ y lo publica en un tablón público.
+						
+						El primer servidor descifra la primera capa de cada mensaje cifrado mediante $D_{secK_1}(c_i)$ para obtener $c'_i = E_{pubK_2}(...(E_{pubK_1}(m_i))...)$. Así, reordena $c'_i$ y escribe el resultado en un tablón público. En este punto, sólo el primer servidor, que conoce la clave privada $secK_1$, es quien conoce qué $c_i$ se corresponde con $c'_i$.
+						
+						Cada uno de los servidores realiza el mismo proceso, de forma que al final el último servidor es el que obtiene los mensajes originales $m_1, m_2, ..., m_i$ y los publica.
+						
+						\begin{figure}[htbp]
+							\centering
+							\includegraphics[width=0.7\textwidth]{imgs/mixnet01}
+							\caption{Diagrama mezclado mixnet}
+							\label{fig:mixnet.01}
+						\end{figure}
+						
+						Este es el modelo enunciado por Chaum, en el que cada servidor descifra un mensaje cifrado. Existen otras 
+						
+						De todos modos, como se indica en \cite{artcl:Cabarcas:2015}, no basta con realizar un mezclado de votos para obtener un sistema de votación electrónica seguro, sino que se necesita un esquema con mecanismos para que ños votantes certifiquen su identidad, así como para que puedan firmar digitalmente los votos de forma anónima, asegurando la integridad del voto y la privacidad del votante.
+						
+						\begin{figure}[htbp]
+							\centering
+							\includegraphics[width=0.7\textwidth]{imgs/mixnet02}
+							\caption{Diagrama de mixnet con descifrado de mensajes}
+							\label{fig:mixnet.02}
+						\end{figure}
+
 					% *************************************************************************************************************** %
 					% 			CIFRADO HOMOMÓRFICO
 					% *************************************************************************************************************** %

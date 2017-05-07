@@ -266,7 +266,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 		
 		\begin{figure}[!ht]
 			\centering
-				\includegraphics[width=.80\textwidth]{imgs/actores01.png}
+				\includegraphics[width=.70\textwidth]{imgs/actores01.png}
 			\caption{Actores/roles que interactúan con el sistema.}
 			\label{fig:actores}
 		\end{figure}
@@ -843,12 +843,14 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 		\subsection{Difusión de resultados}\label{analisis_difusion}
 			La difusión de resultados por parte de Helios consiste en una web muy simple que indica las distintas opciones de voto y cuántos votos ha recibido cada una. Ni siquiera ordena los resultados por orden de votos contabilizados.
 			
+			\hfill			
 			\textbf{Abstención}
 			
 			Un problema que tiene la web de Helios con respecto a la información que queremos mostrar en estas Elecciones es que no se muestra la abstención, ya que es un dato para el que no está diseñado el sistema original, ya que en principio permite votaciones con censo cerrado y abierto. En este último caso no tiene sentido, por tanto, el concepto de abstención, pues no tenemos constancia del censo de potenciales votantes del proceso.
 			
 			Sin embargo, para el tipo de elección que desarrollamos para la EPS, con censo cerrado, se ha creído oportuno implementar un mecanismo para que la abstención sea mostrada en la difusión de resultados. Para ello hay que retocar el módulo de presentación de resultados e incluir una consulta del censo para la elección y contrastar el número resultante con la suma de los votos (contando los blancos) que se han emitido.
 			
+			\hfill	
 			\textbf{Falta información electoral}
 			
 			Junto con el problema de la abstención, podemos incluir que falta información acerca de la propia elección. Muestra las votaciones por "preguntas", pero no aporta datos como el comentado de la abstención, censo, participación y diversos valores que deben estar presentes para dar legitimidad a un proceso electoral.
@@ -859,7 +861,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			
 			Un ejemplo podría ser en el caso de la elección de delegado. Aunque yo, como votante de una clase sólo esté interesado en quién ha resultado elegido en mi clase, debería tener la opción de poder conocer resultados en otras clases. Así mismo, resultaría interesante complementar la información del ámbito donde he votado comparándola con el resto de ámbitos, mostrando qué posición ocupa mi circunscripción en cuanto a participación, disgregación del voto, rangos horarios, etc. Las estadísticas, si son las adecuadas, son herramientas que aportan valor a este tipo de difusión de información. 
 			
-		\subsection{Comprobación del voto}
+		\subsection{Verificación del voto}
 			Un problema que surge en un sistema de voto electrónico o por Internet es el de la veracidad de los resultados.
 			
 			La difusión del resultado de la votación debería incluir dos herramientas para poder limitar la duda en dos aspectos. 

@@ -309,7 +309,7 @@ class AuthorizeView(View):
 				
 			\subsection{OCSP}
 				
-				\gls{OCSP} es un servicio de revocación que ofrece la autoridad que crea el certificado raíz, en nuestro caso la \gls{DGP} y la \gls{FNMT}. Estas organizaciones proveen de un servicio al cual conectarse y consultar la validez de los certificados que se estén tratando de autenticar.ñ
+				\gls{OCSP} es un servicio de revocación que ofrece la autoridad que crea el certificado raíz, en nuestro caso la \gls{DGP} y la \gls{FNMT}. Estas organizaciones proveen de un servicio al cual conectarse y consultar la validez de los certificados que se estén tratando de autenticar.
 				
 				Una alternativa al \gls{OCSP} es la de generar una \gls{CRL}. Las ventajas de las listas de revocación consisten en que son más simples que el \gls{OCSP} y pueden ser consultadas sin conexión a la red, lo cual es importante en caso de que el sistema esté configurado de modo que corra sobre una red privada, sin acceso a Internet (ver figura \ref{fig:topologiaRed_intranet} en \ref{solucion_topologiaRed}).
 				
@@ -363,7 +363,8 @@ class AuthorizeView(View):
 					\item[Sistema de emails:] Hay un subsistema encargado del envío de emails a usuarios. Lo utiliza tanto el módulo central como celery para enviar emails avisando de los estados de la elección, envío del trozo correspondiente de la clave privada de la elección a los trustees, etc.
 				\end{description}
 			
-			\todo{Diagrama sistema votación}
+			\todo[inline]{Diagrama sistema votación}
+			
 				\subsection{Esquema de la base de datos}\label{solucion_servidor_votacion_bd}
 		
 					En la figura \ref{fig:er.servidor.votacion} se muestra el diagrama entidad-relación del sistema Helios Voting, con las modificaciones realizadas en la implementación del sistema de este PFC.
@@ -440,7 +441,7 @@ class AuthorizeView(View):
 					
 					Dentro del fichero \textit{models.py} es donde se gestiona el modelo de datos.
 					
-					Estas son las clases que se definen en este módulo:
+					Estas son las clases que se definen en este módulo (figura \ref{fig:diagrama.clases.01}):
 					\begin{description}[font=$\cdot$\scshape\bfseries]
 					%labelindent=\prindent\parindent]
 						\item [Election]
@@ -466,6 +467,13 @@ class AuthorizeView(View):
 							
 					\end{description}
 					
+					\begin{figure}[hbt]
+						\centering
+					  \includegraphics{imgs/diagramaClases01}
+					  \caption{Clases del módulo central de Helios.}
+					  \label{fig:diagrama.clases.01}
+					\end{figure}
+					
 					Se observa que no es un mapeo exacto del modelo Entidad-Relación visto en \ref{solucion_servidor_votacion_bd}. Define las clases principales que interactúan para llevar a cabo la elección.
 						
 						
@@ -484,7 +492,7 @@ class AuthorizeView(View):
 					\begin{figure}[hbt]
 						\centering
 					  \includegraphics{imgs/folders_auth_system}
-					  \caption{Carpeta auth\_system que contiene los módulos de autenticación del sistema.jpg}
+					  \caption{Carpeta auth\_system que contiene los módulos de autenticación del sistema.}
 					  \label{fig:folders.auth.system}
 					\end{figure}
 
