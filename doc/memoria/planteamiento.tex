@@ -38,23 +38,26 @@
 	
 	Al realizar el estudio del estado del arte, se puede recopilar una ingente documentación teórica sobre diferentes sistemas, paradigmas y esquemas de todo tipo de votación electrónica. Hay muchos artículos y tesis muy importantes que tratan de desarrollar sistemas de este tipo, desde el punto de vista teórico hasta el prototipo práctico. Incluso tenemos estados que han implementado una solución con carácter vinculante. En este PFC, lejos de tratar de encontrar una solución novedosa y revolucionaria, vamos a tratar de plasmar un conjunto de ideas y proposiciones de diferentes autores para implementar un sistema propio para la escuela que cumpla con el mayor número de requisitos básicos y deseables para el voto electrónico, teniendo en cuenta el factor remoto, es decir, que cumpla - además de con los requisitos del voto electrónico - con requisitos de control, confiabilidad y seguridad que hagan viable el voto a través de Internet.
 	
-	Así pues, el objetivo general del PFC será:
+	Así pues, el objetivo general del PFC será:	
+	\begin{center}
+		\fbox{
+			\begin{minipage}{0.8\textwidth}
+				Diseñar un esquema y un sistema de voto electrónico remoto a través de Internet que sea robusto, fiable, verificable y auditable para que se puedan llevar a cabo las Elecciones a Miembro de la Junta Electoral de la Escuela Politécnica Superior de la Universidad San Pablo CEU.
+			\end{minipage}
+		}
+	\end{center}
 	
-	\begin{itemize}
-		\item Diseñar un esquema y un sistema de voto electrónico remoto a través de Internet que sea robusto, fiable, verificable y auditable para que se puedan llevar a cabo las Elecciones a Miembro de la Junta Electoral de la Escuela Politécnica Superior de la Universidad San Pablo CEU. 
-	\end{itemize}
-	
-	Teniendo en cuenta el objetivo general, vamos a definir una serie de objetivos intermedios que habrá que cumplir:
+	Teniendo en cuenta el objetivo general, se definen una serie de objetivos intermedios:
 
-	%\begin{enumerate}[label=OBJETIVO\arabic*]
-	\begin{enumerate}[{OBJETIVO} 1]
+	\newlist{myitemize}{enumerate}{3}
+	\setlist[myitemize,1]{label=OBJETIVO \arabic*,leftmargin=1in}	\begin{myitemize}
 		\item Definir un esquema de voto electrónico que soporte la implementación del sistema en base a los requisitos del mismo.
 		\item Especificar el mecanismo y los protocolos para la identificación de votantes en el sistema y la emisión de los votos con bajo riesgo de coacción.
 		\item Especificar los mecanismos y protocolos para una segura recepción de los votos, así como un correcto escrutinio y una veraz publicación de resultados.
 		\item Plantear un sistema de voto existente que cumpla con los requisitos del voto electrónico y sea adaptable a las necesidades de los procesos electorales a acometer.
 		\item Poner a disposición de votantes y observadores un mecanismo que demuestre que los votos han sido correctamente emitidos y contabilizados y que la integridad de la elección no ha sido comprometida.
 		\item Construir un prototipo de este sistema cumpliendo con el diseño de este \gls{PFC}.
-	\end{enumerate}
+	\end{myitemize}
 		
 % *************************************************************************************************************** %
 % 			DESCRIPCIÓN DEL SISTEMA REAL
