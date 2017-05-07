@@ -142,18 +142,18 @@
 		Teniendo en cuenta el \gls{EML}, identificamos las tres fases que dirigen el proceso electoral como fases preelectoral, electoral y postelectoral, adecuándolas al idioma español. Cada una de estas fases contiene una series de procesos o tareas determinadas.
 		
 		\begin{itemize}
-			\item Fase Preelectoral
-			\begin{description}[font=$\bullet$\ \ ]
+			\item \textbf{Fase Preelectoral}
+			\begin{description}[font=$\circ$\ \ ]
 				\item[Definición de los límites o reglas de la elección:] Deben definirse de forma que no parezca ambigua las reglas electorales. Qué se vota, a quién se vota, de qué forma, cómo se cuentan los votos o se asignan los cargos. Quiénes pueden votar, cuándo comienza y finaliza el sufragio.
 				\item[Elaboración del censo:] Las autoridades de la Elección deben realizar un proceso de elaboración del censo electoral, para identificar qué votantes tienen derecho a ejercer el voto y dónde (con qué opciones de voto).
 				\item[Registro de votantes:] Puede ser necesario que, según los mecanismos de identificación a utilizar, el votante deba registrarse previamente a la elección frente a la Autoridad Electoral, con el fin de, si no existe censo electoral formalizado, introducirse en el censo de la elección o, si existe ese censo previo, obtener la acreditación identificativa necesaria para poder votar de forma remota con las garantías avaladas por la autoridad electoral.
-				\notasInfo[inline]{EN LA TESIS DE VMMR, CAPÍTULO 5, VIENE MUCHA INFORMACIÓN. DE CARA A LA SOLUCIÓN, PODEMOS CITARLE, HABLAR DE QUE LO QUE HAY QUE CONSEGUIR ES IDENTIFICAR A UNA PERSONA DE FORMA INCORRUPTIBLE Y RELACIONARLA CON UN SISTEMA DIGITAL (FIRMA!!!!). HABLA DE LA HUELLA DACTILAR, LA FIRMA MANUSCRITA Y LA VOZ}
 				\item[Presentación de candidaturas:] A efectos del sistema informático que desarrollamos es el proceso en el que la autoridad electoral define qué candidaturas pueden ser elegidas por cada votante en cada circunscripción lógica.
-				\todo{Explicar esto de la circunscripción lógica, aunque sea en un footnote}
 			\end{description}
 			
-			\item Fase Electoral (Votación)
-			\begin{description}[font=$\bullet$\ \ ]
+			\hfill
+			
+			\item \textbf{Fase Electoral (Votación)}
+			\begin{description}[font=$\circ$\ \ ]
 				\item[Identificación:] El primer paso del proceso de votación es el de la identificación del votante. Como ya se ha planteado, la identificación del votante es uno de los procesos críticos de una elección, pues, el sistema debe cumplir con varios requisitos básicos del voto electrónico, como puede ser el principio de autenticidad (en el que sólo los votantes autorizados pueden votar) o el democrático (por el cual el votante que tiene derecho a votar es sólo para hacerlo una vez).
 				\item[Votación:] El momento en el que el votante ya identificado, observa las opciones que puede elegir y ejerce su voto a una o varias de ellas (dependiendo del tipo de elección).
 				\item[Totalización de resultados:] 
@@ -162,10 +162,12 @@
 					En elecciones de voto electrónico dependerá de si son de urna electrónica centralizada o virtualmente distribuida para realizar la totalización simulando mesas electorales o no. Igualmente, las circunscripciones en este tipo de elecciones pueden ser cambiadas de forma lógica, pensando en qué votantes han de elegir diferentes candidatos, en lugar de tomar como base la segregación territorial.
 			\end{description}
 
-			\item Fase postelectoral
-			\begin{description}[font=$\bullet$\ \ ]
+			\hfill
+			\item \textbf{Fase postelectoral}
+			\begin{description}[font=$\circ$\ \ ]
 				\item[Difusión de resultados:] La difusión de resultados es la fase que tiene la responsabilidad de publicar los resultados de forma oficial u oficiosa. La velocidad de difusión de los resultados es importante para afianzar la transparencia del proceso. En los conteos tradicionales se muestra según van siendo totalizados los resultados de cada mesa, mostrando los resultados con pequeñas variaciones en el porcentaje de censo escrutado, en lugar de esperar a recibir toda la información y sumarla, lo que supondría difundir tan sólo una vez, aunque los resultados al 100\% del censo escrutado. Esto, en elecciones de voto electrónico o por Internet, es más complicado que ocurra si la topología en la que se basa el sistema es de urna electrónica centralizada en lugar de distribuida. 
 				\end{description}
+			\hfill 
 			
 			\item \textbf{Auditoría}:
 			No es una fase propiamente dicha en el sentido cronológico en el que se han definido las anteriores. La fase de auditoría abarca todas las etapas del proceso, en mayor o menor medida, puesto que debe permitir la vigilancia del correcto funcionamiento del mismo en todas ellas.
@@ -380,7 +382,6 @@ Cierto es que podríamos hacer uso de la banda \gls{MRZ} del documento escaneándo
 				No es por falta de métodos seguros o carencia de medios criptográficos. El problema es que no es fácil que el elector, opinión pública u organismos de control o auditoría confíen en el proceso, ya que, a priori, parece una gran caja negra, ante la cual es complicado asegurar una verificación de datos de forma transparente.
 
 			\subsubsection{Totalización de resultados}\label{fase_electoral_electoral_totalizacion}
-				\todo[inline]{falta la totalización}
 				La totalización es el proceso en el que se suman los resultados recogidos en cada mesa electoral y se agrupan estas agregaciones de votos en los diferentes niveles que existen "por encima".
 				
 				En los procesos electorales tradicionales, esto resulta ser, por ejemplo, que se suman los resultados de cada una de las mesas de un local y se obtiene el resultado de ese colegio. A continuación se totalizan los resultados de todos los colegios de un distrito para obtener los resultados de este. Los resultados del distrito se totalizan para obtener los de una localidad, estos para llegar a los de una comarca, a continuación provincia o circunscripción, comunidad autónoma y  los estatales.
@@ -409,6 +410,11 @@ Cierto es que podríamos hacer uso de la banda \gls{MRZ} del documento escaneándo
 			Además de publicar en web o en dispositivos móviles a través de aplicaciones nativas, resulta muy interesante pensar en la publicación de resultados a través de una \gls{API} para que terceros puedan realizar su propia difusión. Esto es interesante para medios de comunicación, por ejemplo, las televisiones o periódicos online, que pueden conectarse a la \gls{API} y realizar sus propios gráficos multimedia para cubrir en directo la noticia del avance del escrutinio. Es lo que ocurre ahora mismo con las elecciones en España.
 			
 			
+		\subsubsection{Difusión de resultados}\label{fase_electoral_postelectoral_verificacion}
+			Tras el cierre de la elección, totalización y difusión de resultados, es necesario implementar un sistema que permita a los votantes verificar la integridad de su voto y a los observadores verificar la integración de la elección.
+			
+			Hay que hacer uso de protocolos criptográficos de pruebas de conocimiento cero para poder llevar a cabo estas verificaciones de forma efectiva y segura.
+			
 
 % *************************************************************************************************************** %
 % 			GGGGGGGGGGGGGGGGGGGGGGGGGGGGG
@@ -419,7 +425,7 @@ Cierto es que podríamos hacer uso de la banda \gls{MRZ} del documento escaneándo
 		
 		Teniendo en cuenta estos problemas, se ha valorado el uso de un sistema desarrollado desde cero, adecuado a las necesidades de la Elección de la Junta de Escuela que se quiere realizar. Frente a este escenario, otra opción es la de basarse en alguna herramienta existente y, si es necesario, realizar una adaptación de la misma para cuadrar con los requisitos de este proceso electoral.
 		
-		El hecho de que este tipo de sistemas deban tener una base criptográfica muy importante es uno de los motivos principales para optar por la adaptación de alguna solución ya existente en lugar del desarrollo. En el estudio de soluciones en el mercado encontramos que, aunque no existen realmente muchas opciones libres que reutilizar, sí que existe un verdadero estudio teórico del problema del voto digital. Entre las opciones que han decidido desarrollar las propuestas teóricas hay algunos que merece tener en cuenta, como son Helios Voting, Agora Voting, Adder, el sistema electoral de Estonia, junto con otras opciones que no son \gls{E2E} verificables o no tratan el voto remoto por completo, como pueden ser Votescript, Punch\&Vote, ... ¡¡etc!!.\notasInfo{Rellenar este etc.}
+		El hecho de que este tipo de sistemas deban tener una base criptográfica muy importante es uno de los motivos principales para optar por la adaptación de alguna solución ya existente en lugar del desarrollo. En el estudio de soluciones en el mercado encontramos que, aunque no existen realmente muchas opciones libres que reutilizar, sí que existe un verdadero estudio teórico del problema del voto digital. Entre las opciones que han decidido desarrollar las propuestas teóricas hay algunos que merece tener en cuenta, como son Helios Voting (\ref{estadocuestion_helios}), Agora Voting (\ref{estadocuestion_agoravoting}), Adder (\ref{estadocuestion_adder}), el sistema electoral de Estonia (\ref{ivotingEstonia}), junto con otras opciones que no son \gls{E2E} verificables o no tratan el voto remoto por completo, como pueden ser Votescript, Punch\&Vote u otros sistemas publicados.
 		
 		De entre todas estas opciones, las más atractivas para el tipo de elecciones que se quieren desarrollar en este proyecto resultan ser las propuestas por Ágora Voting y Helios Voting.
 		
