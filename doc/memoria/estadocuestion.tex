@@ -1634,7 +1634,31 @@ los diálogos del sistema.
 		
 		Una herramienta fundamental para cumplir con este propósito ha sido el desarrollo de las certificaciones digitales.
 		
-		\todo[inline]{COMPLETAR}
+		Los certificados digitales permiten cifrar las comunicaciones, permitiendo tan sólo al destinatario de estas acceder al contenido.
+		
+		Los certificados electrónicos están expedidos por una Autoridad de Certificación e identifica a una persona con un par de claves criptográficas, una pública y otra privada, generadas mediante un algoritmo matemático. Ambas son complementarias, de forma que lo que cifra una sólo lo puede descifrar la otra, y viceversa. La diferencia entre ellas es que la clave privada está pensada para que nunca salga del certificado y permanezca siempre bajo control del firmante. La clave pública se puede enviar a otros usuarios.
+		
+		Tienen como objetivo validar y certificar que una firma electrónica se corresponde con una persona concreta. Por esta razón, para dar fe de que el certificado se corresponde con una persona concreta, es por lo que los certificados están firmados, a su vez por la Autoridad de Certificación.
+		
+		% *************************************************************************************************************** %
+		% 			DNI ELECTRÓNICO
+		% *************************************************************************************************************** %
+		\subsection{DNIe}\label{estadoDNIe}
+		
+			\todo[inline] {DNIe - Añadir \gls{DNIe} 3.0}
+			
+			
+			
+			
+			\todo[inline]{Del documento \url{https://www.incibe.es/extfrontinteco/img/File/intecocert/dnie/pdf/guiades.pdf}}
+			El proceso a seguir cuando se está en posesión todos los certificados necesarios para operar con el \gls{DNIe} es (para cada uno de los certificados):
+			\begin{itemize}
+				\item Verificar que el certificado fue firmado usando la clave privada que
+corresponde a la clave pública de su emisor. Este paso no es necesario
+para el certificado de la CA raíz.
+				\item Verificar la validez del certificado, es decir, no ha caducado.
+				\item Realizar la validación \gls{OCSP} contra el servidor de la \gls{FNMT}.
+			\end{itemize}
 		
 		
 		% *************************************************************************************************************** %
@@ -1694,33 +1718,7 @@ los diálogos del sistema.
 			También se utiliza el \gls{NFC} en marketing. Hay anuncios que incorporan etiquetas NFC en ellos. Concretamente, en junio de 2010, una empresa de Motril diseñó el primer anuncio en España que incorporaba una etiqueta NFC situada bajo pegatinas colocadas en motos que realizaban una ruta deportiva.
 			
 			Ya en 2015, con la salida del \gls{DNIe} 3.0, la tecnología \gls{NFC} llegó a la identificación de los ciudadanos españoles. Esta nueva versión del carnet de identidad complementa el chip con contacto que incluía la primera versión del \gls{DNIe} con un chip sin contacto que realiza las mismas funciones sin necesidad de un lector de chips del primer tipo.
-		
-		% *************************************************************************************************************** %
-		% 			DNI ELECTRÓNICO
-		% *************************************************************************************************************** %
-		\subsection{DNIe}\label{estadoDNIe}
-		
-			\todo[inline] {DNIe - Añadir \gls{DNIe} 3.0}
 			
-			
-			
-			
-			\todo[inline]{Del documento \url{https://www.incibe.es/extfrontinteco/img/File/intecocert/dnie/pdf/guiades.pdf}}
-			El proceso a seguir cuando se está en posesión todos los certificados necesarios para operar con el \gls{DNIe} es (para cada uno de los certificados):
-			\begin{itemize}
-				\item Verificar que el certificado fue firmado usando la clave privada que
-corresponde a la clave pública de su emisor. Este paso no es necesario
-para el certificado de la CA raíz.
-				\item Verificar la validez del certificado, es decir, no ha caducado.
-				\item Realizar la validación \gls{OCSP} contra el servidor de la \gls{FNMT}.
-			\end{itemize}
-		
-		
-		% *************************************************************************************************************** %
-		% 			TARJETA UNIVERSITARIA INTELIGENTE
-		% *************************************************************************************************************** %
-		%\subsection{Tarjeta Universitaria Inteligente - TUI}\label{estadoTUI}
-	
 	
 	\iffalse
 		\subsection{Django}\label{estado_django}
