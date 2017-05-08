@@ -565,16 +565,16 @@ los diálogos del sistema.
 				\item El cifrado y la firma digital usan un mecanismo de cifrado RSA.
 			\end{enumerate}
 
-\todo[inline]{
-			******** EXPLICAR UN POCO EL FUNCIONAMIENTO Y ANALIZARLO *******
-			******** SEGÚN BELLEBONI, EN SUS CONCLUSIONES: 
-			- Interesante por ser una elección a nivel nacional y vinculante.
-			- Aceptación nacional, con nº votantes en tendencia creciente y dando validez a los votos emitidos por este medio.
-			Debilidades:
-			- No uso de mecanismos seguros que garanticen la protección del derecho a voto secreto.
-			- El voto no está protegido por mecanismos de firma ciega, anonimizadores, ni mecanismos equivalentes (y se conserva de 4 a 10 días almacenado junto a la identificación del votante), sino que traslada al sistema por Internet las debilidades ya existentes en el voto tradicional (¿?) ***************
-}
-
+			En las conclusiones de la tesis \cite{tesisEPerezBelleboni} se destaca de este proceso:
+			\begin{itemize}
+				\item Interesante por ser una elección a nivel nacional y vinculante.
+				\item Número de votantes en tendencia creciente a nivel nacional.
+				\item Debilidades:
+					\begin{itemize}
+						\item No se hace uso de mecanismos seguros que garanticen la protección de la privacidad del voto.
+						\item El voto no está protegido por primitivas de firma ciega, anonimizadores (el voto se almacena entre 4 y 10 días junto a la identificación del votante) ni mecanismos equivalentes, sino que se traslada a este sistema de voto por Internet las debilidades ya existentes en el voto tradicional.
+					\end{itemize}
+			\end{itemize}
 			
 			La importancia que tiene el sistema de voto utilizado en Estonia radica en el hecho de que provee un mecanismo de voto por Internet a un potencial de votantes consistente en el 100\% de la población con derecho de voto de un estado democrático. Hasta el momento de su implantación, esto no ocurría. Se daban casos en los que se proporcionaba un sistema electrónico remoto a diversos espectros de la población, como podían ser los residentes en el extranjero, los militares en misiones activas o los focos de posibles proyectos pilotos.
 			
@@ -613,7 +613,6 @@ los diálogos del sistema.
 			
 			
 			\subsection{Noruega}\label{ivotingNoruega}
-			\todo[inline]{¿Hay que hablar de Noruega?}
 				La implantación del voto electrónico en Noruega empieza en 1993 con una experiencia piloto utilizando máquinas de lectura óptica en la capital, Oslo.
 				
 				Ya en 2011, en las elecciones municipales se realiza una primera prueba de voto por Internet en la participaron diez municipios (de un total de 429). Los votantes tenían la posibilidad de votar por Internet durante un período de voto anticipado. No obstante, podían votar mediante el tradicional voto en papel el día de las elecciones, prevaleciendo este voto físico sobre el emitido previamente por Internet.
@@ -827,11 +826,11 @@ los diálogos del sistema.
 			En la fecha de la elección, cada alumno emitió su voto a través de un nombre de usuario y una clave personal. Por motivos divulgativos, los organizadores de la elección determinaron que una parte del alumnado censado realizara la votación desde un aula de votación concreta, perteneciente al centro y adecuada para ello; mientras que el resto del alumnado debía elegir sus representantes desde algún equipo personal fuera del dominio de la Universidad.\\\hspace*{\fill}
 			
 			Para que estas elecciones a través de Internet pudiesen llevarse a cabo la Universidad San Pablo-CEU tuvo que adaptar su normativa de régimen interno, pues la que tenía originalmente establecía únicamente la posibilidad de un sistema de voto presencial.
-			
+\iffalse
 			\subsection{Universidad de Lovaina}\label{ivotingUniversidadLovaina}
 			
 			\todo[inline]{Esto sería interesante incluirlo}
-		
+\fi
 		\section{Proyectos varios de voto por Internet }\label{estado_desarrollos}
 		
 			 En esta sección introducimos algunos proyectos de voto por Internet que se han estudiado para la elaboración de este PFC y que han resultado ser interesantes y con propuestas a tener en cuenta para llevar a cabo proyectos de índole electoral.
@@ -1012,7 +1011,7 @@ los diálogos del sistema.
 				
 				
 				\todo[inline]{Recuperar lo de Helios de temp.tex.}
-					Primitivas criptográficas en Helios: \url{https://securewww.esat.kuleuven.be/cosic/publications/thesis-249.pdf}
+					Primitivas criptográficas en Helios \footnote{\url{https://securewww.esat.kuleuven.be/cosic/publications/thesis-249.pdf}}:
 					\begin{itemize}
 						\item ElGamal
 						\item Homomorphic encryption
@@ -1022,8 +1021,9 @@ los diálogos del sistema.
 				
 				
 				
-				
+\iffalse				
 \notasInfo[inline]{la siguiente info para analizar está sacada de \url{https://eprint.iacr.org/2015/942.pdf}}
+\fi
 %TEMPORAL ------------------------------------------------------------------------
 				%6 Case Study: Helios
 %Helios is an open-source, web-based electronic voting system,18 which has been
@@ -1780,10 +1780,12 @@ Permet que les rutes que manegui Django siguin agradables i entenedores per
 l’usuari.
 \fi		
 		
-		\subsection{Android}\label{estado_android}
-		\todo[inline]{aquí???}
+		
 
 \iffalse
+		\subsection{Android}\label{estado_android}
+			\todo[inline]{aquí???}
+
 		\subsection{Web}\label{estado_web}
 			\notasInfo{La web no está preparada para certificados digitales personales, etc, etc...}
 \fi

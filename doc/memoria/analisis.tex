@@ -1,6 +1,13 @@
 \chapter{Análisis del sistema}\label{analisis}
 \lhead{Capítulo \ref{analisis}}
 \rhead{Análisis del sistema}
+
+\setcounter{epihc}{\value{footnote}}\stepcounter{epihc}
+\epigraphhead[70]{\epigraph{Una nación sin elecciones libres es una nación sin voz, sin ojos y sin brazos.}{\textit{Octavio Paz\footnotemark[\value{epihc}]}}}
+\footnotetext[\value{epihc}]{{Poeta, ensayista y diplomático mexicano, Premio Nobel de Literatura en 1990 \url{https://es.wikipedia.org/wiki/Octavio_Paz}}}
+\setcounter{footnote}{\value{epihc}}
+
+
 %*******************************************************************************
 % *************************************************************************************************************** %
 % 			ANÁLISIS DEL SISTEMA
@@ -534,8 +541,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 						
 						\item[Censo de votantes] Es necesario incluir un censo de votantes o permitir una votación abierta. En el caso del censo, Helios permite hacer cargas de ficheros CSV con la información del votante (id, email y nombre). También permite que cualquiera pueda emitir un voto.
 						
-						\item [Añadir Trustees] En voto electrónico, es necesario tener entidades de las que poder fiarse para el correcto funcionamiento de la elección. Como es complicado que exista una entidad externa que cumpla con los requisitos, esto se emula utilizando varios trustees. Básicamente, los trustees son entidades fiables que es difícil que se puedan poner de acuerdo entre sí para falsear la elección. Estas entidades combinan sus claves públicas y privadas para formar la clave pública y privada de la elección a utilizar en la encriptación de los votos y la desencriptación del resultado del escrutinio. En Helios, el propio sistema es un trustee, suficiente para llevar a cabo los procesos criptográficos en caso de que no se defina ninguna entidad o usuario confiable adicional.
-						\todo[inline]{Es interesante lo que dice la propia web de Helios cuando se definen los trustees}
+						\item [Añadir Trustees] En voto electrónico, es necesario tener entidades de las que poder fiarse para el correcto funcionamiento de la elección. Como es complicado que exista una entidad externa que cumpla con los requisitos, esto se emula utilizando varios trustees. Básicamente, los trustees son entidades fiables que es difícil que se puedan poner de acuerdo entre sí para falsear la elección. Estas entidades combinan sus claves públicas y privadas para formar la clave pública y privada de la elección a utilizar en la encriptación de los votos y la desencriptación del resultado del escrutinio. En Helios, el propio sistema es un trustee, suficiente para llevar a cabo los procesos criptográficos en caso de que no se defina ninguna entidad o usuario confiable adicional.
 						
 							\begin{description}
 								\item [Configuración y generación de la clave]
@@ -843,14 +849,14 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 		\subsection{Difusión de resultados}\label{analisis_difusion}
 			La difusión de resultados por parte de Helios consiste en una web muy simple que indica las distintas opciones de voto y cuántos votos ha recibido cada una. Ni siquiera ordena los resultados por orden de votos contabilizados.
 			
-			\hfill			
+			\hfill			\\
 			\textbf{Abstención}
 			
 			Un problema que tiene la web de Helios con respecto a la información que queremos mostrar en estas Elecciones es que no se muestra la abstención, ya que es un dato para el que no está diseñado el sistema original, ya que en principio permite votaciones con censo cerrado y abierto. En este último caso no tiene sentido, por tanto, el concepto de abstención, pues no tenemos constancia del censo de potenciales votantes del proceso.
 			
 			Sin embargo, para el tipo de elección que desarrollamos para la EPS, con censo cerrado, se ha creído oportuno implementar un mecanismo para que la abstención sea mostrada en la difusión de resultados. Para ello hay que retocar el módulo de presentación de resultados e incluir una consulta del censo para la elección y contrastar el número resultante con la suma de los votos (contando los blancos) que se han emitido.
 			
-			\hfill	
+			\hfill	\\
 			\textbf{Falta información electoral}
 			
 			Junto con el problema de la abstención, podemos incluir que falta información acerca de la propia elección. Muestra las votaciones por "preguntas", pero no aporta datos como el comentado de la abstención, censo, participación y diversos valores que deben estar presentes para dar legitimidad a un proceso electoral.

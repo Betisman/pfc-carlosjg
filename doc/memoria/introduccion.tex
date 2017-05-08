@@ -50,23 +50,28 @@
 % 			MOTIVACIÓN DEL PROYECTO
 % *************************************************************************************************************** %
 	\section{Motivación del Proyecto}\label{motivacion}
-		%El Proyecto Fin de Carrera que presento consiste en el diseño e implementación de un sistema de voto por internet para dos elecciones de la Escuela Politécnica Superior de la Universidad San Pablo CEU.\\
-		%Desde que salí de la Escuela y comencé a desempeñarme profesionalmente, el sector en el que me he ubicado ha sido el de los Procesos Electorales. En este, he desarrollado, sobre todo, software orientado a la difusión de resultados, aunque además he participado en un sistema de Atención a Usuarios de dispositivos de conteo electoral, un sistema de registro de electores previo a votación y otros  proyectos diversos.\\
-		%Después de tanto tiempo en el sector es invitable mantener conversaciones acerca de las elecciones, los sistemas de información que se usan, los que podrían usarse, los que se han denostado y los que se vislumbran para el futuro.\\
-		%Una de estas conversaciones fue con un profesor de esta misma Escuela, unos días después de las Elecciones Generales de 2012, en las que me comentó que había probado un sistema piloto implementado para aquél comicio para el municipio de Madrid, el cual tenía por nombre Mesa Administrada Electrónicamente. Hablamos de que usando su \gls{DNIe}, se identificó ante el Presidente de la Mesa Electoral y, a través de un portátil, se le encontró en el censo, se le marcó como votado e, incluso, se le imprimió un justificante de votación. Todo esto en poco tiempo. Tras indagar lo que opinaba del sistema, me dijo que lo que realmente esperaba es que para las siguientes elecciones, ni siquiera tuviese que salir de casa, que pudiese votar desde allí, por internet.\\
-		%Ese fue el germen de este PFC, la idea de encontrar una solución viable al voto por internet. No obstante, este estudio, a nivel nacional, puede resultar muy extenso. Por ello, la idea viró hacia la realización de un sistema más pequeño, como son unas elecciones en la Escuela, pero igual de ambicioso y escalable, buscando encontrar una primera piedra para construir un sistema robusto que pueda cubrir las necesidades funcionales, de seguridad y de confianza necesarias para unas elecciones a nivel estatal.\\
-		%Siempre me llamó la atención que, pese al ritmo de evolución y progreso de los sistemas de información y las nuevas tecnologías en todos los ámbitos, en el electoral se seguía ejerciendo el voto como cuando voté por primera vez a los 18 años, igual incluso que la primera vez que recuerdo acompañar a mis padres cuando era mucho más joven. Otra motivación, pues, es tratar de entender los motivos que hacen que el desarrollo tecnológico en este campo no parezca, a simple vista, evolucionar a la misma velocidad que en el resto de ámbitos cotidianos.\\
-		\todo[inline]{COMENTADO POR AHORA}
+		El Proyecto Fin de Carrera que presento consiste en el diseño e implementación de un sistema de voto por internet para las Elecciones a la Junta de Escuela de la Escuela Politécnica Superior de la Universidad San Pablo CEU.
+		
+		Desde que salí de la Universidad y me incorporé al mundo laboral, el sector en el que me he desempeñado profesionalmente ha sido el de los Procesos Electorales. En este, he desarrollado, principalmente, software orientado a la difusión de resultados, aunque también he he participado en un sistema de Atención a Usuarios de dispositivos de conteo electoral, sistemas de registro de electores, sistemas de recolección de votos y otros  proyectos diversos.
+		
+		Tras varios años en el sector, he participado en conversaciones acerca de las elecciones, los sistemas de información que se usan, los que podrían usarse, los que se han denostado y los que se vislumbran para el futuro.
+		
+		Una de estas conversaciones fue con un profesor de esta misma Escuela, unos días después de las Elecciones Generales de 2012, en las que me comentó que había probado un sistema piloto implementado para aquellos  comicios para el municipio de Madrid, el cual tenía por nombre Mesa Administrada Electrónicamente. Hablamos de que usando su \gls{DNIe}, se identificó ante el Presidente de la Mesa Electoral y, a través de un portátil, se le encontró en el censo, se le marcó como votado e, incluso, se le imprimió un justificante de votación. Todo esto en poco tiempo. Tras indagar lo que opinaba del sistema, me dijo que lo que realmente esperaba es que para las siguientes elecciones, ni siquiera tuviese que salir de casa, que pudiese votar desde allí, por internet.
+		
+		Ese fue el germen de este \gls{PFC}, la idea de encontrar una solución viable al voto por Internet. No obstante, este estudio, a nivel nacional, puede resultar muy extenso. Por ello, la idea viró hacia la realización de un sistema más pequeño, como son unas elecciones en la Escuela, pero ambicioso y escalable, buscando construir una prueba de concepto para un sistema robusto que pueda cubrir las necesidades funcionales, de seguridad y de confianza necesarias para unas elecciones a nivel estatal.
+		
+		Siempre me ha interesado el debate que surge cuando se observa que pese al ritmo de evolución y progreso de los sistemas de información y las nuevas tecnologías en todos los ámbitos, en el electoral se seguía ejerciendo el voto como cuando voté por primera vez a los 18 años. Otra motivación, pues, es tratar de entender los motivos que hacen que el desarrollo tecnológico en este campo no parezca, a simple vista, evolucionar a la misma velocidad que en el resto de ámbitos cotidianos.
+		
+		Un elemento clave para la elaboración de este \gls{PFC}, además del desarrollo web y la aparición de los dispositivos móviles como smartphones y tablets ha sido la difusión del \gls{DNIe} y, en especial, la aparición de la versión 3.0. Con esta nueva versión del documento se abría la posibilidad de identificar a un votante con un móvil sin necesidad de elementos de software externos. La posibilidad de votación remota segura. Era una buena oportunidad para realizar este \gls{PFC} e implementar el primer prototipo de sistema de votación electrónica con este tipo de tecnologías.
 
 
 % *************************************************************************************************************** %
 % 			ANTECEDENTES
 % *************************************************************************************************************** %
-	\section{Antecedentes}\label{antecedentes}
-	\notasInfo[inline]{Breve Historia del voto electrónico}
+	\section{Antecedentes}\label{antecedentes}
 	En la actualidad, son muchos los proyectos que tratan de incluir el voto electrónico en los procesos electorales por todo el planeta. Estos intentos, de hecho, no se limitan a pequeños sufragios de entidades privadas o gobiernos locales, ya que se han propuesto múltiples paradigmas diseñados para ser implementados en elecciones a nivel estatal, como se puede ver en las experiencia de Estonia, país en el que se desarrolla la votación electrónica remota vinculante con mayor censo activo.
 	
-	El voto electrónico se lleva tratando de desarrollar e implementar desde hace bastante tiempo. Concretamente, podríamos datar el comienzo en el año 1868, cuando el inventor estadounidense Thomas Alva Edison\footnote{Inventor estadounidense (1847-1931) \url{https://es.wikipedia.org/wiki/Thomas_Alva_Edison}}  registró su primera patente, consistente en un instrumento simple para el recuento mecánico de votos. El instrumento se podía colocar en la mesa delante de cada congresista y tenía dos botones, uno para el voto a favor y otro para el voto en contra. Pese a considerarlo un avance, no consiguió ser aceptado en el Congreso de Washington, donde le dieron el siguiente motivo para argumentar el rechazo de los representantes a esta nueva tecnología: 
+	El voto electrónico se lleva tratando de desarrollar e implementar desde hace bastante tiempo. Concretamente, podríamos datar el comienzo en el año 1868, cuando el inventor estadounidense Thomas Alva Edison\footnote{Inventor estadounidense (1847-1931) \url{https://es.wikipedia.org/wiki/Thomas_Alva_Edison}} registró su primera patente, consistente en un instrumento simple para el recuento mecánico de votos. El instrumento se podía colocar en la mesa delante de cada congresista y tenía dos botones, uno para el voto a favor y otro para el voto en contra. Pese a considerarlo un avance, no consiguió ser aceptado en el Congreso de Washington, donde le dieron el siguiente motivo para argumentar el rechazo de los representantes a esta nueva tecnología: 
 	 
 	 \begin{verse}
 		 \textit{''Si hay en la tierra algún invento que no queremos aquí, es exactamente el suyo. Uno de nuestros principales intereses es evitar fraudes en las votaciones, y su aparato no haría otra cosa que favorecerlos''.}
@@ -92,9 +97,7 @@
 	
 	Se considera que el inicio del desarrollo del voto electrónico moderno está datado en 1964, año en el que siete condados de EEUU utilizaron un sistema de voto electrónico para las Elecciones Presidenciales.
 	
-	\todo[inline]{UN POQUITO MÁS DE HISTORIA ******* HABLAR DE DRE Y TARJETAS PERFORADAS}
-	
-	En el año 1981 se produce un hito en la historia del voto electrónico. El criptógrafo David Chaum publica \cite{Chaum:1981:UEM:358549.358563} la primera propuesta de un sistema criptográfico diseñado para proteger la privacidad del votante. Entre otras propuestas, en esta publicación se recoge su primera idea de un sistema verificable \textit{end-to-end}, basado en el uso de redes mixtas (mix networks o mixnets).
+	Tras el paso por las máquinas \gls{DRE}\footnote{\url{https://en.wikipedia.org/wiki/DRE_voting_machine}} y las tarjetas perforadas, en el año 1981 se produce un hito en la historia del voto electrónico. El criptógrafo David Chaum\footnote{\url{https://es.wikipedia.org/wiki/David_Chaum}} publica \cite{Chaum:1981:UEM:358549.358563} la primera propuesta de un sistema criptográfico diseñado para proteger la privacidad del votante. Entre otras propuestas, en esta publicación se recoge su primera idea de un sistema verificable \textit{end-to-end}, basado en el uso de redes mixtas\ref{primitivaMixnets} (mix networks o mixnets).
 	
 	En la época actual, prácticamente la totalidad de los procesos electorales implementan soluciones tecnológicas para algunos pasos de la fase de recuento de votos, con el fin de un recuento más rápido de votos y una difusión de resultados sólo varias horas después del cierre de los colegios electorales. Es el caso de, por ejemplo, España, donde tanto el Ministerio del Interior como las Comunidades Autónomas requieren que el conteo provisional de los votos se realice en un tiempo corto durante la misma noche electoral.
 	
@@ -135,16 +138,9 @@
 % *************************************************************************************************************** %
 	\section{Metodología}\label{metodologia}
 		\subsection{Documentación}\label{metodologiaDocumentacion}
-%		Para la redacción del documento del PFC se hizo uso de \LaTeX, a través del IDE TexnicCenter.
+		Para la redacción del documento de la memoria de este  \gls{PFC} se utilizado la herramienta \LaTeX.
 		
 		\subsection{Metodología de desarrollo}\label{metodologiaDesarrollo}
-		%BDD - Behavior Driven Development
-		%
-		%************************************************** Hablar de la evolución en los procesos de desarrollo de software, llegando a TDD. Escribir sobre la diferencia (evolución) de TDD hacia BDD y ATDD (Acceptance Test driven Development). A partir de aquí, comentar un poco sobre BDD. Los motivos por los que se adaptaría bien a este tipo de proyecto (un proyecto en el que debe probarse todo lo posible, por ejemplo) y la forma de introducirlo.
-		%***************************************************
-		\todo[inline]{Desarrollamos este apartado o lo obviamos?}
-		
-		Fases de la ingeniería de software
 		
 		En el desarrollo de proyectos de software existen múltiples de metodologías. Una de ellas basa el desarrollo en 5+2 etapas:
 		
