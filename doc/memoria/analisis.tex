@@ -343,8 +343,10 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 		
 			\item[Trustee] \hfill \
 			
-			Es necesario una serie de actores en el proceso, los llamados Trustees por Helios Voting. Estos actores, que también pueden formar parte de los anteriores grupos de actores, en especial los miembros de la Junta Electoral, son los encargados de custodiar un trozo de la clave secreta que el sistema necesita para la fase de escrutinio. Helios necesita una clave
-			\todo[inline]{Secreto compartido por aquí}
+			Es necesario una serie de actores en el proceso, los llamados Trustees por Helios Voting. Estos actores, que también pueden formar parte de los anteriores grupos de actores, en especial los miembros de la Junta Electoral, son los encargados de custodiar un trozo de la clave secreta que el sistema necesita para la fase de escrutinio.
+			
+			Helios necesita una clave que sirve para descifrar la totalización de los votos cifrados. Es en este punto donde se aprecia el protocolo de secreto compartido. La clave se trocea y se reparte entre los trustees del sistema. Es necesario que estos colaboren para descifrar el resultado de la elección. Para que el sistema sea comprometido, sería necesario que todos ellos se pusieran de acuerdo para manipular el sistema, lo cual es poco probable, pues se supone que son autoridades confiables o de signos políticos contrarios.
+			
 		\end{description}
 		
 		Los usuarios cuyo rol sea \textit{Votante} son los únicos que tienen capacidad para poder votar en la elección.
