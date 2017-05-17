@@ -993,7 +993,55 @@ los diálogos del sistema.
 					
 				
 				\subsection{Ágora Ciudadana - Ágora Voting}\label{estadocuestion_agoravoting}
-				\todo[inline]{Editar lo que está escrito en temp.tex sobre Ágora Voting. Ya no son Software Libre...}
+					
+					Ágora Voting se inició como un proyecto de software libre cuyo objetivo era el de proporcionar una plataforma de democracia líquida, incluyendo un protocolo de voto criptográficamente seguro.
+					
+					Este sistema se compone de compone de varios elementos:
+					\begin{description}
+						\item [Registro] \hfill \\
+							Plataforma web que sirve para la verificación de votantes.
+							\begin{itemize}
+								\item \gls{API} web y AngularJS \textit{single web application}.
+								\item Base de datos con acceso al padrón.
+								\item Servidor con certificado \gls{TLS}.
+								\item Fail2ban\footnote{\url{https://www.fail2ban.org}} y Cloudfare\footnote{\url{http://www.cloudfare.com}} para protección contra \gls{DDoS}.
+								\item Redundancia de Hardware.
+							\end{itemize}
+							
+						\item [Cabina de voto] \hfill \\
+							Plataforma web a través de la cual los votantes emiten sus votos.
+							\begin{itemize}
+								\item Servidor con validación \gls{TLS}.
+								\item Cabina de voto Javascript para votar o auditar.
+								\item Librerías de cifrado Javascript (Helios, SJCL).
+								\item Base de datos PostgreSQL replicada para la urna electrónica.
+								\item Fail2ban para protección ante DOS y ataques de fuerza bruta.
+								\item Cloudfare para protección ante ataques DOS.
+								\item Autenticación de cliente para votantes registrados y validados.
+							\end{itemize}
+							
+						\item [Servicios de la Autoridad de la Elección] \hfill  \\
+							Servicios web http que sirven para generar claves públicas, mezclar, descifrar y totalizar.
+							\begin{itemize}
+								\item Cola HTTP para orquestración asíncrona.
+								\item Validación \gls{TLS} en cliente y servidor.
+								\item Librería Verificatum\footnote{\url{http://www.verificatum.com}} para mixnets.
+								\item Librería OpenSTV\footnote{\url{http://www.opavote.com/openstv}} para totalización.
+							\end{itemize}
+							
+						\item [Verificador de la Elección] \hfill \\ 
+							Una aplicación Python/Java \textit{stand alone} que verifica los datos publicados de la elección.
+					\end{description}
+					
+					
+					Las primitivas criptográficas que se emplean en este sistema son:
+					\begin{itemize}
+						\item Esquema de cifrado homomórfico ElGamal
+						\item Esquema de cifrado de umbral Pedersen.
+						\item Mixnet verificable universal con pruebas de conocimiento cero.
+						\item Heurística Fiat-Shamir para transformar pruebas de  conocimiento cero de verificacbilidad en prueba verificables no interactivas.
+					\end{itemize}
+					
 				
 				Comentar que Ágora Voting dejó de ser un proyecto activo y pasó de software libre a ser una plataforma comercial de voto por Internet llamada nVote. Está implementada en Python y tiene bastantes funcionalidades comunes con Helios Voting.
 				
