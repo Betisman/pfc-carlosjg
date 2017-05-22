@@ -547,12 +547,11 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			\begin{description}
 				\item [Verificación de la papeleta (antes de votar)]
 				
-				El sistema permite verificar una papeleta cifrada previamente a su sufragio. La papeleta verificada no será la que se utilice para votar y no será, por tanto, contada sino que, por medidas para combatir la coerción, habrá que volver a encriptarla de nuevo cuando se quiera emitir el voto.
+				El sistema permite a un votante verificar su papeleta cifrada antes de utilizarla para votar. No obstante, como medida para combatir la coacción, una vez la papeleta ha sido verificada se descarta y no se utiliza como voto. El votante deberá volver a encriptarla para poder emitir su voto.
 				
-				Una vez el votante está en la cabina de voto virtual y ha encriptado sus opciones de voto, el sistema permite realizar una verificación para asegurarse de que la encriptación de estas ha sido correcta. Para ello, el sistema presenta al votante la información para auditar su papeleta (ballot audit info) \notasInfo{Poner aquí qué significa esta información}. Este texto es el que debe copiar el votante para utilizar en la herramienta de verificación de papeletas. En ésta, se incluye dicho texto y la URL de la elección datos suficientes para realizar la verificación.
+				Una vez el votante está en la cabina de voto virtual y ha encriptado sus opciones de voto, el sistema permite realizar una verificación para asegurarse de que la encriptación de estas ha sido correcta. Para ello, el sistema presenta al votante la información para auditar su papeleta. Este texto es el que debe copiar el votante para utilizar en la herramienta de verificación individual de papeletas. En ésta, se incluye dicho texto y la URL de la elección datos suficientes para realizar la verificación.
 				
-				\todo[inline]{Explicar en qué consiste la verificación. IMPORTANTE y delicado. Valorar.}
-				Una vez hemos auditado nuestro voto, tenemos la posibilidad de publicar la papeleta auditada en el \textit{Helios tracking center}, permitiendo a otras entidades realizar una doble comprobación de la verificación de la papeleta.
+				Una vez hemos auditado nuestro voto, tenemos la posibilidad de publicar la papeleta auditada en el \textit{Helios Tracking Center}, permitiendo a otros observadores realizar una doble comprobación de la verificación de la papeleta.
 				
 				
 				\item [Lista de papeletas auditadas]
@@ -573,7 +572,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			
 			Helios Voting basa su seguridad criptográfica en un protocolo de cifrado homomórfico (\ref{primitivaCifradoHomomorfico}).
 			
-			El voto se encripta en el navegador del cliente utilizando una implementación del algoritmo de ElGamal Exponencial realizada en Javascript.
+			El voto se encripta en el navegador del cliente utilizando una implementación del algoritmo de ElGamal Exponencial (\ref{primitivaCifradoHomomorfico_elgamal_exponencial}) realizada en Javascript.
 			
 			Como se ha explicado en \ref{primitivaCifradoHomomorfico_elgamal} las propiedades de un cifrado homomórfico implican que el cifrado del producto de dos mensajes (números) se corresponda con el producto de ambos mensajes cifrados.
 			
@@ -658,7 +657,15 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 		
 			Una primera prueba que se realizó fue tratar de autenticarse en una web a través del DNIe.
 		
-			Al entrar en la Sede Electrónica de la Agencia Tributaria, para consultar los expedientes es necesario facilitar certificados digitales para poder ser identificado y autenticado contra el sistema. Al intentar abrir la página, el navegador nos muestra un aviso \todo[inline]{Captura de pantalla del móvil donde pide los certificados} en el que nos indica que no se han encontrado los certificados. Incluso nos ofrece la posibilidad de instalarlos. Podríamos dirigirnos a la web de la FNMT\footnote{\url{https://www.sede.fnmt.gob.es/certificados/persona-fisica/obtener-certificado-software}} y gestionar la emisión de un certificado digital, que podríamos descargar y utilizar como identificación digital de la misma forma que lo podemos hacer con el DNIe. De todos modos, la obtención de este certificado por parte de la FNMT requiere de un paso en el que el usuario ha de personarse físicamente en una Oficina de Registro para acreditar su identidad. Con este certificado instalado en el almacén de certificados de Google Chrome se podría gestionar la identificación contra la web a la que tratamos de acceder, pero hemos decidido no continuar por este camino porque es necesario realizar trámites extras que no consideramos necesarios frente a la facilidad de obtener el DNIe.
+			\begin{wrapfigure}{r}{.3\textwidth}
+%				\vspace{-20pt}
+				\begin{center}
+					\includegraphics[width=.3\textwidth]{imgs/aeatPideCertificados}
+				\end{center}
+				\vspace{-20pt}
+				\caption{Mensaje en la web de la Sede Electrónica de la Agencia Tributaria que indica que no se han encontrado certificados en el dispositivo.}\label{fig:aeatPideCertificados}
+			\end{wrapfigure}
+			Al entrar en la Sede Electrónica de la Agencia Tributaria, para consultar los expedientes es necesario facilitar certificados digitales para poder ser identificado y autenticado contra el sistema. Al intentar abrir la página, el navegador nos muestra un aviso en el que nos indica que no se han encontrado los certificados (ver figura \ref{fig:aeatPideCertificados}). Incluso nos ofrece la posibilidad de instalarlos. Podríamos dirigirnos a la web de la FNMT\footnote{\url{https://www.sede.fnmt.gob.es/certificados/persona-fisica/obtener-certificado-software}} y gestionar la emisión de un certificado digital, que podríamos descargar y utilizar como identificación digital de la misma forma que lo podemos hacer con el DNIe. De todos modos, la obtención de este certificado por parte de la FNMT requiere de un paso en el que el usuario ha de personarse físicamente en una Oficina de Registro para acreditar su identidad. Con este certificado instalado en el almacén de certificados de Google Chrome se podría gestionar la identificación contra la web a la que tratamos de acceder, pero hemos decidido no continuar por este camino porque es necesario realizar trámites extras que no consideramos necesarios frente a la facilidad de obtener el DNIe.
 		
 			Implementando algún tipo de soporte de autenticación por DNIe en Helios y tratando de acceder desde el móvil a través del navegador, nos encontraríamos este problema. Chrome, o el navegador que utilicemos, no tiene los certificados digitales cargados en su almacén de certificados.
 		

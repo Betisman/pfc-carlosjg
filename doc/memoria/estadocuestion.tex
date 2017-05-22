@@ -784,6 +784,13 @@ los diálogos del sistema.
 			\subsection{Universidades}\label{iVotingUniversidades}
 				A nivel de Juntas de Gobierno o de Elecciones de Rector a nivel universitario, merece la pena introducir que existen experiencias de voto por Internet en varias de ellas, destacando las de la \gls{UNED} o las de la \gls{UPV/EHU}.
 				
+					\begin{wrapfigure}{r}{.10\textwidth}
+						\vspace{-20pt}
+						\begin{center}
+							\includegraphics[width=.1\textwidth]{imgs/unedLogo.jpeg}
+						\end{center}
+						\vspace{-20pt}
+					\end{wrapfigure}
 					La \gls{UNED} fue pionera en el voto electrónico para elegir su claustro dentro del mundo universitario español. En el año 2010, se alió con la multinacional española Indra para adaptar su plataforma Net-vote\footnote{\url{http://www.indracompany.com/sites/default/files/indra_pe_netvote_baja.pdf}} al proceso electoral y generar un caso de éxito. 
 				
 					Para llevar a cabo estos comicios fue necesario adaptar su Reglamento Electoral General.
@@ -810,8 +817,14 @@ los diálogos del sistema.
 					
 					A partir de 2013, los diferentes comicios de esta universidad fueron adjudicados a la empresa española Scytl. En los correspondientes a 2013, correspondientes a la elección a Rector, pusieron a disposición del proceso su plataforma de voto por Internet Pnyx. Para conocer más acerca de la adaptación de esta plataforma a estas elecciones y las diferencias con la anterior, adjunto en la bibliografía un documento divulgativo de fácil lectura. \cite{UNED:2013:elecciones:rector}
 				
-					Este mismo sistema Pnyx es el que lleva varios años implementando Scytl como plataforma de voto para las diferentes elecciones de la Universidad del País Vasco, además de otras Universidades y organizaciones públicas y privadas.
-			
+					\begin{wrapfigure}{l}{.20\textwidth}
+						\vspace{-20pt}
+						\begin{center}
+							\includegraphics[width=.2\textwidth]{imgs/upvehuLogo}
+						\end{center}
+						\vspace{-20pt}
+					\end{wrapfigure}
+					Este mismo sistema Pnyx es el que lleva varios años implementando Scytl como plataforma de voto para las diferentes elecciones de la Universidad del País Vasco, además de otras Universidades y organizaciones públicas y privadas.			
 				
 				
 							
@@ -819,6 +832,13 @@ los diálogos del sistema.
 		% 			VOTO POR INTERNET EN LA EPS
 		% *************************************************************************************************************** %
 		\subsection{Escuela Politécnica Superior - Universidad San Pablo CEU}\label{ivoting_epsceu}
+			\begin{wrapfigure}{r}{.50\textwidth}
+				\vspace{-20pt}
+				\begin{center}
+					\includegraphics[width=.5\textwidth]{imgs/uspceuLogo}
+				\end{center}
+				\vspace{-20pt}
+			\end{wrapfigure}
 			En la Escuela Politécnica Superior de la Universidad San Pablo-CEU ya se realizó una elección por medio de voto electrónico. Sucedió en 2005, cuando en una colaboración entre la Universidad y la multinacional española Indra se celebró la primera elección de delegados de clase a través de voto electrónico con motivo del Día de Internet, celebrado el 25 de octubre del mismo año.\\\hspace*{\fill}
 			
 			En esta experiencia, más de 600 alumnos de los últimos cursos de la Escuela Politécnica eligieron a sus delegados de clase a través de este sistema.\\\hspace*{\fill}
@@ -994,7 +1014,17 @@ los diálogos del sistema.
 				
 				\subsection{Ágora Ciudadana - Ágora Voting}\label{estadocuestion_agoravoting}
 					
+					\begin{wrapfigure}{l}{.2\textwidth}
+						\vspace{-30pt}
+						\begin{center}
+							\includegraphics[width=.2\textwidth]{imgs/agoraVotingLogo}
+						\end{center}
+						\vspace{-20pt}
+					\end{wrapfigure}
 					Ágora Voting se inició como un proyecto de software libre cuyo objetivo era el de proporcionar una plataforma de democracia líquida, incluyendo un protocolo de voto criptográficamente seguro.
+					
+					
+
 					
 					Este sistema se compone de compone de varios elementos:
 					\begin{description}
@@ -1062,7 +1092,14 @@ los diálogos del sistema.
 				
 				
 				\subsection{Helios}\label{estadocuestion_helios}
-				Helios es un sistema de voto por Internet cuyos desarrolladores consideran que es el primer sistema de voto con auditoría abierta (open-audit) basado en web. Actualmente es un proyecto en desarrollo, funcional y públicamente accesible. Cualquier organismo interesado puede descargar el código fuente, configurar un proceso electoral y llevar a término la elección, junto con que cualquier observador puede auditar todo el proceso.
+					\begin{wrapfigure}{l}{.2\textwidth}
+						\vspace{-20pt}
+						\begin{center}
+							\includegraphics[width=.2\textwidth]{imgs/heliosLogo}
+						\end{center}
+						\vspace{-20pt}
+					\end{wrapfigure}
+					Helios es un sistema de voto por Internet cuyos desarrolladores consideran que es el primer sistema de voto con auditoría abierta (open-audit) basado en web. Actualmente es un proyecto en desarrollo, funcional y públicamente accesible. Cualquier organismo interesado puede descargar el código fuente, configurar un proceso electoral y llevar a término la elección, junto con que cualquier observador puede auditar todo el proceso.
 				
 				Este proyecto es apropiado para realizar procesos electorales para organismos que necesiten que estos sean confiables y con voto secreto, eso sí, siempre que los comicios se celebren en un ambiente en el que la coerción del voto no sea una amenaza. Este detalle es importante, ya que muestra una de las \textit{debilidades} de esta implementación con respecto a un proceso electoral de gran escala.
 				
@@ -1498,7 +1535,7 @@ los diálogos del sistema.
 
 							\hfill \\
 							
-							Uno de los algoritmos más utilizados para realizar un cifrado homomórfico es el de ElGamal.
+							Uno de los algoritmos más utilizados para realizar un cifrado homomórfico es el de ElGamal \cite{ElGamal:1985:PKC:19478.19480}.
 							
 							ElGamal es un algoritmo de criptografía asimétrica basado en Diffie-Hellman de cifrado de clave pública que se usa tanto para cifrado como firma digital. Se basa en el problema de logaritmos discretos.
 							
@@ -1506,7 +1543,7 @@ los diálogos del sistema.
 							
 							
 							Clave: \hfill \\
-							El algoritmo de ElGamal necesita un par de claves pública - privada para poder ser utilizado. Para ello, el cifrador del mensaje ha de escoger tres números:
+							El algoritmo de ElGamal necesita un par de claves pública - privada para poder ser utilizado. \cite{Geraldo:2014,Meissen} Para ello, el cifrador del mensaje ha de escoger tres números:
 							\begin{itemize}
 								\item Número primo $p$ cualquiera, tal que el logaritmo discreto no soluble en un tiempo asumible en $Z^*_p$ (grupo multiplicativo módulo un primo $p$). Esto quiere decir que $p - 1$ ha de tener un factor primo grande, lo cual provoca que la resolución del problema de logaritmo discreto sea difícil).
 								\item Número aleatorio $g$, que será el generador del grupo cíclico $Z^*_p$.
@@ -1610,8 +1647,7 @@ los diálogos del sistema.
 						\paragraph{ElGamal Exponencial}\label{primitivaCifradoHomomorfico_elgamal_exponencial}		
 						\hfill \\
 							
-							La propiedad de ElGamal en cuanto a homomorfismo es muy interesante, pero de cara al voto por Internet, presenta ciertos problemas. El principal es que la operación en la que se basa es el producto. Para un sistema orientado a procesos electorales, sería mucho más útil que el homomorfismo fuera sobre la suma, ya que el escrutinio no es otra cosa que la suma (totalización) de votos.
-							
+							La propiedad de ElGamal en cuanto a homomorfismo es muy interesante, pero de cara al voto por Internet, presenta ciertos problemas. El principal es que la operación en la que se basa es el producto. Para un sistema orientado a procesos electorales, sería mucho más útil que el homomorfismo fuera sobre la suma, ya que el escrutinio no es otra cosa que la suma (totalización) de votos. \cite{Geraldo:2014,Meissen}							
 							Así, existe una variante de ElGamal que se denomina ElGamal Exponencial. En esta variante, en lugar de encriptar el mensaje $m$ como en ElGamal tradicional, se cifra $g^{m}$, donde $g$ es un generador (normalmente se suele reutilizar el mismo que se utiliza para generar la clave pública), transformando el sistema en un homomorfismo aditivo, es decir, sobre la operación suma.
 							
 							\[C (g^{x_{1}}) \cdot C (g^{x_{2}}) = C (g^{x_{1} + x_{2}})\]
@@ -1625,7 +1661,7 @@ los diálogos del sistema.
 								\item[] $b$: aleatoriedad
 							\end{itemize}
 							
-							y modifiquemos la función ref-a-la-funcion de modo que
+							y modifiquemos \cite{Martins:2014} la función del ElGamal multiplicativo de modo que
 							
 							$C(m) = (y_1, y_2) = (g^b \pmod{p}, g^m  \cdot  K^b \pmod{p})$
 							

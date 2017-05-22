@@ -58,6 +58,8 @@
 %\usepackage[hang,tight,raggedright]{subfigure} %%Subfigures inside a figure
 %\usepackage{pst-all} %%PSTricks - not useable with pdfLaTeX
 
+\usepackage{wrapfig}
+
 
 
 
@@ -204,6 +206,7 @@
 \makeglossaries
 
 
+
 %% Para poner notas
 \usepackage{xargs}
 \usepackage{xcolor}
@@ -278,6 +281,8 @@
 %% DOCUMENT
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
+
+\glsunsetall
 
 %% Por defecto, las viñetas van con circulitos
 \renewcommand\labelitemi{$\bullet$}
