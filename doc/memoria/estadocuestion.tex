@@ -1438,15 +1438,15 @@ los diálogos del sistema.
 						
 						El cifrado homomórfico es un tipo de cifrado basado en algoritmos criptográficos que poseen la propiedad de que si se aplica una función ($f$) a un mensaje cifrado, el resultado de descifrarlo es igual a la aplicación de otra función ($g$) al mensaje sin cifrar.
 						
-						Definamos $\delta$ como la función de descifrado y $\varepsilon$ como la función de cifrado.
+						Definamos $D$ como la función de descifrado y $C$ como la función de cifrado.
 						
-					    $\delta(\varepsilon(m, k), k) = m$
+					    $D(C(m, k), k) = m$
 					    
-					    $\delta(f(\varepsilon(m, k)), k) = g(m)$
+					    $D(f(C(m, k)), k) = g(m)$
 					    
 					    Hay algoritmos en los que las funciones que se aplican ($f$ y $g$) son idénticas, de forma que ($f$ = $g$), lo cual resulta muy interesante ya que aplicando la misma función a un mensaje cifrado, al descifrar se obtiene el mismo resultado que resultaría de aplicar la función al mensaje en claro.
 					    
-					    $\delta(f(\varepsilon(m, k)), k) = f(m)$
+					    $D(f(C(m, k)), k) = f(m)$
 						
 						En la figura \ref{fig:homomorfismo} se muestra un diagrama con el siguiente ejemplo de cifrado homomórfico basado en la aplicación de la operación multiplicación:
 						
@@ -1454,36 +1454,36 @@ los diálogos del sistema.
 						
 						$ m = [11, 7] \Rightarrow m[0] = 11, m[1] = 7 $
 						
-						$ f(m) = m[0] * m[1] \Rightarrow $
+						$ f(m) = m[0]  \cdot  m[1] \Rightarrow $
 						
-						$ f(m) = 11 * 7 = 77 $
+						$ f(m) = 11  \cdot  7 = 77 $
 						
-						$ \varepsilon(m, k) = m' $
+						$ C(m, k) = m' $
 						
-						$ \varepsilon(11|7, k) = [15, 12] = m' $
+						$ C(11|7, k) = [15, 12] = m' $
 						
 						\hfill
 						
-						$ f(m') = m'[0] * m'[1] \Rightarrow $
+						$ f(m') = m'[0]  \cdot  m'[1] \Rightarrow $
 						
-						$ f(m') = 15 * 12 = 180 $
+						$ f(m') = 15  \cdot  12 = 180 $
 						
-						$ \delta(180, k) = 77 $
+						$ D(180, k) = 77 $
 						
-						$ \delta(f(m')) = f(m) $
+						$ D(f(m')) = f(m) $
 						
-						$ \delta(f(\varepsilon(m, k)), k) = f(m) $
+						$ D(f(C(m, k)), k) = f(m) $
 						
 						\hfill 
 						
 						Entre los algoritmos parcialmente homomórficos, podemos destacar los siguientes:
 						
 						\begin{description}
-							\item [RSA] $\varepsilon(m_1) * \varepsilon(m_2) = \varepsilon(m_1 * m_2)$
-							\item [ElGamal] $\varepsilon(m_1) * \varepsilon(m_2) = \varepsilon(m_1 * m_2)$
-							\item [Benaloh] $\varepsilon(m_1) * \varepsilon(m_2) = \varepsilon(m_1 + m_2 mod c)$
-							\item [Goldwasser-Micali] $\varepsilon(x_1) * \varepsilon(x_2) = \varepsilon(x_1 \oplus x_2)$
-							\item [Paillier] $\varepsilon(m_1) * \varepsilon(m_2) = \varepsilon((m_1 + m_2) mod c)$
+							\item [RSA] $C(m_1)  \cdot  C(m_2) = C(m_1  \cdot  m_2)$
+							\item [ElGamal] $C(m_1)  \cdot  C(m_2) = C(m_1  \cdot  m_2)$
+							\item [Benaloh] $C(m_1)  \cdot  C(m_2) = C(m_1 + m_2 \pmod{c})$
+							\item [Goldwasser-Micali] $C(x_1)  \cdot  C(x_2) = C(x_1 \oplus x_2)$
+							\item [Paillier] $C(m_1)  \cdot  C(m_2) = C((m_1 + m_2) \pmod{c})$
 						\end{description}
 						
 						\begin{figure}[htbp]
@@ -1494,24 +1494,183 @@ los diálogos del sistema.
 						\end{figure}
 
 					
-						\paragraph{ElGamal / ElGamal Exponencial}\label{primitivaCifradoHomomorfico_elgamal}
+						\paragraph{ElGamal}\label{primitivaCifradoHomomorfico_elgamal}
 
 							\hfill \\
 							
 							Uno de los algoritmos más utilizados para realizar un cifrado homomórfico es el de ElGamal.
+							
+							ElGamal es un algoritmo de criptografía asimétrica basado en Diffie-Hellman de cifrado de clave pública que se usa tanto para cifrado como firma digital. Se basa en el problema de logaritmos discretos.
+							
+							El creador de este algoritmo fue Taher Elgamal\footnote{\url{https://es.wikipedia.org/wiki/Taher_Elgamal}}, en 1984. Es un algoritmo de uso libre.
+							
+							
+							Clave: \hfill \\
+							El algoritmo de ElGamal necesita un par de claves pública - privada para poder ser utilizado. Para ello, el cifrador del mensaje ha de escoger tres números:
+							\begin{itemize}
+								\item Número primo $p$ cualquiera, tal que el logaritmo discreto no soluble en un tiempo asumible en $Z^*_p$ (grupo multiplicativo módulo un primo $p$). Esto quiere decir que $p - 1$ ha de tener un factor primo grande, lo cual provoca que la resolución del problema de logaritmo discreto sea difícil).
+								\item Número aleatorio $g$, que será el generador del grupo cíclico $Z^*_p$.
+								\item Número aleatorio $a$ tal que $a \in {0, ..., p - 1}$, que será la clave privada.
+							\end{itemize}
+							La clave pública será $(g, p, K)$ donde $K = g^a \mod{p}$. De este modo, la clave privada $a$ se mantendrá en secreto.
+							
+							Para el \textbf{cifrado} de un mensaje: \hfill \\
+							Supongamos que queremos cifrar el mensaje $m$ tal que $1 < m < p-1$ (es decir que $m \in Z_p$).
+							
+							El cifrador ha de escoger un número aleatorio $b$ tal que $a \in {2, ..., p - 1}$ que mantendrá en secreto.
+							
+							El mensaje cifrado se corresponde con la tupla $C_b(m, b) = (y_1, y_2)$, donde:
+							\begin{itemize}
+								\item[] $y_1 = g^b \pmod{p}$
+								\item[] $y_2 = K^b  \cdot  m \pmod{p}$
+							\end{itemize}
+							
+							
+							
+							
+							Para \textbf{descifrar} el mensaje $m$ se utiliza el pequeño teorema de Fermat\footnote{\url{https://es.wikipedia.org/wiki/Pequeño_teorema_de_Fermat}}, por el cual podemos inferir que:
+							
+							$y_1^{-a}  \cdot  y_2 \pmod{p} = (g^b)^{-a}  \cdot  K^b  \cdot  m \pmod{p} = g^{-ab}  \cdot  (g^a)^b  \cdot m \pmod{p} = (g^a)^{-b}  \cdot  (g^a)^b  \cdot m \pmod{p} = (g^a)^{b-b}  \cdot m \pmod{p} = (g^a)^0  \cdot m \pmod{p} = 1 \cdot m \pmod{p} = m \pmod{p}$
+							
+							Por tanto:\hfill \\
+							$m = D(C_b(m, b)) = D((y_1, y_2)) = y_1^{p-1-a}  \cdot  y_2 \pmod{p}$
+							
+							Un ejemplo de este algoritmo es el siguiente:
+							
+							Begoña escoge los siguiente valores:
+							\begin{itemize}
+								\item $p = 101$ (primo aleatorio. Supongamos, aunque no es cierto en este ejemplo, que $p - 1 = 100$ tiene un factor primo grande.)
+								\item $g = 5$
+								\item $a = 16$ (clave privada)
+							\end{itemize}							
+							
+							Con estos valores, se calcula la clave pública.
+							
+							$K = g^a \pmod{p} = 5^16 \pmod{101} = 31. => K = 31$
+							
+							$pubK = (g, p, K) = (5, 101, 31)$
+							
+							Marta quiere cifrar el mensaje $m = 6$ (tal que $1 < m < p-1 = 1 < 6 < 100$, para lo que escoge un número $b$ aleatorio $b = 7$ de forma que $2 < b < p - 1 = 2 < 7 < 100$.
+							
+							Para cifrar el texto, ha de utilizar la clave pública generada por Begoña y calcular:
+							\begin{itemize}
+								\item[] $y_1 = g^b \pmod{p} = 5^7 \pmod{101} = 52$
+								\item[] $y_2 = K^b  \cdot  m \pmod{p} = 31^7  \cdot  6 \pmod{101} = 47$
+							\end{itemize}
+
+							
+							Así el mensaje $m = 9$ cifrado será:
+							
+							$C_b(m, b) = C_7(9, 7) = (y_1, y_2) = (52, 47) => C(9) = (52, 47)$
+							
+							Con este mensaje cifrado, Begoña debe utilizar su clave privada para poder obtener el texto en claro:
+							
+							$D(C_b(m, b)) = D(C_7(9, 7)) = D((y_1, y_2)) = D((52, 47)) = y_1^{p-1-a}  \cdot  y_2 \pmod{p} = 52^{101-1-16}  \cdot  y_2 \pmod{101} = 52^84  \cdot  47 \pmod{101} = 6$							
+
+							
 							Este algoritmo es un sistema de cifrado homomórfico respecto de la operación multiplicación. Con esto, se obtiene un proceso en el que el producto de de dos mensajes cifrados equivale al cifrado del producto de ambos mensajes.
 							
-							\[\varepsilon (x_{1}) \cdot \varepsilon (x_{2}) = \varepsilon (x_{1} \cdot x_{2})\]
+							\[C (x_{1}) \cdot C (x_{2}) = C (x_{1} \cdot x_{2})\]
 							
-						
 							
-							La propiedad de ElGamal en cuanto a homomorfismo es muy interesante, pero de cara al voto por Internet, presenta ciertos problemas. El principal es que la operación en la que se basa es el producto. Sería mucho más útil que el homomorfismo fuera sobre la suma, ya que el escrutinio no es otra cosa que la suma (totalización) de votos.
+							Definamos:
+							\begin{itemize}
+								\item[] $a$: clave secreta
+								\item[] $(g, p, K)$: clave pública
+								\item[] $g$: generador
+								\item[] $m$: mensaje
+								\item[] $b$: aleatoriedad
+							\end{itemize}
+								
+							
+							$C(m) = (y_1, y_2) = (g^b \pmod{p}, K^b  \cdot  m \pmod{p})$
+							
+							$C(m_1)  \cdot  C(m_2) = (g^{b_1}, m_1 \cdot K^{b_1})(g^{b_2}, m_2 \cdot K^{b_2}) = (g^{r_1+r_2}, (m_1 \cdot m_2) \cdot K^{r_1+r_2}) = (g^t, (m_1 \cdot m_2) \cdot h^t) = C(m_1 \cdot m_2)$
+							
+							Un ejemplo práctico de este homomorfismo:
+							
+							$C(6) = (5^7 \pmod{101}, 31^7  \cdot  6 \pmod{101}) = (52, 47)$
+
+							$C(8) = (5^7 \pmod{101}, 31^7  \cdot  8 \pmod{101}) = (52, 29)$
+
+							Para descifrar ambos mensajes, utilizaríamos el siguiente proceso:
+							
+							$m_1 = y_1^{p-1-a}  \cdot  y_2 \pmod{p} = 52^{101-1-16}  \cdot  47 \pmod{101} = 6$
+							
+							$m_2 = y_1^{p-1-a}  \cdot  y_2 \pmod{p} = 52^{101-1-16}  \cdot  29 \pmod{101} = 8$
+							
+							Si multiplicamos los dos mensajes cifrados:
+							
+							$C(6)  \cdot  C(8) = (52, 47)  \cdot  (52, 29) = (52^2, 47 \cdot 29)$
+							
+							$D(C(6)  \cdot  C(8)) = D((52^2, 47 \cdot 29)) = [y_1^{p-1-a}  \cdot  y_2 \pmod{p}] = (52^2)^{101-1-16}  \cdot  (47 \cdot 29) \pmod{101} = 48 = 6  \cdot  8$
+							
+							Así, se observa que si el resultado de descifrar el producto de dos mensajes cifrados es igual al producto de los mensajes sin cifrar.
+							
+						\paragraph{ElGamal Exponencial}\label{primitivaCifradoHomomorfico_elgamal_exponencial}		
+						\hfill \\
+							
+							La propiedad de ElGamal en cuanto a homomorfismo es muy interesante, pero de cara al voto por Internet, presenta ciertos problemas. El principal es que la operación en la que se basa es el producto. Para un sistema orientado a procesos electorales, sería mucho más útil que el homomorfismo fuera sobre la suma, ya que el escrutinio no es otra cosa que la suma (totalización) de votos.
 							
 							Así, existe una variante de ElGamal que se denomina ElGamal Exponencial. En esta variante, en lugar de encriptar el mensaje $m$ como en ElGamal tradicional, se cifra $g^{m}$, donde $g$ es un generador (normalmente se suele reutilizar el mismo que se utiliza para generar la clave pública), transformando el sistema en un homomorfismo aditivo, es decir, sobre la operación suma.
 							
-							\[\varepsilon (g^{x_{1}}) \cdot \varepsilon (g^{x_{2}}) = \varepsilon (g^{x_{1} + x_{2}})\]
+							\[C (g^{x_{1}}) \cdot C (g^{x_{2}}) = C (g^{x_{1} + x_{2}})\]
 							
-			\notasDuda[inline]{Ahondar un poco en la criptografía, pero sólo la parte que entiendo.}		
+							Para esta variante de ElGamal, definamos:
+							\begin{itemize}
+								\item[] $a$: clave secreta
+								\item[] $(g, p, K)$: clave pública
+								\item[] $g$: generador
+								\item[] $m$: mensaje
+								\item[] $b$: aleatoriedad
+							\end{itemize}
+							
+							y modifiquemos la función ref-a-la-funcion de modo que
+							
+							$C(m) = (y_1, y_2) = (g^b \pmod{p}, g^m  \cdot  K^b \pmod{p})$
+							
+							Desarrollando:
+							
+							$C(m_1)  \cdot  C(m_2) = (g^{b_1}, g^{m_1}  \cdot  K^{b_1})(g^{b_2}, g^{m_2}  \cdot  K^{b_2}) = (g^{b_1}  \cdot  g^{b_2}, g^{m_1}  \cdot  K^{b_1}  \cdot  g^{m_2}  \cdot  K^{b_2}) = (g^{b_1+b_2}, g^{m_1+m_2}  \cdot  K^{b_1+b_2}) = (g^t, g^{m_1 + m_2}  \cdot  K^{b_1+b_2}) = C(g^{m_1 + m_2})$ 
+							
+							
+							El descifrado en este caso se obtiene de este modo:
+							
+							$y_1^{-a} \cdot y_2 \pmod{p} = (g^b)^{-a} \cdot g^m \cdot K^b \pmod{p} = g^{-ab} \cdot g^m \cdot g^{ab} \pmod{p} = g^m \pmod{p}$
+							
+							$D(C(y_1, y_2)) = y_1^{-a} \cdot y_2 \mod{p} = g^m \mod{p}$
+							
+							$m = \log_b{\dfrac{y_2}{y_1^a}}$
+							
+							Un ejemplo práctico de este homomorfismo aditivo:
+							
+							$C(6) = (5^7 \pmod{101}, 31^7  \cdot  5^6 \pmod{101}) = (52, 68)$
+
+							$C(8) = (5^7 \pmod{101}, 31^7  \cdot  5^8 \pmod{101}) = (52, 84)$
+
+							Para descifrar ambos mensajes, utilizaríamos el siguiente proceso:
+							
+							$D(C(6)) => y_1^{p-1-a}  \cdot  y_2 \pmod{p} = 52^{101-1-16}  \cdot  68 \pmod{101} = 71 => 71 = g^m \pmod{101}$
+							
+							Para obtener el descifrado, estoy haciendo uso de una herramienta online que resuelve el logaritmo discreto\footnote{\url{https://www.alpertron.com.ar/DILOG.HTM}} de forma que obtiene el exponente de la ecuación $Base^{Exponent} = Power \pmod{Modulus}$
+							
+							Para ello, se pasan 3 parámetros (Base, Power y Modulus) y la aplicación calcula el exponente.
+							
+							Así, Base = 5, Power = 71, Modulus = 101 $ => m = 6$
+							
+							$D(C(8)) => y_1^{p-1-a}  \cdot  y_2 \pmod{p} = 52^{101-1-16}  \cdot  84 \pmod{101} = 58 => 58 = g^m \pmod{101}$
+							
+							Base = 5, Power = 58, Modulus = 101 $ => m = 8$
+							
+							Si multiplicamos los dos mensajes cifrados:
+							
+							$C(6)  \cdot  C(8) = (52, 68)  \cdot  (52, 84) = (52^2, 68 \cdot 84) = (2704, 5712)$
+							
+							$D(C(6)  \cdot  C(8)) = D((2704, 5712)) => [y_1^{p-1-a}  \cdot  y_2 \pmod{p}] => (2704)^{101-1-16}  \cdot  5712 \pmod{101} = 78$
+							
+							Base = 5, Power = 78, Modulus = 101 $=> m = 14 = 8 +6$
+							
+							Así, se observa que, con este cambio en el algoritmo, si el resultado de descifrar el producto de dos mensajes cifrados es igual a la suma de los mensajes sin cifrar.
 			
 			
 			
