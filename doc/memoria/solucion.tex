@@ -368,8 +368,6 @@ class AuthorizeView(View):
 					\item[Sistema de emails:] Hay un subsistema encargado del envío de emails a usuarios. Lo utiliza tanto el módulo central como celery para enviar emails avisando de los estados de la elección, envío del trozo correspondiente de la clave privada de la elección a los trustees, etc.
 				\end{description}
 			
-			\todo[inline]{Diagrama sistema votación}
-			
 				\subsection{Esquema de la base de datos}\label{solucion_servidor_votacion_bd}
 		
 					En la figura \ref{fig:er.servidor.votacion} se muestra el diagrama entidad-relación del sistema Helios Voting, con las modificaciones realizadas en la implementación del sistema de este PFC.
@@ -880,8 +878,6 @@ class AuthorizeView(View):
 						
 					La carga de los votantes a través de su aplicación se realiza subiendo un fichero csv con la información requerida. Este fichero se pone a disposición de la cola de procesos, la cual, llegado el momento volcará cada uno de los registros en la base de datos del sistema de votación.
 					
-					\notasDuda{Falta definir el proceso de carga de votantes para el servicio de autenticación.}
-					
 				\subsection{Identificación / Autenticación}
 					El servicio de identificación es un subsistema clave en el proceso electoral. En él recae parte de la responsabilidad de la robustez del sistema, en cuanto a que debe asegurar varios de los requisitos básicos que definen el voto electrónico en concreto:
 					
@@ -1273,7 +1269,7 @@ A continuación se muestra que los votos son, efectivamente, totalizados
 					Detalles que se han tenido en cuenta para procurar la mayor accesibilidad del sistema han sido:
 					
 					\begin{description}
-						\item [WCAG 2.0] El diseño de la web ha sido modificado para cumplir con el máximo de pautas posibles marcadas en el estándar de accesibilidad \gls{WCAG}2.0\footnote{\url{http://www.sidar.org/traducciones/wcag20/es/}} propuesto por el consorcio \gls{W3C}.
+						\item [\gls{WCAG} 2.0] El diseño de la web ha sido modificado para cumplir con el máximo de pautas posibles marcadas en el estándar de accesibilidad \gls{WCAG} 2.0\footnote{\url{http://www.sidar.org/traducciones/wcag20/es/}} propuesto por el consorcio \gls{W3C}.
 						\item [Colores] Los colores de la web han sido elegidos para que el contraste cumpla con lo estipulado en el estándar.
 						\item [Audio] El código \gls{HTML} de la web ha sido modificado añadiendo las etiquetas e información necesarias para que se puedan utilizar sistemas de lectura de pantalla para personas con una importante capacidad visual.
 					\end{description}
