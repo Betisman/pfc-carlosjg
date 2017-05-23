@@ -1099,29 +1099,32 @@ los diálogos del sistema.
 						\end{center}
 						\vspace{-20pt}
 					\end{wrapfigure}
-					Helios es un sistema de voto por Internet cuyos desarrolladores consideran que es el primer sistema de voto con auditoría abierta (open-audit) basado en web. Actualmente es un proyecto en desarrollo, funcional y públicamente accesible. Cualquier organismo interesado puede descargar el código fuente, configurar un proceso electoral y llevar a término la elección, junto con que cualquier observador puede auditar todo el proceso.
+					Helios Voting\footnote{\url{https://github.com/benadida/helios}} es un sistema de voto por Internet cuyos desarrolladores consideran que es el primer sistema de voto con auditoría abierta (open-audit) basado en web. Actualmente es un proyecto en desarrollo, funcional y públicamente accesible. Cualquier organismo interesado puede descargar el código fuente, configurar un proceso electoral y llevar a término la elección, junto con que cualquier observador puede auditar todo el proceso.
+
+					El creador del proyecto es Ben Adida\footnote{\url{http://ben.adida.net/}}, doctor en Ingeniería Informática en Criptografía y Seguridad de la Información por el \gls{MIT}\footnote{\url{http://mit.edu/}}. Para su doctorado, base de este proyecto, fue asesorado\footnote{\url{https://vote.heliosvoting.org/about}} por otro Doctor como Ron Rivest\footnote{\url{http://people.csail.mit.edu/rivest/}}, experto en Criptografía y Voto Electrónico. 
+					
+					Para ver el rigor académico del pryecto desde sus inicios y durante su desarrollo, Adida también ha sido asesorado por profesionales de reputada experiencia en la criptografía y el Voto Electrónico como son Lawrence Lessig\footnote{\url{https://es.wikipedia.org/wiki/Lawrence_Lessig}}, de la Universidad de Stanford\footnote{\url{https://www.stanford.edu/}} Y Josh Benaloh\footnote{\url{https://www.microsoft.com/en-us/research/people/benaloh/}}, doctor por el \gls{MIT} y Yale\footnote{\url{https://www.yale.edu/}}, considerado el precursor de los sistemas de verificabilidad punto a punto (\ref{estadocuestion_e2everifiability}).				
+					
+					
 				
 				Este proyecto es apropiado para realizar procesos electorales para organismos que necesiten que estos sean confiables y con voto secreto, eso sí, siempre que los comicios se celebren en un ambiente en el que la coerción del voto no sea una amenaza. Este detalle es importante, ya que muestra una de las \textit{debilidades} de esta implementación con respecto a un proceso electoral de gran escala.
 				
 				Helios trata de ser un sistema de voto por Internet simple comparado con otros protocolos criptográficos, centrándose en la \textit{auditabilidad pública} como elemento diferencial. Con esta propiedad, cualquier organismo puede apoyarse en Helios para llevar a cabo la elección y, aunque resultase que Helios estuviera corrupto, la integridad de la elección puede ser verificada por los observadores.
 				
-				El protocolo de voto de Helios se basa en la aproximación de emisión de voto de Benaloh y en la mixnet de Sako-Killian.
-				\cite{Adida:helios}
+				El proyecto Helios ha sufrifo una evolución desde sus primeras versiones a la actual, cambiando protocolos y esquemas criptográficos y superando vulnerabilidades que se le iban encontrando. Un buen documento para consultar esta evolución desde la primera versión de Helios hasta la última de 2016 es \cite{cryptoeprint:2015:233}.
 				
-				\notasInfo[inline]{Ver una descripción de Helios v4 en \cite{cryptoeprint:2015:233}}
-				
+				En este documento \cite{cryptoeprint:2015:233} se indica que las versiones de Helios 2.0 y 3.1.4,  sufrían vulnerabilidades que permitían violar el secreto de voto y la verificabilidad. La versión de 2012 redujo esta vulnerabilidad, aunque siguió siendo insuficiente para asegurar la verificabilidad. La versión 2016 implementa un sistema de autenticación externa que permite satisfacer el peligro de violación de la verificabilidad.
 				
 				
-				\todo[inline]{Recuperar lo de Helios de temp.tex.}
-					Primitivas criptográficas en Helios \footnote{\url{https://securewww.esat.kuleuven.be/cosic/publications/thesis-249.pdf}}:
+				Las primitivas criptográficas que encontramos en este sistema de votación por Internet son \cite{Maene:2014}:  
 					\begin{itemize}
-						\item ElGamal
-						\item Homomorphic encryption
-						\item Threshold Encryption (+Secret Sharing)
+						\item Cifrado homomórfico multiplicativo: ElGamal (\ref{primitivaCifradoHomomorfico_elgamal})
+						\item Cifrado homomórfico aditivo: ElGamal Exponencial (\ref{primitivaCifradoHomomorfico_elgamal_exponencial})
+						\item Cifrado de umbral (+ Secreto Compartido) (\ref{primitivaSecretoCompartido})
 					\end{itemize}
-				
-				
-				
+				 
+				A lo largo de esta memoria se desgranarán las particularidades de este sistema (\ref{planteamiento_HeliosVoting}, \ref{arquitectura_servidorVotacion}), sus ventajas e inconvenientes y el por qué ha sido el elegido como base del Sistema (\ref{analisis_integracion_sistemaVotacion}).
+	
 				
 \iffalse				
 \notasInfo[inline]{la siguiente info para analizar está sacada de \url{https://eprint.iacr.org/2015/942.pdf}}
