@@ -1900,8 +1900,140 @@ los diálogos del sistema.
 		\subsection{DNIe}\label{estadoDNIe}
 		
 			\todo[inline] {DNIe - Añadir \gls{DNIe} 3.0}
-			Una buena fuente de información para consultar las funcionalidades del \gls{DNIe} 3.0 es la ofrecida en el propio portal\footnote{\url{https://www.dnielectronico.es/PortalDNIe/}} del \gls{DNIe} por la Policía Nacional de España en \cite{policia:DNIe:NFC:2015}.
+			\begin{wrapfigure}{r}{.3\textwidth}
+				\vspace{-10pt}
+				\begin{center}
+					\includegraphics[width=.3\textwidth]{imgs/dnie03.jpg}
+				\end{center}
+				\vspace{-20pt}
+				\caption{Anverso de un especimen del DNIe 3.0}\label{fig:anverso.dnie.3.0}
+			\end{wrapfigure}
+			El DNIe es un documento con una antigüedad de más de setenta años. Tras los primeros, ideados en 1944 y estrenados en 1961, entre 2006 y 2015 se añadió al documento un chip con certificados válidos para la identificación y firma digital. Era el llamado \gls{DNIe} 2.0. A partir de 2015 y sobre todo ya en 2016, el documento fue evolucionado a una tercera versión, la cual, como elemento más novedoso, añadía al chip de contacto otro chip sin contacto con tecnología \gls{RFID}, más concretamente, \gls{NFC}.
 			
+			Para utilizar el nuevo chip sin contacto, el usuario necesita un dispositivo (smartphone o tablet) con tecnología NFC y una app que dé el servicio que requiera de identificación conectándose al documento.
+			
+			Hay que tener en cuenta que no basta con acercar el \gls{DNIe} al dispositivo móvil con NFC para que éste lea la información contenida en aquél. El usuario deberá introducir dos códigos, uno es el \gls{PACE}, que encontrará en el anverso del documento físico, y el otro es su \gls{PIN} personal que establece en las máquinas habilitadas para ello en comisarías.
+			
+			\begin{wrapfigure}{l}{.3\textwidth}
+				\vspace{-20pt}
+				\begin{center}
+					\includegraphics[width=.3\textwidth]{imgs/dnie02.jpg}
+				\end{center}
+				\vspace{-20pt}
+				\caption{Reverso de un especimen del DNIe 3.0}\label{fig:anverso.dnie.3.0}
+			\end{wrapfigure}
+			El chip electrónico almacena los datos personales y la fotografía del titular del documento, su firma manuscrita digitalizada y el patrón de su huella dactilar. Junto a estos datos personales, encontramos los certificados digitales de autenticación y de firma electrónica.
+			
+			Este conjunto de información y certificados permite al titular del documento identificarse tanto de forma física como remota, así como para realizar trámites electrónicos en los que se requiera la identificación unívoca de la persona.
+			
+			La firma electrónica cuenta con una clave pública y otra privada. Al realizar una operación electrónica, el receptor utiliza la clave pública para asegurarse de la identificación del emisor, mientras que éste utiliza su clave privada para firmar la operación.
+			
+			El certificado de autenticación asegura que la persona que está utilizando el documento realmente es quien dice ser.
+			
+			
+			Una buena fuente de información para consultar las funcionalidades del \gls{DNIe} 3.0 es la ofrecida en el propio portal\footnote{\url{https://www.dnielectronico.es/PortalDNIe/}} del \gls{DNIe} por la Policía Nacional de España en \cite{policia:DNIe:NFC:2015}.
+					
+			De esta fuente se obtienen los datos comparativos que se muestran en la tabla \ref{tbl:comparacion.dnie.2.3} acerca de las características de los chips de las versiones 2.0 y 3.0 del \gls{DNIe}.
+
+
+			\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+			\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+			\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+			\begin{table}[ht]
+				\centering
+				%\fontsize{5}{4}\selectfont
+				\small
+				\def\arraystretch{1.25}%  1 is the default, change whatever you need
+				\setstretch{1}
+				\begin{threeparttable}
+					\centering
+					\begin{tabular*}{\textwidth}{| L{0.2\textwidth} | L{0.356\textwidth} | L{0.356\textwidth} |}
+						\hline
+						\begin{center}
+							\textbf{Característica}
+						\end{center}
+						& 
+						\begin{center}
+							\textbf{DNIe}
+						\end{center}
+						& 
+						\begin{center}
+							\textbf{DNIe 3.0}
+						\end{center}
+						\\
+						\hline
+			\textbf{Chip} & ST19WL34 & SLE78CLFX408AP de Infineon Technologies \\
+			\hline
+			\textbf{Sistema operativo} & DNIe v1.1 & DNIe v4.0 \\
+			\hline
+			\textbf{Capacidad} & 32Kb & 400KB memoria Flash, 8KB memoria RAM \\
+			\hline
+			\textbf{Interfaz} & Single (con contacto) & Dual (con contacto y sin contacto) \\
+			\hline
+			\textbf{Criptolibrería} & & RSA \\
+			\hline
+			\textbf{Certificación} & & CC EAL5+ \\
+			\hline
+			\textbf{Zona pública:} Accesible en lectura sin restricciones
+				&
+				\multicolumn{2}{l|}{\parbox{0.6\textwidth}{
+				\begin{itemize}
+					\item Certificado CA intermedio emisora
+					\item Claves Diffie-Hellman
+					\item Certificado x509 de componente
+				\end{itemize}}
+				}
+				\\
+				\hline
+			\textbf{Zona privada:} Accesible en lectura por el ciudadano, mediante el uso de su \gls{PIN} 
+				&
+				\multicolumn{2}{l|}{\parbox{0.6\textwidth}{\begin{itemize}
+					\item Certifiacdo de Firma (no repudio)
+					\item Certificado de Autenticación
+				\end{itemize}}
+				}
+				\\
+				\hline
+			\textbf{Zona de seguridad:} Accesible en lectura por el ciudadano, en los Puntos de Actualización del DNI.
+				&
+				\multicolumn{2}{l|}{\parbox{0.6\textwidth}{
+				\begin{itemize}
+					\item Datos de filiación del ciudadano (los mismos que están impresos en el soporte físico del DNI)					\item Imagen de la fotografía
+					\item Imagen de la firma manuscrita
+				\end{itemize}}
+				}
+				\\
+				\hline
+			\textbf{Datos criptográficos:} Claves de ciudadano
+				&
+				\multicolumn{2}{l|}{\parbox{0.72\textwidth}{
+				\begin{itemize}
+					\item Clave RSA pública de autenticación (Digital Signature)
+					\item Clave RSA pública de no repudio(ContentCommitment)
+					\item Clave RSA privada de autenticación (Digital Signature)
+					\item Clave RSA privada de firma (ContentCommitment)
+					\item Patrón de impresión dactilar
+					\item Clave Pública de root CA para certificados card-verificables
+					\item Claves Diffie-Hellman
+				\end{itemize}}
+				}
+				\\
+			\hline
+					\end{tabular*}
+					\begin{tablenotes}
+						\scriptsize
+						\item[fuente] Portal del DNI electrónico. Ministerio del Interior. Dirección General de la Policía. Cuerpo Nacional de Policía. \url{https://www.dnielectronico.es/PortalDNIe/PRF1_Cons02.action?pag=REF_1078&id_menu=[26_\%2030]}.
+					\end{tablenotes}
+					\caption{Comparativa DNIe - DNIe 3.0.\label{tab:DetallesTecnicosRaspberryPi}}
+				\end{threeparttable}
+			\end{table}
+
+
+
+
+
+
+
 			
 			
 			
@@ -1916,6 +2048,9 @@ para el certificado de la CA raíz.
 			\end{itemize}
 		
 		
+			Durante esta memoria se desglosa más información acerca del \gls{DNIe} 3.0, ya que es uno de los elementos claves del \gls{PFC}. Por ello, para mayor información, recomiendo visitar aquellos puntos en los que se explican ventajas y desventajas, motivos de adopción tecnológica, implementación, integración. (\ref{fase_electoral_electoral_identificacion}, \ref{analisis:sistema:autenticacion:identificacion}, \ref{solucion:aplicacion:autenticacion})
+
+		
 		% *************************************************************************************************************** %
 		% 			NFC
 		% *************************************************************************************************************** %
@@ -1924,12 +2059,16 @@ para el certificado de la CA raíz.
 			
 			El origen de esta tecnología está en el RFID, tecnología ya bastante utilizada en múltiples campos de nuestra vida cotidiana. Un buen ejemplo son las etiquetas en prendas en tiendas de ropa o en productos de supermercado. Si tratas de llevarte algo sin pagar, al pasar por unos arcos a la salida preparados con cierto campo magnético, las etiquetas RFID activan una alarma, la cual se desactiva una vez se ha abonado el producto.
 			
-			\begin{figure}[htbp]
-				\centering
-					\includegraphics[width=0.30\textwidth]{imgs/rfid.jpg}
+			\begin{wrapfigure}{r}{.3\textwidth}
+				\vspace{-20pt}
+				\begin{center}
+					\includegraphics[width=.3\textwidth]{imgs/rfid.jpg}
+				\end{center}
+				\vspace{-20pt}
 				\caption{Logo de RFID}
 				\label{fig:logoRFID}
-			\end{figure}
+				\vspace{-10pt}
+			\end{wrapfigure}
 			
 			\gls{RFID} es una tecnología de comunicación inalámbrica centrada en la transmisión de un identificador mediante ondas de radio. Así, a cualquier producto se le puede asociar un identificador unívoco a través de una etiqueta RFID y así poder ser detectado y leído por un lector apropiado de forma inalámbrica.
 			
