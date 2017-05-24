@@ -527,7 +527,7 @@ class AuthorizeView(View):
 					Define una clase \textbf{\gls{DNIe}} con una serie de miembros que almacenan la información del usuario recibida desde el Sistema de Autenticación, del certificado digital de autenticación del \gls{DNIe}.
 					
 					\begin{lstlisting}[language=Python]
-  class \gls{DNIe}:
+  class DNIe:
       def __init__(self, commonName, givenName, surname, serialNumber, c):
           self.commonName = commonName
           self.givenName = givenName
@@ -536,7 +536,39 @@ class AuthorizeView(View):
           self.c = c
 					\end{lstlisting}
 					
-					\todo{POR AQUí}
+					Este módulo, junto con esta clase DNIe para la gestión de la información recibida del documento, implementa las interfaces que permiten la comunicación del flujo oAuth con el Sistema de Autenticación.
+					
+					\begin{lstlisting}[language=Python]
+  def dnie_url(request, url, params)
+
+  def dnie_url_step2(request, url, params)
+
+  def dnie_get(request, url, params)
+
+  def dnie_post(request, url, params)
+
+  def dnie_post_step2(request, url, params)
+
+  def can_create_election(user_id, user_info)
+
+  def get_auth_url(request, redirect_url = None)
+
+  def get_user_info_after_auth(request)
+
+  def get_user_info_after_auth_androidClient(request)
+
+  def get_dni_info_from_ssl(request)
+
+  def do_auth(request)
+
+  def do_logout(request)
+					\end{lstlisting}
+					
+					Las funciones de este módulo se alimentan de la información que se recibe en el request de la petición HTTP.
+					
+					Se puede observar en la definición de estas funciones que son las que llaman al Sistema de Autenticación oAuth o acaban siendo llamadas por los callbacks que a aquél se pasan en el flujo de comunicación que implementa este protocolo.
+					
+					Un aspecto técnico a tener en cuenta es que se ha tenido que variar la forma de tratar la recogida de información si accedemos al sistema desde un dispositivo móvil o desde un navegador de escritorio. Esto es así porque en este último, la gestión de las cabeceras HTTP la realiza el navegador, mientras que en el dispositivo Android es preciso que la app que realiza el baile de obtención de certificados del documento y token del sistema de autenticación es la que debe pasar la autorización y la información al navegador web del dispositivo.
 						
 						
 
@@ -1187,9 +1219,9 @@ class AuthorizeView(View):
 					
 					Los votos emitidos han sido almacenados cifrados en la base de datos. De ellos, han sido descartados aquellos que no fuesen el último emitido en aquellos casos en los que un votante votó más de una vez.
 					
-					Por medio del homomorfismo, no es necesario que se descifren los votos para totalizar el resultado de la elección.
+					Por medio del homomorfismo (\ref{primitivaCifradoHomomorfico}), no es necesario que se descifren los votos para totalizar el resultado de la elección.
 					
-					Los votos no se descifran, se totalizan los votos cifrados y lo que se descifra es el resultado de esta suma.
+					Los votos no se descifran, se totalizan los votos cifrados y lo que se descifra es el resultado de esta suma. Este proceso se realiza basándose en la propiedad de cifrado homomórfico aditivo que ofrece el algoritmo de cifrado de ElGamal Exponencial (\ref{primitivaCifradoHomomorfico_elgamal_exponencial}).
 					
 					En el código se muestra que para cada voto final de cada votante, aquél se añade a la totalización. Una vez todos añadidos, se almacena la totalización, encriptada, a la espera de ser descifrada.
 
@@ -1228,20 +1260,55 @@ class AuthorizeView(View):
     self.num_tallied += 1
 					\end{lstlisting}
 
-A continuación se muestra que los votos son, efectivamente, totalizados 
+		Del código anterior se puede obtener que, efectivamente, durante el proceso de totalización (\textit{def compute\_tally()}), el sistema se dedica a sumar resultados (\textit{tally.add\_vote(..)}) que están cifrados y en ningún momento se dispone a descifrarlos para realizar la suma.
 
-
-\todo[inline]{IMPORTANTE!!!!!!!!!!!!!!!!!!!!!}
+\begin{lstlisting}[language=Python]
+  def tally_helios_decrypt(election_id):
+    election = Election.objects.get(id = election_id)
+    election.helios_trustee_decrypt()
+    election_notify_admin.delay(election_id = election_id,
+                                subject = 'Helios Decrypt',
+                                body =  """
+                                        Helios has decrypted its portion of the tally
+                                        for election %s.
+                                        --
+                                        Helios
+                                        """ % election.name)
+\end{lstlisting}
+		
+	Tras la suma de todos los votos cifrados, es cuando se puede ejecutar la tarea de descifrado de esta suma. Como se observa en el código, es necesario que los Trustees participen descifrando su parte de la totalización (secreto compartido).
+	
+	El sistema es, por defecto, un Trustee. Cuando es el único, tiene toda la totalización, así que cuando descifra su parte de ésta, está descifrando todo el resultado. 
+	
+	Sin embargo, cuando hay más trustees, una vez el sistema descifra su parte, avisa al resto de trustees de que deben descifrar su parte con su clave y queda a la espera de que esto ocurra.
+	
 
 				\subsection{Difusión de resultados}
 				
-			
+				El último paso de la elección es el de dar oficialidad a los resultados obtenidos en el conteo. Esto se realiza en la fase de Difusión de los Resultados.
 				
-			
-			
-			
-			
-			\todo[inline]{¡¡ Comentado ya en el apartado \ref{solucion_appAndroidAutenticacion} !!}
+				El sistema permite la difusión de resultados en dos fases:
+				
+				\begin{enumerate}
+					\item Se presentan los resultados a los administradores. Sólo estos tienen permiso para ver los datos.
+					\item Una vez los administradores lo crean convenientes, son ellos los que publican los resultados para que puedan ser consultados públicamente.
+				\end{enumerate}
+				
+				En este sistema, el formato de presentación de los resultados es muy simple. Es un sistema tabular.
+				
+				Para cada una de las cuestiones a votar se muestra una tabla con las opciones que había y el número de votos que ha obtenido.
+				
+				\todo[inline]{Capturas de pantalla}
+				
+				Con respecto al modelo original de Helios, en la difusión se han realizado varias mejoras:
+				
+				\begin{itemize}
+					\item Se ha actualizado la interfaz gráfica de la página de resultados, cumpliendo en lo posible con el estándar \gls{W3C} y tratando de dar visibilidad a los resultados.
+					\item Se han añadido datos electorales como el del número de votantes y la abstención. Esta información era fundamental que se añadiese y en los requisitos del sistema así se estipulaba. Además de informar al observador, dota de transparencia al sistema.
+					\item Se han añadido funcionalidades tales como poder ordenar la tabla de resultados según la columna seleccionada.
+					\item Se ha integrado una suite de exportación por la cual los resultados se pueden exportar a diferentes formatos, como PDF, CSV ó Excel. Así se ofrece la oportunidad a los observadores que puedan obtener realizar los análisis que crean oportunos sobre los datos.
+					\item Incluso es posible compartir los resultados por redes sociales.
+				\end{itemize}
 			
 							
 			\section{Diseño de la interfaz de usuario}\label{diseño_interfaz_usuario}
