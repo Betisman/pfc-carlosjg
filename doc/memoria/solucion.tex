@@ -806,7 +806,7 @@ class AuthorizeView(View):
 						
 						Esta topología requiere port forwarding del router que comunica la red de los dos servidores con Internet para que, a través del mismo endpoint, los dispositivos se puedan conectar con los servicios de ambos servidores.
 						
-						Las consultas OCSP para validación del \gls{DNIe} se realizan a través de Internet.
+						Las consultas \gls{OCSP} para validación del \gls{DNIe} se realizan a través de Internet.
 						\newline
 						
 						
@@ -821,9 +821,9 @@ class AuthorizeView(View):
 						
 					\item \textbf{Servidor de autenticación y Servidor de Votación en redes diferentes. Acceso de los votantes desde Internet.} Figura \ref{fig:topologiaRed_servidoresDistintaRed}
 						
-						Esta topología no requiere port forwarding, pues cada servidor tiene su propio acceso a/por Internet. Los dispositivos accederían directamente a la IP/URL de cada servidor y utilizarían sus diferentes servicios utilizando el puerto correspondiente.
+						Esta topología no requiere port forwarding, pues cada servidor tiene su propio acceso a/por Internet. Los dispositivos accederían directamente a la IP/\gls{URL} de cada servidor y utilizarían sus diferentes servicios utilizando el puerto correspondiente.
 						
-						Las consultas OCSP para validación del \gls{DNIe} se realizan a través de Internet.
+						Las consultas \gls{OCSP} para validación del \gls{DNIe} se realizan a través de Internet.
 						\newline
 						
 						
@@ -937,8 +937,8 @@ class AuthorizeView(View):
 						\item La app Android realiza una petición POST con los \textit{scopes} aceptados por el usuario, dando aquí su conformidad a que la aplicación web de votación tenga acceso a información sobre el usuario.
 						\item El Sistema de Autenticación consulta la Base de Datos de censo de votantes y usuarios y, si permite el acceso al usuario, devuelve un \textit{access code}.
 						\item La app del \gls{DNIe} lanza un \textit{intent} de Android para abrir el navegador web por defecto del dispositivo en la página de inicio del Sistema de Votación, pasándole además el \textit{access code}. Aquí el entorno del dispositivo termina en la app y pasa al navegador web.
-						\item Desde el navegador, se lanza una petición de acceso al Sistema de Votación con el \textit{access code} y una url de \textit{callback} como parámetros.
-						\item El Sistema de Votación realiza una petición a la url del Sistema de Autenticación que va en el \textit{callback} (/api/token) con el \textit{access code} como parámetro.
+						\item Desde el navegador, se lanza una petición de acceso al Sistema de Votación con el \textit{access code} y una \gls{URL} de \textit{callback} como parámetros.
+						\item El Sistema de Votación realiza una petición a la \gls{URL} del Sistema de Autenticación que va en el \textit{callback} (/api/token) con el \textit{access code} como parámetro.
 						\item El Sistema de Autenticación genera y devuelve un \textit{token} al Sistema de Votación.
 						\item Con el \textit{token} recibido, el Sistema de Autenticación asegura la identidad del usuario y lo utiliza para poder información al Sistema de Autenticación. Por ejemplo, con una petición al \textit{endpoint} /web/me del Sistema de Autenticación...
 						\item Éste le devuelve información acerca del usuario.
@@ -1156,7 +1156,7 @@ class AuthorizeView(View):
 					
 							La herramienta de verificación del voto permite a un votante u observador verificar que el voto fue preparado y cifrado correctamente.
 							
-							Requiere como entrada de datos el JSON del voto y la URL de la elección.
+							Requiere como entrada de datos el JSON del voto y la \gls{URL} de la elección.
 							
 							El verificador hace uso de pruebas de conocimiento zero para comprobar la validez del voto y de su cifrado. 
 								Comprueba que la huella de la elección se corresponde con la huella del voto. También comprueba la validez de cada una de las opciones elegidas por el votante.

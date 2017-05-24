@@ -549,7 +549,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 				
 				El sistema permite a un votante verificar su papeleta cifrada antes de utilizarla para votar. No obstante, como medida para combatir la coacción, una vez la papeleta ha sido verificada se descarta y no se utiliza como voto. El votante deberá volver a encriptarla para poder emitir su voto.
 				
-				Una vez el votante está en la cabina de voto virtual y ha encriptado sus opciones de voto, el sistema permite realizar una verificación para asegurarse de que la encriptación de estas ha sido correcta. Para ello, el sistema presenta al votante la información para auditar su papeleta. Este texto es el que debe copiar el votante para utilizar en la herramienta de verificación individual de papeletas. En ésta, se incluye dicho texto y la URL de la elección datos suficientes para realizar la verificación.
+				Una vez el votante está en la cabina de voto virtual y ha encriptado sus opciones de voto, el sistema permite realizar una verificación para asegurarse de que la encriptación de estas ha sido correcta. Para ello, el sistema presenta al votante la información para auditar su papeleta. Este texto es el que debe copiar el votante para utilizar en la herramienta de verificación individual de papeletas. En ésta, se incluye dicho texto y la \gls{URL} de la elección datos suficientes para realizar la verificación.
 				
 				Una vez hemos auditado nuestro voto, tenemos la posibilidad de publicar la papeleta auditada en el \textit{Helios Tracking Center}, permitiendo a otros observadores realizar una doble comprobación de la verificación de la papeleta.
 				
@@ -562,7 +562,8 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 				\item [Auditoría de la elección ya escrutada]
 				
 					Una vez se ha realizado el escrutinio, el sistema permite a los observadores interesados, realizar una prueba para verificar la veracidad del resultado.
-					\notasInfo[inline]{Es necesario comentar en qué consiste la auditoría del escrutinio.}
+					
+					En el caso de Helios, esto se corresponde con una herramienta de verificación, Helios Election Verifier, a la cual se le pasa la \gls{URL} de la elección que se quiere verificar. Una explicación y ejemplo de este proceso se puede ver en \ref{verificacion.totalizacion} (p. \pageref{verificacion.eleccion.ejemplo}).
 					
 					
 			\end{description}
@@ -712,7 +713,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 
 			\subsubsection*{Problema}
 			
-			Después multitud de pruebas y de bucear en foros sobre seguridad digital, certificados digitales, DNIe y Android, resultó haber un problema bastante importante con esta aproximación.
+			Después multitud de pruebas y de bucear en foros sobre seguridad digital, certificados digitales, \gls{DNIe} y Android, resultó haber un problema bastante importante con esta aproximación.
 			
 			Partamos de la base de la correcta configuración del servidor y login a través de certificados del DNIe. La prueba de la correcta configuración residía en que era posible acceder al servicio, e incluso llegar a emitir un voto, utilizando el \gls{DNIe} (tanto 2.0 como 3.0) en un PC, utilizando el chip de contacto y utilizando un navegador como el Mozilla Firefox.
 		
@@ -720,7 +721,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 		
 			Al realizar las pruebas, se observaba que era posible logarse en el sistema, la app incluso lo mostraba por pantalla en el WebView anteriormente citado. Pero el problema es que realmente la lógica de la app de la Policía no funciona como la de un navegador al uso.
 		
-			El funcionamiento es el de peticiones simples estilo REST. Es decir, establece la conexión con el servidor autenticándose con los certificados del DNIe y realizando una llamada a una URL concreta. Esta le devuelve la información requerida y la app construye un WebView y \textit{pinta} el HTML recibido en el WebView.
+			El funcionamiento es el de peticiones simples estilo REST. Es decir, establece la conexión con el servidor autenticándose con los certificados del \gls{DNIe} y realizando una llamada a una \gls{URL} concreta. Esta le devuelve la información requerida y la app construye un WebView y \textit{pinta} el HTML recibido en el WebView.
 		
 			Esto, para las funciones de la aplicación de ejemplo cumple con su cometido, pero en nuestro caso no es así, pues si la página que devuelve el servidor contiene links (que tendrá que ser así para poder interactuar con la web) la gestión de los certificados no se mantienen. En este caso, no podemos navegar con la conexión \gls{HTTPS} establecida.
 		
@@ -844,12 +845,13 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			
 			El sistema de voto de este proyecto, basándose en Helios, cumple con las premisas de verificabilidad universal e individual de los sistema de verificabilidad punto a punto. En este caso, se observa que en el momento del voto, el votante puede auditarlo y publicarlo en un tablón para que otros también lo auditen y demostrar así la no manipulación del contenido del mismo.
 		
+		\subsection{Verificación de la totalización e integridad de la elección}\label{verificacion.totalizacion}
 			Al finalizar el proceso electoral, el resultado de la totalización de los votos puede ser auditada por cualquier observador.
 			
-			Helios provee una herramienta, llamada \textit{Helios Election Verifier}, la cual, dada la URL de una elección que haya finalizado se encarga de ejecutar las pruebas criptográficas necesarias para, sin comprometer la integridad de la elección y el secreto de los votantes, verificar la correctitud de la misma. Así, la herramienta comprueba la huella digital de la elección, el número de votantes, cada una de las opciones de voto de cada votante, así como los Trustees y la totalización.
+			Helios provee una herramienta, llamada \textit{Helios Election Verifier}, la cual, dada la \gls{URL} de una elección que haya finalizado se encarga de ejecutar las pruebas criptográficas necesarias para, sin comprometer la integridad de la elección y el secreto de los votantes, verificar la correctitud de la misma. Así, la herramienta comprueba la huella digital de la elección, el número de votantes, cada una de las opciones de voto de cada votante, así como los Trustees y la totalización.
 			
 			El informe que emite la herramienta tiene contenido análogo al siguiente ejemplo:
-		
+\label{verificacion.eleccion.ejemplo}
 \begin{lstlisting}
 -- Election --
 
