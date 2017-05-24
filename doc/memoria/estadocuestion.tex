@@ -1911,8 +1911,6 @@ los diálogos del sistema.
 			
 			Para utilizar el nuevo chip sin contacto, el usuario necesita un dispositivo (smartphone o tablet) con tecnología NFC y una app que dé el servicio que requiera de identificación conectándose al documento.
 			
-			Hay que tener en cuenta que no basta con acercar el \gls{DNIe} al dispositivo móvil con NFC para que éste lea la información contenida en aquél. El usuario deberá introducir dos códigos, uno es el \gls{PACE}, que encontrará en el anverso del documento físico, y el otro es su \gls{PIN} personal que establece en las máquinas habilitadas para ello en comisarías.
-			
 			\begin{wrapfigure}{l}{.3\textwidth}
 				\vspace{-20pt}
 				\begin{center}
@@ -1920,11 +1918,21 @@ los diálogos del sistema.
 				\end{center}
 				\vspace{-20pt}
 				\caption{Reverso de un especimen del DNIe 3.0}\label{fig:anverso.dnie.3.0}
-			\end{wrapfigure}
+			\end{wrapfigure}		
+			Hay que tener en cuenta que no basta con acercar el \gls{DNIe} al dispositivo móvil con NFC para que éste lea la información contenida en aquél. El usuario deberá introducir dos códigos, uno es el \gls{PACE}, que encontrará en el anverso del documento físico, y el otro es su \gls{PIN} personal que establece en las máquinas habilitadas para ello en comisarías.
+			
+			
 			El chip electrónico almacena los datos personales y la fotografía del titular del documento, su firma manuscrita digitalizada y el patrón de su huella dactilar. Junto a estos datos personales, encontramos los certificados digitales de autenticación y de firma electrónica.
 			
 			Este conjunto de información y certificados permite al titular del documento identificarse tanto de forma física como remota, así como para realizar trámites electrónicos en los que se requiera la identificación unívoca de la persona.
 			
+			\begin{figure}[htbp]
+				\centering
+				\includegraphics[width=0.7\textwidth]{imgs/DNI_PERSPECTIVA_3.jpg}
+				\caption{Especificaciones más relevantes del DNIe 3.0}
+				\label{fig:dnie.3.0.especificaciones}
+			\end{figure}
+						
 			La firma electrónica cuenta con una clave pública y otra privada. Al realizar una operación electrónica, el receptor utiliza la clave pública para asegurarse de la identificación del emisor, mientras que éste utiliza su clave privada para firmar la operación.
 			
 			El certificado de autenticación asegura que la persona que está utilizando el documento realmente es quien dice ser.
