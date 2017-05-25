@@ -1387,22 +1387,23 @@ los diálogos del sistema.
 					\subsubsection{Pruebas de conocimiento nulo}\label{primitivaPruebasConocimientoNulo}
 						Los protocolos basados en pruebas de conocimiento cero o nulo son protocolos criptográficos que se basan en la necesidad de una de las partes en poder demostrar a otra que un enunciado es cierto sin revelar nada más que la veracidad del mismo.
 						
-						Un sencillo ejemplo para entender el concepto de este tipo de protocolos lo encontramos en una publicación de Pablo Della Paolera, astrónomo de la Universidad Nacional de La Plata (Argentina), en su blog personal \cite{dellaPaolera2014}. En esta publicación explica que se puede demostrar \textit{algo} correctamente sin necesidad de demostrar \textit{por qué}.
+						Un sencillo ejemplo para entender el concepto de este tipo de protocolos lo encontramos en una publicación en su blog personal \cite{dellaPaolera2014} por parte de Pablo Della Paolera, astrónomo de la Universidad Nacional de La Plata (Argentina). En este texto, el científico explica que se puede demostrar \textit{algo} correctamente sin necesidad de demostrar \textit{por qué}.
 			\begin{center}
 				\small
 				\fbox{
 					\begin{minipage}{0.9\textwidth}
-						Basándonos en el ejemplo publicado, supongamos dos actores $A$ y $B$. 
+						Basándonos en el ejemplo publicado, supongamos dos actores $Marta$ y $Carmen$. 
 						
-						$B$ quiere demostrar que \textit{$A$ tiene (o no) la misma cantidad de monedas en su bolsillo izquierdo que en el derecho}. 
+						$Carmen$ quiere demostrar que \textit{$Marta$ tiene (o no) la misma cantidad de monedas en su bolsillo izquierdo que en el derecho}. 
 						
-						Para ello, la forma más simple de hacerlo sería que $B$ le pidiese a $A$ las monedas de cada bolsillo y las contase. Por tanto, para demostrar la afirmación de que \textit{$A$ realmente tiene (o no) las mismas monedas en cada bolsillo} basta con que las enseñe.
+						Para ello, la forma más simple de hacerlo sería que $Carmen$ le pidiese a $Marta$ las monedas de cada bolsillo y las contase. Por tanto, para demostrar la afirmación de que \textit{$Marta$ realmente tiene (o no) las mismas monedas en cada bolsillo} basta con que las enseñe.
 						
-						En este caso, el problema es que $B$ está violando la privacidad de $A$ pues no debería ser necesario que $B$ conozca cuántas monedas tiene $A$ y, mucho menos, tener que enseñarlas a la audiencia para demostrar la veracidad de sus investigaciones.
+						En este caso, el problema es que $Carmen$ está violando la privacidad de $Marta$ pues no debería ser necesario que $Carmen$ conozca cuántas monedas tiene $Marta$ y, mucho menos, tener que enseñarlas a la audiencia para demostrar la veracidad de sus investigaciones.
 						
 						Esta violación de la privacidad se puede superar aplicando de forma simple una solución basada en prueba de conocimiento cero.
 						
-						Supongamos que $A$ tiene $X$ monedas en el bolsillo derecho e $Y$ monedas en el izquierdo. Para no conocer el número de monedas que posee $A$, $B$ le pide que piense en un número $Z$ entero y mayor que $X$ e $Y$. A continuación le pide que le diga la diferencia entre $Z$ y $X$ y entre $Z$ e $Y$. Si ambas diferencias son iguales, $A$ tiene el mismo número de monedas en ambos bolsillos, del mismo modo que si las diferencias no coinciden, se puede afirmar lo contrario, incluso sabiendo en qué bolsillo hay un mayor número de monedas. Y todo esto \textbf{sin que $B$ llegue a conocer en ningún momento cuántas monedas posee $A$}.
+						Supongamos que $Marta$ tiene $X$ monedas en el bolsillo derecho e $Y$ monedas en el izquierdo. Para no conocer el número de monedas que posee $Marta$, $Carmen$ le pide que piense en un número $Z$ entero y mayor que $X$ e $Y$. A continuación le pide que le diga la diferencia entre $Z$ y $X$ y entre $Z$ e $Y$. Si ambas diferencias son iguales, $Marta$ tiene el mismo número de monedas en ambos bolsillos, del mismo modo que si las diferencias no coinciden, se puede afirmar lo contrario, incluso sabiendo en qué bolsillo hay un mayor número de monedas. Y todo esto \textbf{sin que $Carmen$ llegue a conocer en ningún momento cuántas monedas posee $Marta$}.
+						
 						Matemáticamente, se trataría de un sistema de 2 ecuaciones con 3 incógnitas, por lo que no se puede resolver y no se pueden obtener los valores de $X$ e $Y$:
 						$$Z - X = C$$
 						$$Z - Y = D$$
