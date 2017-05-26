@@ -1387,6 +1387,16 @@ los diálogos del sistema.
 					\subsubsection{Pruebas de conocimiento nulo}\label{primitivaPruebasConocimientoNulo}
 						Los protocolos basados en pruebas de conocimiento cero o nulo son protocolos criptográficos que se basan en la necesidad de una de las partes en poder demostrar a otra que un enunciado es cierto sin revelar nada más que la veracidad del mismo.
 						
+						Goldwasser, Micali y Rackoff propusieron tres propiedades que deben satisfacer todos los protocolos basados en pruebas de conocimiento cero. De forma coloquial, vamos a comentarlas aquí:
+					
+						\begin{description}
+							\item[Completeness] Si el emisor dice la verdad, en algún momento, convencerá al receptor de ello.*
+							\item[Soundness] El emisor sólo puede convencer al receptor si realmente está diciendo la verdad.
+							\item[Zero-knowledgeness] El receptor no conoce nada acerca de la solución real del emisor.
+						\end{description}
+					
+						* A base de repetición de una solución, alguien con reputación es capaz de acabar convenciendo al receptor, con hechos, de que lo que demuestra es cierto.
+						
 						Un sencillo ejemplo para entender el concepto de este tipo de protocolos lo encontramos en una publicación en su blog personal \cite{dellaPaolera2014} por parte de Pablo Della Paolera, astrónomo de la Universidad Nacional de La Plata (Argentina). En este texto, el científico explica que se puede demostrar \textit{algo} correctamente sin necesidad de demostrar \textit{por qué}.
 			\begin{center}
 				\small
@@ -1417,6 +1427,12 @@ los diálogos del sistema.
 					La importancia de este esquema criptográfico es tal que se ha implementado de forma satisfactoria en campos tan esenciales como la verificación de armas nucleares, permitiendo a los observadores internacionales medir la veracidad de una nación al cuantificar su fuerza nuclear sin necesidad de conocer la tecnología o cabezas u otros detalles clasificados que no quieren que sean sacados a la luz.
 					
 					\todo[inline]{Aparte del ejemplo, hay que terminar este apartado de ZK}
+					
+					El ejemplo expuesto, pese a ser extremadamente simple, da una idea de lo que luego, matemáticamente se encarga de demostrar la criptografía.
+					
+					Recomiendo estos otros ejemplos sobre pruebas de conocimiento cero. En este artículo\footnote{\url{http://jorgegarciaherrero.com/auditar-algoritmo/}}, se recomiendan tres ejemplos de distinto nivel, muy interesantes: Uno sobre un ganador de lotería\footnote{\url{http://elprofedefisica.naukas.com/2014/11/12/desafio-del-millon-de-james-randi-2/}}, otro para convencer a un niño de que no le estás haciendo trampa\footnote{\url{http://www.wisdom.weizmann.ac.il/\~naor/PAPERS/waldo.pdf}} y otro sobre Google y sombreros\footnote{\url{https://blog.cryptographyengineering.com/2014/11/27/zero-knowledge-proofs-illustrated-primer/}}.
+					
+					
 					
 					%% En wikipedia hay más información sobre los PCC http://es.wikipedia.org/wiki/Prueba_de_conocimiento_cero
 					
@@ -2030,23 +2046,15 @@ los diálogos del sistema.
 					\end{tabular*}
 					\begin{tablenotes}
 						\scriptsize
-						\item[fuente] Portal del DNI electrónico. Ministerio del Interior. Dirección General de la Policía. Cuerpo Nacional de Policía. \url{https://www.dnielectronico.es/PortalDNIe/PRF1_Cons02.action?pag=REF_1078&id_menu=[26_\%2030]}.
+						\item[] Fuente: Portal del DNI electrónico. Ministerio del Interior. Dirección General de la Policía. Cuerpo Nacional de Policía. \url{https://www.dnielectronico.es/PortalDNIe/PRF1_Cons02.action?pag=REF_1078&id_menu=[26_\%2030]}.
 					\end{tablenotes}
-					\caption{Comparativa DNIe - DNIe 3.0.\label{tab:DetallesTecnicosRaspberryPi}}
+					\caption{Comparativa DNIe - DNIe 3.0.}
+					\label{tbl:comparacion.dnie.2.3}
 				\end{threeparttable}
 			\end{table}
 
 
-
-
-
-
-
-			
-			
-			
-			\todo[inline]{Del documento \url{https://www.incibe.es/extfrontinteco/img/File/intecocert/dnie/pdf/guiades.pdf}}
-			El proceso a seguir cuando se está en posesión todos los certificados necesarios para operar con el \gls{DNIe} es (para cada uno de los certificados):
+			El proceso a seguir cuando se está en posesión todos los certificados necesarios para operar con el \gls{DNIe} es (para cada uno de los certificados)\cite{inteco:DNIe:2007}:
 			\begin{itemize}
 				\item Verificar que el certificado fue firmado usando la clave privada que
 corresponde a la clave pública de su emisor. Este paso no es necesario
