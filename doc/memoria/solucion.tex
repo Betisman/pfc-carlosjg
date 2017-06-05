@@ -1571,16 +1571,27 @@ class AuthorizeView(View):
 	
 			\begin{description}
 		
-				\item[Servidor de votación]	Raspberry Pi Model 3 B
+				\item[Servidor de votación]	Raspberry Pi Model 3 B (fig. \ref{fig:prototipo.raspberry.pi.3B.servidor.votacion})
 		
-				\item[Servidor de identificación y autenticación] Raspberry Pi Model B (Rev. 2.0, 512Mb)
+				\item[Servidor de identificación y autenticación] Raspberry Pi Model B (Rev. 2.0, 512Mb) (fig. \ref{fig:prototipo.raspberry.pi.B.servidor.autenticacion})
 		
 			\end{description}
-	
 		
-	
-			\todo[inline]{Incluir fotos de las raspberrys					}
-		
+			\begin{figure}
+			    	\centering
+		    		\begin{minipage}{0.45\textwidth}
+		        		\centering
+					\includegraphics[width=0.80\textwidth]{imgs/prototipoRaspberryPi01}
+					\caption{Raspberry Pi Model 3 B, utilizada para albergar el Servidor de votación}
+					\label{fig:prototipo.raspberry.pi.3B.servidor.votacion}
+		    		\end{minipage}\hfill
+		    		\begin{minipage}{0.45\textwidth}
+			        	\centering
+					\includegraphics[width=0.90\textwidth]{imgs/prototipoRaspberryPi02}
+					\caption{Raspberry Pi Model B (Rev. 2.0, 512Mb), utilizada para albergar el Servidor de identificación y autenticación}
+					\label{fig:prototipo.raspberry.pi.B.servidor.autenticacion}
+				\end{minipage}
+			\end{figure}
 			
 	
 			En la tabla \ref{tab:DetallesTecnicosRaspberryPi} se detallan y comparan las características de ambos modelos de hardware.
@@ -1746,6 +1757,15 @@ class AuthorizeView(View):
 		
 		En caso de la configuración del sistema para trabajar en intranet, por motivos de infraestructura, ya sea por una presentación como la de este propio proyecto o por querer realizar una votación cerrada, la propuesta implementada incluye un router simple funcionando sin conexión a Internet.
 		
-		El router utilizado ha sido XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX. \todo{incluir modelo del router para la presentación}
+		El router utilizado para el prototipo ligero ha sido un TP-LINK TL-WR702N (fig. \ref{fig:prototipo.router.tplink}). Se trata de un modelo de router muy simple y ultraportable, con lo que se manifiesta la facilidad de puesta en producción de una elección a pequeña escala que resulte asequible económicamente.
+		
+		\begin{figure}[!htbp]
+			\centering
+				\includegraphics[width=.45\textwidth]{imgs/prototipoRouterTPLINK}
+			\caption{Router TP-LINK TL-WR702N utilizado para la construcción del prototipo.}
+			\label{fig:prototipo.router.tplink}
+		\end{figure}
+
+		
 		
 		
