@@ -351,7 +351,7 @@ class AuthorizeView(View):
 				
 				\begin{figure}[!ht]
 					\centering
-						\includegraphics[width=.95\textwidth]{imgs/arquitecturaSistema.png}
+						\includegraphics[width=.99\textwidth]{imgs/arquitecturaSistema.png}
 					\caption{Arquitectura del sistema}
 					\label{fig:arquitectura.sistema}
 				\end{figure}	
@@ -470,7 +470,7 @@ class AuthorizeView(View):
 							
 					\end{description}
 					
-					\begin{figure}[hbt]
+					\begin{figure}[H]
 						\centering
 					  \includegraphics{imgs/diagramaClases01}
 					  \caption{Clases del módulo central de Helios.}
@@ -492,7 +492,7 @@ class AuthorizeView(View):
 					
 					Lo más peculiar de este subsistema es que contiene adaptadores par los diferentes sistemas de login que expone. Dentro de la carpeta \textit{auth\_system} implementa una serie de módulos que gestionan estos diferentes métodos de login.
 					
-					\begin{figure}[hbt]
+					\begin{figure}[H]
 						\centering
 					  \includegraphics{imgs/folders_auth_system}
 					  \caption{Carpeta auth\_system que contiene los módulos de autenticación del sistema.}
@@ -649,7 +649,7 @@ class AuthorizeView(View):
 						En este enlace, \textit{scheme=dnie} y \textit{package=com.dnieadmin} son valores definidos en el AndroidManifest.xml del proyecto. Al utilizar el protocolo \textit{intent://} se indica al dispositivo que se está \textit{intentando} utilizar una aplicación.
 						
 						 Si la app se encuentra instalada, se abrirá. En caso contrario, se dirige al usuario a la Play Store de Google para que se descargue la app.
-						\begin{figure}[!h]
+						\begin{figure}[H]
 							\centering
 								\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[height=6cm]{imgs/login_Android/android_020.png}}
 							\caption{Página de inicio en navegador de dispositivo Android.}
@@ -658,7 +658,7 @@ class AuthorizeView(View):
 						
 						\item Directamente, el usuario entra en la app desde el menú de aplicaciones (figura \ref{fig:login.android.menu}) del Launcher del Sistema Operativo.
 						
-						\begin{figure}[h!]
+						\begin{figure}[H]
 							\centering
 								\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[height=6cm]{imgs/login_Android/android_010.png}}
 							\caption{Menú de aplicaciones de dispositivo Android}
@@ -670,7 +670,7 @@ class AuthorizeView(View):
 					
 					En este momento, cualquiera que sea el camino que se ha seguido, el usuario entra en la app. Con respecto a la app original, se ha eliminado el menú principal y todas las funcionalidades que aportaba. Directamente, se muestra la pantalla de introducción o selección del \gls{CAN} (figura \ref{fig:login.android.seleccionCANvacio}). El \gls{CAN} es un identificador de 6 dígitos que aparece en el anverso del documento físico del \gls{DNIe}. Se utiliza para establecer un canal cifrado \gls{PACE} entre el documento y el dispositivo.
 					
-					\begin{figure}[!ht]
+					\begin{figure}[H]
 						\centering
 							\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[height=6cm]{imgs/login_Android/android_030.png}}
 						\caption{App Autenticación Android: Selección del CAN cuando no hay ningún documento guardado previamente.}
@@ -679,7 +679,7 @@ class AuthorizeView(View):
 					
 					Este canal \gls{PACE} es obligatorio a la hora de establecer una conexión inalámbrica cifrada, pero no sustituye al \gls{PIN} en ningún caso, igual que no da permiso de uso de las claves de autenticación y/o firma del ciudadano. Es una herramienta más de seguridad para evitar que un tercero pueda leer información del \gls{DNIe} sin conocimiento del ciudadano dueño del documento.
 					
-					\begin{figure}[!ht]
+					\begin{figure}[H]
 						\centering
 							\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[height=6cm]{imgs/login_Android/android_035.png}}
 						\caption{App Autenticación Android: Pantalla para introducir el CAN.}
@@ -688,7 +688,7 @@ class AuthorizeView(View):
 					
 					Una vez introducido el \gls{CAN} por primera vez, ya no será necesario volver a hacerlo, ya que se almacena en el sistema y puede seleccionarse el apropiado cada vez que el usuario hace uso de la aplicación. Al igual que se pueden guardar más documentos, es posible eliminar el \gls{CAN} de documentos ya introducidos. (figura \ref{fig:login.android.seleccionCAN})
 					
-					\begin{figure}[!ht]
+					\begin{figure}[H]
 						\centering
 							\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[height=6cm]{imgs/login_Android/android_040.png}}
 						\caption{App Autenticación Android: Selección del CAN.}
@@ -697,7 +697,7 @@ class AuthorizeView(View):
 					
 					En caso de intentar una lectura de la información de un \gls{DNIe} introduciendo un \gls{CAN} incorrecto se produciría un error al establecer el canal \gls{PACE} y no sería posible la comunicación entre documento y dispositivo (figura \ref{fig:login.android.seleccionCANvacio}).
 					
-					\begin{figure}[!ht]
+					\begin{figure}[H]
 						\centering
 							\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[height=6cm]{imgs/login_Android/android_036.png}}
 						\caption{App Autenticación Android: Error al introducir un CAN incorrecto.}
@@ -706,7 +706,7 @@ class AuthorizeView(View):
 					
 					Cuando se ha indicado el \gls{CAN} correcto del documento que se va a utilizar para logarse en el sistema, la aplicación solicita al usuario que acerque su documento físico al dispositivo para que este pueda acceder a los certificados (figura \ref{fig:login.android.aproximeDNIe}).
 					
-					\begin{figure}[!ht]
+					\begin{figure}[H]
 						\centering
 							\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[height=6cm]{imgs/login_Android/android_050.png}}
 						\caption{App Autenticación Android: Esperando que se aproxime el \gls{DNIe} 3.0.}
@@ -719,7 +719,7 @@ class AuthorizeView(View):
 					Una vez estén cerca documento y dispositivo, se detectarán y establecerán la comunicación cifrada entre ambos (figura \ref{fig:login.android.cargandoCertificados}), a través de la cual podrán intercambiarse tanto comandos como respuestas a estos, accediendo a la información alojada en los certificados y permitiendo a estos firmar información presentada por el dispositivo (aunque en nuestra app no hará falta utilizar el certificado de firma digital).
 					
 					
-					\begin{figure}[!ht]
+					\begin{figure}[H]
 						\centering
 							\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[height=6cm]{imgs/login_Android/android_060.png}}
 						\caption{App Autenticación Android: Cargando certificados.}
@@ -729,7 +729,7 @@ class AuthorizeView(View):
 					
 					Para poder llegar a utilizar los certificados, no obstante, primero se solicitará el \gls{PIN} al usuario (figura \ref{fig:login.android.DNIe.PIN}), con el cual se autentica al mismo contra el \gls{DNIe} y se le conceden permiso de acceso a las claves. A partir de este momento, la comunicación entre documento y dispositivo va cifrada y se pueden acceder a los certificados.
 					
-					\begin{figure}[!ht]
+					\begin{figure}[H]
 						\begin{subfigure}{.5\textwidth}
 							\centering
 								\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[height=6cm]{imgs/login_Android/android_070.png}}
@@ -746,7 +746,7 @@ class AuthorizeView(View):
 					
 					Es en este momento cuando la app utiliza el certificado de autenticación del \gls{DNIe} realizar una petición \gls{HTTPS} contra el servidor de autenticación del sistema de voto. Cada una de las llamadas que le exige el protocolo de comunicación oAuth2 se realizará de forma segura, con los certificados del servidor y el de autenticación del documento (figuras \ref{fig:login.android.lanzandoConexion} y \ref{fig:login.android.recepcionCodigooAuth}). 
 					
-					\begin{figure}[!ht]
+					\begin{figure}[H]
 				    		\centering
 				    		\begin{minipage}{0.45\textwidth}
 				    		    	\centering
@@ -802,7 +802,7 @@ class AuthorizeView(View):
 					
 								
 					
-					\begin{figure}[!ht]
+					\begin{figure}[H]
 						\centering
 							\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[height=6cm]{imgs/login_Android/android_105.png}}
 						\caption{App Autenticación Android: Los certificados autofirmados no son seguros, pero la comunicación va cifrada de todos modos.}
@@ -811,7 +811,7 @@ class AuthorizeView(View):
 					
 					Una vez asumimos el certificado autofirmado, por fin accedemos a la web del sistema de voto logados con la información contenida en el certificado de autenticación de nuestro \gls{DNIe} 3.0 (figura \ref{fig:login.android.logado}).
 					
-					\begin{figure}[!ht]
+					\begin{figure}[H]
 						\begin{subfigure}{.5\textwidth}
 							\centering
 								\setlength{\fboxsep}{0pt}\setlength{\fboxrule}{.2px}\fbox{\includegraphics[height=6cm]{imgs/login_Android/android_110.png}}
@@ -842,7 +842,7 @@ class AuthorizeView(View):
 						\newline
 						
 						
-						\begin{figure}[htbp]
+						\begin{figure}[H]
 							\centering
 								\includegraphics[width=0.80\textwidth]{imgs/topologiaRed01.png}
 							\caption{Topología de la red con los servidores compartiendo red.}
@@ -860,7 +860,7 @@ class AuthorizeView(View):
 						
 						
 						
-						\begin{figure}[htbp]
+						\begin{figure}[H]
 							\centering
 								\includegraphics[width=0.80\textwidth]{imgs/topologiaRed02.png}
 							\caption{Topología de la red con los servidores en redes diferentes.}
@@ -877,7 +877,7 @@ class AuthorizeView(View):
 						\newline
 						
 						
-						\begin{figure}[htbp]
+						\begin{figure}[H]
 							\centering
 								\includegraphics[width=0.80\textwidth]{imgs/topologiaRed03.png}
 							\caption{Topología de la red con los servidores y los dispositivos en red privada.}
@@ -994,13 +994,13 @@ class AuthorizeView(View):
 					
 					En la totalización (\ref{solucion_totalizacion}), el sistema utilizará técnicas criptográficas avanzadas para combinar todos los votos cifrados y descifrar simplemente la suma de ellos. En ningún momento del proceso electoral el sistema maneja un solo voto descifrado de forma individual.
 					
-					El módulo de votación es un fichero HTML, vote.html, orquestado por código Javascript, escrito dentro del mismo fichero entre etiquetas <script></script>.
+					El módulo de votación es un fichero HTML, vote.html, orquestado por código Javascript, escrito dentro del mismo fichero entre etiquetas <script></script> (ver figura \ref{fig:esquema.cabina.votacion}).
 					
 					\begin{figure}[!ht]
 						\centering
 							\includegraphics[width=.95\textwidth]{imgs/cabinaVotacion01.png}
 						\caption{Esquema de la Cabina de Votación}
-						\label{fig:esquema.cabina.votacionh}
+						\label{fig:esquema.cabina.votacion}
 					\end{figure}
 					
 					Además, incluye varias librerías Javascript externas, como son:
@@ -1015,7 +1015,7 @@ class AuthorizeView(View):
 					
 					Durante todo el proceso de votación, aunque éste se divide en tres pasos, el votante se encuentra en la misma página \textit{vote.html}. La orquestación entre una fase y la siguiente se gestiona a través de código Javascript.
 					
-					\begin{figure}[!ht]
+					\begin{figure}[H]
 						\centering
 							\includegraphics[width=.95\textwidth]{imgs/diagramaEstadosVotacion01.png}
 						\caption{Diagrama de estados del proceso de votación}
@@ -1028,7 +1028,26 @@ class AuthorizeView(View):
 							Se muestra al votante un explicación del proceso que va a realizar para votar, con una enumeración de las fases que proceden.
 							
 							Se incluye un botón para comenzar a votar.
-							\newline
+							
+							\begin{figure}[H]
+								\centering
+								\includegraphics[height=6cm]{imgs/screenshots/20.png}
+								\caption{Carga de la cabina de votación.}
+								\label{fig:smartphone.cabina.votacion}
+							\end{figure}
+							
+							\begin{figure}[H]
+					    		\begin{minipage}{0.45\textwidth}
+					        		\centering
+									\includegraphics[height=6cm]{imgs/screenshots/22.png}
+					    		\end{minipage}\hfill
+					    		\begin{minipage}{0.45\textwidth}
+						        	\centering
+									\includegraphics[height=6cm]{imgs/screenshots/24.png}
+								\end{minipage}								\caption{Inicio de la cabina de votación.}
+								\label{fig:smartphone.inicio.cabina.votacion}
+							\end{figure}
+							
 
 						\item[Paso 1. Selección de candidatos] \hfill \
 						
@@ -1039,8 +1058,19 @@ class AuthorizeView(View):
 							En la zona inferior se le indica al votante cuál es la Huella Digital de la Elección en la que está votando. Esta huella es el hash del JSON que define la propia elección. Por tanto, la huella depende de la lista de votantes censados o registrados. Así, en caso de modificarse el censo una vez que se ha abierto la votación, aquí hay una herramienta para detectarlo, ya que esta huella no se correspondería con la que se genera una vez modificada la elección.
 							
 							Tras seleccionar los candidatos, el votante puede pulsar el botón de continuar.
-							\newline
-							
+							Ver figura \ref{fig:smartphone.eleccion.candidatos}.
+	
+							\begin{figure}[H]
+					    		\begin{minipage}{0.45\textwidth}
+					        		\centering
+									\includegraphics[height=6cm]{imgs/screenshots/30.png}
+					    		\end{minipage}\hfill
+					    		\begin{minipage}{0.45\textwidth}
+						        	\centering
+									\includegraphics[height=6cm]{imgs/screenshots/32.png}
+								\end{minipage}								\caption{Elección de candidatos}
+								\label{fig:smartphone.eleccion.candidatos}
+							\end{figure}
 							
 
 						\item[Cifrado del voto] \hfill \
@@ -1139,8 +1169,13 @@ class AuthorizeView(View):
 }
 \end{lstlisting}
 							El contenido de un voto completo se puede ver en el anexo \ref{anexo:ejemploVotoJSON}.
-							\newline
-						\todo[inline]{CAPTURA PANTALLA}
+							
+							\begin{figure}[H]
+								\centering
+								\includegraphics[height=6cm]{imgs/screenshots/40.png}
+								\caption{Pantalla de espera durante el proceso de cifrado del voto.}
+								\label{fig:smartphone.cifrado.voto}
+							\end{figure}
 						
 						
 						\item[Paso 2. Revisar el voto] \hfill \
@@ -1152,9 +1187,22 @@ class AuthorizeView(View):
 							En este punto, se genera un código que sirve para realizar el seguimiento del voto si se decide enviar a auditoría.
 							
 							En este paso, el votante tiene la opción de continuar para emitir su voto, con lo que continuaría al Paso 3, o tiene la opción de descifrar su voto y enviarlo a auditoría.
-							\newline
 
-							\todo[inline]{CAPTURA PANTALLA}
+							\begin{figure}[H]
+					    		\begin{minipage}{0.32\textwidth}
+					        		\centering
+									\includegraphics[height=6cm]{imgs/screenshots/50.png}
+					    		\end{minipage}\hfill
+					    		\begin{minipage}{0.32\textwidth}
+						        	\centering
+									\includegraphics[height=6cm]{imgs/screenshots/52.png}
+								\end{minipage}
+								\begin{minipage}{0.32\textwidth}
+						        	\centering
+									\includegraphics[height=6cm]{imgs/screenshots/54.png}
+								\end{minipage}								\caption{Pantalla de revisión del voto.}
+								\label{fig:smartphone.revision.voto}
+							\end{figure}
 
 
 						\item[Paso 3. Emitir el voto] \hfill \
@@ -1164,9 +1212,21 @@ class AuthorizeView(View):
 							Una vez emita su voto, este se guardará cifrado en la base de datos y nunca será descifrado. Se combinará con el resto de votos cifrados y por homomorfismo aditivo lo que se descifrará será la suma de todos los votos cifrados.
 							
 							Este sistema de voto permite al votante votar tantas veces desee. Sólo se tendrá en cuenta su último voto, quedando los anteriores descartados y fuera del escrutinio. El motivo de este detalle es proteger al votante de un posible escenario de coacción.
-							\newline
-
-\todo[inline]{CAPTURA PANTALLA}
+							
+							\begin{figure}[H]
+					    		\begin{minipage}{0.45\textwidth}
+					        		\centering
+									\includegraphics[height=6cm]{imgs/screenshots/70.png}
+									\caption{Pantalla de emisión del voto.}
+									\label{fig:smartphone.emision.voto}
+					    		\end{minipage}\hfill
+					    		\begin{minipage}{0.45\textwidth}
+						        	\centering
+									\includegraphics[height=6cm]{imgs/screenshots/22.png}
+									\caption{Pantalla de confirmación de voto emitido.}
+									\label{fig:smartphone.confirmacion.voto}
+								\end{minipage}
+							\end{figure}
 
 
 						\item[Auditar el voto] \hfill \
@@ -1178,10 +1238,27 @@ class AuthorizeView(View):
 							El proceso de evitar que un votante pueda emitir el mismo voto que audita se realiza para dar algo de protección al votante contra la coacción.
 							
 							Igualmente, el votante tiene la posibilidad de enviar su voto auditado a un tablón de seguimiento de votos (Ballot Tracking Center), donde cualquier votante u observador puede realizar la verificación de ese voto.
-							\newline
 							
-\todo[inline]{CAPTURA PANTALLA}
-							
+							\begin{figure}[H]
+					    		\begin{minipage}{0.24\textwidth}
+					        		\centering
+									\includegraphics[height=6cm]{imgs/screenshots/60.png}
+					    		\end{minipage}
+					    		\begin{minipage}{0.24\textwidth}
+						        	\centering
+									\includegraphics[height=6cm]{imgs/screenshots/62.png}
+								\end{minipage}
+								\begin{minipage}{0.24\textwidth}
+					        		\centering
+									\includegraphics[height=6cm]{imgs/screenshots/64.png}
+					    		\end{minipage}
+					    		\begin{minipage}{0.24\textwidth}
+						        	\centering
+									\includegraphics[height=6cm]{imgs/screenshots/69.png}
+								\end{minipage}								\caption{Pantalla con información para auditar el voto y publicarlo.}
+								\label{fig:smartphone.auditoria.voto}
+							\end{figure}
+
 							
 						\item[Verificación del voto] \hfill \
 					
@@ -1206,8 +1283,18 @@ class AuthorizeView(View):
   SUCCESSFUL VERIFICATION, DONE!	
 \end{lstlisting}
 								En el anexo \ref{anexo:verificarVoto} se puede encontrar información acer de cómo se realiza la verificación de un voto individual obtenida de la web de documentación de Helios Voting.
-								\newline
-\todo[inline]{CAPTURA PANTALLA}
+								
+								\begin{figure}[H]
+					    		\begin{minipage}{0.45\textwidth}
+					        		\centering
+									\includegraphics[height=6cm]{imgs/screenshots/66.png}
+					    		\end{minipage}\hfill
+					    		\begin{minipage}{0.45\textwidth}
+						        	\centering
+									\includegraphics[height=6cm]{imgs/screenshots/68.png}
+								\end{minipage}								\caption{Pantalla del verificador de voto individual.}
+								\label{fig:smartphone.verificar.voto}
+							\end{figure}
 					\end{description} 
 					
 					
@@ -1297,7 +1384,12 @@ class AuthorizeView(View):
 				
 				Para cada una de las cuestiones a votar se muestra una tabla con las opciones que había y el número de votos que ha obtenido.
 				
-				\todo[inline]{Capturas de pantalla}
+				\begin{figure}[H]
+					\centering
+					\includegraphics[height=6cm]{imgs/screenshots/80.png}
+					\caption{Tabla de resultados del escrutinio de una elección simple.}
+					\label{fig:smartphone.escrutinio}
+				\end{figure}
 				
 				Con respecto al modelo original de Helios, en la difusión se han realizado varias mejoras:
 				
@@ -1576,7 +1668,7 @@ class AuthorizeView(View):
 		
 			\end{description}
 		
-			\begin{figure}
+			\begin{figure}[H]
 			    	\centering
 		    		\begin{minipage}{0.45\textwidth}
 		        		\centering
@@ -1758,7 +1850,7 @@ class AuthorizeView(View):
 		
 		El router utilizado para el prototipo ligero ha sido un TP-LINK TL-WR702N\footnote{\url{http://www.tp-link.com/ar/products/details/TL-WR702N.html}} (fig. \ref{fig:prototipo.router.tplink}). Se trata de un modelo de router muy simple y ultraportable, con lo que se manifiesta la facilidad de puesta en producción de una elección a pequeña escala que resulte asequible económicamente.
 		
-		\begin{figure}[!htbp]
+		\begin{figure}[H]
 			\centering
 				\includegraphics[width=.45\textwidth]{imgs/prototipoRouterTPLINK.png}
 			\caption{Router TP-LINK TL-WR702N utilizado para la construcción del prototipo.}
