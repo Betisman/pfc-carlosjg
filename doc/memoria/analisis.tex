@@ -510,7 +510,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 					\end{description}
 				
 				\item [Congelar papeleta y abrir la elección] 
-				Una vez se ha definido la papeleta (diferentes preguntas y opciones a elegir), es tarea de los administradores proceder a su congelamiento, con lo cual se asegura que la misma no va a ser modificada durante el periodo de votación. Una vez congelada, se procede a la apertura de urnas, con lo que el sistema permite a los votantes emitir sus votos.
+				Una vez se ha definido la papeleta (diferentes preguntas y opciones a elegir), es tarea de los administradores proceder a su congelamiento, con lo cual se asegura que la misma no va a ser modificada durante el periodo de votación. Una vez congelada, se acomete la apertura de urnas, con lo que el sistema permite a los votantes emitir sus votos.
 				
 				\item [Votar]
 				Durante el tiempo fijado al definir las características de la elección, los votantes pueden logarse en el sistema y emitir sus votos.
@@ -583,7 +583,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			
 			Como se ha explicado en \ref{primitivaCifradoHomomorfico_elgamal} las propiedades de un cifrado homomórfico implican que el cifrado del producto de dos mensajes (números) se corresponda con el producto de ambos mensajes cifrados.
 			
-			El algoritmo de ElGamal es un algoritmo de cifrado homomórfico. Este algoritmo define que \textit{'' el cifrado de la multiplicación de dos elementos es igual a la multiplicación de ambos elementos cifrados''}. A partir de este algoritmo, se realiza una evolución importante para el voto electrónico, con el el cifrado homomórfico exponencial. De este tipo es el algoritmo de ElGamal Exponencial, que define que \textit{"el cifrado de la suma de dos elementos es igual que la suma de los dos elementos cifrados"}. Esto se obtiene variando ElGamal tradicional hacia la exponenciación de sus elementos. Se basa en la elección de un número grande usado como generador, el cual usa el mensaje como exponente. El producto de dos generadores elevados exponencialmente cada uno a un mensaje y cifrados es igual que el cifrado del generador elevado a la suma de los dos mensajes.
+			El algoritmo de ElGamal es un algoritmo de cifrado homomórfico. Este algoritmo define que \textit{'' el cifrado de la multiplicación de dos elementos es igual a la multiplicación de ambos elementos cifrados''}. A partir de este algoritmo, se realiza una evolución importante para el voto electrónico, con el el cifrado homomórfico exponencial. De este tipo es el algoritmo de ElGamal Exponencial, que define que \textit{"el cifrado de la suma de dos elementos es igual que la suma de los dos elementos cifrados"}. Esto se obtiene variando ElGamal tradicional hacia la exponenciación de sus elementos. Se basa en la elección de un número grande usado como generador, el cual usa el mensaje como exponente, con el objetivo de utilizar la problemática de la resolución del logaritmo discreto. El producto de dos generadores elevados exponencialmente cada uno a un mensaje y cifrados es igual que el cifrado del generador elevado a la suma de los dos mensajes.
 			
 			Aplicando estas propiedades al voto electrónico podemos inferir que cifrando los votos de cada votante, se puede obtener el la suma de los votos cifrados. Cuando se descifra esta suma de votos cifrados, se obtiene el resultado totalizado de los votos. Es decir, que se pueden cifrar los votos y conseguir obtener la suma de ellos sin violar el secreto de cada voto individual. En ningún momento el voto está en plano, desde que el votante lo cifra al votar permanece encriptado. Ni siquiera al totalizar se descifran los votos, sólo se descifra la suma de ellos. 
 			
@@ -750,13 +750,15 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 		\subsubsection*{Solución}
 			En la búsqueda de una solución que no comprometiese la viabilidad del proyecto, se pensó en una intermedia a las anteriores.
 		
-			Las llamadas a Helios, por lo comprobado, teniendo que mantener el canal \gls{HTTPS} cifrado con el DNIe, deben ser contra un servicio que tenemos que \textit{repintar} en un WebView y que, en caso de querer navegar una vez establecida la conexión, hay que volver a realizar la llamada con los certificados y volver a crear el WebView. Es decir, que no es la navegación natural que se busca. Tampoco es viable implementar una app de voto, ya que teniendo la web se podría reutilizar esta desde el móvil.
+			Las llamadas a Helios, teniendo que mantener el canal \gls{HTTPS} cifrado con el DNIe, deben ser contra un servicio que ha de ser \textit{renderizado} en un WebView. En caso de querer navegar una vez establecida la conexión, hay que volver a realizar la llamada con los certificados y volver a crear (y \textit{renderizar}) el WebView. Es decir, no se obtiene la navegación natural que se busca.
+			
+			Tampoco es viable implementar una app de voto. Teniendo ya implementada una aplicación web, es un gasto de recursos tener que desarrollar y mantener ambas soluciones, cuando la web puede ser adaptada y utilizada tanto desde navegadores de escritorio como desde dispositivos móviles.
 		
 			Es en este momento en el que aparece el concepto de autenticación delegada. Los desarrolladores de Helios han implementado módulos de oAuth para ingresar al sistema autenticándose con sus cuentas de Facebook, Google o Yahoo!, o un módulo CAS para hacer lo propio con las credenciales de la Universidad de Lovaina. Del mismo modo, se podría implementar un sistema de autenticación delegada basado en el DNIe.
 		
 			La idea es la de tener dos servidores diferenciados. Por un lado el del sistema de votación y por otro el servidor de autenticación.
 		
-			El usuario, al intentar entrar en el sistema de votación es redirigido al de autenticación. Contra este ha de identificarse el usuario con el DNIe. Si la autenticación es correcta, el servicio de autenticación otorgará permisos de acceso al usuario en el servicio de votación y será redirigido de nuevo a este. A partir de este momento, el usuario, con permisos de accesos, podrá operar en el sistema de votación autenticado de forma segura.
+			El usuario, al intentar entrar en el sistema de votación es redirigido al de autenticación. Contra este ha de identificarse con su DNIe. Si la autenticación es correcta, el servicio de autenticación otorgará permisos de acceso al usuario en el servicio de votación y será redirigido de nuevo a éste. A partir de este momento, el usuario, con permisos de accesos, podrá operar en el sistema de votación autenticado de forma segura.
 		
 			Con este planteamiento, para votar desde el móvil o desde el PC no tiene mucha diferencia. En ambos casos se accede desde el navegador a la página principal de la Elección. Aquí se pulsa el enlace de autenticación por DNIe. La diferencia principal se observa en este momento:
 			\begin{description}
@@ -773,7 +775,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 		
 		
 		\subsection{Adaptación a dispositivos}\label{analisis_adaptacion_dispositivos}
-			Helios es un sistema que se comenzó a desarrollar alrededor de 2008. En aquel momento, el boom de los dispositivos móviles no estaba en un punto tan álgido como en los últimos años. El desarrollo se dirigió, por tanto, al mundo de la web del momento, centrada en los dispositivos con pantallas de cierto tamaño.
+			Helios es un sistema que se comenzó a desarrollar alrededor de 2008. En aquel momento, el \textit{boom} de los dispositivos móviles no estaba en un punto tan álgido como en los últimos años. El desarrollo se dirigió, por tanto, al mundo de la web del momento, centrada en los dispositivos con pantallas de cierto tamaño.
 			
 			Un vistazo a la web estándar de Helios Voting\footnote{\url{http://www.heliosvoting.com}} muestra que es \textit{responsive} en cierta medida. Da la sensación de serlo, aunque realmente no está diseñada para ello.
 			
@@ -792,7 +794,7 @@ Una vez ha sido presentado el proyecto, planteados los objetivos y estudiado el 
 			
 			
 		\subsection{Votación}\label{analisis_votacion}
-			La fase de votación, en la que en un sistema tradicional un votante introduce su voto en la urna junto a los votos del resto de votantes, es uno de los derechos fundamentales que un ciudadano tiene en un estado de derecho. Es, además, el derecho que más iguala a los ciudadanos, pues (interpretaciones de la Ley D'Hont\footnote{\url{https://es.wikipedia.org/wiki/Sistema_d'Hondt}} o del peso de cada circunscripción en la Ley Electoral vigente aparte) cualquier persona, independientemente de su condición sexual, social, económica, religiosa, etc. se corresponde con un voto. Una vez hemos votado, todos los votos tienen el mismo valor. El famoso lema de "una persona, un voto".
+			La fase de votación, en la que en un sistema tradicional un votante introduce su voto en la urna junto a los votos del resto de votantes, es uno de los derechos fundamentales que un ciudadano tiene en un estado de derecho. Es, además, el derecho que más iguala a los ciudadanos, pues (interpretaciones de la Ley D'Hont\footnote{\url{https://es.wikipedia.org/wiki/Sistema_d'Hondt}} o del peso de cada circunscripción en la Ley Electoral vigente aparte) cualquier persona, independientemente de su condición sexual, social, económica, religiosa, etc. se corresponde con un voto. Una vez hemos votado, todos los votos tienen el mismo valor. El famoso lema de ''una persona, un voto''.
 			
 			Obviamente, es el elemento central de cualquier sistema de votación.
 			
