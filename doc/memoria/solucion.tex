@@ -82,7 +82,7 @@
 					
 					\item[Certificado AC Raíz DGP:] Es el certificado que permite al Sistema Operativo y al navegador web reconocer la Autoridad de Certificación de los certificados de sede electrónica, la AC Raíz DGP, que son los encargados de generar los certificados que se incluyen en el \gls{DNIe} 3.0.
 					
-					\item[Certificado de cliente:] Para utilizar el \gls{DNIe} como fuente de identificación del usuario, es preciso configurar el servidor web para que requiera en la conexión la presencia del certificado de autenticación del \gls{DNIe} del usuario. Para ello, el servidor debe poseer el certificado raíz que provee la Dirección General de la Policía. Este certificado se configura en el servidor
+					\item[Certificado de cliente:] Para utilizar el \gls{DNIe} como fuente de identificación del usuario, es preciso configurar el servidor web para que requiera en la conexión la presencia del certificado de autenticación del \gls{DNIe} del usuario. Para ello, el servidor debe poseer el certificado raíz que provee la Dirección General de la Policía. Este certificado se configura en el servidor. Se puede consultar el anexo \ref{App:ConfiguracionServidorWeb} para ver cómo realizarlo.
 					
 				\end{description}
 				
@@ -295,7 +295,11 @@ class AuthorizeView(View):
 				
 				La aplicación implementa el flujo oAuth2 en modo Authorization Code. Con la información del usuario que recibe del certificado de cliente, lo identifica y valida los permisos que tiene.
 				
-				En caso de que la validación sea correcta, genera un token que almacena en la base de datos para comunicar al sistema de votación que el votante tiene permisos de acceso. Además, genera un código de autorización que devuelve al cliente. Este código lo tendrá que presentar el cliente al sistema de votación para entrar al sistema. Una vez el sistema reciba el código, lo utilizará para pedir al sistema de autenticación el token de acceso que mapea la aplicación y los permisos que dispone el usuario. Una vez el sistema de autenticación devuelve el token al de votación, éste tendrá que presentárselo para que aquel le comunique aquellos datos personales que posee del usuario que intenta acceder.
+				En caso de que la validación sea correcta, genera un token que almacena en la base de datos para comunicar al sistema de votación que el votante tiene permisos de acceso. Además, genera un código de autorización que devuelve al cliente.
+				
+				Este código es el que ha de presentar el cliente al sistema para confirmar su autenticación contra éste e interactuar con él.
+				
+				Una vez el sistema de votación recibe el código, lo utiliza para obtener del sistema de autenticación el token de acceso que identifica la aplicación que solicita la interacción, junto con los permisos que dispone el usuario y la información contenida en la base de datos del censo y en el certificado de autenticación de su \gls{DNIe}.
 				
 				Sigue, por tanto un modelo del flujo de oAuth2, apoyado en una herramienta escrita por Richard Knop en Python sobre un framework Django. No obstante, este código ha servido de base, pues ha debido ser modificado para adaptarlo a las necesidades particulares de este sistema:
 					
@@ -315,19 +319,20 @@ class AuthorizeView(View):
 			\subsection{OCSP}
 				
 				\gls{OCSP} es un servicio de revocación que ofrece la autoridad que crea el certificado raíz, en nuestro caso la \gls{DGP} y la \gls{FNMT}. Estas organizaciones proveen de un servicio al cual conectarse y consultar la validez de los certificados que se estén tratando de autenticar.
-				
-				Una alternativa al \gls{OCSP} es la de generar una \gls{CRL}. Las ventajas de las listas de revocación consisten en que son más simples que el \gls{OCSP} y pueden ser consultadas sin conexión a la red, lo cual es importante en caso de que el sistema esté configurado de modo que corra sobre una red privada, sin acceso a Internet (ver figura \ref{fig:topologiaRed_intranet} en \ref{solucion_topologiaRed}).
-				
+								
 				El sistema funciona validando contra la \gls{OCSP} de la \gls{DGP}. La implementación de este sistema se realiza por medio de configuración del servidor web. Es el propio servidor quien realiza la comprobación OCSP del certificado cliente y recibe la validez o no del mismo por parte del del servicio externo.
 				
 				Cuando el sistema esté configurado para operar sobre una red interna será necesario desactivar esta configuración del servidor web, pues sin acceso a Internet no será posible realizar la comprobación contra el servicio de la autoridad certificadora.
-				
+
+				Una alternativa al \gls{OCSP} es la de generar una \gls{CRL}. Las ventajas de las listas de revocación consisten en que son más simples que el \gls{OCSP} y pueden ser consultadas sin conexión a la red, lo cual es importante en caso de que el sistema esté configurado de modo que corra sobre una red privada, sin acceso a Internet (ver figura \ref{fig:topologiaRed_intranet} en \ref{solucion_topologiaRed}).
+
+
 			\subsection{Esquema de la base de datos}\label{solucion_servidor_autenticacion_bd}
 				En la figura \ref{fig:er.servidor.autenticacion} se presenta el diagrama entidad-relación correspondiente al sistema de autenticación.
 				
 				\begin{figure}[!ht]
 						\centering
-							\includegraphics[width=\textwidth]{imgs/oAuthServerER.png}
+						\includegraphics[width=\textwidth]{imgs/oAuthServerER.png}
 						\caption{Diagrama ER del Servidor de Autenticación}
 						\label{fig:er.servidor.autenticacion}
 					\end{figure}
@@ -602,7 +607,7 @@ class AuthorizeView(View):
 			
 			En el caso de la navegación desde un \gls{PC}, esta capa intermedia son los drivers del \gls{DNIe}, que gestiona el propio Sistema Operativo, con los que, a través de un lector del chip de contacto, accede a los certificados y los presenta, a través de su Almacén de Certificados, al navegador para que los tenga accesibles.
 			
-			Esto no es posible, sin embargo, en dispositivos Android. No existen drivers para acceder a los certificados del \gls{DNIe} 3.0 por NFC desde un dispositivo Android. No es posible, por tanto que un navegador web en este Sistema Operativo tenga acceso a los certificados como ocurre en un navegador de escritorio.
+			Esto no es posible, sin embargo, en dispositivos Android. No existen drivers liberados para acceder a los certificados del \gls{DNIe} 3.0 por NFC desde el Sistema Operativo Android y comunicarlo con el navegador web, al contrario de los que existen para Windows, Linux o MacOS. No es posible por ahora, por tanto que un navegador web en Android (ni iOS) tenga acceso a los certificados como ocurre en un navegador de un equipo de escritorio. 
 			
 			La idea original era acceder al sistema de votación con un login con los certificados digitales directamente contra el servidor de votación, que sería el que estaría protegido y esperaría estos certificados de cliente.
 			
@@ -618,7 +623,7 @@ class AuthorizeView(View):
 			\subsection{Código fuente}\label{solucion_app_codigofuente}
 				El código fuente de la app original de la \gls{DGP} ha debido ser modificado ya que la funcionalidad que se busca que tenga la aplicación no es la misma que la que ofrece la original.
 		
-				En la app original, al entrar se nos ofrece un menú radial con diferentes opciones. Esto no ocurre en la versión de este proyecto. La app en nuestro caso está pensada para realizar tan sólo un trabajo, realizar la identificación y autenticación de usuario contra un servidor oAuth y transmitir al sistema de votación la aceptación o revocación de acceso del mismo contra el sistema.
+				En la app original, al entrar se nos ofrece un menú radial con diferentes opciones. Esto no ocurre en la versión de este proyecto. La app en nuestro caso está pensada para realizar tan sólo una función, realizar la identificación y autenticación de usuario contra un servidor oAuth y transmitir al sistema de votación la aceptación o revocación de acceso del mismo contra el sistema.
 		
 				Por ello, la app va a carecer de un menú inicial, ya que no es necesario.
 		
@@ -890,7 +895,7 @@ class AuthorizeView(View):
 				\subsection{Registro}
 					La fase de registro de votantes en el sistema no será interactivo en cuanto a que no es el propio votante el que debe inscribirse para poder votar en las elecciones, sino que es la Autoridad Electoral quien lo registra en el censo. En esta fase, pues, se trata de establecer el censo de votantes que tienen autoridad para votar en el proceso electoral.
 					
-					Como se advierte en el análisis se ha tomado en consideración que sean los administradores del sistema quienes tengan responsabilidad sobre el tratamiento del censo, por lo que se ha de cargar en el sistema y éste es el que lo va a tratar.
+					Como se advierte en el análisis se ha tomado en consideración que sean los administradores del sistema quienes tengan la responsabilidad sobre el tratamiento del censo, por lo que se ha de cargar en el sistema y éste es el que lo va a tratar.
 					
 					El censo ha de cargarse en dos servicios del sistema, tanto en el servidor de autenticación como en el sistema de votación.
 					
