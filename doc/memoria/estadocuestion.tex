@@ -885,7 +885,7 @@ los diálogos del sistema.
 			
 			Al igual que en la tesis del proyecto SELES \cite{tesisCPGarciaZ}, el protocolo de seguridad en el que se basa SEVI es una variante del de Lin-Hwang-Chang, el cual se compone de tres fases que cubren la seguridad del esquema en los módulos de votación y generación de resultados. También con este protocolo, el acuse de recibo dado a los votantes sirve para cumplir con los requisitos de auditoría. Otra de las necesidades resueltas es la de la democracia del proceso, pues el hecho de que se puedan identificar los votantes no honestos al emitir el voto aumenta la confianza en el proceso.
 			
-			No obstante el protocolo de seguridad respalda la mayor parte de la interacción con el sistema, no cubre la fase de registro. Precisamente esta es la fase con la que comienza el sistema y donde se basa parte de la suposición de honestidad esperada por el protocolo para el resto del proceso. Para resolver el problema, en SEVI optan por establecer un canal seguro entre la máquina cliente y la máquina servidor a través de un protocolo de transferencia segura \gls{SSL}.
+			No obstante, el protocolo de seguridad que respalda la mayor parte de la interacción con el sistema no cubre la fase de registro. Precisamente esta es la fase con la que comienza el sistema y donde se basa parte de la suposición de honestidad esperada por el protocolo para el resto del proceso. Para resolver el problema, en SEVI optan por establecer un canal seguro entre la máquina cliente y la máquina servidor a través de un protocolo de transferencia segura \gls{SSL}.
 
 
 
@@ -909,9 +909,9 @@ los diálogos del sistema.
 			
 			Los problemas para satisfacer los requisitos de Benaloh aparecen cuando se estudian las herramientas para cumplir con la verificabilidad universal.
 			
-			El método tradicional para garantizar este requisito es utilizar las pruebas de conocimiento zero (\ref{primitivaPruebasConocimientoNulo}). Con estas pruebas se trata de convencer a un verificador de que el proceso se ha llevado a cabo correctamente con una alta probabilidad, sin necesidad de que el verificador tenga conocimiento del contenido de los votos incluidos en la elección. En los sistemas implementados en Estonia y Noruega, aunque parecen tener herramientas que incluyen estas pruebas de conocimiento nulo en todas las etapas del proceso, según algunos informes postelectorales\cite{carter2013}, esto no ocurría en la totalidad del proceso.
+			El método tradicional para garantizar este requisito es utilizar las pruebas de conocimiento zero (\ref{primitivaPruebasConocimientoNulo}). Con estas pruebas se trata de convencer a un verificador de que el proceso se ha llevado a cabo correctamente con una alta probabilidad, sin necesidad de que el verificador tenga conocimiento del contenido de los votos incluidos en la elección. En los sistemas implementados en Estonia y Noruega, aunque parecen tener herramientas que incluyen estas pruebas de conocimiento nulo en todas las etapas del proceso, según algunos informes postelectorales\cite{carter2013}, esto no ocurría en la totalidad del mismo.
 			
-			Según estos mismos informes\cite{carter2013}, un ejemplo de sistema electoral por Internet \gls{E2E} verificable es Helios Voting (\ref{estadocuestion_helios}), del que dicen que es un reconocido ``\textit{estándar en verificabilidad de voto por Internet}''. Las bonanzas de este sistema es que proporciona al proceso todas las garantías que aporta la verificabilidad \gls{E2E}, como la capacidad de observar pruebas de conocimiento cero no interactivas que verifican que cada voto fue incluido correctamente y que el escrutinio completo fue computado con precisión. No obstante, hay que remarcar que, como su propio desarrollador indica, Helios es un sistema pensado en elecciones con bajo riesgo de coerción, lo cual no es válido para elecciones nacionales como el modelo estonio o noruego.
+			Según estos mismos informes\cite{carter2013}, un ejemplo de sistema electoral por Internet \gls{E2E} verificable es Helios Voting (\ref{estadocuestion_helios}), del que dicen que es un reconocido ``\textit{estándar en verificabilidad de voto por Internet}''. Las bonanzas de este sistema es que proporciona al proceso todas las garantías que aporta la verificabilidad \gls{E2E}, como la capacidad de observar pruebas de conocimiento cero no interactivas que verifican que cada voto fue incluido correctamente y que el escrutinio completo fue computado con precisión. No obstante, hay que remarcar que, como su propio desarrollador indica, Helios es un sistema pensado en elecciones con bajo riesgo de coacción, lo cual no es válido para elecciones nacionales como el modelo estonio o noruego.
 			
 			Las garantías que ofrecen los esquemas de verificabilidad \gls{E2E} eliminan la necesidad de los votantes de confiar tanto en los propios clientes (dispositivos, navegadores, sistemas operativos) que utilizan para votar, como los servidores y los trabajadores oficiales que administran los sistemas asociados a la recepción, descifrado y conteo de votos, que son los pilares críticos en los que se basa un sistema de voto por Internet. Esto es así porque los esquemas basados en verificabilidad \gls{E2E} aseguran la inviolabilidad del voto emitido hasta ser contado, eliminando la amenaza de interceptación del mismo en cliente, canal de comunicación o servidor de escrutinio.
 			
@@ -1066,11 +1066,11 @@ los diálogos del sistema.
 				
 				La diferencia fundamental en la evolución de sendos proyectos se encuentra en puntos como que Ágora continuó utilizando mixnets para desacoplar votos de los votantes mientras que Helios dejó de utilizar este protocolo, virando hacia el homomorfismo en la totalización.
 				
-				Ágora Voting dejó de ser un proyecto de software libre. Todavía se puede encontrar en Github\footnote{\url{https://github.com/agoravoting}}, pero sus creadores han decidido desarrollar un producto comercial de nombre nVotes\footnote{\url{https://nvotes.com}}.
+				Como se ha adelantado, Ágora Voting dejó de ser un proyecto de software libre. Todavía se puede encontrar en Github\footnote{\url{https://github.com/agoravoting}}, pero sus creadores han decidido desarrollar un producto comercial de nombre nVotes\footnote{\url{https://nvotes.com}}.
 				
 				Este proyecto ha sido utilizado en varios procesos electorales reales. Varios de ellos han sido votaciones interna de partidos políticos, como Podemos o sus partidos asociados.
 				
-				La última gran elección llevada a cabo por nVotes ha sido la de Decide Madrid\footnote{\url{https://decide.madrid.es}}.
+				La última gran elección llevada a cabo por nVotes ha sido la de Decide Madrid\footnote{\url{https://decide.madrid.es}} en 2017.
 				
 				
 				\subsection{Helios}\label{estadocuestion_helios}
@@ -1085,15 +1085,15 @@ los diálogos del sistema.
 
 					El creador del proyecto es Ben Adida\footnote{\url{http://ben.adida.net/}}, doctor en Ingeniería Informática en Criptografía y Seguridad de la Información por el \gls{MIT}\footnote{\url{http://mit.edu/}}. Para su doctorado, base de este proyecto, fue asesorado\footnote{\url{https://vote.heliosvoting.org/about}} por otro Doctor como Ron Rivest\footnote{\url{http://people.csail.mit.edu/rivest/}}, experto en Criptografía y Voto Electrónico. 
 					
-					Para ver el rigor académico del pryecto desde sus inicios y durante su desarrollo, Adida también ha sido asesorado por profesionales de reputada experiencia en la criptografía y el Voto Electrónico como son Lawrence Lessig\footnote{\url{https://es.wikipedia.org/wiki/Lawrence_Lessig}}, de la Universidad de Stanford\footnote{\url{https://www.stanford.edu/}} Y Josh Benaloh\footnote{\url{https://www.microsoft.com/en-us/research/people/benaloh/}}, doctor por el \gls{MIT} y Yale\footnote{\url{https://www.yale.edu/}}, considerado el precursor de los sistemas de verificabilidad punto a punto (\ref{estadocuestion_e2everifiability}).				
+					Para ver el rigor académico del proyecto desde sus inicios y durante su desarrollo, Adida también ha sido asesorado por profesionales de reputada experiencia en la criptografía y el Voto Electrónico como son Lawrence Lessig\footnote{\url{https://es.wikipedia.org/wiki/Lawrence_Lessig}}, de la Universidad de Stanford\footnote{\url{https://www.stanford.edu/}} Y Josh Benaloh\footnote{\url{https://www.microsoft.com/en-us/research/people/benaloh/}}, doctor por el \gls{MIT} y Yale\footnote{\url{https://www.yale.edu/}}, considerado el precursor de los sistemas de verificabilidad punto a punto (\ref{estadocuestion_e2everifiability}).				
 					
 					
 				
-				Este proyecto es apropiado para realizar procesos electorales para organismos que necesiten que estos sean confiables y con voto secreto, eso sí, siempre que los comicios se celebren en un ambiente en el que la coerción del voto no sea una amenaza. Este detalle es importante, ya que muestra una de las \textit{debilidades} de esta implementación con respecto a un proceso electoral de gran escala.
+				Este proyecto es apropiado para realizar procesos electorales para organismos que necesiten que estos sean confiables y con voto secreto, aunque eso sí, siempre que los comicios se celebren en un ambiente en el que la coacción del voto no sea una amenaza. Este detalle es importante, ya que muestra una de las \textit{debilidades} de esta implementación con respecto a un proceso electoral de gran escala.
 				
 				Helios trata de ser un sistema de voto por Internet simple comparado con otros protocolos criptográficos, centrándose en la \textit{auditabilidad pública} como elemento diferencial. Con esta propiedad, cualquier organismo puede apoyarse en Helios para llevar a cabo la elección y, aunque resultase que Helios estuviera corrupto, la integridad de la elección puede ser verificada por los observadores.
 				
-				El proyecto Helios ha sufrifo una evolución desde sus primeras versiones a la actual, cambiando protocolos y esquemas criptográficos y superando vulnerabilidades que se le iban encontrando. Un buen documento para consultar esta evolución desde la primera versión de Helios hasta la última de 2016 es \cite{cryptoeprint:2015:233}.
+				El proyecto Helios ha sufrido una evolución desde sus primeras versiones a la actual, cambiando protocolos y esquemas criptográficos y superando vulnerabilidades que se le iban encontrando. Un buen documento para consultar esta evolución desde la primera versión de Helios hasta la última de 2016 es \cite{cryptoeprint:2015:233}.
 				
 				En este documento \cite{cryptoeprint:2015:233} se indica que las versiones de Helios 2.0 y 3.1.4,  sufrían vulnerabilidades que permitían violar el secreto de voto y la verificabilidad. La versión de 2012 redujo esta vulnerabilidad, aunque siguió siendo insuficiente para asegurar la verificabilidad. La versión 2016 implementa un sistema de autenticación externa que permite satisfacer el peligro de violación de la verificabilidad.
 				
@@ -1289,7 +1289,7 @@ los diálogos del sistema.
 			% *************************************************************************************************************** %
 			
 			\section{Mecanismos criptográficos}\label{mecanismosCriptograficos}
-			Los sistemas de votación electrónica son sistemas críticos en cuanto a que la información que tratan es muy sensible. Han de satisfacer requisitos de anonimicidad, secreto, verificabilidad, completitud, etc. los cuales requieren que la protección de votante, voto y sistema sea absoluta.
+			Los sistemas de votación electrónica son sistemas críticos en cuanto a que la información que tratan es muy sensible. Han de satisfacer requisitos de anonimato, secreto, verificabilidad, completitud, etc. los cuales requieren que la protección de votante, voto y sistema sea absoluta.
 			
 			Para conseguir cumplir estos requerimientos básicos de seguridad, este tipo de sistemas han de apoyarse en las matemáticas, concretamente en la criptografía. Por ello, existen una serie de mecanismos criptográficos que aportan las herramientas, diseños y soluciones necesarias para tratar este problea y minimizarlo.
 			
@@ -1298,7 +1298,7 @@ los diálogos del sistema.
 				\begin{description}[font=$\bullet$\ \ ]
 					\item[Primitivas] Operaciones matemáticas, usadas como bloques constructores en la realización de esquemas. Su caracterización depende de los problemas matemáticos que sustentan su uso criptográfico. Ej: DES, RSA.
 					\item[Esquemas] Combinación de primitivas y métodos adicionales para la realización de tareas criptográficas como la firma y el cifrado digital. Ej: DES-CBC-PKCS5Padding; RSA-OAQEP-MGF1-SHA1
-					\item[Protocolos] Secuencias de operaciones, a realizar por dos o más entidades, que contienen esquemas y primitivas con el propósito de dotar a una aplicación de características de seguridad. Ej: TLS con %TLS_RSA_WITH_DES_CBC_SHA
+					\item[Protocolos] Secuencias de operaciones, a realizar por dos o más entidades, que contienen esquemas y primitivas con el propósito de dotar a una aplicación de características de seguridad. Ej: TLS %TLS_RSA_WITH_DES_CBC_SHA
 %\notasDuda{TLS_RSA_WITH_DES_CBC_SHA}
 				\end{description}
 			
@@ -1417,8 +1417,6 @@ los diálogos del sistema.
 						
 					La importancia de este esquema criptográfico es tal que se ha implementado de forma satisfactoria en campos tan esenciales como la verificación de armas nucleares, permitiendo a los observadores internacionales medir la veracidad de una nación al cuantificar su fuerza nuclear sin necesidad de conocer la tecnología o cabezas u otros detalles clasificados que no quieren que sean sacados a la luz.
 					
-					\todo[inline]{Aparte del ejemplo, hay que terminar este apartado de ZK}
-					
 					El ejemplo expuesto, pese a ser extremadamente simple, da una idea de lo que luego, matemáticamente se encarga de demostrar la criptografía.
 					
 					Recomiendo estos otros ejemplos sobre pruebas de conocimiento cero. En este artículo\footnote{\url{http://jorgegarciaherrero.com/auditar-algoritmo/}}, se recomiendan tres ejemplos de distinto nivel, muy interesantes: Uno sobre un ganador de lotería\footnote{\url{http://elprofedefisica.naukas.com/2014/11/12/desafio-del-millon-de-james-randi-2/}}, otro para convencer a un niño de que no le estás haciendo trampa\footnote{\url{http://www.wisdom.weizmann.ac.il/\~naor/PAPERS/waldo.pdf}} y otro sobre Google y sombreros\footnote{\url{https://blog.cryptographyengineering.com/2014/11/27/zero-knowledge-proofs-illustrated-primer/}}.
@@ -1461,7 +1459,7 @@ los diálogos del sistema.
 						
 						Este es el modelo enunciado por Chaum, en el que cada servidor descifra un mensaje cifrado. Existen otras 
 						
-						De todos modos, como se indica en \cite{artcl:Cabarcas:2015}, no basta con realizar un mezclado de votos para obtener un sistema de votación electrónica seguro, sino que se necesita un esquema con mecanismos para que ños votantes certifiquen su identidad, así como para que puedan firmar digitalmente los votos de forma anónima, asegurando la integridad del voto y la privacidad del votante.
+						De todos modos, como se indica en \cite{artcl:Cabarcas:2015}, no basta con realizar un mezclado de votos para obtener un sistema de votación electrónica seguro, sino que se necesita un esquema con mecanismos para que los votantes certifiquen su identidad, así como para que puedan firmar digitalmente los votos de forma anónima, asegurando la integridad del voto y la privacidad del votante.
 						
 						\begin{figure}[htbp]
 							\centering
@@ -1539,12 +1537,12 @@ los diálogos del sistema.
 							
 							Uno de los algoritmos más utilizados para realizar un cifrado homomórfico es el de ElGamal \cite{ElGamal:1985:PKC:19478.19480}.
 							
-							ElGamal es un algoritmo de criptografía asimétrica basado en Diffie-Hellman de cifrado de clave pública que se usa tanto para cifrado como firma digital. Se basa en el problema de logaritmos discretos.
+							ElGamal es un algoritmo de criptografía asimétrica basado en Diffie-Hellman de cifrado de clave pública que se usa tanto para cifrado como para firma digital. Se apoya en el problema de logaritmos discretos.
 							
 							El creador de este algoritmo fue Taher Elgamal\footnote{\url{https://es.wikipedia.org/wiki/Taher_Elgamal}}, en 1984. Es un algoritmo de uso libre.
 							
 							
-							Clave: \hfill \\
+							\textbf{Clave}: \hfill \\
 							El algoritmo de ElGamal necesita un par de claves pública - privada para poder ser utilizado. \cite{Geraldo:2014,Meissen} Para ello, el cifrador del mensaje ha de escoger tres números:
 							\begin{itemize}
 								\item Número primo $p$ cualquiera, tal que el logaritmo discreto no soluble en un tiempo asumible en $Z^*_p$ (grupo multiplicativo módulo un primo $p$). Esto quiere decir que $p - 1$ ha de tener un factor primo grande, lo cual provoca que la resolución del problema de logaritmo discreto sea difícil).
@@ -1888,7 +1886,7 @@ los diálogos del sistema.
 		\subsection{Certificados Digitales}\label{estadoCertificadosDigitales}
 		La web de la Fábrica Nacional de Moneda y Timbre \cite{webCertFNMT} indica que \textit{un certificado digital es un documento electrónico que asocia una clave pública con la identidad de su propietario}.
 		
-		Complementa la definición añadiendo que \textit{adicionalmente, además de la clave pública y la identidad de su propietario, un certificado digital puede contener otros atributos para, por ejemplo, concretar el ámbito de utilización de la clave pública, las fechas de inicio y fin de la validez del certificado, etc. El usuario que haga uso del certificado podrá, gracias a los distintos atributos que posee, conocer más detalles sobre las características del mismo.}.
+		Complementa la definición añadiendo que ''\textit{adicionalmente, además de la clave pública y la identidad de su propietario, un certificado digital puede contener otros atributos para, por ejemplo, concretar el ámbito de utilización de la clave pública, las fechas de inicio y fin de la validez del certificado, etc. El usuario que haga uso del certificado podrá, gracias a los distintos atributos que posee, conocer más detalles sobre las características del mismo}''.
 		
 		La utilidad de los certificados digitales, simplificando el contexto, se resume en \textit{asegurar que una determinada clave pública pertenece a un usuario en concreto}.
 		
