@@ -174,133 +174,64 @@
 				Por ejemplo, estas son las propiedades que debe tener un sistema de voto electrónico a través de Internet, según publican desde la Universidad de Extremadura \cite{estudioInfraestructutaVotoElectronicoUNEX} son las siguientes:
 				\begin{description}[font=$\bullet$\ \ ]
 					\item[Universal]
-					Todos los implicados en la toma de una decisión tienen voz y
-parte en ella, es decir, que todos aquellos ciudadanos que
-tienen derecho a votar podrán hacerlo a través de las redes
-telemáticas. Luego constarán unos requerimientos mínimos
-que permitan a los usuarios emitir sus votos a través de
-Internet.
+					Todas las personas que tienen derecho al voto deben poder hacerlo usando el sistema telemático.
+					
+					Por ello, debe cumplir con los requisitos para acceso al proceso a través de Internet si es el caso.
+					
 					\item[Libre]
-					Los usuarios que tengan derecho a votar
-tendrán total libertad para elegir si ejercen su derecho a través
-de Internet o por cualquier otro mecanismo dispuesto para
-este fin. No se podrá obligar a los usuarios a realizar su voto
-de una determinada forma. Los usuarios del sistema de
-votación podrán escoger qué votar, cómo votar, e incluso si
-quieren o no votar.
-Luego la libertad del ejercicio de la votación estará referida a
-varios aspectos: libertad para los usuarios que realizan su
-voto, libertad para la orientación del voto, y libertad de
-información antes, durante, y después de realizar su voto. 
-No deberán existir restricciones de acceso al sistema de
-votación, es decir, el sistema de votación deberá ser
-independiente del sistema operativo que tengan los usuarios o
-del navegador que éstos utilicen. Tampoco deberán existir
-restricciones físicas o lógicas que impidan, por ejemplo, a una
-persona discapacitada ejercer su derecho a votar.
+					Las personas con derecho a voto tienen la libertad para escoger si emitir su voto a través del sistema por Internet o de alguna otra forma que se haya implementado para llevar a cabo el proceso. No se les puede imponer un sistema por encima de otro.
+					
+					Además, los votantes tienen la libertad de elección en la forma y contenido del voto, incluso en si desean abstenerse.
+					
+					Los votantes han de ser agnósticos en cuanto a la tecnología del sistema, por lo que este debe permitirles el voto sin importar el sistema operativo, navegador o dispositivo móvil que utilicen. De la misma forma, debe superar las barreras de accesibilidad física o social.
+					
 					\item[Directo]
-					Será el usuario del sistema de votación el que personalmente
-emita su voto, es decir, éste no podrá delegar su voto en otra
-persona. El votante deberá tener una implicación personal
-dentro del proceso de votación. Esto plantea el problema de la
-autentificación del voto y el votante, es decir, se debe
-garantizar que quien vota es quien dice ser, que no existen
-problemas de suplantación de personalidad y, que cuando el
-votante ejerce su derecho a votar, éste se lleva a cabo.
-Para solucionar estos problemas de autentificación, los
-usuarios dispondrán de su propio dispositivo criptográfico, la
-cual, mediante el uso de claves por parte del usuario permitirá
-garantizar todo lo anterior. El usuario utilizará las claves y
-certificados almacenados en su dispositivo junto con las
-funciones que éste le aporta tanto para registrarse en el
-sistema de votación, como para proceder al ejercicio del voto.
-El motivo de separar estos dos procesos es el de asegurar la
-confidencialidad del voto como se explicará posteriormente.
+					Los votantes son los encargados de realizar su voto, sin posibilidad de delegarlo en otra persona.
+					
+					Este requisito plantea retos en cuanto a la identificación y autenticación del votante, requiriendo la aplicación de protocolos criptográficos en el proceso.
+
 					\item[Igual]
-					El sistema de votación electrónico deberá ser igual para todas
-las personas, aunque podrá tener algunas diferencias, por
-ejemplo para personas disminuidas. Luego se deberá permitir
-el acceso a todas las personas que tengan algún tipo de
-necesidad especial.
-El sistema deberá ser confiable, es decir, se deberá garantizar
-que funciona sólo como se prevé que va a funcionar, sin
-puertas traseras ni trampas ocultas que modifiquen los
-resultados.
-Además el sistema deberá ser fiable, es decir, deberá ser capaz
-de funcionar en condiciones adversas, se recuperará ante
-fallos, incorporará mecanismos de seguridad,...
+					Todos los votantes han de ser iguales frente al sistema de votación.
+					
+					Este requisito admite algunas salvedades, como pueden ser votantes con necesidades especiales.
+					
 					\item[Secreto]
-					El voto emitido por un usuario sólo podrá ser conocido por él
-y por la Autoridad encargada del recuento de votos. Para
-asegurar esta propiedad la fase de votación se divide en dos
-partes, la autenticación y la votación en sí. El voto emitido por
-un usuario nunca podrá ser asociado con el usuario que lo
-emite.
+					Cada votante es la única persona que puede conocer el contenido de su voto. Además, ningún voto debe poder ser asociado al votante que lo ha emitido.
+					
 				\end{description}
 				
 Hasta aquí están las características inherentes a un sistema de votación tradicional, el realizado hasta ahora en cualquier proceso electoral que haya habido en España, por ejemplo. A continuación, añaden una serie de propiedades ligadas al voto electrónico:
 				\begin{description}[font=$\bullet$\ \ ]
 					\item[Autentificación]
-Sólo se permitirá emitir un voto a aquellos usuarios que estén
-debidamente autorizados. Para el cumplimiento de este
-requisito, se requerirá a los usuarios estar en posesión de un
-certificado digital almacenado en el dispositivo
-criptográfico. Para asegurar la identidad de los usuarios se
-deberá crear un censo electrónico de posibles votantes, el cual
-se deberá ir actualizando no sólo con los votantes que realizan
-sus votos a través de Internet, sino que además deberá ser
-actualizado a través de todas las formas posibles de votación.
-Esto es para evitar que un votante realice su voto en más de
-una ocasión, por ejemplo, a través de Internet y físicamente en
-un colegio electoral.
+					Sólo se permite el voto a los votantes que hayan sido correctamente autorizados.
+					
+					En caso de procesos con votación mixta, por Internet y de forma presencial, el censo electrónico ha de ir actualizándose para contener los votantes de ambas posibilidades con el fin de evitar que un votante vote en más de una ocasión, como podría ser presencialmente y por Internet.
+					
 					\item[Unicidad]
-A cada usuario con derecho a votar, sólo se le deberá permitir
-realizar su voto una sola vez. Esto se consigue, como se
-comentó en el apartado anterior, manteniendo una base de
-datos totalmente actualizada por los distintos administradores
-de cada una de las formas de voto permitidas.
+					Un votante con derecho al voto sólo debe poder votar una única vez.
+					
+					Para esto es esencial tener un censo electrónico actualizado con los votantes que emiten su voto tanto presencialmente como por Internet, o cualquier otro canal que se proporcione.
+					
 					\item[Integridad]
-Un voto, una vez que ha sido emitido y registrado, no podrá
-ser modificado o eliminado por ninguna entidad. El sistema
-deberá tener mecanismos que permitan la realización de
-copias de seguridad, ficheros donde se apunten las
-operaciones que se realizan y quien la realiza, etc. para
-solucionar cualquier posible duda acerca de la integridad de
-un voto.
+					Todo voto, una vez se ha registrado en el sistema, no puede ser modificado o eliminado de éste.
+					
+					El sistema debe aportar herramientas de seguridad de los datos, como \textit{backups}, así como para realizar y almacenar auditorías que corroboren la invariabilidad de los votos emitidos.
+					
 					\item[Confidencialidad]
-El voto realizado por un usuario sólo será conocido por él, es
-decir, nadie podrá averiguar qué votó un usuario. La entidad
-encargada del recuento de votos no podrá determinar qué
-usuario emitió un determinado voto. Tampoco la entidad
-encargada del registro de los usuarios podrá saber el voto que
-realiza ese usuario.
+					El contenido de un voto registrado en el sistema sólo lo conoce el votante que lo emitió. Ninguna entidad puede llegar a averiguar el contenido de algún voto.
+					
 					\item[Fiabilidad]
-Una vez el voto es emitido, éste queda registrado, y el sistema
-de votación no perderá ningún voto, aún en el caso de
-producirse algún fallo en algún dispositivo de votación o
-comunicaciones ajenos al sistema de voto. Se deberá dar a los
-usuarios la fiabilidad de que todos los votos, una vez el
-usuario los ha emitido, son incluidos en el recuento final.
+					Una vez un voto es almacenado en el sistema, éste debe asegurar que no puede perderlo. Por ello el sistema debe ser tolerante a todo tipo de fallos en dispositivos y conexiones.
+					
 					\item[Flexibilidad]
-Para permitir que todos los usuarios puedan emitir sus votos a
-través de Internet, independientemente del sistema operativo o
-navegador con el que trabajen o de la discapacidad que
-tengan. Para emitir un voto a través de Internet sólo será
-necesario estar en posesión de nuestro dispositivo
-criptográfico junto con su certificado digital almacenado, para
-identificar de forma totalmente segura a los usuarios.
+					El sistema debe permitir que los votantes puedan emitir su voto a través de Internet con independencia tecnológica respecto a sistema operativo, dispositivo móvil, navegador web, etc.
+					
 					\item[Comodidad]
-Los usuarios podrán votar rápidamente a través de Internet,
-independientemente de sus habilidades o conocimientos
-informáticos. Para conseguir esta comodidad, pueden ayudar
-entornos parecidos a las papeletas tradicionales.
+					El sistema debe proporcionar a los votantes una buena experiencia de usuario a la hora de votar, con independencia de las habilidades o conocimientos técnicos que posean.
+
 					\item[Ergonomía]
-Ayuda a los usuarios en el uso del sistema (eficiencia de los
-diálogos, brevedad de los mensajes, alarmas...), gestión de
-errores (previniéndolos y corrigiéndolos cuando se presenten),
-y compatibilidad entre las características personales de los
-usuarios (memoria, percepción, hábitos, habilidades, edad) y
-los diálogos del sistema.
+					El sistema debe proporcionar ayudas técnicas a los votantes para facilitarles el proceso de voto. Esto incluye ayuda interactiva y gestión de errores.
+					
 				\end{description}
 				
 				
