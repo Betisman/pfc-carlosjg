@@ -263,7 +263,7 @@ Hasta aquí están las características inherentes a un sistema de votación tradici
 				Se han presentado tres definiciones de requisitos del voto electrónico/por Internet.
 				
 				En primer lugar se han introducido los requisitos ''clásicos'', definidos por el importante equipo de Fujioka, Okamoto y Ohta en el año 1993. Prácticamente establecieron el punto de partida para las reglas que debían cumplir los sistema de voto electrónico. A partir de esta definición, me ha parecido interesante aportar otras dos, de entre los incontables ejemplos que se pueden encontrar en la bibliografía especializada, que mostrasen las variaciones a partir de estas originales.
-				Para ello, se han recogido las de una Universidad española puntera en proyectos de software libre como es la Universidad de Extremadura, para poner en esta memoria un ejemplo de nuestro país. Y se ha incluido un artículo holandés por ser interesante entre los más recientes publicados, intentando dar una definición de vanguardia.
+				Para ello, se han recogido las de una Universidad española puntera en proyectos de software libre como es la Universidad de Extremadura, para poner en esta memoria un ejemplo de nuestro país, además de que, si se consulta el documento original, se observa que se enunciaron teniendo en mente un sistema de voto electrónico por Internet. Y se ha incluido un artículo holandés por ser interesante entre los más recientes publicados, intentando dar una definición de vanguardia.
 				
 				La conclusión, revisando las tres definiciones, es que los requisitos son interpretables y cada autor propone los que cree convenientes basándose en su propia idea o experiencia. Pero es claramente visible que pese a esta interpretación libre, existe un conjunto de requisitos que parece que todos estos autores consideran inherentes al voto electrónico, pues, de una forma u otra, los recogen la mayoría de las recopilaciones estudiadas.
 														
@@ -1001,6 +1001,7 @@ Hasta aquí están las características inherentes a un sistema de votación tradici
 				Este proyecto ha sido utilizado en varios procesos electorales reales. Varios de ellos han sido votaciones interna de partidos políticos, como Podemos o sus partidos asociados.
 				
 				La última gran elección llevada a cabo por nVotes ha sido la de Decide Madrid\footnote{\url{https://decide.madrid.es}} en 2017.
+				\hfill \\
 				
 				
 				\subsection{Helios}\label{estadocuestion_helios}
@@ -1308,42 +1309,75 @@ Hasta aquí están las características inherentes a un sistema de votación tradici
 					\subsubsection{Pruebas de conocimiento nulo}\label{primitivaPruebasConocimientoNulo}
 						Los protocolos basados en pruebas de conocimiento cero o nulo son protocolos criptográficos que se basan en la necesidad de una de las partes en poder demostrar a otra que un enunciado es cierto sin revelar nada más que la veracidad del mismo.
 						
-						Goldwasser, Micali y Rackoff propusieron tres propiedades que deben satisfacer todos los protocolos basados en pruebas de conocimiento cero. De forma coloquial, vamos a comentarlas aquí:
-					
+						Goldwasser, Micali y Rackoff\cite{Goldwasser:1985:KCI:22145.22178} propusieron tres propiedades que deben satisfacer todos los protocolos basados en pruebas de conocimiento cero.					
 						\begin{description}
-							\item[Completeness] Si el emisor dice la verdad, en algún momento, convencerá al receptor de ello.*
-							\item[Soundness] El emisor sólo puede convencer al receptor si realmente está diciendo la verdad.
-							\item[Zero-knowledgeness] El receptor no conoce nada acerca de la solución real del emisor.
+							\item[Completeness]: Si el emisor dice la verdad, en algún momento, convencerá al receptor de ello.*
+							
+							\item[Soundness]: El emisor sólo puede convencer al receptor si realmente está diciendo la verdad.
+							
+							\item[Zero-knowledgeness]: El receptor no conoce nada acerca de la solución real del emisor.
 						\end{description}
 					
 						* A base de repetición de una solución, alguien con reputación es capaz de acabar convenciendo al receptor, con hechos, de que lo que demuestra es cierto.
 						
-						Un sencillo ejemplo para entender el concepto de este tipo de protocolos lo encontramos en una publicación en su blog personal \cite{dellaPaolera2014} por parte de Pablo Della Paolera, astrónomo de la Universidad Nacional de La Plata (Argentina). En este texto, el científico explica que se puede demostrar \textit{algo} correctamente sin necesidad de demostrar \textit{por qué}.
-			\begin{center}
-				\small
-				\fbox{
-					\begin{minipage}{0.9\textwidth}
-						Basándonos en el ejemplo publicado, supongamos dos actores $Marta$ y $Carmen$. 
+						Un sencillo ejemplo para entender el concepto de este tipo de protocolos lo encontramos en una publicación el blog personal de Pablo Della Paolera\cite{dellaPaolera2014}, astrónomo de la Universidad Nacional de La Plata (Argentina). En este texto, el científico explica que se puede demostrar \textit{algo} correctamente sin necesidad de demostrar \textit{por qué}.
 						
-						$Carmen$ quiere demostrar que \textit{$Marta$ tiene (o no) la misma cantidad de monedas en su bolsillo izquierdo que en el derecho}. 
+%			\begin{center}
+%				\small
+%				\fbox{
+%					\begin{minipage}{0.9\textwidth}
+%						Basándonos en el ejemplo publicado, supongamos dos actores $Marta$ y $Carmen$. 
+%						
+%						$Carmen$ quiere demostrar que \textit{$Marta$ tiene (o no) la misma cantidad de monedas en su bolsillo izquierdo que en el derecho}. 
+%						
+%						Para ello, la forma más simple de hacerlo sería que $Carmen$ le pidiese a $Marta$ las monedas de cada bolsillo y las contase. Por tanto, para demostrar la afirmación de que \textit{$Marta$ realmente tiene (o no) las mismas monedas en cada bolsillo} basta con que las enseñe.
+%						
+%						En este caso, el problema es que $Carmen$ está violando la privacidad de $Marta$ pues no debería ser necesario que $Carmen$ conozca cuántas monedas tiene $Marta$ y, mucho menos, tener que enseñarlas a la audiencia para demostrar la veracidad de sus investigaciones.
+%						
+%						Esta violación de la privacidad se puede superar aplicando de forma simple una solución basada en prueba de conocimiento cero.
+%						
+%						Supongamos que $Marta$ tiene $X$ monedas en el bolsillo derecho e $Y$ monedas en el izquierdo. Para no conocer el número de monedas que posee $Marta$, $Carmen$ le pide que piense en un número $Z$ entero y mayor que $X$ e $Y$. A continuación le pide que le diga la diferencia entre $Z$ y $X$ y entre $Z$ e $Y$. Si ambas diferencias son iguales, $Marta$ tiene el mismo número de monedas en ambos bolsillos, del mismo modo que si las diferencias no coinciden, se puede afirmar lo contrario, incluso sabiendo en qué bolsillo hay un mayor número de monedas. Y todo esto \textbf{sin que $Carmen$ llegue a conocer en ningún momento cuántas monedas posee $Marta$}.
+%						
+%						Matemáticamente, se trataría de un sistema de 2 ecuaciones con 3 incógnitas, por lo que no se puede resolver y no se pueden obtener los valores de $X$ e $Y$:
+%						$$Z - X = C$$
+%						$$Z - Y = D$$
+%						
+%						Pese a que no es resoluble, sabiendo los valores de $C$ y $D$ se puede demostrar en qué bolsillo tiene más monedas ($C > D$ ó $D > C$) o si se tienen las mismas ($C = D$), sin necesidad de conocer los valores reales.
+%						\end{minipage}
+%					}
+%				\end{center}
+%					
+
+
+
+\begin{center}
+\begin{tcolorbox}[breakable, enhanced, colback=white, opacityframe=.1, width=0.9\linewidth]
+%				\begin{center}
+%				    \begin{varwidth}{0.8\linewidth}
+%	        {\color{blue}
+Basándonos en el ejemplo publicado, supongamos dos actores $Marta$ y $Carmen$. 
 						
-						Para ello, la forma más simple de hacerlo sería que $Carmen$ le pidiese a $Marta$ las monedas de cada bolsillo y las contase. Por tanto, para demostrar la afirmación de que \textit{$Marta$ realmente tiene (o no) las mismas monedas en cada bolsillo} basta con que las enseñe.
+						$Carmen$ quiere demostrar que \textit{$Marta$ tiene (o no) la misma cantidad de monedas en su bolsillo izquierdo que en el derecho}. \\
 						
-						En este caso, el problema es que $Carmen$ está violando la privacidad de $Marta$ pues no debería ser necesario que $Carmen$ conozca cuántas monedas tiene $Marta$ y, mucho menos, tener que enseñarlas a la audiencia para demostrar la veracidad de sus investigaciones.
+						Para ello, la forma más simple de hacerlo sería que $Carmen$ le pidiese a $Marta$ las monedas de cada bolsillo y las contase. Por tanto, para demostrar la afirmación de que \textit{$Marta$ realmente tiene (o no) las mismas monedas en cada bolsillo} basta con que las enseñe. \\
 						
-						Esta violación de la privacidad se puede superar aplicando de forma simple una solución basada en prueba de conocimiento cero.
+						En este caso, el problema es que $Carmen$ está violando la privacidad de $Marta$ pues no debería ser necesario que $Carmen$ conozca cuántas monedas tiene $Marta$ y, mucho menos, tener que enseñarlas a la audiencia para demostrar la veracidad de sus investigaciones. \\
 						
-						Supongamos que $Marta$ tiene $X$ monedas en el bolsillo derecho e $Y$ monedas en el izquierdo. Para no conocer el número de monedas que posee $Marta$, $Carmen$ le pide que piense en un número $Z$ entero y mayor que $X$ e $Y$. A continuación le pide que le diga la diferencia entre $Z$ y $X$ y entre $Z$ e $Y$. Si ambas diferencias son iguales, $Marta$ tiene el mismo número de monedas en ambos bolsillos, del mismo modo que si las diferencias no coinciden, se puede afirmar lo contrario, incluso sabiendo en qué bolsillo hay un mayor número de monedas. Y todo esto \textbf{sin que $Carmen$ llegue a conocer en ningún momento cuántas monedas posee $Marta$}.
+						Esta violación de la privacidad se puede superar aplicando de forma simple una solución basada en prueba de conocimiento cero. \\
+						
+						Supongamos que $Marta$ tiene $X$ monedas en el bolsillo derecho e $Y$ monedas en el izquierdo. Para no conocer el número de monedas que posee $Marta$, $Carmen$ le pide que piense en un número $Z$ entero y mayor que $X$ e $Y$. A continuación le pide que le diga la diferencia entre $Z$ y $X$ y entre $Z$ e $Y$. Si ambas diferencias son iguales, $Marta$ tiene el mismo número de monedas en ambos bolsillos, del mismo modo que si las diferencias no coinciden, se puede afirmar lo contrario, incluso sabiendo en qué bolsillo hay un mayor número de monedas. Y todo esto \textbf{sin que $Carmen$ llegue a conocer en ningún momento cuántas monedas posee $Marta$}. \\
 						
 						Matemáticamente, se trataría de un sistema de 2 ecuaciones con 3 incógnitas, por lo que no se puede resolver y no se pueden obtener los valores de $X$ e $Y$:
 						$$Z - X = C$$
 						$$Z - Y = D$$
 						
 						Pese a que no es resoluble, sabiendo los valores de $C$ y $D$ se puede demostrar en qué bolsillo tiene más monedas ($C > D$ ó $D > C$) o si se tienen las mismas ($C = D$), sin necesidad de conocer los valores reales.
-						\end{minipage}
-					}
-				\end{center}
-					
+	
+%        	}
+%    			\end{varwidth}
+%				\end{center}
+\end{tcolorbox}
+\end{center}
 						
 					La importancia de este esquema criptográfico es tal que se ha implementado de forma satisfactoria en campos tan esenciales como la verificación de armas nucleares, permitiendo a los observadores internacionales medir la veracidad de una nación al cuantificar su fuerza nuclear sin necesidad de conocer la tecnología o cabezas u otros detalles clasificados que no quieren que sean sacados a la luz.
 					
