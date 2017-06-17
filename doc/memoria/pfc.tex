@@ -68,6 +68,8 @@
 \usepackage{varwidth}
 \usepackage[most]{tcolorbox}
 
+\usepackage{mfirstuc}
+
 % will apply to all captions
 \usepackage[labelfont={footnotesize},textfont={it,footnotesize}]{caption}
 % will apply to all subcaptions
@@ -204,7 +206,28 @@
 
 % Para formatear la fecha
 \usepackage[nodayofweek]{datetime}
-
+\makeatletter
+\renewcommand{\monthnamespanish}[1][\month]{%
+  \@orgargctr=#1\relax
+  \ifcase\@orgargctr
+    \PackageError{datetime}{Invalid Month number \the\@orgargctr}{%
+      Month numbers should go from 1 to 12}%
+    \or Enero%
+    \or Febrero%
+    \or Marzo%
+    \or Abril%
+    \or Mayo%
+    \or Junio%
+    \or Julio%
+    \or Agosto%
+    \or Septiembre%
+    \or Octubre%
+    \or Noviembre%
+    \or Diciembre%
+    \else \PackageError{datetime}{Invalid Month number \the\@orgargctr}{%
+      Month numbers should go from 1 to 12}%
+  \fi}
+\makeatother
 
 % Para el glosario
 \usepackage[toc,acronym]{glossaries}
