@@ -16,7 +16,7 @@
 %	Paper Size: a4paper / a5paper / b5paper / letterpaper / legalpaper / executivepaper
 % Duplex: oneside / twoside
 % Base Font Size: 10pt / 11pt / 12pt
-%\usepackage{helvet}
+\usepackage{helvet}
 %\renewcommand{\familydefault}{\sfdefault}
 
 %% Normal LaTeX or pdfLaTeX? %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -341,27 +341,8 @@
 
 
 %% Title Page %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% ==> Write your text here or include other files.
-
-%% The simple version:
-%\begin{figure}
-	%\centering
-		%\includegraphics[width=0.50\textwidth]{imgs/logo_usp_12star.jpg}
-%\end{figure}
-%
-%
-%\title{Aquí va el nombre del proyecto}
-%\author{José Carlos Jiménez Gómez}
-%%\date{7 de febrero de 2012} %%If commented, the current date is used.
-%
-%
-%\maketitle
-
-
-%% The nice version:
 \input{titlepage} %%You need a file 'titlepage.tex' for this.
-%% ==> TeXnicCenter supplies a possible titlepage file
-%% ==> with its templates (File | New from Template...).
+
 
 \renewcommand{\thepage}{\roman{page}}
 \setcounter{page}{2}
@@ -370,22 +351,7 @@
 %\input{version.tex}
 
 %% Página reservada para la calificación del proyecto
-\input{calificacion.tex}
-%\backmatter
-%\setcounter{secnumdepth}{-1}
-%\chapter*{Calificación}
-%\addcontentsline{toc}{chapter}{Calificación}
-%\let\l@chapternonum\l@chapter
-%\newcounter{chapternonum}
-%\renewcommand{\thechapternonum}{}
-%\includepdf[pages={1},addtotoc={1,chapternonum,1,Calificación,calificacion},pagecommand={\thispagestyle{plain}}]{calificacion.pdf}
-%\setcounter{secnumdepth}{0}
-
-
-%\renewcommand{\thepage}{\roman{page}}
-%\setcounter{page}{1}
-
-
+\input{calificacion.tex}
 %% Resumen, abstract y agradecimientos %%%%%%%%%%%%%%%%%%%%%%%%
 \input{resumen.tex}
 \input{abstract.tex}
