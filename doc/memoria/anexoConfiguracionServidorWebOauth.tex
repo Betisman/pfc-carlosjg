@@ -1,0 +1,177 @@
+\section{Configuración del Servidor Web del Sistema de Autenticación} \label{App:ConfiguracionServidorWebOauth}
+
+El framework web Django provee su propio Servidor Web, pero para poder utilizar un canal seguro \gls{HTTPS} y configurar el acceso con el \gls{DNIe} es preciso utilizar un Servidor Web como Apache en el que apoyar el framework. Aquí una lista de pasos que se han llevado a cabo para su configuración. 
+
+\begin{lstlisting}[language=bash]
+	# Instalamos Apache2 y OpenSSL
+	sudo apt-get install apache2
+	sudo apt-get install openSSL
+	
+	cd /etc/apache2/mods-available
+	
+	# Activamos SSL en Apache
+	sudo a2enmod ssl
+	
+	sudo apt-get install libapache2-mod-wsgi
+	sudo a2enmod wsgi
+	
+	cd /etc/apache2/sites-available
+	sudo cp 000-default.conf sitednie.conf
+	cd /etc/apache2/sites-available
+	
+	# Preparamos los certificados para el DNIe
+	mkdir ~/Descargas/certificados
+	cd certificados/
+	
+	# Creamos una clave
+	openssl genrsa -des3 -out server.key 2048
+	
+	# Petición del certificado, asociándolo con la clave que acabamos de crear
+	openssl req -new -key server.key -out server.csr
+	
+	# Pese a que no somos una entidad certificadora, firmamos nuestro propio certificado,
+	# así obtenemos un certificado autofirmado.
+	openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
+	
+	#Bajamos el certificado de la AC Raíz del DNIE desde:
+	#http://www.dnielectronico.es/PortalDNIe/PRF1_Cons02.action?pag=REF_077
+	wget http://www.dnielectronico.es/ZIP/ACRAIZ-SHA2.CAB
+	
+	# Lo extraemos
+	cabextract ACRAIZ-SHA2.CAB
+	
+	# Creamos el certificado x509
+	openssl x509 -in ACRAIZ-SHA2.crt -inform DER -out ACRAIZ-SHA2.crt -outform PEM
+	sudo cp ACRAIZ-SHA2.crt acraiz-dnie.cer
+	
+	cd /etc/apache2/sites-available
+	sudo cat default-ssl.conf >> sitednie.conf
+	
+	# Configuramos el servidor web para que escuche por un puerto seguro, con SSL y 
+	# requiriendo los certificados del DNIe
+	sudo gedit sitednie.conf &	
+\end{lstlisting}
+
+El fichero de configuración, en nuestro caso en la ruta \textit{/etc/apache2/sites-available/sitednie.conf} para Apache es el siguiente:
+
+
+\begin{lstlisting}[language=XML]
+<!-- Configuración de Django en Apache -->
+WSGIDaemonProcess / python-path=/home/carlos/pfc/pfc-carlosjg/src/oauth2server/oauth2server:/home/carlos/pfc/pfc-carlosjg/src/oauth2server/venv/lib/python2.7/site-packages
+
+<IfModule mod_ssl.c>
+	
+	<!-- Servidor HTTPS para certificado del DNIe -->
+	<VirtualHost *:443>
+		ServerAdmin webmaster@localhost
+		ServerName eleccionesuspceu.com
+
+		DocumentRoot /home/carlos/pfc/pfc-carlosjg/src/oauth2server/oauth2server/proj
+
+		LogLevel trace1 ssl:debug
+		ErrorLog ${APACHE_LOG_DIR}/error.log
+		CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+		<!-- Configuración de certificados SSL -->
+		SSLEngine on
+		SSLProtocol all -SSLv2	
+		SSLCipherSuite ALL:!ADH:!EXPORT56:RC4+RSA:+HIGH:+MEDIUM:+LOW:+SSLv2:+EXP:+eNULL
+
+		SSLCertificateFile	/home/carlos/Descargas/certificados/server.crt
+		SSLCertificateKeyFile /home/carlos/Descargas/certificados/server.key
+
+		SSLCACertificateFile /home/carlos/Descargas/certificados/acraiz-dnie.cer 
+
+		SSLVerifyClient require
+		SSLVerifyDepth 2 
+
+		<!-- Para activar la validación OCSP en servidor, hay que descomentar las dos siguientes líneas -->
+		#SSLOCSPEnable on
+		#SSLOCSPDefaultResponder "http://ocsp.dnie.es/"
+
+		<FilesMatch "\.(cgi|shtml|phtml|php)$">
+				SSLOptions +StdEnvVars +ExportCertData
+		</FilesMatch>
+		<Directory /usr/lib/cgi-bin>
+				SSLOptions +StdEnvVars +ExportCertData
+		</Directory>
+		SSLOptions +StdEnvVars +ExportCertData
+
+		BrowserMatch "MSIE [2-6]" \
+				nokeepalive ssl-unclean-shutdown \
+				downgrade-1.0 force-response-1.0
+		BrowserMatch "MSIE [17-9]" ssl-unclean-shutdown
+
+		<Directory /home/carlos/pfc/pfc-carlosjg/src/oauth2server/oauth2server/proj/>
+		    <Files wsgi.py>
+				Require all granted
+			</Files>
+		</Directory>
+		WSGIProcessGroup /
+		WSGIScriptAlias / /home/carlos/pfc/pfc-carlosjg/src/oauth2server/oauth2server/proj/wsgi.py
+	</VirtualHost>
+
+	<!-- Servidor HTTPS para comunicación segura con el Sistema de Votación -->
+	<VirtualHost *:442>
+		ServerAdmin webmaster@localhost
+
+		DocumentRoot /home/carlos/pfc/pfc-carlosjg/src/oauth2server/oauth2server/proj
+
+		LogLevel debug ssl:debug		
+		ErrorLog ${APACHE_LOG_DIR}/error.log
+		CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+		SSLEngine on
+
+		SSLCertificateFile	/home/carlos/Descargas/certificados/server.crt
+		SSLCertificateKeyFile /home/carlos/Descargas/certificados/server.key
+
+		SSLVerifyClient optional_no_ca
+		SSLVerifyDepth  2
+
+		<FilesMatch "\.(cgi|shtml|phtml|php)$">
+				SSLOptions +StdEnvVars +ExportCertData
+		</FilesMatch>
+		<Directory /usr/lib/cgi-bin>
+				SSLOptions +StdEnvVars +ExportCertData
+		</Directory>
+		SSLOptions +StdEnvVars +ExportCertData
+
+		
+		BrowserMatch "MSIE [2-6]" \
+				nokeepalive ssl-unclean-shutdown \
+				downgrade-1.0 force-response-1.0
+		BrowserMatch "MSIE [17-9]" ssl-unclean-shutdown
+
+		<Directory /home/carlos/pfc/pfc-carlosjg/src/oauth2server/oauth2server/proj/>
+		    <Files wsgi.py>
+				Require all granted
+			</Files>
+		</Directory>
+
+		WSGIProcessGroup /
+		WSGIScriptAlias / /home/carlos/pfc/pfc-carlosjg/src/oauth2server/oauth2server/proj/wsgi.py
+
+	</VirtualHost>
+</IfModule>
+\end{lstlisting}
+
+A continuación hay que editar el fichero \textit{/etc/apache2/ports.conf} si es necesario:
+
+\begin{lstlisting}[language=bash]
+	sudo gedit /etc/apache2/ports.conf
+\end{lstlisting}
+\begin{lstlisting}[language=XML]
+	### Modificar si es necesario:
+	<IfModule ssl_module>
+		Listen 443
+		Listen 1443
+	</IfModule>
+\end{lstlisting}
+
+Cargamos la configuración modificada en Apache y reseteamos el servicio:
+\begin{lstlisting}[language=bash]
+	sudo a2ensite sitednie.conf
+	sudo service apache2 restart
+\end{lstlisting}
+

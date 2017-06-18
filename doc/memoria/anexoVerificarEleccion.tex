@@ -21,12 +21,12 @@
 	Given a ciphertext denoted ($alpha$,$beta$), and a trustee's private key $x$ corresponding to his public key $y$, a partial decryption is:
 	
 \begin{equation}
-  dec_factor = \alpha^x \bmod p
+  dec\_factor = \alpha^x \bmod p
 \end{equation}
 
     
 
-	The trustee then provides a proof that ($g$, $y$, $\alpha$, $dec_factor$) is a proper DDH tuple, which yields a Chaum Pedersen proof of discrete log equality. Verification proceeds as follows:
+	The trustee then provides a proof that ($g$, $y$, $\alpha$, $dec\_factor$) is a proper DDH tuple, which yields a Chaum Pedersen proof of discrete log equality. Verification proceeds as follows:
 	
 \begin{lstlisting}[language=Python]
   def verify_partial_decryption_proof(ciphertext, decryption_factor, proof, public_key):
@@ -51,7 +51,7 @@
 	Then, the decryption factors must be combined, and we check that:
     
 \begin{equation}
-  dec_factor_1 * dec_factor_2 * \dots * dec_factor_k * m = \beta \pmod{p}
+  dec\_factor_1 * dec\_factor_2 * \dots * dec\_factor_k * m = \beta \pmod{p}
 \end{equation}
 
 	Then, the re-tally proceeds as follows.

@@ -19,10 +19,6 @@ El framework web Django provee su propio Servidor Web, pero para poder utilizar 
 	sudo cp 000-default.conf sitednie.conf
 	cd /etc/apache2/sites-available
 	
-	# Preparamos los certificados para el DNIe
-	mkdir ~/Descargas/certificados
-	cd certificados/
-	
 	# Creamos una clave
 	openssl genrsa -des3 -out server.key 2048
 	
@@ -32,7 +28,6 @@ El framework web Django provee su propio Servidor Web, pero para poder utilizar 
 	# Pese a que no somos una entidad certificadora, firmamos nuestro propio certificado, así
 	# obtenemos un certificado autofirmado.
 	openssl x509 -req -days 365 -in server.csr -signkey server.key -out server.crt
-	
 	
 	#Bajamos el certificado de la AC Raíz del DNIE desde:
 	#http://www.dnielectronico.es/PortalDNIe/PRF1_Cons02.action?pag=REF_077
@@ -48,65 +43,82 @@ El framework web Django provee su propio Servidor Web, pero para poder utilizar 
 	cd /etc/apache2/sites-available
 	sudo cat default-ssl.conf >> sitednie.conf
 	
-	
 	# Configuramos el servidor web para que escuche por un puerto seguro, con SSL y 
 	# requiriendo los certificados del DNIe
 	sudo gedit sitednie.conf &	
 \end{lstlisting}
+\hfill \\
+\hfill \\
+\hfill \\
+El fichero de configuración, en nuestro caso en la ruta \textit{/etc/apache2/sites-available/sitednie.conf} para Apache es el siguiente:
 
-Puede ser con el comando anterior para usar el editor gedit o con cualquier otro editor de nuestra preferencia, pero se deben modificar los siguientes parámetros del fichero:
-
-En <VirtualHost *:80>:
 \begin{lstlisting}[language=XML]
-DocumentRoot /home/carlos/Descargas/helios-server
-	<Directory /home/carlos/Descargas/helios-server>
-		<Files wsgi.py>
+<!-- Servidor HTTP para consulta sin certificados -->
+<VirtualHost *:80>
+	
+	ServerAdmin webmaster@localhost
+	DocumentRoot /home/carlos/pfc/pfc-carlosjg/src/helios-server-eps
+
+	ErrorLog ${APACHE_LOG_DIR}/error.log
+	CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+	<Directory /home/carlos/pfc/pfc-carlosjg/src/helios-server-eps/>
+	    <Files wsgi.py>
 			Require all granted
 		</Files>
 	</Directory>
+	WSGIDaemonProcess / python-path=/home/carlos/pfc/pfc-carlosjg/src/helios-server-eps:/home/carlos/pfc/pfc-carlosjg/src/helios-server-eps/venv/lib/python2.7/site-packages
+	WSGIProcessGroup /
+	WSGIScriptAlias / /home/carlos/pfc/pfc-carlosjg/src/helios-server-eps/wsgi.py
 
-	WSGIDaemonProcess / python-path=/home/carlos/Descargas/helios-server:/home/carlos/Descargas/helios-server/venv/lib/python2.7/site-packages
-    WSGIProcessGroup /
-    WSGIScriptAlias / /home/carlos/Descargas/helios-server/wsgi.py
+</VirtualHost>
+
+
+
+<IfModule mod_ssl.c>
+	<!-- Servidor HTTPS de consulta segura con certificados -->
+	<VirtualHost _default_:443>
+		ServerAdmin webmaster@localhost
+
+		DocumentRoot /home/carlos/pfc/pfc-carlosjg/src/helios-server-eps
+
+		ErrorLog ${APACHE_LOG_DIR}/error.log
+		CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+		SSLEngine on
+
+		SSLCertificateFile	/home/carlos/Descargas/certificados/server.crt
+		SSLCertificateKeyFile /home/carlos/Descargas/certificados/server.key
+
+		SSLVerifyClient optional_no_ca
+		SSLVerifyDepth  2
+
+		<FilesMatch "\.(cgi|shtml|phtml|php)$">
+				SSLOptions +StdEnvVars +ExportCertData
+		</FilesMatch>
+		<Directory /usr/lib/cgi-bin>
+				SSLOptions +StdEnvVars +ExportCertData
+		</Directory>
+		SSLOptions +StdEnvVars +ExportCertData
+
+		BrowserMatch "MSIE [2-6]" \
+				nokeepalive ssl-unclean-shutdown \
+				downgrade-1.0 force-response-1.0
+		BrowserMatch "MSIE [17-9]" ssl-unclean-shutdown
+
+		<Directory /home/carlos/pfc/pfc-carlosjg/src/helios-server-eps/>
+		    <Files wsgi.py>
+				Require all granted
+			</Files>
+		</Directory>
+		WSGIProcessGroup /
+		WSGIScriptAlias / /home/carlos/pfc/pfc-carlosjg/src/helios-server-eps/wsgi.py
+
+	</VirtualHost>
+</IfModule>
 \end{lstlisting}
 
-
-En <VirtualHost \_default\_:443>:
-\begin{lstlisting}[language=XML]
-	DocumentRoot /home/carlos/Descargas/helios-server
-	### Antes de cerrar </VirtualHost>:
-
-	<Directory /home/carlos/Descargas/helios-server/>
-	     Options Indexes FollowSymLinks MultiViews
-	     AllowOverride None
-	     Order allow,deny
-	     allow from all
-	   </Directory>
-		
-	### Modificar:
-	SSLCertificateFile	/home/carlos/Descargas/certificados/server.crt
-	SSLCertificateKeyFile /home/carlos/Descargas/certificados/server.key
-	SSLCACertificateFile /home/carlos/Descargas/certificados/acraiz-dnie.cer 
-	SSLVerifyClient require
-	SSLVerifyDepth  2
-	
-	### Modificar donde se deba:
-	SSLOptions +StdEnvVars +ExportCertData
-	
-	
-	<Directory /home/carlos/Descargas/helios-server>
-		<Files wsgi.py>
-			Require all granted
-		</Files>
-	</Directory>
-
-	#WSGIDaemonProcess / python-path=/home/carlos/Descargas/helios-server:/home/carlos/Descargas/helios-server/venv/lib/python2.7/site-packages
-    WSGIProcessGroup /
-    WSGIScriptAlias / /home/carlos/Descargas/helios-server/wsgi.py
-\end{lstlisting}
-
-
-A continuación hay que editar el fichero ports.conf si es necesario:
+A continuación hay que editar el fichero \textit{/etc/apache2/ports.conf} si es necesario:
 \begin{lstlisting}[language=bash]
 	sudo gedit /etc/apache2/ports.conf
 \end{lstlisting}
@@ -123,4 +135,3 @@ Cargamos la configuración modificada en Apache y reseteamos el servicio:
 	sudo a2ensite sitednie.conf
 	sudo service apache2 restart
 \end{lstlisting}
-

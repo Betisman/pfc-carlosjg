@@ -470,11 +470,16 @@
 \lhead{}
 \rhead{Anexos}
 
+\let\oldsection\section% Store \section in \oldsection
+\renewcommand{\section}{\cleardoublepage\oldsection}% Prepend new \section with \cleardoublepage
 
 \input{anexoInstalacionHelios.tex}
 
 \newpage
 \input{anexoConfiguracionServidorWebHelios.tex}
+
+\newpage
+\input{anexoConfiguracionServidorWebOauth.tex}
 
 \newpage
 \input{anexoExportarCertificadosAppAndroid.tex}

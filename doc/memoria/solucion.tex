@@ -1355,6 +1355,7 @@ class AuthorizeView(View):
 					\end{lstlisting}
 
 		Del código anterior se puede obtener que, efectivamente, durante el proceso de totalización (\textit{def compute\_tally()}), el sistema se dedica a sumar resultados (\textit{tally.add\_vote(..)}) que están cifrados y en ningún momento se dispone a descifrarlos para realizar la suma.
+		\hfill \\
 
 \begin{lstlisting}[language=Python]
   def tally_helios_decrypt(election_id):
