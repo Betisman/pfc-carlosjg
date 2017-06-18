@@ -789,6 +789,7 @@ class AuthorizeView(View):
   clienteAndroidDNIeoAuth2/app/src/main/res/values/trusted_hosts.xml
 \end{lstlisting}
 					
+\normalsize
 					Este hash se obtiene en el servidor con el comando que se indica igualmente en el anexo \ref{App:exportarCertsAppAndroid}.
 					
 					Así, el fichero que indica qué servidores son confiables y que utiliza la app para poder establecer una conexión segura con el servidor quedaría parecido a este:
@@ -802,7 +803,8 @@ class AuthorizeView(View):
     </array>
   </resources>
 \end{lstlisting}
-					
+
+\normalsize					
 					El servidor de autenticación establece un canal seguro con su certificado (en el prototipo será autofirmado) pero valida el certificado de autenticación con el certificado AC Raíz de la Policía que posee y que se ha configurado para ser utilizado. Por esta razón aparece un error en el navegador cuando se entra por primera vez a la web (figura \ref{fig:login.android.certAutofirmado}). Avisa al usuario de que no encuentra en su almacén de certificados uno que sea confiable con el servidor. En nuestro caso, para el prototipo, bastará con hacer click en \textit{CANCELAR} ya que no vamos a instalar certificados adicionales. En caso de implementar el sistema en producción, será necesario obtener e instalar en el servidor un certificado confiable, emitido por una autoridad de confianza.
 					
 								
@@ -1173,6 +1175,7 @@ class AuthorizeView(View):
  "election_uuid": "4eadbc3a-bbff-11e6-b149-b827eb1e9722"
 }
 \end{lstlisting}
+\normalsize
 							El contenido de un voto completo se puede ver en el anexo \ref{anexo:ejemploVotoJSON}.
 							
 							\begin{figure}[H]
