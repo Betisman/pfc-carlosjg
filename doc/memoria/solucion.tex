@@ -78,11 +78,11 @@
 				\begin{description}
 					\item[Certificado de servidor:] Es el certificado que permite al navegador negociar el establecimiento de la conexión segura. Si se ha obtenido de algún proveedor confiable, el navegador lo gestiona de forma casi transparente al usuario. Sin embargo, si la fuente no es confiable y no se encuentra en el almacén de certificados del sistema operativo o el navegador, se muestra una advertencia al usuario aconsejándole que no continúe la navegación, aunque le permite seguir adelante a riesgo del usuario. Es lo que ocurre también cuando se utiliza un certificado autofirmado.
 					
-					En nuestro caso, se ha decidido utilizar un certificado autofirmado para el prototipo implementado. Los pasos necesarios tanto para crear y firmar el certificado como para configurar el servidor web para que lo utilice se pueden consultar en el anexo \ref{App:ConfiguracionServidorWeb}.
+					En nuestro caso, se ha decidido utilizar un certificado autofirmado para el prototipo implementado. Los pasos necesarios tanto para crear y firmar el certificado como para configurar el servidor web del Sistema de Votación (anexo \ref{App:ConfiguracionServidorWeb}).
 					
-					\item[Certificado AC Raíz DGP:] Es el certificado que permite al Sistema Operativo y al navegador web reconocer la Autoridad de Certificación de los certificados de sede electrónica, la AC Raíz DGP, que son los encargados de generar los certificados que se incluyen en el \gls{DNIe} 3.0.
+					\item[Certificado AC Raíz DGP:] Es el certificado que permite al Sistema Operativo y al navegador web reconocer la Autoridad de Certificación de los certificados de sede electrónica, la AC Raíz DGP, que son los encargados de generar los certificados que se incluyen en el \gls{DNIe} 3.0. Se utiliza en la app Android y en el servidor web del Sistema de Autenticación (anexo \ref{App:ConfiguracionServidorWebOauth}).
 					
-					\item[Certificado de cliente:] Para utilizar el \gls{DNIe} como fuente de identificación del usuario, es preciso configurar el servidor web para que requiera en la conexión la presencia del certificado de autenticación del \gls{DNIe} del usuario. Para ello, el servidor debe poseer el certificado raíz que provee la Dirección General de la Policía. Este certificado se configura en el servidor. Se puede consultar el anexo \ref{App:ConfiguracionServidorWeb} para ver cómo realizarlo.
+					\item[Certificado de cliente:] Para utilizar el \gls{DNIe} como fuente de identificación del usuario, es preciso configurar el servidor web para que requiera en la conexión la presencia del certificado de autenticación del \gls{DNIe} del usuario. Para ello, el servidor debe poseer el certificado raíz que provee la Dirección General de la Policía. Este certificado se configura en el servidor. Se puede consultar el anexo \ref{App:ConfiguracionServidorWebOauth} para ver cómo realizarlo.
 					
 				\end{description}
 				
