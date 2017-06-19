@@ -10,8 +10,8 @@
 		\item Prover sends $response = w + challenge * r$.
 		\item Verifier checks that:
 		\begin{itemize}
-			\item $g^response = A * \alpha^challenge$
-			\item $y^response = B * (\beta/g^m)^challenge$
+			\item $g^{response} = A * \alpha^{challenge}$
+			\item $y^{response} = B * (\beta/g^m)^{challenge}$
 		\end{itemize}
 	\end{itemize}
 	
@@ -31,7 +31,7 @@
 		return True
 \end{lstlisting}
 
-	In a disjunctive proof that the ciphertext is the encryption of one value between 0 and max, all max+1 proof transcripts are checked, and the sum of the challenges is checked against the expected challenge value. Since we use this proof in non-interactive Fiat-Shamir form, we generate the expected challenge value as SHA1(A0 + "," + B0 + "," + A1 + "," + B1 + ... + "Amax" + "," + Bmax) with A0, B0, A1, B1, ... ,Amax, Bmax in decimal form. (Ai and Bi are the components of the commitment for the i'th proof.)
+	In a disjunctive proof that the ciphertext is the encryption of one value between 0 and max, all max+1 proof transcripts are checked, and the sum of the challenges is checked against the expected challenge value. Since we use this proof in non-interactive Fiat-Shamir form, we generate the expected challenge value as $SHA1(A_0 + B_0 + A_1 + B_1 + ... + A_{max} + B_{max})$ with $A_0, B_0, A_1, B_1, ... , A_{max}, B_{max}$ in decimal form. ($A_i$ and $B_i$ are the components of the commitment for the i'th proof.)
 
 	Thus, to verify a $<ZK\_PROOF\_0..max>$ on a $<ELGAMAL\_CIPHERTEXT>$, the following steps are taken.
 
