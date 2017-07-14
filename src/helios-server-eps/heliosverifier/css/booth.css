@@ -17,6 +17,27 @@ body {
   width: 1000px;
 }
 
+body.verify #wrapper {
+  position: absolute;
+  padding: 0px;
+  background: white;
+  border: 0px solid #666;
+  top: 20px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+body.verify #wrapper .panel {
+	width: 96%;
+	margin: 0 auto;
+}
+
+body.verify form #election_url {
+	width: 95%;
+	max-width: 1000px;
+	margin-bottom: 1em;
+}
+
 #content {
   padding: 20px 30px 20px 30px;
 }

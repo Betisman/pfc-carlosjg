@@ -57,7 +57,8 @@ function load_ballots(election_url, ballot_list, ballots, final_callback) {
         
     // get the next ballot
     $.get(election_url + "/ballots/" + ballot_list[ballots.length].uuid + '/last', function(result) {
-        var new_ballot = jQuery.secureEvalJSON(result);
+//         var new_ballot = jQuery.secureEvalJSON(result);
+        var new_ballot = jQuery.secureEvalJSON(jQuery.toJSON(result));
         ballots.push(new_ballot);
         if (new_ballot.vote == null)
           result_append("no ballot for this voter #" + ballots.length);
@@ -74,7 +75,8 @@ function load_ballot_list(election_url, ballot_list, after, final_callback) {
         url+= "&after=" + after;
         
     $.get(url, function(result) {
-        var new_ballot_list = jQuery.secureEvalJSON(result);
+//         var new_ballot_list = jQuery.secureEvalJSON(result);
+        var new_ballot_list = jQuery.secureEvalJSON(jQuery.toJSON(result));
 
         // done, no more ballots?
         if (new_ballot_list.length == 0)
@@ -98,7 +100,11 @@ function load_election_and_ballots(election_url) {
     
     // the hash will be computed within the setup function call now
     $.get(election_url, function(raw_json) {
-        election = HELIOS.Election.fromJSONString(raw_json);
+//         election = HELIOS.Election.fromJSONString(raw_json);
+		var json_object = raw_json;
+		if (typeof raw_json === 'string')
+			json_object = JSON.parse(raw_json);
+        election = HELIOS.Election.fromJSONString(json_object);
         result_append("loaded election: " + election.name);
         result_append("election fingerprint: " + election.get_hash());
         
@@ -253,7 +259,7 @@ $(document).ready(function() {
 });
 </script>
 </head>
-  <body>
+  <body class="verify">
     <div id="wrapper" class="container">
       <div class="panel panel-danger">
         <div class="panel-heading clearfix">

@@ -13,7 +13,8 @@ function verify_ballot(election_raw_json, encrypted_vote_json, status_cb) {
 	status_cb("smart ballot tracker is " + encrypted_vote.get_hash());
 	
       // check the hash
-      if (election_hash == encrypted_vote.election_hash) {
+//       if (election_hash == encrypted_vote.election_hash) {
+      if (election_hash == encrypted_vote.election_hash || election_hash == encrypted_vote.election.election_hash) {
           status_cb("election fingerprint matches ballot");
       } else {
           overall_result = false;

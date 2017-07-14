@@ -5,3 +5,30 @@ ul#progress_div.nav-wizard {
 #loading_div {
   display: none;
 }
+
+
+@media screen and (max-width: 400px) {    
+    h1 { font-size: x-large; }
+
+    .stepsdiv ul#progress_div li a { font-size: 12px; padding: 6px 7px; }
+    .stepsdiv ul#progress_div li#progress_2 a { padding: 6px 7px 6px 25px; }
+    .stepsdiv ul#progress_div li#progress_3 a { padding: 6px 16px 6px 32px; }
+    .stepsdiv ul#progress_div li a:after { 
+    	border-top-width: 14px; 
+    	border-bottom-width: 15px; 
+    	border-left-width: 21px; 
+    }
+    .stepsdiv ul#progress_div li#progress_2 a:before,
+    .stepsdiv ul#progress_div li#progress_3 a:before { 
+    	border-top-width: 15px; 
+    	border-bottom-width: 15px; 
+    	border-left-width: 21px; 
+    }
+    
+    
+    
+    .sentToBB {
+    	white-space: normal;
+    	margin-top: 1em;
+    }
+}

@@ -14,7 +14,7 @@ body {
   top: 20px;
   margin-left: 100px;
   margin-top: 0px;
-  width: 1000px;
+  width: 100%;
 }
 
 #content {
@@ -107,3 +107,4 @@ h3 {
 #loading_div {
   display: none;
 }
+
